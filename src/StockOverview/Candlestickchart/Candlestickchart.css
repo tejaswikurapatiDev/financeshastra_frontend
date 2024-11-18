@@ -99,11 +99,15 @@
     .candlestick-chart-container {
         margin: 5px;
         padding: 10px; /* Further reduced padding for small devices */
+        width: 350px; /* Full width for small screens */
+        height: 430px;
+        margin-top: 120px;
     }
 
     .MuiCard-root {
-        width: 100%; /* Full width for small screens */
-        padding: 8px; /* Further reduced padding inside the card */
+        
+        padding: 4px; /* Further reduced padding inside the card */
+       
     }
 
     .candlestick-chart-container h1 {

@@ -43,3 +43,55 @@
 .percentage-value {
     margin-right: 4px; /* Space between percentage value and arrow */
 }
+/* Responsive styles for 768px and below */
+@media (max-width: 768px) {
+    .investment-container {
+        flex-direction: column; /* Stack elements vertically */
+        margin: 40px auto; /* Adjust margin for smaller screens */
+        width: 80%; /* Increase width for better readability */
+        margin-left: 0; /* Center horizontally */
+    }
+
+    .investment-details {
+        align-items: center; /* Center align items for vertical layout */
+        max-width: none; /* Remove max-width restriction */
+        text-align: center; /* Center text */
+    }
+
+    .investment-title {
+        font-size: 16px; /* Slightly reduce font size */
+    }
+
+    .investment-amount {
+        font-size: 20px; /* Adjust size for readability */
+    }
+
+    .investment-percentage {
+        font-size: 14px; /* Reduce font size for smaller screens */
+    }
+}
+
+/* Responsive styles for 480px and below */
+@media (max-width: 480px) {
+    .investment-container {
+        padding: 8px; /* Reduce padding for compact layout */
+        margin: 20px auto; /* Reduce top margin */
+        width: 90%; /* Increase width for better fit on small screens */
+    }
+
+    .investment-title {
+        font-size: 14px; /* Further reduce font size */
+    }
+
+    .investment-amount {
+        font-size: 18px; /* Adjust size for small screens */
+    }
+
+    .investment-percentage {
+        font-size: 12px; /* Reduce font size for compact layout */
+    }
+
+    .percentage-value {
+        margin-right: 2px; /* Reduce spacing */
+    }
+}

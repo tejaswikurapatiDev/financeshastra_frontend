@@ -60,7 +60,7 @@
 @media (max-width: 768px) {
   .nifty50-tables {
     gap: 20px; /* Adjust the gap between tables */
-    margin-bottom: 20px; /* Adjust bottom margin */
+    margin-bottom: 80px; /* Adjust bottom margin */
   }
 
   .nifty50table-container {
@@ -83,7 +83,7 @@
 @media (max-width: 480px) {
   .nifty50-tables {
     gap: 15px; /* Reduce the gap between tables */
-    margin-bottom: 15px; /* Adjust bottom margin further for small screens */
+    margin-bottom: 80px; /* Adjust bottom margin further for small screens */
   }
 
   .nifty50table-container {

@@ -165,8 +165,8 @@ margin-bottom: 100px;
 @media (max-width: 480px) {
   /* Adjust container width */
   .valuationContainer {
-    max-width: 100%; /* Make container width 100% on smaller screens */
-    padding: 10px; /* Reduce padding */
+    max-width: 200%; /* Make container width 100% on smaller screens */
+    padding: 19px; /* Reduce padding */
   }
 
   .valuationRow {

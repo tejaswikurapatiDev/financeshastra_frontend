@@ -61,7 +61,7 @@
   /* Adjust container width */
   .valuationTableContainer {
     max-width: 100%; /* Full width on mobile */
-    margin-top: 40px; /* Reduce top margin */
+    margin-top: 500px; /* Reduce top margin */
     padding: 10px; /* Add padding */
   }
 

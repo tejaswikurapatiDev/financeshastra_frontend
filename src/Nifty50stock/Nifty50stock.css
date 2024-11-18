@@ -125,6 +125,7 @@
   .stock-table {
     min-width: 600px; /* Minimum width for table */
     width: auto; /* Allow table to stretch */
+    
   }
 
   .stock-table th, .stock-table td {

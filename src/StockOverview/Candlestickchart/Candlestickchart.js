@@ -62,12 +62,13 @@ export const CandleStickChart = () => {
         <CardContent>
           <h1>ITI Share Price Chart</h1>
           <Chart
-            options={options}
-            series={series}
-            type="candlestick"
-            width={1190}
-            height={320}
-          />
+  options={options}
+  series={series}
+  type="candlestick"
+  width="100%" // Make the width responsive
+  height={window.innerWidth <= 480 ? 250 : 320} // Adjust height dynamically based on screen width
+/>
+
         </CardContent>
       </Card>
     </div>

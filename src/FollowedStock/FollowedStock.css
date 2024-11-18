@@ -150,3 +150,72 @@ p {
 .scroll-right-btn:hover {
     background-color: #45a049;
 }
+/* Responsive styles for devices 768px and below */
+@media (max-width: 768px) {
+    .followed-stock-container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+
+    .stock-card {
+        min-width: 180px;
+        padding: 8px;
+    }
+
+    .stock-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .scroll-left-btn,
+    .scroll-right-btn {
+        font-size: 20px;
+        padding: 8px;
+    }
+}
+
+/* Additional responsive styles for devices 480px and below */
+@media (max-width: 480px) {
+    .followed-stock-container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.7em;
+    }
+
+    .stock-card {
+        min-width: 150px;
+        padding: 6px;
+        margin-right: 8px;
+    }
+
+    .stock-logo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .stock-name,
+    .stock-symbol,
+    .stock-price,
+    .stock-change {
+        font-size: 0.7em;
+    }
+
+    .scroll-left-btn,
+    .scroll-right-btn {
+        font-size: 18px;
+        padding: 6px;
+    }
+}

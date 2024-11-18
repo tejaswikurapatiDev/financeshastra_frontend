@@ -50,7 +50,15 @@ const ValuationCalculator = () => {
                 min={0}
                 max={50}
                 marks={percentageMarks}
-                sx={{ width: '160%' }}
+                sx={{
+                  width: '90%', // Default to 100% width for small screens
+                  '@media (min-width: 480px)': {
+                    width: '20%', // Adjust width for screens 480px and above
+                  },
+                  '@media (min-width: 768px)': {
+                    width: '160%', // Adjust width for larger screens (tablets and up)
+                  },
+                }}
               />
               <Typography>Base {epsGrowthRate}%</Typography>
             </Box>
@@ -65,7 +73,15 @@ const ValuationCalculator = () => {
                 min={0}
                 max={50}
                 marks={percentageMarks}
-                sx={{ width: '160%' }}
+                sx={{
+                  width: '90%', // Default to 100% width for small screens
+                  '@media (min-width: 480px)': {
+                    width: '20%', // Adjust width for screens 480px and above
+                  },
+                  '@media (min-width: 768px)': {
+                    width: '160%', // Adjust width for larger screens (tablets and up)
+                  },
+                }}
               />
               <Typography>Base {rateOfReturn}%</Typography>
             </Box>
@@ -80,7 +96,17 @@ const ValuationCalculator = () => {
                 min={0}
                 max={200}
                 marks={peMarks}
-                sx={{ width: '160%' }}
+                sx={{
+                  width: '90%', // Default to 100% width for small screens
+                
+                  '@media (min-width: 480px)': {
+                    width: '20%', 
+                    // Adjust width for screens 480px and above
+                  },
+                  '@media (min-width: 768px)': {
+                    width: '160%', // Adjust width for larger screens (tablets and up)
+                  },
+                }}
               />
               <Typography>Base {futurePE}</Typography>
             </Box>

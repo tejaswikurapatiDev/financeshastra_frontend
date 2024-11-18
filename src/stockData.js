@@ -12,7 +12,7 @@ const stocks = [
     "fiveYProfitGrowth": "-112.58%",
     "clarification": {
       "text": "know more",
-      "url": "http://localhost:3000/stockhandle"  // Replace with the actual URL if available
+      "url": "/stockhandle"  // Replace with the actual URL if available
     },
     "sector": "Telecom",
     "marketCapCategory": "Large cap",

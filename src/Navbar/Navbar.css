@@ -298,3 +298,56 @@
     font-size: 20px; /* Adjust icon size */
   }
 }
+/* Additional styles for 480px and below */
+@media (max-width: 480px) {
+  /* Adjust logo size for smaller screens */
+  .logo-image {
+    width: 150px; /* Reduce logo size */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    font-size: 16px; /* Smaller font size */
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 12px; /* Smaller font size */
+  }
+
+  /* Adjust navbar icons */
+  .navbar-icons {
+    font-size: 14px; /* Smaller icons */
+  }
+
+  /* Stock dropdown menu adjustments */
+  .stockmenu {
+    width: 90%; /* Wider dropdown */
+    height: 100vh; /* Full screen height */
+   
+    transform: translateY(-30%); /* Adjust vertical positioning */
+    gap: 5px;
+  }
+
+  /* Dropdown menu adjustments */
+  .dropdown-menu li {
+    font-size: 12px; /* Smaller font size for dropdown */
+    padding: 8px 10px; /* Reduce padding */
+  }
+
+  /* Adjust button and icon sizes */
+  .dropdown-icon {
+    font-size: 18px; /* Smaller icon size */
+  }
+
+  .chevron-icon {
+    font-size: 12px; /* Smaller chevron icon */
+  }
+
+  /* Adjust footer nav layout */
+  .footer-nav {
+    font-size: 12px; /* Smaller font size for footer items */
+    margin-right: 200px;
+      
+    }
+  }
