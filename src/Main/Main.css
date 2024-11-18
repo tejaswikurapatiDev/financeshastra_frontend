@@ -1,0 +1,66 @@
+.top-holdings {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    max-width: 620px; /* Set a maximum width */ 
+    margin-left: 315px;
+  
+    font-family: Calibri, Arial, sans-serif;
+
+  }
+  
+  .top-holdings h2 {
+    font-size: 25px;
+    color:black;
+    margin-bottom: 15px;
+  }
+  
+  .top-holdings table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .top-holdings th, .top-holdings td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 17px;
+  }
+  
+  .top-holdings th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color:#333;
+  }
+  
+ 
+  .positive {
+    color: #24b676;
+  }
+  
+  .negative {
+    color: #F44336;
+  }
+.symbol{
+    color: #0349a8 ;
+}
+.main-dashboard {
+  display: flex;
+  padding: 10px;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 5px; /* Add this line to create a gap between panels */
+}
+
+.right-panel {
+  flex: 1;
+  background-color: white;
+  border-radius: 10px;
+}

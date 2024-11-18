@@ -1,0 +1,45 @@
+.investment-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out children to opposite sides */
+    align-items: center; /* Align items vertically in the center */
+    padding: 10px; /* Add some padding */
+    border: 1px solid #ccc; /* Optional: add a border for better visibility */
+    border-radius: 5px; /* Optional: round corners */
+    background-color: #f9f9f9; /* Optional: background color */
+    margin: 90px auto; /* Center the container with auto margins */
+    width: 40%; /* Set the width to 80% of the parent container */
+    max-width: 600px; /* Limit maximum width */
+   margin-left: 380px;
+   font-family: Calibri, Arial, sans-serif;
+}
+
+
+/* New wrapper class to control width */
+.investment-details {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack title and amount vertically */
+    flex: 1; /* Allow it to grow, but can limit its width if needed */
+    max-width: 200px; /* Set a maximum width for the left section */
+}
+
+.investment-title {
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the title bold */
+    color: #333; /* Dark color for contrast */
+}
+
+.investment-amount {
+    font-size: 24px; /* Larger font size for the amount */
+    color: #000; /* Black color for the amount */
+}
+
+.investment-percentage {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    font-size: 16px; /* Font size for percentage */
+    color: #1EAA50; /* Green color for positive percentage */
+}
+
+.percentage-value {
+    margin-right: 4px; /* Space between percentage value and arrow */
+}

@@ -1,0 +1,72 @@
+/* General Container Styles */
+.portfolio-container {
+    font-family: Calibri, Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+    max-width: 600px; /* Set a maximum width */
+    margin: 0 auto; /* Center the container */
+    margin-left: 300px; /* Add left margin to prevent overlap with sidebar */
+    font-family:'Calibri';
+    margin-top: 50px;
+    background-color: white;
+}
+
+/* Responsive adjustment if the sidebar is hidden on smaller screens */
+@media (max-width: 768px) {
+    .portfolio-container {
+        margin-left: 0; /* Reset left margin on small screens */
+    }
+}
+
+.portfolio-welcome {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.portfolio-subtitle {
+    font-size: 16px;
+    color: #6b7280; /* Gray color */
+    margin-bottom: 20px;
+}
+
+/* Card for Analytics */
+.portfolio-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.portfolio-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Time Range Selector */
+.time-range-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.time-range-selector span {
+    color: #6b7280; /* Default gray color */
+    font-weight: normal;
+    cursor: pointer;
+    transition: color 0.2s ease, font-weight 0.2s ease;
+}
+
+.time-range-selector span.active {
+    color: #22c55e; /* Active green color */
+    font-weight: bold;
+}
+
+/* Chart Container */
+.chart-container {
+    height: 300px;
+}
