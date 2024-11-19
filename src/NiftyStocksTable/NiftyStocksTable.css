@@ -235,9 +235,9 @@
 /* Further adjustments for very small screens */
 @media (max-width: 480px) {
   .header h2 {
-    margin-top: 30px;
+    margin-top: 70px;
     font-size: 18px;
-    margin: 10px 0;
+   
    
   }
 
