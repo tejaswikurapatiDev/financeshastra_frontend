@@ -1,9 +1,8 @@
 .candlestick-chart-container {
-  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 5px;
  
 }
 

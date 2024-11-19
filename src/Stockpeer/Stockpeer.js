@@ -8,7 +8,7 @@ const Stockpeer = () => {
   return (
     <div className="stock-peer-container">
         
-      <h2>Peer Analysis </h2>
+      <h2 className='stockpeerheader'>Peer Analysis </h2>
      
       {/* Pass the imported data to the PeerAnalysisTable component */}
       <PeerAnalysisTable data={Data} />

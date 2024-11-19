@@ -2,20 +2,25 @@
   padding: 20px;
   font-family: 'calibri';
 }
-.earnings-report h2 {
- 
-  color: black;
+.earningheader{
+  margin-top:80px ;
+align-items: left;
+color:#24b676;
+font-size: 26px;
+margin-left: 30px;
+
 }
 .earnings-report a {
   font-weight: bold;
   color: black;
   text-decoration: none;
 }
-.earnings-report p {
+.earningpara{
   color: #666;
-  margin-left: 50px;
+  margin-left: 30px;
   font-weight: bold;
   font-size: 16px;
+  
 }
 .earnings-table {
   width: 100%; /* Set the table width to 80% for a narrower layout */
@@ -23,6 +28,7 @@
   border-collapse: collapse;
   border-radius: 10px; /* Rounded corners for the table */
   overflow: hidden; /* Ensures rounded corners are visible */
+  margin-bottom: 100px;
 }
 .shareholding-history table {
   width: 90%;
@@ -123,6 +129,16 @@
 .retail-others {
   background-color: green;
 }
+.positive-value {
+  color: green;
+  font-weight: bold;
+}
+
+.negative-value {
+  color: red;
+  font-weight: bold;
+}
+
 /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .earnings-report h2 {

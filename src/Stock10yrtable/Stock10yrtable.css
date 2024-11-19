@@ -1,5 +1,5 @@
 .financial-table h2{
-  margin-right: 80%;
+  margin-right: 70%;
   font-size: 20px;
   font-family:'calibri' ;
 }
@@ -14,13 +14,16 @@
 .irregular-line {
    /* Add space between title and line */
   width: 100px;
-  margin-left: 250px;
+  margin-left: 30px;
   height: auto;
 }
 
 .row-title {
   font-size: 16px; /* Adjust as needed */
 /* Optional for emphasis */
+}
+.graph-cell {
+  text-align: center;
 }
 @media (max-width: 768px) {
   /* Financial table header adjustments */

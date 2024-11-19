@@ -4,9 +4,10 @@ import './AnalystInsights.css';
 
 const AnalystInsights = () => {
   return (
+    <div><h2 className="analystinsightheader">Analyst Insights</h2>
     <div className="analyst-insights">
         
-      <h2>Analyst Insights</h2>
+       
       <div className="content-box">
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
           Sed cursus ante dapibus diam. Sed nisi.Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
@@ -22,6 +23,7 @@ const AnalystInsights = () => {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</p>
       </div>
       
+    </div>
     </div>
   );
 };

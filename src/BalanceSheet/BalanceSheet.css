@@ -4,21 +4,26 @@
   margin: 20px;
 }
 
-.balance-sheet h2 {
- 
-  color: black;
-  font-size: 1.5em;
+.sheethead{
+  color: #24b676;
+  font-size: 26px;
+  margin-top: 80px;
+  margin-left: 50px;
 }
-
-.balance-sheet p {
+.sheetpara{
   color: #666;
   margin-left: 50px;
   font-weight: bold;
   font-size: 16px;
 }
 
+.sheeta{
+  color: #666;
+  text-decoration: none;
+}
+
 .balance-sheet a {
-  color: black;
+  color: #666;
   text-decoration: none;
 }
 

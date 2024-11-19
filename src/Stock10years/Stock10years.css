@@ -15,19 +15,22 @@ width: 100%;
 }
 
 .financeheader{
-  font-size: 22px;
+  font-size: 24px;
+  color:#24b676;
+   margin-top: 100px;
+   font-family: 'calibri';
+   margin-left: 30px;
  
-  margin-top: 20px;
-  font-family: 'calibri';
-  margin-left: 30px;
 
 }
 .financepara{
   margin-right: 65%;
   bottom: 0;
   font-family: 'calibri';
-  color: #333;
+  color: #666;
   margin-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* Header Styling */
@@ -120,7 +123,7 @@ width: 100%;
   display: flex;
   gap: 10px;
  padding: 40px;
- margin-top: 1100px;
+ margin-top: 1170px;
   
 }
 
@@ -134,7 +137,7 @@ width: 100%;
   color: #28a745;
   font-weight: bold;
   transition: all 0.3s ease;
-  margin-top: 200px;
+  margin-top: 150px;
   
 }
 

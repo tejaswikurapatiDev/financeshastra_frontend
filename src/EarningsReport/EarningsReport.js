@@ -5,10 +5,13 @@ import ShareholdingChart from '../CircleChart/CircleChart';
 
 const QuarterlyEarningsReport = () => {
     return (
+        <div>
+      <h2 className="earningheader"style={{ marginRight: "520px" }}>Quarterly Earnings Report</h2>
+      <p className="earningpara">
+      Consolidated Figures in ₹ Crores / <a>View Standalone</a>
+    </p>
+
         <div className="earnings-report">
-            
-            <h2>Quarterly Earnings Report</h2>
-            <p>Standalone Figures in ₹ Crores | <a>View Consolidated</a></p>
             
             <table className="earnings-table">
                 <thead>
@@ -115,9 +118,8 @@ const QuarterlyEarningsReport = () => {
                 </div>
             </div>
            
-            
+            </div>
         </div>
     );
 };
-
 export default QuarterlyEarningsReport;

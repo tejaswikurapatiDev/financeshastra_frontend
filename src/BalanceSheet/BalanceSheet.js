@@ -88,10 +88,9 @@ const BalanceSheet = () => {
   const toggleOtherAssets = () => setOtherAssetsExpanded(!isOtherAssetsExpanded); // Toggle for "Other Assets"
 
   return (
+    <div>  <h2 className='sheethead'>Balance Sheet</h2>
+      <p className='sheetpara'>Consolidated Figures in ₹ Crores / <a className='sheeta'href="#">View Standalone</a></p>
     <div className="balance-sheet">
-      
-      <h2>Balance Sheet</h2>
-      <p>Consolidated Figures in ₹ Crores / <a href="#">View Standalone</a></p>
       <table>
         <thead>
           <tr>
@@ -152,6 +151,7 @@ const BalanceSheet = () => {
         </tbody>
       </table>
      
+    </div>
     </div>
   );
 };

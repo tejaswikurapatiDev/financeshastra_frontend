@@ -4,10 +4,10 @@ import './AnalysisFinancialDashboard.css';
 
 const FinancialDashboard = () => {
     return (
+        <div><h3 className="finanancialh3">Current Financial Position of ITI Ltd.</h3>
+        <h2 className="finanancialh2">Key Indicators</h2>
         <div className="financial-container">
             
-            <h3>Current Financial Position of ITI Ltd.</h3>
-            <h2>Key Indicators</h2>
             <div className="tables">
                 {/* Standalone and Consolidated Table */}
                 <table className="financialanalysis">
@@ -88,7 +88,7 @@ const FinancialDashboard = () => {
                 </table>
             </div>
             
-            
+            </div>
         </div>
     );
 };

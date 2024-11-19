@@ -4,24 +4,28 @@
     margin: 20px;
 }
 
-.ratio-table h2 {
-   
-    color: black;
-    font-size: 1.5em;
-}
 
-.ratio-table p {
-    color: #666;
-    margin-left: 50px;
-    font-weight: bold;
-    font-size: 16px;
-}
+
 
 .ratio-table a {
     color: black;
     text-decoration: none;
 }
+.ratioheader{
+margin-top:80px ;
+align-items: left;
+color:#24b676;
+font-size: 26px;
+margin-left: 50px;
 
+
+}
+.ratiopara{
+color: #666;
+margin-left: 50px;
+font-weight: bold;
+font-size: 16px;
+}
 .ratio-table table {
     width: 100%; /* Set the table width to 90% for a centered and responsive layout */
     margin: 20px auto; /* Center the table */

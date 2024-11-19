@@ -28,7 +28,7 @@ function Overview() {
       {/* Graph Header */}
       <Graphheader />
 
-      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'30px',fontWeight:'bold', marginTop:'50px'}}>
+      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold', marginTop:'20px',color:'#24b676'}}>
       Overview
     </Typography>
 

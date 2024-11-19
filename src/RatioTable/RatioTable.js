@@ -15,13 +15,13 @@ const RatioTable = () => {
   const years = ["Mar 2017", "Mar 2018", "Mar 2019", "Mar 2020", "Mar 2021", "Mar 2022", "Mar 2023", "Mar 2024"];
 
   return (
+    <div>
+      <h2 className="ratioheader"style={{ marginRight: "520px" }}>Ratios</h2>
+      <p className="ratiopara">
+      Consolidated Figures in ₹ Crores / <a>View Standalone</a>
+    </p>
     <div className="ratio-table">
-     
-      <h2>Ratios</h2>
-      <p>
-        Consolidated Figures in ₹ Crores / <a>View Standalone</a>
-      </p>
-
+   
       <table>
         <thead>
           <tr>
@@ -43,6 +43,7 @@ const RatioTable = () => {
         </tbody>
       </table>
      
+    </div>
     </div>
   );
 };

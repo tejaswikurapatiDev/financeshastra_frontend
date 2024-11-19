@@ -4,18 +4,22 @@
     margin: 20px;
   }
   
-  .cash-flow-table h2 {
-    
-    color: black;
-    font-size: 1.5em;
-  }
-  
-  .cash-flow-table p {
+  .cashpara{
     color: #666;
-    margin-left: 50px;
-    font-weight: bold;
-    font-size: 16px;
+  margin-left: 50px;
+  font-weight: bold;
+  font-size: 16px;
+  
   }
+.cashhead{
+  margin-top:80px ;
+align-items: left;
+color:#24b676;
+font-size: 26px;
+margin-left: 50px;
+
+
+}
   
   .cash-flow-table a {
     color: black;
@@ -28,6 +32,7 @@
     border-collapse: collapse;
     border-radius: 10px; /* Rounded corners for the table */
     overflow: hidden; /* Ensures rounded corners are visible */
+    
   }
   
   .cash-flow-table th, .cash-flow-table td {

@@ -10,16 +10,19 @@
   
 }
 
-h2, h3 {
-    
-    color: black;
-    color: #333;
-    margin-left: 50px;
-
+.finanancialh3{
+  margin-top:80px ;
+  align-items: left;
+  color:#24b676;
+  font-size: 26px;
+  margin-left: 30px;
 }
-h3{
-    font-size:24px ;
-    margin-top: 50px;
+.finanancialh2{
+ 
+  align-items: left;
+  color:black;
+  font-size: 26px;
+  margin-left: 30px;
 }
 
 .table-container {

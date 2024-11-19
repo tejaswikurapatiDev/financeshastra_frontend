@@ -3,16 +3,18 @@
   font-family: 'calibri';
 }
 
-.profit-loss-container h2 {
+.profitlosshead{
  
-  color: black;
-  margin-top: 20px;
-  
+  margin-top:80px ;
+align-items: left;
+color:#24b676;
+font-size: 26px;
+margin-left: 40px;
 }
 
-.profit-loss-container p {
+.profitlosspara {
   color: #666;
-  margin-left: 50px;
+  margin-left: 40px;
   font-weight: bold;
   font-size: 16px;
 }
@@ -46,6 +48,30 @@
 
 .profit-loss-table th:last-child {
   border-top-right-radius: 10px;
+}
+.profit-loss-table th:first-child, .profit-loss-tablee td:first-child {
+  border-left: 1px solid #ddd;
+}
+
+/* Right border for the last column */
+.profit-loss-table th:last-child, .profit-loss-table td:last-child {
+  border-right: 1px solid #ddd;
+}
+
+.profit-loss-table thead {
+  background-color: #00a65a;
+  color: #fff;
+}
+
+.profit-loss-table tbody tr:not(.subcategory-row):nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.profit-loss-table th, .profit-loss-table td {
+  padding: 8px 12px;
+  text-align: left;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 /* For the bottom-left and bottom-right corners */

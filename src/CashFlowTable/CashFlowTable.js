@@ -59,11 +59,12 @@ const CashFlowTable = () => {
   const years = ["Mar 2017", "Mar 2018", "Mar 2019", "Mar 2020", "Mar 2021", "Mar 2022", "Mar 2023", "Mar 2024"];
 
   return (
+    <div><h2 className="cashhead">Cash Flow</h2>
+    <p className="cashpara">Consolidated Figures in ₹ Crores / <a>View Standalone</a></p>
+
     <div className="cash-flow-table">
       
-      <h2>Cash Flow</h2>
-      <p>Consolidated Figures in ₹ Crores / <a>View Standalone</a></p>
-
+      
       <table>
         <thead>
           <tr>
@@ -116,6 +117,7 @@ const CashFlowTable = () => {
         </tbody>
       </table>
      
+    </div>
     </div>
   );
 };

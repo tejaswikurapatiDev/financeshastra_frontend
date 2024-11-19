@@ -3,11 +3,9 @@ import './ProfitLossTable.css';
 
 const ProfitLossTable = () => {
   return (
+    <div><h2 className="profitlosshead">Profit & Loss</h2>
+    <p className="profitlosspara">Consolidated Figures in ₹ Crores / <a className="profit">View Standalone</a></p>
     <div className="profit-loss-container">
-      
-      <h2>Profit & Loss</h2>
-      <p>Consolidated Figures in ₹ Crores / <a>View Standalone</a></p>
-
       <table className="profit-loss-table">
         <thead>
           <tr>
@@ -209,6 +207,7 @@ const ProfitLossTable = () => {
       </div>
      
      
+    </div>
     </div>
     
   );
