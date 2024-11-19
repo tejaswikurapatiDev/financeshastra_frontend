@@ -257,8 +257,8 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     left: 0; /* Align to the left side */
-    width: 70%; 
-    height: 90vh;/* Full width on mobile */
+   
+    height: 200vh;/* Full width on mobile */
     gap: 10px;
     transform: translateY(-50%);
   }
@@ -322,10 +322,10 @@
 
   /* Stock dropdown menu adjustments */
   .stockmenu {
-    width: 90%; /* Wider dropdown */
-    height: 100vh; /* Full screen height */
-   
-    transform: translateY(-30%); /* Adjust vertical positioning */
+    width: 800%;
+    height: 200vh;
+    left: 0;
+    transform: translateY(-30%);
     gap: 5px;
   }
 
@@ -347,7 +347,8 @@
   /* Adjust footer nav layout */
   .footer-nav {
     font-size: 12px; /* Smaller font size for footer items */
-    margin-right: 200px;
+    background-color: white;
+    margin-left: 180px;
       
     }
   }

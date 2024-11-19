@@ -22,8 +22,8 @@ import Netify500 from "./NiftyStocksTable/NiftyStocksTable";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Home />} />
       <Route path="/market" element={<Market/>} />
       <Route path="/gold" element={<GoldETF/>} />
       <Route path="/stock" element={<Stocktable/>} />

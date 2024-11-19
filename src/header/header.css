@@ -289,11 +289,11 @@
   
     /* Stock dropdown menu adjustments */
     .stockmenu {
-      width: 90%; /* Wider dropdown */
-      height: 100vh; /* Full screen height */
-      left: 0;
-      transform: translateY(-30%); /* Adjust vertical positioning */
-      gap: 5px;
+      width: 800%;
+    height: 200vh;
+    left: 0;
+    transform: translateY(-30%);
+    gap: 5px;
     }
   
     /* Dropdown menu adjustments */

@@ -99,7 +99,7 @@ const Navbar = () => {
         </div>
 
         <ul className="navbar-links">
-          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/market">Markets <FaChevronDown className="chevron-icon" /></Link></li>
 
           <li className="stock-dropdown" ref={stockDropdownRef}>
@@ -143,7 +143,7 @@ const Navbar = () => {
 
       {/* Footer Navbar for Mobile */}
       <ul className="footer-nav">
-        <li><a href="#home">Home</a></li>
+        <li><a href="/">Home</a></li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
           <a onClick={toggleFooterStockDropdown} className="footer-link">
             Stocks

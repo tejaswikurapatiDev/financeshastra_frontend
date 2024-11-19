@@ -196,7 +196,7 @@ margin-bottom: 40px;
 /* Mobile View for Small Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .earnings-report h2 {
-    margin-left: 10px; /* Adjust margin for smaller screens */
+   
     font-size: 1rem; /* Smaller font size */
   }
 
