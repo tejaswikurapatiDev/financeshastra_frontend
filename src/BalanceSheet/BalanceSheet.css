@@ -29,7 +29,7 @@
 
 .balance-sheet table {
   width: 100%; /* Set the table width to 90% for a centered and responsive layout */
-  margin: 20px auto; /* Center the table */
+
   border-collapse: collapse;
   border-radius: 10px; /* Rounded corners for the table */
   overflow: hidden; /* Ensures rounded corners are visible */

@@ -74,12 +74,7 @@ select {
   border-radius: 5px;
 }
 
-button[type="submit"] {
-  background-color:#24b676;
-  color: white;
-  margin-left:530px ;
-  width: 180px;
-}
+
 
 .addbutton {
   color:#24b676;

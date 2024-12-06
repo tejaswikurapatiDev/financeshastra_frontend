@@ -28,12 +28,7 @@ const Marketsidebar = () => {
       >
         Gold (ETFs)
       </button>
-      <button
-        className={`sidebar-button ${selected === 'Mutual' ? 'active' : ''}`}
-        onClick={() => setSelected('Mutual')}
-      >
-        Mutual Fund
-      </button>
+      
     </div>
   );
 };

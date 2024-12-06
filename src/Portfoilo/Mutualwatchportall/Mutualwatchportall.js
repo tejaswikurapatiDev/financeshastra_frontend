@@ -128,21 +128,21 @@ const MutualWatchportall= () => {
   Mutual Fund Watchlist
 </h2>
 <div className="networth-tabs" >
-<Link to="/portfoliostockaccount">
-        <button className="networth-tab" style={{ background: "#24b676", color: "white", marginLeft: "130px" }}>
-            Stocks
-          </button>
-        </Link>
-        <Link to="/mutualwatch">
-          <button className="networth-tab" style={{ background: "white", color: "black"}}>
-            Mutual Fund
-          </button>
-        </Link>
-        <Link to="/goldWatchlistall">
-          <button className="networth-tab" style={{ background: "white", color: "black"}}>
-            Gold
-          </button>
-        </Link>
+  <Link to="/stockWatchlist">
+    <button className="networth-tab" style={{ background: "white", color: "black" }}>
+      Stocks
+    </button>
+  </Link>
+  <Link to="/mutualWatchlist">
+    <button className="networth-tab" style={{ background: "#24b676", color: "white", }}>
+      Mutual Fund
+    </button>
+  </Link>
+  <Link to="/goldWatchlist">
+    <button className="networth-tab" style={{ background: "white", color: "black" }}>
+      Gold
+    </button>
+  </Link>
 </div>
 
       <div className="stocksector-watchlist">
@@ -240,7 +240,7 @@ const MutualWatchportall= () => {
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/mutualWatchlist")}
+                onClick={() => navigate("/mutualwatchlistall")}
                 defaultChecked
                 style={{
                   width: "14px",
@@ -253,7 +253,7 @@ const MutualWatchportall= () => {
                 type="radio"
                 name="groupBywatchlist"
                 value="sectorwatchlist"
-                onClick={() => navigate("/mutualsectorWatchlist")}
+                onClick={() => navigate("/mutualwatchlistsector")}
                 style={{
                   width: "14px",
                   height: "14px",
@@ -265,6 +265,7 @@ const MutualWatchportall= () => {
                 type="radio"
                 name="groupBywatchlist"
                 value="mcapwatchlist"
+                onClick={() => navigate("/mutualwatchlisttype")}
                 style={{
                   width: "14px",
                   height: "14px",

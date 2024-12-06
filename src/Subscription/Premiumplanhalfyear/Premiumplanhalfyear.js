@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { IoIosArrowForward } from "react-icons/io";
-import { AiOutlineMessage } from "react-icons/ai"; // SMS icon
+import { AiOutlineMessage } from "react-icons/ai"; 
 import { RxCross2 } from "react-icons/rx";
-import "./Premiumplanhalfyear.css";
 
 const Premiumplanhalfyear = () => {
   const [formData, setFormData] = useState({
@@ -21,56 +20,86 @@ const Premiumplanhalfyear = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false); // Popup visibility state
   const [otpStep, setOtpStep] = useState(false); // OTP step state
   const [otp, setOtp] = useState(""); // OTP input state
-  const navigate = useNavigate();
-
-  const phoneRegex = /^[6-9]\d{9}$/; // Regex for Indian phone numbers
+  // Define phone number regex for 10-digit Indian numbers
+  const phoneRegex = /^[6-9]\d{9}$/;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
 
-    if (errors[name]) {
-      setErrors((prevErrors) => {
-        const { [name]: _, ...rest } = prevErrors;
-        return rest;
-      });
-    }
-
-    // Validate phone number dynamically
-    if (name === "phoneNumber" && value) {
+    if (name === "phoneNumber") {
       if (!/^\d*$/.test(value)) {
+        // Non-numeric characters in phone number
         setErrors((prevErrors) => ({
           ...prevErrors,
           phoneNumber: "Phone number must contain digits only.",
         }));
       } else if (!phoneRegex.test(value)) {
+        // Phone number is numeric but invalid
         setErrors((prevErrors) => ({
           ...prevErrors,
           phoneNumber: "Please enter a valid 10-digit phone number.",
         }));
       } else {
+        // Clear error if phone number is valid
         setErrors((prevErrors) => {
           const { phoneNumber, ...rest } = prevErrors;
           return rest;
         });
       }
     }
+
+    // Clear other field-specific errors dynamically
+    if (errors[name]) {
+      setErrors((prevErrors) => {
+        const newErrors = { ...prevErrors };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+    // Clear errors for the field
+    if (errors[name]) {
+      setErrors({ ...errors, [name]: "" });
+    }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.fullName.trim()) newErrors.fullName = "Full Name is required.";
-    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = "Phone Number is required.";
-    else if (!phoneRegex.test(formData.phoneNumber))
-      newErrors.phoneNumber = "Please enter a valid 10-digit phone number.";
-    if (!formData.state.trim()) newErrors.state = "State/Region is required.";
-    if (!formData.city.trim()) newErrors.city = "City is required.";
-    if (!formData.addressLine1.trim()) newErrors.addressLine1 = "Address Line 1 is required.";
-    if (!formData.postalCode.trim()) newErrors.postalCode = "Postal Code is required.";
-    if (!formData.termsAccepted) newErrors.termsAccepted = "You must accept the terms.";
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full Name is required.";
+    }
+
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = "Phone Number is required.";
+    } else if (!phoneRegex.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Please enter a valid 10-digit  phone number.";
+    }
+
+    if (!formData.state.trim()) {
+      newErrors.state = "State/Region is required.";
+    }
+
+    if (!formData.city.trim()) {
+      newErrors.city = "City is required.";
+    }
+
+    if (!formData.addressLine1.trim()) {
+      newErrors.addressLine1 = "Address Line 1 is required.";
+    }
+
+    if (!formData.postalCode.trim()) {
+      newErrors.postalCode = "Postal Code is required.";
+    }
+
+    if (!formData.termsAccepted) {
+      newErrors.termsAccepted = "You must accept the terms.";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -79,15 +108,20 @@ const Premiumplanhalfyear = () => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Submitted:", formData);
+      // Proceed with further logic
       alert("Payment successfully done");
     }
   };
-
   const handleBillingCycleChange = (e) => {
     const { value } = e.target;
     setFormData({ ...formData, billingCycle: value });
-    if (value === "Annually") navigate("/paymentForm");
-    else if (value === "Half-year") navigate("/premiumplanhalfyear");
+
+    // Navigate to the corresponding page based on the selected billing cycle
+    if (value === "Annually") {
+      navigate("/paymentForm");
+    } else if (value === "Half-year") {
+      navigate("/premiumplanhalfyear");
+    }
   };
 
   const handleAddClick = () => setShowPopup(true);
@@ -111,38 +145,33 @@ const Premiumplanhalfyear = () => {
 
   const handleOtpChange = (e) => setOtp(e.target.value);
   const handleOtpSubmit = () => {
-    // Check if OTP is empty
     if (!otp.trim()) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         otp: "Verification code is required.",
       }));
-    } else if (!/^\d{4}$/.test(otp)) {
-      // Check if OTP is a valid 4-digit number
+    } else if (otp !== "1234") {
       setErrors((prevErrors) => ({
         ...prevErrors,
-        otp: "Please enter a valid 4-digit OTP.",
+        otp: "Invalid OTP. Please try again.",
       }));
     } else {
-      // If OTP is valid, show success message
       alert("Account verified successfully!");
-      handlePopupClose(); // Close the popup after verification
+      handlePopupClose();
     }
   };
-  
-  
 
   return (
     <div className="payment-form-container">
-      <button className="back-button" onClick={() => navigate(-1)}>
+      <button className="back-button">
         <IoIosArrowForward /> Back
       </button>
       <h2>Payment Method</h2>
       <div className="buttonpayment-group">
-        <button type="button" className="payment-button">
+      <button type="button" className="payment-button"  onClick={()=> navigate("/localpaymentpremiumForm")}>
           Local Payment
         </button>
-        <button type="button" className="payment-button active">
+        <button type="button" className="payment-button active" onClick={() => navigate("/paymentForm")}>
           PayPal
         </button>
       </div>
@@ -151,6 +180,8 @@ const Premiumplanhalfyear = () => {
         interrupting the process. Once your details are verified, PayPal will automatically return
         you to FinanceShastra, where your payment method will be confirmed.
       </p>
+     
+
       <form onSubmit={handleSubmit} className="payment-form">
         <div className="form-section">
           <h3>Details</h3>
@@ -170,7 +201,7 @@ const Premiumplanhalfyear = () => {
               <label>Phone Number*</label>
               <div className="formm-group">
                 <input
-                  type="tel"
+                  type="tel" // Changed to 'tel' for better mobile experience
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleChange}
@@ -186,21 +217,21 @@ const Premiumplanhalfyear = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="form-section">
           <h3>Billing Address</h3>
           <div className="form-row">
-          <div className={`form-group ${errors.country ? "error" : ""}`}>
-          <label>Country*</label>
-          <select
+            <div className={`form-group ${errors.country ? "error" : ""}`}>
+              <label>Country*</label>
+              <select
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
                 required
               >
-                   <option value="India">India</option>
-                   </select>
-             
+                <option value="India">India</option>
+                {/* Add more countries here */}
+              </select>
             </div>
             <div className={`form-group ${errors.state ? "error" : ""}`}>
               <label>State/Region*</label>
@@ -213,8 +244,8 @@ const Premiumplanhalfyear = () => {
               />
               {errors.state && <span className="error-message">{errors.state}</span>}
             </div>
-            </div>
-            <div className="form-row">
+          </div>
+          <div className="form-row">
             <div className={`form-group ${errors.city ? "error" : ""}`}>
               <label>City*</label>
               <input
@@ -237,8 +268,8 @@ const Premiumplanhalfyear = () => {
               />
               {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
             </div>
-         
           </div>
+
           <div className="form-row">
             <div className={`form-group ${errors.addressLine1 ? "error" : ""}`}>
               <label>Address Line 1*</label>
@@ -265,63 +296,71 @@ const Premiumplanhalfyear = () => {
             </div>
           </div>
         </div>
-        <div className="form-section billing-cycle">
-          <label>
-            <input
-              type="radio"
-              name="billingCycle"
-              value="Annually"
-              checked={formData.billingCycle === "Annually"}
-              onChange={handleBillingCycleChange}
-            />
-            Annually
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="billingCycle"
-              value="Half-year"
-              checked={formData.billingCycle === "Half-year"}
-              onChange={handleBillingCycleChange}
-            />
-            Half-year
-          </label>
-        </div>
+
+        {/* Billing Cycle Section */}
+        <div className="containerupi">
+        <div class="billing-cycle-options">
+  <label class="custom-radio-container">
+    <input
+      type="radio"
+      class="custom-radio"
+      name="paymentMethod"
+      value="Annually"
+      checked={formData.billingCycle === "Annually"}
+      onChange={handleBillingCycleChange}
+    />
+    <span class="custom-radio-label">Annually</span>
+    <p class="billingpayment">Most flexible option. Billed annually.</p>
+  </label>
+
+  <label class="custom-radio-container">
+    <input
+      type="radio"
+      class="custom-radio"
+      name="paymentMethod"
+      value="Half-year"
+      checked={formData.billingCycle === "Half-year"}
+      onChange={handleBillingCycleChange}
+    />
+    <span class="custom-radio-label">Half-year</span>
+    <p class="billingpayment">Most flexible option. Billed half-yearly.</p>
+  </label>
+   </div>
+   </div>
+        {/* Plan Summary */}
         <div className="plan-summary">
-        <div className="form-rrow">
-          <h3 className="premiumheading">Premium Plan</h3>
-          <p>₹5,999.00</p>
+          <div className="form-rrow">
+            <h3 className="premiumheading">Premium Plan</h3>
+            <p>₹5,999.00</p>
+          </div>
+
+          <div className="form-rrrow">
+            <h3>Total</h3>
+            <p style={{ color: "black", fontWeight: "bold" }}>₹5,999.00</p>
+          </div>
+          <div className="paymentparagraph">
+            <p className="paragraphpremium">
+              Next payment on Dec 29, 2025: Premium plan at regular price — ₹5,999.00.
+            </p>
+          </div>
+          <div className="checkboxpayment-container">
+            <input
+              type="checkbox"
+              name="termsAccepted"
+              checked={formData.termsAccepted}
+              onChange={handleChange}
+              required
+            />
+            <label>
+              I authorize FinanceShastra to charge me on a recurring basis until I choose to cancel my
+              subscription. I have read and agree to TradingView's Terms of Service and Privacy Policy.
+            </label>
+          </div>
+
+          <button type="submit" className="paypal-button">
+            PayPal
+          </button>
         </div>
-        <div className="form-rrrow">
-          <h3>Total</h3>
-          <p style={{ color: "black", fontWeight: "bold" }}>₹5,999.00</p>
-        </div>
-        <div className="paymentparagraph">
-          <p className="paragraphpremium">
-            Next payment on Dec 29, 2025: Premium plan at regular price — ₹5,999.00.
-          </p>
-        </div>
-        <div className="checkboxpayment-container">
-          <input
-            type="checkbox"
-            name="termsAccepted"
-            checked={formData.termsAccepted}
-            onChange={handleChange}
-            required
-          />
-          <label>
-            I authorize FinanceShastra to charge me on a recurring basis until I choose to
-            cancel my subscription. I have read and agree to TradingView's Terms of Service
-            and Privacy Policy.
-          </label>
-          
-       
-        </div>
-        <button type="submitpaypal" className="paypal-button">
-          PayPal
-        </button>
-      </div>
-      
       </form>
       <Navbar />
       {showPopup && (
@@ -362,7 +401,7 @@ const Premiumplanhalfyear = () => {
     <div className="otp-input-container">
       <input
         type="text"
-        maxLength="9"
+        maxLength="4"
         placeholder="Enter OTP"
         value={otp}
         onChange={(e) => {
@@ -376,12 +415,10 @@ const Premiumplanhalfyear = () => {
       </button>
     </div>
     {errors.otp && <span className="error-message">{errors.otp}</span>} {/* Error message */}
-    
   </div>
 )}
 
-
-    </div>
+</div>
   </div>
 )}
 
@@ -389,5 +426,5 @@ const Premiumplanhalfyear = () => {
     </div>
   );
 };
-
+     
 export default Premiumplanhalfyear;

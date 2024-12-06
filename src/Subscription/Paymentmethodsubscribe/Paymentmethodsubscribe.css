@@ -64,8 +64,7 @@
     border-radius: 8px;
     background-color: #f9f9f9;
     width: 500px;
-    margin-left: 100px;
-    margin-top: 40px;
+    margin-left: 120px;
     
   }
   
@@ -80,7 +79,7 @@
   }
   
   .paypal-button {
-    width: 70%;
+    width: 40%;
     padding: 8px;
     font-size: 16px;
     color: white;
@@ -89,7 +88,7 @@
     margin-top: 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 80px;
+    margin-left: 130px;
     color: rgb(0, 0, 154);
   }
   
@@ -206,37 +205,7 @@
     margin-top: 5px; /* Space between the radio button and description */
   }
   /* Style the radio button */
-input[type="radio"] {
-
-    appearance: none; /* Remove default styling */
-  -webkit-appearance: none; /* For Safari */
-  -moz-appearance: none; /* For Firefox */
-  width: 3px;
-  height: 5px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
-  background-color: white;
-  position: relative;
-  cursor: pointer;
  
-    
-   
-  }
-  /* Style for the checked radio button */
-input[type="radio"]:checked {
-    border-color: white; /* Change border color */
-    background-color:#24b676; /* Change background color */
-  }
-  input[type="radio"]:checked::after {
-    content: '';
-    position: absolute;
-    top: 4px;
-  left: 4px;
-    width: 10px;
-    height: 11px;
-    border-radius: 50%;
-    background-color: white;
-  }
   .addpayment {
     padding: 8px 10px;
     font-size: 14px;
@@ -330,18 +299,17 @@ input[type="radio"]:checked {
     border-radius: 4px;
   }
   
-  
+  .close-button {
+    background-color: #24b676;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
   .popuppara{
     font-size: 14px;
     color: #000;
-   
-  }
-  .popupparagraph {
-   
-    
-    margin-right: 150px;
-    font-size: 14px; /* Adjust font size if necessary */
-    color: black; /* Optional: Adjust text color */
   }
   .privacy-policyspan{
     color: #24b676; /* Make the text green */
@@ -357,80 +325,7 @@ input[type="radio"]:checked {
     margin-right: 10px;
     margin-top: 10px;
  }
- .close-icon {
-  
-  top: 10px;
  
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: #333; /* Default color for the icon */
-  cursor: pointer;
-  z-index: 10; /* Ensure it's above other elements */
-  margin-left: 440px;
-}
-
-.close-icon:hover {
-  color: black; /* Highlight color on hover */
-  transform: scale(1.2); /* Optional: Slight zoom effect on hover */
-  transition: all 0.2s ease-in-out; /* Smooth transition */
-}
-.otp-input-container {
-  display: flex;
-  align-items: center; /* Vertically align the input and button */
-  gap: 10px; /* Add space between the input and button */
-}
-
-.otp-input-container input {
-  flex: 1; /* Allow the input field to take up available space */
-  padding: 10px;
-  font-size: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.otp-input-container .verifybtn {
-  padding: 10px 15px;
-  font-size: 15px;
-  background-color: #24b676;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px;
-}
-
-.otp-input-container .verifybtn:hover {
-  color: white;
-  background: #188053; 
-}
-.otpverification{
-  color: black;
-  font-size: 14px;
-  margin-right: 350px;
-}
-.accountverification{
-  color: black;
-  font-size: 14px;
-  margin-right: 310px;
-}
-.otp-input.error-border {
-  border: 2px solid red;
-}
-
-.error-message {
-  color: red;
-  font-size: 12px;
-  margin-top: 5px;
-}
-.resend-timer-message {
-  font-size: 14px;
-  color: #ff5722; /* Optional: Change the color */
-  margin-top: 10px;
-}
-
-
   @media (max-width: 768px) {
     .payment-form-container {
      
@@ -544,44 +439,6 @@ margin-left: 280px;
     .paypal-button:hover {
       background-color: rgb(253, 196, 92); /* Slightly darker shade on hover */
     }
-    .popup-content {
-      width: 90%; /* Make popup content take up more screen space */
-      padding: 15px; /* Reduce padding for smaller screens */
-    }
-  
-    .popup-input {
-      flex-direction: column;
-      align-items: flex-start; /* Stack the input and button */
-    }
-  
-    .popup-input input {
-      width: 100%;
-      padding: 12px; /* Increase padding for better touch experience */
-    }
-  
-    .popupparagraph {
-      margin-right: 0; /* Remove the large margin for mobile */
-      font-size: 12px; /* Reduce font size */
-    }
-  
-    .close-icon {
-      margin-left: 90%; /* Adjust close button position */
-      font-size: 20px;
-    }
-  
-    .otpverification, .accountverification {
-      font-size: 16px;
-      margin-right: 0; /* Align left for mobile */
-    }
-  
-    .otp-input-container {
-      flex-direction: column; /* Stack the input and button */
-      align-items: stretch; /* Full width */
-    }
-  
-    .otp-input-container .verifybtn {
-      width: 100%; /* Make the button take full width */
-    }
   }
   
   @media (max-width: 480px) {
@@ -619,46 +476,7 @@ margin-left: 280px;
     .plan-summary {
      margin-bottom: 100px;
     }
-    .popup-content {
-      width: 55%; /* Make popup content even more responsive */
-      padding: 10px;
-
-    }
-  
-    .popup-input input {
-      width: 100%;
-      padding: 12px;
-      font-size: 14px; /* Adjust font size */
-    }
-  
-    .popupparagraph {
-      font-size: 12px; /* Reduce font size */
-    }
-  
-    .close-icon {
-      margin-left: 90%;
-      font-size: 18px; /* Smaller close icon */
-    }
-  
-    .otpverification, .accountverification {
-      font-size: 14px; /* Reduce font size */
-      margin-right: 0; /* Align left */
-    }
-  
-    .otp-input-container {
-      flex-direction: column; /* Stack elements */
-      width: 100%;
-    }
-  
-    .otp-input-container input {
-      padding: 12px; /* Make input easier to interact with */
-    }
-  
-    .otp-input-container .verifybtn {
-      width: 100%; /* Make button take full width */
-    }
-  
-    .error-message {
-      font-size: 10px; /* Smaller font for error message */
-    }
   }
+
+
+  

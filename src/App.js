@@ -40,29 +40,44 @@ import MutualAccountStock from "./Portfoilo/Mutualtransaction/Mutualtransaction"
 import OverviewMutual from "./Portfoilo/Mutualoverview/Mutualoverview";
 import Accountmutualperformance from "./Portfoilo/Mutualperformance/Mutualperformance";
 
-import StockWatchlistsector from "./Portfoilo/StockWatchlistsector/StockWatchlistsector";
-import StockWatchlistmcap from "./Portfoilo/StockWatchlistmcap/StockWatchlistmcap";
 import StockWatchlist from "./Portfoilo/StockWatchlist/StockWatchlistnone";
-import StockWatchlistall from "./Portfoilo/StockWatchlistall/StockWatchlistall";
-import StockWatchlistgain from "./Portfoilo/StockWatchlistgainer/StockWatchlistgainer";
-import StockWatchlistloss from "./Portfoilo/StockWatchlistloss/StockWatchlistloss";
+
 
 import SubscriptionPlans from "./Subscription/PricingTablehalfyear/PricingTablehalfyear";
 import SubscriptionannualPlans from "./Subscription/Subscriptionannualplan/Subscriptionannualplan";
-import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanhalfyear";
+
 import TopRatedFunds from "./MutualFund/TopRatedFunds/TopRatedFunds";
 import TopRatedFundsdirect from "./MutualFund/TopRatedFundsdirect/TopRatedFundsdirect";
 import GoldWatchportall from "./Portfoilo/Goldwatchlistall/Goldwatchlistall";
 import Portfoliogoldaccount from "./Portfoilo/Portfoliogoldaccount/Portfoliogoldaccount";
+
+import PaymentForm from "./Subscription/Paymentmethodsubscribe/Paymentmethodsubscribe";
+import StockWatchportall from "./Portfoilo/StockWatchlistall/StockWatchlistall";
+import StockWatchsectormcap from "./Portfoilo/StockWatchlistmcap/StockWatchlistmcap";
+import StockWatchsectorlist from "./Portfoilo/StockWatchlistsector/StockWatchlistsector";
+import MutualWatchlist from "./Portfoilo/Mutualfundwatchlistportfolio/Mutualfundwatchlistportfolio";
+import MutualWatchtypefundlist from "./Portfoilo/Mutualfundwtchlisttypefund/Mutualfundwtchlisttypefund";
+import MutualWatchsectorlist from "./Portfoilo/Mutualsectorportwatchlist/Mutualsectorportwatchlist";
 import MutualWatchportall from "./Portfoilo/Mutualwatchportall/Mutualwatchportall";
+import ElitepaymentForm from "./Subscription/Elitepaymentsubscribe/Elitepaymentsubscribe";
+import Eliteplanhalfyear from "./Subscription/Eliteplanhalfyear/Eliteplanhalfyear";
+import LocalPaymentPremiumForm from "./Subscription/Localpaymentpremium/Localpaymentpremium";
+import LocalhalfPremiumForm from "./Subscription/Premiumlocalhalf/Premiumlocalhalf";
+import ElitePaymentPremiumForm from "./Subscription/Elitelocalannualpayment/Elitelocalannualpayment";
+import ElitePaymenthalfForm from "./Subscription/Elitelocalhalfpayment/Elitelocalhalfpayment";
+import UpiPaymentFormpremium from "./Subscription/Upiannualpremium/Upiannualpremium";
+import Upihalfyearpremium from "./Subscription/Upihalfyearpremium/Upihalfyearpremium";
+import UpiPaymentFormelite from "./Subscription/Upiannualelite/Upiannualelite";
+import UpihalfyearFormelite from "./Subscription/Upihalfyearelite/Upihalfyearelite";
+import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanhalfyear";
 
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/home" element={<Home />} />
       <Route path="/market" element={<Market/>} />
       <Route path="/gold" element={<GoldETF/>} />
       <Route path="/stock" element={<Stocktable/>} />
@@ -98,21 +113,32 @@ function App() {
       <Route path="/mutualoverview" element={<OverviewMutual/>} />
       <Route path="/accountperformance" element={<Accountmutualperformance/>} />
       <Route path="/stockwatchlist" element={<StockWatchlist/>} />
-      <Route path="/stockwatchlistsector" element={<StockWatchlistsector/>} />
-      <Route path="/stockwatchlistmcap" element={<StockWatchlistmcap/>} />
-      <Route path="/stockwatchlistall" element={<StockWatchlistall/>} />
-      <Route path="/stockwatchlistgain" element={<StockWatchlistgain/>} />
-      <Route path="/stockwatchlistloss" element={<StockWatchlistloss/>} />
+      <Route path="/stockwatchlistsector" element={<StockWatchsectorlist/>} />
+      <Route path="/stockwatchlistmcap" element={<StockWatchsectormcap/>} />
+      <Route path="/stockwatchlistall" element={<StockWatchportall/>} />
       <Route path="/pricehalf" element={<SubscriptionPlans/>} />
       <Route path="/annualplan" element={<SubscriptionannualPlans/>} />
-      <Route path="/annualyear" element={<Premiumplanhalfyear/>} />
       <Route path="/mutualfund" element={<TopRatedFunds/>} />
       <Route path="/mutualfunddirect" element={<TopRatedFundsdirect/>} />
       <Route path="/goldWatchlistall" element={<GoldWatchportall/>} />
       <Route path="/portfoliogoldtoppage" element={<Portfoliogoldaccount />} />
-      <Route path="/mutualwatch" element={<MutualWatchportall />} />
-     
-
+     <Route path="/payment" element={<PaymentForm/>} />
+      <Route path="/mutualwatchlist" element={<MutualWatchlist/>} />
+      <Route path="/mutualwatchlisttype" element={<MutualWatchtypefundlist/>} />
+      <Route path="/mutualwatchlistsector" element={<MutualWatchsectorlist/>} />
+      <Route path="/mutualwatchlistall" element={<MutualWatchportall/>} />
+      <Route path="/paymentform" element={<PaymentForm/>} />
+      <Route path="/elitepaymentForm" element={<ElitepaymentForm/>} />
+      <Route path="/eliteplanhalfyear" element={<Eliteplanhalfyear/> }/>
+      <Route path="/localpaymentpremiumForm" element={<LocalPaymentPremiumForm/> }/>
+      <Route path="/localhalfpremiumForm" element={<LocalhalfPremiumForm/> }/>
+      <Route path="/elitePaymentPremiumForm" element={<ElitePaymentPremiumForm/> }/>
+      <Route path="/elitePaymenthalfForm" element={<ElitePaymenthalfForm/> }/>
+      <Route path="/upiPaymentFormpremium" element={<UpiPaymentFormpremium/> }/>
+      <Route path="/upihalfyearpremium" element={<Upihalfyearpremium/>}/>
+      <Route path="/upiPaymentFormelite" element={<UpiPaymentFormelite/>}/>
+      <Route path="/upihalfyearFormelite" element={<UpihalfyearFormelite/>}/>
+      <Route path="/premiumplanhalfyear" element={<Premiumplanhalfyear/> }/>
 
 
 

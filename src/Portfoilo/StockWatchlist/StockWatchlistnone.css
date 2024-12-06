@@ -1,15 +1,16 @@
-/* Overall Component Styling */
 .stock-watchlist {
   font-family: 'Calibri';
   margin: 20px;
   box-shadow: 0 3px 5px rgb(127, 171, 225);;
   border: 1px solid rgb(127, 171, 225);
- width:980px;
- height: 170px;
+ width:900px;
+ height: auto;
  border-radius: 5px;
  margin-left: 180px;
 }
-
+.scheme-exchange-cell{
+display: flex;
+}
 
 .watchlist-title {
   text-align: left;
@@ -58,12 +59,7 @@
   margin-top: 20px;
 }
 
-.stock-tablewatchlist th,
-.stock-tablewatchlist td {
- 
-  padding: 8px;
-  text-align: center;
-}
+
 
 .stock-tablewatchlist th {
   background-color: #24b676;
@@ -203,7 +199,7 @@ padding: 10px;
 box-shadow: 0 3px 5px rgb(127, 171, 225);;
 border: 1px solid rgb(127, 171, 225);
 border-radius: 8px;
-
+margin-left:100px;
 width:1200px;
 
 }
@@ -223,24 +219,250 @@ width:1200px;
 }
 
 .delete-btnwatchlist:hover i {
-  color: #24b676;
-}
-.filter-buttonwatchlist {
-  color: black;
-  background: none; /* Remove background color */
-  border: none; /* Remove border */
-  cursor: pointer;
-  margin-right: 10px; /* Add space between buttons */
-  font-size: 14px; /* Adjust font size if necessary */
-  padding: 0; /* Remove padding to make it look clean */
-  margin-left: 20px;
+  color: #24b676;}
+  /* Mobile View (up to 480px) */
+/* Media query for devices <= 768px */
+/* Media query for devices <= 768px */
+@media (max-width: 768px) {
+  .stock-watchlist {
+    margin: 10px;
+    padding: 10px;
+    width: auto; /* Full-width on smaller devices */
+    border-radius: 8px;
+  }
+  .filters-sectionwatchlist {
+    display: flex; /* Enable flexbox for responsive layout */
+    /* Slightly larger font size for tablets */
+  }
+
+  .group-by-sectionwatchlist {
+    display: flex; /* Enable flexbox for responsive layout */
+    margin-left: 790px;
+    gap:5px
+  }
+
+  .watchlist-title {
+    margin: 10px 0;
+    text-align: center; /* Center-align title for mobile */
+    font-size: 18px;
+  }
+
+  .watchlist-header {
+    flex-direction: column; /* Stack inputs vertically */
+    gap: 15px;
+  }
+
+  
+
+  .add-btnwatchlist {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 40%; /* Full-width for easy tapping */
+  }
+
+  .watchlist-management {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    gap: 10px; /* Maintain spacing between items */
+    padding: 10px 0; /* Add spacing around the row */
+  }
+
+  .watchlist-item {
+    flex: 0 0 auto; /* Prevent items from shrinking */
+    width: auto; /* Adjust width dynamically */
+    min-width: 120px; /* Set a minimum width for the items */
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .menu-iconwatchlist {
+    font-size: 16px;
+  }
+
+  .content-containerwatchlist {
+    margin-bottom: 400px;
+    overflow-x: auto; /* 'auto' is usually more user-friendly than 'scroll' */
+    white-space: nowrap; /* Ensures content doesn't wrap, useful for horizontal scrolling */
+    overflow-x: scroll;
+    width: -webkit-fill-available;
+    margin: 20px 0;
+    padding: 10px;
+  }
+  
+  .stock-tablewatchlist {
+    font-size: 12px;
+  }
+
+  .stock-tablewatchlist th,
+  .stock-tablewatchlist td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .create-watchlist {
+    font-size: 14px;
+    padding: 8px 12px;
+    width: 100%;
+  }
 }
 
-.filter-buttonwatchlist:hover {
- 
-  color: #24b676; /* Optional color change on hover */
-}
+/* Media query for devices <= 480px */
+@media (max-width: 480px) {
+  .stock-watchlist {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 6px;
+margin-top: 20px;
+    height: 200px;
+    width: auto;
+  }
 
-.filter-buttonwatchlist:last-child {
-  margin-right: 0; /* Remove margin from the last button */
+  .watchlist-title {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .watchlist-header {
+    gap: 10px;
+  }
+
+  .content-containerwatchlist {
+    margin: 20px 0;
+      padding: 10px;
+     margin-top: 50px;
+      overflow-x: scroll/* Adjust container width */;
+      width: -webkit-fill-available;
+      
+       
+  }
+
+  .input-groupwatchlist {
+    font-size: 14px;
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space items out horizontally */
+    gap: 10px; /* Add spacing between scheme name and exchange */
+    padding: 5px;
+  }
+
+  .add-btnwatchlist {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .watchlist-management {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 8px;
+    padding: 8px 0;
+  }
+
+  .watchlist-item {
+    flex: 0 0 auto; /* Prevent shrinking */
+    min-width: 100px; /* Minimum width for smaller screens */
+    padding: 8px;
+    font-size: 12px;
+  }
+  .menu-iconwatchlist {
+    font-size: 14px;
+  }
+
+  .menu-dropdownwatchlist {
+    top: 25px; /* Adjust for smaller spacing */
+  }
+
+  .create-watchlist {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .stock-tablewatchlist {
+    font-size: 10px;
+  }
+
+  .stock-tablewatchlist th,
+  .stock-tablewatchlist td {
+    padding: 4px;
+  }
+
+  .delete-btnwatchlist {
+    font-size: 12px;
+  }
+  .scheme-exchange-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: space-between; /* Space items out horizontally */
+    gap: 10px; /* Add spacing between scheme name and exchange */
+    padding: 5px; /* Optional padding around the container */
+  }
+  
+  /* Styling for scheme name */
+  .scheme-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Dark text color */
+    flex: 1; /* Allow the scheme name to take more space */
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+  }
+  
+  /* Styling for exchange */
+  .exchange {
+    font-size: 14px;
+    color: #555; /* Lighter text color */
+    white-space: nowrap; /* Prevent wrapping */
+  }
+  .stock-tablewatchlist td {
+    display: flex; /* Display items in a single row */
+    flex-direction: column; /* Stack content vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 4px; /* Add space between elements */
+  }
+
+  .scheme-exchange-cell {
+    display: flex; /* Ensure items are on one row */
+    flex-direction: row; /* Align horizontally */
+    justify-content: space-between; /* Space out name and exchange */
+    align-items: center; /* Center vertically */
+    width: 100%; /* Take up full width */
+  }
+
+  .stockname {
+    font-size: 16px; /* Adjust font size for better readability */
+    font-weight: bold;
+    flex: 1; /* Allow the name to occupy more space */
+    text-overflow: ellipsis; /* Truncate text if it overflows */
+    overflow: hidden;
+    white-space: nowrap; /* Prevent wrapping */
+  }
+
+  .exchange {
+    font-size: 14px; /* Smaller font size for the exchange */
+    color: #888;
+    text-align: right; /* Align to the right side */
+    margin-left: 10px; /* Add space between the name and exchange */
+  }
+
+  /* Adjust table layout for better readability */
+  .stock-tablewatchlist {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  .filters-sectionwatchlist {
+    display: flex; /* Use flex layout for responsiveness */
+     /* Adjust font size for mobile view */
+  }
+  .group-by-sectionwatchlist {
+    display: flex; /* Enable flexbox for responsive layout */
+    margin-left: 520px;
+  }
+
+
+
+  
 }

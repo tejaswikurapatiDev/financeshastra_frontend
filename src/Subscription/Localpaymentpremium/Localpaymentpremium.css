@@ -1,0 +1,79 @@
+.completepayment-button{
+    width: 40%;
+    padding: 8px;
+    font-size: 16px;
+    color: white;
+    background-color:#24b676;
+    border: none;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 130px;
+   
+}
+.completepayment-button:hover {
+   
+    background-color:#30cc89;
+  }
+  .input-icon-container {
+    position: relative;
+ 
+    align-items: center;
+    flex-direction: column;
+ 
+  }
+  
+  .input-icon {
+    position: absolute;
+    left: 10px; /* Adjust this value based on your design */
+    color: #333;
+    align-items: right;
+    text-align: right;
+    margin-left: 400px;
+    margin-top: 10px;
+  }
+  .react-datepicker__portal {
+    z-index: 9999; /* Ensure the datepicker appears above other content */
+  }
+  
+  .react-datepicker-wrapper {
+    position: absolute;
+    z-index: 9999; /* Ensure the datepicker appears above other form inputs */
+  }
+
+
+
+
+
+  @media (max-width: 768px) {
+    .input-icon {
+      margin-left: 380px; /* Reduce margin for tablet-sized screens */
+      left: 5px; /* Adjust icon placement */
+      margin-top: 10px;
+    }
+  
+    .input-icon-container {
+      flex-direction: column; /* Stack content vertically for better alignment */
+    }
+  }
+  
+  /* Responsive design for 480px */
+  @media (max-width: 480px) {
+    .input-icon {
+      margin-left: 320px; /* Minimal margin for smaller screens */
+      left: 5px; /* Adjust icon placement */
+    }
+  
+    .input-icon-container {
+      flex-direction: column;
+      text-align: center; /* Center-align content for smaller screens */
+    }
+  
+    .react-datepicker-wrapper {
+      position: relative; /* Adjust placement to ensure better visibility on small screens */
+    }
+  
+    .react-datepicker__portal {
+      top: 20px; /* Add top margin for better spacing on small screens */
+    }
+  }

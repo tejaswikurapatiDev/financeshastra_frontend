@@ -31,7 +31,12 @@
 }
 
 .dropdown-item:hover {
-  background-color: #f5f5f5;
+  background-color: #24b676;
+  color: white;
+}
+.dropdown-item p:hover {
+  
+  color: white;
 }
 
 .dropdown-item a {
@@ -107,7 +112,7 @@
 }
 
 .stockmenu-column ul li:hover {
-  color:#0066cc;
+  color:white;
 }
 
 /* Chevron Icon */
@@ -144,8 +149,8 @@
   font-size: 1.2rem;
 }
 
-.navbar-links a:hover {
-  color: #0066cc;
+.navbar-links :hover {
+  color: black;
 }
 
 /* Search bar */
@@ -266,6 +271,13 @@
 
 .footer-nav a:hover {
   color: #0066cc;
+}
+.navbar-links > li > a:hover {
+  color: #24b676; /* Change navbar link color on hover */
+}
+
+.dropdown-item a:hover {
+  color: white; /* Change dropdown link color on hover */
 }
 
 

@@ -1,0 +1,154 @@
+  /* Scope styles to specific container */
+  .custom-radio-group label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'calibri';
+    font-size: 14px;
+    cursor: pointer;
+   
+  }
+  .custom-radio-group{
+    display: flex;
+    gap: 20px;
+  }
+  
+  /* Style the radio buttons inside the custom group */
+  .custom-radio-group input.custom-radio {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  .custom-radio-group input.custom-radio:checked {
+    border-color: #4CAF50;
+    background-color: #4CAF50;
+  }
+  
+  .custom-radio-group input.custom-radio::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-in-out;
+   
+  }
+  
+  .custom-radio-group input.custom-radio:checked::after {
+    transform: translate(-50%, -50%) scale(1);
+  
+  }
+  
+  .custom-radio-group input.custom-radio:hover {
+    border-color: #888;
+  }
+  
+  .custom-radio-group label span {
+    color: #333;
+    font-weight: normal;
+    margin-left: 5px;
+    transition: color 0.3s;
+  }
+  
+  .custom-radio-group label:hover span {
+    color: #4CAF50;
+  }
+  /* Container for radio button option */
+/* Container for all options */
+.billing-cycle-options {
+    display: flex;
+    flex-direction:row;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  /* Individual option styling */
+  .billing-cycle-option {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+  
+  }
+  
+  /* Custom radio button */
+  .custom-radio {
+    appearance: none; /* Remove default radio button styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    position: relative;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  /* Checked state */
+  .custom-radio:checked {
+    border-color: #4CAF50;
+    background-color: #4CAF50;
+  }
+  
+  /* Inner circle for checked state */
+  .custom-radio::after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .custom-radio:checked::after {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  /* Label styling */
+  .custom-radio-label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+   
+  }
+
+
+  /* Description styling */
+  .billingpayment {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0 28px; /* Indent the description text */
+  }
+  
+  /* Hover effect */
+  .billing-cycle-option:hover .custom-radio {
+    border-color: #888;
+  }
+  .billing-cycle-option:hover .custom-radio-label {
+    color: #4CAF50;
+  }
+  

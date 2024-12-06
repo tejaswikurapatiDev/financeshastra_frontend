@@ -21,14 +21,21 @@ import Stockpeer from '../Stockpeer/Stockpeer';
 
 function Overview() {
   return (
-    <Container>
+    <Container 
+      sx={{
+        maxWidth: '100%',
+        overflowX: 'hidden', // Prevent horizontal scrolling
+        padding: '0 16px', 
+        
+      }}
+    >
       {/* Navbar with scroll links */}
       <Navbar />
 
       {/* Graph Header */}
       <Graphheader />
 
-      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold', marginTop:'20px',color:'#24b676'}}>
+      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold',color:'black'}}>
       Overview
     </Typography>
 

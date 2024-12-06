@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 5px;
+  
  
 }
 
@@ -57,6 +58,8 @@
 .timeframe-item:hover {
   color: #0349a8;
 }
+
+
   @media (max-width: 768px) {
     .candlestick-chart-container {
         margin: 10px;

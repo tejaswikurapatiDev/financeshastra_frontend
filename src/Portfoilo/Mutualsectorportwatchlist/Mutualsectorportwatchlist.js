@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React,{useState } from "react";
+import { Link ,useNavigate} from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css'; // Import FontAwesome CSS
-
 import Navbar from "../../Navbar/Navbar";
 
-const StockWatchlistgain = () => {
+const MutualWatchsectorlist= () => {
   const [stockName, setStockName] = useState("");
   const [stockDetails, setStockDetails] = useState([]);
   const [exchange, setExchange] = useState("NSE");
@@ -12,34 +11,33 @@ const StockWatchlistgain = () => {
   const [watchlists, setWatchlists] = useState(["Watchlist 01"]); // Manage dynamic watchlists
   const [groupBy, setGroupBy] = useState("sector");
   const [searchTerm, setSearchTerm] = useState("");
-
+  const navigate = useNavigate();
+  const [activeFilter, setActiveFilter] = useState("All"); 
   // Dummy stock data
   const stockDatawatchlist = [
     {
-      stockName: "Waaree Energies",
-      
-      livePrice: 2713,
-      change: -8.45,
-      changePercent: -0.31,
-      volume: "10.33L",
-      high: 2805,
-      low: 2672,
-      
+      stockName: "Axis Short Term Fund-Regular Plan",
+      sector: "AMC: AXIS MUTUAL FUND",
+      nav1dchange: 29.272, // NAV 1-day change in percentage
+      fiftytwoweekhighorlow: "2805 / 2672", // 52-week high and low values
+      onemonth: "5.23%", // 1-month change
+      threemonths: "3.15%", // 3-month change
+      fiveyears: "15.76%", // 5-year growth
+      tenyears: "50.25%", // 10-year growth
     },
     {
-        stockName: "HDFC Bank",
-      
-      livePrice: 1741.55,
-      change: 0.35,
-      changePercent: 0.02,
-      volume: "44.01L",
-      high: 1754.3,
-      low: 1729.55,
-   
+      stockName: "HDFC Equity Fund-Regular Plan",
+      sector:  "AMC:HDFC Mutual Fund",
+      nav1dchange: -12.34,
+      fiftytwoweekhighorlow: "1050 / 850",
+      onemonth: "-2.14%",
+      threemonths: "-1.25%",
+      fiveyears: "10.45%",
+      tenyears: "30.12%",
     },
-    // Add more stock objects here
+
   ];
-  const navigate = useNavigate();
+
   // Handle stock addition
   const handleAddStock = () => {
     if (stockName.trim() === "") return;
@@ -60,10 +58,10 @@ const StockWatchlistgain = () => {
 
   // Handle adding a new watchlist
   const handleCreateWatchlist = () => {
-    const newWatchlistName = `Watchlist ${watchlists.length + 1}`;
+    const newWatchlistName = `Watchlist ${watchlists.length + 1}`; // Use backticks for template literals
     setWatchlists([...watchlists, newWatchlistName]);
   };
-
+  
   // Toggle dropdown visibility for a specific watchlist
   const toggleDropdown = (index) => {
     setActiveDropdown(activeDropdown === index ? null : index);
@@ -101,7 +99,16 @@ const StockWatchlistgain = () => {
   // Filters and groups stocks
   const filteredData = stockDatawatchlist.filter((stock) =>
     stock.stockName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  )
+  .filter((stock) => {
+    if (activeFilter === "Gainers") {
+      return parseFloat(stock.threemonths) > 0; // Show positive values
+    }
+    if (activeFilter === "Losers") {
+      return parseFloat(stock.threemonths) < 0; // Show negative values
+    }
+    return true; // Show all for "All"
+  });
 
   const groupedData = filteredData.reduce((groups, stock) => {
     if (!groups[stock.sector]) {
@@ -110,51 +117,35 @@ const StockWatchlistgain = () => {
     groups[stock.sector].push(stock);
     return groups;
   }, {});
-  const filteredPositiveData = Object.keys(groupedData).reduce((groups, sector) => {
-    const positiveStocks = groupedData[sector].filter(stock => stock.change > 0);
-    if (positiveStocks.length > 0) {
-      groups[sector] = positiveStocks;
-    }
-    return groups;
-  }, {});
-  const filterRoutes = {
-    All: "/stockwatchlistall", 
-    Gainers: "/stockwatchlistgain", 
-    Losers: "/stockwatchlistloss"
-  };
-
-  // Handle navigation for filters dynamically
-  const handleFilterClick = (filterType) => {
-    navigate(filterRoutes[filterType]); // Navigate based on the filter type
-  };
 
   return (
     <div>
       <Navbar />
-      <h2 className="newwmutual" style={{ marginLeft: "200px", marginTop: "100px" }}>
-  Stock Watchlist
+      <h2 className="newwmutual">
+  Mutual Fund Watchlist
 </h2>
-<div className="networth-tabs" style={{ marginTop: "40px", paddingTop: "0px" }}>
-  <Link to="/portfoliostockaccount">
-    <button className="networth-tab" style={{ background: "#24b676", color: "white", marginLeft: "130px" }}>
+<div className="networth-tabs" >
+  <Link to="/stockWatchlist">
+    <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Stocks
     </button>
   </Link>
-  <Link to="/mutualfirstpage">
-    <button className="networth-tab" style={{ background: "white", color: "black" }}>
+  <Link to="/mutualWatchlist">
+    <button className="networth-tab" style={{ background: "#24b676", color: "white", }}>
       Mutual Fund
     </button>
   </Link>
-  <Link to="/Portfoliogoldtoppage">
+  <Link to="/goldWatchlistall">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Gold
     </button>
   </Link>
 </div>
 
-      <div className="stock-watchlist">
+      <div className="stocksector-watchlist">
         {/* Watchlist Section */}
-        <div className="watchlist-management">
+        <div  >
+        <div className="watchlist-management" >
           {watchlists.map((watchlist, index) => (
             <div className="watchlist-item" key={index}>
               <input
@@ -201,11 +192,12 @@ const StockWatchlistgain = () => {
         <h2 style={{marginLeft:"10px",fontSize:"19px"}}>Add Watchlist</h2>
         {/* Input Section */}
         <div className="watchlist-header">
+        <div className="scheme-exchange-cell">
           <div className="input-groupwatchlist">
-            <label htmlFor="stockName">Stock Name</label>
+            <label htmlFor="stockName">Scheme Name</label>
             <input
               type="text"
-              placeholder="Enter Stock Name"
+              placeholder="Type of search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -221,42 +213,31 @@ const StockWatchlistgain = () => {
     style={{ backgroundColor: "#f9f9f9", border: "1px solid #ccc",width:"50px" }} // Optional styling for non-editable input
   />
           </div>
+       </div>
           <button className="add-btnwatchlist" onClick={handleAddStock}>
             + Add
           </button>
         </div>
-
+        </div>
         {/* Stock Table Section */}
-        <div className="content-containerwatchlist">
+        <div className="content-sectorcontainerwatchlist">
         <div className="top-sectionswatchlist"style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>
-              <button
-          className="filter-buttonwatchlist"
-          onClick={() => handleFilterClick("All")}
-        >
-          All
-        </button>
-        <button
-          className="filter-buttonwatchlist"
-          onClick={() => handleFilterClick("Gainers")}
-        >
-          Gainers
-        </button>
-        <button
-          className="filter-buttonwatchlist"
-          onClick={() => handleFilterClick("Losers")}
-        >
-          Losers
-        </button>
+              <button className= {`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`}
+    onClick={() => setActiveFilter("All")}>All</button>
+              <button  className={`filter-buttonwatchlist ${activeFilter === "Gainers" ? "active" : ""}`}
+    onClick={() => setActiveFilter("Gainers")}>Gainers</button>
+              <button className={`filter-buttonwatchlist ${activeFilter === "Losers" ? "active" : ""}`}
+    onClick={() => setActiveFilter("Losers")}>Losers</button>
             </div>
             <div className="group-by-sectionwatchlist">
             <label style={{ marginRight: "8px" }}>Group By:</label>
-            <input
+              <input
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/stockWatchlist")}
+                onClick={() => navigate("/mutualwatchlistall")}
                 defaultChecked
                 style={{
                   width: "14px",
@@ -269,61 +250,64 @@ const StockWatchlistgain = () => {
                 type="radio"
                 name="groupBywatchlist"
                 value="sectorwatchlist"
-                onClick={() => navigate("/stockwatchlistsector")}
+                onClick={() => navigate("/mutualwatchlistsector")}
                 style={{
                   width: "14px",
                   height: "14px",
                   accentColor: "#24b676",
                 }}
               />
-              Sector
+              AMC
               <input
                 type="radio"
                 name="groupBywatchlist"
-                value="sectorwatchlist"
-                onClick={() => navigate("/stockwatchlistmcap")}
+                value="mcapwatchlist"
+                onClick={() => navigate("/mutualwatchlisttype")}
                 style={{
                   width: "14px",
                   height: "14px",
                   accentColor: "#24b676",
                 }}
               />
-              M-Cap
+              Types of Funds
             </div>
           </div>
-
           <div className="table-containerwatchlist">
             <table className="stock-tablewatchlist">
               <thead>
                 <tr>
-                  <th>Stock Name</th>
-                  <th>Live Price</th>
-                  <th>Change</th>
-                  <th>Change %</th>
-                  <th>Volume</th>
-                  <th>Today's High</th>
-                  <th>Today's Low</th>
+                <th>Scheme Name</th>
+                <th>NAV 1D change</th>
+                <th>52 week High/Low</th>
+                <th>1 month</th>
+                <th>3 months</th>
+                <th>5 Years</th>
+                <th>10 years</th>
                 </tr>
               </thead>
               <tbody>
-              {Object.keys(filteredPositiveData).map((sector) => (
-    <React.Fragment key={sector}>
-      {filteredPositiveData[sector].map((stock, index) => (
-        <tr key={index}>
-          <td>{stock.stockName}</td>
-          <td>{stock.livePrice}</td>
-          <td style={{ color: getChangeColor(stock.change) }}>
-            {stock.change}
-          </td>
-          <td>{stock.changePercent}</td>
-          <td>{stock.volume}</td>
-          <td>{stock.high}</td>
-          <td>{stock.low}</td>
-        </tr>
-      ))}
-    </React.Fragment>
-  ))}
-
+                {Object.keys(groupedData).map((sector) => (
+                  <React.Fragment key={sector}>
+                    <tr className="sector-headerwatchlist">
+                    <td colSpan="7" style={{ paddingRight: "1000px", fontWeight: "bold" }}>
+        {sector}
+      </td>
+                    </tr>
+                    {groupedData[sector].map((stock, index) => (
+                      <tr key={index}>
+                        <td >{stock.stockName}</td>
+                    <td style={{ color: stock.nav1dchange >= 0 ? "green" : "red" }}>{stock.nav1dchange}</td>
+                   
+                    <td>{stock.fiftytwoweekhighorlow}</td>
+                    <td td style={{ color: parseFloat(stock.threemonths) >= 0 ? "green" : "red" }}>{stock.onemonth}</td>
+                    <td td style={{ color: parseFloat(stock.threemonths) >= 0 ? "green" : "red" }}>{stock.threemonths}</td>
+                    <td td style={{ color: parseFloat(stock.threemonths) >= 0 ? "green" : "red" }}>{stock.fiveyears}</td>
+                    <td td style={{ color: parseFloat(stock.threemonths) >= 0 ? "green" : "red" }}>{stock.tenyears}</td>
+                    <td></td>
+                      </tr>
+                    ))}
+                  </React.Fragment>
+                ))}
               </tbody>
             </table>
           </div>
@@ -333,4 +317,4 @@ const StockWatchlistgain = () => {
   );
 };
 
-export default StockWatchlistgain;
+export default MutualWatchsectorlist;

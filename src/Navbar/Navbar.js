@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaBell, FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
 import { FaCircleQuestion } from "react-icons/fa6";
 import "./Navbar.css";
+import { useNavigate } from 'react-router-dom';
+
 import logo from "../assest/Logo design (1).png";
 import { Link } from "react-router-dom";
 
@@ -65,40 +67,56 @@ const Navbar = () => {
       <div className="stockmenu-column">
         <ul>
           <li>
+             <div className="dropdown-item">
             <Link to="/stock">Stock Screener</Link>
             <p>Discover stocks based on various filters and criteria to make informed decisions.</p>
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/beststock">Best Stock</Link>
             <p>Explore the best stocks for investment based on analysis and trends.</p>
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/highgrowth">High Growth Stocks</Link>
             <p>Find stocks that are expected to grow rapidly in the upcoming years.</p>
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/niftystock">Nifty 50 Companies</Link>
             <p>Track the top 50 companies listed on the National Stock Exchange of India.</p>
+            </div>
           </li>
         </ul>
       </div>
       <div className="stockmenu-column">
         <ul>
           <li>
+          <div className="dropdown-item">
             <Link to="/nifty">Nifty 100 Companies</Link>
             <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p>
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/smallcap">Small Cap</Link>
             <p>Invest in smaller companies with high potential for growth.</p>
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/midcap">Mid Cap</Link>
-            <p>Discover mid-sized companies with a strong growth trajectory.</p>
+            <p>Discover mid-sized companies with a strong growth trajectory.</p> 
+            </div>
           </li>
           <li>
+          <div className="dropdown-item">
             <Link to="/largecap">Large Cap</Link>
             <p>Focus on large, established companies with stable returns.</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -108,7 +126,7 @@ const Navbar = () => {
   const renderPortfolioDropdown = () => (
     <div className="dropdown-menu">
       <div className="dropdown-item">
-        <Link to="/portfoliostockaccount">My Portfolio</Link>
+        <Link to="/portfolio">My Portfolio</Link>
         <p>Your financial navigator</p>
       </div>
       <div className="dropdown-item">
@@ -129,39 +147,53 @@ const Navbar = () => {
       <div className="stockmenu-column">
       <ul>
       <li>
-        <Link to="/top-rated-funds">Top Rated Funds</Link>
+      <div className="dropdown-item">
+        <Link to="/mutualfund">Top Rated Funds</Link>
         <p>Focus on risk management and long-term growth.</p>
+        </div>
       </li>
     <li>
+    <div className="dropdown-item">
         <Link to="/fund-screener">Fund Screener</Link>
         <p>Efficient filter and compare investment options.</p>
+        </div>
         </li>
         <li>
+        <div className="dropdown-item">
       
         <Link to="/small-cap-funds">Best Small Cap Fund</Link>
         <p>Strong returns by investing in high-growth opportunities.</p>
+        </div>
         </li>
         </ul>
         </div>
       <div className="stockmenu-column">
         <ul>
       <li>
+      <div className="dropdown-item">
         <Link to="/growth-funds">Best Growth Fund</Link>
         <p>Focus on high-potential growth.</p>
+        </div>
         </li>
       <li>
+      <div className="dropdown-item">
         <Link to="/flex-cap-funds">Best Flex Cap Fund</Link>
         <p>Invest in companies poised for future and today’s growth.</p>
+        </div>
         </li>
       <li>
+      <div className="dropdown-item">
         <Link to="/etf-funds">Best ETF Fund</Link>
         <p>Diverse and cost-effective investment strategy.</p>
+        </div>
         </li>
         </ul>
     </div>
     </div>
    
   );
+ 
+    const navigate = useNavigate();
 
   return (
     <>
@@ -171,18 +203,18 @@ const Navbar = () => {
         </div>
 
         <ul className="navbar-links">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           <li><Link to="/market">Markets <FaChevronDown className="chevron-icon" /></Link></li>
 
           <li className="stock-dropdown" ref={stockDropdownRef}>
-            <Link to="#">
+            <Link to="#"onClick={toggleStockDropdown}>
               Stocks
               <FaChevronDown onClick={toggleStockDropdown} className="chevron-icon" />
             </Link>
             {stockDropdownOpen && renderStockDropdown()}
           </li>
           <li className="mutualfunds-dropdown" ref={mutualFundsDropdownRef}>
-  <Link to="#">
+  <Link to="#"onClick={toggleMutualFundsDropdown}>
     Mutual Funds
     <FaChevronDown onClick={toggleMutualFundsDropdown} className="chevron-icon" />
   </Link>
@@ -190,8 +222,9 @@ const Navbar = () => {
 </li>
 
           <li className="portfolio-dropdown" ref={portfolioDropdownRef}>
-            <Link to="#">
-              Portfolio Manager
+          <Link to="#" onClick={togglePortfolioDropdown}>
+          Portfolio Manager
+              
               <FaChevronDown onClick={togglePortfolioDropdown} className="chevron-icon" />
             </Link>
             {portfolioDropdownOpen && renderPortfolioDropdown()}
@@ -202,8 +235,11 @@ const Navbar = () => {
           <input type="text" placeholder="Search" />
           <FaSearch className="search-icon" />
         </div>
-        
+        <h4 onClick={() => navigate('/pricehalf')} style={{ cursor: 'pointer' }}>
+            Subscribe
+        </h4>
         <div className="navbar-icons">
+       
           <FaBell className="icon bell-icon" />
 
           <div className="profile-section">
@@ -222,7 +258,7 @@ const Navbar = () => {
       </nav>
 
       <ul className="footer-nav">
-        <li><a href="/">Home</a></li>
+        <li><a href="/home">Home</a></li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
           <a onClick={toggleFooterStockDropdown} className="footer-link">
             Stocks
