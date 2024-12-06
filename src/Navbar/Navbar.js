@@ -9,10 +9,13 @@ const Navbar = () => {
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [footerStockDropdownOpen, setFooterStockDropdownOpen] = useState(false);
-
+  const [portfolioDropdownOpen, setPortfolioDropdownOpen] = useState(false);
+  const [mutualFundsDropdownOpen, setMutualFundsDropdownOpen] = useState(false);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
+  const portfolioDropdownRef = useRef(null);
+  const mutualFundsDropdownRef = useRef(null);
 
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
@@ -25,17 +28,29 @@ const Navbar = () => {
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
+  const toggleMutualFundsDropdown = () => {
+    setMutualFundsDropdownOpen(!mutualFundsDropdownOpen);
+  };
+  const togglePortfolioDropdown = () => {
+    setPortfolioDropdownOpen(!portfolioDropdownOpen);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (stockDropdownRef.current && !stockDropdownRef.current.contains(event.target)) {
         setStockDropdownOpen(false);
       }
+      if (mutualFundsDropdownRef.current && !mutualFundsDropdownRef.current.contains(event.target)) {
+        setMutualFundsDropdownOpen(false);
+      }
       if (footerStockDropdownRef.current && !footerStockDropdownRef.current.contains(event.target)) {
         setFooterStockDropdownOpen(false);
       }
       if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
         setUserDropdownOpen(false);
+      }
+      if (portfolioDropdownRef.current && !portfolioDropdownRef.current.contains(event.target)) {
+        setPortfolioDropdownOpen(false);
       }
     };
 
@@ -90,9 +105,66 @@ const Navbar = () => {
     </div>
   );
 
+  const renderPortfolioDropdown = () => (
+    <div className="dropdown-menu">
+      <div className="dropdown-item">
+        <Link to="/portfoliostockaccount">My Portfolio</Link>
+        <p>Your financial navigator</p>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/portfolio-risk">Portfolio Risk Analysis</Link>
+        <p>Risk evaluation and insights</p>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/stockwatchlist">Watchlist</Link>
+        <p>Monitor, assess, and improve</p>
+      </div>
+    </div>
+  );
+
+
+
+  const renderMutualFundsDropdown = () => (
+    <div className="stockmenu">
+      <div className="stockmenu-column">
+      <ul>
+      <li>
+        <Link to="/top-rated-funds">Top Rated Funds</Link>
+        <p>Focus on risk management and long-term growth.</p>
+      </li>
+    <li>
+        <Link to="/fund-screener">Fund Screener</Link>
+        <p>Efficient filter and compare investment options.</p>
+        </li>
+        <li>
+      
+        <Link to="/small-cap-funds">Best Small Cap Fund</Link>
+        <p>Strong returns by investing in high-growth opportunities.</p>
+        </li>
+        </ul>
+        </div>
+      <div className="stockmenu-column">
+        <ul>
+      <li>
+        <Link to="/growth-funds">Best Growth Fund</Link>
+        <p>Focus on high-potential growth.</p>
+        </li>
+      <li>
+        <Link to="/flex-cap-funds">Best Flex Cap Fund</Link>
+        <p>Invest in companies poised for future and today’s growth.</p>
+        </li>
+      <li>
+        <Link to="/etf-funds">Best ETF Fund</Link>
+        <p>Diverse and cost-effective investment strategy.</p>
+        </li>
+        </ul>
+    </div>
+    </div>
+   
+  );
+
   return (
     <>
-      {/* Main Navbar */}
       <nav className="navbar">
         <div className="navbar-logo">
           <img src={logo} alt="FinanceShastra Logo" className="logo-image" />
@@ -109,20 +181,28 @@ const Navbar = () => {
             </Link>
             {stockDropdownOpen && renderStockDropdown()}
           </li>
+          <li className="mutualfunds-dropdown" ref={mutualFundsDropdownRef}>
+  <Link to="#">
+    Mutual Funds
+    <FaChevronDown onClick={toggleMutualFundsDropdown} className="chevron-icon" />
+  </Link>
+  {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
+</li>
 
-          <li className="menu-item">
-            <a href="#tools" className="menu-link">
-              Tools <FaChevronDown className="chevron-icon" />
-            </a>
+          <li className="portfolio-dropdown" ref={portfolioDropdownRef}>
+            <Link to="#">
+              Portfolio Manager
+              <FaChevronDown onClick={togglePortfolioDropdown} className="chevron-icon" />
+            </Link>
+            {portfolioDropdownOpen && renderPortfolioDropdown()}
           </li>
-          <li><Link to="/portfolioheader">Portfolio</Link></li>
         </ul>
 
         <div className="navbar-search">
           <input type="text" placeholder="Search" />
           <FaSearch className="search-icon" />
         </div>
-
+        
         <div className="navbar-icons">
           <FaBell className="icon bell-icon" />
 
@@ -141,7 +221,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Footer Navbar for Mobile */}
       <ul className="footer-nav">
         <li><a href="/">Home</a></li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>

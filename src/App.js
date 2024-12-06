@@ -19,6 +19,45 @@ import NiftyStocks from "./Nifty50stock/Nifty50stock";
 import Highstock from "./Highstock/Highstock";
 import Beststock from "./Beststock/Beststock";
 import Netify500 from "./NiftyStocksTable/NiftyStocksTable";
+import Portfolio from "./Portfoilo/Portfoliomanager/Portfoliomanager";
+import NetWorthStocksDashboard from "./Portfoilo/NetWorthStocksDashboard/NetWorthStocksDashboard";
+import PortfolioAccountStock from "./Portfoilo/PortfolioAccountStock/PortfolioAccountStock";
+import AccountStockfundamental from "./Portfoilo/AccountStockfundamental/AccountStockfundamental";
+import AccountStockalert from "./Portfoilo/AccountStockalerts/AccountStockalerts";
+import AccountStockreturn from "./Portfoilo/AccountStockreturn/AccountStockreturn";
+import Portfoliodonut from "./Portfoilo/Portfoliodonut/Portfoliodonut";
+import OverviewPortfolioManager from "./Portfoilo/OverviewPortfoliograph/OverviewPortfoliograph";
+import PortfolioStocksector from "./Portfoilo/PortfolioStocksector/PortfolioStocksector";
+import PortfolioStockmcap from "./Portfoilo/PortfolioStockmcap/PortfolioStockmcap";
+import AddTransactionstock from "./Portfoilo/AddTransactionstock/AddTransactionstock";
+import Deletepopupstock from "./Portfoilo/Deletepopupstock/Deletepopupstock";
+
+import UpdateTransaction from "./Portfoilo/UpdateTransactionstock/UpdateTransactionstock";
+import Mutualnone from "./Portfoilo/Mutualnone/Mutualnone";
+import Mutualtypefund from "./Portfoilo/Mutualtypefund/Mutualtypefund";
+import Mutualsector from "./Portfoilo/Mutualsector/Mutualsector";
+import MutualAccountStock from "./Portfoilo/Mutualtransaction/Mutualtransaction";
+import OverviewMutual from "./Portfoilo/Mutualoverview/Mutualoverview";
+import Accountmutualperformance from "./Portfoilo/Mutualperformance/Mutualperformance";
+
+import StockWatchlistsector from "./Portfoilo/StockWatchlistsector/StockWatchlistsector";
+import StockWatchlistmcap from "./Portfoilo/StockWatchlistmcap/StockWatchlistmcap";
+import StockWatchlist from "./Portfoilo/StockWatchlist/StockWatchlistnone";
+import StockWatchlistall from "./Portfoilo/StockWatchlistall/StockWatchlistall";
+import StockWatchlistgain from "./Portfoilo/StockWatchlistgainer/StockWatchlistgainer";
+import StockWatchlistloss from "./Portfoilo/StockWatchlistloss/StockWatchlistloss";
+
+import SubscriptionPlans from "./Subscription/PricingTablehalfyear/PricingTablehalfyear";
+import SubscriptionannualPlans from "./Subscription/Subscriptionannualplan/Subscriptionannualplan";
+import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanhalfyear";
+import TopRatedFunds from "./MutualFund/TopRatedFunds/TopRatedFunds";
+import TopRatedFundsdirect from "./MutualFund/TopRatedFundsdirect/TopRatedFundsdirect";
+import GoldWatchportall from "./Portfoilo/Goldwatchlistall/Goldwatchlistall";
+import Portfoliogoldaccount from "./Portfoilo/Portfoliogoldaccount/Portfoliogoldaccount";
+import MutualWatchportall from "./Portfoilo/Mutualwatchportall/Mutualwatchportall";
+
+
+
 function App() {
   return (
     <Routes>
@@ -39,6 +78,46 @@ function App() {
       <Route path="/niftystock" element={<NiftyStocks/>} />
       <Route path="/highgrowth" element={<Highstock/>} />
       <Route path="/beststock" element={<Beststock/>} />
+      <Route path="/portfolio" element={<Portfolio/>} />
+      <Route path="/portfoliostock" element={<NetWorthStocksDashboard/>} />
+      <Route path="/portfoliodonut" element={<Portfoliodonut/>} />
+     <Route path="/portfoliostockaccount" element={<PortfolioAccountStock/>} />
+      <Route path="/accountfund" element={<AccountStockfundamental/>} />
+      <Route path="/accountalert" element={<AccountStockalert/>} />
+      <Route path="/accountreturn" element={<AccountStockreturn/>} />
+      <Route path="/overview" element={<OverviewPortfolioManager/>} />
+      <Route path="/stocksector" element={<PortfolioStocksector/>} />
+      <Route path="/stockmcap" element={<PortfolioStockmcap/>} />
+      <Route path="/stockadd" element={<AddTransactionstock/>} />
+      <Route path="/stockupdate" element={<UpdateTransaction/>} />
+      <Route path="/stockdelete" element={<Deletepopupstock/>} />
+      <Route path="/mutualsector" element={<Mutualsector/>} />
+      <Route path="/mutualnone" element={<Mutualnone/>} />
+      <Route path="/mutualtype" element={<Mutualtypefund/>} />
+      <Route path="/mutualaccount" element={<MutualAccountStock/>} />
+      <Route path="/mutualoverview" element={<OverviewMutual/>} />
+      <Route path="/accountperformance" element={<Accountmutualperformance/>} />
+      <Route path="/stockwatchlist" element={<StockWatchlist/>} />
+      <Route path="/stockwatchlistsector" element={<StockWatchlistsector/>} />
+      <Route path="/stockwatchlistmcap" element={<StockWatchlistmcap/>} />
+      <Route path="/stockwatchlistall" element={<StockWatchlistall/>} />
+      <Route path="/stockwatchlistgain" element={<StockWatchlistgain/>} />
+      <Route path="/stockwatchlistloss" element={<StockWatchlistloss/>} />
+      <Route path="/pricehalf" element={<SubscriptionPlans/>} />
+      <Route path="/annualplan" element={<SubscriptionannualPlans/>} />
+      <Route path="/annualyear" element={<Premiumplanhalfyear/>} />
+      <Route path="/mutualfund" element={<TopRatedFunds/>} />
+      <Route path="/mutualfunddirect" element={<TopRatedFundsdirect/>} />
+      <Route path="/goldWatchlistall" element={<GoldWatchportall/>} />
+      <Route path="/portfoliogoldtoppage" element={<Portfoliogoldaccount />} />
+      <Route path="/mutualwatch" element={<MutualWatchportall />} />
+     
+
+
+
+
+
+
       
     </Routes>
    
