@@ -47,7 +47,7 @@ const SubscriptionannualPlans = () => {
   <span className="text-highlight"> (66%)</span>
   <span className="text-black"> a year</span>
 </div>
-<button className="pay-now-btn" onClick={() => navigate("/elitepaymentForm")}>Pay Now</button>
+<button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button>
           </div>
           <div class="plan-features">
     <h4 className='plan-featuresh4'>Features:</h4>
@@ -91,7 +91,7 @@ const SubscriptionannualPlans = () => {
 
           <div className="plan-footer">
             Empower your investment journey with the Elite Plan!
-            <div><button className="pay-now-btn" onClick={() => navigate("/elitepaymentForm")}>Pay Now</button></div>
+            <div><button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button></div>
           </div>
         </div>
 
@@ -112,7 +112,7 @@ const SubscriptionannualPlans = () => {
   <span className="text-highlight"> (60%)</span>
   <span className="text-black"> a year</span>
             </div>
-            <button className="pay-now-btn" onClick={() => navigate("/paymentform")}>Pay Now</button>
+            <button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button>
 
           </div>
           <div className="plan-features">
@@ -190,7 +190,7 @@ const SubscriptionannualPlans = () => {
           <div className="plan-footer">
             Invest smarter, invest confidently with the Premium Plan!
             <div>
-            <button className="pay-now-btn" onClick={() => navigate("/paymentform")}>Pay Now</button>
+            <button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button>
         </div>
           </div>
         </div>

@@ -64,4 +64,4 @@ const Stockxray = () => (
   
 );
 
-export default Stockxray
+export default Stockxray;

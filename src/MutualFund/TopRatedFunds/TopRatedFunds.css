@@ -89,7 +89,15 @@
     color: #24b676; /* Green color for the stars */
     font-weight: bold; /* Optional: make the stars bold */
   }
+  .fund-name-link {
+    text-decoration: none;
+    color: inherit; /* Or define a color */
+  }
   
+  .fund-name-link:hover {
+    text-decoration: none;
+    color: #24b676;
+  }
 /* Mobile and Tablet Styles */
 
 /* For screens less than 768px (tablets and smaller) */

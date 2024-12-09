@@ -23,9 +23,10 @@ function Overview() {
   return (
     <Container 
       sx={{
-        maxWidth: '100%',
+        maxWidth: '200%',
         overflowX: 'hidden', // Prevent horizontal scrolling
         padding: '0 16px', 
+        marginTop:'300px'
         
       }}
     >

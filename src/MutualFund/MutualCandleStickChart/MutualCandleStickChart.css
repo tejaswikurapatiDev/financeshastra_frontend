@@ -1,0 +1,82 @@
+/* Main container */
+.mutualcandletop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   margin-left: 120px;
+margin-top: 190px;
+    border-radius: 8px;
+    width: 1200px;
+    margin-bottom: 40px;
+ 
+   
+  }
+  
+  /* Left Section */
+  .mutualcandletop__left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mutualcandletop__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Tags Section */
+  .mutualcandletop__tags {
+    margin-top: 10px;
+  }
+  
+  .mutualcandletop__tag {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .mutualcandletop__tag:hover {
+    background-color:#24b676;
+    color: white;
+  }
+  
+  /* Right Section */
+  .mutualcandletop__right {
+    text-align: right;
+  }
+  
+  .mutualcandletop__price {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color:#24b676; /* Default green color for positive values */
+  }
+  
+  /* Percentage Styling */
+  .mutualcandletop__percentage {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  /* Positive Percentage */
+  .mutualcandletop__percentage--positive {
+    color: #28a745; /* Green for positive percentages */
+  }
+  
+  /* Negative Percentage */
+  .mutualcandletop__percentage--negative {
+    color: #dc3545; /* Red for negative percentages */
+  }
+  
+  /* Last Updated Info */
+  .mutualcandletop__last-updated {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+  }

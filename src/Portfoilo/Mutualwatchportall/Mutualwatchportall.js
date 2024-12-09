@@ -138,7 +138,7 @@ const MutualWatchportall= () => {
       Mutual Fund
     </button>
   </Link>
-  <Link to="/goldWatchlist">
+  <Link to="/goldWatchlistall">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Gold
     </button>

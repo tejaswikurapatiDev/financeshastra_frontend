@@ -161,7 +161,7 @@ const Navbar = () => {
         <li>
         <div className="dropdown-item">
       
-        <Link to="/small-cap-funds">Best Small Cap Fund</Link>
+        <Link to="/bestsmallcapregular">Best Small Cap Fund</Link>
         <p>Strong returns by investing in high-growth opportunities.</p>
         </div>
         </li>

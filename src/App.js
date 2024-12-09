@@ -70,6 +70,9 @@ import Upihalfyearpremium from "./Subscription/Upihalfyearpremium/Upihalfyearpre
 import UpiPaymentFormelite from "./Subscription/Upiannualelite/Upiannualelite";
 import UpihalfyearFormelite from "./Subscription/Upihalfyearelite/Upihalfyearelite";
 import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanhalfyear";
+import Mutualfund from "./MutualFund/Mutualfund";
+import Bestsmallcapregular from "./MutualFund/Bestsmallcapregular/Bestsmallcapregular";
+import Bestsmallcapdirect from "./MutualFund/Bestsmallcapdirect/Bestsmallcapdirect";
 
 
 
@@ -139,6 +142,9 @@ function App() {
       <Route path="/upiPaymentFormelite" element={<UpiPaymentFormelite/>}/>
       <Route path="/upihalfyearFormelite" element={<UpihalfyearFormelite/>}/>
       <Route path="/premiumplanhalfyear" element={<Premiumplanhalfyear/> }/>
+      <Route path="/mutualfundgrowth" element={<Mutualfund/> }/>
+      <Route path="/bestsmallcapregular"element={<Bestsmallcapregular/> }/>
+      <Route path="/bestsmallcapdirect"element={<Bestsmallcapdirect/> }/>
 
 
 
