@@ -49,7 +49,9 @@
         flex-direction: column; /* Stack elements vertically */
         margin: 40px auto; /* Adjust margin for smaller screens */
         width: 80%; /* Increase width for better readability */
-        margin-left: 0; /* Center horizontally */
+        margin-left: 50px; /* Center horizontally */
+        margin-bottom: 100px;
+
     }
 
     .investment-details {

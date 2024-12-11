@@ -1,0 +1,17 @@
+.circle-divider-container {
+    text-align: center;
+    width: 300px;
+    margin: 20px auto;
+  }
+  
+  .circle-divider {
+    width: 100%;
+    height: auto;
+  }
+  
+  text {
+    font-family: Arial, sans-serif;
+    font-size: 4px;
+    fill: #333;
+  }
+  

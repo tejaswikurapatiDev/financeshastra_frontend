@@ -18,7 +18,7 @@ const UpihalfyearFormelite = () => {
     addressLine1: "",
     addressLine2: "",
     postalCode: "",
-    billingCycle: "Annually",
+    billingCycle: "Half-year",
     termsAccepted: false,
   });
 
@@ -189,7 +189,44 @@ const UpihalfyearFormelite = () => {
       handlePopupClose();
     }
   };
+  const handlePhoneNumberChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, phoneNumber: numericValue });
 
+    // Validation for phone number (example: should be 10 digits)
+    if (numericValue.length !== 10) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: 'Please enter a valid 10-digit phone number.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { phoneNumber, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
+
+
+  const handlePostalCodeChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, postalCode: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        postalCode: 'Please enter a valid postal code.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { postalCode, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
   return (
     <div className="payment-form-container">
       <button className="back-button">
@@ -347,7 +384,7 @@ const UpihalfyearFormelite = () => {
                 type="text"
                 name="postalCode"
                 value={formData.postalCode}
-                onChange={handleChange}
+                onChange={handlePostalCodeChange}
                 placeholder="Enter your postal code"
               />
               {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
@@ -467,7 +504,7 @@ const UpihalfyearFormelite = () => {
           type="tel"
           placeholder="Enter phone number"
           value={formData.phoneNumber}
-          onChange={handleChange}
+          onChange={ handlePhoneNumberChange}
         />
         <button className="sms-icon-button" onClick={handleSmsIconClick}>
           <AiOutlineMessage />

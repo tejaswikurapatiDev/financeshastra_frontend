@@ -7,7 +7,7 @@
   border: 1px solid #e0e0e0;
   max-width: 620px; /* Set a maximum width */
   margin-left: 315px;
-  font-family: Calibri, Arial, sans-serif;
+  font-family: 'Calibri';
 }
 
 .top-holdings h2 {
@@ -68,11 +68,12 @@
 /* Responsive styles for 768px and below */
 @media (max-width: 768px) {
   .top-holdings {
-      margin-left: 0; /* Center the container */
-      max-width: 100%; /* Full width for smaller screens */
-      padding: 15px;
+    padding: 10px;
+    margin: 10px auto;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Disable vertical scrolling if not needed */
+    white-space: nowrap; /* Prevent content wrapping */
   }
-
   .top-holdings h2 {
       font-size: 22px; /* Slightly reduce heading size */
   }
@@ -100,6 +101,9 @@
   .top-holdings {
       padding: 10px; /* Reduce padding for compact layout */
       margin-top: 10px;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      overflow-y: hidden; /* Disable vertical scrolling if not needed */
+      white-space: nowrap; /* Prevent content wrapping */
   }
 
   .top-holdings h2 {

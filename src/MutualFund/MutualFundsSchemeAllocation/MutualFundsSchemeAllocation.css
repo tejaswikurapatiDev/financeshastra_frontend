@@ -1,0 +1,105 @@
+.scheme-allocation-container {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1000px;
+  margin-left: 20px; /* Moves the container to the left */
+  font-family: 'calibri';
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+
+.scheme-allocation-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333333;
+  margin-top: 100px;
+  margin-left: 30px;
+}
+
+.scheme-allocation-tabs {
+  margin-left: 300px;
+  justify-content: center; /* Centers the tabs horizontally */
+  margin-bottom: 20px;
+  
+}
+
+
+.tab-button {
+  width: 150px; /* Set the desired button width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+
+
+
+.tab-button:last-child {
+  margin-right: 0;
+}
+
+.active-tab {
+  background-color: #24b676;
+  color: #ffffff;
+  border: 1px solid #24b676;
+}
+
+.scheme-allocation-content {
+  margin-top: 15px;
+}
+
+.allocation-row {
+  margin-bottom: 20px;
+}
+
+.allocation-name {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 5px; /* Adds space between name and bar */
+}
+
+.allocation-bar-wrapper {
+background-color: #f9f9f9;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 25px; /* Increased height of the allocation bar */
+  margin-bottom: 5px; /* Adds space between bar and percentage */
+}
+
+.allocation-bar {
+  height: 100%;
+  background-color: #24b676;
+}
+
+.allocation-percentage {
+  font-size: 14px;
+  color: #333333;
+  text-align: right;
+}
+
+.view-holdings-container {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.view-holdings-link {
+  color: #24b676;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.view-holdings-link:hover {
+  text-decoration: underline;
+}

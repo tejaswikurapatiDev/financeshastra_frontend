@@ -47,7 +47,7 @@ const SubscriptionannualPlans = () => {
   <span className="text-highlight"> (66%)</span>
   <span className="text-black"> a year</span>
 </div>
-<button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button>
+<button className="pay-now-btn" onClick={() => navigate("/ElitePaymentPremiumForm")}>Pay Now</button>
           </div>
           <div class="plan-features">
     <h4 className='plan-featuresh4'>Features:</h4>
@@ -91,7 +91,7 @@ const SubscriptionannualPlans = () => {
 
           <div className="plan-footer">
             Empower your investment journey with the Elite Plan!
-            <div><button className="pay-now-btn" onClick={() => navigate("/localpaymentpremiumForm")}>Pay Now</button></div>
+            <div><button className="pay-now-btn" onClick={() => navigate("/ElitePaymentPremiumForm")}>Pay Now</button></div>
           </div>
         </div>
 

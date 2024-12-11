@@ -19,7 +19,7 @@ const LocalhalfPremiumForm = () => {
     addressLine1: "",
     addressLine2: "",
     postalCode: "",
-    billingCycle: "Annually",
+    billingCycle: "Half-year",
     termsAccepted: false,
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
@@ -85,6 +85,42 @@ const LocalhalfPremiumForm = () => {
     }
   };
 
+  const handlePostalCodeChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, postalCode: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        postalCode: 'Please enter a valid postal code.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { postalCode, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
+  const cardnumber = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, cardNumber: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        cardNumber: 'Please enter a valid card number.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { cardNumber, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
   return (
     <div className="payment-form-container">
       <button className="back-button" onClick={() => navigate(-1)}>
@@ -155,7 +191,7 @@ const LocalhalfPremiumForm = () => {
                   type="text"
                   name="cardNumber"
                   value={formData.cardNumber}
-                  onChange={handleChange}
+                  onChange={cardnumber}
                 />
               </div>
               {errors.cardNumber && <span className="error-message">{errors.cardNumber}</span>}
@@ -254,7 +290,7 @@ const LocalhalfPremiumForm = () => {
                 type="text"
                 name="postalCode"
                 value={formData.postalCode}
-                onChange={handleChange}
+                onChange={handlePostalCodeChange}
               />
               {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
             </div>
@@ -295,6 +331,7 @@ const LocalhalfPremiumForm = () => {
       class="custom-radio"
       name="paymentMethod"
       value="Annually"
+     
       checked={formData.billingCycle === "Annually"}
       onChange={handleBillingCycleChange}
     />
@@ -308,6 +345,7 @@ const LocalhalfPremiumForm = () => {
       class="custom-radio"
       name="paymentMethod"
       value="Half-year"
+     
       checked={formData.billingCycle === "Half-year"}
       onChange={handleBillingCycleChange}
     />

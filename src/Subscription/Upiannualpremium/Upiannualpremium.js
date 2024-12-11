@@ -34,27 +34,7 @@ const UpiPaymentFormpremium = () => {
     const { name, value, type, checked } = e.target;
     setFormData({ ...formData, [name]: type === "checkbox" ? checked : value });
 
-    if (name === "phoneNumber") {
-      if (!/^\d*$/.test(value)) {
-        // Non-numeric characters in phone number
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          phoneNumber: "Phone number must contain digits only.",
-        }));
-      } else if (!phoneRegex.test(value)) {
-        // Phone number is numeric but invalid
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          phoneNumber: "Please enter a valid 10-digit phone number.",
-        }));
-      } else {
-        // Clear error if phone number is valid
-        setErrors((prevErrors) => {
-          const { phoneNumber, ...rest } = prevErrors;
-          return rest;
-        });
-      }
-    }
+    
 
 
     if (name === "email") {
@@ -130,6 +110,7 @@ const UpiPaymentFormpremium = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+ 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -189,7 +170,44 @@ const UpiPaymentFormpremium = () => {
       handlePopupClose();
     }
   };
+  const handlePhoneNumberChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, phoneNumber: numericValue });
 
+    // Validation for phone number (example: should be 10 digits)
+    if (numericValue.length !== 10) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: 'Please enter a valid 10-digit phone number.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { phoneNumber, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
+
+
+  const handlePostalCodeChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, postalCode: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        postalCode: 'Please enter a valid postal code.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { postalCode, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
   return (
     <div className="payment-form-container">
       <button className="back-button">
@@ -278,7 +296,7 @@ const UpiPaymentFormpremium = () => {
                   type="tel" // Changed to 'tel' for better mobile experience
                   name="phoneNumber"
                   value={formData.phoneNumber}
-                  onChange={handleChange}
+                  onChange={handlePhoneNumberChange}
                   placeholder="Enter 10-digit phone number"
                 />
                 <button type="button" className="addpayment" onClick={handleAddClick}>
@@ -349,7 +367,7 @@ const UpiPaymentFormpremium = () => {
                 type="text"
                 name="postalCode"
                 value={formData.postalCode}
-                onChange={handleChange}
+                onChange={handlePostalCodeChange}
                 placeholder="Enter your postal code"
               />
               {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}

@@ -73,6 +73,11 @@ import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanh
 import Mutualfund from "./MutualFund/Mutualfund";
 import Bestsmallcapregular from "./MutualFund/Bestsmallcapregular/Bestsmallcapregular";
 import Bestsmallcapdirect from "./MutualFund/Bestsmallcapdirect/Bestsmallcapdirect";
+import MutualFundsSipCalculator from "./MutualFund/MutualFundsSipCalculator/MutualFundsSipCalculator";
+import RiskoMutualDashboard from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
+import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
+
+
 
 
 
@@ -145,6 +150,12 @@ function App() {
       <Route path="/mutualfundgrowth" element={<Mutualfund/> }/>
       <Route path="/bestsmallcapregular"element={<Bestsmallcapregular/> }/>
       <Route path="/bestsmallcapdirect"element={<Bestsmallcapdirect/> }/>
+      <Route path="/sip"element={<MutualFundsSipCalculator/> }/>
+      <Route path="/risk"element={<RiskoMeter/> }/>
+    
+    
+     
+
 
 
 

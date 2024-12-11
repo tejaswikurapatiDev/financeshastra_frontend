@@ -17,6 +17,7 @@
     font-size: 24px;
     margin: 0;
     color: #333;
+    margin-top: 20px;
   }
   
   .button-container {
@@ -104,7 +105,7 @@
 @media screen and (max-width: 768px) {
     .funds-table-container {
         width: 95%;
-        
+        margin-bottom: 50px;
     }
 
     .funds-header {
@@ -120,7 +121,7 @@
 
     .button-container {
         flex-direction: row;
-        margin-top: 50px;
+        margin-top: 20px;
         margin-right: 0;
     }
 

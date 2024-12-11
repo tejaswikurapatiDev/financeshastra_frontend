@@ -13,6 +13,10 @@ const Navbar = () => {
   const [footerStockDropdownOpen, setFooterStockDropdownOpen] = useState(false);
   const [portfolioDropdownOpen, setPortfolioDropdownOpen] = useState(false);
   const [mutualFundsDropdownOpen, setMutualFundsDropdownOpen] = useState(false);
+  const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] = useState(false);
+  const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] = useState(false);
+const footerPortfolioDropdownRef = useRef(null);
+  const footerMutualFundsDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
@@ -32,9 +36,16 @@ const Navbar = () => {
   };
   const toggleMutualFundsDropdown = () => {
     setMutualFundsDropdownOpen(!mutualFundsDropdownOpen);
+
+  };
+  const toggleFooterMutualFundsDropdown = () => {
+    setFooterMutualFundsDropdownOpen(!footerMutualFundsDropdownOpen);
   };
   const togglePortfolioDropdown = () => {
     setPortfolioDropdownOpen(!portfolioDropdownOpen);
+  };
+  const toggleFooterPortfolioDropdown = () => {
+    setFooterPortfolioDropdownOpen(!footerPortfolioDropdownOpen);
   };
 
   useEffect(() => {
@@ -45,6 +56,9 @@ const Navbar = () => {
       if (mutualFundsDropdownRef.current && !mutualFundsDropdownRef.current.contains(event.target)) {
         setMutualFundsDropdownOpen(false);
       }
+      if (footerMutualFundsDropdownRef.current && !footerMutualFundsDropdownRef.current.contains(event.target)) {
+        setFooterMutualFundsDropdownOpen(false);
+      }
       if (footerStockDropdownRef.current && !footerStockDropdownRef.current.contains(event.target)) {
         setFooterStockDropdownOpen(false);
       }
@@ -53,6 +67,9 @@ const Navbar = () => {
       }
       if (portfolioDropdownRef.current && !portfolioDropdownRef.current.contains(event.target)) {
         setPortfolioDropdownOpen(false);
+      }
+      if (footerPortfolioDropdownRef.current && !footerPortfolioDropdownRef.current.contains(event.target)) {
+        setFooterPortfolioDropdownOpen(false);
       }
     };
 
@@ -68,26 +85,26 @@ const Navbar = () => {
         <ul>
           <li>
              <div className="dropdown-item">
-            <Link to="/stock">Stock Screener</Link>
-            <p>Discover stocks based on various filters and criteria to make informed decisions.</p>
+            <Link to="/stock">Stock Screener
+            <p>Discover stocks based on various filters and criteria to make informed decisions.</p></Link>
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/beststock">Best Stock</Link>
-            <p>Explore the best stocks for investment based on analysis and trends.</p>
+            <Link to="/beststock">Best Stock
+            <p>Explore the best stocks for investment based on analysis and trends.</p></Link>
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/highgrowth">High Growth Stocks</Link>
-            <p>Find stocks that are expected to grow rapidly in the upcoming years.</p>
+            <Link to="/highgrowth">High Growth Stocks
+            <p>Find stocks that are expected to grow rapidly in the upcoming years.</p></Link>
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/niftystock">Nifty 50 Companies</Link>
-            <p>Track the top 50 companies listed on the National Stock Exchange of India.</p>
+            <Link to="/niftystock">Nifty 50 Companies
+            <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>
         </ul>
@@ -96,26 +113,26 @@ const Navbar = () => {
         <ul>
           <li>
           <div className="dropdown-item">
-            <Link to="/nifty">Nifty 100 Companies</Link>
-            <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p>
+            <Link to="/nifty">Nifty 100 Companies
+            <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p></Link>
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/smallcap">Small Cap</Link>
-            <p>Invest in smaller companies with high potential for growth.</p>
+            <Link to="/smallcap">Small Cap
+            <p>Invest in smaller companies with high potential for growth.</p></Link>
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/midcap">Mid Cap</Link>
-            <p>Discover mid-sized companies with a strong growth trajectory.</p> 
+            <Link to="/midcap">Mid Cap
+            <p>Discover mid-sized companies with a strong growth trajectory.</p></Link> 
             </div>
           </li>
           <li>
           <div className="dropdown-item">
-            <Link to="/largecap">Large Cap</Link>
-            <p>Focus on large, established companies with stable returns.</p>
+            <Link to="/largecap">Large Cap
+            <p>Focus on large, established companies with stable returns.</p></Link>
             </div>
           </li>
         </ul>
@@ -126,16 +143,16 @@ const Navbar = () => {
   const renderPortfolioDropdown = () => (
     <div className="dropdown-menu">
       <div className="dropdown-item">
-        <Link to="/portfolio">My Portfolio</Link>
-        <p>Your financial navigator</p>
+        <Link to="/portfolio">My Portfolio
+        <p>Your financial navigator</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/portfolio-risk">Portfolio Risk Analysis</Link>
-        <p>Risk evaluation and insights</p>
+        <Link to="/portfolio-risk">Portfolio Risk Analysis
+        <p>Risk evaluation and insights</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/stockwatchlist">Watchlist</Link>
-        <p>Monitor, assess, and improve</p>
+        <Link to="/stockwatchlist">Watchlist
+        <p>Monitor, assess, and improve</p></Link>
       </div>
     </div>
   );
@@ -148,21 +165,22 @@ const Navbar = () => {
       <ul>
       <li>
       <div className="dropdown-item">
-        <Link to="/mutualfund">Top Rated Funds</Link>
+        <Link to="/mutualfund">Top Rated Funds
         <p>Focus on risk management and long-term growth.</p>
+        </Link>
         </div>
       </li>
     <li>
     <div className="dropdown-item">
-        <Link to="/fund-screener">Fund Screener</Link>
-        <p>Efficient filter and compare investment options.</p>
+        <Link to="/fund-screener">Fund Screener
+        <p>Efficient filter and compare investment options.</p></Link>
         </div>
         </li>
         <li>
         <div className="dropdown-item">
       
-        <Link to="/bestsmallcapregular">Best Small Cap Fund</Link>
-        <p>Strong returns by investing in high-growth opportunities.</p>
+        <Link to="/bestsmallcapregular">Best Small Cap Fund
+        <p>Strong returns by investing in high-growth opportunities.</p></Link>
         </div>
         </li>
         </ul>
@@ -171,20 +189,20 @@ const Navbar = () => {
         <ul>
       <li>
       <div className="dropdown-item">
-        <Link to="/growth-funds">Best Growth Fund</Link>
-        <p>Focus on high-potential growth.</p>
+        <Link to="/growth-funds">Best Growth Fund
+        <p>Focus on high-potential growth.</p></Link>
         </div>
         </li>
       <li>
       <div className="dropdown-item">
-        <Link to="/flex-cap-funds">Best Flex Cap Fund</Link>
-        <p>Invest in companies poised for future and today’s growth.</p>
+        <Link to="/flex-cap-funds">Best Flex Cap Fund
+        <p>Invest in companies poised for future and today’s growth.</p></Link>
         </div>
         </li>
       <li>
       <div className="dropdown-item">
-        <Link to="/etf-funds">Best ETF Fund</Link>
-        <p>Diverse and cost-effective investment strategy.</p>
+        <Link to="/etf-funds">Best ETF Fund
+        <p>Diverse and cost-effective investment strategy.</p></Link>
         </div>
         </li>
         </ul>
@@ -235,7 +253,8 @@ const Navbar = () => {
           <input type="text" placeholder="Search" />
           <FaSearch className="search-icon" />
         </div>
-        <h4 onClick={() => navigate('/pricehalf')} style={{ cursor: 'pointer' }}>
+        
+        <h4  className="subscritebutton" onClick={() => navigate('/pricehalf')} >
             Subscribe
         </h4>
         <div className="navbar-icons">
@@ -258,17 +277,34 @@ const Navbar = () => {
       </nav>
 
       <ul className="footer-nav">
-        <li><a href="/home">Home</a></li>
-        <li className="stock-dropdown" ref={footerStockDropdownRef}>
-          <a onClick={toggleFooterStockDropdown} className="footer-link">
-            Stocks
-            <FaChevronDown className="chevron-icon" />
-          </a>
-          {footerStockDropdownOpen && renderStockDropdown()}
-        </li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#profile">Profile</a></li>
-      </ul>
+  <li><a href="/home">Home</a></li>
+  
+  <li className="stock-dropdown" ref={footerStockDropdownRef}>
+    <a href="#" onClick={toggleFooterStockDropdown} className="footer-link">
+      Stocks
+      <FaChevronDown className="chevron-icon" />
+    </a>
+    {footerStockDropdownOpen && renderStockDropdown()}
+  </li>
+  
+  <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
+  <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+    Mutual Funds
+    <FaChevronDown className="chevron-icon" />
+  </a>
+  {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
+</li>
+  
+<li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
+    <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+      Portfolio Manager
+      <FaChevronDown className="chevron-icon" />
+    </a>
+    {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
+  </li>
+  <li><a href="#profile">Profile</a></li>
+</ul>
+
     </>
   );
 };

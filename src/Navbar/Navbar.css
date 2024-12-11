@@ -16,7 +16,14 @@
   padding: 10px 0;
   display: none; /* Default state: hidden */
 }
+.dropdown-item:hover a {
+  color: white; /* Green for the link */
+}
 
+/* Hover effect for the paragraph */
+.dropdown-item:hover p {
+  color: white; /* Match paragraph text color to link */
+}
 /* Show Dropdown on Hover or Focus */
 .portfolio-dropdown:hover .dropdown-menu,
 .portfolio-dropdown:focus-within .dropdown-menu {
@@ -111,9 +118,7 @@
   transition: color 0.2s ease;
 }
 
-.stockmenu-column ul li:hover {
-  color:white;
-}
+
 
 /* Chevron Icon */
 .chevron-icon {
@@ -280,13 +285,42 @@
   color: white; /* Change dropdown link color on hover */
 }
 
+.subscritebutton {
+  display: inline-block; /* Makes it behave like a button */
+  padding: 10px 20px; /* Adds padding for clickability */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  color: white; /* Text color */
+  border: 1px solid red; /* Border styling */
+  border-radius: 5px; /* Rounded corners */
+  background-color: red; /* Initial background color */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  text-align: center; /* Centers text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-top: 20px; /* Keeps your inline styling margin */
+  box-shadow: 0 4px 6px rgb(148, 6, 6);
+}
 
+.subscritebutton:hover {
+  background-color:red; /* Green background on hover */
+  color: white; /* White text on hover */
+  border-color: red; /* Match border with background */
+  box-shadow: 0 4px 6px rgb(148, 6, 6); /* Adds subtle shadow */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.subscritebutton:active {
+  background-color:red; /* Darker green on click */
+  box-shadow: none; /* Removes shadow when clicked */
+  transform: translateY(0); /* Restores position */
+}
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
   .navbar-logo,
   .navbar-icons,
   .profile-section {
     display: flex;
+   
   }
 
   /* Hide main navbar links in mobile view */
@@ -344,20 +378,25 @@
 
   /* Dropdown menu for user profile */
   .dropdown-menu {
-    position: static; /* Allow dropdown to flow naturally */
-    box-shadow: none; /* Remove shadow for simplicity */
-    width: 100%; /* Use full width */
-    margin-top: 10px; /* Add spacing above */
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    left: 0; /* Align to the left side */
+   
+    height: 200vh;/* Full width on mobile */
+    gap: 10px;
+    transform: translateY(-50%);
   }
 
-  .dropdown-menu li {
-    font-size: 14px; /* Reduce font size */
-    padding: 10px 12px; /* Adjust padding */
-  }
-
+ 
   .dropdown-icon {
     font-size: 20px; /* Adjust icon size */
   }
+  .subscritebutton {
+    padding: 8px 16px; /* Reduce padding */
+    font-size: 14px; /* Slightly smaller font size */
+   width: auto;
+}
 }
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
@@ -391,11 +430,7 @@
   }
 
   /* Dropdown menu adjustments */
-  .dropdown-menu li {
-    font-size: 12px; /* Smaller font size for dropdown */
-    padding: 8px 10px; /* Reduce padding */
-  }
-
+ 
   /* Adjust button and icon sizes */
   .dropdown-icon {
     font-size: 18px; /* Smaller icon size */
@@ -412,4 +447,18 @@
     margin-left: 180px;
       
     }
+    .dropdown-menu{
+      width: 800%;
+      height: 200vh;
+      left: 0;
+      transform: translateY(-30%);
+      gap: 5px;
+    }
+    .subscritebutton {
+      padding: 10px; /* Compact padding */
+      font-size: 13px; /* Smaller font size */
+    
+      box-sizing: border-box; /* Include padding in width */
+      text-align: center; /* Center-align text */
+  }
   }

@@ -21,12 +21,26 @@ const financialData = {
         { title: 'Implied Investor Returns(%)', data: ['24.39', '35.53', '39.34', '-53.83'] },
       ],
   keyFinancialParameters: [
-    { title: 'Motilal Oswal Midcap Fund Direct Growth', data: ['5 ★', '₹18,604.02', '₹500', '0.57%'] },
-    { title: 'HDFC Mid Cap Opportunities Direct Plan Growth', data: ['4 ★', '₹13,495', '₹100', '0.12%'] },
-    { title: 'Nippon India Growth Fund Direct Growth', data: ['4 ★', '₹24,895.71', '₹500', '1.06%'] },
-    { title: 'Quant Mid Cap Fund Direct Growth', data: ['5 ★', '₹7,353.93', '₹500', '0.64%'] },
-    { title: 'Kotak Emerging Equity Fund Direct Growth', data: ['5 ★', '₹258.52', '₹500', '0.61%'] },
-   
+    { 
+      title: "ICICI Pru Technology Fund - Direct Growth", 
+      data: ["5 ★", "₹13,495", "39.90%", "11.65%", "32.23%"] 
+    },
+    { 
+      title: "ICICI Pru Infrastructure Fund - Direct Growth", 
+      data: ["4 ★", "₹6,779", "40.95%", "36.59%", "32.77%"] 
+    },
+    { 
+      title: "LIC MF Infrastructure Fund - Direct Growth", 
+      data: ["4 ★", "₹852", "61.19%", "35.46%", "30.06%"] 
+    },
+    { 
+      title: "Franklin Build India Fund - Direct Growth", 
+      data: ["5 ★", "₹2,825", "40.67%", "32.83%", "30.02%"] 
+    },
+    { 
+      title: "Franklin India Opportunities Fund - Direct Growth", 
+      data: ["5 ★", "₹5,623", "48.07%", "30.52%", "30.07%"] 
+    },
   ]
 };
 
@@ -35,12 +49,11 @@ const Mutualxray = () => (
   <div className="xrayall">
    
      
-    <h1 className='financeheader'>Performance Summary-10-Year X-Ray</h1>
-    <p className='financepara'>Data Standardized for Exceptional Items and Accounting Adjustments</p>
+    
     
     {/* Render each financial table with custom headers */}
     
-    <MutualFinancialTable title="" data={financialData.growthParameters} className="keyfinancetable"/>
+    <MutualFinancialTable title="Performance Summary-10-Year X-Ray" data={financialData.growthParameters} className="keyfinancetable"/>
     <div style={{ width: '70%', margin: '0', paddingLeft: '10px' }}>
     <MutualFinancialTable
   title="CAGR" 
@@ -51,8 +64,8 @@ const Mutualxray = () => (
   style={{ width: '10%', margin: '0 auto' }} 
 />
 </div>
-    <MutualFinancialTable title="" data={financialData.keyFinancialParameters} 
-  headers={['Rating', 'AUM(cr)', 'SIP Amount', 'EXP.Ratio']}  className="keyfinancetable"  />
+    <MutualFinancialTable title="Peer Comparison" data={financialData.keyFinancialParameters} 
+  headers={['Rating', 'AUM(cr)', '1Y', '3Y','5Y']}  className="keyfinancetable"  />
   </div>
   
 );

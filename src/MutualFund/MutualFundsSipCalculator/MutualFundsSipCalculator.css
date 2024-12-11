@@ -1,0 +1,92 @@
+.sip-calculator-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    font-family: 'calibri';
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sip-calculator-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .sip-calculator-button {
+    background-color: #ffffff;
+    border: 1px solid #24b676;
+    color: #24b676;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .sip-selected {
+    background-color: #24b676;
+    color: #ffffff;
+  }
+  
+  .sip-input-container {
+    margin-bottom: 20px;
+  }
+  
+  .sip-input-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .sip-slider {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .sip-result-container {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .sip-result-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .sip-start-button {
+    background-color: #24b676;
+    color: #ffffff;
+    width: 50%; /* Keep this as it is */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center; /* Center text inside the button */
+  }
+  .sip-start-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Optional spacing */
+  }
+  .sip-start-button:hover {
+    background-color: #45a049;
+  }
+  .sip-calculator-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #333;
+  }
+  

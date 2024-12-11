@@ -1,0 +1,40 @@
+/* Container styling */
+.mtufund-details-container {
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 20px; /* Keeps some spacing from the top */
+  font-family: 'Calibri';
+  float: left; /* Aligns the container to the left */
+ 
+}
+
+/* Section titles */
+.mtufund-section-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10px;
+  
+}
+
+/* Section content styling */
+.mtufund-section-content {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+/* Fund Manager specific styling */
+.mtufund-manager-name {
+  font-weight: bold;
+  font-size: 20px;
+  color: #333333;
+  text-align: left;
+}

@@ -83,7 +83,42 @@ const ElitePaymentPremiumForm = () => {
       navigate("/elitePaymenthalfForm");
     }
   };
-
+  const handlePostalCodeChange = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, postalCode: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        postalCode: 'Please enter a valid postal code.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { postalCode, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
+  const cardnumber = (e) => {
+    const { value } = e.target;
+    const numericValue = value.replace(/[^0-9]/g, ''); // Allow only numbers
+    setFormData({ ...formData, cardNumber: numericValue });
+  
+    // Validate postal code if needed (e.g., check length)
+    if (numericValue.length < 6) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        cardNumber: 'Please enter a valid card number.',
+      }));
+    } else {
+      setErrors((prevErrors) => {
+        const { cardNumber, ...rest } = prevErrors;
+        return rest;
+      });
+    }
+  };
 
   return (
     <div className="payment-form-container">
@@ -156,7 +191,7 @@ const ElitePaymentPremiumForm = () => {
                   type="text"
                   name="cardNumber"
                   value={formData.cardNumber}
-                  onChange={handleChange}
+                  onChange={cardnumber}
                 />
               </div>
               {errors.cardNumber && <span className="error-message">{errors.cardNumber}</span>}
@@ -255,7 +290,7 @@ const ElitePaymentPremiumForm = () => {
                 type="text"
                 name="postalCode"
                 value={formData.postalCode}
-                onChange={handleChange}
+                onChange={handlePostalCodeChange}
               />
               {errors.postalCode && <span className="error-message">{errors.postalCode}</span>}
             </div>
