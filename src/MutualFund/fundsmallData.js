@@ -1,5 +1,14 @@
 export const fundsmallData = [
     {
+        name: "ICICI Prudential Technology Fund - Growth",
+        url: "/mutualfundgrowth",
+        nav: "₹216.14",
+        aum: "₹13,495 Cr",
+        sip: "₹100",
+        expRatio: "0.12%",
+        returns: { "1Y": "37.39%", "3Y": "8.89%", "5Y": "28.78%" },
+    },
+    {
         name: "Motilal Oswal Midcap Fund",
         nav: "₹210.60",
         aum: "₹18,604.02 Cr",
@@ -7,14 +16,7 @@ export const fundsmallData = [
         expRatio: "0.57%",
         returns: { "1Y": "26.96%", "3Y": "36.87%", "5Y": "34.85%" },
     },
-    {
-        name: "ICICI Prudential Technology Fund - Growth",
-        nav: "₹216.14",
-        aum: "₹13,495 Cr",
-        sip: "₹100",
-        expRatio: "0.12%",
-        returns: { "1Y": "37.39%", "3Y": "8.89%", "5Y": "28.78%" },
-    },
+   
     {
         name: "Mirae Asset Emerging Bluechip Fund",
         nav: "₹111.24",

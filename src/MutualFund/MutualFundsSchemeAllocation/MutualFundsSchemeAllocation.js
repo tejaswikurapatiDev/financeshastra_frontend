@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./MutualFundsSchemeAllocation.css";
 
 const MutualFundsSchemeAllocation = () => {
-  const [activeTab, setActiveTab] = useState("By Sector");
+  const [activeTab, setActiveTab] = useState("By Holdings");
 
   // Data for "By Holdings"
   const holdingsData = [

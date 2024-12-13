@@ -2,7 +2,12 @@
 .portfolio-dropdown {
   position: relative; /* Makes the dropdown position relative to this element */
 }
-
+a span {
+  text-decoration: none; /* This will remove the underline from the span inside the link */
+}
+.willamname{
+  margin-bottom: 50px;
+}
 /* Dropdown Menu Styling */
 .dropdown-menu {
   position: absolute; /* Position relative to the parent */
@@ -86,12 +91,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
   top: 100%; /* Position it just below the menu */
-  left: 50%; /* Align it relative to the "Stocks" button */
+  /* Align it relative to the "Stocks" button */
   transform: translateX(-50%); /* Center align */
   z-index: 10;
   padding: 15px;
   width: 550px; /* Adjust dropdown width */
   gap: 20px;
+
  
 }
 .stockmenu::before {
@@ -169,8 +175,8 @@
   border-radius: 15px;
   border: 1px solid #cccccc;
   font-size: 14px;
-  width: 300px; /* Adjust as needed */
-  height: 23px;
+  width: 230px; /* Adjust as needed */
+  height: 30px;
 }
 
 /* Search icon */
@@ -190,12 +196,15 @@
   gap: 20px;
 }
 
-.icon {
-  font-size: 24px;
+.iconuser-icon {
+  font-size: 18px;
   color: black;
   cursor: pointer;
-}
 
+}
+.profile-section span {
+  text-decoration: none;
+}
 .profile-section {
   display: flex;
   align-items: center;
@@ -221,6 +230,21 @@
   z-index: 1000; /* Ensure dropdown appears above other elements */
   min-width: 160px; /* Set a minimum width for the dropdown */
 }
+.user-menu{
+  position: absolute; /* Position the dropdown below the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 160px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
 
 /* Dropdown items */
 .dropdown-menu li {
@@ -228,6 +252,9 @@
   align-items: center;
   padding: 12px 16px; /* Increased spacing for dropdown items */
   font-size: 16px; /* Increase font size for better readability */
+}
+.profile-section li{
+  list-style-type: none;
 }
 
 .dropdown-menu li:hover {
@@ -284,7 +311,6 @@
 .dropdown-item a:hover {
   color: white; /* Change dropdown link color on hover */
 }
-
 .subscritebutton {
   display: inline-block; /* Makes it behave like a button */
   padding: 10px 20px; /* Adds padding for clickability */
@@ -293,36 +319,39 @@
   color: white; /* Text color */
   border: 1px solid red; /* Border styling */
   border-radius: 5px; /* Rounded corners */
-  background-color: red; /* Initial background color */
+  background: linear-gradient(90deg, rgb(212, 55, 55), red); /* Gradient background */
   cursor: pointer; /* Pointer cursor for interactivity */
   text-align: center; /* Centers text */
   transition: all 0.3s ease; /* Smooth transition for hover effects */
-  margin-top: 20px; /* Keeps your inline styling margin */
-  box-shadow: 0 4px 6px rgb(148, 6, 6);
+  margin-top: 20px; /* Keeps margin for spacing */
+  box-shadow: 0 4px 6px rgba(36, 182, 118, 0.6); /* Adds subtle shadow */
 }
 
 .subscritebutton:hover {
-  background-color:red; /* Green background on hover */
-  color: white; /* White text on hover */
-  border-color: red; /* Match border with background */
-  box-shadow: 0 4px 6px rgb(148, 6, 6); /* Adds subtle shadow */
+  background: linear-gradient(90deg,  red,rgb(208, 11, 11)); /* Gradient background */
+  color: white; /* Ensures white text on hover */
+  border-color:  red; /* Matches border with gradient color */
+  box-shadow: 0 4px 6px  rgb(111, 5, 5); /* Adds hover shadow effect */
   transform: translateY(-2px); /* Slight lift on hover */
 }
-
 .subscritebutton:active {
-  background-color:red; /* Darker green on click */
+  background: red; /* Darker green on click */
   box-shadow: none; /* Removes shadow when clicked */
   transform: translateY(0); /* Restores position */
 }
+
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
   .navbar-logo,
   .navbar-icons,
   .profile-section {
     display: flex;
-   
   }
-
+  .subscritebutton {
+    padding: 8px 16px; /* Reduce padding */
+    font-size: 14px; /* Slightly smaller font size */
+   width: auto;
+}
   /* Hide main navbar links in mobile view */
   .navbar-links {
     display: none;
@@ -392,11 +421,6 @@
   .dropdown-icon {
     font-size: 20px; /* Adjust icon size */
   }
-  .subscritebutton {
-    padding: 8px 16px; /* Reduce padding */
-    font-size: 14px; /* Slightly smaller font size */
-   width: auto;
-}
 }
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
@@ -404,6 +428,13 @@
   .logo-image {
     width: 150px; /* Reduce logo size */
   }
+  .subscritebutton {
+    padding: 10px; /* Compact padding */
+    font-size: 13px; /* Smaller font size */
+  
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center; /* Center-align text */
+}
 
   /* Adjust navbar logo size */
   .navbar-logo {
@@ -454,11 +485,4 @@
       transform: translateY(-30%);
       gap: 5px;
     }
-    .subscritebutton {
-      padding: 10px; /* Compact padding */
-      font-size: 13px; /* Smaller font size */
-    
-      box-sizing: border-box; /* Include padding in width */
-      text-align: center; /* Center-align text */
-  }
   }

@@ -70,7 +70,7 @@
   .deal-plan-description {
     position: absolute;
    
-   margin-right: 90px;
+   margin-right: 85px;
     background: linear-gradient(90deg, #24b676, #238486);
     color: white;
     font-weight: bold;
@@ -84,7 +84,7 @@
   
   .deal-explore-button {
     display: inline-block;
-    width: 90%;
+    width: 60%;
     padding: 10px;
     font-size: 16px;
     font-weight: bold;

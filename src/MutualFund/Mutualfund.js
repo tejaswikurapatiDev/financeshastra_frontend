@@ -6,6 +6,8 @@ import MutualFundsSipCalculator from './MutualFundsSipCalculator/MutualFundsSipC
 import MutualkeyIndicators from './MutualkeyIndicators/MutualkeyIndicators';
 import MutualFundsSchemeAllocation from './MutualFundsSchemeAllocation/MutualFundsSchemeAllocation';
 import MtuFundDetails from './MtuFundDetails/MtuFundDetails';
+import FundContactInfo from './FundContactInfo/FundContactInfo';
+import RiskOMeter from './RiskoMutualDashboard/RiskoMutualDashboard';
 
 function Mutualfund() {
   const [financialData, setFinancialData] = useState({
@@ -79,7 +81,10 @@ function Mutualfund() {
       <Mutualxray />
       <MutualFundsSchemeAllocation/>
       <MtuFundDetails/>
+      <RiskOMeter/>
+      <FundContactInfo/>
     </div>
+     
   );
 }
 

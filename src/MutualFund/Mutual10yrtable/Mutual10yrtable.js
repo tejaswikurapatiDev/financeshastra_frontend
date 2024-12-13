@@ -1,8 +1,6 @@
 import React from 'react';
-
 import Navbar from '../../Navbar/Navbar';
-
-// Irregular SVG Line
+import './Mutual10yrtable';
 
 const MutualFinancialTable = ({ title, data, headers }) => (
   <div className="financial-table">
@@ -26,24 +24,22 @@ const MutualFinancialTable = ({ title, data, headers }) => (
             <td className="row-title">{row.title}</td>
 
             {/* Graph Column */}
-            <td className="graph-cell">
-             
-            </td>
+            <td className="graph-cell"></td>
 
             {/* Data Columns */}
             {row.data.map((value, index) => {
-              // Determine the class based on the value
-              let cellClass = '';
-              if (value === 'NA' || parseFloat(value) === 0) {
-                cellClass = 'neutral'; // Black color for 'NA' or 0
-              } else if (parseFloat(value) < 0) {
-                cellClass = 'negative'; // Red color for negative values
-              } else {
-                cellClass = 'positive'; // Green color for positive values
-              }
+              // Determine the style based on whether the value contains '%' or is negative
+              const isPercentage = value.includes('%'); // Check for percentage
+              const isNegative = value.startsWith('-'); // Check for negative value
+              const textColor = isNegative ? 'red' : isPercentage ? 'green' : 'black'; // Set color dynamically
 
               return (
-                <td key={index} className={cellClass}>
+                <td
+                  key={index}
+                  style={{
+                    color: textColor, // Apply the determined color
+                  }}
+                >
                   {value}
                 </td>
               );

@@ -1,12 +1,32 @@
 import React, { useState } from "react";
 import "./StockList.css";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-import stocks from "../stockData"; // Ensure stock data is correctly imported
+import stocks from "../stockData"; // Ensure stock data is imported correctly
 import Navbar from "../Navbar/Navbar";
 
 function Stocktable() {
-  const [visibleStocks, setVisibleStocks] = useState();
-  const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
+
+  // Function to sort stocks based on current sort configuration
+  const sortedStocks = () => {
+    if (!sortConfig.key) return stocks;
+
+    const sorted = [...stocks];
+    sorted.sort((a, b) => {
+      const aValue = parseFloat(a[sortConfig.key]) || a[sortConfig.key];
+      const bValue = parseFloat(b[sortConfig.key]) || b[sortConfig.key];
+
+      if (typeof aValue === "string" && typeof bValue === "string") {
+        return sortConfig.direction === "asc"
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
+      }
+
+      return sortConfig.direction === "asc" ? aValue - bValue : bValue - aValue;
+    });
+
+    return sorted;
+  };
 
   const handleSort = (key) => {
     setSortConfig((prev) => ({
@@ -15,50 +35,25 @@ function Stocktable() {
     }));
   };
 
-  const getSortedStocks = () => {
-    if (!sortConfig.key) return stocks;
+  const renderSortIcons = (key) => {
+    const isActive = sortConfig.key === key;
+    const isAscending = isActive && sortConfig.direction === "asc";
+    const isDescending = isActive && sortConfig.direction === "desc";
 
-    const sortedStocks = [...stocks];
-    sortedStocks.sort((a, b) => {
-      let valA = a[sortConfig.key];
-      let valB = b[sortConfig.key];
-
-      if (sortConfig.key === "highLow") {
-        const [highA, lowA] = valA.split("/").map(parseFloat);
-        const [highB, lowB] = valB.split("/").map(parseFloat);
-
-        valA = sortConfig.subKey === "high" ? highA : lowA;
-        valB = sortConfig.subKey === "high" ? highB : lowB;
-      } else {
-        valA = parseFloat(valA);
-        valB = parseFloat(valB);
-      }
-
-      if (isNaN(valA) || isNaN(valB)) return 0;
-
-      return sortConfig.direction === "asc" ? valA - valB : valB - valA;
-    });
-
-    return sortedStocks;
+    return (
+      <span className="sort-icons">
+        <FaCaretUp className={isAscending ? "active" : "inactive"} />
+        <FaCaretDown className={isDescending ? "active" : "inactive"} />
+      </span>
+    );
   };
 
-  const filteredStocks = getSortedStocks(); // Add filters if required
-
-  const showMoreStocks = () => {
-    setVisibleStocks((prev) => prev + 5);
-  };
-
-  const renderCaretIcons = (key) => (
-    <div className="caret-icons">
-      <FaCaretUp className={sortConfig.key === key && sortConfig.direction === "asc" ? "active" : ""} />
-      <FaCaretDown className={sortConfig.key === key && sortConfig.direction === "desc" ? "active" : ""} />
-    </div>
-  );
+  const filteredStocks = sortedStocks();
 
   return (
     <div className="stock-table-container">
       <Navbar />
-      <div className="header">
+      <div className="headerstocklist">
         <h2>List of Stocks</h2>
       </div>
 
@@ -66,101 +61,116 @@ function Stocktable() {
         <thead>
           <tr>
             <th>Company</th>
-            <th onClick={() => handleSort("ltp")}><div className="header-title-updown">
-              LTP (₹)
-              {renderCaretIcons("ltp")}
+            <th onClick={() => handleSort("ltp")}>
+              <div className="header-title-updown">
+                LTP (₹)
+                {renderSortIcons("ltp")}
               </div>
             </th>
-            <th onClick={() => handleSort("change")}><div className="header-title-updown">
-              Price Change %
-              {renderCaretIcons("change")}
+            <th onClick={() => handleSort("change")}>
+              <div className="header-title-updown">
+                Price Change %
+                {renderSortIcons("change")}
               </div>
             </th>
-            <th onClick={() => handleSort("marketCap")}><div className="header-title-updown">
-              Market Cap (Cr)
-              {renderCaretIcons("marketCap")}
+            <th onClick={() => handleSort("marketCap")}>
+              <div className="header-title-updown">
+                Market Cap (Cr)
+                {renderSortIcons("marketCap")}
               </div>
             </th>
-            <th onClick={() => handleSort("highLow")}><div className="header-title-updown">
-              52W High (₹)
-              {renderCaretIcons("highLow")}
+            <th onClick={() => handleSort("highLow")}>
+              <div className="header-title-updown">
+                52W High (₹)
+                {renderSortIcons("highLow")}
               </div>
             </th>
-            <th onClick={() => handleSort("highLow")}><div className="header-title-updown">
-              52W Low (₹)
-              {renderCaretIcons("highLow")}
+            <th onClick={() => handleSort("highLow")}>
+              <div className="header-title-updown">
+                52W Low (₹)
+                {renderSortIcons("highLow")}
               </div>
             </th>
-            <th onClick={() => handleSort("roe")}><div className="header-title-updown">
-              ROE
-              {renderCaretIcons("roe")}
+            <th onClick={() => handleSort("roe")}>
+              <div className="header-title-updown">
+                ROE
+                {renderSortIcons("roe")}
               </div>
             </th>
-            <th onClick={() => handleSort("pe")}><div className="header-title-updown">
-              P/E
-              {renderCaretIcons("pe")}
+            <th onClick={() => handleSort("pe")}>
+              <div className="header-title-updown">
+                P/E
+                {renderSortIcons("pe")}
               </div>
             </th>
-            <th onClick={() => handleSort("pbv")}><div className="header-title-updown">
-              P/BV
-              {renderCaretIcons("pbv")}
+            <th onClick={() => handleSort("pbv")}>
+              <div className="header-title-updown">
+                P/BV
+                {renderSortIcons("pbv")}
               </div>
             </th>
-            <th onClick={() => handleSort("fiveYSalesGrowth")}><div className="header-title-updown">
-              5Y Sales Growth
-              {renderCaretIcons("fiveYSalesGrowth")}
+            <th onClick={() => handleSort("fiveYSalesGrowth")}>
+              <div className="header-title-updown">
+                5Y Sales Growth
+                {renderSortIcons("fiveYSalesGrowth")}
               </div>
             </th>
-            <th onClick={() => handleSort("fiveYProfitGrowth")}><div className="header-title-updown">
-              5Y Profit Growth
-              {renderCaretIcons("fiveYProfitGrowth")}
+            <th onClick={() => handleSort("fiveYProfitGrowth")}>
+              <div className="header-title-updown">
+                5Y Profit Growth
+                {renderSortIcons("fiveYProfitGrowth")}
               </div>
             </th>
             <th>Clarification</th>
           </tr>
         </thead>
         <tbody>
-  {filteredStocks.slice(0, visibleStocks).map((stock, idx) => (
-    <tr key={idx}>
-      <td>
-        {stock.clarification?.url ? (
-          <a href={stock.clarification.url} target="_blank" rel="noopener noreferrer">
-            {stock.company}
-          </a>
-        ) : (
-          stock.company
-        )}
-      </td>
-      <td>{stock.ltp}</td>
-      <td className={parseFloat(stock.change) > 0 ? "positive" : "negative"}>{stock.change}%</td>
-      <td>{stock.marketCap}</td>
-      <td>{stock.highLow.split("/")[0]}</td>
-      <td>{stock.highLow.split("/")[1]}</td>
-      <td>{stock.roe}</td>
-      <td>{stock.pe}</td>
-      <td>{stock.pbv}</td>
-      <td>{stock.fiveYSalesGrowth}</td>
-      <td>{stock.fiveYProfitGrowth}</td>
-      <td>
-        {stock.clarification?.url ? (
-          <a href={stock.clarification.url} target="_blank" rel="noopener noreferrer">
-            Know More
-          </a>
-        ) : (
-          "N/A"
-        )}
-      </td>
-    </tr>
-  ))}
-</tbody>
-
+          {filteredStocks.map((stock, idx) => (
+            <tr key={idx}>
+              <td>
+                {stock.clarification?.url ? (
+                  <a
+                    href={stock.clarification.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {stock.company}
+                  </a>
+                ) : (
+                  stock.company
+                )}
+              </td>
+              <td>{stock.ltp}</td>
+              <td
+                className={parseFloat(stock.change) > 0 ? "positive" : "negative"}
+              >
+                {stock.change}%
+              </td>
+              <td>{stock.marketCap}</td>
+              <td>{stock.highLow.split("/")[0]}</td>
+              <td>{stock.highLow.split("/")[1]}</td>
+              <td>{stock.roe}</td>
+              <td>{stock.pe}</td>
+              <td>{stock.pbv}</td>
+              <td>{stock.fiveYSalesGrowth}</td>
+              <td>{stock.fiveYProfitGrowth}</td>
+              <td>
+                {stock.clarification?.url ? (
+                  <a
+                    href={stock.clarification.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Know More
+                  </a>
+                ) : (
+                  "N/A"
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
-
-      {visibleStocks < filteredStocks.length && (
-        <div className="show-more-button">
-          <button onClick={showMoreStocks}>Show More</button>
-        </div>
-      )}
     </div>
   );
 }

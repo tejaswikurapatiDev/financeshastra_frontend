@@ -23,6 +23,7 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
   
  
 }
@@ -82,12 +83,13 @@
 
 .networth-summary h2 {
   margin: 10px 0 0;
-  font-size: 24px;
+  font-size: 17px;
   font-weight: bold;
 }
 
 .networth-positive {
   color: #24b676;
+  
 }
 
 .networth-negative {

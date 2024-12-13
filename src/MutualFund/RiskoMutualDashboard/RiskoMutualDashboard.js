@@ -1,40 +1,87 @@
 import React from "react";
-import "./RiskoMutualDashboard.css";
+import './RiskoMutualDashboard.css'// Import the associated CSS file
 
-const RiskoMeter = () => {
-  return (
-    <div className="circle-divider-container">
-      <h3>Risk-o-meter</h3>
-      <svg
-        className="circle-divider"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        {/* Outer Circle */}
-        <circle cx="50" cy="50" r="40" fill="none" stroke="#333" strokeWidth="1" />
 
-        {/* Labels positioned around the circle */}
-        <text x="50" y="50" fill="red" fontSize="10" textAnchor="middle">
-          Low
-        </text>
-        <text x="80" y="35" fill="#333" fontSize="4" textAnchor="middle">
-          Low-Moderate
-        </text>
-        <text x="85" y="65" fill="#333" fontSize="4" textAnchor="middle">
-          Moderate
-        </text>
-        <text x="70" y="85" fill="#333" fontSize="4" textAnchor="middle">
-          Moderate-High
-        </text>
-        <text x="30" y="85" fill="#333" fontSize="4" textAnchor="middle">
-          High
-        </text>
-        <text x="15" y="65" fill="#333" fontSize="4" textAnchor="middle">
-          Very High
-        </text>
-      </svg>
-    </div>
-  );
-};
+    const RiskOMeter = () => {
+        const riskLevels = [
+          { label: "Low", color: "#0045ad" },
+          { label: "Low to moderate", color: "#013567" },
+          { label: "Moderate", color: "#f5a623" },
+          { label: "Moderate High", color: "#41c08e" },
+          { label: "High", color: "#2c898e" },
+          { label: "Very High", color: "#d12b29" },
+        ];
+      
+        const createArcPath = (startAngle, endAngle, radius, cx, cy) => {
+          const start = {
+            x: cx + radius * Math.cos(startAngle),
+            y: cy + radius * Math.sin(startAngle),
+          };
+      
+          const end = {
+            x: cx + radius * Math.cos(endAngle),
+            y: cy + radius * Math.sin(endAngle),
+          };
+      
+          const largeArcFlag = endAngle - startAngle <= Math.PI ? "0" : "1";
+      
+          return `M ${start.x} ${start.y} A ${radius} ${radius} 0 ${largeArcFlag} 1 ${end.x} ${end.y}`;
 
-export default RiskoMeter;
+        };
+      
+        const cx = 300; // Increased Center X
+        const cy = 300; // Increased Center Y
+        const radius = 200; // Increased Radius
+        const startAngle = Math.PI; // Start angle for left arc
+        const anglePerSegment = Math.PI / riskLevels.length; // Half-circle divided into segments
+      
+        return (
+            <div>
+            <h3 className="riskometer-title">Risk-o-meter</h3>
+          <div className="riskometer">
+          
+            <svg width="600" height="350"> {/* Increased SVG width and height */}
+              {/* Create Arc Segments */}
+              {riskLevels.map((risk, index) => {
+                const start = startAngle + index * anglePerSegment;
+                const end = start + anglePerSegment;
+      
+                return (
+                  <path
+                    key={index}
+                    d={createArcPath(start, end, radius, cx, cy)}
+                    fill="none"
+                    stroke={risk.color}
+                    strokeWidth="25" // Slightly thicker stroke width for larger size
+                  />
+                );
+              })}
+      
+              {/* Add Labels */}
+              {riskLevels.map((risk, index) => {
+                const angle = startAngle + index * anglePerSegment + anglePerSegment / 2;
+                const labelRadius = radius + 50; // Add spacing outside the arc
+                const labelX = cx + labelRadius * Math.cos(angle);
+                const labelY = cy + labelRadius * Math.sin(angle);
+      
+                return (
+                  <text
+                    key={index}
+                    x={labelX}
+                    y={labelY}
+                    fill="#000"
+                    fontSize="14" // Slightly larger font size
+                    textAnchor="middle"
+                    alignmentBaseline="middle"
+                  >
+                    {risk.label}
+                  </text>
+                );
+              })}
+            </svg>
+          </div>
+          </div>
+        );
+      };
+      
+      export default RiskOMeter;

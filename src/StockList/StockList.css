@@ -8,14 +8,14 @@
 }
 
 /* Header styling */
-.header {
+.headerstocklist {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
-.header h2 {
+.headerstocklist h2 {
   font-size: 30px; /* Default font size for larger screens */
   text-align: left;
   flex: 1;

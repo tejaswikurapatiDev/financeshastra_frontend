@@ -9,13 +9,13 @@ const PortfolioAnalytics = () => {
 
     // Sample data for different time ranges
     const chartDataByRange = {
-        '1D': [8000, 8500, 9000, 9500, 8700, 9200],
-        '5D': [8900, 8700, 8600, 8800, 9000, 9100],
-        '1M': [8500, 8700, 8900, 9100, 9200, 9400],
-        '6M': [8000, 8200, 8500, 8700, 8800, 8900],
-        '1Y': [7500, 7800, 8000, 8500, 8700, 9200],
-        '5Y': [7000, 7500, 8000, 8500, 9000, 9500],
-        Max: [5000, 5500, 6000, 7000, 8000, 9200],
+        '1D': [2000, 4000, 6000, 8000, 10000, 12000],
+        '5D': [3000, 4000,6000, 8000, 10000, 12000],
+        '1M': [ 4000, 6000, 8000, 10000, 12000,2000],
+        '6M': [8000,2000, 4000, 6000,  10000, 12000 ],
+        '1Y': [9500,8000,2000, 4000, 6000,   12000 ],
+        '5Y': [10000,8000, 6000, 3900, 4000,  12000],
+        Max: [11000,8000, 6000, 6000, 5000,  12000],
     };
 
     const chartData = {
@@ -40,17 +40,18 @@ const PortfolioAnalytics = () => {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    callback: (value) => `$${value}`, // Use a single $ for string interpolation.
+                    callback: (value) => `$${value}`, // Corrected string template for currency formatting
                 },
             },
         },
         plugins: {
             legend: {
-                display: false, // Hides the legend.
+                display: false, // Hides the legend
             },
         },
     };
     
+
     return (
         <div className="portfolio-container">
             <h2 className="portfolio-welcome">Welcome back, William</h2>
@@ -60,6 +61,7 @@ const PortfolioAnalytics = () => {
                 <h3 className="portfolio-title">Portfolio Analytics</h3>
 
                 {/* Time Range Selector */}
+             
                 <div className="time-range-selector">
                     {['1D', '5D', '1M', '6M', '1Y', '5Y', 'Max'].map((range) => (
                         <button
@@ -71,14 +73,15 @@ const PortfolioAnalytics = () => {
                             {range}
                         </button>
                     ))}
+                
                 </div>
-
                 {/* Line Chart */}
-                <div className="chart-container">
+                <div className="chartportfolio-container">
                     <Line data={chartData} options={chartOptions} />
                 </div>
             </div>
         </div>
+        
     );
 };
 

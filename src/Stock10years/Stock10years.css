@@ -61,10 +61,7 @@ width: 100%;
 }
 
 /* Positive and Negative Value Styling */
-.positive {
-  color: green;
-  font-weight: bold;
-}
+
 
 .negative {
   color: red;

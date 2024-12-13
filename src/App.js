@@ -74,8 +74,10 @@ import Mutualfund from "./MutualFund/Mutualfund";
 import Bestsmallcapregular from "./MutualFund/Bestsmallcapregular/Bestsmallcapregular";
 import Bestsmallcapdirect from "./MutualFund/Bestsmallcapdirect/Bestsmallcapdirect";
 import MutualFundsSipCalculator from "./MutualFund/MutualFundsSipCalculator/MutualFundsSipCalculator";
-import RiskoMutualDashboard from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
+
 import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
+import Flexregular from "./MutualFund/fundDataregularflex/fundDataregularflex";
+import Flexdirect from "./MutualFund/Flexdirect/Flexdirect";
 
 
 
@@ -152,6 +154,8 @@ function App() {
       <Route path="/bestsmallcapdirect"element={<Bestsmallcapdirect/> }/>
       <Route path="/sip"element={<MutualFundsSipCalculator/> }/>
       <Route path="/risk"element={<RiskoMeter/> }/>
+      <Route path="/flexregular"element={<Flexregular/> }/>
+      <Route path="/flexdirect"element={<Flexdirect/> }/>
     
     
      

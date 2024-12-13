@@ -21,18 +21,18 @@
   .plans-wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 50px;
    
   }
   
   .plan-card {
     width: 58%;
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #24b676;
     position: relative;
 
     /* Gradient border using border-image */
-    border: 8px solid transparent; /* Set the border size */
+    border: 2px solid transparent; /* Set the border size */
     border-image: linear-gradient(90deg, #24b676, #238486) 1; /* Apply gradient to border */
     
     
@@ -96,15 +96,16 @@
   .ribbon {
     position: absolute;
    
-    left: -10px;
+   
+    left: 60px;
     background: linear-gradient(90deg, #24b676, #238486);
     color: white;
     font-weight: bold;
-    font-size: 19px;
+    font-size: 17px;
     padding: 10px 20px;
     border-radius: 0 40px 0px 0;
     transform-origin: top left;
-    width: 320px;
+    width: 240px;
     text-align: center;
   }
   
@@ -133,7 +134,7 @@
   
   .pay-now-btn {
     display: inline-block;
-    width: 80%;
+    width: 50%;
     padding: 10px;
     font-size: 16px;
     font-weight: bold;
@@ -148,6 +149,24 @@
     color: white;
     background: linear-gradient(90deg,#238486,#24b676); 
   }
+  .pay-now-btnfooter{
+    display: inline-block;
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(90deg, #24b676, #238486);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 70px;
+  }
+  .pay-now-btnfooter:hover{
+    color: white;
+    background: linear-gradient(90deg,#238486,#24b676);
+  }
   .plan-featuresli{
     color: #24b676;
   }
@@ -158,7 +177,7 @@
     padding: 10px;
     
     color: #24b676;
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 20px;
     font-weight: bold;
   }

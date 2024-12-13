@@ -6,11 +6,11 @@
     border: 1px solid #ccc; /* Optional: add a border for better visibility */
     border-radius: 5px; /* Optional: round corners */
     background-color: #f9f9f9; /* Optional: background color */
-    margin: 90px auto; /* Center the container with auto margins */
+    margin: 100px auto; /* Center the container with auto margins */
     width: 40%; /* Set the width to 80% of the parent container */
     max-width: 600px; /* Limit maximum width */
-   margin-left: 380px;
-   font-family: Calibri, Arial, sans-serif;
+
+   font-family: 'Calibri';
 }
 
 
@@ -29,7 +29,7 @@
 }
 
 .investment-amount {
-    font-size: 24px; /* Larger font size for the amount */
+    font-size: 14px; /* Larger font size for the amount */
     color: #000; /* Black color for the amount */
 }
 
@@ -49,9 +49,7 @@
         flex-direction: column; /* Stack elements vertically */
         margin: 40px auto; /* Adjust margin for smaller screens */
         width: 80%; /* Increase width for better readability */
-        margin-left: 50px; /* Center horizontally */
-        margin-bottom: 100px;
-
+        margin-left: 0; /* Center horizontally */
     }
 
     .investment-details {

@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import './Mutualgraphtop.css';
-import MutualkeyIndicators from '../MutualkeyIndicators/MutualkeyIndicators';
+
 
 const Mutualgraphtop = () => {
     // State for selected time range and chart data
@@ -17,8 +17,8 @@ const Mutualgraphtop = () => {
       useEffect(() => {
         const interval = setInterval(() => {
           // Simulate new data
-          const newPrice = (Math.random() * 100 + 100).toFixed(2);
-          const newPercentage = ((Math.random() * 2 - 1) * 1.5).toFixed(2); // Random between -1.5% and +1.5%
+          const newPrice = (Math.random() * 100 + 100).toFixed(2); // Random price between 100 and 200
+          const newPercentage = ((Math.random() * 2 - 1) * 1.5).toFixed(2); // Random percentage between -1.5% and +1.5%
           const now = new Date();
           const newLastUpdated = now.toLocaleString("en-IN", {
             day: "2-digit",
@@ -27,26 +27,27 @@ const Mutualgraphtop = () => {
             hour: "2-digit",
             minute: "2-digit",
           });
-    
+      
+          // Update state with new financial data
           setFinancialData({
-            price: `₹${newPrice}`, // Template literal with currency symbol
-            percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Add "+" for positive values
-            lastUpdated: newLastUpdated, // Update the timestamp
+            price: `₹${newPrice}`, // Corrected interpolation for price
+            percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Corrected interpolation for percentage
+            lastUpdated: newLastUpdated, // Use formatted date string
           });
         }, 5000); // Update every 5 seconds
-    
+      
         return () => clearInterval(interval); // Cleanup interval on component unmount
-      }, []); // Empty dependency array ensures it runs only on mount
-    
+      }, []); // Empty dependency array ensures effect runs once on mount
+      
 
     // Sample data for different time ranges
     const chartDataByRange = {
-        '1M': [100, 150, 200, 250, 240, 243], // Example data
+        '1M': [50,100, 150, 200, 250, 240], // Example data
         '6M': [80, 120, 180, 220, 230, 243],
-        '1Y': [50, 100, 150, 200, 220, 243],
-        '3Y': [30, 60, 120, 180, 210, 243],
-        '5Y': [10, 50, 100, 150, 200, 243],
-        'All': [5, 20, 50, 100, 150, 243],
+        '1Y': [ 100, 200, 220, 243,100,120],
+        '3Y': [130, 60, 120, 180, 210, 243],
+        '5Y': [200, 100, 220, 243,100,120],
+        'All': [230, 60, 120, 180, 210, 243],
     };
 
     const chartData = {

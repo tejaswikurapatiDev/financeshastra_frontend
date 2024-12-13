@@ -8,7 +8,7 @@ const FinancialDashboard = () => {
         <h2 className="finanancialh2">Key Indicators</h2>
         <div className="financial-container">
             
-            <div className="tables">
+            <div className="tablesfinance">
                 {/* Standalone and Consolidated Table */}
                 <table className="financialanalysis">
                     <thead>
@@ -93,4 +93,4 @@ const FinancialDashboard = () => {
     );
 };
 
-export default FinancialDashboard; /* FinancialTable.css */
+export default FinancialDashboard;
