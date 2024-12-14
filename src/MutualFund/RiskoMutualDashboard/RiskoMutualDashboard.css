@@ -45,3 +45,44 @@ margin-top: 500px;
   fill: #000;
 
 }
+@media (max-width: 768px) {
+  .riskometer {
+    width: 90%; /* Full width for smaller screens */
+    margin: 0 auto; /* Center align */
+    padding: 15px; /* Adjust padding */
+    height: 200px;
+  }
+
+  .riskometer-svg {
+    width: 100%; /* SVG scales with container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .riskometer-title {
+    font-size: 20px; /* Smaller font for title */
+    text-align: left;
+    margin-left: 30px;
+    margin: 20px 0; /* Adjust spacing */
+  }
+
+  .riskometer text {
+    font-size: 12px; /* Adjust label size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .riskometer {
+    padding: 10px;
+  }
+
+  .riskometer-title {
+    font-size: 18px;
+    text-align: left;
+    
+  }
+
+  .riskometer text {
+    font-size: 10px; 
+    text-align: left;/* Further reduce label size */
+  }
+}

@@ -72,4 +72,79 @@
     text-align: right; /* Aligns the value to the right side */
     margin-right: 398px;
   }
-  
+  /* Adjustments for screens up to 768px */
+@media (max-width: 768px) {
+  .infoContainer {
+      max-width: 100%; /* Full width for smaller screens */
+      margin-left: 20px; /* Reduce margin for smaller devices */
+      padding: 15px;
+      margin-bottom: 50px; /* Adjust padding */
+  }
+
+  .infoHeader {
+      font-size: 18px; 
+     /* Reduce font size for smaller screens */
+  }
+
+  .infoDetails {
+      gap: 10px; /* Reduce spacing between rows */
+  }
+
+  .infoRow {
+      flex-direction: column; /* Stack label and value vertically */
+      align-items: flex-start; /* Align content to the left */
+      width: 100%; /* Adjust to fit the container */
+      padding: 10px; /* Reduce padding */
+  }
+
+  .infoLabel {
+      font-size: 14px; /* Reduce label font size */
+      margin-bottom: 5px; /* Add spacing between label and value */
+  }
+
+  .infoValue,
+  .infoValue1,
+  .infoValue2,
+  .infoValue3 {
+      font-size: 14px; /* Reduce value font size */
+      text-align: left; /* Align text to the left */
+      margin-right: 0; /* Remove margin for smaller screens */
+  }
+}
+
+/* Adjustments for screens up to 480px */
+@media (max-width: 480px) {
+  .infoContainer {
+      max-width: 100%; /* Use full width */
+      margin-left: 10px; /* Reduce left margin */
+      padding: 10px; /* Smaller padding */
+  }
+
+  .infoHeader {
+      font-size: 16px; /* Further reduce font size */
+  }
+
+  .infoDetails {
+      gap: 8px; /* Reduce spacing further */
+  }
+
+  .infoRow {
+      flex-direction: column; /* Keep label and value stacked */
+      align-items: flex-start; /* Align to the left */
+      width: 100%; /* Full container width */
+      padding: 8px; /* Smaller padding */
+  }
+
+  .infoLabel {
+      font-size: 12px; /* Further reduce label font size */
+  }
+
+  .infoValue,
+  .infoValue1,
+  .infoValue2,
+  .infoValue3 {
+      font-size: 12px; /* Further reduce value font size */
+      text-align: left; /* Keep left-aligned */
+      margin-right: 0; /* Ensure no margin issues */
+  }
+}

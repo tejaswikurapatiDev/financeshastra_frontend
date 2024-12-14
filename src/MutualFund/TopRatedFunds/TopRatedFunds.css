@@ -121,83 +121,85 @@
 
 /* For screens less than 768px (tablets and smaller) */
 @media screen and (max-width: 768px) {
-    .funds-table-container {
-        width: 95%;
-        margin-bottom: 50px;
-    }
+  .funds-table-container {
+      width: 95%;
+      margin-bottom: 50px;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  }
 
-    .funds-header {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 10px;
-      
-    }
+  .funds-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+  }
 
-    .funds-table-title {
-        font-size: 20px;
-    }
+  .funds-table-title {
+      font-size: 20px;
+  }
 
-    .button-container {
-        flex-direction: row;
-        margin-top: 20px;
-        margin-right: 0;
-    }
+  .button-container {
+      flex-direction: row;
+      margin-top: 20px;
+      margin-right: 0;
+  }
 
-    .fund-button {
-        padding: 8px 16px;
-        font-size: 12px;
-    }
+  .fund-button {
+      padding: 8px 16px;
+      font-size: 12px;
+  }
 
-    .funds-table-description {
-        font-size: 12px;
-    }
+  .funds-table-description {
+      font-size: 12px;
+  }
 
-    .funds-table th, .funds-table td {
-        font-size: 12px;
-        padding: 8px;
-    }
+  .funds-table th, .funds-table td {
+      font-size: 12px;
+      padding: 8px;
+  }
 
-    .funds-table-header th {
-        font-size: 14px;
-    }
+  .funds-table-header th {
+      font-size: 14px;
+  }
 }
 
 /* For screens less than 480px (small mobile devices) */
 @media screen and (max-width: 480px) {
-    .funds-table-container {
-        width: 100%;
-       
-    }
+  .funds-table-container {
+      width: 100%;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling for iOS */
+  }
 
-    .funds-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .funds-header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
 
-    .funds-table-title {
-        font-size: 18px;
-    }
+  .funds-table-title {
+      font-size: 18px;
+  }
 
-    .button-container {
-        flex-direction: row;
-        margin-top: 40px;
-    }
+  .button-container {
+      flex-direction: row;
+      margin-top: 40px;
+  }
 
-    .fund-button {
-        padding: 6px 12px;
-        font-size: 10px;
-    }
+  .fund-button {
+      padding: 6px 12px;
+      font-size: 10px;
+  }
 
-    .funds-table-description {
-        font-size: 10px;
-    }
+  .funds-table-description {
+      font-size: 10px;
+  }
 
-    .funds-table th, .funds-table td {
-        font-size: 10px;
-        padding: 6px;
-    }
+  .funds-table th, .funds-table td {
+      font-size: 10px;
+      padding: 6px;
+  }
 
-    .funds-table-header th {
-        font-size: 12px;
-    }
+  .funds-table-header th {
+      font-size: 12px;
+  }
 }

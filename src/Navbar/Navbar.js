@@ -189,7 +189,7 @@ const footerPortfolioDropdownRef = useRef(null);
       </li>
     <li>
     <div className="dropdown-item">
-        <Link to="/fund-screener">Fund Screener
+        <Link to="/Fundscreenerregular">Fund Screener
         <p>Efficient filter and compare investment options.</p></Link>
         </div>
         </li>
@@ -211,7 +211,7 @@ const footerPortfolioDropdownRef = useRef(null);
         <ul>
       <li>
       <div className="dropdown-item">
-        <Link to="/growth-funds">Best Growth Fund
+        <Link to="/Bestgrowthdirect">Best Growth Fund
         <p>Focus on high-potential growth.</p></Link>
         </div>
         </li>
@@ -223,7 +223,7 @@ const footerPortfolioDropdownRef = useRef(null);
         </li>
       <li>
       <div className="dropdown-item">
-        <Link to="/etf-funds">Best ETF Fund
+        <Link to="/etfregular">Best ETF Fund
         <p>Diverse and cost-effective investment strategy.</p></Link>
         </div>
         <div className="dropdown-item">

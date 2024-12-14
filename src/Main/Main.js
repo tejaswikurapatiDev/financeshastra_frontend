@@ -7,12 +7,12 @@ import TotalInvestment from '../TotalInvestment/TotalInvestment';
 
 const TopHoldings = () => {
   const holdingsData = [
-    { symbol: 'WIPRO', change: '+2.90%', shares: 90, avgCost: 310.00, marketValue: '78,985.68', totalGain: '+0.83%', lots: '1 lot', notes: '-' },
-    { symbol: 'BRITANNIA', change: '-0.12%', shares: 75, avgCost: 75.69, marketValue: '63,548.36', totalGain: '-0.45%', lots: '1 lot', notes: '-' },
+    { symbol: 'WIPRO', change: '+2.90%', shares: 90, avgCost: 310.00, marketValue: '78,985.68', totalGain: '+0.83%', lots: '1', notes: '-' },
+    { symbol: 'BRITANNIA', change: '-0.12%', shares: 75, avgCost: 75.69, marketValue: '63,548.36', totalGain: '-0.45%', lots: '1', notes: '-' },
     { symbol: 'PSUBANK', change: '+2.79%', shares: 100, avgCost: 115.36, marketValue: '1,284.33', totalGain: '-0.12%', lots: '-', notes: '-' },
     { symbol: 'ITI SMALL CAP FUND', change: '-3.77%', shares: 125, avgCost: 425.26, marketValue: '72,598.48', totalGain: '-0.21%', lots: '-', notes: '-' },
     { symbol: 'M&M', change: '+0.24%', shares: 100, avgCost: 784.80, marketValue: '46,695.84', totalGain: '+0.76%', lots: '-', notes: '-' },
-    { symbol: 'NTPC', change: '+0.10%', shares: 105, avgCost: 472.06, marketValue: '81,842.28', totalGain: '+0.02%', lots: '1 lot', notes: '-' }
+    { symbol: 'NTPC', change: '+0.10%', shares: 105, avgCost: 472.06, marketValue: '81,842.28', totalGain: '+0.02%', lots: '1', notes: '-' }
   ];
 
   return (
@@ -21,9 +21,9 @@ const TopHoldings = () => {
       <div className="left-panel">
         <PortfolioAnalytics />
         
-        <div className="top-holdings">
-          <h2>Top Holdings</h2>
-          <table>
+        <div className='top-holdings'>
+          <h2 >Top Holdings</h2>
+          <table >
             <thead>
               <tr>
                 <th>Symbol</th>

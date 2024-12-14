@@ -176,57 +176,117 @@
 /* Mobile View: Screen Width <= 768px */
 
 
-@media (max-width: 480px) {
-  .box {
-    width: 310px; /* Adjust width as needed */
-    height: 300px; /* Adjust height as needed, changed from 290% */
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Spread content vertically */
-    margin-top: 20px;
-    margin-left: 20px;
-    gap: 10px; /* Adjust spacing between elements inside the box */
+/* Mobile View: Screen Width <= 768px */
+@media (max-width: 768px) {
+  /* Adjust dashboard container to column layout */
+  .dashboard-container {
+    flex-direction: row; /* Display elements in a row */
+    gap: 20px; /* Add some gap between the boxes */
+    flex-wrap: wrap; /* Ensure items wrap if needed */
   }
-  
+
+  /* .assest-box in row layout */
   .assest-box {
-    width: 250px; /* Adjust width as needed */
-    height: 300px; /* Adjust height as needed, changed from 290% */
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Spread content vertically */
+    width: 48%; /* Two items in a row (adjust as needed) */
+    height: 220px; /* Adjust height for compact layout */
+    margin-top: 15px;
+    margin-right: 0; /* Full-width layout */
+  }
+  /* Adjust box dimensions */
+  .box {
+    width: 100%; /* Full width for better responsiveness */
+    height: 250px; /* Adjust height for smaller screens */
     margin-top: 20px;
-    gap: 10px; /* Adjust spacing between elements inside the box */
+    gap: 15px; /* Adjust spacing between elements */
   }
+
+  
+
   .pie-chart {
-    position: relative;
-    width: 90px;
-    height: 200px;
-    margin-bottom: 80px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
+
+  /* Adjust font sizes for smaller screens */
+  .title {
+    font-size: 14px; /* Adjust for better fit */
+  }
+
+  .subtitle {
+    font-size: 12px; /* Adjust for better fit */
+  }
+
+  /* Adjust asset list */
+  .assets-list {
+    gap: 10px; /* Adjust spacing between items */
+  }
+
+  /* Adjust the asset item layout */
+  .asset-item {
+    font-size: 12px; /* Adjust font size */
+  }
+}
+/* Mobile View: Screen Width <= 480px */
+@media (max-width: 480px) {
+  /* Adjust box layout for smaller screens */
+  .box {
+    width: 100%; /* Full width for better responsiveness */
+    height: 220px; /* Adjust height for compact layout */
+    margin-left: 10px;
+    margin-top: 10px;
+    gap: 10px;
+    display: flex;
+  }
+
+  .dashboard-container {
+    flex-direction: row; /* Display elements in a row */
+    gap: 10px; /* Add smaller gap between the boxes */
+    flex-wrap: wrap; /* Ensure items wrap if needed */
+  }
+
+  /* .assest-box in row layout */
+  .assest-box {
+    width: 48%; /* Two items in a row */
+    height: 220px; /* Adjust height for compact layout */
+    margin-top: 15px;
+  }
+
+  .pie-chart {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
   .pie-section {
-    position: absolute;
-    border-radius: 50%;
-    font-size: 12px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
+    font-size: 10px; /* Adjust font size for small screens */
   }
-  
+
+  /* Adjust font sizes for smaller screens */
+  .title {
+    font-size: 12px; /* Reduce title font size */
+  }
+
+  .subtitle {
+    font-size: 10px; /* Reduce subtitle font size */
+  }
+
+  /* Adjust asset list */
+  .assets-list {
+    gap: 6px; /* Reduce gap between items */
+  }
+
+  /* Adjust asset item layout */
+  .asset-item {
+    font-size: 10px; /* Reduce font size */
+  }
+
+  /* Reduce margin and padding for compact layout */
+  .investment-item {
+    margin: 5px 0;
+    font-size: 12px; /* Adjust font size for smaller devices */
+  }
 }

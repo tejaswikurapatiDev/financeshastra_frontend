@@ -78,6 +78,11 @@ import MutualFundsSipCalculator from "./MutualFund/MutualFundsSipCalculator/Mutu
 import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
 import Flexregular from "./MutualFund/fundDataregularflex/fundDataregularflex";
 import Flexdirect from "./MutualFund/Flexdirect/Flexdirect";
+import Fundscreenerregular from "./MutualFund/Fundscreenerregular/Fundscreenerregular";
+import Fundscreenerdirect from "./MutualFund/Fundscreenerdirect/Fundscreenerdirect";
+import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular";
+import Etfregular from "./MutualFund/Etfregular/Etfregular";
+import Etfdirect from "./MutualFund/Etfdirect/Etfdirect";
 
 
 
@@ -156,6 +161,14 @@ function App() {
       <Route path="/risk"element={<RiskoMeter/> }/>
       <Route path="/flexregular"element={<Flexregular/> }/>
       <Route path="/flexdirect"element={<Flexdirect/> }/>
+      <Route path="/fundscreenerregular"element={<Fundscreenerregular/> }/>
+      <Route path="/fundscreenerdirect"element={<Fundscreenerdirect/> }/>
+      <Route path="/Bestgrowthregular"element={<Bestgrowthregular/> }/>
+      <Route path="/Bestgrowthdirect"element={<Bestsmallcapdirect/> }/>
+      <Route path="/etfregular"element={<Etfregular/> }/>
+      <Route path="/etfdirect"element={<Etfdirect/> }/>
+
+
     
     
      
