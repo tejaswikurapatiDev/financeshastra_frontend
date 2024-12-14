@@ -202,6 +202,13 @@
   margin: 10px 0;
   width: 100%;
 }
+.stock-table td a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Optionally match text color with surrounding content */
+}
+.stock-table td a:hover {
+  color: #24b676; /* Optional: Add hover effect to change text color */
+}
 
 
 /* Ensure the table has horizontal scrolling on small screens */

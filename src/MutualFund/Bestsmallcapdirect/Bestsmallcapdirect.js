@@ -58,7 +58,7 @@ const Bestsmallcapdirect = () => {
       <Navbar />
       <div className="funds-table-container">
         <div className="funds-header">
-          <h2 className="funds-table-title">Best small cap Fund</h2>
+          <h2 className="funds-table-title">Best Small Cap Fund</h2>
           <div className="button-container">
             <button
               className="fund-button regular"

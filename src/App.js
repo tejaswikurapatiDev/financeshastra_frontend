@@ -83,6 +83,7 @@ import Fundscreenerdirect from "./MutualFund/Fundscreenerdirect/Fundscreenerdire
 import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular";
 import Etfregular from "./MutualFund/Etfregular/Etfregular";
 import Etfdirect from "./MutualFund/Etfdirect/Etfdirect";
+import Bestgrowthdirect from "./MutualFund/Bestgrowthdirect/Bestgrowthdirect";
 
 
 
@@ -164,7 +165,8 @@ function App() {
       <Route path="/fundscreenerregular"element={<Fundscreenerregular/> }/>
       <Route path="/fundscreenerdirect"element={<Fundscreenerdirect/> }/>
       <Route path="/Bestgrowthregular"element={<Bestgrowthregular/> }/>
-      <Route path="/Bestgrowthdirect"element={<Bestsmallcapdirect/> }/>
+      <Route path="/Bestgrowthdirect"element={<Bestgrowthdirect/> }/>
+      
       <Route path="/etfregular"element={<Etfregular/> }/>
       <Route path="/etfdirect"element={<Etfdirect/> }/>
 

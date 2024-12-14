@@ -211,7 +211,7 @@ const footerPortfolioDropdownRef = useRef(null);
         <ul>
       <li>
       <div className="dropdown-item">
-        <Link to="/Bestgrowthdirect">Best Growth Fund
+        <Link to="/Bestgrowthregular">Best Growth Fund
         <p>Focus on high-potential growth.</p></Link>
         </div>
         </li>
