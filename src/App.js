@@ -84,6 +84,13 @@ import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular"
 import Etfregular from "./MutualFund/Etfregular/Etfregular";
 import Etfdirect from "./MutualFund/Etfdirect/Etfdirect";
 import Bestgrowthdirect from "./MutualFund/Bestgrowthdirect/Bestgrowthdirect";
+import StockNewsComponent from "./Learn&insight/StockNewsComponent/StockNewsComponent";
+
+import ScreenerStockList from "./Stocks/ScreenerStockList/ScreenerStockList";
+import ScreenerStockvaluation from "./Stocks/Stockvaluation/Stockvaluation";
+import ScreenerStockincome from "./Stocks/Stockincome/Stockincome";
+import FaqDropdown from "./Learn&insight/FaqDropdown/FaqDropdown";
+
 
 
 
@@ -169,6 +176,13 @@ function App() {
       
       <Route path="/etfregular"element={<Etfregular/> }/>
       <Route path="/etfdirect"element={<Etfdirect/> }/>
+      <Route path="/stockNewsComponent"element={<StockNewsComponent/> }/>
+      <Route path="/stockScreenerlist"element={<ScreenerStockList/> }/>
+      <Route path="/ScreenerStockvaluation"element={<ScreenerStockvaluation/> }/>
+      <Route path="/IncomeStatement"element={<ScreenerStockincome/> }/>
+      <Route path="/faqDropdown"element={<FaqDropdown/> }/>
+    
+
 
 
     

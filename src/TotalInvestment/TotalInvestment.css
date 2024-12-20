@@ -9,8 +9,9 @@
     margin: 100px auto; /* Center the container with auto margins */
     width: 40%; /* Set the width to 80% of the parent container */
     max-width: 600px; /* Limit maximum width */
-
+    margin-right: 270px;
    font-family: 'Calibri';
+  
 }
 
 

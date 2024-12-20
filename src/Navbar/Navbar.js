@@ -15,14 +15,17 @@ const Navbar = () => {
   const [mutualFundsDropdownOpen, setMutualFundsDropdownOpen] = useState(false);
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] = useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] = useState(false);
-  
-const footerPortfolioDropdownRef = useRef(null);
+  const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
+
+  const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
   const portfolioDropdownRef = useRef(null);
   const mutualFundsDropdownRef = useRef(null);
+  const learnDropdownRef = useRef(null);
+
 
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
@@ -48,6 +51,9 @@ const footerPortfolioDropdownRef = useRef(null);
   const toggleFooterPortfolioDropdown = () => {
     setFooterPortfolioDropdownOpen(!footerPortfolioDropdownOpen);
   };
+  const togglelearnDropdown = () => {
+    setLearnDropdownOpen(!learnDropdownOpen);
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -72,6 +78,9 @@ const footerPortfolioDropdownRef = useRef(null);
       if (footerPortfolioDropdownRef.current && !footerPortfolioDropdownRef.current.contains(event.target)) {
         setFooterPortfolioDropdownOpen(false);
       }
+      if (learnDropdownRef.current && !learnDropdownRef.current.contains(event.target)) {
+        setLearnDropdownOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -85,27 +94,27 @@ const footerPortfolioDropdownRef = useRef(null);
       <div className="stockmenu-column">
         <ul>
           <li>
-             <div className="dropdown-item">
-            <Link to="/stock">Stock Screener
-            <p>Discover stocks based on various filters and criteria to make informed decisions.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/StockScreenerList">Stock Screener
+                <p>Discover stocks based on various filters and criteria to make informed decisions.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/beststock">Best Stock
-            <p>Explore the best stocks for investment based on analysis and trends.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/beststock">Best Stock
+                <p>Explore the best stocks for investment based on analysis and trends.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/highgrowth">High Growth Stocks
-            <p>Find stocks that are expected to grow rapidly in the upcoming years.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/highgrowth">High Growth Stocks
+                <p>Find stocks that are expected to grow rapidly in the upcoming years.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/niftystock">Nifty 50 Companies
-            <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/niftystock">Nifty 50 Companies
+                <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>
         </ul>
@@ -113,27 +122,27 @@ const footerPortfolioDropdownRef = useRef(null);
       <div className="stockmenu-column">
         <ul>
           <li>
-          <div className="dropdown-item">
-            <Link to="/nifty">Nifty 100 Companies
-            <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/nifty">Nifty 100 Companies
+                <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/smallcap">Small Cap
-            <p>Invest in smaller companies with high potential for growth.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/smallcap">Small Cap
+                <p>Invest in smaller companies with high potential for growth.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/midcap">Mid Cap
-            <p>Discover mid-sized companies with a strong growth trajectory.</p></Link> 
+            <div className="dropdown-item">
+              <Link to="/midcap">Mid Cap
+                <p>Discover mid-sized companies with a strong growth trajectory.</p></Link>
             </div>
           </li>
           <li>
-          <div className="dropdown-item">
-            <Link to="/largecap">Large Cap
-            <p>Focus on large, established companies with stable returns.</p></Link>
+            <div className="dropdown-item">
+              <Link to="/largecap">Large Cap
+                <p>Focus on large, established companies with stable returns.</p></Link>
             </div>
           </li>
         </ul>
@@ -145,32 +154,60 @@ const footerPortfolioDropdownRef = useRef(null);
     <div className="dropdown-menu">
       <div className="dropdown-item">
         <Link to="/portfolio">My Portfolio
-        <p>Your financial navigator</p></Link>
+          <p>Your financial navigator</p></Link>
       </div>
       <div className="dropdown-item">
         <Link to="/portfolio-risk">Portfolio Risk Analysis
-        <p>Risk evaluation and insights</p></Link>
+          <p>Risk evaluation and insights</p></Link>
       </div>
       <div className="dropdown-item">
         <Link to="/stockwatchlist">Watchlist
-        <p>Monitor, assess, and improve</p></Link>
+          <p>Monitor, assess, and improve</p></Link>
+      </div>
+    </div>
+  );
+  const renderlearnDropdown = () => (
+    <div className="learn-menu">
+      <div className="dropdown-item">
+        <Link to="/stockNewsComponent">Stock News
+          <p>Discover what's happening in the stock markets in real-time</p></Link>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/blogsComponent">Blogs
+          <p>Investment Knowledge Hub</p></Link>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/stockwatchlist">IPO Details
+          <p>Key Information on the Latest IPO Trends</p></Link>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/stockwatchlist">Market Insights
+          <p>Keep up with in-depth market insights</p></Link>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/stockwatchlist">Quarterly Earnings
+          <p>Monitor thorough quarterly earnings summaries</p></Link>
+      </div>
+      <div className="dropdown-item">
+        <Link to="/stockwatchlist">Learn
+          <p> Knowledge is the key to successful trading—learn, adapt, and grow</p></Link>
       </div>
     </div>
   );
 
   const renderUserDropdown = () => (
     <div className="user-menu">
-       <div className="dropdown-item">
-       <Link to="/profile"><FaUser className="dropdown-icon" />
-       My Profile</Link>
+      <div className="dropdown-item">
+        <Link to="/profile"><FaUser className="dropdown-icon" />
+          My Profile</Link>
       </div>
       <div className="dropdown-item">
-      <Link to="/help"><FaCircleQuestion className="dropdown-icon" />
-      Help Center</Link>
+        <Link to="/help"><FaCircleQuestion className="dropdown-icon" />
+          Help Center</Link>
       </div>
       <div className="dropdown-item">
-      <Link to="/"> <FaUserCircle className="dropdown-icon" />
-      Logout</Link>
+        <Link to="/"> <FaUserCircle className="dropdown-icon" />
+          Logout</Link>
       </div>
     </div>
   );
@@ -179,66 +216,66 @@ const footerPortfolioDropdownRef = useRef(null);
   const renderMutualFundsDropdown = () => (
     <div className="stockmenu">
       <div className="stockmenu-column">
-      <ul>
-      <li>
-      <div className="dropdown-item">
-        <Link to="/mutualfund">Top Rated Funds
-        <p>Focus on risk management and long-term growth.</p>
-        </Link>
-        </div>
-      </li>
-    <li>
-    <div className="dropdown-item">
-        <Link to="/Fundscreenerregular">Fund Screener
-        <p>Efficient filter and compare investment options.</p></Link>
-        </div>
-        </li>
-        <li>
-        <div className="dropdown-item">
-      
-        <Link to="/bestsmallcapregular">Best Small Cap Fund
-        <p>Strong returns by investing in high-growth opportunities.</p></Link>
-        </div>
-        <div className="dropdown-item">
-      
-        <Link to="/market">Equity (ETFs)
-        </Link>
-        </div>
-        </li>
+        <ul>
+          <li>
+            <div className="dropdown-item">
+              <Link to="/mutualfund">Top Rated Funds
+                <p>Focus on risk management and long-term growth.</p>
+              </Link>
+            </div>
+          </li>
+          <li>
+            <div className="dropdown-item">
+              <Link to="/fundscreenerregular">Fund Screener
+                <p>Efficient filter and compare investment options.</p></Link>
+            </div>
+          </li>
+          <li>
+            <div className="dropdown-item">
+
+              <Link to="/bestsmallcapregular">Best Small Cap Fund
+                <p>Strong returns by investing in high-growth opportunities.</p></Link>
+            </div>
+            <div className="dropdown-item">
+
+              <Link to="/market">Equity (ETFs)
+              </Link>
+            </div>
+          </li>
         </ul>
-        </div>
+      </div>
       <div className="stockmenu-column">
         <ul>
-      <li>
-      <div className="dropdown-item">
-        <Link to="/Bestgrowthregular">Best Growth Fund
-        <p>Focus on high-potential growth.</p></Link>
-        </div>
-        </li>
-      <li>
-      <div className="dropdown-item">
-        <Link to="/flexregular">Best Flex Cap Fund
-        <p>Invest in companies poised for future and today’s growth.</p></Link>
-        </div>
-        </li>
-      <li>
-      <div className="dropdown-item">
-        <Link to="/etfregular">Best ETF Fund
-        <p>Diverse and cost-effective investment strategy.</p></Link>
-        </div>
-        <div className="dropdown-item">
-      
-      <Link to="/gold"> Gold (ETFs)
-      </Link>
-      </div>
-        </li>
+          <li>
+            <div className="dropdown-item">
+              <Link to="/bestgrowthregular">Best Growth Fund
+                <p>Focus on high-potential growth.</p></Link>
+            </div>
+          </li>
+          <li>
+            <div className="dropdown-item">
+              <Link to="/mutualflex">Best Flex Cap Fund
+                <p>Invest in companies poised for future and today’s growth.</p></Link>
+            </div>
+          </li>
+          <li>
+            <div className="dropdown-item">
+              <Link to="/etfregular">Best ETF Fund
+                <p>Diverse and cost-effective investment strategy.</p></Link>
+            </div>
+            <div className="dropdown-item">
+
+              <Link to="/gold"> Gold (ETFs)
+              </Link>
+            </div>
+          </li>
         </ul>
+      </div>
     </div>
-    </div>
-   
+
   );
- 
-    const navigate = useNavigate();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -249,27 +286,42 @@ const footerPortfolioDropdownRef = useRef(null);
 
         <ul className="navbar-links">
           <li><Link to="/home">Home</Link></li>
-         
 
-          <li className="stock-dropdown" ref={stockDropdownRef}>
-            <Link to="#"onClick={toggleStockDropdown}>
+
+          <li
+            className="stock-dropdown"
+            ref={stockDropdownRef}
+            onMouseEnter={() => setStockDropdownOpen(true)} // Show dropdown on hover
+            onMouseLeave={() => setStockDropdownOpen(false)} // Hide dropdown when mouse leaves
+          >
+            <Link to="#" onClick={toggleStockDropdown}> {/* Toggle dropdown on click */}
               Stocks
-              <FaChevronDown onClick={toggleStockDropdown} className="chevron-icon" />
+              <FaChevronDown className="chevron-icon" /> {/* Chevron icon */}
             </Link>
-            {stockDropdownOpen && renderStockDropdown()}
+            {stockDropdownOpen && renderStockDropdown()} {/* Render dropdown when open */}
           </li>
-          <li className="mutualfunds-dropdown" ref={mutualFundsDropdownRef}>
-  <Link to="#"onClick={toggleMutualFundsDropdown}>
-    Mutual Funds
-    <FaChevronDown onClick={toggleMutualFundsDropdown} className="chevron-icon" />
-  </Link>
-  {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
-</li>
+          <li className="mutualfunds-dropdown" ref={mutualFundsDropdownRef} onMouseEnter={() => setMutualFundsDropdownOpen(true)}
+            onMouseLeave={() => setMutualFundsDropdownOpen(false)}>
+            <Link to="#" onClick={toggleMutualFundsDropdown}>
+              Mutual Funds
+              <FaChevronDown onClick={toggleMutualFundsDropdown} className="chevron-icon" />
+            </Link>
+            {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
+          </li>
 
-          <li className="portfolio-dropdown" ref={portfolioDropdownRef}>
-          <Link to="#" onClick={togglePortfolioDropdown}>
-          Portfolio Manager
-              
+          <li className="learn-dropdown" ref={learnDropdownRef} onMouseEnter={() => setLearnDropdownOpen(true)}
+            onMouseLeave={() => setLearnDropdownOpen(false)}>
+            <Link to="#" onClick={togglelearnDropdown}>
+              Learn & Insights
+              <FaChevronDown onClick={togglelearnDropdown} className="chevron-icon" />
+            </Link>
+            {learnDropdownOpen && renderlearnDropdown()}
+          </li>
+          <li className="portfolio-dropdown" ref={portfolioDropdownRef} onMouseEnter={() => setPortfolioDropdownOpen(true)}
+            onMouseLeave={() => setPortfolioDropdownOpen(false)}>
+            <Link to="#" onClick={togglePortfolioDropdown}>
+              Portfolio Manager
+
               <FaChevronDown onClick={togglePortfolioDropdown} className="chevron-icon" />
             </Link>
             {portfolioDropdownOpen && renderPortfolioDropdown()}
@@ -280,56 +332,56 @@ const footerPortfolioDropdownRef = useRef(null);
           <input type="text" placeholder="Search" />
           <FaSearch className="search-icon" />
         </div>
-        
-        <h4  className="subscritebutton" onClick={() => navigate('/pricehalf')} >
-            Subscribe
+
+        <h4 className="subscritebutton" onClick={() => navigate('/pricehalf')} >
+          Subscribe
         </h4>
         <div className="navbar-icons">
-  <FaBell className="icon bell-icon" />
-  <div className="profile-section">
-  <li className="" ref={userDropdownRef}>
-    <Link to="#" onClick={toggleUserDropdown}>
-      <FaUserCircle className="iconuser-icon" />
- 
-    </Link>
-    <span className="willamname">William</span>
-    {userDropdownOpen && renderUserDropdown()}
-  </li>
-</div>
+          <FaBell className="icon bell-icon" />
+          <div className="profile-section">
+            <li className="" ref={userDropdownRef} >
+              <Link to="#" onClick={toggleUserDropdown}>
+                <FaUserCircle className="iconuser-icon" />
 
-    </div>
-  
+              </Link>
+              <span className="willamname">William</span>
+              {userDropdownOpen && renderUserDropdown()}
+            </li>
+          </div>
+
+        </div>
+
 
       </nav>
 
       <ul className="footer-nav">
-  <li><a href="/home">Home</a></li>
-  
-  <li className="stock-dropdown" ref={footerStockDropdownRef}>
-    <a href="#" onClick={toggleFooterStockDropdown} className="footer-link">
-      Stocks
-      <FaChevronDown className="chevron-icon" />
-    </a>
-    {footerStockDropdownOpen && renderStockDropdown()}
-  </li>
-  
-  <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-  <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
-    Mutual Funds
-    <FaChevronDown className="chevron-icon" />
-  </a>
-  {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
-</li>
-  
-<li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-    <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
-      Portfolio Manager
-      <FaChevronDown className="chevron-icon" />
-    </a>
-    {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
-  </li>
-  <li><a href="#profile">Profile</a></li>
-</ul>
+        <li><a href="/home">Home</a></li>
+
+        <li className="stock-dropdown" ref={footerStockDropdownRef}>
+          <a href="#" onClick={toggleFooterStockDropdown} className="footer-link">
+            Stocks
+            <FaChevronDown className="chevron-icon" />
+          </a>
+          {footerStockDropdownOpen && renderStockDropdown()}
+        </li>
+
+        <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
+          <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+            Mutual Funds
+            <FaChevronDown className="chevron-icon" />
+          </a>
+          {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
+        </li>
+
+        <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
+          <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+            Portfolio Manager
+            <FaChevronDown className="chevron-icon" />
+          </a>
+          {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
+        </li>
+        <li><a href="#profile">Profile</a></li>
+      </ul>
 
     </>
   );

@@ -1,22 +1,28 @@
 /* Main container styling */
 .followed-stock-container {
    
-    max-width: 650px;
-  margin-left: 500px;
+    max-width: 1090px;
+  margin-left: 310px;
     font-family: 'Calibri';
-    text-align: center;
+    text-align: left;
+  
     
 }
 
 /* Header and description styling */
 .followedhead{
     font-size: 24px;
+    margin-left: 17px;
    
+}
+.followedp{
+ margin-left: 16px;
+ color: black;
 }
 
 .followed-stock-container p {
     font-size:14px;
-    color: #2c2c2c;
+    
   
 }
 
@@ -27,6 +33,8 @@
     position: relative;
     overflow-x: hidden;
     padding-bottom: 0px;
+    margin-left: 13px;
+   
 }
 
 /* Stock list with horizontal scrolling enabled */
@@ -57,7 +65,7 @@
     text-align: center;
     flex-shrink: 0;
     scroll-snap-align: start;
-    
+   
     
 
    
@@ -66,7 +74,7 @@
 
 /* Stock logo styling */
 .stock-logo {
-    width: 20px;
+    width: 40px;
     height: 50px;
     object-fit: contain;
 
@@ -129,9 +137,9 @@
     border: none;
     font-size: 14px;
     cursor: pointer;
-    position: absolute;
+    
     top: 50%;
-    transform: translateY(-50%);
+  
     padding: 10px;
     border-radius: 50%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

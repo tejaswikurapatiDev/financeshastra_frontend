@@ -5,22 +5,67 @@
 a span {
   text-decoration: none; /* This will remove the underline from the span inside the link */
 }
+
+/* Style for the stock dropdown */
+.stock-dropdown {
+  position: relative; /* Necessary for positioning the dropdown */
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position it below the link */
+  left: 0;
+  display: none; /* Hidden by default */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  padding: 10px 0;
+  z-index: 10;
+ 
+  gap: 20px;
+}
+.mutualfunds-dropdown {
+ /* Necessary for positioning the dropdown */
+ position: relative;
+}
+.learn-dropdown{
+  position: relative;
+}
+.portfolio-dropdown{
+  position: relative;
+}
+
+/* Show the dropdown when hovering over the parent <li> or <ul> */
+.stock-dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+/* Option styling inside the dropdown */
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px;
+}
+
+
+
+/* Chevron icon styling */
+.chevron-icon {
+  margin-left: 5px;
+}
 .willamname{
   margin-bottom: 50px;
 }
 /* Dropdown Menu Styling */
-.dropdown-menu {
-  position: absolute; /* Position relative to the parent */
-  top: 100%; /* Place the dropdown directly below the parent */
-  left: 0; /* Align the dropdown with the parent’s left edge */
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  width: 250px; /* Adjust the width as needed */
-  z-index: 10;
-  padding: 10px 0;
-  display: none; /* Default state: hidden */
-}
+
 .dropdown-item:hover a {
   color: white; /* Green for the link */
 }
@@ -61,6 +106,7 @@ a span {
   font-size: 12px;
   color: #777;
   margin: 5px 0 0;
+  font-family: 'calibri';
 }
 
 /* Dropdown Items */
@@ -94,9 +140,10 @@ a span {
   /* Align it relative to the "Stocks" button */
   transform: translateX(-50%); /* Center align */
   z-index: 10;
-  padding: 15px;
+  padding: 25px;
   width: 550px; /* Adjust dropdown width */
   gap: 20px;
+
 
  
 }
@@ -157,7 +204,8 @@ a span {
 .navbar-links a {
   text-decoration: none;
   color: #333333;
-  font-size: 1.2rem;
+  font-size: 17px;
+  font-family: 'calibri';
 }
 
 .navbar-links :hover {
@@ -175,7 +223,7 @@ a span {
   border-radius: 15px;
   border: 1px solid #cccccc;
   font-size: 14px;
-  width: 230px; /* Adjust as needed */
+  width: 200px; /* Adjust as needed */
   height: 30px;
 }
 
@@ -245,6 +293,20 @@ a span {
   background-color: white;
 
 }
+.learn-menu{
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 210px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
 
 /* Dropdown items */
 .dropdown-menu li {
@@ -256,6 +318,7 @@ a span {
 .profile-section li{
   list-style-type: none;
 }
+
 
 .dropdown-menu li:hover {
   background-color: #f0f0f0; /* Change background on hover */
@@ -317,14 +380,14 @@ a span {
   font-size: 16px; /* Adjust font size */
   font-weight: bold; /* Make text bold */
   color: white; /* Text color */
-  border: 1px solid red; /* Border styling */
+  border: 1px solid ; /* Border styling */
   border-radius: 5px; /* Rounded corners */
-  background: linear-gradient(90deg, rgb(212, 55, 55), red); /* Gradient background */
+  background: linear-gradient(90deg,#24b676,#24b676); /* Gradient background */
   cursor: pointer; /* Pointer cursor for interactivity */
   text-align: center; /* Centers text */
   transition: all 0.3s ease; /* Smooth transition for hover effects */
   margin-top: 20px; /* Keeps margin for spacing */
-  box-shadow: 0 4px 6px rgba(36, 182, 118, 0.6); /* Adds subtle shadow */
+  box-shadow: 0 4px 6px red; /* Adds subtle shadow */
 }
 
 .subscritebutton:hover {
