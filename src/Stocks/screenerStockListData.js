@@ -382,4 +382,5 @@ export const screenerStockListData = [
     marketCapCategory: "Large Cap",
     icon: sbi,
   }
+  
 ];
