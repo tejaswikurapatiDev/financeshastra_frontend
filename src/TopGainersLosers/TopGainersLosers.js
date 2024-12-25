@@ -24,16 +24,16 @@ const TopGainersLosers = () => {
   return (
     <div className="top-gainers-losers">
       {/* Section: Top Gainers */}
-      <h2>Top Gainers</h2>
+      <h2>Top Gainers & Top Losers</h2>
       <div className="table gainers">
-        <div className="header">
-          <span>Symbol</span>
+        <div className="headertopgainer">
+          <span style={{ fontWeight: 'bold' }}>Symbol</span>
           <span>LTP</span>
           <span>%CHNG</span>
         </div>
         {data.gainers.map((item, index) => (
           <div className="row" key={index}>
-            <span>{item.symbol}</span>
+            <span style={{ fontWeight: 'bold' }}>{item.symbol}</span>
             <span>{item.ltp}</span>
             <span className="positive">{item.change}</span>
           </div>
@@ -41,16 +41,15 @@ const TopGainersLosers = () => {
       </div>
 
       {/* Section: Top Losers */}
-      <h2>Top Losers</h2>
       <div className="table losers">
-        <div className="header">
-          <span>Symbol</span>
+        <div className="headertoploser">
+          <span style={{ fontWeight: 'bold'}}>Symbol</span>
           <span>LTP</span>
           <span>%CHNG</span>
         </div>
         {data.losers.map((item, index) => (
           <div className="row" key={index}>
-            <span>{item.symbol}</span>
+            <span style={{ fontWeight: 'bold' }}>{item.symbol}</span>
             <span>{item.ltp}</span>
             <span className="negative">{item.change}</span>
           </div>

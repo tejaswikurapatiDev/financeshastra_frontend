@@ -1,0 +1,175 @@
+.ipoDetailsContainer {
+    width: 1080px;
+margin-left: 80px;
+    padding: 20px;
+    font-family: 'calibri';
+    color: #333;
+    margin-top: 80px;
+  }
+  
+  .ipoNewsTitle {
+    font-size: 24px;
+    font-weight: bold;
+   margin-left: 70px;
+    
+  }
+  .investgg-heading{
+    margin-left: 70px;
+  }
+  
+  .ipoNewsSubtitle {
+    font-size: 15px;
+    color: #555;
+    margin-left: 70px;
+    margin-bottom: 20px;
+  }
+  
+  .datetimecardipo {
+    display: flex;
+
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ipopara {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+  }
+  
+  .dateipocard, .profileipocard {
+    margin-right: 5px;
+    font-size: 16px;
+    color: black;
+  }
+
+  .shareIcons {
+    display: flex;
+    flex-direction: column; /* Change layout to column */
+   /* Center icons horizontally */
+    gap: 10px; /* Adjust gap between icons */
+  
+   
+  }
+  .iconimageall {
+    display: flex;
+    gap: 30px;
+    
+   
+  }
+  .dateipocard{
+      margin-left: 70px;
+  }
+   
+  
+  .shareIcon {
+    font-size: 20px; /* Icon size */
+    color: #0159b7; /* Default icon color */
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  
+  
+  }  
+  
+  .shareIcon:hover {
+    color: #007bff;
+  }
+  .shareIcons h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-top: 70px;
+  }
+  
+  .ipoImage {
+    width: 850px;
+ height: 450px;
+
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  .ipoDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px; /* Adds gap between columns */
+ 
+    margin-bottom: 20px;
+    width: 800px;
+    margin-left: 48px;
+    margin-top: 25px;
+}
+
+  .ipodta{
+   margin-left: 70px;
+    border: 1px solid rgb(221, 211, 211);
+    width: 890px;
+    height: 350px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); /* Adjust values as needed */
+  }
+  
+  .ipoDetailItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 15px;
+    border-left: none;
+    border-right: none;
+    gap: 70px;
+  }
+  .ipoDetailItem:nth-child(3),
+  .ipoDetailItem:nth-child(4),
+  .ipoDetailItem:nth-child(7),
+  .ipoDetailItem:nth-child(8),
+  .ipoDetailItem:nth-child(11),
+  .ipoDetailItem:nth-child(12) {
+      background-color: rgb(240, 244, 249); /* Light background for specified items */
+  }
+
+  .ipoDetailLabel {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .ipoDetailValue {
+    color: #555;
+    font-weight: bold;
+    
+  }
+  
+  .ipoContent {
+    margin-top: 20px;
+ 
+  }
+  
+  .ipoContent h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color:#0d64bb;
+  margin-left: 70px;
+
+  }
+  
+  .ipoContent p {
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: black;
+    line-height: 1.4;
+    margin-left: 70px;
+  }
+  .strongfontipo{
+    color:#0d64bb;
+  }
+  .investgg-paragraph{
+    margin-left: 70px;
+  }
+  .recentall{
+    display: flex;
+  }

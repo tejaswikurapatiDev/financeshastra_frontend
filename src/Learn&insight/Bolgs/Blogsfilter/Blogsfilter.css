@@ -1,0 +1,295 @@
+/* Global Reset */
+.body{
+  font-family: 'calibri';
+}
+
+/* Unique InvestBlog Styling */
+.investblog-container {
+width: 1050px;
+
+  margin: 20px auto;
+  padding: 20px;
+margin-top: 80px;
+
+  font-family: 'calibri';
+}
+.dotted{
+ 
+ margin-left: 10px;
+
+ color: green;
+ font-size: 12px;
+ margin: 0 5px; /* Space around the dots */
+}
+.investblog-title {
+margin-left: 100px;
+  color: #0d64bb;
+  font-size: 26px;
+  margin-bottom: 15px;
+  
+}
+
+.investblog-meta {
+ 
+  font-size: 16px;
+  color:black;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.investblog-image-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.investblog-image {
+  width: 60%;
+  height: 300px;
+}
+
+.investblog-heading {
+  font-size: 20px;
+  color:  #0d64bb;
+  margin: 20px 0 10px;
+  margin-left: 100px;
+}
+
+.investblog-paragraph {
+  color: black;
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 15px;
+  margin-left: 100px;
+}
+
+.investblog-list {
+  margin: 10px 0;
+  padding-left: 20px;
+  margin-bottom: 50px;
+}
+
+.investblog-list li {
+  margin-bottom: 8px;
+  color:black;
+  font-size: 15px;
+  margin-left: 120px;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center; /* Aligns content vertically */
+  font-size: 14px; /* Standard text size */
+  color: #555; /* Neutral gray color for text */
+  margin-bottom: 10px; /* Space between meta items */
+ 
+}
+.blogdate, .blogprofile {
+  font-size: 16px; /* Larger icon size for visibility */
+  color: black; /* Primary color for icons */
+  margin-right: 10px; /* Space between icon and text */
+  margin-top: 2px; /* Adds space above the icon */
+ 
+}
+
+.blogprofile{
+  margin-left: 30px;
+}
+.blogdate{
+  margin-left:100px ;
+}
+
+
+.dotted {
+  font-size: 12px; /* Smaller size for the dot */
+  color: green; /* Subtle gray color for the dot */
+  margin: 0 5px; /* Space on both sides of the dot */
+}
+
+.meta-item span {
+  margin-right: 5px; /* Adds spacing between adjacent elements if needed */
+}
+
+/* Mobile View for 480px */
+@media (max-width: 480px) {
+  /* Body font */
+  .body {
+    font-family: 'Calibri';
+  }
+
+  /* InvestBlog Container */
+  .investblog-container {
+    width: 100%; /* Full width on mobile */
+    margin: 10px auto; /* Center the container with reduced margins */
+    padding: 10px; /* Reduced padding for mobile */
+    margin-top: 50px; /* Adjusted top margin for better spacing */
+  }
+
+  /* InvestBlog Title */
+  .investblog-title {
+   
+    font-size: 22px; /* Adjust font size for mobile */
+    text-align: center; /* Center the title */
+  }
+
+  /* InvestBlog Meta */
+  .investblog-meta {
+    font-size: 15px; /* Reduced font size for smaller screens */
+    display: flex;
+    justify-content: center; /* Center-align meta content */
+    gap: 5px; /* Add spacing between meta items */
+  }
+
+  /* Dotted separators */
+  .dotted {
+    font-size: 11px; /* Reduced size for dots */
+    color: green;
+  }
+
+  /* Blog Image */
+  .investblog-image-container {
+    text-align: center; /* Center the image container */
+    margin: 15px 0; /* Adjust margins for spacing */
+  }
+
+  .investblog-image {
+    width: 80%; /* Adjust image width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Limit maximum height */
+  }
+
+  /* Blog Heading */
+  .investblog-heading {
+    font-size: 18px; /* Adjusted font size */
+    margin: 15px 0; /* Add spacing above and below */
+    text-align: center; /* Center-align the heading */
+  }
+
+  /* Blog Paragraph */
+  .investblog-paragraph {
+    font-size: 14px; /* Optimized font size for readability */
+    margin: 0; /* Remove unnecessary left margin */
+    text-align: justify; /* Justify text for better readability */
+  }
+
+  /* Blog List */
+  .investblog-list {
+    padding-left: 20px; /* Add spacing for bullet points */
+    margin: 10px 0 30px; /* Adjust margins for spacing */
+  }
+
+  /* Meta Item */
+  .meta-item {
+    font-size: 13px; /* Adjusted font size for smaller screens */
+    display: flex;
+    gap: 5px; /* Add spacing between elements */
+    margin-bottom: 10px; /* Spacing between meta items */
+    margin-top: 10px;
+  }
+
+  /* Blog Date and Profile */
+  .blogdate, 
+  .blogprofile {
+    font-size: 15px; /* Uniform font size */
+  }
+
+  .blogprofile {
+    margin-left: 1px; /* Minor adjustment for alignment */
+  }
+
+  .blogdate {
+    margin-left: 0; /* Remove extra margin */
+  }
+}
+
+/* Mobile View for 768px */
+@media (max-width: 768px) {
+/* InvestBlog Container */
+.investblog-container {
+  width: 90%; /* Full width */
+ margin-bottom: 60px;
+  padding: 15px; /* Adjust padding */
+  margin-top: 70px;
+
+ 
+}
+
+/* InvestBlog Title */
+.investblog-title {
+  font-size: 24px; /* Adjust font size */
+  margin-left: 0;
+  text-align: center;
+}
+
+/* InvestBlog Meta */
+.investblog-meta {
+  font-size: 15px; /* Slightly smaller font size */
+  display: flex;
+  justify-content: center; /* Align items in a row */
+  
+}
+
+/* Dotted separators */
+.dotted {
+  font-size: 11px; /* Slightly smaller dots */
+  color: green;
+}
+
+/* Blog Image */
+.investblog-image-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.investblog-image {
+  width: 80%; /* Adjust image width */
+  height: 250px; /* Adjust height */
+  border-radius: 8px;
+}
+
+/* Blog Heading */
+.investblog-heading {
+  font-size: 19px; /* Smaller font size */
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* Blog Paragraph */
+.investblog-paragraph {
+  font-size: 14px; /* Slightly smaller font size */
+  margin-left: 0;
+  text-align: justify;
+}
+
+/* Blog List */
+.investblog-list {
+  padding-left: 20px;
+  margin: 10px 0 40px 0;
+}
+
+.investblog-list li {
+  font-size: 14px; /* Smaller font size for list items */
+  margin-left: 10px;
+}
+
+/* Meta item */
+.meta-item {
+  font-size: 13px; /* Adjust font size */
+  display: flex;
+  gap: 1px; /* Space between elements */
+  margin-bottom: 10px;
+}
+
+.blogdate, .blogprofile {
+  font-size: 15px; /* Slightly larger font size */
+}
+
+.blogprofile {
+  margin-left: 4px;
+
+}
+
+.blogdate {
+  margin-left: 0;
+  
+}
+}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
-import './FaqDropdown.css';
+import './Learnfaq.css';
 
 const FaqDropdown = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -45,7 +45,7 @@ const FaqDropdown = () => {
             >
               {index + 1}. {faq.question}
               <span className="faq-icon">
-                {openIndex === index ? <FaAngleUp /> : <FaAngleDown />}
+                {openIndex === index ? <FaAngleUp  className='upfaq'/> : <FaAngleDown  className='downfaq'/>}
               </span>
             </button>
             {openIndex === index && (

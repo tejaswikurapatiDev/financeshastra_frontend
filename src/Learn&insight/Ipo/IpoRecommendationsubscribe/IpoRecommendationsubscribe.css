@@ -1,0 +1,69 @@
+.iporecommendation-container {
+    max-width: 940px;
+    
+    font-family: 'calibri';
+ margin-left: 70px;
+ 
+  }
+  
+  .iporecommendation-title {
+    font-size: 22px;
+    font-weight: bold;
+    color:#0d64bb;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  .iporecommendation-box {
+    position: relative;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(200, 198, 198, 0.573); /* Subtle shadow effect */
+    border-radius: 8px;
+    padding: 20px;
+    color: #666;
+    text-align: justify;
+    overflow: hidden; /* Ensures the blur effect stays within the box */
+  }
+  
+
+
+  .avoidiposubs, .applyiposubs {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+  
+    margin-top: 20px;
+  }
+  
+  .avoidiposubs {
+    background-color: #e61f11; /* Red color for Avoid */
+    color: white;
+    margin-left: 680px;
+    cursor: pointer;
+  }
+  
+  .avoidiposubs:hover{
+    background-color: #cd170a;
+  }
+  .applyiposubs {
+    background-color:#409e43; /* Green color for Apply */
+    color: white;
+  }
+  .applyiposubs:hover{
+    background-color:#34a938 ;
+  }
+  .ipoupcomsubs{
+    font-size: 20px;
+    color:  #4caf50;
+    font-family: 'calibri';
+    margin-left: 70px;
+  }
+  .iporecommendation-contentsubs{
+    font-size: 15px;
+    color: black;
+  }

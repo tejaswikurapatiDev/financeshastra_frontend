@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import "./PricingTablehalfyear.css";
 import DealOfTheYearSection from "../DealOfTheYearSection/DealOfTheYearSection";
 import Navbar from '../../Navbar/Navbar';
@@ -20,184 +22,227 @@ const SubscriptionPlans = () => {
       <DealOfTheYearSection />
       <Navbar />
       <div className="subscription-container">
-        <h4 className='subscriptionh4'>Unlock advanced tools, real-time market data, and expert analysis with our premium subscription plan</h4>
-        <h3 className='subscriptionh2'>Choose a plan that aligns with trading goals</h3>
+      <h1 className='subscriptionh2'>Choose a plan that aligns with trading goals !</h1>
+        <h4 className='subscriptionh4'>It’s now or never—don’t miss your chance at the ultimate deal.</h4>
+        <div className="pricing-containertoggle">
         <div className="toggle-switch-container">
-          <span className={isAnnually ? "inactive" : "active"}>Half-year</span>
-          <div className="toggle-switch" onClick={handleToggle}>
-            <div className={`toggle-knob ${isAnnually ? "right" : "left"}`} />
-          </div>
-          <span className={isAnnually ? "active" : "inactive"}>Annually</span>
-        </div>
+  <button
+    className="toggle-button active"
+    onClick={() => navigate("/pricehalf")}  // Navigate to the Half yearly plan
+  >
+    Half yearly
+  </button>
+
+  <button
+    className="toggle-button"
+    onClick={() => navigate("/annualplan")}  // Navigate to the Annual plan
+  >
+    Annually
+  </button>
+</div>
+
       <div className="plans-wrapper">
         {/* Elite Plan */}
         <div className="plan-card elite-plan">
-          <div className="plan-header">
-            <div className="ribbon">
-              <span>Elite</span>
-              <div className="ribbon-price">
-                <span className="price-value">₹2,000</span> / 6 Month
-              </div>
-              <div className="ribbon-price-detail">₹999 / After 6 Month</div>
-            </div>
-            <div className="plan-savings">
-  <span className="text-black">You save </span>
-  <span className="text-highlight">₹6,000</span>
+        <div className="plan-header">
+  <div className="plan-header-content">
+    <h2 className="plan-header-titleelite">Elite</h2>
+  
+    <p className="plan-description">Empower your investment journey with the Elite Plan!</p>
+  
+
+             
+            <div className="ribbon-price">
+  <span className="price-value" >₹2,000</span> 
+  <span className="price-valuemonth"> / 6 Month</span>
+  <span className="ribbon-price-detailelite">   ₹999 / After 6 Month</span>
+ 
+  <div className="text-black">You save 
+  <span className="text-highlight"> ₹6,000</span>
   <span className="text-highlight"> (66%)</span>
-  <span className="text-black"> a year</span>
-</div>
-            <button className="pay-now-btn" onClick={() => navigate('/elitePaymenthalfForm')}>Pay Now</button>
+  <span className="text-blackyear"> a year</span>
+  </div>
+
+
+             
+             
+     
+           
+          
           </div>
           <div class="plan-features">
-    <h4 className='plan-featuresh4'>Features:</h4>
-    <ul>
+          <h4 className='plan-featuresh4'>
+          <FontAwesomeIcon icon={faCircleCheck} />Features: 
+</h4>
+
+    <ul className="plan-featuresul">
         <li className="plan-featuresli">
-        <strong> 50 Stock Recommendations</strong> 
+        <span className='plan-featuresspan'> 50 Stock Recommendations</span> 
             <span className='plan-featuresp'> : Expert recommendations to build a focused and profitable portfolio.</span>
         </li>
         <li className="plan-featuresli">
-        <strong>Stocks Screener </strong> 
+        <span>Stocks Screener </span> 
             <span className='plan-featuresp'> : Access essential tools to analyze and screen stocks effectively.</span>
         </li>
         <li className="plan-featuresli">
-        <strong>Research Tool </strong> 
+        <span> Research Tool </span> 
             <span className='plan-featuresp'> : Utilize advanced resources for in-depth stock research.</span>
         </li>
         <li className="plan-featuresli">
-        <strong> Discover Top-rated Stocks</strong> 
+        <span>  Discover Top-rated Stocks</span> 
             <span className='plan-featuresp'> : Easily find the best-performing stocks.</span>
         </li>
     </ul>
 </div>
 
 <div class="plan-additional-benefits">
-    <h4 className='plan-featuresh4'>Additional Benefits:</h4>
-    <ul>
+    <h4 className='plan-featuresh4'> <FontAwesomeIcon icon={faCircleCheck} />Features: Additional Benefits:</h4>
+    <ul  className="plan-featuresul">
     <li className="plan-featuresli">
-    <strong> Stock of the Month</strong>
+    <span className='plan-featuresspan'> Stock of the Month</span>
             <span className='plan-featuresp'> : One carefully selected stock handpicked by our investment committee every month.</span>
         </li>
         <li className="plan-featuresli">
-        <strong>Research Reports </strong> 
+        <span className='plan-featuresspan'>Research Reports </span> 
             <span className='plan-featuresp'> : Access the real-time research report on any stock.</span>
         </li>
         <li className="plan-featuresli">
-        <strong>Momentum Stocks </strong>
+        <span className='plan-featuresspan'>Momentum Stocks </span>
             <span className='plan-featuresp'> :Identify and capitalize on the best momentum stocks for any market phase.</span>
         </li>
     </ul>
 </div>
-
-          <div className="plan-footer">
-            Empower your investment journey with the Elite Plan!
-            <div><button className="pay-now-btnfooter" onClick={() => navigate('/elitePaymenthalfForm')}>Pay Now</button></div>
-          </div>
-        </div>
-
-        {/* Premium Plan */}
-        <div className="plan-card permium-plan">
-          <div className="plan-header">
-            <div className="ribbon">
-            <span>Premium</span>
-          
-            <div className="ribbon-price">
-                <span className="price-value">₹5,999</span> / 6 Month
-             </div>
-              <div className="ribbon-price-detail">₹2,000 / After 6 Month</div>
-            </div>
-            <div className="plan-savings">
-            <span className="text-black">You save </span>
-  <span className="text-highlight">₹12,000</span>
-  <span className="text-highlight"> (60%)</span>
-  <span className="text-black"> a year</span>
-            </div>
-            <button className="pay-now-btn" onClick={() => navigate('/localhalfpremiumForm')}>
-            Pay Now
+<button className="pay-now-btn" onClick={() => navigate('/elitePaymenthalfForm')}>
+           Continue
         </button>
-          </div>
-          <div className="plan-features">
-  <h4 className='plan-featuresh4'>Features:</h4>
-  <ul>
-    <li className="plan-featuresli">
-      <strong>150 Stock Recommendations</strong>
-      <span className='plan-featuresp'>
-        : Expert recommendations on 150 to optimize your portfolio.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>StockSIP</strong>
-      <span className='plan-featuresp'>
-        : Automate your investments with StockSIP for consistent wealth creation.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Premium Screener</strong>
-      <span className='plan-featuresp'>
-        : Access advanced tools to filter and analyze stocks tailored to your specific investment strategy.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Q&A Feature</strong>
-      <span className='plan-featuresp'>
-        : Get personalized investment advice from our experts.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Discover Top-rated Stocks</strong>
-      <span className='plan-featuresp'>
-        : Identify the best-performing stocks based on comprehensive research and analysis.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Premium Actionable Insights</strong>
-      <span className='plan-featuresp'>
-        : Stay ahead of the market with exclusive updates and analysis on market trends.
-      </span>
-    </li>
-  </ul>
+</div>
+       
+</div>     
 </div>
 
-<div className="plan-additional-benefits">
-  <h4 className='plan-featuresh4'>Additional Benefits:</h4>
-  <ul>
-    <li className="plan-featuresli">
-      <strong>Stock Research</strong>
-      <span className='plan-featuresp'>
-        : Receive detailed buy/sell/hold recommendations on all stocks, backed by deep, data-driven research.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Stock of the Week</strong>
-      <span className='plan-featuresp'>
-        : Gain access to a high-potential stock, carefully handpicked and recommended by our research team.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Research Reports</strong>
-      <span className='plan-featuresp'>
-        : Access the real-time research reports on any stock to help you make informed decisions.
-      </span>
-    </li>
-    <li className="plan-featuresli">
-      <strong>Momentum Stocks</strong>
-      <span className='plan-featuresp'>
-        : Identify and capitalize on the best momentum stocks across any market phase, enhancing your portfolio's growth potential.
-      </span>
-    </li>
-  </ul>
+       {/* Most Popular Container */}
+<div className="most-popular-container">
+  <h2 className="most-popular-text">Most Popular!</h2>
+
+
+{/* Premium Plan */}
+<div className="plan-card permium-plan">
+  <div className="plan-header">
+    <div className="plan-header-content">
+      <h2 className="plan-header-title">Premium</h2>
+      <p className="plan-description">
+        Invest smarter, invest confidently with the Premium Plan!
+      </p>
+      <div className="ribbon-price">
+        <span className="price-value">₹5,999</span>
+        <span className="price-valuemonth"> / 6 Month</span>
+        <span className="ribbon-price-detail">₹2,000 / After 6 Month</span>
+        <div className="text-black">
+          You save
+          <span className="text-highlight"> ₹12,000</span>
+          <span className="text-highlight"> (60%)</span>
+          <span className="text-blacks"> a year</span>
+        </div>
+      </div>
+
+      <div className="plan-features">
+        <h4 className="plan-featuresh4">
+          <FontAwesomeIcon icon={faCircleCheck} /> Features:
+        </h4>
+
+        <ul className="plan-featuresul">
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">150 Stock Recommendations</span>
+            <span className="plan-featuresp">
+              : Expert recommendations on 150 to optimize your portfolio.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">StockSIP</span>
+            <span className="plan-featuresp">
+              : Automate your investments with StockSIP for consistent wealth creation.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Premium Screener</span>
+            <span className="plan-featuresp">
+              : Access advanced tools to filter and analyze stocks tailored to your specific investment strategy.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Q&A Feature</span>
+            <span className="plan-featuresp">
+              : Get personalized investment advice from our experts.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Discover Top-rated Stocks</span>
+            <span className="plan-featuresp">
+              : Identify the best-performing stocks based on comprehensive research and analysis.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Premium Actionable Insights</span>
+            <span className="plan-featuresp">
+              : Stay ahead of the market with exclusive updates and analysis on market trends.
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <div className="plan-additional-benefits">
+        <h4 className="plan-featuresh4">
+          <FontAwesomeIcon icon={faCircleCheck} /> Additional Benefits:
+        </h4>
+        <ul className="plan-featuresul">
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Stock Research</span>
+            <span className="plan-featuresp">
+              : Receive detailed buy/sell/hold recommendations on all stocks, backed by deep, data-driven research.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Stock of the Week</span>
+            <span className="plan-featuresp">
+              : Gain access to a high-potential stock, carefully handpicked and recommended by our research team.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Research Reports</span>
+            <span className="plan-featuresp">
+              : Access the real-time research reports on any stock to help you make informed decisions.
+            </span>
+          </li>
+          <li className="plan-featuresli">
+            <span className="plan-featuresspan">Momentum Stocks</span>
+            <span className="plan-featuresp">
+              : Identify and capitalize on the best momentum stocks across any market phase, enhancing your portfolio's growth potential.
+            </span>
+          </li>
+        </ul>
+      </div>
+
+      <button
+        className="pay-now-btnfooter"
+        onClick={() => navigate('/localhalfpremiumForm')}
+      >
+        Continue
+      </button>
+      </div>
+    </div>
+  </div>
 </div>
 
-          <div className="plan-footer">
-            Invest smarter, invest confidently with the Premium Plan!
-            <div><button className="pay-now-btnfooter" onClick={() => navigate('/localhalfpremiumForm')}>
-            Pay Now
-        </button></div>
-            
-          </div>
+          
         </div>
       </div>
     </div>
+    
+    
     </div>
+            
+          
+           
   );
 };
 

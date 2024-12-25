@@ -1,0 +1,225 @@
+/* General Styling for the Wrapper */
+.earnings-insight-learn-wrapper {
+    font-family: 'calibri';
+    margin-top: 120px;
+  
+}
+
+/* Header Section Styling */
+.earnings-insight-learn-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.earnings-insight-learnp {
+    color: black;
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+.earnings-insight-learnh1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+/* Header Row (Tab Navigation, Date Picker, and Filter) */
+.earnings-insight-learn-header-row {
+    display: flex;
+    align-items: center;
+    
+}
+
+/* Styling for Tabs (Yesterday, Today, etc.) */
+.earnings-insight-learn-tabs {
+    display: flex;
+    gap: 10px;
+   
+}
+
+.earnings-insight-learn-tab-button {
+  
+    font-size: 14px;
+    font-weight: 500;
+    color:#333; /* Default text color */
+    background-color:white; /* Default background */
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+/* Date Picker Section */
+.earnings-insight-learn-date-picker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+    width: 130px;
+    cursor: pointer;
+}
+
+.date-picker-label {
+    font-size: 15px;
+    color: #333;
+    width: 130px;
+    font-weight: bold;
+    
+}
+
+input[type="date"] {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+/* Custom Dropdown Styling (Select Filter) */
+.earnings-insight-learn-dropdown {
+    display: flex;
+ margin-bottom: 20px;
+    justify-content: flex-start; /* Adjusts to align the dropdown properly */
+    gap: 10px;
+    font-size: 16px;
+    margin-left: 30px; /* Aligns with the rest of the header elements */
+}
+
+.filter-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* Table Styling */
+.earnings-insight-learn-table {
+    width: 95%;
+  
+    margin-left: 40px;
+    border-collapse: collapse;
+}
+
+.earnings-insight-learn-table th, 
+.earnings-insight-learn-table td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+    text-align: center;
+}
+
+.earnings-insight-learn-table td {
+    border-bottom: 1px solid #ddd; /* Subtle line between rows */
+    font-size: 15px; /* Adjust font size */
+    color: #333; /* Text color for readability */
+    text-align: center; /* Center-align text in cells */
+    padding: 10px 20px; /* Add space inside cells */
+}
+
+
+.earnings-insight-learn-table th {
+    background-color: white;
+    font-weight: bold;
+    border-top: 2px solid #24b676;
+    border-bottom: 2px solid #24b676;
+    box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
+    font-size: 15px;
+  
+}
+
+.earnings-insight-learn-table th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-left: 2px solid #24b676;
+}
+
+.earnings-insight-learn-table th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-right: 2px solid #24b676;
+}
+
+.earnings-insight-learn-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.earnings-insight-learn-table tr:hover {
+    background-color: #f1f1f1;
+}
+.earningquterlyrowall {
+    display: flex;
+    width: 800px;
+    margin-left: 40px;
+    gap: 210px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f9f9f9; /* Light background for better contrast */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    height: 30px;
+    box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+}
+
+.earnings-insight-learn-table a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color from the parent element */
+    
+}
+
+.earnings-insight-learn-table a:hover {
+    color: inherit; /* Maintain the original color on hover */
+    text-decoration: none; /* Ensure no underline appears on hover */
+    color:green;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .earningquterlyrowall {
+        display: flex;
+        width: 100px;
+        margin-left: 40px;
+       
+        margin-bottom: 20px;
+     
+        background-color: #f9f9f9; /* Light background for better contrast */
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        height: 30px;
+        box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+    }
+    /* Styling for Tabs (Yesterday, Today, etc.) */
+.earnings-insight-learn-tabs {
+    display: flex;
+    gap: 1px;
+   
+}
+
+.earnings-insight-learn-tab-button {
+  
+    font-size: 14px;
+    font-weight: 500;
+    color:#333; /* Default text color */
+    background-color:white; /* Default background */
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+  
+}
+}
+
+/* Mobile view for smaller devices */
+@media (max-width: 480px) {
+    
+}

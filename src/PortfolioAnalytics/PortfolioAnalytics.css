@@ -3,9 +3,9 @@
     font-family: Calibri, Arial, sans-serif;
     padding: 20px;
     color: #333;
-    max-width: 600px; /* Set a maximum width */
+    max-width: 650px; /* Set a maximum width */
     margin: 0 auto; /* Center the container */
-    margin-left: 300px; /* Add left margin to prevent overlap with sidebar */
+    margin-left: 262px; /* Add left margin to prevent overlap with sidebar */
     font-family: 'Calibri';
     margin-top: 80px;
     background-color: white;
@@ -14,7 +14,7 @@
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-  width: 450px;
+  
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: 350px;
 }

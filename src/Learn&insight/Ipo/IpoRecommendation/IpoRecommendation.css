@@ -1,0 +1,109 @@
+.iporecommendation-container {
+    max-width: 840px;
+    
+    font-family: 'calibri';
+ margin-left: 70px;
+ 
+  }
+  
+  .iporecommendation-title {
+    font-size: 22px;
+    font-weight: bold;
+    color:#0d64bb;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  .iporecommendation-box {
+    position: relative;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(200, 198, 198, 0.573); /* Subtle shadow effect */
+    border-radius: 8px;
+    padding: 20px;
+    color: #666;
+    text-align: justify;
+    overflow: hidden; /* Ensures the blur effect stays within the box */
+  }
+  
+  
+  .iporecommendation-content {
+    filter: blur(4px); /* Adds a strong blur effect */
+    pointer-events: none; /* Prevents interaction with blurred content */
+  }
+  
+  .iporecommendation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  }
+  /* Styling for the lock icon image */
+.iporecommendation-lock-icon {
+  position: relative;
+  display: inline-block;
+}
+
+.iporecommendation-lock-icon img {
+  width: 50px;
+  height: 50px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
+}
+.iporecommendation-lock-icon img:hover {
+  transform: scale(1.1); /* Slightly enlarge the icon */
+  opacity: 1; /* Increase opacity on hover */
+}
+/* Tooltip shown when hovering over the lock icon */
+.iporecommendation-lock-icon:hover::after {
+  content: "subscribe for more details";
+  position: absolute;
+  bottom: -30px;
+  left: 50%; /* Center the tooltip */
+  transform: translateX(-50%);
+  background-color: #24b676;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  cursor: pointer;
+}
+  .avoidipo, .applyipo {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    filter: blur(4px); /* Adds a strong blur effect */
+    pointer-events: none; /* Prevents interaction with blurred content */
+    margin-top: 20px;
+  }
+  
+  .avoidipo {
+    background-color: #f44336; /* Red color for Avoid */
+    color: white;
+    margin-left: 680px;
+  }
+  
+  .applyipo {
+    background-color: #4caf50; /* Green color for Apply */
+    color: white;
+  }
+  .ipoupcomsubs{
+    font-size: 20px;
+    color:  #4caf50;
+    font-family: 'calibri';
+    margin-left: 70px;
+  }

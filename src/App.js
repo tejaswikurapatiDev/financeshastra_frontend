@@ -89,7 +89,21 @@ import StockNewsComponent from "./Learn&insight/StockNewsComponent/StockNewsComp
 import ScreenerStockList from "./Stocks/ScreenerStockList/ScreenerStockList";
 import ScreenerStockvaluation from "./Stocks/Stockvaluation/Stockvaluation";
 import ScreenerStockincome from "./Stocks/Stockincome/Stockincome";
-import FaqDropdown from "./Learn&insight/FaqDropdown/FaqDropdown";
+
+import EarningsInsightLearn from "./Learn&insight/EarningsInsightLearn/EarningsInsightLearn";
+import BlogsComponent from "./Learn&insight/Bolgs/Blogscomponent/Blogscomponent";
+import BlogFilter from "./Learn&insight/Bolgs/Blogsfilter/Blogsfilter";
+import Bloginvestment from "./Learn&insight/Bolgs/Blogsinvestment/Blogsinvestment";
+import Blogpmscard from "./Learn&insight/Bolgs/Pmsblogcard/Pmsblogcard";
+import Learncard from "./Learn&insight/Learnall/Learncard/Learncard";
+import Learncardaftersignup from "./Learn&insight/Learnall/Learncardaftersignup/Learncardaftersignup";
+import LearnCourseDetails from "./Learn&insight/Learnall/Learncoursedetail/Learncoursedetail";
+import StocknewsAdanigroup from "./Learn&insight/StocknewsAdanigroup/StocknewsAdanigroup";
+import StockNewsCard from "./Learn&insight/StockNewsCard/StockNewsCard";
+import ModulecourseDetails from "./Learn&insight/Learnall/Modulelearncourse/Modulelearncourse";
+import IpoDetailsubscribe from "./Learn&insight/Ipo/IpoDetailsubscribe/IpoDetailsubscribe";
+import IpoDetails from "./Learn&insight/Ipo/IpoDetails/IpoDetails";
+import IpoComponent from "./Learn&insight/Ipo/IpoComponent/IpoComponent";
 
 
 
@@ -180,7 +194,24 @@ function App() {
       <Route path="/stockScreenerlist"element={<ScreenerStockList/> }/>
       <Route path="/ScreenerStockvaluation"element={<ScreenerStockvaluation/> }/>
       <Route path="/IncomeStatement"element={<ScreenerStockincome/> }/>
-      <Route path="/faqDropdown"element={<FaqDropdown/> }/>
+   
+      <Route path="/earningsInsightLearn"element={<EarningsInsightLearn/> }/>
+      <Route path="/blogsComponent" element={<BlogsComponent/>} />
+      <Route path="/blogFilter" element={<BlogFilter/>}/> 
+      <Route path="/bloginvestment/:id" element={<Bloginvestment/>}/> 
+      <Route path="/blogpmscard/:id" element={<Blogpmscard/>}/>
+      <Route path="/learncard" element={< Learncard/>}/>
+      <Route path="/learncardaftersignup" element={<Learncardaftersignup/>}/>
+      <Route path="/learnCourseDetails" element={<LearnCourseDetails/>}/>
+      <Route path="/stockNewsComponent" element={<StockNewsComponent/>} />
+      <Route path="/stocknewsAdanigroup/:id" element={<StocknewsAdanigroup/>} />
+      <Route path="/stockNewsCard/:id" element={<StockNewsCard/>} />
+      <Route path="/modulecourseDetails" element={<ModulecourseDetails/>}/>
+      <Route path="/ipoComponent" element={<IpoComponent/>}/>
+      <Route path="/ipoDetails/:id" element={<IpoDetails/>}/>
+      <Route path="/ipoDetailsubscribe" element={<IpoDetailsubscribe/>}/>
+     
+
     
 
 

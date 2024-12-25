@@ -143,10 +143,25 @@ a span {
   padding: 25px;
   width: 550px; /* Adjust dropdown width */
   gap: 20px;
-
-
- 
 }
+.mutualstockmenu{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%; /* Position it just below the menu */
+  /* Align it relative to the "Stocks" button */
+  transform: translateX(-50%); /* Center align */
+  z-index: 10;
+  padding: 25px;
+  width: 550px; /* Adjust dropdown width */
+  gap: 20px;
+}
+ 
+
 .stockmenu::before {
   content: ""; /* Empty content for the line */
   position: absolute;
@@ -341,13 +356,14 @@ a span {
   display: none; /* Hide footer navbar by default */
   position: fixed; /* Fix it to the bottom */
   bottom: 0; /* Align to the bottom of the viewport */
-  left: 0;
-  right: 0;
+ 
+ left: 0;
   justify-content: center;
-  gap: 20px;
-  font-weight: bolder;
+ 
+  gap: 40px;
+  font-weight: bold;
   list-style: none;
-  padding: 10px;
+  padding: 7px;
   background-color: #ffffff;
   border-top: 1px solid #e0e0e0;
   z-index: 1000; /* Ensure it appears above other elements */
@@ -359,13 +375,10 @@ a span {
   font-size: 1rem;
 }
 
-.footer-nav a:hover {
-  color: #0066cc;
-}
 
 
 .footer-nav a:hover {
-  color: #0066cc;
+  color: #24b676;
 }
 .navbar-links > li > a:hover {
   color: #24b676; /* Change navbar link color on hover */
@@ -402,7 +415,22 @@ a span {
   box-shadow: none; /* Removes shadow when clicked */
   transform: translateY(0); /* Restores position */
 }
+.footer-dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 10px;
+  display: none; /* Hide by default */
+}
 
+/* Display dropdown on toggle */
+.footer-dropdown.open {
+  display: block;
+}
+
+/* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
   .navbar-logo,
@@ -410,11 +438,7 @@ a span {
   .profile-section {
     display: flex;
   }
-  .subscritebutton {
-    padding: 8px 16px; /* Reduce padding */
-    font-size: 14px; /* Slightly smaller font size */
-   width: auto;
-}
+
   /* Hide main navbar links in mobile view */
   .navbar-links {
     display: none;
@@ -422,6 +446,8 @@ a span {
 
   .footer-nav {
     display: flex;
+    left: 30px;
+   
   }
 
   /* Hide search input on mobile */
@@ -433,32 +459,36 @@ a span {
   .profile-section span {
     font-size: 14px;
   }
-
+  .subscritebutton {
+    padding: 8px 16px; /* Slightly reduce padding for smaller screens */
+    font-size: 14px; /* Reduce font size */
+    margin-top: 15px; /* Adjust margin spacing */
+    box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
+  }
   /* Adjust logo size */
   .logo-image {
     width: 180px;
   }
+
   /* Stock dropdown menu */
   .stockmenu {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    left: 0; /* Align to the left side */
-   
-    height: 200vh;/* Full width on mobile */
+    
+    width: 530%;
+    height: 150vh; /* Full height on mobile */
     gap: 10px;
     transform: translateY(-50%);
   }
-  
+  .mutualstockmenu{
+    width: 600%;
+    height: 110vh; /* Full height on mobile */
+    gap: 10px;
+    transform: translateY(-50%);
+  }
   /* Styling for the divider line */
   .stockmenu::before {
     content: ""; /* Empty content for the line */
-   background: #ddd; /* Line color */
-}
-  
-  /* Dropdown Column Styling */
-  
-  
+    background: #ddd; /* Line color */
+  }
   
   /* Chevron Icon */
   .chevron-icon {
@@ -470,34 +500,46 @@ a span {
 
   /* Dropdown menu for user profile */
   .dropdown-menu {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    left: 0; /* Align to the left side */
-   
-    height: 200vh;/* Full width on mobile */
-    gap: 10px;
-    transform: translateY(-50%);
+    position: static; /* Allow dropdown to flow naturally */
+    box-shadow: none; /* Remove shadow for simplicity */
+    width: 100%; /* Use full width */
+    margin-top: 10px; /* Add spacing above */
   }
 
- 
+  .dropdown-menu li {
+    font-size: 14px; /* Reduce font size */
+    padding: 10px 12px; /* Adjust padding */
+  }
+
   .dropdown-icon {
     font-size: 20px; /* Adjust icon size */
   }
+  .footer-dropdown {
+    width: 50%; /* Adjust width for tablet view */
+    height: auto; /* Adjust height dynamically */
+    left: 5%; /* Center horizontally */
+    top: 40px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 14px; /* Smaller font for mobile view */
+    padding: 8px; /* Adjust padding */
+  }
+  .footer-icon {
+    margin-right: 8px;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #24b676;
+  }
+  
 }
+
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
   /* Adjust logo size for smaller screens */
   .logo-image {
     width: 150px; /* Reduce logo size */
   }
-  .subscritebutton {
-    padding: 10px; /* Compact padding */
-    font-size: 13px; /* Smaller font size */
-  
-    box-sizing: border-box; /* Include padding in width */
-    text-align: center; /* Center-align text */
-}
 
   /* Adjust navbar logo size */
   .navbar-logo {
@@ -508,23 +550,37 @@ a span {
   .profile-section span {
     font-size: 12px; /* Smaller font size */
   }
-
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
   /* Adjust navbar icons */
   .navbar-icons {
     font-size: 14px; /* Smaller icons */
   }
-
+  .subscritebutton {
+    padding: 6px 12px; /* Further reduce padding */
+    font-size: 12px; /* Further reduce font size */
+    width: 100%; /* Make button full-width for better usability */
+    margin-top: 10px; /* Adjust spacing */
+    box-shadow: 0 2px 4px red; /* Subtle shadow for very small screens */
+  }
   /* Stock dropdown menu adjustments */
   .stockmenu {
     width: 800%;
-    height: 200vh;
-    left: 0;
-    transform: translateY(-30%);
-    gap: 5px;
+  height: 200vh;
+  left: 0;
+  transform: translateY(-30%);
+  gap: 5px;
   }
 
   /* Dropdown menu adjustments */
- 
+  .dropdown-menu li {
+    font-size: 12px; /* Smaller font size for dropdown */
+    padding: 8px 10px; /* Reduce padding */
+  }
+
   /* Adjust button and icon sizes */
   .dropdown-icon {
     font-size: 18px; /* Smaller icon size */
@@ -536,16 +592,26 @@ a span {
 
   /* Adjust footer nav layout */
   .footer-nav {
-    font-size: 12px; /* Smaller font size for footer items */
-    background-color: white;
-    margin-left: 180px;
-      
-    }
-    .dropdown-menu{
-      width: 800%;
-      height: 200vh;
-      left: 0;
-      transform: translateY(-30%);
-      gap: 5px;
-    }
+    font-size: 12px;
+    
+ 
   }
+  .footer-dropdown {
+    width: 95%; /* Adjust width for smaller screens */
+    height: auto; /* Dynamic height based on content */
+    left: 2.5%; /* Center horizontally */
+    top: 35px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 12px; /* Even smaller font for smaller screens */
+    padding: 6px; /* Adjust padding */
+  }
+  .footer-icon {
+    margin-right: 8px;
+    font-size: 20px;
+    vertical-align: middle;
+    color: #24b676;
+  }
+  
+}

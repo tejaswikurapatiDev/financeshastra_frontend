@@ -1,0 +1,393 @@
+.blogsContainer {
+  font-family: 'calibri';
+
+}
+
+.blogsTitle {
+  font-size: 26px;
+  font-weight: bold;
+margin-left: 200px;
+margin-top: 120px;
+
+}
+
+.blogsSubtitle {
+  margin-left: 200px;
+  font-size: 20px;
+  color: #333;
+}
+
+.blogsTagline {
+  margin-left: 200px;
+ 
+  font-size: 24px;
+  color: #333;
+}
+
+.blogsFeatures {
+
+margin-left: 220px;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.blogsFeatures li {
+  margin: 5px 0;
+}
+
+.tabsContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-right: 220px;
+}
+
+.tabButton {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 12px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.tabButton.activeTab {
+  background-color: #24b676;
+  color: #fff;
+}
+
+.blogsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensures 3 cards per row */
+ 
+  row-gap: 20px; /* Keeps the gap between rows */
+  justify-items: center; /* Centers the cards horizontally */
+  margin: 0; /* Remove margin around the grid */
+  padding: 0; /* Remove padding around the grid */
+  width: 280px;
+  margin-left: 200px;
+}
+
+.blogCard {
+  border: 1px solid rgba(149, 149, 150, 0.659); /* Solid black border */
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+  margin: 10px;
+  width: 330px; /* Fixed width for consistent card size */
+  height: 320px; /* Set fixed height for the cards */
+  border-radius: 10px; /* Adds rounded corners */
+  margin-top: 30px; /* Adds space between cards vertically */
+  box-shadow: 0px 4px 10px rgb(92, 145, 167); /* Box shadow for depth */
+  cursor: pointer;
+}
+
+.blogCard:hover {
+  transform: scale(1.03); /* Slight zoom effect on hover */
+  box-shadow: 0px 4px 12px rgba(0, 2, 3, 0.1); /* Subtle shadow effect */
+}
+
+.blogImage {
+  width: 80%;
+  height: 160px;
+  margin-left: 30px;
+  margin-top: 20px;
+  object-fit: cover; /* Ensures the image doesn't stretch */
+  cursor: pointer;
+}
+
+.blogTitle {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.blogTitle:hover{
+  color:#24b676
+}
+
+
+.blogCategory {
+  background-color: white;
+  color: black;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-left: 15px;
+
+
+
+}
+
+.readMoreblogs {
+  color: #28a745;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 120px;
+
+
+
+}
+
+.blogbutton {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.checkAllBlogs {
+  background-color: #24b676;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkAllBlogs:hover {
+  background-color: #218838;
+}
+
+/* Base styles for mobile (480px) */
+@media (max-width: 480px) {
+/* Tabs container */
+.tabsContainer {
+  display: flex;
+  overflow-x: auto;  /* Enables horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  padding: 10px 0; /* Add vertical padding for aesthetics */
+  flex-direction: row;
+  width: 100%; /* Full-width container */
+  margin: 0 auto; /* Center align horizontally */
+}
+
+/* Tab buttons */
+.tabButton {
+  flex-shrink: 0; /* Prevent shrinking */
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent wrapping */
+  text-align: center;
+}
+
+/* Blog grid */
+.blogsGrid {
+  grid-template-columns: 1fr; /* Single column layout */
+  width: 100%;
+  gap: 10px;
+}
+
+/* Blog card */
+.blogCard {
+  width: 100%;
+  height: auto; /* Adjust height dynamically */
+  margin-bottom: 20px;
+}
+
+/* Blog image */
+.blogImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Maintain aspect ratio */
+border-radius: 8px;
+}
+
+/* Blog title */
+.blogTitle {
+  font-size: 16px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Blog category */
+.blogCategory {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Read more button */
+.readMoreblogs {
+  font-size: 16px;
+  text-align: center;
+  display: block;
+  margin: 15px auto;
+}
+
+/* Blogs container */
+.blogsContainer {
+  font-family: 'calibri';
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Blogs title */
+.blogsTitle {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Blogs subtitle */
+.blogsSubtitle {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Blogs tagline */
+.blogsTagline {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Blog features */
+.blogsFeatures {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.blogsFeatures li {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+/* Check all blogs button */
+.checkAllBlogs {
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 20px auto;
+
+  text-align: center;
+}
+}
+
+@media (max-width: 768px) {
+  .tabsContainer {
+    display: flex;
+    overflow-x: auto;  /* Enables horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    flex-direction: row;
+    margin-right: 0; /* Removed margin to fix issue */
+    margin-left: 0;
+    width: 100%;  /* Set width to 100% for better responsiveness */
+    margin-bottom: 20px;
+    padding-bottom: 10px; /* Optional: Padding for aesthetics */
+  }
+  
+  /* Optional: Styling for the individual tab buttons if needed */
+  .tabButton {
+    flex-shrink: 0; /* Prevents tab buttons from shrinking */
+    padding: 10px 20px;
+    font-size: 14px;
+    white-space: nowrap; /* Prevents text from wrapping */
+  }
+  
+  /* Optional: Style to hide the scrollbar for a cleaner look */
+ 
+
+.blogsGrid {
+  grid-template-columns: 1fr;
+  width: 100%;
+  margin-left: 0;
+}
+
+.blogCard {
+  width: 100%;
+  height: 320px;
+  margin: 10px 0;
+
+}
+
+.blogImage {
+  width: 80%;
+  height: 190px;
+  object-fit: cover;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.blogTitle {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.blogCategory {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  margin-left: 10px;
+}
+
+.readMoreblogs {
+  font-size: 16px;
+  margin-left: 160px;
+}
+
+.blogbutton {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkAllBlogs {
+  font-size: 1rem;
+  padding: 10px 20px;
+}
+
+/* Ensure this margin-left is applied properly for the specific blog link */
+.marginLeftReadMore {
+  /* You can adjust this value */
+  margin-left: 20px;
+ 
+}
+.marginLeftCategory{
+  margin-left: 30px;
+}
+.blogsContainer {
+  font-family: 'calibri';
+margin-top: 70px;
+}
+.blogsContainer {
+
+  padding: 15px;
+}
+
+.blogsTitle {
+  font-size: 22px;
+  margin-left: 10px;
+  margin-top: 40px;
+}
+
+.blogsSubtitle {
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.blogsTagline {
+  font-size: 22px;
+  margin-left: 8px;
+ 
+}
+
+.blogsFeatures {
+  margin-left: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
+.blogsFeatures li {
+  font-size: 13px;
+margin-left: 30px;
+}
+.checkAllBlogs{
+margin-bottom: 30px;
+}
+}

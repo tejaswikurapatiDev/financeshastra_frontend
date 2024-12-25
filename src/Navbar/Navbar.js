@@ -2,7 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaBell, FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
 import { FaCircleQuestion } from "react-icons/fa6";
 import "./Navbar.css";
+import { RiFundsLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
+import { RiHome5Fill } from 'react-icons/ri'; // Home Icon
+import { SlBookOpen } from 'react-icons/sl'; // Book Icon
+import { GiPieChart } from 'react-icons/gi'; // Pie Chart Icon
+import { LuChartNoAxesCombined } from "react-icons/lu";
+
 
 import logo from "../assest/Logo design (1).png";
 import { Link } from "react-router-dom";
@@ -177,7 +183,7 @@ const Navbar = () => {
           <p>Investment Knowledge Hub</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/stockwatchlist">IPO Details
+        <Link to="/ipoComponent">IPO Details
           <p>Key Information on the Latest IPO Trends</p></Link>
       </div>
       <div className="dropdown-item">
@@ -189,11 +195,12 @@ const Navbar = () => {
           <p>Monitor thorough quarterly earnings summaries</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/stockwatchlist">Learn
+        <Link to="/learncard">Learn
           <p> Knowledge is the key to successful trading—learn, adapt, and grow</p></Link>
       </div>
     </div>
   );
+
 
   const renderUserDropdown = () => (
     <div className="user-menu">
@@ -214,7 +221,7 @@ const Navbar = () => {
 
 
   const renderMutualFundsDropdown = () => (
-    <div className="stockmenu">
+    <div className="mutualstockmenu">
       <div className="stockmenu-column">
         <ul>
           <li>
@@ -355,33 +362,65 @@ const Navbar = () => {
       </nav>
 
       <ul className="footer-nav">
-        <li><a href="/home">Home</a></li>
+      <li>
+  <a href="/home" className="footer-link" >
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="footer-icon"><RiHome5Fill /></i>
+    <span>Home</span>
+    </div>
+  </a>
+</li>
 
-        <li className="stock-dropdown" ref={footerStockDropdownRef}>
-          <a href="#" onClick={toggleFooterStockDropdown} className="footer-link">
-            Stocks
-            <FaChevronDown className="chevron-icon" />
-          </a>
-          {footerStockDropdownOpen && renderStockDropdown()}
-        </li>
 
-        <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-          <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
-            Mutual Funds
-            <FaChevronDown className="chevron-icon" />
-          </a>
-          {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
-        </li>
+  <li className="stock-dropdown" ref={footerStockDropdownRef}>
+    <a href="#" onClick={toggleFooterStockDropdown} className="footer-link" >
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <i className="footer-icon"><LuChartNoAxesCombined /></i>
+      <span>Stocks</span>
+      <FaChevronDown className="chevron-icon" style={{ marginLeft: 'auto' }} />
+      </div>
+    </a>
+    {footerStockDropdownOpen && renderStockDropdown()}
+  </li>
 
-        <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-          <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
-            Portfolio Manager
-            <FaChevronDown className="chevron-icon" />
-          </a>
-          {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
-        </li>
-        <li><a href="#profile">Profile</a></li>
-      </ul>
+  <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
+  <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <i className="footer-icon">
+    <RiFundsLine />
+    </i>
+    <span>  MFs</span>
+    <FaChevronDown className="chevron-icon" style={{ marginLeft: 'auto' }}  />
+    </div>
+  </a>
+  {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
+</li>
+<li>
+  <a href="/home" className="footer-link">
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <i className="footer-icon"><SlBookOpen /></i>
+      <span>Learn</span>
+    </div>
+  </a>
+</li>
+
+
+
+  <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
+  <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <i className="footer-icon"><GiPieChart /></i>
+      <span>Portfolio</span>
+      <FaChevronDown className="chevron-icon" style={{ marginLeft: 'auto' }} />
+    </div>
+   
+  </a>
+  {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
+</li>
+
+
+  
+</ul>
 
     </>
   );

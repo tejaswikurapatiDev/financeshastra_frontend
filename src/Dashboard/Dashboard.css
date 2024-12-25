@@ -3,12 +3,13 @@
   padding: 10px;
   font-family: 'Calibri';
   background-color: white;
-  margin-top: 200px;
+  margin-top: 220px;
+  
 
 
 }
 .box {
-  width: 200px; /* Adjust width as needed */
+  width: 300px; /* Adjust width as needed */
   height: 300px; /* Adjust height as needed, changed from 290% */
   padding: 20px;
   border-radius: 10px;
@@ -25,7 +26,7 @@
 
 
 .assest-box {
-  width: 250px; /* Adjust width as needed */
+  width: 220px; /* Adjust width as needed */
   height: 300px; /* Adjust height as needed, changed from 290% */
   padding: 20px;
   border-radius: 10px;
@@ -37,7 +38,7 @@
   justify-content: space-between; /* Spread content vertically */
   margin-top: -90px;
   gap: 10px; 
-  margin-right: 10px;
+margin-right: 10px;
 }
 
 .title {
@@ -48,7 +49,7 @@
 
 .subtitle {
   font-size: 13px;
-  color: #888;
+  color: black;
   margin-bottom: 15px;
 }
 
@@ -115,6 +116,7 @@
   justify-content: space-between;
   font-size: 14px;
   align-items: center;
+  font-weight: bold;
 }
 
 /* Legend circles for assets */
@@ -131,6 +133,7 @@
 
 .mutual-fund.legend-circle {
   background-color: #24b676;
+  
 }
 
 .gold.legend-circle {
@@ -141,14 +144,17 @@
 .investment-item {
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 16px;
   align-items: center;
   margin: 8px 0;
+  font-weight: bold;
+  color: black;
 }
 
 .investment-label {
   display: flex;
   align-items: center;
+  
 }
 
 .icon {
@@ -159,134 +165,50 @@
 }
 
 .gain-icon {
-  background-color: #4CAF50;
+  background-color: #aff8d8;
+  color: #24b676;
+  font-size: 24px; /* Increase icon size */
+  width: 30px; /* Set width for the background */
+  height: 30px; /* Set height for the background */
+  border-radius: 10%; /* Make the background circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
 .loss-icon {
-  background-color: #FF5252;
+  background-color: rgb(238, 123, 123);
+  color: red;
+  font-size: 10px; /* Increase icon size */
+  width: 30px; /* Set width for the background */
+  height: 30px; /* Set height for the background */
+  border-radius: 10%; /* Make the background circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .returns-icon {
-  background-color: #80CBC4;
+  background-color: #b2e1dd;
+  color: #29596c;
+  font-size: 10px; /* Increase icon size */
+  width: 30px; /* Set width for the background */
+  height: 30px; /* Set height for the background */
+  border-radius: 10%; /* Make the background circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .net-worth-icon {
-  background-color: #9E9E9E;
-}
-/* Mobile View: Screen Width <= 768px */
-
-
-/* Mobile View: Screen Width <= 768px */
-@media (max-width: 768px) {
-  /* Adjust dashboard container to column layout */
-  .dashboard-container {
-    flex-direction: row; /* Display elements in a row */
-    gap: 20px; /* Add some gap between the boxes */
-    flex-wrap: wrap; /* Ensure items wrap if needed */
-  }
-
-  /* .assest-box in row layout */
-  .assest-box {
-    width: 48%; /* Two items in a row (adjust as needed) */
-    height: 220px; /* Adjust height for compact layout */
-    margin-top: 15px;
-    margin-right: 0; /* Full-width layout */
-  }
-  /* Adjust box dimensions */
-  .box {
-    width: 100%; /* Full width for better responsiveness */
-    height: 250px; /* Adjust height for smaller screens */
-    margin-top: 20px;
-    gap: 15px; /* Adjust spacing between elements */
-  }
-
-  
-
-  .pie-chart {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Adjust font sizes for smaller screens */
-  .title {
-    font-size: 14px; /* Adjust for better fit */
-  }
-
-  .subtitle {
-    font-size: 12px; /* Adjust for better fit */
-  }
-
-  /* Adjust asset list */
-  .assets-list {
-    gap: 10px; /* Adjust spacing between items */
-  }
-
-  /* Adjust the asset item layout */
-  .asset-item {
-    font-size: 12px; /* Adjust font size */
-  }
-}
-/* Mobile View: Screen Width <= 480px */
-@media (max-width: 480px) {
-  /* Adjust box layout for smaller screens */
-  .box {
-    width: 100%; /* Full width for better responsiveness */
-    height: 220px; /* Adjust height for compact layout */
-    margin-left: 10px;
-    margin-top: 10px;
-    gap: 10px;
-    display: flex;
-  }
-
-  .dashboard-container {
-    flex-direction: row; /* Display elements in a row */
-    gap: 10px; /* Add smaller gap between the boxes */
-    flex-wrap: wrap; /* Ensure items wrap if needed */
-  }
-
-  /* .assest-box in row layout */
-  .assest-box {
-    width: 48%; /* Two items in a row */
-    height: 220px; /* Adjust height for compact layout */
-    margin-top: 15px;
-  }
-
-  .pie-chart {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-  }
-
-  .pie-section {
-    font-size: 10px; /* Adjust font size for small screens */
-  }
-
-  /* Adjust font sizes for smaller screens */
-  .title {
-    font-size: 12px; /* Reduce title font size */
-  }
-
-  .subtitle {
-    font-size: 10px; /* Reduce subtitle font size */
-  }
-
-  /* Adjust asset list */
-  .assets-list {
-    gap: 6px; /* Reduce gap between items */
-  }
-
-  /* Adjust asset item layout */
-  .asset-item {
-    font-size: 10px; /* Reduce font size */
-  }
-
-  /* Reduce margin and padding for compact layout */
-  .investment-item {
-    margin: 5px 0;
-    font-size: 12px; /* Adjust font size for smaller devices */
-  }
+  background-color: #8db1e0;
+  color: #2f48ad;
+  font-size: 10px; /* Increase icon size */
+  width: 30px; /* Set width for the background */
+  height: 30px; /* Set height for the background */
+  border-radius: 20%; /* Make the background circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

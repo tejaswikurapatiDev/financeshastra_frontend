@@ -1,0 +1,66 @@
+/* Container for the comments section */
+.comment-container {
+    font-family: 'calibri';
+    margin: 20px;
+    margin-left: 150px;
+  
+  }
+  
+  /* Heading */
+  .comment-container h2 {
+    font-size: 20px;
+    color: #333;
+    margin-left: 20px;
+  }
+  
+  /* Add Comment Button */
+  .add-comment-button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: 50px;
+  }
+  
+  .add-comment-button:hover {
+    background: #218838;
+  }
+  
+  /* Form container */
+  .comment-form {
+    margin-top: 20px;
+  }
+  
+  /* Textarea for writing comments */
+  .comment-textarea {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    box-sizing: border-box;
+    margin-right: 40px;
+  }
+  
+  /* Submit Comment Button */
+  .submit-comment-button {
+   margin-left: 80px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-comment-button:hover {
+    background: #218838;
+  }
+  
