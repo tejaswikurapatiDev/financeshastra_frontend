@@ -11,21 +11,21 @@ import Navbar from "../../Navbar/Navbar";
 
 const ScreenerStockincome = () => {
   const [stocks, setStocks] = useState(screenerStockincomeData);
-  const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("Income Statement");
-  const [filters, setFilters] = useState({
-    epsDilGrowth: [], // Initialize as an empty array
-    pe: [],           // Initialize as an empty array
-    roe: [],          // Initialize as an empty array
-    price: "All",
-    marketCap: "All",
-    divYield: [],
-    sector: "All",
-    change: "All",
-  });
- 
- const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
+   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
+   const navigate = useNavigate();
+   const [activeTab, setActiveTab] = useState("Income Statement");
+   const [filters, setFilters] = useState({
+     epsDilGrowth: [], // Initialize as an empty array
+     pe: [],           // Initialize as an empty array
+     roe: [],          // Initialize as an empty array
+     price: "All",
+     marketCap: "All",
+     divYield: [],
+     sector: "All",
+     change: "All",
+   });
+   
+   const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
    const [filteredData, setFilteredData] = useState(screenerStockincomeData); 
  
    const toggleDivYieldDropdown = () => {
@@ -123,22 +123,25 @@ const ScreenerStockincome = () => {
      });
    };
    const applyFilters = (newFilters) => {
+     console.log(newFilters,"newfilter");
      const filteredStocks = screenerStockincomeData.filter((stock) => {
+       console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
+       console.log(stock.price.replace(/₹|,/g, ""))
        const matchesPrice =
          newFilters.price === "All" ||
-         parseFloat(stock.price.replace("₹", "")) <= parseFloat(newFilters.price);
+         parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price);
  
-         const matchesMarketCap =
-         newFilters.marketCap.length === 0 || // Check if it's empty
-         newFilters.marketCap.some((cap) => {
-           const stockMarketCap = parseFloat(stock.marketCap.replace("T", ""));
-           if (cap === "large" && stockMarketCap > 10) return true;
-           if (cap === "mid" && stockMarketCap > 2 && stockMarketCap <= 10) return true;
-           if (cap === "small" && stockMarketCap > 0.5 && stockMarketCap <= 2) return true;
-           if (cap === "micro" && stockMarketCap <= 0.5) return true;
-           if (cap === "others" && stockMarketCap > 0) return true;
-           return false;
-         });
+         // const matchesMarketCap =
+         // newFilters.marketCap.length !== 0 || // Check if it's empty
+         // newFilters.marketCap.some((cap) => {
+         //   const stockMarketCap = parseFloat(stock.marketCap.replace("T", ""));
+         //   if (cap === "large" && stockMarketCap > 10) return true;
+         //   if (cap === "mid" && stockMarketCap > 2 && stockMarketCap <= 10) return true;
+         //   if (cap === "small" && stockMarketCap > 0.5 && stockMarketCap <= 2) return true;
+         //   if (cap === "micro" && stockMarketCap <= 0.5) return true;
+         //   if (cap === "others" && stockMarketCap > 0) return true;
+         //   return false;
+         // });
        
  
          const matchesDivYield =
@@ -155,12 +158,12 @@ const ScreenerStockincome = () => {
        const matchesSector =
          newFilters.sector === "All" || stock.sector === newFilters.sector;
  
-       const matchesChange =
-         newFilters.change === "All" ||
-         (newFilters.change === "-5" && parseFloat(stock.change) <= -5) ||
-         (newFilters.change === "0" && parseFloat(stock.change) >= 0) ||
-         (newFilters.change === "5" && parseFloat(stock.change) >= 5) ||
-         (newFilters.change === "10" && parseFloat(stock.change) >= 10);
+       // const matchesChange =
+       //   newFilters.change === "All" ||
+       //   (newFilters.change === "-5" && parseFloat(stock.change) <= -5) ||
+       //   (newFilters.change === "0" && parseFloat(stock.change) >= 0) ||
+       //   (newFilters.change === "5" && parseFloat(stock.change) >= 5) ||
+       //   (newFilters.change === "10" && parseFloat(stock.change) >= 10);
  
        const matchesROE =
          newFilters.roe.length === 0 ||
@@ -202,10 +205,10 @@ const ScreenerStockincome = () => {
    });
        return (
          matchesPrice &&
-         matchesMarketCap &&
+         // matchesMarketCap &&
          matchesDivYield &&
          matchesSector &&
-         matchesChange &&
+         // matchesChange &&
          matchesROE &&
          matchesEPSDilGrowth &&
          matchesPE
@@ -280,6 +283,12 @@ const ScreenerStockincome = () => {
    console.log("Performance Range Applied:", performanceRange);
    setPerfDropdownVisible(false); // Close dropdown after applying
  };
+ 
+ 
+ const resetchangeRange = () => {
+     setChangeRange({ min: -50, max: 100 });
+ };
+ 
  
  const resetRange = () => {
    setPerformanceRange({ min: -30, max: 40 });
@@ -500,7 +509,8 @@ const ScreenerStockincome = () => {
       setSelectedeps([]);
       setSelecteddivyield([]);
       setSelectedroe([]);
-      setSelectedpeg([])
+      setSelectedpeg([]);
+      setSelectedrevenuegrowth([]);
  
    };
  
@@ -617,7 +627,7 @@ const ScreenerStockincome = () => {
    
    const handleEPSApply = () => {
      // Filter stocks based on the selected EPS Dil Growth range
-     const filteredStocks = screenerStockincomeData.filter((stock) => {
+     const filteredStocks =screenerStockincomeData.filter((stock) => {
        const stockEpsGrowth = parseFloat(stock.epsDilGrowth); // Assuming `epsDilGrowth` is the field in the stock data
        return selectedeps.some((range) => {
          switch (range) {
@@ -654,7 +664,7 @@ const ScreenerStockincome = () => {
    
    const handleDivYieldApply = () => {
      // Filter stocks based on the selected Dividend Yield range
-     const filteredStocks =screenerStockincomeData.filter((stock) => {
+     const filteredStocks = screenerStockincomeData.filter((stock) => {
        const stockDivYield = parseFloat(stock.divYield); // Assuming `divYield` is the field in the stock data
        return selecteddivyield.some((range) => {
          switch (range) {
@@ -842,6 +852,16 @@ const ScreenerStockincome = () => {
      );
    }
  
+   const filterStocksByChangeRange = () => {
+     const filteredStocks = screenerStockincomeData.filter((stock) => {
+       const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data
+       return stockChange >= changeRange.min && stockChange <= changeRange.max;
+     });
+ 
+     // Update the stocks with the filtered data
+     setStocks(filteredStocks);
+     console.log("Filtered by Change Range:", changeRange);
+   };
  
  
   return (
@@ -1002,76 +1022,75 @@ const ScreenerStockincome = () => {
 
    {/* Price Filter */}
    <div className="filter-group">
-     <select
-       value={filters.price}
-       onChange={(e) => handleFilterChange("price", e.target.value)}
-     >
-       <option value="All" disabled hidden>
-         Price
-       </option>
-       <option value="500">Up to ₹500</option>
-       <option value="1000">Up to ₹1000</option>
-       <option value="5000">Up to ₹5000</option>
-     </select>
-   </div>
+          <select
+            value={filters.price}
+            onChange={(e) => handleFilterChange("price", e.target.value)}
+          >
+            <option value="All" disabled hidden>
+              Price
+            </option>
+            <option value="500">Up to ₹500</option>
+            <option value="1000">Up to ₹1000</option>
+            <option value="5000">Up to ₹5000</option>
+          </select>
+        </div>
 
 
-    <div className="filter-group change-filter">
-         <div className="dropdown-change-wrapper">
-           <button
-             className="dropdown-change-toggle"
-             onClick={toggleChangeDropdown}
-           >
-             Change % <RiArrowDropDownLine size={24} />
-           </button>
-           {isChangeDropdownVisible && (
-             <div className="dropdown-change-options">
-               <div className="dropdown-change-range">
-                 <label>
-                   <input
-                     type="number"
-                     value={changeRange.min}
-                     onChange={(e) => handleChangeRange("min", e.target.value)}
-                     className="change-input"
-                   />
-                  
-                 </label>
-                 <span>To</span>
-                 <label>
-                   <input
-                     type="number"
-                     value={changeRange.max}
-                     onChange={(e) => handleChangeRange("max", e.target.value)}
-                     className="change-input"
-                   />
-                 
-                 </label>
-               </div>
-   
-               <input
-     type="range"
-     min="-50"
-     max="100"
-     value={changeRange.min}
-     onChange={(e) => handleChangeRange("min", e.target.value)}
-     className="change-slider"
-     step="1"
-     aria-label="Minimum change percentage"
-   />
-   
-   
-               <div className="dropdown-change-actions">
-                 <button className="reset-change-button" onClick={resetRange}>
-                   Reset
-                 </button>
-                 <button className="apply-change-button" onClick={applyRange}>
-                   Apply
-                 </button>
-               </div>
-             </div>
-           )}
-         </div>
-       </div>
+        <div className="filter-group change-filter">
+      <div className="dropdown-change-wrapper">
+        <button
+          className="dropdown-change-toggle"
+          onClick={toggleChangeDropdown}
+        >
+          Change % <RiArrowDropDownLine size={24} />
+        </button>
+        {isChangeDropdownVisible && (
+          <div className="dropdown-change-options">
+            <div className="dropdown-change-range">
+              <label>
+                <input
+                  type="number"
+                  value={changeRange.min}
+                  onChange={(e) => handleChangeRange("min", e.target.value)}
+                  className="change-input"
+                />
+               
+              </label>
+              <span>To</span>
+              <label>
+                <input
+                  type="number"
+                  value={changeRange.max}
+                  onChange={(e) => handleChangeRange("max", e.target.value)}
+                  className="change-input"
+                />
+              
+              </label>
+            </div>
+
+            <input
+              type="range"
+              min="-50"
+              max="100"
+              value={changeRange.min}
+              onChange={(e) => handleChangeRange("min", e.target.value)}
+              className="change-slider"
+              step="1"
+              aria-label="Minimum change percentage"
+            />
+
+            <div className="dropdown-change-actions">
+              <button className="reset-change-button" onClick={resetchangeRange}>
+                Reset
+              </button>
+              <button className="apply-change-button" onClick={filterStocksByChangeRange}>
+                Apply
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
 
    <div className="market-cap-filter">
       <div className="dropdown-market-cap-wrapper">
@@ -1522,67 +1541,69 @@ const ScreenerStockincome = () => {
   
 
   
-          <div className="filter-group performance-filter">
-    <div className="dropdown-performance-wrapper">
-      <button
-        className="dropdown-performance-toggle"
-        onClick={togglePerfDropdown}
-      >
-        Perf% <RiArrowDropDownLine size={24} />
-      </button>
-      {isPerfDropdownVisible && (
-        <div className="dropdown-performance-options">
-          <div className="dropdown-performance-range">
-            <label>
-              <input
-                type="number"
-                value={performanceRange.min}
-                onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-                className="performance-input"
-              />
-              %
-            </label>
-            <span>To</span>
-            <label>
-              <input
-                type="number"
-                value={performanceRange.max}
-                onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-                className="performance-input"
-              />
-              %
-            </label>
-          </div>
-  
-          <div className="dropdown-performance-slider">
+         
+        <div className="filter-group performance-filter">
+  <div className="dropdown-performance-wrapper">
+    <button
+      className="dropdown-performance-toggle"
+      onClick={togglePerfDropdown}
+    >
+      Perf% <RiArrowDropDownLine size={24} />
+    </button>
+    {isPerfDropdownVisible && (
+      <div className="dropdown-performance-options">
+        <div className="dropdown-performance-range">
+          <label>
             <input
-              type="range"
-              min="-50"
-              max="100"
+              type="number"
               value={performanceRange.min}
-              
               onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-              className="performance-slider"
-              step="1"
-              style={{
-                backgroundSize: `${((performanceRange.min + 50) / 150) * 100}% 100%`,
-               
-              }}
+              className="performance-input"
             />
-          </div>
-  
-          <div className="dropdown-performance-actions">
-            <button className="reset-performance-button" onClick={resetRange}>
-              Reset
-            </button>
-            <button className="apply-performance-button" onClick={applyRange}>
-              Apply
-            </button>
-          </div>
+            %
+          </label>
+          <span>To</span>
+          <label>
+            <input
+              type="number"
+              value={performanceRange.max}
+              onChange={(e) => handlePerformanceRangeChange(e.target.value)}
+              className="performance-input"
+            />
+            %
+          </label>
         </div>
-      )}
-    </div>
+
+        <div className="dropdown-performance-slider">
+          <input
+            type="range"
+            min="-50"
+            max="100"
+            value={performanceRange.min}
+            
+            onChange={(e) => handlePerformanceRangeChange(e.target.value)}
+            className="performance-slider"
+            step="1"
+            style={{
+              backgroundSize: `${((performanceRange.min + 50) / 150) * 100}% 100%`,
+             
+            }}
+          />
+        </div>
+
+        <div className="dropdown-performance-actions">
+          <button className="reset-performance-button" onClick={resetRange}>
+            Reset
+          </button>
+          <button className="apply-performance-button" onClick={applyRange}>
+            Apply
+          </button>
+        </div>
+      </div>
+    )}
   </div>
+</div>
+
   
 
   {/* Revenue Growth Dropdown */}
@@ -1819,7 +1840,7 @@ const ScreenerStockincome = () => {
                </div>
           </div>
           </div>
-      
+          <div className="tab-container">
       <button
           className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
           onClick={() => {
@@ -1849,6 +1870,7 @@ const ScreenerStockincome = () => {
         >
           Income Statement
         </button>
+        </div>
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
   <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%',marginTop:'10px' }}>
     <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>

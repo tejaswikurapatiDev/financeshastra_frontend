@@ -114,17 +114,18 @@
 .screener-unlock-btn:hover::after {
 content: "Unlock with Subscription";
 position: absolute;
-bottom: -35px;
-left: 59%;
+bottom: -30px;
+left: 50%; /* Center the tooltip */
 transform: translateX(-50%);
 background-color: #24b676;
 color: white;
 padding: 8px 10px;
 border-radius: 4px;
 white-space: nowrap;
-font-size: 12px;
+font-size: 14px;
 box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 z-index: 10;
+cursor: pointer;
 }
 
 
@@ -997,5 +998,380 @@ z-index: 10;
 }
 
 
+/* Mobile View for 768px */
+@media screen and (max-width: 768px) {
+  .screener-container {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 60px;
+  }
+
+  .screener-header {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .screener-filters {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .screener-filter-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .screener-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .screener-table {
+    font-size: 14px;
+  }
+
+  .screener-table th, .screener-table td {
+    padding: 8px;
+  }
+
+  .screener-table th {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .screener-table th:first-child, .screener-table th:last-child {
+    padding: 10px;
+  }
+
+  .screener-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .screener-unlock-btn {
+    font-size: 12px;
+  }
+
+  .screener-show-more-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .company-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tab-container {
+    flex-direction: row;
+  }
+
+  .tab-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-bottom: 8px;
+    width: 100%;
+  }
+
+  .tab-content {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .filter-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .dropdown-pe-toggle,
+  .dropdown-revenue-growth-toggle {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .resetscreener-button,
+  .applyscreener-button {
+    padding: 10px 20px;
+    width: 100%;
+    font-size: 14px;
+  }
+  .dropdown-performance-wrapper,
+  .dropdown-div-yield-wrapper,
+  .dropdown-eps-wrapper,
+  .dropdown-pe-wrapper,
+  .dropdown-market-cap-wrapper,
+  .dropdown-change-wrapper {
+    width: 100%;
+  }
+
+  /* Dropdown toggle buttons */
+  .dropdown-performance-toggle,
+  .dropdown-div-yield-toggle,
+  .dropdown-eps-toggle,
+  .dropdown-pe-toggle,
+  .dropdown-market-cap-toggle,
+  .dropdown-change-toggle {
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    text-align: left;
+  }
+
+  /* Dropdown options */
+  .dropdown-performance-options,
+  .dropdown-div-yield-options,
+  .dropdown-eps-options,
+  .dropdown-pe-options,
+  .dropdown-market-cap-options,
+  .dropdown-change-options {
+    width: 100%;
+    max-width: 100%;
+    top: 45px; /* Adjust dropdown position */
+  }
+
+  /* Input fields inside dropdowns */
+  .performance-input,
+  .change-input {
+    width: 50%;
+    font-size: 14px;
+  }
+
+  /* Dropdown sliders */
+  .performance-slider,
+  .change-slider {
+    width: 100%;
+  }
+
+  /* Action buttons */
+  .reset-performance-button,
+  .apply-performance-button,
+  .reset-div-yield-button,
+  .apply-div-yield-button,
+  .reset-eps-button,
+  .apply-eps-button,
+  .reset-pe-button,
+  .apply-pe-button,
+  .reset-market-cap-button,
+  .apply-market-cap-button,
+  .reset-change-button,
+  .apply-change-button {
+    width: 48%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .reset-performance-button,
+  .reset-div-yield-button,
+  .reset-eps-button,
+  .reset-pe-button,
+  .reset-market-cap-button,
+  .reset-change-button {
+    margin-right: 4%;
+  }
+
+  .dropdown-performance-wrapper,
+  .dropdown-div-yield-wrapper,
+  .dropdown-eps-wrapper,
+  .dropdown-pe-wrapper,
+  .dropdown-market-cap-wrapper,
+  .dropdown-change-wrapper {
+    margin-bottom: 16px;
+  }
+}
+
+/* Mobile View for 480px */
+@media screen and (max-width: 480px) {
+  .screener-container {
+    padding: 0 10px;
+    margin-top: 50px;
+  }
+
+  .screener-header {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .screener-filters {
+    flex-direction: column;
+    
+    gap: 6px;
+  }
+
+  .screener-filter-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .screener-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .screener-table {
+    font-size: 12px;
+  }
+
+  .screener-table th, .screener-table td {
+    padding: 6px;
+  }
+
+  .screener-table th {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .screener-table th:first-child, .screener-table th:last-child {
+    padding: 8px;
+  }
+
+  .screener-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .screener-unlock-btn {
+    font-size: 10px;
+  }
+
+  .screener-show-more-btn {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .company-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .tab-container {
+    flex-direction: row;
+    margin-right: 30px;
+  }
+
+  .tab-button {
+    padding: 8px 15px;
+    font-size: 12px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+
+  .tab-content {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .filter-group select {
+    width: 23%;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .dropdown-pe-toggle,
+  .dropdown-revenue-growth-toggle {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .resetscreener-button,
+  .applyscreener-button {
+    padding: 8px 16px;
+    width: 100%;
+    font-size: 12px;
+  }
+  .dropdown-performance-wrapper,
+  .dropdown-div-yield-wrapper,
+  .dropdown-eps-wrapper,
+  .dropdown-pe-wrapper,
+  .dropdown-market-cap-wrapper,
+  .dropdown-change-wrapper {
+    width: 100%;
+  }
+
+  /* Dropdown toggle buttons */
+  .dropdown-performance-toggle,
+  .dropdown-div-yield-toggle,
+  .dropdown-eps-toggle,
+  .dropdown-pe-toggle,
+  .dropdown-market-cap-toggle,
+  .dropdown-change-toggle {
+    padding: 6px;
+    font-size: 12px;
+    width: 23%;
+    display: block;
+    text-align: left;
+  }
+
+  /* Dropdown options */
+  .dropdown-performance-options,
+  .dropdown-div-yield-options,
+  .dropdown-eps-options,
+  .dropdown-pe-options,
+  .dropdown-market-cap-options,
+  .dropdown-change-options {
+    width: 100%;
+    max-width: 100%;
+    top: 45px; /* Adjust dropdown position */
+  }
+
+  /* Input fields inside dropdowns */
+  .performance-input,
+  .change-input {
+    width: 40%;
+    font-size: 12px;
+  }
+
+  /* Dropdown sliders */
+  .performance-slider,
+  .change-slider {
+    width: 100%;
+  }
+
+  /* Action buttons */
+  .reset-performance-button,
+  .apply-performance-button,
+  .reset-div-yield-button,
+  .apply-div-yield-button,
+  .reset-eps-button,
+  .apply-eps-button,
+  .reset-pe-button,
+  .apply-pe-button,
+  .reset-market-cap-button,
+  .apply-market-cap-button,
+  .reset-change-button,
+  .apply-change-button {
+    width: 48%;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .reset-performance-button,
+  .reset-div-yield-button,
+  .reset-eps-button,
+  .reset-pe-button,
+  .reset-market-cap-button,
+  .reset-change-button {
+    margin-right: 4%;
+  }
+
+  .dropdown-performance-wrapper,
+  .dropdown-div-yield-wrapper,
+  .dropdown-eps-wrapper,
+  .dropdown-pe-wrapper,
+  .dropdown-market-cap-wrapper,
+  .dropdown-change-wrapper {
+    margin-bottom: 12px;
+  }
+
+  /* Reduce padding on sliders and inputs */
+  .performance-slider::-webkit-slider-thumb,
+  .change-slider::-webkit-slider-thumb,
+  .performance-slider::-moz-range-thumb,
+  .change-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+  }
+}
 
 

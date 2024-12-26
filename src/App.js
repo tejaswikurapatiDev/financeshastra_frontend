@@ -104,6 +104,7 @@ import ModulecourseDetails from "./Learn&insight/Learnall/Modulelearncourse/Modu
 import IpoDetailsubscribe from "./Learn&insight/Ipo/IpoDetailsubscribe/IpoDetailsubscribe";
 import IpoDetails from "./Learn&insight/Ipo/IpoDetails/IpoDetails";
 import IpoComponent from "./Learn&insight/Ipo/IpoComponent/IpoComponent";
+import UnlockscreenerStockList from "./Stocks/unlockscreenerstocklist/unlockscreenerstocklist";
 
 
 
@@ -210,6 +211,7 @@ function App() {
       <Route path="/ipoComponent" element={<IpoComponent/>}/>
       <Route path="/ipoDetails/:id" element={<IpoDetails/>}/>
       <Route path="/ipoDetailsubscribe" element={<IpoDetailsubscribe/>}/>
+      <Route path="/unlockstockscreener" element={<UnlockscreenerStockList/>}/>
      
 
     

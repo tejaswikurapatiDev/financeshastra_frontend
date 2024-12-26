@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { screenerStockListData } from "../screenerStockListData";
+import { unlockscreenerStockListData } from "../UnlockscreenerStockListdata";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import "./ScreenerStockList.css";
+
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
-const ScreenerStockList = () => {
-  const [stocks, setStocks] = useState(screenerStockListData);
+const UnlockscreenerStockList = () => {
+  const [stocks, setStocks] = useState(unlockscreenerStockListData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
@@ -25,7 +25,7 @@ const ScreenerStockList = () => {
   });
   
   const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
-  const [filteredData, setFilteredData] = useState(screenerStockListData); 
+  const [filteredData, setFilteredData] = useState(unlockscreenerStockListData); 
 
   const toggleDivYieldDropdown = () => {
     setDivYieldDropdownVisible(!isDivYieldDropdownVisible);
@@ -123,7 +123,7 @@ const ScreenerStockList = () => {
   };
   const applyFilters = (newFilters) => {
     console.log(newFilters,"newfilter");
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
       console.log(stock.price.replace(/₹|,/g, ""))
       const matchesPrice =
@@ -217,41 +217,41 @@ const ScreenerStockList = () => {
     setStocks(filteredStocks);
   };
   
-  // Handle sorting logic for columns
   const handleSort = (key) => {
     const sortedStocks = [...stocks].sort((a, b) => {
       let valA = a[key];
       let valB = b[key];
-
-      // Clean strings that are numeric and convert to number for comparison
+  
+      // Clean strings for numeric columns
       if (typeof valA === "string") {
         if (key === "price" || key === "marketCap") {
-          valA = parseFloat(valA.replace(/[₹, T]/g, "")); // Remove ₹, T and convert to number
-        } else if (key !== "sector") {
-          valA = parseFloat(valA.replace(/[₹,%]/g, ""));
+          valA = parseFloat(valA.replace(/[₹, T]/g, "")) || 0; // Remove ₹, T and convert to number
+        } else if (key !== "sector" && key !== "analystRating") {
+          valA = parseFloat(valA.replace(/[₹,%]/g, "")) || 0;
         }
       }
-
+  
       if (typeof valB === "string") {
         if (key === "price" || key === "marketCap") {
-          valB = parseFloat(valB.replace(/[₹, T]/g, "")); // Remove ₹, T and convert to number
-        } else if (key !== "sector") {
-          valB = parseFloat(valB.replace(/[₹,%]/g, ""));
+          valB = parseFloat(valB.replace(/[₹, T]/g, "")) || 0; // Remove ₹, T and convert to number
+        } else if (key !== "sector" && key !== "analystRating") {
+          valB = parseFloat(valB.replace(/[₹,%]/g, "")) || 0;
         }
       }
-
-      // For sector column, compare alphabetically
-      if (key === "sector") {
+  
+      // Alphabetical sorting for 'sector' and 'analystRating'
+      if (key === "sector" || key === "analystRating") {
         return sortDirection ? valA.localeCompare(valB) : valB.localeCompare(valA);
       }
-
-      // For other columns, compare numerically
+  
+      // Numeric comparison for other columns
       return sortDirection ? valA - valB : valB - valA;
     });
-
+  
     setStocks(sortedStocks);
     setSortDirection(!sortDirection); // Toggle sort direction
   };
+  
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 const toggleDropdown = () => setIsDropdownVisible(!isDropdownVisible);
 
@@ -522,7 +522,7 @@ const resetRange = () => {
     }));
   
     // Apply the filter based on the selected indexes and sectors
-    const filteredStocks = screenerStockListData.filter((stock) =>
+    const filteredStocks = unlockscreenerStockListData.filter((stock) =>
       selectedIndexes.includes(stock.index) 
     );
     // Update the stocks with the filtered data
@@ -547,7 +547,7 @@ const resetRange = () => {
     }));
   
     // Apply the filter based on the selected indexes and sectors
-    const filteredStocks = screenerStockListData.filter((stock) =>
+    const filteredStocks = unlockscreenerStockListData.filter((stock) =>
        selectedSectors.includes(stock.sector)
     );
   
@@ -572,7 +572,7 @@ const resetRange = () => {
     }));
   
     // Filter the stocks based on the selected market cap categories
-    const filteredStocks = screenerStockListData.filter((stock) =>
+    const filteredStocks = unlockscreenerStockListData.filter((stock) =>
       selectedMcap.includes(stock.marketCapCategory)
     );
   
@@ -591,7 +591,7 @@ const resetRange = () => {
  
   const handlePeApply = () => {
     // Filter stocks based on the selected P/E range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockPe = parseFloat(stock.pToE);
       return selectedPe.some((range) => {
         switch (range) {
@@ -626,7 +626,7 @@ const resetRange = () => {
   
   const handleEPSApply = () => {
     // Filter stocks based on the selected EPS Dil Growth range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockEpsGrowth = parseFloat(stock.epsDilGrowth); // Assuming `epsDilGrowth` is the field in the stock data
       return selectedeps.some((range) => {
         switch (range) {
@@ -663,7 +663,7 @@ const resetRange = () => {
   
   const handleDivYieldApply = () => {
     // Filter stocks based on the selected Dividend Yield range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockDivYield = parseFloat(stock.divYield); // Assuming `divYield` is the field in the stock data
       return selecteddivyield.some((range) => {
         switch (range) {
@@ -696,7 +696,7 @@ const resetRange = () => {
   
   const handleROEApply = () => {
     // Filter stocks based on the selected ROE range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockROE = parseFloat(stock.roe); // Assuming `roe` is the field in the stock data
       return selectedroe.some((range) => {
         switch (range) {
@@ -730,7 +730,7 @@ const resetRange = () => {
   };
   const handlePEGApply = () => {
     // Filter stocks based on the selected PEG range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockPEG = parseFloat(stock.peg); // Assuming `peg` is the field in the stock data
       return selectedpeg.some((range) => {
         switch (range) {
@@ -767,7 +767,7 @@ const resetRange = () => {
   
   const handleRevenueGrowthApply = () => {
     // Filter stocks based on the selected Revenue Growth range
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
       return selectedrevenuegrowth.some((range) => {
         switch (range) {
@@ -852,7 +852,7 @@ const resetRange = () => {
   }
 
   const filterStocksByChangeRange = () => {
-    const filteredStocks = screenerStockListData.filter((stock) => {
+    const filteredStocks = unlockscreenerStockListData.filter((stock) => {
       const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data
       return stockChange >= changeRange.min && stockChange <= changeRange.max;
     });
@@ -860,9 +860,6 @@ const resetRange = () => {
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
     console.log("Filtered by Change Range:", changeRange);
-  };
-  const handleNavigate = () => {
-    navigate('/unlockstockscreener'); // Navigate to the desired route
   };
   return (
     <div className="screener-container">
@@ -1936,12 +1933,13 @@ const resetRange = () => {
                   <PiCaretUpDownFill />
                 </button>
               </th>
-              <th>
-                Analyst Rating
-                <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
+             <th>
+  Analyst Rating
+  <button className="screenerbtnlist" onClick={() => handleSort("analystRating")}>
+    <PiCaretUpDownFill />
+  </button>
+</th>
+
             </tr>
           </thead>
           <tbody>
@@ -1988,12 +1986,8 @@ const resetRange = () => {
 </td>
 
 
-<td>
-      <button className="screener-unlock-btn" onClick={handleNavigate}>
-        <IoLockClosedOutline style={{ marginRight: '8px' }} />
-        <span className="button-text">Unlock</span>
-      </button>
-    </td>
+<td style={{ color: '#24b676' }}>{stock.analystRating}</td>
+
 
 
               </tr>
@@ -2007,4 +2001,4 @@ const resetRange = () => {
   );
 };
 
-export default ScreenerStockList;
+export default UnlockscreenerStockList;
