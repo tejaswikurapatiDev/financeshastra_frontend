@@ -1,0 +1,103 @@
+/* Table Styling */
+.earnings-insight-learn-tablepeer {
+    width: 95%;
+  
+  
+    border-collapse: collapse;
+}
+.earningheaderrpeer{
+    margin-left: 10px;
+    font-size: 24px;
+    color: #24b676;
+}
+
+
+.earnings-insight-learn-tablepeer th, 
+.earnings-insight-learn-tablepeer td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+    text-align: center;
+}
+
+.earnings-insight-learn-tablepeer td {
+    border-bottom: 1px solid #ddd; /* Subtle line between rows */
+    font-size: 15px; /* Adjust font size */
+    color: #333; /* Text color for readability */
+    text-align: center; /* Center-align text in cells */
+    padding: 10px 20px; /* Add space inside cells */
+}
+
+
+.earnings-insight-learn-tablepeer th {
+    background-color:  #24b676;
+    font-weight: bold;
+  
+    
+    font-size: 15px;
+    color:white;
+  
+}
+
+.earnings-insight-learn-tablepeer th:first-child {
+
+    border-top-left-radius: 8px;
+}
+
+.earnings-insight-learn-tablepeer th:last-child {
+    border-top-right-radius: 8px;
+  
+  
+  
+}
+
+.earnings-insight-learn-tablepeer tr:nth-child(even) {
+    background-color: rgba(224, 238, 235, 0.59);
+}
+
+.earningheaderrpeer{
+    margin-left: 20px;
+}
+@media (max-width: 768px) {
+    .earnings-insight-learn-tablepeer {
+        width: 100%;
+        display: block; /* Make the table block-level to allow scrolling */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        table-layout: fixed; /* Fix column widths */
+    }
+
+    .earnings-insight-learn-tablepeer th, 
+    .earnings-insight-learn-tablepeer td {
+        white-space: nowrap; /* Prevent text from wrapping in cells */
+        padding: 10px; /* Adjust padding for smaller screens */
+        font-size: 14px; /* Adjust font size for smaller devices */
+    }
+
+    /* Optional: Adjust header font size on mobile for better fit */
+    .earnings-insight-learn-tablepeer th {
+        font-size: 14px; /* Slightly smaller font for headers */
+    }
+    .earningparaapeer{
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    .earningheaderrpeer{
+        margin-left: 20px;
+        font-size: 24px;
+        color: #24b676;
+    }
+}
+
+/* For very small screens (480px and below) */
+@media (max-width: 480px) {
+    .earnings-insight-learn-tablepeer {
+        padding: 0; /* Remove padding around the table */
+    }
+
+    .earnings-insight-learn-tablepeer th, 
+    .earnings-insight-learn-tablepeer td {
+        font-size: 13px; /* Further reduce font size */
+        padding: 8px 10px; /* Reduce padding for very small screens */
+    }
+}

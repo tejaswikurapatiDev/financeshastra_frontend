@@ -1,25 +1,31 @@
 import React, { useState } from "react";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the sorting icon
 import "./EarningsInsightLearn.css";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../../Navbar/Navbar";
 import { LuShare2 } from "react-icons/lu";
 import dayjs from "dayjs";
+import 'react-datepicker/dist/react-datepicker.css';
+import ReactDatePicker from 'react-datepicker';
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 const EarningsInsightLearn = () => {
     const earningsData = [
             { 
-                srNo: 1, 
-                company: "State Bank of India", 
-                url: "/mutualfund", 
-                Type: "Declared Results", 
-                resultType: "Q2-2024", 
-                ltp: "₹200.50", 
-                revenue: "₹1200", 
-                change: "1.25%", 
-                tentativeTime: "03 Dec 2024", 
-                grossProfit: "40%", 
-                netProfit: "15%", 
-                seeFinancial: <LuShare2 />,
+                srNo: 1,
+                company: "State Bank of India",
+                url: "/quaterelyOverview", 
+                type: "Declared Results",
+                resultType: "Q2-2024",
+                ltp: "₹200.50",
+                revenue: "₹1200",
+                change: "1.25%",
+                tentativeTime: "03 Dec 2024",
+                grossProfit: "40%",
+                netProfit: "15%",
+                seeFinancial: {
+                    url: "/quaterelyOverview", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹5,000 Cr"
             },
             { 
@@ -34,7 +40,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "01 Dec 2024", 
                 grossProfit: "-167", 
                 netProfit: "25.08%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterelyOverview", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹1,200 Cr"
             },
             { 
@@ -49,7 +58,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "02 Dec 2024", 
                 grossProfit: "0.54", 
                 netProfit: "19.83%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹800 Cr"
             },
             { 
@@ -64,7 +76,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "04 Dec 2024", 
                 grossProfit: "-0.11", 
                 netProfit: "23.45%", 
-                seeFinancial:<LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹1,500 Cr"
             },
             { 
@@ -79,7 +94,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "05 Dec 2024", 
                 grossProfit: "50%", 
                 netProfit: "30%", 
-                seeFinancial:<LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹10,000 Cr"
             },
             { 
@@ -94,7 +112,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "06 Dec 2024", 
                 grossProfit: "40%", 
                 netProfit: "25%", 
-                seeFinancial:<LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹2,000 Cr"
             },
             { 
@@ -109,7 +130,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "07 Dec 2024", 
                 grossProfit: "30.08%", 
                 netProfit: "19.25%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹700 Cr"
             },
             { 
@@ -124,7 +148,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "08 Dec 2024", 
                 grossProfit: "35%", 
                 netProfit: "20%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹6,000 Cr"
             },
             { 
@@ -139,7 +166,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "09 Dec 2024", 
                 grossProfit: "24.14%", 
                 netProfit: "16.85%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹350 Cr"
             },
             { 
@@ -154,7 +184,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "10 Dec 2024", 
                 grossProfit: "-3", 
                 netProfit: "14.7%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹400 Cr"
             },
             { 
@@ -169,7 +202,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "11 Dec 2024", 
                 grossProfit: "-6", 
                 netProfit: "12.58%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹450 Cr"
             },
             { 
@@ -184,7 +220,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "12 Dec 2024", 
                 grossProfit: "175", 
                 netProfit: "24.57%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹2,500 Cr"
             },
             { 
@@ -199,7 +238,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "14 Dec 2024", 
                 grossProfit: "-3", 
                 netProfit: "27.58%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹150 Cr"
             },
             { 
@@ -214,7 +256,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "15 Dec 2024", 
                 grossProfit: "161", 
                 netProfit: "15%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹3,000 Cr"
             },
             { 
@@ -229,7 +274,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "16 Dec 2024", 
                 grossProfit: "27.51%", 
                 netProfit: "12.14%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹2,000 Cr"
             },
             { 
@@ -244,7 +292,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "17 Dec 2024", 
                 grossProfit: "0.18", 
                 netProfit: "21.47%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹80 Cr"
             },
             { 
@@ -259,7 +310,10 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "18 Dec 2024", 
                 grossProfit: "0.61", 
                 netProfit: "27.28%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹5,000 Cr"
             },
             { 
@@ -274,38 +328,38 @@ const EarningsInsightLearn = () => {
                 tentativeTime: "19 Dec 2024", 
                 grossProfit: "3", 
                 netProfit: "19.04%", 
-                seeFinancial: <LuShare2 />,
+                seeFinancial: {
+                    url: "/quaterlygraphtop", 
+                    icon: <LuShare2 />
+                },
                 mcap: "₹500 Cr"
             }
-    ];
+        ];
+        
     
     
         
     
         const [selectedEarningsTab, setSelectedEarningsTab] = useState("Today");
-        const [startDate, setStartDate] = useState("");
+       
          useState("All");
         const [sortOrder, setSortOrder] = useState({});
        
-        const [selectedFilter, setSelectedFilter] =useState("Upcoming Results");
+        const [selectedFilter, setSelectedFilter] =useState("All");
         const [sortedData, setSortedData] = useState([...earningsData]);
         const [selectedMcapOption, setSelectedMcapOption] = useState("Market Cap");
+        const [startDate, setStartDate] = useState(null);
+        const [endDate, setEndDate] = useState(null);
+        const [calendarOpen, setCalendarOpen] = useState(false);
 
     const handleEarningsTabChange = (tab) => {
         setSelectedEarningsTab(tab);
     };
 
-    const handleStartDateChange = (event) => {
-        const selectedDate = event.target.value; // YYYY-MM-DD format
-        setStartDate(selectedDate);
-      
-        const filteredData = earningsData.filter((row) => {
-          const rowDate = dayjs(row.tentativeTime).format("YYYY-MM-DD");
-          return rowDate === selectedDate;
-        });
-      
-        setSortedData(filteredData);
-      };
+    const toggleCalendar = () => {
+        setCalendarOpen(!calendarOpen);
+    };
+
 
 
     const handleFilterChange = (selectedFilter) => {
@@ -329,7 +383,7 @@ const EarningsInsightLearn = () => {
             if (option === "Market Cap") {
                 const valueA = parseFloat(a.mcap.replace('₹', '').replace(',', '').replace(' Cr', ''));
                 const valueB = parseFloat(b.mcap.replace('₹', '').replace(',', '').replace(' Cr', ''));
-                return newSortOrder === "asc" ? valueA - valueB : valueB - valueA;
+                return newSortOrder === "desc" ? valueA - valueB : valueB - valueA;
             } else if (option === "Name") {
                 return newSortOrder === "asc"
                     ? a.company.localeCompare(b.company)
@@ -337,7 +391,7 @@ const EarningsInsightLearn = () => {
             } else if (option === "Change%") {
                 const valueA = parseFloat(a.change.replace('%', ''));
                 const valueB = parseFloat(b.change.replace('%', ''));
-                return newSortOrder === "asc" ? valueA - valueB : valueB - valueA;
+                return newSortOrder === "desc" ? valueA - valueB : valueB - valueA;
             } else if (option === "Last Price") {
                 const valueA = parseFloat(a.ltp.replace('₹', '').replace(',', ''));
                 const valueB = parseFloat(b.ltp.replace('₹', '').replace(',', ''));
@@ -395,6 +449,7 @@ const EarningsInsightLearn = () => {
             setIsOpen(false); // Close the dropdown after selecting an option
         };
     
+       
         return (
             <div className="customDropdown">
                 <label className="dropdownLabel">{label}</label>
@@ -426,7 +481,30 @@ const EarningsInsightLearn = () => {
         "Sector Analysis",
     ];
     const mcapOptions = ["Market Cap", "Name", "Change%", "Last Price"];
-    
+
+
+
+    const handleDateChange = (dates) => {
+        const [start, end] = dates;
+        setStartDate(start);
+        setEndDate(end);
+
+        // Filter data based on the selected date range
+        filterData(start, end);
+    };
+
+    // Function to filter the data based on the date range
+    const filterData = (startDate, endDate) => {
+        if (startDate && endDate) {
+            const filteredData = earningsData.filter((row) => {
+                const rowDate = new Date(row.tentativeTime).toISOString().split('T')[0];
+                return rowDate >= startDate.toISOString().split('T')[0] && rowDate <= endDate.toISOString().split('T')[0];
+            });
+            setSortedData(filteredData);
+        }
+    };
+
+  
     return (
         <div className="earnings-insight-learn-wrapper">
             <header className="earnings-insight-learn-header">
@@ -455,16 +533,27 @@ const EarningsInsightLearn = () => {
                         ))}
                     </div>
                     <div className="earnings-insight-learn-date-picker">
-                        <label htmlFor="startDate" className="date-picker-label">
-                           
-                        </label>
-                        <input
-        type="date"
-        value={startDate}
-        onChange={handleStartDateChange}
-        className="date-picker"
-      />
-                    </div>
+                        <div className="dateinsight">
+                            <label htmlFor="dateRange" className="date-picker-label">Select Date Range: </label>
+                            <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)} >
+                                <FaRegCalendarAlt />
+                            </div>
+                            </div>
+                            {calendarOpen && (
+                                <ReactDatePicker
+                                    selected={startDate}
+                                    onChange={handleDateChange}
+                                    startDate={startDate}
+                                    endDate={endDate}
+                                    selectsRange
+                                    inline
+                                    dateFormat="yyyy-MM-dd"
+                                    onClick={() => setCalendarOpen(false)}  // Close the calendar if clicked outside
+                                />
+                            )}
+                        </div>
+                     
+                    
                     </div>
                     <div className="earnings-insight-learn-dropdown">
                     <CustomDropdown
@@ -496,7 +585,7 @@ const EarningsInsightLearn = () => {
                             LTP ₹ {renderSortIcon("ltp")}
                         </th>
                         <th onClick={() => handleSort("mcap")} style={{ cursor: "pointer" }}>
-    MCAP (Cr.) {renderSortIcon("mcap")}
+    M.CAP (Cr.) {renderSortIcon("mcap")}
 </th>
                         <th onClick={() => handleSort("revenue")} style={{ cursor: "pointer" }}>
                             Revenue (Cr.) {renderSortIcon("revenue")}
@@ -536,7 +625,9 @@ const EarningsInsightLearn = () => {
                             <td>{row.tentativeTime}</td>
                             <td>{row.grossProfit}</td>
                             <td>{row.netProfit}</td>
-                            <td>{row.seeFinancial}</td>
+                            <td> <a href={row.seeFinancial.url}>
+      {row.seeFinancial.icon}
+    </a></td>
                         </tr>
                     ))}
                 </tbody>

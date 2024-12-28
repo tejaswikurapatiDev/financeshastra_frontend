@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './header.css';
 import { Link as ScrollLink } from 'react-scroll';  // For scroll navigation
+import './Nifty50topheader.css'
 
 import { Divider } from '@mui/material';
 
-function Graphheader() {
+function Nifty50topheader() {
   const [change, setChange] = useState(0); // For storing dynamic change value in rupees
   const [lastUpdated, setLastUpdated] = useState('');
   const [currentPrice, setCurrentPrice] = useState(300); // Example initial stock price, replace with actual price
@@ -40,67 +40,34 @@ function Graphheader() {
   }, []);
 
   return (
-    <div className="graphcontainer">
+    <div className="graphcontainerer">
       <div className="graphheader">
         <div className="title-container">
-          <h1 className="telephone">HCL TECHNOLOGIES LTD </h1>
+          <h1 className="telephonenifty">Nifty 50</h1>
         </div>
         <div className="graph-price-update">
         <span className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+
             ₹{parseFloat(currentPrice).toLocaleString()} {/* Format the price with ₹ symbol */}
           </span>
           <span className="graphupdate">Last updated: {lastUpdated}</span>
         </div>
       </div>
 
-      <div className="graphstock-info">
-        <span className="graphnse">NSE : ITI</span>
-        <span className="graphsector">Telecom Equipment</span>
-      </div>
-
+     
       {/* Navigation Links */}
-      <nav className="graphnavbar">
+      <nav className="graphnavbarr">
         <Divider />
         <ScrollLink to="overview" smooth={true} duration={500}>
           Overview
         </ScrollLink>
         <ScrollLink to="stockxray" smooth={true} duration={500}>
-          10 Yrs X-Ray
+        Sectors
         </ScrollLink>
         <ScrollLink to="stockearning" smooth={true} duration={500}>
-          Earnings
+        Companies
         </ScrollLink>
-        <ScrollLink to="valuation" smooth={true} duration={500}>
-          Valuation
-        </ScrollLink>
-        <ScrollLink to="stockanalysis" smooth={true} duration={500}>
-          Analysis
-        </ScrollLink>
-        <ScrollLink to="analysis-notes" smooth={true} duration={500}>
-          Analysis Insight
-        </ScrollLink>
-        <ScrollLink to="stockpeer" smooth={true} duration={500}>
-          Peers
-        </ScrollLink>
-        <ScrollLink to="profitloss" smooth={true} duration={500}>
-          Profit & Loss
-        </ScrollLink>
-        <ScrollLink to="balance-sheet" smooth={true} duration={500}>
-          Balance Sheet
-        </ScrollLink>
-        <ScrollLink to="cashflow" smooth={true} duration={500}>
-          Cash Flow
-        </ScrollLink>
-        <ScrollLink to="ratios" smooth={true} duration={500}>
-          Ratios
-        </ScrollLink>
-        <ScrollLink to="news" smooth={true} duration={500}>
-          News
-        </ScrollLink>
-        <ScrollLink to="about" smooth={true} duration={500}>
-          About
-        </ScrollLink>
-        
+       
         {/* Optional: For routing to other pages */}
         <Divider />
         
@@ -111,4 +78,4 @@ function Graphheader() {
   );
 }
 
-export default Graphheader;
+export default Nifty50topheader;

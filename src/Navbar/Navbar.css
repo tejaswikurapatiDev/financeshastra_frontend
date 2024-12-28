@@ -353,30 +353,53 @@ a span {
 }
 /* Footer styling for navbar links on mobile */
 .footer-nav {
-  display: none; /* Hide footer navbar by default */
-  position: fixed; /* Fix it to the bottom */
-  bottom: 0; /* Align to the bottom of the viewport */
- 
- left: 0;
-  justify-content: center;
- 
-  gap: 40px;
-  font-weight: bold;
-  list-style: none;
-  padding: 7px;
-  background-color: #ffffff;
-  border-top: 1px solid #e0e0e0;
+  display: none; /* Flex layout for horizontal arrangement */
+  justify-content: space-around; /* Even spacing around items */
+  position: fixed; /* Fix it to the bottom of the viewport */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Stretch from left */
+  width: 100%; /* Full width */
+  padding: 10px 0; /* Padding for comfortable touch area */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
   z-index: 1000; /* Ensure it appears above other elements */
+  border-top: 1px solid #e0e0e0; /* Optional border for separation */
+  list-style: none; /* Remove default list styles */
+ 
 }
+.footer-item {
+  display: flex;
+  flex-direction: column; /* Arrange icon and label vertically */
+  align-items: center; /* Center align items */
+  gap: 5px; /* Space between icon and label */
+}
+.footer-item.selected {
+  color: #fff; /* Text color */
+  background-color: #24b676; /* Highlighted background */
+  padding: 5px 10px; /* Inner spacing */
+  border-radius: 50%; /* Circular appearance */
+  margin-bottom: 10px; /* Space below the selected item */
+  box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */
+  border: 5px solid #a9e8c2; /* Light color border */
+  display: flex; /* Align icon and text */
+  flex-direction: column; /* Stack icon and text */
+  align-items: center; /* Center alignment */
+  gap: 0; /* Remove any spacing between icon and text */
+}
+
+
 
 .footer-nav a {
   text-decoration: none;
-  color: #333333;
+  color: #24b676;
   font-size: 1rem;
 }
 
 
-
+.footerportfolio-icon{
+  font-size: 20px; /* Icon size */
+ 
+}
 .footer-nav a:hover {
   color: #24b676;
 }
@@ -446,7 +469,8 @@ a span {
 
   .footer-nav {
     display: flex;
-    left: 30px;
+    height: 60px;
+   
    
   }
 
@@ -562,7 +586,7 @@ a span {
   .subscritebutton {
     padding: 6px 12px; /* Further reduce padding */
     font-size: 12px; /* Further reduce font size */
-    width: 100%; /* Make button full-width for better usability */
+   
     margin-top: 10px; /* Adjust spacing */
     box-shadow: 0 2px 4px red; /* Subtle shadow for very small screens */
   }
@@ -593,6 +617,8 @@ a span {
   /* Adjust footer nav layout */
   .footer-nav {
     font-size: 12px;
+   margin-left: -10px;
+    height: 60px;
     
  
   }
@@ -609,7 +635,7 @@ a span {
   }
   .footer-icon {
     margin-right: 8px;
-    font-size: 20px;
+    font-size: 23px;
     vertical-align: middle;
     color: #24b676;
   }

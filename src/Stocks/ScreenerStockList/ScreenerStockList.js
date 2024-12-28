@@ -31,6 +31,16 @@ const ScreenerStockList = () => {
     setDivYieldDropdownVisible(!isDivYieldDropdownVisible);
    
   };
+  const [isPriceDropdownVisible, setPriceDropdownVisible] = useState(false);
+  const togglePriceDropdown = () => {
+    setPriceDropdownVisible(!isPriceDropdownVisible);
+   
+  };
+  const [ischangeDropdownVisible, setchangeDropdownVisible] = useState(false);
+  const togglechangeDropdown = () => {
+    setchangeDropdownVisible(!ischangeDropdownVisible);
+   
+  };
   const [isEPSDropdownVisible, setEPSDropdownVisible] = useState(false);
 
   const [isROEDropdownVisible, setROEDropdownVisible] = useState(false);
@@ -305,6 +315,9 @@ const resetRange = () => {
   const [selectedroe, setSelectedroe] = useState([]);
   const [selectedpeg, setSelectedpeg] = useState([]);
   const [selectedrevenuegrowth, setSelectedrevenuegrowth] = useState([]);
+  const [selectedprice, setSelectedprice] = useState([]);
+  const [selectedchange, setSelectedchange] = useState([]);
+  const [selectedperf, setSelectedperf] = useState([]);
 
   const sectors = [
     "Agriculture and Chemicals",
@@ -356,25 +369,14 @@ const resetRange = () => {
   ];
   const marketCapCategory = ["Large Cap", "Mid Cap", "Small Cap", "Micro Cap", "Other"];
   const peFilterOptions = [
-    { value: "50-above", label: "50 and above" },
-    { value: "25-50", label: "25 to 50" },
-    { value: "15-25", label: "15 to 25" },
+    { value: "0-above", label: "0 and above" },
     { value: "15-below", label: "15 and below" },
-    { value: "0-above", label: "0 and above" }
+    { value: "15-25", label: "15 to 25" },
+    { value: "25-50", label: "25 to 50" },
+    { value: "50-above", label: "50 and above" }
   ];
+  
   const epsDilGrowthOptions = [
-    {
-      label: "50% and above",
-      value: "50-above",
-    },
-    {
-      label: "25% and above",
-      value: "25-above",
-    },
-    {
-      label: "10% and below",
-      value: "10-below",
-    },
     {
       label: "0% and above",
       value: "0-above",
@@ -384,37 +386,43 @@ const resetRange = () => {
       value: "0-below", // This is the one you're referring to
     },
     {
+      label: "10% and below",
+      value: "10-below",
+    },
+    {
+      label: "25% and above",
+      value: "25-above",
+    },
+    {
+      label: "50% and above",
+      value: "50-above",
+    },
+    {
       label: "-25% and below",
       value: "-25-below",
     },
   ];
+  
   const divYieldOptions = [
     {
-      label: "10% and above",
-      value: "10-above",
-    },
-    {
-      label: "5% and above",
-      value: "5-above",
+      label: "0% to 2%",
+      value: "0-2", // This is the specific data you're referring to
     },
     {
       label: "2% and below",
       value: "2-below",
     },
     {
-      label: "0% to 2%",
-      value: "0-2", // This is the specific data you're referring to
+      label: "5% and above",
+      value: "5-above",
+    },
+    {
+      label: "10% and above",
+      value: "10-above",
     },
   ];
+  
   const roeOptions = [
-    {
-      label: "30% and above",
-      value: "30",
-    },
-    {
-      label: "15% and above",
-      value: "15",
-    },
     {
       label: "0% and above",
       value: "0-above",
@@ -424,18 +432,27 @@ const resetRange = () => {
       value: "0-below",
     },
     {
+      label: "15% and above",
+      value: "15",
+    },
+    {
       label: "15% and below",
       value: "15-below",
     },
+    {
+      label: "30% and above",
+      value: "30",
+    },
   ];
+  
   const pegOptions = [
     {
-      label: "2 and above",
-      value: "2-above",
+      label: "0.9 to 1.1",
+      value: "0.9-1.1",
     },
     {
-      label: "2 and below",
-      value: "2-below",
+      label: "0.5 and below",
+      value: "0.5-below",
     },
     {
       label: "1 and above",
@@ -446,40 +463,63 @@ const resetRange = () => {
       value: "1-below",
     },
     {
-      label: "0.9 to 1.1",
-      value: "0.9-1.1",
+      label: "2 and above",
+      value: "2-above",
     },
     {
-      label: "0.5 and below",
-      value: "0.5-below",
+      label: "2 and below",
+      value: "2-below",
     },
   ];
+  
   const revenueGrowthOptions = [
-    {
-      label: "50% and above",
-      value: "50-above",
-    },
-    {
-      label: "25% and above",
-      value: "25-above",
-    },
-    {
-      label: "10% and below",
-      value: "10-below",
-    },
-    {
-      label: "0% and above",
-      value: "0-above",
-    },
-    {
-      label: "0% and below",
-      value: "0-below",
-    },
-    {
-      label: "-25% and below",
-      value: "-25-below",
-    },
+    { label: "0% and above", value: "0-above" },
+    { label: "0% and below", value: "0-below" },
+    { label: "10% and below", value: "10-below" },
+    { label: "25% and above", value: "25-above" },
+    { label: "50% and above", value: "50-above" },
+    { label: "-25% and below", value: "-25-below" },
   ];
+  
+  const priceOptions = [
+  { label: "5 and below", value: "5-below" },
+  { label: "10 and below", value: "10-below" },
+  { label: "10 to 100", value: "10-100" },
+  { label: "100 and above", value: "100" },
+  { label: "Up to 500", value: "500" },
+  { label: "Up to 1000", value: "1000" },
+  { label: "Up to 5000", value: "5000" },
+];
+const changeOptions = [
+  { label: "0% and below", value: "0-below" },
+  { label: "0% and above", value: "0-above" },
+  { label: "0% to 5%", value: "0-5" },
+ { label: "5% and above", value: "5-above" },
+  { label: "10% and above", value: "10-above" },
+  {label: "20% and above", value: "20-above" },
+  { label: "30% and above", value: "30-above" },
+  { label: "-5% to 0%", value: "-5-0" },
+  { label: "-5% and below", value: "-5-below" },
+  { label: "-10% and below", value: "-10-below" },
+  { label: "-20% and below", value: "-20-below" },
+  { label: "-30% and below", value: "-30-below" },
+];
+const perfOptions = [
+  { label: "0% and below", value: "0-below" },
+  { label: "0% and above", value: "0-above" },
+  { label: "0% to 5%", value: "0-5" },
+  { label: "5% and above", value: "5-above" },
+  { label: "10% and above", value: "10-above" },
+  { label: "20% and above", value: "20-above" },
+  { label: "30% and above", value: "30-above" },
+  { label: "-5% to 0%", value: "-5-0" },
+  { label: "-5% and below", value: "-5-below" },
+  { label: "-10% and below", value: "-10-below" },
+  { label: "-20% and below", value: "-20-below" },
+  { label: "-30% and below", value: "-30-below" },
+];
+
+  
   const toggleIndexDropdown = () => {
     setIndexDropdownVisible(!isIndexDropdownVisible);
   };
@@ -510,6 +550,10 @@ const resetRange = () => {
      setSelectedroe([]);
      setSelectedpeg([]);
      setSelectedrevenuegrowth([]);
+     setSelectedprice([]);
+     setSelectedchange([]);
+     setSelectedperf([]);
+
 
   };
 
@@ -802,8 +846,150 @@ const resetRange = () => {
     }
   };
   
+  const handlePriceApply = () => {
+    // Filter stocks based on the selected price range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Parse the stock price, removing currency symbols and commas
+      const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
   
-  const handleCheckboxChange = (index, sector,marketCapCategory,pToE,epsDilGrowth,divYield,roe,peg,revenueGrowth) => {
+      return selectedprice.some((range) => {
+        switch (range) {
+          case "5000":
+            return stockPrice <= 5000; // Up to 5000
+          case "1000":
+            return stockPrice <= 1000; // Up to 1000
+          case "500":
+            return stockPrice <= 500; // Up to 500
+          case "100":
+            return stockPrice >= 100; // 100 and above
+          case "10-100":
+            return stockPrice >= 10 && stockPrice < 100; // Between 10 and 100
+          case "10-below":
+            return stockPrice < 10 && stockPrice >= 5; // Between 5 and 10
+          case "5-below":
+            return stockPrice < 5; // Below 5
+          case "above-ema-50":
+            return stock.priceEMA50 && stockPrice > stock.priceEMA50; // Above EMA (50)
+          case "below-ema-50":
+            return stock.priceEMA50 && stockPrice < stock.priceEMA50; // Below EMA (50)
+          case "crosses-bb-upper":
+            return stock.bbUpper && stockPrice > stock.bbUpper; // Crosses BB Upper
+          case "crosses-bb-lower":
+            return stock.bbLower && stockPrice < stock.bbLower; // Crosses BB Lower
+          default:
+            return false;
+        }
+      });
+    });
+  
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+  
+    // Close the dropdown
+    setPriceDropdownVisible(false);
+  
+    // Optionally scroll to the table
+    const tableElement = document.getElementById("stocks-table");
+    if (tableElement) {
+      tableElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  const handleChangeApply = () => {
+    // Filter stocks based on the selected change range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Parse the change percentage, removing any symbols like `%` and converting it to a float
+      const stockChangePercentage = parseFloat(stock.change.replace(/%|₹|,/g, ""));
+  
+      return selectedchange.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockChangePercentage >= 30; // 30% and above
+          case "20-above":
+            return stockChangePercentage >= 20; // 20% and above
+          case "10-above":
+            return stockChangePercentage >= 10; // 10% and above
+          case "5-above":
+            return stockChangePercentage >= 5; // 5% and above
+          case "0-5":
+            return stockChangePercentage >= 0 && stockChangePercentage <= 5; // 0% to 5%
+          case "0-above":
+            return stockChangePercentage >= 0; // 0% and above
+          case "0-below":
+            return stockChangePercentage < 0; // 0% and below
+          case "-5-0":
+            return stockChangePercentage < 0 && stockChangePercentage >= -5; // -5% to 0%
+          case "-5-below":
+            return stockChangePercentage < -5; // -5% and below
+          case "-10-below":
+            return stockChangePercentage < -10; // -10% and below
+          case "-20-below":
+            return stockChangePercentage < -20; // -20% and below
+          case "-30-below":
+            return stockChangePercentage < -30; // -30% and below
+          default:
+            return false;
+        }
+      });
+    });
+  
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+  
+    // Close the dropdown
+    setChangeDropdownVisible(false);
+  
+    // Optionally scroll to the table
+    document.getElementById("stocks-table")?.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleperfApply = () => {
+    // Filter stocks based on the selected performance range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Safely parse the perf value, defaulting to 0 if undefined or invalid
+      const stockperf = stock.perf ? parseFloat(stock.perf.replace(/%|₹|,/g, "")) : 0;
+  
+      return selectedperf.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockperf >= 30; // 30% and above
+          case "20-above":
+            return stockperf >= 20; // 20% and above
+          case "10-above":
+            return stockperf >= 10; // 10% and above
+          case "5-above":
+            return stockperf >= 5; // 5% and above
+          case "0-5":
+            return stockperf >= 0 && stockperf <= 5; // 0% to 5%
+          case "0-above":
+            return stockperf >= 0; // 0% and above
+          case "0-below":
+            return stockperf < 0; // 0% and below
+          case "-5-0":
+            return stockperf < 0 && stockperf >= -5; // -5% to 0%
+          case "-5-below":
+            return stockperf < -5; // -5% and below
+          case "-10-below":
+            return stockperf < -10; // -10% and below
+          case "-20-below":
+            return stockperf < -20; // -20% and below
+          case "-30-below":
+            return stockperf < -30; // -30% and below
+          default:
+            return false;
+        }
+      });
+    });
+  
+    // Update stocks with the filtered data
+    setStocks(filteredStocks);
+  
+    // Close the dropdown
+    setPerfDropdownVisible(false);
+  
+    // Scroll to the stocks table
+    document.getElementById("stocks-table")?.scrollIntoView({ behavior: "smooth" });
+  };
+  
+  const handleCheckboxChange = (index, sector,marketCapCategory,pToE,epsDilGrowth,divYield,roe,peg,revenueGrowth,price,change,perf) => {
     setSelectedIndexes((prev) => 
       prev.includes(index) 
       ? prev.filter((s) => s !== index) 
@@ -849,6 +1035,21 @@ const resetRange = () => {
         ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
         : [...prev,revenueGrowth] // If it isn't, add it to the list
     );
+    setSelectedprice((prev) =>
+      prev.includes(price) // Check if the category is already selected
+        ? prev.filter((s) => s !== price) // If it is, remove it
+        : [...prev,price] // If it isn't, add it to the list
+    );
+    setSelectedchange((prev) =>
+      prev.includes(change) // Check if the category is already selected
+        ? prev.filter((s) => s !== change) // If it is, remove it
+        : [...prev,change] // If it isn't, add it to the list
+    );
+    setSelectedperf((prev) =>
+      prev.includes(perf) // Check if the category is already selected
+        ? prev.filter((s) => s !== perf) // If it is, remove it
+        : [...prev,perf] // If it isn't, add it to the list
+    );
   }
 
   const filterStocksByChangeRange = () => {
@@ -869,141 +1070,167 @@ const resetRange = () => {
       <h1 className="screener-header">Stocks Screener</h1>
       <div className="screener-filters">
         {/* Filter for each parameter */}
-        <div style={{ position: "relative"}}>
-      {/* Dropdown Button */}
-      <button
-        onClick={toggleIndexDropdown}
+        <div  className ="indexscreenerbuttonstockcontainar"style={{ position: "relative" }}>
+  {/* Dropdown Button */}
+  <button className="indexscreenerbuttonstock"
+    onClick={toggleIndexDropdown}
+   
+  >
+    Index <RiArrowDropDownLine size={24} />
+  </button>
+
+  {/* Dropdown Menu */}
+  {isIndexDropdownVisible && (
+    <div className="stockindexscreeneropt"
+     
+    >
+      {/* Search Box */}
+      <div className="searchboxindexscreener"
+       
+      >
+        <FaSearch style={{ marginRight: "4px", color: "#333" }} />
+        <input
+          type="text"
+          placeholder="Search Index"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          style={{
+            border: "none",
+            outline: "none",
+            flex: 1,
+          }}
+        />
+      </div>
+
+      {/* Checkbox List */}
+      <div
+        className="index-optionsstocks" // Added class name to the container of options
+       
+      >
+        {filteredIndexes.map((index) => (
+          <label
+            key={index}
+            className="index-optionscreener" // Added class name to each option
+           
+          >
+            <input
+              type="checkbox"
+              checked={selectedIndexes.includes(index)}
+              onChange={(e) => {
+                e.stopPropagation();
+                handleCheckboxChange(index);
+              }}
+              style={{ width: "20%" }}
+            />
+            {index}
+          </label>
+        ))}
+      </div>
+
+      {/* Buttons */}
+      <div
         style={{
-          backgroundColor: "white", // Corrected CSS property
-    border: "1px solid #333",
-    padding: "4px 10px", // Added horizontal padding for better spacing
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "6px", // Space between the text and the icon
-    borderRadius: "5px",
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "10px",
         }}
       >
-        Index <RiArrowDropDownLine size={24} />
+        <button className="resetstockscreener"
+          onClick={handleReset}
+        
+        >
+          Reset
+        </button>
+        <button className="applystockscreener"
+          onClick={handleApply}
+          
+        >
+          Apply
+        </button>
+      </div>
+    </div>
+  )}
+
+  {/* Display Filtered Data */}
+  <div>
+    {filteredData.length > 0 ? (
+      filteredData.map((item) => (
+        <div key={item.id}>
+          <p>{item.name}</p>
+        </div>
+      ))
+    ) : (
+      <p>No data available for the selected index.</p>
+    )}
+  </div>
+  
+   
+         
+      
+    </div>
+    <div className="market-cap-filter">
+    <div className="dropdown-market-cap-wrapper">
+        {/* Filter for each parameter */}
+        <div style={{ position: "relative"}}>
+      {/* Dropdown Button */}
+      <button className="dropdown-market-cap-toggle"
+        onClick={togglePriceDropdown}
+        
+      >
+            Price <RiArrowDropDownLine size={24} />
       </button>
 
       {/* Dropdown Menu */}
-      {isIndexDropdownVisible && (
-        <div
-        style={{
-          position: "absolute",
-          top: "40px",
-          left: "0",
-          width: "600%",
-          backgroundColor: "white",
-          border: "1px solid #ccc",
-          borderRadius: "4px",
-          padding: "10px",
-          boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
-          zIndex: 1000,
-        }}
+      {isPriceDropdownVisible && (
+        <div className="dropdown-market-cap-options"
+         
         >
-          {/* Search Box */}
-          <div
-             style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "10px",
-              padding: "2px",
-              border: "1px solid black",
-              borderRadius: "12px",
-              width:"400px"
-            
-            }}
-          >
-            <FaSearch style={{ marginRight: "4px", color: "#333" }} />
-            <input
-              type="text"
-              placeholder="Search Index"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              style={{
-                border: "none",
-                outline: "none",
-                flex: 1,
-              }}
-            />
-          </div>
+          
+      
+          
+           
 
           {/* Checkbox List */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "10px",
-              overflowY: "auto",
-            }}
-          >
-            {filteredIndexes.map((index) => (
-              <label
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                  cursor: "pointer",
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={selectedIndexes.includes(index)}
-                  onChange={(e) => {
-                    e.stopPropagation();
-                    handleCheckboxChange(index);
-                  }}
-                  style={{ width: "18%" }}
-                />
-                {index}
-              </label>
-            ))}
-          </div>
+         
+     
+  {priceOptions.map((category) => (
+    <label  className="dropdown-market-cap-label" key={category.value}>
+      <input
+        type="checkbox"
+        checked={selectedprice.includes(category.value)} // Check by the category value
+        onChange={(e) => {
+          e.stopPropagation();
+          setSelectedprice((prev) =>
+            prev.includes(category.value)
+              ? prev.filter((item) => item !== category.value) // Remove category
+              : [...prev, category.value] // Add category
+          );
+        }}
+        style={{ width: "30%" }}
+      />
+      {category.label} {/* Correctly render the label */}
+    </label>
+  ))}
+
 
           {/* Buttons */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginTop: "10px",
-            }}
-          >
+          <div className="dropdown-market-cap-actions">
             <button
               onClick={handleReset}
-              style={{
-                padding: "5px 10px",
-                    border: "1px solid #24b676",
-                    borderRadius: "4px",
-                    color: "#24b676",
-                    backgroundColor: "white",
-                    cursor: "pointer",
-                    marginLeft:"320px"
-              }}
+                className="dropdown-market-cap-reset"
             >
               Reset
             </button>
-            <button
-              onClick={handleApply}
-              style={{
-                padding: "5px 10px",
-                border: "none",
-                borderRadius: "4px",
-                color: "white",
-                backgroundColor: "#24b676",
-                cursor: "pointer",
-                marginRight:"50px",
-              }}
+            <button 
+              onClick={handlePriceApply}
+               className="dropdown-market-cap-apply"
             >
               Apply
             </button>
           </div>
         </div>
       )}
-
+</div>
       {/* Display Filtered Data */}
       <div>
         {filteredData.length > 0 ? (
@@ -1016,76 +1243,85 @@ const resetRange = () => {
           <p>No data available for the selected index.</p>
         )}
       </div>
-         
-      
+         </div>
     </div>
-    <div className="filter-group">
-          <select
-            value={filters.price}
-            onChange={(e) => handleFilterChange("price", e.target.value)}
-          >
-            <option value="All" disabled hidden>
-              Price
-            </option>
-            <option value="500">Up to ₹500</option>
-            <option value="1000">Up to ₹1000</option>
-            <option value="5000">Up to ₹5000</option>
-          </select>
-        </div>
-        <div className="filter-group change-filter">
-      <div className="dropdown-change-wrapper">
-        <button
-          className="dropdown-change-toggle"
-          onClick={toggleChangeDropdown}
+
+    <div className="market-cap-filter">
+    <div className="dropdown-market-cap-wrapper">
+        {/* Filter for each parameter */}
+        <div style={{ position: "relative"}}>
+      {/* Dropdown Button */}
+      <button className="dropdown-market-cap-toggle"
+        onClick={togglechangeDropdown}
+        
+      >
+            Change% <RiArrowDropDownLine size={24} />
+      </button>
+
+      {/* Dropdown Menu */}
+      {ischangeDropdownVisible && (
+        <div className="dropdown-market-cap-options"
+         
         >
-          Change % <RiArrowDropDownLine size={24} />
-        </button>
-        {isChangeDropdownVisible && (
-          <div className="dropdown-change-options">
-            <div className="dropdown-change-range">
-              <label>
-                <input
-                  type="number"
-                  value={changeRange.min}
-                  onChange={(e) => handleChangeRange("min", e.target.value)}
-                  className="change-input"
-                />
-               
-              </label>
-              <span>To</span>
-              <label>
-                <input
-                  type="number"
-                  value={changeRange.max}
-                  onChange={(e) => handleChangeRange("max", e.target.value)}
-                  className="change-input"
-                />
-              
-              </label>
-            </div>
+          
+      
+          
+           
 
-            <input
-              type="range"
-              min="-50"
-              max="100"
-              value={changeRange.min}
-              onChange={(e) => handleChangeRange("min", e.target.value)}
-              className="change-slider"
-              step="1"
-              aria-label="Minimum change percentage"
-            />
+          {/* Checkbox List */}
+         
+     
+  {changeOptions.map((category) => (
+    <label  className="dropdown-market-cap-label" key={category.value}>
+      <input
+        type="checkbox"
+        checked={selectedchange.includes(category.value)} // Check by the category value
+        onChange={(e) => {
+          e.stopPropagation();
+          setSelectedchange((prev) =>
+            prev.includes(category.value)
+              ? prev.filter((item) => item !== category.value) // Remove category
+              : [...prev, category.value] // Add category
+          );
+        }}
+        style={{ width: "30%" }}
+      />
+      {category.label} {/* Correctly render the label */}
+    </label>
+  ))}
 
-            <div className="dropdown-change-actions">
-              <button className="reset-change-button" onClick={resetchangeRange}>
-                Reset
-              </button>
-              <button className="apply-change-button" onClick={filterStocksByChangeRange}>
-                Apply
-              </button>
-            </div>
+
+          {/* Buttons */}
+          <div className="dropdown-market-cap-actions">
+            <button
+              onClick={handleReset}
+                className="dropdown-market-cap-reset"
+            >
+              Reset
+            </button>
+            <button 
+              onClick={handleChangeApply}
+               className="dropdown-market-cap-apply"
+            >
+              Apply
+            </button>
           </div>
+        </div>
+      )}
+</div>
+      {/* Display Filtered Data */}
+      <div>
+        {filteredData.length > 0 ? (
+          filteredData.map((item) => (
+            <div key={item.id}>
+              <p>{item.name}</p>
+            </div>
+          ))
+        ) : (
+          <p>No data available for the selected index.</p>
         )}
       </div>
+         </div>
     </div>
     <div className="market-cap-filter">
     <div className="dropdown-market-cap-wrapper">
@@ -1397,20 +1633,10 @@ const resetRange = () => {
          </div>
     </div>
         {/* Sector Dropdown */}
-        <div style={{ position: "relative"}}>
-        <button
+        <div  className ="indexscreenerbuttonstockcontainar" style={{ position: "relative"}}>
+        <button className="indexscreenerbuttonstock"
   onClick={() => setIsOpen((prev) => !prev)}
-  style={{
-    backgroundColor: "white", // Corrected CSS property
-    border: "1px solid #333",
-    padding: "4px 10px", // Added horizontal padding for better spacing
-    cursor: "pointer",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: "6px", // Space between the text and the icon
-    borderRadius: "5px",
-  }}
+ 
 >
   Sectors <RiArrowDropDownLine size={24} />
 </button>
@@ -1419,31 +1645,11 @@ const resetRange = () => {
 
           {/* Dropdown Menu */}
           {isOpen && (
-            <div
-              style={{
-                position: "absolute",
-                top: "40px",
-                left: "0",
-                width: "600%",
-                backgroundColor: "white",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                padding: "10px",
-                boxShadow: "0px 4px 8px rgba(0,0,0,0.1)",
-                zIndex: 1000,
-              }}
+            <div className="stockindexscreeneropt"
+              
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  marginBottom: "10px",
-                  padding: "2px",
-                  border: "1px solid black",
-                  borderRadius: "12px",
-                  width:"400px"
-                 
-                }}
+             <div className="searchboxindexscreener"
+               
               >
                 <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                 <input
@@ -1459,9 +1665,10 @@ const resetRange = () => {
                 />
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "10px", overflowY: "auto" }}>
+              <div
+        className="index-optionsstocks" >
   {filteredSectors.map((sector, index) => (
-    <label key={sector} style={{ display: "flex", alignItems: "center", gap: "5px", cursor: "pointer" }}>
+    <label key={sector}  className="index-optionscreener" >
       <input
   type="checkbox"
   checked={selectedSectors.includes(sector)} // Check if the sector is selected
@@ -1473,7 +1680,7 @@ const resetRange = () => {
         : [...prev, sector]
     );
   }}
-  style={{ width: "18%" }}
+  style={{ width: "20%" }}
 />
       {sector}
     </label>
@@ -1486,31 +1693,16 @@ const resetRange = () => {
                   marginTop: "10px",
                 }}
               >
-                <button
+                 <button className="resetstockscreener"
                   onClick={handleReset}
-                  style={{
-                    padding: "5px 10px",
-                    border: "1px solid #24b676",
-                    borderRadius: "4px",
-                    color: "#24b676",
-                    backgroundColor: "white",
-                    cursor: "pointer",
-                    marginLeft:"350px"
-                  }}
+                  
                 >
                   Reset
                 </button>
-                <button
+                <button className="applystockscreener"
                   onClick={handlesectorApply}
-                  style={{
-                    padding: "5px 10px",
-                    border: "none",
-                    borderRadius: "4px",
-                    color: "white",
-                    backgroundColor: "#24b676",
-                    cursor: "pointer",
-                    marginRight:"50px",
-                  }}
+                  
+                  
                 >
                   Apply
                 </button>
@@ -1533,68 +1725,83 @@ const resetRange = () => {
 
        
         {/* Performance Dropdown */}
-        <div className="filter-group performance-filter">
-  <div className="dropdown-performance-wrapper">
-    <button
-      className="dropdown-performance-toggle"
-      onClick={togglePerfDropdown}
-    >
-      Perf% <RiArrowDropDownLine size={24} />
-    </button>
-    {isPerfDropdownVisible && (
-      <div className="dropdown-performance-options">
-        <div className="dropdown-performance-range">
-          <label>
-            <input
-              type="number"
-              value={performanceRange.min}
-              onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-              className="performance-input"
-            />
-            %
-          </label>
-          <span>To</span>
-          <label>
-            <input
-              type="number"
-              value={performanceRange.max}
-              onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-              className="performance-input"
-            />
-            %
-          </label>
-        </div>
+        <div className="market-cap-filter">
+    <div className="dropdown-market-cap-wrapper">
+        {/* Filter for each parameter */}
+        <div style={{ position: "relative"}}>
+      {/* Dropdown Button */}
+      <button className="dropdown-market-cap-toggle"
+        onClick={togglePerfDropdown}
+        
+      >
+           Perf% <RiArrowDropDownLine size={24} />
+      </button>
 
-        <div className="dropdown-performance-slider">
-          <input
-            type="range"
-            min="-50"
-            max="100"
-            value={performanceRange.min}
-            
-            onChange={(e) => handlePerformanceRangeChange(e.target.value)}
-            className="performance-slider"
-            step="1"
-            style={{
-              backgroundSize: `${((performanceRange.min + 50) / 150) * 100}% 100%`,
-             
-            }}
-          />
-        </div>
+      {/* Dropdown Menu */}
+      {isPerfDropdownVisible && (
+        <div className="dropdown-market-cap-options"
+         
+        >
+          
+      
+          
+           
 
-        <div className="dropdown-performance-actions">
-          <button className="reset-performance-button" onClick={resetRange}>
-            Reset
-          </button>
-          <button className="apply-performance-button" onClick={applyRange}>
-            Apply
-          </button>
+          {/* Checkbox List */}
+         
+     
+  {perfOptions.map((category) => (
+    <label  className="dropdown-market-cap-label" key={category.value}>
+      <input
+        type="checkbox"
+        checked={selectedperf.includes(category.value)} // Check by the category value
+        onChange={(e) => {
+          e.stopPropagation();
+          setSelectedperf((prev) =>
+            prev.includes(category.value)
+              ? prev.filter((item) => item !== category.value) // Remove category
+              : [...prev, category.value] // Add category
+          );
+        }}
+        style={{ width: "30%" }}
+      />
+      {category.label} {/* Correctly render the label */}
+    </label>
+  ))}
+
+
+          {/* Buttons */}
+          <div className="dropdown-market-cap-actions">
+            <button
+              onClick={handleReset}
+                className="dropdown-market-cap-reset"
+            >
+              Reset
+            </button>
+            <button 
+              onClick={handleperfApply}
+               className="dropdown-market-cap-apply"
+            >
+              Apply
+            </button>
+          </div>
         </div>
-      </div>
-    )}
-  </div>
+      )}
 </div>
-
+      {/* Display Filtered Data */}
+      <div>
+        {filteredData.length > 0 ? (
+          filteredData.map((item) => (
+            <div key={item.id}>
+              <p>{item.name}</p>
+            </div>
+          ))
+        ) : (
+          <p>No data available for the selected index.</p>
+        )}
+      </div>
+         </div>
+    </div>
 {/* Revenue Growth Dropdown */}
 <div className="market-cap-filter">
     <div className="dropdown-market-cap-wrapper">

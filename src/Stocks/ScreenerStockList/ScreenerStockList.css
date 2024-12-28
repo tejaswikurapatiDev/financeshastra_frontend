@@ -60,8 +60,69 @@
   box-shadow: 0 4px 6px #24b676; /* Adds subtle shadow */
   
  
-   
   /* No left or right borders by default */
+}
+.index-optionsstocks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Creates a 3-column grid */
+  gap: 10px; /* Adds spacing between grid items */
+  overflow-y: auto; /* Allows vertical scrolling if content exceeds height */
+}
+.searchboxindexscreener {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 12px;
+  width: 400px;
+}
+.index-optionscreener {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.stockindexscreeneropt {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 600%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.indexscreenerbuttonstock {
+  background-color: white;
+  border: 1px solid #333;
+  padding: 4px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  border-radius: 5px;
+}
+.resetstockscreener {
+  padding: 5px 10px;
+  border: 1px solid #24b676;
+  border-radius: 4px;
+  color: #24b676;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 320px;
+}
+.applystockscreener {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  background-color: #24b676;
+  cursor: pointer;
+  margin-right: 50px;
 }
 
 .screener-table th:first-child {
@@ -1009,11 +1070,26 @@ cursor: pointer;
   .screener-header {
     font-size: 1.6rem;
     margin-bottom: 0.8rem;
+    margin-top: 100px;
+  }
+  .screener-table td {
+    word-wrap: break-word;
+        white-space: normal;
+        text-align: left;
+        width: 150px;
+    
   }
 
   .screener-filters {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row; /* Set the direction to row */
+    gap: 6px; /* Maintain the gap between elements */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of child elements */
+  }
+  .screener-filter-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 12px;
   }
 
   .screener-filter-btn {
@@ -1024,6 +1100,7 @@ cursor: pointer;
 
   .screener-table-wrapper {
     overflow-x: auto;
+    margin-bottom: 100px;
   }
 
   .screener-table {
@@ -1078,10 +1155,15 @@ cursor: pointer;
   }
 
   .filter-group select {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
+    width: 370%;
+    height: 35px;
+    
+    font-size: 12px;
   }
+.dropdown-change-toggle{
+margin-left: 60px;
+width: 60%;
+}
 
   .dropdown-pe-toggle,
   .dropdown-revenue-growth-toggle {
@@ -1106,79 +1188,256 @@ cursor: pointer;
   }
 
   /* Dropdown toggle buttons */
-  .dropdown-performance-toggle,
-  .dropdown-div-yield-toggle,
-  .dropdown-eps-toggle,
-  .dropdown-pe-toggle,
-  .dropdown-market-cap-toggle,
-  .dropdown-change-toggle {
-    padding: 8px;
-    font-size: 14px;
-    width: 100%;
-    display: block;
-    text-align: left;
-  }
-
-  /* Dropdown options */
-  .dropdown-performance-options,
-  .dropdown-div-yield-options,
-  .dropdown-eps-options,
-  .dropdown-pe-options,
-  .dropdown-market-cap-options,
-  .dropdown-change-options {
-    width: 100%;
-    max-width: 100%;
-    top: 45px; /* Adjust dropdown position */
-  }
-
-  /* Input fields inside dropdowns */
-  .performance-input,
-  .change-input {
-    width: 50%;
-    font-size: 14px;
-  }
-
-  /* Dropdown sliders */
-  .performance-slider,
-  .change-slider {
-    width: 100%;
-  }
-
-  /* Action buttons */
-  .reset-performance-button,
-  .apply-performance-button,
-  .reset-div-yield-button,
-  .apply-div-yield-button,
-  .reset-eps-button,
-  .apply-eps-button,
-  .reset-pe-button,
-  .apply-pe-button,
-  .reset-market-cap-button,
-  .apply-market-cap-button,
-  .reset-change-button,
-  .apply-change-button {
-    width: 48%;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .reset-performance-button,
-  .reset-div-yield-button,
-  .reset-eps-button,
-  .reset-pe-button,
-  .reset-market-cap-button,
-  .reset-change-button {
-    margin-right: 4%;
-  }
-
-  .dropdown-performance-wrapper,
-  .dropdown-div-yield-wrapper,
-  .dropdown-eps-wrapper,
-  .dropdown-pe-wrapper,
-  .dropdown-market-cap-wrapper,
-  .dropdown-change-wrapper {
-    margin-bottom: 16px;
-  }
+   /* Dropdown toggle buttons */
+   .dropdown-performance-toggle,
+   .dropdown-div-yield-toggle,
+   .dropdown-eps-toggle,
+   .dropdown-pe-toggle,
+   .dropdown-market-cap-toggle,
+   .dropdown-change-toggle {
+     padding: 3px;
+     font-size: 12px;
+    
+    
+     
+     display: flex
+ ;
+     align-items: center;
+     justify-content: space-between;
+   }
+ .dropdown-change-toggle{
+ margin-left: 70px;
+ }
+ .dropdown-market-cap-toggle{
+  margin-left: 5px;
+ }
+   .dropdown-div-yield-options,
+   .dropdown-eps-options,
+   .dropdown-pe-options
+  {
+     width: 100%;
+         max-width: 50%;
+         top: 125px;
+         position: fixed;
+     }
+    
+     .dropdown-market-cap-options{
+     width: 100%;
+         max-width: 50%;
+         top: 180px;
+         position: fixed;
+        left: 230px;
+ 
+     }
+     .dropdown-change-options{
+       width: 100%;
+         max-width: 40%;
+         top: 180px;
+         position: fixed;
+        
+     }
+ 
+   /* Input fields inside dropdowns */
+  
+   .change-input {
+     width: 50%;
+     font-size: 12px;
+   }
+ 
+   /* Dropdown sliders */
+   .dropdown-performance-options {
+     position: fixed;
+     top: 25%;
+     left: 30%;
+     width: 50%;
+     padding: 15px;
+     background-color: #fff;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     border-radius: 8px;
+     z-index: 1000;
+     overflow-y: auto;
+     max-height: 80%;
+   }
+ 
+   .performance-input {
+     width: 60px; /* Smaller inputs for mobile */
+     font-size: 12px; /* Reduce font size for compact layout */
+   }
+ 
+   .dropdown-performance-slider {
+     margin-bottom: 10px; /* Adjust spacing for layout */
+   }
+ 
+   .performance-slider {
+     height: 6px; /* Reduce slider height for mobile */
+   }
+ 
+   .dropdown-performance-overlay {
+     position: fixed; /* Fix the overlay to the viewport */
+     top: 0;
+     left: 0;
+     width: 100%; /* Full width */
+     height: 100%; /* Full height */
+     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+     z-index: 999; /* Ensure it appears behind the dropdown but above the rest */
+     overflow: hidden; /* Prevent scrolling when overlay is active */
+   }
+ 
+   .change-slider {
+     width: 100%;
+   }
+ 
+   /* Action buttons */
+   .reset-performance-button,
+   .apply-performance-button,
+   .reset-div-yield-button,
+   .apply-div-yield-button,
+   .reset-eps-button,
+   .apply-eps-button,
+   .reset-pe-button,
+   .apply-pe-button,
+   .reset-market-cap-button,
+   .apply-market-cap-button,
+   .reset-change-button,
+   .apply-change-button {
+     width: 48%;
+     padding: 8px;
+     font-size: 12px;
+   }
+ 
+   .reset-performance-button,
+   .reset-div-yield-button,
+   .reset-eps-button,
+   .reset-pe-button,
+   .reset-market-cap-button,
+   .reset-change-button {
+     margin-right: 4%;
+   }
+ 
+   .dropdown-performance-wrapper,
+   .dropdown-div-yield-wrapper,
+   .dropdown-eps-wrapper,
+   .dropdown-pe-wrapper,
+   .dropdown-market-cap-wrapper,
+   .dropdown-change-wrapper {
+     margin-bottom: 12px;
+   }
+ 
+   /* Reduce padding on sliders and inputs */
+   .performance-slider::-webkit-slider-thumb,
+   .change-slider::-webkit-slider-thumb,
+   .performance-slider::-moz-range-thumb,
+   .change-slider::-moz-range-thumb {
+     width: 15px;
+     height: 15px;
+   }
+   .index-options {
+     display: flex; /* Change grid to flex for better layout on small screens */
+     flex-direction: column; /* Stack options vertically */
+     padding: 10px; /* Add some padding */
+     width: 100%; /* Full width */
+     max-height: 70vh; /* Set a max height to prevent overflow */
+     overflow-y: auto; /* Add scrolling if content exceeds max height */
+   }
+ 
+   .index-option {
+     display: flex;
+     align-items: center;
+     gap: 10px; /* Increased gap between checkbox and label */
+     cursor: pointer;
+     padding: 5px 0; /* Add padding to make each option touch-friendly */
+   }
+ 
+   .index-option input {
+     width: 18px; /* Make checkboxes slightly bigger for easier tapping */
+   }
+ 
+   /* Dropdown button styling for mobile */
+   .dropdown-button {
+     padding: 8px 14px;
+     font-size: 14px;
+   }
+ 
+   /* Search box adjustments for mobile */
+   .search-box {
+     width: 100%; /* Make the search box full width */
+     margin-bottom: 10px; /* Space below the search box */
+   }
+ 
+   .search-box input {
+     font-size: 14px; /* Adjust font size for readability */
+     padding: 6px; /* Add padding for better usability */
+   }
+ 
+   /* Buttons styling */
+   .dropdown-button-reset,
+   .dropdown-button-apply {
+     padding: 10px 15px; /* Larger padding for mobile */
+     font-size: 14px; /* Adjust font size */
+     border-radius: 4px;
+   }
+ 
+   .dropdown-button-apply {
+     background-color: #24b676; /* Keep apply button styling */
+     color: white;
+   }
+ 
+   .dropdown-button-reset {
+     border: 1px solid #24b676;
+     color: #24b676;
+   }
+   .index-optionsstocks {
+     grid-template-columns: 1fr 1fr 1fr; /* Single column for mobile */
+     gap: 8px; /* Adjust gap for mobile */
+   }
+ 
+   .searchboxindexscreener {
+     width: 100%; /* Take full width of screen */
+     margin-bottom: 10px;
+   }
+ 
+   .stockindexscreeneropt {
+     position: fixed;
+     top: 25%;
+     left: 3%;
+     width: 70%;
+     padding: 15px;
+     background-color: white;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     z-index: 1000;
+     max-height: 80%;
+     overflow-y: auto;
+ 
+   }
+ 
+   .indexscreenerbuttonstock {
+     width: 100%; /* Make button span full width */
+     
+   }
+   
+   
+   
+   .resetstockscreener, .applystockscreener {
+     width: 80%; /* Make buttons full width on mobile */
+     padding: 10px;
+     margin-left: 0;
+     margin-right: 0;
+     border-radius: 4px;
+     
+   }
+ 
+   .resetstockscreener {
+     border: 1px solid #24b676;
+     color: #24b676;
+     background-color: white;
+ 
+   }
+ 
+   .applystockscreener {
+     background-color: #24b676;
+     color: white;
+     border: none;
+   }
 }
 
 /* Mobile View for 480px */
@@ -1191,14 +1450,15 @@ cursor: pointer;
   .screener-header {
     font-size: 1.4rem;
     margin-bottom: 0.6rem;
+    margin-top: 105px;
   }
 
   .screener-filters {
-    flex-direction: column;
-    
-    gap: 6px;
+    flex-direction: row; /* Set the direction to row */
+    gap: 6px; /* Maintain the gap between elements */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping of child elements */
   }
-
   .screener-filter-btn {
     width: 100%;
     padding: 10px;
@@ -1262,11 +1522,18 @@ cursor: pointer;
   }
 
   .filter-group select {
-    width: 23%;
-    padding: 8px;
+    width: 370%;
+    height: 35px;
+    
     font-size: 12px;
   }
+.dropdown-change-toggle{
 
+width: 60%;
+}
+.dropdown-market-cap-toggle{
+  
+}
   .dropdown-pe-toggle,
   .dropdown-revenue-growth-toggle {
     width: 100%;
@@ -1296,34 +1563,90 @@ cursor: pointer;
   .dropdown-pe-toggle,
   .dropdown-market-cap-toggle,
   .dropdown-change-toggle {
-    padding: 6px;
+    padding: 3px;
     font-size: 12px;
-    width: 23%;
-    display: block;
-    text-align: left;
+   
+   
+    
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
   }
 
   /* Dropdown options */
-  .dropdown-performance-options,
+ 
   .dropdown-div-yield-options,
   .dropdown-eps-options,
-  .dropdown-pe-options,
-  .dropdown-market-cap-options,
-  .dropdown-change-options {
+  .dropdown-pe-options
+ {
     width: 100%;
-    max-width: 100%;
-    top: 45px; /* Adjust dropdown position */
-  }
+        max-width: 50%;
+        top: 125px;
+        position: fixed;
+    }
+   
+    .dropdown-market-cap-options{
+      width: 100%;
+      max-width: 50%;
+      top: 180px;
+      position: fixed;
+    
+  
+    }
+    .dropdown-change-options{
+      width: 100%;
+        max-width: 50%;
+        top: 170px;
+        position: fixed;
+    }
 
   /* Input fields inside dropdowns */
-  .performance-input,
+ 
   .change-input {
     width: 40%;
     font-size: 12px;
   }
 
   /* Dropdown sliders */
-  .performance-slider,
+  .dropdown-performance-options {
+    position: fixed;
+    top: 20%;
+    left: 30%;
+    width: 50%;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+    overflow-y: auto;
+    max-height: 80%;
+  }
+
+  .performance-input {
+    width: 60px; /* Smaller inputs for mobile */
+    font-size: 12px; /* Reduce font size for compact layout */
+  }
+
+  .dropdown-performance-slider {
+    margin-bottom: 10px; /* Adjust spacing for layout */
+  }
+
+  .performance-slider {
+    height: 6px; /* Reduce slider height for mobile */
+  }
+
+  .dropdown-performance-overlay {
+    position: fixed; /* Fix the overlay to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 999; /* Ensure it appears behind the dropdown but above the rest */
+    overflow: hidden; /* Prevent scrolling when overlay is active */
+  }
+
   .change-slider {
     width: 100%;
   }
@@ -1372,6 +1695,161 @@ cursor: pointer;
     width: 15px;
     height: 15px;
   }
+  .index-options {
+    display: flex; /* Change grid to flex for better layout on small screens */
+    flex-direction: column; /* Stack options vertically */
+    padding: 10px; /* Add some padding */
+    width: 100%; /* Full width */
+    max-height: 70vh; /* Set a max height to prevent overflow */
+    overflow-y: auto; /* Add scrolling if content exceeds max height */
+  }
+
+  .index-option {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Increased gap between checkbox and label */
+    cursor: pointer;
+    padding: 5px 0; /* Add padding to make each option touch-friendly */
+  }
+
+  .index-option input {
+    width: 18px; /* Make checkboxes slightly bigger for easier tapping */
+  }
+
+  /* Dropdown button styling for mobile */
+  .dropdown-button {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  /* Search box adjustments for mobile */
+  .search-box {
+    width: 100%; /* Make the search box full width */
+    margin-bottom: 10px; /* Space below the search box */
+  }
+
+  .search-box input {
+    font-size: 14px; /* Adjust font size for readability */
+    padding: 6px; /* Add padding for better usability */
+  }
+
+  /* Buttons styling */
+  .dropdown-button-reset,
+  .dropdown-button-apply {
+    padding: 10px 15px; /* Larger padding for mobile */
+    font-size: 14px; /* Adjust font size */
+    border-radius: 4px;
+  }
+
+  .dropdown-button-apply {
+    background-color: #24b676; /* Keep apply button styling */
+    color: white;
+  }
+
+  .dropdown-button-reset {
+    border: 1px solid #24b676;
+    color: #24b676;
+  }
+  .index-optionsstocks {
+    grid-template-columns: 1fr 1fr 1fr; /* Single column for mobile */
+    gap: 8px; /* Adjust gap for mobile */
+  }
+
+  .searchboxindexscreener {
+    width: 100%; /* Take full width of screen */
+    margin-bottom: 10px;
+  }
+
+  .stockindexscreeneropt {
+    position: fixed;
+    top: 19%;
+    left: 3%;
+    width: 70%;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 80%;
+    overflow-y: auto;
+
+  }
+
+  .indexscreenerbuttonstock {
+    width: 100%; /* Make button span full width */
+    
+  }
+  
+  
+  
+  .resetstockscreener, .applystockscreener {
+    width: 80%; /* Make buttons full width on mobile */
+    padding: 10px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 4px;
+    
+  }
+
+  .resetstockscreener {
+    border: 1px solid #24b676;
+    color: #24b676;
+    background-color: white;
+
+  }
+
+  .applystockscreener {
+    background-color: #24b676;
+    color: white;
+    border: none;
+  }
+  .symbol-cell {
+    text-align: left;
+  }
+  .screener-table td {
+    word-wrap: break-word;
+        white-space: normal;
+        text-align: left;
+        width: 150px;
+    
+  }
+  .screener-filters::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+  }
+
+  .screener-filters::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the background color of the scrollbar track */
+  }
+
+  .screener-filters::-webkit-scrollbar-thumb {
+    background: #888; /* Set the color of the draggable part of the scrollbar */
+    border-radius: 10px; /* Optional: round the edges of the thumb */
+  }
+
+  .screener-filters::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Optional: change the color when hovering over the thumb */
+  }
+  .screener-table-wrapper {
+    overflow-x: auto;
+  }
+
+  /* Style the scrollbar */
+  .screener-table-wrapper::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+  }
+
+  .screener-table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the background color of the scrollbar track */
+  }
+
+  .screener-table-wrapper::-webkit-scrollbar-thumb {
+    background: #888; /* Set the color of the draggable part of the scrollbar */
+    border-radius: 10px; /* Optional: round the edges of the thumb */
+  }
+
+  .screener-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Optional: change the color when hovering over the thumb */
+  }
 }
+
 
 

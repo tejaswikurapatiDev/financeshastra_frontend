@@ -1,0 +1,189 @@
+.earnings-tablee {
+    width: 100%; /* Set the table width to 80% for a narrower layout */
+
+    border-collapse: collapse;
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+   
+  }
+  .earnings-tablee th,
+.earnings-tablee td,
+.shareholding-historyy th,
+.shareholding-historyy td {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  /* Remove left and right borders by default */
+  border-left: none;
+  border-right: none;
+}
+
+/* Remove vertical borders (left and right) */
+.earnings-tablee th,
+.earnings-tablee td,
+.shareholding-historyy th,
+.shareholding-historyy td {
+  border-left: none;
+  border-right: none;
+}
+
+/* Apply border radius to first and last th in shareholding history */
+.shareholding-historyy th:first-child {
+  border-top-left-radius: 10px; /* Rounded top-left corner */
+}
+
+.shareholding-historyy th:last-child {
+  border-top-right-radius: 10px; /* Rounded top-right corner */
+}
+
+.earnings-tablee th:first-child,
+.earnings-tablee td :first-child {
+  border-top-left-radius: 10px;
+  border-left: 1px solid #ddd;
+}
+
+.earnings-tablee th,
+.shareholding-historyy th {
+  background-color: #1dbf73;
+  color: white;
+  font-weight: bold;
+}
+.earningheaderr{
+    color: #24b676;
+    margin-top: 60px;
+    margin-left: 20px;
+    font-size: 26px;
+}
+.earningparaa{
+    margin-left: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.earnings-tablee tr:nth-child(even) td {
+    background-color: rgba(224, 238, 235, 0.59);
+}
+.shareholding-sectionn {
+    display: flex;
+   gap: 50px;
+    margin-top: 50px;
+   
+  }
+  .shareholding-historyy table tr:nth-child(even) td {
+    background-color: rgba(224, 238, 235, 0.59);
+}
+  .shareholding-historyy table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px; /* Rounded corners for the table container */
+  }
+  
+  /* Apply border radius to the container holding the table */
+  .shareholding-historyy {
+    border-radius: 10px; /* Curved box around the table */
+    overflow: hidden;  /* Ensures child elements follow the rounded corners */
+  }
+  .shareholding-historyy th:first-child {
+    border-top-left-radius: 10px; /* Rounded top-left corner */
+  }
+  
+  .shareholding-historyy th:last-child {
+    border-top-right-radius: 10px; /* Rounded top-right corner */
+  }  
+  .shareholding-sectionn {
+    display: flex;
+    justify-content: space-between; /* Adjust spacing between the two sections */
+    align-items: flex-start; /* Align items at the start of the container */
+    gap: 20px; /* Add space between the sections */
+}
+
+.shareholding-historyy {
+    flex: 1; /* Allow it to take up equal space */
+    margin-right: 10px; /* Optional: Add extra spacing if needed */
+
+}
+.earningparaapeer{
+  margin-left: 20px;
+}
+.earningheaderrpeer{
+  margin-left: 20px;
+}
+.shareholding-chart {
+    flex: 1; /* Allow it to take up equal space */
+}
+@media (max-width: 768px) {
+  /* Adjust table to allow horizontal scrolling */
+  .earnings-tablee table {
+    width: 100%; /* Make the table fill the width of its container */
+    display: block; /* Make the table block-level to allow scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    table-layout: fixed; /* Fix column widths to prevent stretching */
+    /* Optional: Add a max-height if you want to control the height */
+  }
+  .shareholding-historyy table{
+    width: 100%; /* Make the table fill the width of its container */
+    display: block; /* Make the table block-level to allow scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    table-layout: fixed; /* Fix column widths to prevent stretching */
+    /* Optional: Add a max-height if you want to control the height */
+  }
+
+  /* Adjust table cell padding for smaller screens */
+  .earnings-tablee th,
+  .earnings-tablee td,
+  .shareholding-historyy th,
+  .shareholding-historyy td {
+    padding: 8px; /* Reduce padding */
+  }
+
+  /* Adjust font size for headings on mobile */
+  .earningheaderr {
+    font-size: 20px; /* Slightly smaller heading */
+  }
+
+  .earningparaa {
+    font-size: 14px; /* Adjust paragraph font size */
+  }
+
+  /* Stack the sections vertically on smaller screens */
+  .shareholding-sectionn {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px; /* Reduce space between stacked elements */
+  }
+  .earningheaderrpeer{
+    margin-left: 50px;
+  }
+  .earningparaapeer{
+    margin-left: 50px;
+  }
+  /* Adjust chart and table to stack vertically */
+  .shareholding-historyy,
+  .shareholding-chart {
+    flex: 1 1 100%; /* Allow both to take full width */
+  }
+}
+
+/* Mobile View for very small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .earningheaderr {
+    font-size: 18px; /* Further reduce heading font size */
+  }
+
+  .earningparaa {
+    font-size: 12px; /* Further reduce paragraph font size */
+  }
+
+  /* Further reduce padding for table cells */
+  .earnings-tablee th,
+  .earnings-tablee td,
+  .shareholding-historyy th,
+  .shareholding-historyy td {
+    padding: 6px; /* Further reduce padding */
+  }
+  .shareholding-historyy{
+    width: 100%;
+  }
+}

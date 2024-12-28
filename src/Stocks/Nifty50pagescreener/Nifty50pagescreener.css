@@ -1,0 +1,45 @@
+/* Container for the entire layout */
+.dataquatallnifty {
+    display: flex;
+   
+    margin-left: 170px;
+    gap: 30px;
+ }
+ .portfoliomutual-containerrnifty {
+     font-family: 'calibri';
+     padding: 20px;
+     color: #333;
+   width:620px; /* Set a maximum width */
+   
+ /* Add left margin to prevent overlap with sidebar */
+     font-family: 'Calibri';
+     margin-top: 5px;
+ 
+     background-color: #f9f9f9;
+     border: 1px solid #ddd; /* Light grey border */
+     box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956); /* Soft shadow around the container */
+     border-radius: 5px;
+     display: flex;
+     flex-direction: column-reverse; /* Reverse the container's content */
+ 
+     height: 370px;
+ }
+ .chartmutual-containerr{
+     height: 330px;
+     width: 600px;
+ }
+ 
+ .time-rangemutual-selectorrnifty {
+     display: flex;
+     gap: 5px;
+     margin-bottom: 20px;
+     margin-left: 320px;
+     
+ }
+ .allhead{
+    margin-top: 230px;
+ }
+ .headernifty50{
+    margin-left: 170px;
+    font-size: 26px;
+ }

@@ -90,7 +90,7 @@ import ScreenerStockList from "./Stocks/ScreenerStockList/ScreenerStockList";
 import ScreenerStockvaluation from "./Stocks/Stockvaluation/Stockvaluation";
 import ScreenerStockincome from "./Stocks/Stockincome/Stockincome";
 
-import EarningsInsightLearn from "./Learn&insight/EarningsInsightLearn/EarningsInsightLearn";
+import EarningsInsightLearn from './Learn&insight/Quaterlyearning/EarningsInsightLearn/EarningsInsightLearn';
 import BlogsComponent from "./Learn&insight/Bolgs/Blogscomponent/Blogscomponent";
 import BlogFilter from "./Learn&insight/Bolgs/Blogsfilter/Blogsfilter";
 import Bloginvestment from "./Learn&insight/Bolgs/Blogsinvestment/Blogsinvestment";
@@ -105,6 +105,17 @@ import IpoDetailsubscribe from "./Learn&insight/Ipo/IpoDetailsubscribe/IpoDetail
 import IpoDetails from "./Learn&insight/Ipo/IpoDetails/IpoDetails";
 import IpoComponent from "./Learn&insight/Ipo/IpoComponent/IpoComponent";
 import UnlockscreenerStockList from "./Stocks/unlockscreenerstocklist/unlockscreenerstocklist";
+import Nifty50screenerStockList from "./Stocks/Niftystock50/Niftystock50table";
+import Quaterlygraphtop from "./Learn&insight/Quaterlyearning/Quaterlygraphtop/Quaterlygraphtop";
+import QuaterelyOverview from "./Learn&insight/Quaterlyearning/Quaterlyearningoverview/Quaterlyearningoverview";
+import QuaterlynewsList from "./Learn&insight/Quaterlyearning/Quaterlynews/Quaterlynews";
+import QuarterlyEarningdetailreport from "./Learn&insight/Quaterlyearning/Quaterlyearningdetailreport/Quaterlyearningdetailreport";
+import QuarterlyEarningdetailincome from "./Learn&insight/Quaterlyearning/Quaterlyearningincome/Quaterlyearningincome";
+import Quarterlybalancesheet from "./Learn&insight/Quaterlyearning/Quaterlyearnbalancesheet/Quaterlyearnbalancesheet";
+import QuarterlyCashflow from "./Learn&insight/Quaterlyearning/Quaterlycashflow/Quaterlycashflow";
+import Quarterlyratio from "./Learn&insight/Quaterlyearning/Quaterlyratio/Quaterlyratio";
+import Earninginsightheader from "./Learn&insight/Quaterlyearning/Earninginsightdetailheader/Earninginsightdetailheader";
+
 
 
 
@@ -212,6 +223,21 @@ function App() {
       <Route path="/ipoDetails/:id" element={<IpoDetails/>}/>
       <Route path="/ipoDetailsubscribe" element={<IpoDetailsubscribe/>}/>
       <Route path="/unlockstockscreener" element={<UnlockscreenerStockList/>}/>
+      <Route path="/nifty50screenerStockList" element={<Nifty50screenerStockList/>}/>
+      
+      <Route path="/earninginsightheader" element={<Earninginsightheader/>}/>
+      <Route path="/quaterlygraphtop" element={<Quaterlygraphtop/>}/>
+      <Route path="/earningsInsightLearn" element={<EarningsInsightLearn/>}/> 
+      <Route path="/quaterelyOverview" element={<QuaterelyOverview/>}/>
+      <Route path="/quaterlynewsList" element={<QuaterlynewsList/>}/>
+      <Route path="/qquarterlyEarningsReport" element={<QuarterlyEarningdetailreport/>}/>
+      <Route path="/quarterlyEarningdetailincome" element={<QuarterlyEarningdetailincome/>}/>
+      <Route path="/quarterlybalancesheet" element={<Quarterlybalancesheet/>}/>
+      <Route path="/quarterlyCashflow" element={<QuarterlyCashflow/>}/>
+      <Route path="/quarterlyratio" element={<Quarterlyratio/>}/>
+     
+
+
      
 
     

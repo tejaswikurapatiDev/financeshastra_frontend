@@ -20,12 +20,13 @@ import maruti from '../assest/maruti.png';
 import ultratech from '../assest/ultracemco.png';
 import ntpc from '../assest/ntpc.png';
 
-
 export const screenerStockListData = [
   {
-    symbol: "HCL TECHNOLOGIES LTD",
+symbol: "HCL TECHNOLOGIES LTD",
+    url: "/stockhandle",
     price: "₹1,621.75",
     change: "-0.31%",
+    perf: "10.5%", // Added perf
     volume: "408.75 K",
     marketCap: "₹3.6T",
     pToE: "23.22",
@@ -44,6 +45,7 @@ export const screenerStockListData = [
     symbol: "LIFE INSURANCE CORP OF INDIA",
     price: "₹7,218.00",
     change: "+0.49%",
+    perf: "20.3%", // Added perf
     volume: "378.77 K",
     marketCap: "₹4.45T",
     pToE: "30.50",
@@ -62,6 +64,7 @@ export const screenerStockListData = [
     symbol: "SUN PHARMACEUTICAL IND L",
     price: "₹1,794.90",
     change: "-1.02%",
+    perf: "-5.2%", // Added perf
     volume: "392.85 K",
     marketCap: "₹2.35T",
     pToE: "26.42",
@@ -73,13 +76,14 @@ export const screenerStockListData = [
     revenueGrowth: "+10.8%",
     peg: 0.9,
     index: "Nifty Midcap 100",
-    marketcapcategory: "Large Cap",
+    marketCapCategory: "Large Cap",
     icon: sun,
   },
   {
     symbol: "MAHINDRA & MAHINDRA LTD.",
     price: "₹3,057.65",
     change: "-0.76%",
+    perf: "8.7%", // Added perf
     volume: "875.84 K",
     marketCap: "₹2.6T",
     pToE: "18.20",
@@ -98,6 +102,7 @@ export const screenerStockListData = [
     symbol: "KOTAK MAHINDRA BANK LTD.",
     price: "₹1,797.65",
     change: "-0.44%",
+    perf: "-2.1%", // Added perf
     volume: "1.32 M",
     marketCap: "₹2.2T",
     pToE: "21.75",
@@ -116,6 +121,7 @@ export const screenerStockListData = [
     symbol: "AXIS BANK LTD",
     price: "₹1,145.80",
     change: "-0.20%",
+    perf: "3.4%", // Added perf
     volume: "1.03 M",
     marketCap: "₹2.12T",
     pToE: "19.45",
@@ -134,6 +140,7 @@ export const screenerStockListData = [
     symbol: "MARUTI SUZUKI INDIA LTD",
     price: "₹11,255.05",
     change: "-0.16%",
+    perf: "15.8%", // Added perf
     volume: "78.58 K",
     marketCap: "₹3.5T",
     pToE: "35.25",
@@ -152,6 +159,7 @@ export const screenerStockListData = [
     symbol: "ULTRATECH CEMENT LTD",
     price: "₹11,930.70",
     change: "-1.27%",
+    perf: "-12.5%", // Added perf
     volume: "83.5 K",
     marketCap: "₹2.3T",
     pToE: "28.92",
@@ -170,6 +178,7 @@ export const screenerStockListData = [
     symbol: "NTPC LTD.",
     price: "₹354.15",
     change: "-0.88%",
+    perf: "7.2%", // Added perf
     volume: "160.57 K",
     marketCap: "₹1.56T",
     pToE: "12.15",
@@ -182,7 +191,7 @@ export const screenerStockListData = [
     peg: 0.8,
     index: "Nifty Midcap 150",
     marketCapCategory: "Mid Cap",
-    icon: ntpc
+    icon: ntpc,
   },
   {
     symbol: "RELIANCE INDUSTRIES LTD",

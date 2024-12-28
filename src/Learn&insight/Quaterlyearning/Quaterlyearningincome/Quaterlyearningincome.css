@@ -1,0 +1,127 @@
+.earnings-tableeincome {
+    width: 95%; /* Set the table width to 80% for a narrower layout */
+
+    border-collapse: collapse;
+    border-radius: 10px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures rounded corners are visible */
+   
+  }
+  .earnings-tableeincome th,
+.earnings-tableeincome td
+{
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  /* Remove left and right borders by default */
+  border-left: none;
+  border-right: none;
+}
+
+/* Remove vertical borders (left and right) */
+.earnings-tableeincome th,
+.earnings-tableeincome td
+ {
+  border-left: none;
+  border-right: none;
+}
+
+/* Apply border radius to first and last th in shareholding history */
+
+
+.earnings-tableeincome th:first-child,
+.earnings-tableeincome td :first-child {
+  border-top-left-radius: 10px;
+  border-left: 1px solid #ddd;
+}
+
+.earnings-tableeincome th
+ {
+  background-color: #1dbf73;
+  color: white;
+  font-weight: bold;
+}
+.earningheaderr{
+    color: #24b676;
+    margin-top: 60px;
+    margin-left: 120px;
+    font-size: 26px;
+}
+.earningparaa{
+    margin-left: 120px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+.earnings-tablee tr:nth-child(even) td {
+    background-color: rgba(224, 238, 235, 0.59);
+}
+.earnings-tableeincome tr:nth-child(even) td {
+    background-color: rgba(224, 238, 235, 0.59);
+}
+/* Mobile view adjustments for devices with max-width 480px */
+@media (max-width: 480px) {
+  .earnings-tableeincome {
+    width: 50%; /* Full width for mobile */
+    /* Ensure the table doesn't shrink too much */
+  }
+
+  .earningheaderr {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+    font-size: 20px; /* Adjust font size */
+  }
+
+  .earningparaa {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Wrap the table in a div to enable scroll */
+  .earnings-table-wrapper {
+    margin: 10px auto; /* Center the wrapper */
+  }
+
+  .earnings-tableeincome th,
+  .earnings-tableeincome td {
+    font-size: 12px; /* Adjust font size for better readability */
+    padding: 8px; /* Reduce padding for mobile */
+  }
+}
+
+/* Tablet view adjustments for devices with max-width 768px */
+@media (max-width: 768px) {
+/* Table styling */
+.earnings-tableeincome {
+  width: 100%; /* Make the table fill the width of its container */
+  display: block; /* Make the table block-level to allow scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  table-layout: fixed; /* Fix column widths to prevent stretching */
+  height: 20%; /* Set to 100% or remove, depending on the desired height of the container */
+}
+
+/* Optional styling for the table container to manage height */
+.earnings-table-wrapper {
+  max-height: 200px; /* Set a max height for the wrapper */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+  .earningheaderr {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+    font-size: 22px; /* Adjust font size for tablets */
+  }
+
+  .earningparaa {
+    margin-left: 10px; /* Adjust margin for smaller screens */
+    font-size: 15px; /* Adjust font size for tablets */
+  }
+
+  /* Wrap the table in a div to enable scroll */
+
+
+  .earnings-tableeincome th,
+  .earnings-tableeincome td {
+    font-size: 14px; /* Adjust font size for better readability */
+    padding: 10px; /* Reduce padding for tablets */
+  }
+}
