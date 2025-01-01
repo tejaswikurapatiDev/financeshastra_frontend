@@ -1,0 +1,179 @@
+/* Main Container */
+.DashboardMainPagetable-container {
+    padding: 20px;
+    font-family: 'calibri';
+    background: #f9f9f9;
+  }
+  
+  /* Header Tabs */
+  .DashboardMainPagetable-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .DashboardMainPagetable-tab {
+    padding: 10px 15px;
+    background: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .DashboardMainPagetable-tab.active {
+    background: #4caf50;
+    color: #fff;
+  }
+  
+  .DashboardMainPagetable-tab:hover {
+    background: #c8e6c9;
+  }
+  
+  .DashboardMainPagetable-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .DashboardMainPagetable-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    width: 220px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .DashboardMainPagetable-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  
+  .DashboardMainPagetable-header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  .DashboardMainPagetable-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  
+  .icon-it {
+    background-color: #ffcc80; /* Orange for IT */
+  }
+  
+  .icon-energy {
+    background-color: #ffd54f; /* Yellow for Energy */
+  }
+  
+  .icon-health {
+    background-color: #90caf9; /* Blue for Health */
+  }
+  
+  .icon-power {
+    background-color: #ef9a9a; /* Red for Power */
+  }
+  
+  .icon-textiles {
+    background-color: #b39ddb; /* Purple for Textiles */
+  }
+  
+  .icon-finance {
+    background-color: #81c784; /* Green for Finance */
+  }
+  
+  .icon-telecommunication {
+    background-color: #4db6ac; /* Teal for Telecommunication */
+  }
+  
+  .DashboardMainPagetable-sector {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  /* Table Section */
+  .DashboardMainPagetable-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .DashboardMainPagetable-table th,
+  .DashboardMainPagetable-table td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .DashboardMainPagetable-table th {
+    background: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .DashboardMainPagetable-table td {
+    font-size: 14px;
+  }
+  
+  .DashboardMainPagetable-positive {
+    color: #4caf50;
+  }
+  
+  .DashboardMainPagetable-clarification-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .DashboardMainPagetable-clarification-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+  }
+  
+  /* Accessibility - Improved visibility */
+  .DashboardMainPagetable-table th[aria-sort] {
+    cursor: pointer;
+    background: #e0e0e0;
+  }
+  
+  .DashboardMainPagetable-table th[aria-sort="ascending"],
+  .DashboardMainPagetable-table th[aria-sort="descending"] {
+    background: #d3d3d3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .DashboardMainPagetable-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .DashboardMainPagetable-card {
+      max-width: 100%;
+    }
+  
+    .DashboardMainPagetable-table {
+      font-size: 12px;
+    }
+  
+    .DashboardMainPagetable-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .DashboardMainPagetable-tab {
+      margin-bottom: 10px;
+    }
+  }
+  

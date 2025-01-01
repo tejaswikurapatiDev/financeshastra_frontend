@@ -119,6 +119,10 @@ import Nifty50page from "./Stocks/Nifty50pagescreener/Nifty50pagescreener";
 import Nifty50screenerStockdatatable from "./Stocks/Nifty50screenerStockdata/Nifty50screenerStockdata";
 import Nifty50all from "./Stocks/Nifty50all";
 import Nifty50screenerStockunlockList from "./Stocks/Nifty50screenerStockListunlock/Nifty50screenerStockListunlock";
+import SectorWeightageTableniffty50 from "./Stocks/SectorWeightageTableniftty50/SectorWeightageTableniftty50";
+import Watchlistdashboardmain from "./Dashboardmainpage/Watchlistdashboardmain/Watchlistdashboardmain";
+import Dashboardchartmain from "./Dashboardmainpage/Dashboardchartmain/Dashboardchartmain";
+import DashboardMainPagetable from "./Dashboardmainpage/DashboardMainPagetable/DashboardMainPagetable";
 
 
 
@@ -239,9 +243,12 @@ function App() {
       <Route path="/quarterlybalancesheet" element={<Quarterlybalancesheet/>}/>
       <Route path="/quarterlyCashflow" element={<QuarterlyCashflow/>}/>
       <Route path="/quarterlyratio" element={<Quarterlyratio/>}/>
-    
+      <Route path="/sectorWeightageTableniffty50" element={<SectorWeightageTableniffty50/>}/>
       <Route path="/nifty50screenerStockunlockList" element={<Nifty50screenerStockunlockList/>}/>
       <Route path="/nifty50pageall" element={<Nifty50all/>}/>
+      <Route path="/watchlistdashboardmain" element={<Watchlistdashboardmain/>}/>
+      <Route path="/dashboardchartmain" element={<Dashboardchartmain/>}/>
+      <Route path="/dashboardMainPagetable" element={<DashboardMainPagetable/>}/>
 
      
 
