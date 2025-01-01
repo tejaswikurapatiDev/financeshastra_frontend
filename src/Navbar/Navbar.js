@@ -119,7 +119,7 @@ const Navbar = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/niftystock">Nifty 50 Companies
+              <Link to="/nifty50pageall">Nifty 50 Companies
                 <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>

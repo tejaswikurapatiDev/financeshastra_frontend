@@ -22,6 +22,7 @@ import ntpc from '../assest/ntpc.png';
 export const screenerStockincomeData = [
   {
     symbol: "RELIANCE INDUSTRIES LTD",
+    url: "/stockhandle",
     icon: reliance,
     revenue: "₹9.25T",
     revenueGrowth: "+6.37",
@@ -47,6 +48,7 @@ export const screenerStockincomeData = [
   },
   {
     symbol: "TATA CONSULTANCY SERVICES LTD.",
+    url: "/stockhandle",
     icon: tcs,
     revenue: "₹2.49T",
     revenueGrowth: "+5.17",

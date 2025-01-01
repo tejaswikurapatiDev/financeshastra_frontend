@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Nifty50tabledata } from "../Niftystock50tabledata";
+import { Nifty50tableunlockdata } from "../Nifty50screenerStockListunlockdata";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { IoLockClosedOutline } from "react-icons/io5";
-import './nifty50stock.css';
+
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
 
-const Nifty50screenerStockList = () => {
-  const [stocks, setStocks] = useState(Nifty50tabledata);
+const Nifty50screenerStockunlockList = () => {
+  const [stocks, setStocks] = useState(Nifty50tableunlockdata);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("All"); // Track the active tab
@@ -33,51 +33,51 @@ const handlePageChange = (pageNumber) => {
     setActiveTab(tab);
     // Filter and sort stocks based on the active tab
     if (tab === "All") {
-      setStocks(Nifty50tabledata); // Show all stocks
+      setStocks(Nifty50tableunlockdata); // Show all stocks
     } else if (tab === "Gainers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) > 0)); // Filter gainers
+      setStocks(Nifty50tableunlockdata.filter(stock => parseFloat(stock.change) > 0)); // Filter gainers
     } else if (tab === "Losers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) < 0)); // Filter losers
+      setStocks(Nifty50tableunlockdata.filter(stock => parseFloat(stock.change) < 0)); // Filter losers
     } else {
       let sortedStocks;
       if (tab === "LTP") {
         // Sort by LTP in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const ltpA = parseFloat(a.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
           const ltpB = parseFloat(b.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
           return ltpB - ltpA; // Descending order
         });
       } else if (tab === "Change %") {
         // Sort by Change % in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const changeA = parseFloat(a.change.replace(/[%]/g, "")); // Remove % and parse
           const changeB = parseFloat(b.change.replace(/[%]/g, "")); // Remove % and parse
           return changeB - changeA; // Descending order
         });
       } else if (tab === "Market Cap") {
         // Sort by Market Cap in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const marketCapA = parseFloat(a.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
           const marketCapB = parseFloat(b.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
           return marketCapB - marketCapA; // Descending order
         });
       } else if (tab === "52W High") {
         // Sort by 52W High in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const high52A = parseFloat(a.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
           const high52B = parseFloat(b.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
           return high52B - high52A; // Descending order
         });
       } else if (tab === "52W Low") {
         // Sort by 52W Low in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const low52A = parseFloat(a.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
           const low52B = parseFloat(b.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
           return low52B - low52A; // Descending order
         });
       } else if (tab === "P/E") {
         // Sort by P/E in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
+        sortedStocks = [...Nifty50tableunlockdata].sort((a, b) => {
           const peA = parseFloat(a.pe); // Parse P/E directly
           const peB = parseFloat(b.pe); // Parse P/E directly
           return peB - peA; // Descending order
@@ -88,9 +88,7 @@ const handlePageChange = (pageNumber) => {
       setStocks(sortedStocks);
     }
   };
-  const handleNavigate = () => {
-    navigate('/nifty50screenerStockunlockList'); // Navigate to the desired route
-  };
+  
   // Handle sorting logic for columns
   const handleSort = (key) => {
     const sortedStocks = [...stocks].sort((a, b) => {
@@ -268,16 +266,20 @@ const handlePageChange = (pageNumber) => {
       <td style={{ color: "#24b676" }}>{stock.roe}</td>
       <td style={{ color: "#24b676" }}>{stock.roce}</td>
       <td>{stock.eps}</td>
-      <td style={{ textAlign: "left" }}>
-  {stock.analystRating === "Buy" || stock.analystRating === "Strong Buy" ? (
-    <span style={{ color: "#24b676", marginLeft: "10px" }}>{stock.analystRating}</span>
-  ) : (
-    <button className="screener-unlock-btn" onClick={handleNavigate}>
-        <IoLockClosedOutline style={{ marginRight: '8px' }} />
-      <span className="button-text">Unlock</span>
-    </button>
-  )}
+      <td
+  style={{
+    color: 
+      stock.analystRating === "Strong Buy" ? "#24b676" : 
+      stock.analystRating === "Buy" ? "#24b676" : 
+      stock.analystRating === "Sell" ? "red" : 
+      stock.analystRating === "Neutral" ? "black" : "inherit",
+    textAlign: "left",
+    // Add your desired left margin here
+  }}
+>
+  {stock.analystRating}
 </td>
+
 
 
 
@@ -331,4 +333,4 @@ const handlePageChange = (pageNumber) => {
   );
 };
 
-export default Nifty50screenerStockList;
+export default Nifty50screenerStockunlockList;

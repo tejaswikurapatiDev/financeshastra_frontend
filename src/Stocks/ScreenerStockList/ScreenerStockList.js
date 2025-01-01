@@ -2159,8 +2159,9 @@ const perfOptions = [
 
 
 
-        {stock.symbol}
+      <a href={stock.url}>{stock.symbol}</a>
       </td>
+    
       <td>{stock.price}</td>
       <td
         style={{

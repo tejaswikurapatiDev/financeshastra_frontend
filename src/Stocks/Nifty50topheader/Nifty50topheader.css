@@ -1,3 +1,128 @@
-.telephonenifty{
-    margin-left: 150px;
+
+    .title-containernifty{
+        margin-left: 50px;
     }
+    .graphnavbarrnifty50 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        
+       
+        margin-left: 330px;
+        cursor: pointer;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .graphnavbarrnifty50:hover {
+        cursor: pointer;
+        color: #24b676;
+      }
+      
+      .graphnavbarrnifty50 span {
+        font-size: 15px;
+        color: #333;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      
+      .graphnavbarrnifty50 span:hover {
+        color: #24b676;
+        text-decoration: underline;
+        text-decoration-color: #24b676;
+      }
+      
+      .graphnavbarrnifty50 a {
+        font-size: 15px;
+        color: #333;
+        padding: 5px 10px;
+       
+        text-decoration: none;
+       
+        font-weight: bold;
+       
+      }
+      
+      .graphnavbarrnifty50 a:hover {
+        color: #24b676;
+        text-decoration: underline;
+      
+      }
+      
+      .graphnavbarrnifty50 a.active {
+        color: #24b676;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .graphupdatenifty50 {
+        font-size: 12px;
+        color: #333;
+        margin-top: 2px;
+        margin-left: 210px;
+      }
+      .graphpricenifty50 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 130px;
+        margin-top: 20px;
+      }
+      /* Style for active link */
+
+
+      /* Mobile View for 768px */
+@media (max-width: 768px) {
+  .title-containernifty {
+      margin-left: 20px; /* Reduce margin */
+  }
+
+  .graphnavbarrnifty50 {
+      margin-left: 20px; /* Adjust navbar position */
+      justify-content: center; /* Center items on smaller screens */
+      gap: 15px;
+  }
+
+  .graphnavbarrnifty50 span, .graphnavbarrnifty50 a {
+      font-size: 14px; /* Smaller font size */
+      padding: 5px 8px; /* Adjust padding */
+  }
+
+  .graphupdatenifty50 {
+      font-size: 11px; /* Reduce font size */
+      margin-left: 10px; /* Adjust left margin */
+  }
+
+  .graphpricenifty50 {
+      font-size: 20px; /* Adjust font size */
+      margin-right: 20px; /* Adjust margin */
+      margin-top: 15px; /* Adjust top margin */
+  }
+}
+
+/* Mobile View for 480px */
+@media (max-width: 480px) {
+  .title-containernifty {
+      margin-left: 10px; /* Further reduce margin */
+  }
+
+  .graphnavbarrnifty50 {
+      margin-left: 10px; /* Adjust navbar position */
+      justify-content: center; /* Center items */
+      gap: 10px;
+  }
+
+  .graphnavbarrnifty50 span, .graphnavbarrnifty50 a {
+      font-size: 12px; /* Further reduce font size */
+      padding: 4px 8px; /* Adjust padding */
+  }
+
+  .graphupdatenifty50 {
+      font-size: 10px; /* Further reduce font size */
+      margin-left: 0; /* Remove left margin */
+  }
+
+  .graphpricenifty50 {
+      font-size: 18px; /* Smaller font size */
+      margin-right: 10px; /* Adjust margin */
+      margin-top: 10px; /* Adjust margin */
+  }
+}

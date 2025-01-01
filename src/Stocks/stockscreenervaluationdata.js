@@ -22,6 +22,7 @@ import ntpc from '../assest/ntpc.png';
 export const screenerStockvaluationData = [
   {
     symbol: "RELIANCE INDUSTRIES LTD",
+    url: "/stockhandle",
     marketCap: "₹17.23T",
     marketCapPerf: "+10.33%",
     change: "+2.50%",
@@ -43,6 +44,7 @@ export const screenerStockvaluationData = [
   },
   {
     symbol: "TATA CONSULTANCY SERVICES LTD",
+    url: "/stockhandle",
     marketCap: "₹12.45T",
     marketCapPerf: "+8.50%",
     change: "+1.75%",
@@ -64,6 +66,7 @@ export const screenerStockvaluationData = [
   },
   {
     symbol: "HDFC BANK LTD",
+    url: "/stockhandle",
     marketCap: "₹10.15T",
     marketCapPerf: "+6.75%",
     change: "+0.50%",

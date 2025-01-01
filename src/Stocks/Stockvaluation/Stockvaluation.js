@@ -2168,9 +2168,12 @@ const perfOptions = [
           <tbody>
   {stocks.map((stock, index) => (
     <tr key={index} className="screener-row">
-      <td className="symbol-cell">
-        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-        {stock.symbol}
+       <td className="symbol-cell">
+      <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
+
+
+
+      <a href={stock.url}>{stock.symbol}</a>
       </td>
       <td>{stock.marketCap}</td>
      

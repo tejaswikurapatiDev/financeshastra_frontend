@@ -1057,6 +1057,17 @@ cursor: pointer;
   cursor: pointer;
   position: relative;
 }
+/* Link styling */
+.symbol-cell a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit text color */
+  cursor: pointer;
+  
+}
+
+.symbol-cell a:hover {
+  color: #24b676; /* Change color on hover */
+}
 
 
 /* Mobile View for 768px */

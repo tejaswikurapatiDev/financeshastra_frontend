@@ -3,12 +3,17 @@ import { Link as ScrollLink } from 'react-scroll';  // For scroll navigation
 import './Nifty50topheader.css'
 
 import { Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; 
+import { Navigate } from 'react-router-dom';
 
 function Nifty50topheader() {
   const [change, setChange] = useState(0); // For storing dynamic change value in rupees
   const [lastUpdated, setLastUpdated] = useState('');
   const [currentPrice, setCurrentPrice] = useState(300); // Example initial stock price, replace with actual price
-
+  const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    navigate(path); // Navigate to the path
+  };
   // Function to simulate fetching data (replace with real API call)
   const fetchData = () => {
     const randomChange = (Math.random() * 20 - 10).toFixed(2); // Random value between -10 and +10 INR
@@ -42,36 +47,55 @@ function Nifty50topheader() {
   return (
     <div className="graphcontainerer">
       <div className="graphheader">
-        <div className="title-container">
-          <h1 className="telephonenifty">Nifty 50</h1>
+        <div className="title-containernifty">
+          <h1 className="telephoneniftyh1">Nifty 50</h1>
         </div>
         <div className="graph-price-update">
-        <span className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+        <span className={`graphpricenifty50 ${change >= 0 ? 'positive' : 'negative'}`}>
 
             ₹{parseFloat(currentPrice).toLocaleString()} {/* Format the price with ₹ symbol */}
           </span>
-          <span className="graphupdate">Last updated: {lastUpdated}</span>
+          <span className="graphupdatenifty50">Last updated: {lastUpdated}</span>
         </div>
       </div>
 
      
-      {/* Navigation Links */}
-      <nav className="graphnavbarr">
-        <Divider />
-        <ScrollLink to="overview" smooth={true} duration={500}>
+      <nav className="graphnavbarrnifty50">
+      <Divider />
+      
+      {/* Overview link with smooth scroll and route navigation */}
+      <ScrollLink to="overview" smooth={true} duration={500}>
+        <span 
+          onClick={() => handleNavigation("/nifty50pageall")} 
+          style={{ cursor: "pointer" }}
+        >
           Overview
-        </ScrollLink>
-        <ScrollLink to="stockxray" smooth={true} duration={500}>
+        </span>
+      </ScrollLink>
+
+      {/* Sectors link with smooth scroll */}
+      <ScrollLink to="stockxray" smooth={true} duration={500}>
+      <span 
+          onClick={() => handleNavigation("/nifty50pageall")} 
+          style={{ cursor: "pointer" }}
+        >
         Sectors
-        </ScrollLink>
-        <ScrollLink to="stockearning" smooth={true} duration={500}>
+        </span>
+      </ScrollLink>
+
+      {/* Companies link with smooth scroll */}
+      <ScrollLink to="stockearning" smooth={true} duration={500}>
+      <span 
+          onClick={() => handleNavigation("/nifty50screenerStockList")} 
+          style={{ cursor: "pointer" }}
+        >
         Companies
-        </ScrollLink>
-       
-        {/* Optional: For routing to other pages */}
-        <Divider />
-        
-      </nav>
+        </span>
+      </ScrollLink>
+
+      {/* Optional Divider */}
+      <Divider />
+    </nav>
 
       <Divider sx={{ margin: '10px 0' }} />
     </div>

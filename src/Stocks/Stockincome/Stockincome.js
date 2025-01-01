@@ -2141,8 +2141,11 @@ const perfOptions = [
   {stocks.map((stock, index) => (
     <tr key={index} className="screener-row">
       <td className="symbol-cell">
-        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-        {stock.symbol}
+      <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
+
+
+
+      <a href={stock.url}>{stock.symbol}</a>
       </td>
       <td>{stock.revenue}</td>
       <td style={{ color: stock.revenueGrowth > 0 ? "#24b676" : "red" }}>

@@ -2,12 +2,13 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 16px;
-    width: 330px;
+    width: 450px;
     margin-top: 5px;
     height: 380px;
-    font-family: 'Calibri', sans-serif;
+    font-family: 'Calibri';
     box-shadow: 0px 4px 8px rgb(216, 215, 215); /* Adds a subtle shadow */
     background-color: #ffffff; /* Adds a clean white background */
+    margin-left: 20px;
 }
   
   .niftykeyindicator-heading {

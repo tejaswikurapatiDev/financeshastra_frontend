@@ -43,6 +43,7 @@ symbol: "HCL TECHNOLOGIES LTD",
   },
   {
     symbol: "LIFE INSURANCE CORP OF INDIA",
+    url: "/stockhandle",
     price: "₹7,218.00",
     change: "+0.49%",
     perf: "20.3%", // Added perf
@@ -62,6 +63,7 @@ symbol: "HCL TECHNOLOGIES LTD",
   },
   {
     symbol: "SUN PHARMACEUTICAL IND L",
+    url: "/stockhandle",
     price: "₹1,794.90",
     change: "-1.02%",
     perf: "-5.2%", // Added perf
@@ -81,6 +83,7 @@ symbol: "HCL TECHNOLOGIES LTD",
   },
   {
     symbol: "MAHINDRA & MAHINDRA LTD.",
+    url: "/stockhandle",
     price: "₹3,057.65",
     change: "-0.76%",
     perf: "8.7%", // Added perf

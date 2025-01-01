@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
-import Nifty50KeyIndicators from '../Nifty50keyword/Nifty50keyword';
+import Nifty50KeyIndicators from '../Nifty50keywordscreener/Nifty50keywordscreener';
+
 import './Nifty50pagescreener.css'
 import Navbar from '../../Navbar/Navbar';
-import Nifty50topheader from '../Nifty50topheader/Nifty50topheader';
+
+
+
 
 
 const Nifty50page = () => {
@@ -87,7 +90,7 @@ const Nifty50page = () => {
 
   return (
     <div className='allhead'>
-      <Nifty50topheader/>
+   
       <h1 className='headernifty50'>Nifty 50</h1>
       <div className="dataquatallnifty">
       
@@ -114,8 +117,11 @@ const Nifty50page = () => {
         </div>
         <div className="datadisstock">
           <Nifty50KeyIndicators/>
+        
           <Navbar/>
+        
         </div>
+       
       </div>
     </div>
   );

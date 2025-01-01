@@ -115,6 +115,10 @@ import Quarterlybalancesheet from "./Learn&insight/Quaterlyearning/Quaterlyearnb
 import QuarterlyCashflow from "./Learn&insight/Quaterlyearning/Quaterlycashflow/Quaterlycashflow";
 import Quarterlyratio from "./Learn&insight/Quaterlyearning/Quaterlyratio/Quaterlyratio";
 import Earninginsightheader from "./Learn&insight/Quaterlyearning/Earninginsightdetailheader/Earninginsightdetailheader";
+import Nifty50page from "./Stocks/Nifty50pagescreener/Nifty50pagescreener";
+import Nifty50screenerStockdatatable from "./Stocks/Nifty50screenerStockdata/Nifty50screenerStockdata";
+import Nifty50all from "./Stocks/Nifty50all";
+import Nifty50screenerStockunlockList from "./Stocks/Nifty50screenerStockListunlock/Nifty50screenerStockListunlock";
 
 
 
@@ -235,6 +239,10 @@ function App() {
       <Route path="/quarterlybalancesheet" element={<Quarterlybalancesheet/>}/>
       <Route path="/quarterlyCashflow" element={<QuarterlyCashflow/>}/>
       <Route path="/quarterlyratio" element={<Quarterlyratio/>}/>
+    
+      <Route path="/nifty50screenerStockunlockList" element={<Nifty50screenerStockunlockList/>}/>
+      <Route path="/nifty50pageall" element={<Nifty50all/>}/>
+
      
 
 
