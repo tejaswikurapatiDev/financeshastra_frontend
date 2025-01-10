@@ -21,7 +21,7 @@ const Sidebar = () => {
                 <LiaSearchengin className="sideicon"/>Research</a>
                 <a href="#security" className="sidebar-item">
                 <  AiOutlineSecurityScan className="sideicon" />Security</a>
-                <a href="#settings" className="sidebar-item">
+                <a href="settingDashPanel" className="sidebar-item">
                 <IoSettingsOutline className="sideicon" />Setting</a>
             </div>
         </div>

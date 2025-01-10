@@ -1,57 +1,83 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // For navigation to the homepage
 import "./SettingDashPanel.css";
+import Sidebar from "../../Sidebar/Sidebar";
+import Navbar from "../../Navbar/Navbar";
+
+
 
 const SettingsDashboard = () => {
   const [notifications, setNotifications] = useState({
-    "Turn on the notification sound": true,
-    "Show desktop notifications": false,
-    "Emails about suspicious sign-in attempts": true,
-    "When someone comments": true,
-    "Discount & New subscription plan": false,
-    "Product Updates": true,
-    "Onboarding materials": true,
+    "Turn on the notification sound": null,
+    "Show desktop notifications": null,
+    "Emails about suspicious sign-in attempts": null,
+    "When someone comments": null,
+    "Discount & New subscription plan": null,
+    "Product Updates": null,
+    "Onboarding materials": null,
   });
-
   const [isPopupVisible, setPopupVisible] = useState(false);
   const [accountDeleted, setAccountDeleted] = useState(false);
+  const [isBlurred, setBlurred] = useState(false); // For blur effect
+  const navigate = useNavigate(); // React Router's useNavigate for navigation
 
-  const toggleNotification = (key) => {
-    setNotifications((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
+ // Temporary state for unsaved changes
+ const [tempNotifications, setTempNotifications] = useState({ ...notifications });
 
+ // Toggle notification checkbox value in tempNotifications
+ const toggleNotification = (key) => {
+   setTempNotifications((prev) => ({
+     ...prev,
+     [key]: prev[key] === true ? null : true, // Toggle between `null` and `true`
+   }));
+ };
+
+ // Save changes to main state and sync temporary state
+ const saveChanges = () => {
+   setNotifications(tempNotifications); // Save changes to the main state
+   alert("Changes saved successfully!");
+ };
+
+ // Cancel changes and revert temp state to the latest saved notifications
+ const cancelChanges = () => {
+   setTempNotifications({ ...notifications }); // Revert tempNotifications to the saved state
+ };
   const handleDelete = () => {
-    // Simulate account deletion
-    setAccountDeleted(true);
     setPopupVisible(false);
+    setAccountDeleted(true);
+    setBlurred(true); // Apply the blur effect to the background
 
-    // Optional: Redirect after a delay
+    // Navigate to homepage after 2 seconds (adjust delay if needed)
     setTimeout(() => {
-      window.location.href = "/account-deleted";
-    }, 2000); // Redirects after 2 seconds
+      setAccountDeleted(false); // Clear popup state
+      setBlurred(false); // Remove blur
+      navigate("/"); // Navigate to homepage
+    }, 2000); // 2000ms = 2 seconds
   };
 
   const handlePopupClose = () => {
-    setPopupVisible(false); // Close the confirmation popup
+    setPopupVisible(false);
   };
 
   return (
-    <div className="settingsContainer">
+    
+ 
+    <div className={`settingsContainer ${isBlurred ? "popupOverlayBlur" : ""}`}>
       <h2 className="settingsTitle">Settings</h2>
 
-      <div className="notificationsPanel">
+      {/* Notifications Panel */}
+        {/* Notifications Panel */}
+        <div className="notificationsPanel">
         <h3 className="panelHeader">Notifications</h3>
         <div className="notificationOptions">
-          {Object.entries(notifications).map(([key, value]) => (
+          {Object.entries(tempNotifications).map(([key, value]) => (
             <div key={key} className="optionRow">
-              <span>{key.replace(/([A-Z])/g, " $1").trim()}</span>
+              <span>{key}</span>
               <input
                 id={`checkbox-${key}`}
                 type="checkbox"
-                checked={value}
-                onChange={() => toggleNotification(key)}
+                checked={value === true} // Checked only if value is `true`
+                onChange={() => toggleNotification(key)} // Toggle value on change
               />
               <label htmlFor={`checkbox-${key}`}></label>
             </div>
@@ -59,31 +85,43 @@ const SettingsDashboard = () => {
         </div>
       </div>
 
+      {/* Buttons */}
       <div className="buttonsRow">
-        <button className="saveBtn">Save & Update</button>
-        <button className="cancelBtn">Cancel</button>
+        <button className="saveBtn" onClick={saveChanges}>
+          Save & Update
+        </button>
+        <button className="cancelBtn" onClick={cancelChanges}>
+          Cancel
+        </button>
       </div>
 
+      {/* Account Delete Panel */}
       <div className="accountDeletePanel">
-        <h3 className="panelHeader">Account Delete</h3>
-        <p className="deleteWarning">
-          Your personal information will be erased in 30 days. You can reverse this decision within that period by clicking "Cancel Account Deletion" at the bottom of the page.
-        </p>
-        <p className="deleteDetails">
-          After 30 days, all of your personal data will be permanently deleted, and your public profile will be anonymized. Your username and avatar will be replaced with default options, making you unidentifiable. Your phone number will also be removed, but for security reasons, you may not be able to use it for a new account.
-        </p>
-        <p className="deleteDetails">
-          Please be aware that deleting your account will log you out from all devices, and you will lose any unsaved data on your charts.
-        </p>
-        <div className="buttonsbtnRow">
-          <button className="suspendBtn" onClick={() => setPopupVisible(true)}>
-            Yes, Suspend
-          </button>
-          <button className="noBtn" onClick={handlePopupClose}>
-            No
-          </button>
-        </div>
-      </div>
+  <h3 className="panelHeader">Account Delete</h3>
+  <p className="deleteWarning">
+    Your personal information will be erased in 30 days. You can reverse this decision within that period by clicking "Cancel Account Deletion" at the bottom of the page.
+  </p>
+  <p className="deleteWarning">
+    After 30 days, all of your personal data will be permanently deleted, and your public profile will be anonymized. Your username and avatar will be replaced with default options, making you unidentifiable. Your phone number will also be removed, but for security reasons, you may not be able to use it for a new account.
+  </p>
+  <p className="deleteWarning">
+    All of your personal data will be wiped, and your public profile will be anonymized (username and avatar will be replaced with default ones). Your phone number will be deleted, though you might be restricted from reusing it on a new account.
+  </p>
+  <p className="deleteWarning">
+    After 30 days, all of your personal data will be permanently deleted, and your public profile will be anonymized. Your username and avatar will be replaced with default options, making you unidentifiable. Your phone number will also be removed, but for security reasons, you may not be able to use it for a new account.
+  </p>
+  <p className="deleteWarning">
+    Please be aware that deleting your account will log you out from all devices, and you will lose any unsaved data on your charts.
+  </p>
+  <div className="buttonsbtnRow">
+    <button className="suspendBtn" onClick={() => setPopupVisible(true)}>
+      Yes, Suspend
+    </button>
+    <button className="noBtn" onClick={handlePopupClose}>
+      No
+    </button>
+  </div>
+</div>
 
       {/* Confirmation Popup */}
       {isPopupVisible && (
@@ -110,21 +148,21 @@ const SettingsDashboard = () => {
         </div>
       )}
 
-      {/* Account Deleted Success Popup */}
+      {/* Success Popup */}
       {accountDeleted && (
         <div className="popupOverlayaccountDeleted">
           <div className="popupContentaccountDeleted">
             <h3 className="successMessage">Your account deleted successfully!</h3>
-            <button
-              className="closePopupButton"
-              onClick={() => setAccountDeleted(false)}
-            >
-              Close
-            </button>
           </div>
+         
         </div>
       )}
-    </div>
+
+      <Navbar />
+      <Sidebar />
+      </div> 
+  
+    
   );
 };
 
