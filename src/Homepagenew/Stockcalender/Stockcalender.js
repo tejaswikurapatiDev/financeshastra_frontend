@@ -246,7 +246,7 @@ const filterData = (startDate, endDate) => {
   
     return (
       <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-headerr">
+      <div className="DashboardMainPagetable-headercalculator">
         <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/dashboardchartmain")}>Stock Sector</button>
       <button
       className="DashboardMainPagetable-tab"
@@ -305,7 +305,7 @@ const filterData = (startDate, endDate) => {
                 </div>
             </div>
             <div className="DashboardMainPagetable-table-container">
-            <table className="DashboardMainPagetable-table">
+            <table className="DashboardMainPagetable-tablee">
                 <thead>
                     <tr>
                       

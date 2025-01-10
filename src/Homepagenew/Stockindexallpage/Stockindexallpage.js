@@ -98,7 +98,7 @@ const Stockindexall = () => {
 
 
   return (
-     <div className='allhead'>
+     <div className='allheadd'>
          <div className='hompagetopdata'>
       <div>
       <h1 className='headernifty50000'>Welcome back, William</h1>
@@ -153,7 +153,7 @@ const Stockindexall = () => {
    </div>
                        </div>
                {/* Time Range Selector */}
-               <div className="time-rangemutual-selectorrniftydasboard">
+               <div className="time-rangemutual-selectorrniftydashboard">
                  {['1D', '5D', '1M', '6M', '1Y', '3Y', '5Y', 'Max'].map((range) => (
                    <button
                      key={range}

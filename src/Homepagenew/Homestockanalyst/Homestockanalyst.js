@@ -262,7 +262,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   };
   return (
     <div className="DashboardMainPagetable-container">
-    <div className="DashboardMainPagetable-headerrr">
+    <div className="DashboardMainPagetable-headeranalyst">
       <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/dashboardchartmain")}>Stock Sector</button>
     <button
     className="DashboardMainPagetable-tab"
@@ -291,7 +291,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
         {/* Table */}
         <div className="DashboardMainPagetable-table-container">
-          <table className="DashboardMainPagetable-table">
+            <table className="DashboardMainPagetable-tablee">
           <thead>
   <tr>
     <th style={{ height: '40px', padding: '8px', fontSize: '14px' }}>Company</th>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import './Stockindex.css'
 import { PiCaretUpDownFill } from "react-icons/pi";
 import icon1 from '../../assest/it.svg';
 import icon2 from '../../assest/e.svg';
@@ -138,14 +138,14 @@ const Dashboardstockindex = () => {
   };
 
   return (
-    <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-header">
+    <div className="DashboardMainPagetable-containerr">
+      <div className="DashboardMainPagetable-headerrindex">
         <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/dashboardchartmain")}>Stock Sector</button>
         <button className="DashboardMainPagetable-tab active">Stock Index</button>
         <button className="DashboardMainPagetable-tab" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
         <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>
       </div>
-      <div className="DashboardMainPagetable-cards">
+      <div className="DashboardMainPagetable-cardss">
   {DashboardPagetable.map((card) => (
     <div  key={card.id}
     className={`DashboardMainPagetable-card ${card.id === 7 ? "custom-card-size" : ""}`}>
@@ -241,32 +241,40 @@ const Dashboardstockindex = () => {
 </div>
 
 
-<div className="DashboardMainPagetable-table-container">
-      <table className="DashboardMainPagetable-table">
+<div className="DashboardMainPagetable-table-containerr">
+            <table className="DashboardMainPagetable-tableee">
         <thead>
           <tr>
             <th>Company</th>
-            <th onClick={() => handleSort("ltp")}>
-              LTP (₹) {renderSortIcon("ltp")}
-            </th>
-            <th onClick={() => handleSort("change")}>
-              Change % {renderSortIcon("change")}
-            </th>
-            <th onClick={() => handleSort("marketCap")}>
-              Market Cap (Cr) {renderSortIcon("marketCap")}
-            </th>
-            <th onClick={() => handleSort("high")}>
-              52W High (₹) {renderSortIcon("high")}
-            </th>
-            <th onClick={() => handleSort("low")}>
-              52W Low (₹) {renderSortIcon("low")}
-            </th>
-            <th onClick={() => handleSort("index")}>
-              Index {renderSortIcon("index")}
-            </th>
-            <th onClick={() => handleSort("pe")}>
-              Current P/E {renderSortIcon("pe")}
-            </th>
+            <th onClick={() => handleSort("ltp")} className="flex-th">
+  <span>LTP (₹)</span>
+  {renderSortIcon("ltp")}
+</th>
+<th onClick={() => handleSort("change")} className="flex-th">
+  <span>Change %</span>
+  {renderSortIcon("change")}
+</th>
+<th onClick={() => handleSort("marketCap")} className="flex-th">
+  <span>Market Cap (Cr)</span>
+  {renderSortIcon("marketCap")}
+</th>
+<th onClick={() => handleSort("high")} className="flex-th">
+  <span>52W High (₹)</span>
+  {renderSortIcon("high")}
+</th>
+<th onClick={() => handleSort("low")} className="flex-th">
+  <span>52W Low (₹)</span>
+  {renderSortIcon("low")}
+</th>
+<th onClick={() => handleSort("index")} className="flex-th">
+  <span>Index</span>
+  {renderSortIcon("index")}
+</th>
+<th onClick={() => handleSort("pe")} className="flex-th">
+  <span>Current P/E</span>
+  {renderSortIcon("pe")}
+</th>
+
             <th>Clarification</th>
           </tr>
         </thead>

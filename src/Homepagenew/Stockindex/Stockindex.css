@@ -1,0 +1,58 @@
+.DashboardMainPagetable-headerr{
+    margin-left: 300px;
+    margin-top: 40px;
+}
+.DashboardMainPagetable-cardss {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    margin-left: 300px;
+  }
+  
+  .DashboardMainPagetable-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    width: 120px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'calibri';
+  }
+  .DashboardMainPagetable-table-containerr{
+    margin-left: 300px;
+  }
+  .DashboardMainPagetable-headerrindex{
+    display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-left: 300px;
+        margin-top: 20px;
+  }
+
+  .DashboardMainPagetable-tableee {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.DashboardMainPagetable-tableee th,
+.DashboardMainPagetable-tableee td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.DashboardMainPagetable-tableee th {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+.DashboardMainPagetable-tableee tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.DashboardMainPagetable-tableee tr:hover {
+    background-color: #ddd;
+}

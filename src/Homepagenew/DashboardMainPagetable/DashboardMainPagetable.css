@@ -9,6 +9,10 @@
   margin-top: -240px;
 
 }
+.DashboardMainPagetable-change{
+font-size: 14px;
+
+}
 body{
   overflow-x: hidden;
 }
@@ -17,7 +21,13 @@ body{
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    margin-top: 30px;
   }
+  .DashboardMainPagetable-card.custom-card-size {
+    width: 115px;
+   
+   
+   }
   
   .DashboardMainPagetable-tab {
     padding: 10px 15px;
@@ -50,7 +60,7 @@ body{
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 16px;
-    width: 140px;
+    width: 120px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: 'calibri';
@@ -89,6 +99,7 @@ body{
   align-items: center;
   justify-content: center;
   padding: 10px;
+  margin-right: 5px;
  
    /* Centers the icon within the circle */
  
@@ -102,7 +113,7 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+    margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -115,7 +126,7 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+    margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -128,7 +139,7 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+    margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -141,7 +152,7 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+    margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -154,7 +165,7 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+  margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
@@ -166,16 +177,17 @@ body{
     height: 25%; /* Adjust size as needed */
     border-radius: 50%;
     display: flex; /* Centers the icon within the circle */
-  
+    margin-right: 5px;
   align-items: center;
   justify-content: center;
   padding: 10px;
   }
   
   .DashboardMainPagetable-sector {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: #333;
+    margin-left: -5px;
    
   }
   .change-up {
@@ -191,7 +203,7 @@ body{
   
   /* Table Section */
   .DashboardMainPagetable-table {
-    width: 100%;
+    width: 88%;
     border-collapse: collapse;
     margin-top: 20px;
   }

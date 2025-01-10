@@ -95,7 +95,7 @@ const Stockanalystall= () => {
 
 
   return (
-      <div className='allhead'>
+      <div className='allheadd'>
              <div className='hompagetopdata'>
           <div>
           <h1 className='headernifty50000'>Welcome back, William</h1>

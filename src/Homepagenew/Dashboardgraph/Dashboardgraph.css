@@ -6,7 +6,7 @@
     font-family: 'calibri';
     padding: 20px;
     color: #333;
-  width:700px; /* Set a maximum width */
+  width:550px; /* Set a maximum width */
   
 /* Add left margin to prevent overlap with sidebar */
     font-family: 'Calibri';
@@ -22,7 +22,7 @@ margin-left: 130px;
 }
 .chartmutual-containerrdashboard{
     height: 330px;
-    width: 690px;
+    width: 550px;
 }
 .allheadd{
     margin-top: -70px;
@@ -42,7 +42,8 @@ margin-left: 130px;
     text-align: center;
     font-family: 'calibri';
     height: 50px;
-    margin-top: 190px;
+    margin-top: 210px;
+    margin-left: -10px;
 }
 
 .homepagenewdata-title {
@@ -160,7 +161,7 @@ margin-bottom: 10px;
 .time-rangemutual-selectorrniftydashboard{
         display: flex;
         gap: 3px;
-        margin-left: 320px;
+        margin-left: 250px;
         
     
 
