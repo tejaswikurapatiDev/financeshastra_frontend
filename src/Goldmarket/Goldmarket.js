@@ -2,6 +2,7 @@
 import React from 'react';
 import goldmarketData from '../Goldmarketdata';
 import './Goldmarket.css';
+import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 const Goldmarket = () => {
   return (
@@ -39,6 +40,9 @@ const Goldmarket = () => {
           ))}
         </tbody>
       </table>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

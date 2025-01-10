@@ -2,7 +2,7 @@
 import React from 'react';
 import Marketdata from '../Marketdata';
 import './Marketable.css';
-
+import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 const Marketable = () => {
   return (
     <div className="etf-container">
@@ -39,6 +39,9 @@ mutual funds.
           ))}
         </tbody>
       </table>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

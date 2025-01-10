@@ -139,27 +139,30 @@ function Register() {
             </button>
           </form>
           <div className="login-or">Or Login With</div>
-          <div className="social-login">
+          <div className="sociall-login">
             <Button
-              variant="outlined"
-              className="Google-btn"
-              startIcon={<FcGoogle />}
-              component="a"
-              href="https://accounts.google.com/signin"
-            >
-              Continue with Google
-            </Button>
-            <br />
-            <br />
-            <Button
-              variant="outlined"
-              className="Google-btn"
-              startIcon={<FaLinkedin />}
-              component="a"
-              href="https://www.linkedin.com/feed/"
-            >
-              Continue with LinkedIn
-            </Button>
+                         variant="outlined"
+                         className="Googleall-btn"
+                         startIcon={<FcGoogle style={{fontSize:"26px"}} />}
+                         component="a"
+                         href="https://accounts.google.com/signin"
+                         style={{ textTransform: "none" }}
+                       >
+                         Continue with Google
+                       </Button>
+                       <br />
+                       <br />
+                       <Button
+                         variant="outlined"
+                         className="Googlelink-btn"
+                         startIcon={<FaLinkedin style={{fontSize:"26px"}}/>}
+                         component="a"
+                         href="https://www.linkedin.com/feed/"
+                         style={{ textTransform: "none" }}
+                       
+                       >
+                         Continue with LinkedIn
+                       </Button>
           </div>
           <div className="register-link">
             <p>

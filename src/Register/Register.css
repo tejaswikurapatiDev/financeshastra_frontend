@@ -1,14 +1,13 @@
 /* Global font application */
-body, .login-container, .login-left, .login-left h1, .login-left p, 
-.login-right, .login-box, .login-box h2, .input-container label, 
-.input-container input, .login-options a, .sign-in-btn, .google-login, 
-.linkedin-login, .register-link a, .error-text, .toggle-password{
-    font-family: Calibri, sans-serif;
-}
 
+.login-container body{
+    overflow-y: hidden;
+}
 .login-container {
     display: flex;
-    height: 100vh;
+    height:720px;
+    overflow-y: hidden;
+    font-family: 'calibri';
 }
 
 .login-left {
@@ -20,6 +19,8 @@ body, .login-container, .login-left, .login-left h1, .login-left p,
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    overflow-y: hidden;
+
 }
 
 .login-left h1 {
@@ -40,6 +41,7 @@ body, .login-container, .login-left, .login-left h1, .login-left p,
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-y: hidden;
 }
 
 .login-box {
@@ -99,29 +101,9 @@ body, .login-container, .login-left, .login-left h1, .login-left p,
     cursor: pointer;
 }
 
-.social-login {
-    margin-top: 20px;
-}
 
-.google-login,
-.linkedin-login {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.google-login {
-    background-color: #0077b5;
-    color: white;
-}
 
-.linkedin-login {
-    background-color: #0077b5;
-    color: white;
-}
 
 .register-link {
     margin-top: 20px;
@@ -142,15 +124,8 @@ body, .login-container, .login-left, .login-left h1, .login-left p,
     margin-top: 5px;
 }
 
-.google-login .linkedin-login {
-    font-size: 15px;
-}
 
-.google-login svg,
-.linkedin-login svg {
-    height: 5%;
-    width: 5%;
-}
+
 
 .password-field {
     position: relative;

@@ -40,26 +40,33 @@
     margin-top: 20px;
   }
   
-  .avoidiposubs {
+  .avoidiposubss {
     background-color: #e61f11; /* Red color for Avoid */
     color: white;
-    margin-left: 680px;
+    margin-left: 630px;
     cursor: pointer;
+    padding: 10px 15px ;
+    border-radius: 5px;
+    border: 1px solid white;
   }
   
-  .avoidiposubs:hover{
+  .avoidiposubss:hover{
     background-color: #cd170a;
   }
-  .applyiposubs {
-    background-color:#409e43; /* Green color for Apply */
+  .applyiposubss {
+    background-color:#24b676; /* Green color for Apply */
     color: white;
+    padding: 10px 15px ;
+    border-radius: 5px;
+    border: 1px solid white;
+    margin-left: 10px;
   }
-  .applyiposubs:hover{
+  .applyiposubss:hover{
     background-color:#34a938 ;
   }
   .ipoupcomsubs{
     font-size: 20px;
-    color:  #4caf50;
+    color:  #24b676;
     font-family: 'calibri';
     margin-left: 70px;
   }

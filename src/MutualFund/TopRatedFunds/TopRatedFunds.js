@@ -5,7 +5,7 @@ import { fundData } from "../fundData"; // Adjust the path if necessary
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import "./TopRatedFunds.css";
 import Navbar from "../../Navbar/Navbar";
-
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const TopRatedFunds = () => {
   const navigate = useNavigate();
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
@@ -150,6 +150,9 @@ const TopRatedFunds = () => {
           </table>
         </div>
       </div>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

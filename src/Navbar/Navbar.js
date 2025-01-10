@@ -261,7 +261,7 @@ const Navbar = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/mutualflex">Best Flex Cap Fund
+              <Link to="/flexregular">Best Flex Cap Fund
                 <p>Invest in companies poised for future and today’s growth.</p></Link>
             </div>
           </li>
@@ -292,7 +292,7 @@ const Navbar = () => {
         </div>
 
         <ul className="navbar-links">
-          <li><Link to="/home">Home</Link></li>
+          <li><Link to="/dashboardchartmain">Home</Link></li>
 
 
           <li

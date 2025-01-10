@@ -8,6 +8,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import "./ScreenerStockList.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const ScreenerStockList = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
@@ -2211,6 +2212,9 @@ const perfOptions = [
       </div>
       
     <Navbar/>
+    <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

@@ -384,9 +384,14 @@ const LocalhalfPremiumForm = () => {
   </label>
 </div>
 
-          <button type="submit" className="completepayment-button">
-         Complete your Payment
-        </button>
+<button
+  onClick={() => navigate('/Nifty50screenerStockunlockList')}
+  type="submit"
+  className="completepayment-button"
+>
+  Complete your Payment
+</button>
+
         </div>
 
         {/* PayPal Button */}

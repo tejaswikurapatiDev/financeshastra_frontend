@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa"; // Import the icons
-
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 // Sample data
 const fundDatagrothdirect= [
     {
@@ -336,6 +336,9 @@ const Bestgrowthdirect = () => {
           </tbody>
         </table>
       </div>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

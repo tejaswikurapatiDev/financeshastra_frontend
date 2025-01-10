@@ -1,0 +1,117 @@
+.clarificationstockcalender-link{
+    cursor: pointer;
+    color: #24b676;
+    }
+    .clarificationstockcalender-link:hover{
+    color: #24b676;
+    }
+    .earnings-insight-learn-wrapperr{
+        font-family: 'calibri';
+        margin-right: 100px;
+    }
+    .DashboardMainPagetable-headerr {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-left: 38px;
+      }
+      .earnings-insight-learn-tab-button {
+        cursor: pointer;
+        font-family: 'calibri';
+        font-size: 16px;
+      }
+      
+      .earnings-insight-learn-tab-button.active {
+         /* Green background for active tab */
+        color: #24b676;  /* White text for active tab */
+      }
+      
+    
+      .dateinsighttt{
+        display: flex;
+        border: 1px solid rgb(212, 209, 209);
+        height: 40px;
+        width: 140px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+    
+        
+    }
+    .earningquterlyrowalll {
+      display: flex;
+      width: 890px;
+      margin-left: 40px;
+      gap: 210px;
+      margin-bottom: 20px;
+      padding: 16px;
+      background-color: #f9f9f9; /* Light background for better contrast */
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      height: 35px;
+      box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+    }
+    
+      @media (max-width: 768px) {
+    
+    .dateinsighttt {
+      display: flex;
+      border: 1px solid rgb(212, 209, 209);
+      height: 40px;
+      margin-left: 0px;
+      align-self: left;
+     padding-right: 10px;
+      margin-right: 0px;
+      width: 140px;
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+    }
+    
+      .DashboardMainPagetable-headerr{
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-left: 0px;
+      }
+      .earningquterlyrowalll {
+        width: 70px;
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        gap: 1px; /* Reduced gap for mobile */
+        margin-left: -12px;
+        margin-bottom: 0px;
+     
+    }
+    
+      }
+      
+      @media (max-width: 480px) {
+    
+        .dateinsighttt {
+          display: flex;
+          border: 1px solid rgb(212, 209, 209);
+          height: 40px;
+          margin-left: 200px;
+          width: 140px;
+          border-radius: 5px;
+          box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+        }
+        
+          .DashboardMainPagetable-headerr{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            margin-left: 0px;
+          }
+          .earningquterlyrowalll {
+            width: 70px;
+            border: none;
+            box-shadow: none;
+            background-color: white;
+            gap: 1px; /* Reduced gap for mobile */
+            margin-left: -210px;
+            margin-bottom: 0px;
+         
+        }
+        
+          }

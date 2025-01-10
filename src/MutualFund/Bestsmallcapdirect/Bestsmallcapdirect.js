@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const Bestsmallcapdirect = () => {
   const navigate = useNavigate();
@@ -143,6 +144,9 @@ const Bestsmallcapdirect = () => {
           </table>
         </div>
       </div>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

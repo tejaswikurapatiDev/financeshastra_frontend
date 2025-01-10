@@ -46,7 +46,7 @@ function Nifty50topheader() {
 
   return (
     <div className="graphcontainerer">
-      <div className="graphheader">
+      <div className="graphheadernifty">
         <div className="title-containernifty">
           <h1 className="telephoneniftyh1">Nifty 50</h1>
         </div>
@@ -76,7 +76,7 @@ function Nifty50topheader() {
       {/* Sectors link with smooth scroll */}
       <ScrollLink to="stockxray" smooth={true} duration={500}>
       <span 
-          onClick={() => handleNavigation("/nifty50pageall")} 
+          onClick={() => handleNavigation("/SectorWeightageTableniffty50")} 
           style={{ cursor: "pointer" }}
         >
         Sectors

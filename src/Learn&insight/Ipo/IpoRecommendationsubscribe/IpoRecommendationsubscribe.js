@@ -15,8 +15,8 @@ overvaluation, potentially tempering near-term stock performance. Investor senti
 moderate, suggesting limited chances of significant listing-day gains. However, long-term investors could find value in
 this stock, considering the growth potential of the textile sector and Sanathan Textile's established presence in the market.
         </div>
-        <button className="avoidiposubs">Avoid</button>
-        <button className="applyiposubs">Apply</button>
+        <button className="avoidiposubss">Avoid</button>
+        <button className="applyiposubss">Apply</button>
       </div>
     </div>
   );

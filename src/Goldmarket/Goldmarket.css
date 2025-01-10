@@ -40,14 +40,14 @@
     color: white;
     padding: 14px;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     border-bottom: 2px solid #ddd;
   }
   
   .goldetf-table tbody td {
     padding: 12px;
     border: 1px solid #ddd;
-    text-align: center;
+
     color: black;
   }
   .goldetf-table tbody td.marketname{

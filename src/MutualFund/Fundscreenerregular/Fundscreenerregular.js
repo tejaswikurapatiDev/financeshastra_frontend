@@ -5,6 +5,7 @@ import { fundData } from "../fundData"; // Adjust the path if necessary
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const Fundscreenerregular = () => {
   const navigate = useNavigate();
@@ -150,6 +151,9 @@ const Fundscreenerregular = () => {
           </table>
         </div>
       </div>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

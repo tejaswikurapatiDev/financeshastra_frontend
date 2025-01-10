@@ -92,9 +92,13 @@
   }
   
   .avoidipo {
-    background-color: #f44336; /* Red color for Avoid */
+    background-color: #e61f11; /* Red color for Avoid */
     color: white;
-    margin-left: 680px;
+    margin-left: 630px;
+    cursor: pointer;
+    padding: 10px 15px ;
+    border-radius: 5px;
+    border: 1px solid white;
   }
   
   .applyipo {

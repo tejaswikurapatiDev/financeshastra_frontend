@@ -1,8 +1,9 @@
 // App.js
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+
 import Login from "./Login/Login";
-import Home from "./Home/Home";
+
 import Register from "./Register/Register";
 import Market from "./Market/Market";
 import GoldETF from "./GoldETF/GoldETF";
@@ -12,13 +13,13 @@ import BalanceSheet from "./BalanceSheet/BalanceSheet";
 import Header from "./header/header";
 import Overview from "./StockOverview/Overview";
 
-import Smallcap from "./Smallcapstock/Smallcapstock";
-import Midcap from "./Midcapstock/Midcapstock";
-import Largecap from "./Largecapstock/Largecapstock";
+import Smallcap from "./Smallcappages/Smallcapstock/Smallcapstock";
+import Midcap from "./Midcappages/Midcapstock/Midcapstock";
+import Largecap from "./Largecappages/Largecapstock/Largecapstock";
 import NiftyStocks from "./Nifty50stock/Nifty50stock";
-import Highstock from "./Highstock/Highstock";
-import Beststock from "./Beststock/Beststock";
-import Netify500 from "./NiftyStocksTable/NiftyStocksTable";
+import Highstock from "./Highgrowthpages/Highstock/Highstock";
+import Beststock from "./Beststockspages/Beststock/Beststock";
+
 import Portfolio from "./Portfoilo/Portfoliomanager/Portfoliomanager";
 import NetWorthStocksDashboard from "./Portfoilo/NetWorthStocksDashboard/NetWorthStocksDashboard";
 import PortfolioAccountStock from "./Portfoilo/PortfolioAccountStock/PortfolioAccountStock";
@@ -115,14 +116,34 @@ import Quarterlybalancesheet from "./Learn&insight/Quaterlyearning/Quaterlyearnb
 import QuarterlyCashflow from "./Learn&insight/Quaterlyearning/Quaterlycashflow/Quaterlycashflow";
 import Quarterlyratio from "./Learn&insight/Quaterlyearning/Quaterlyratio/Quaterlyratio";
 import Earninginsightheader from "./Learn&insight/Quaterlyearning/Earninginsightdetailheader/Earninginsightdetailheader";
-import Nifty50page from "./Stocks/Nifty50pagescreener/Nifty50pagescreener";
-import Nifty50screenerStockdatatable from "./Stocks/Nifty50screenerStockdata/Nifty50screenerStockdata";
+
 import Nifty50all from "./Stocks/Nifty50all";
 import Nifty50screenerStockunlockList from "./Stocks/Nifty50screenerStockListunlock/Nifty50screenerStockListunlock";
 import SectorWeightageTableniffty50 from "./Stocks/SectorWeightageTableniftty50/SectorWeightageTableniftty50";
-import Watchlistdashboardmain from "./Dashboardmainpage/Watchlistdashboardmain/Watchlistdashboardmain";
-import Dashboardchartmain from "./Dashboardmainpage/Dashboardchartmain/Dashboardchartmain";
-import DashboardMainPagetable from "./Dashboardmainpage/DashboardMainPagetable/DashboardMainPagetable";
+
+import FooterForAllPage from "./FooterForAllPage/FooterForAllPage";
+import ProfilePage from "./myprofile/ProfilePage/ProfilePage";
+
+import SettingsDashboard from "./sidebardash/SettingDashPanel/SettingDashPanel";
+import Dashboardchartmain from './Homepagenew/Dashboardgraph/Dashboardgraph';
+import Stockindexall from "./Homepagenew/Stockindexallpage/Stockindexallpage";
+import Calenderchartmain from "./Homepagenew/Stockcalendergraph/Stockcalendergraph";
+import Homestockanalyst from "./Homepagenew/Homestockanalyst/Homestockanalyst";
+import Stockanalystall from "./Homepagenew/Homeanalystall/Homeanalystall";
+import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
+import BestStockIncomeStatement from "./Beststockspages/BestStockIncomeStatement/BestStockIncomeStatement";
+import Highstockvaluation from "./Highgrowthpages/Highstockvaluation/Highstockvaluation";
+import HighStockIncomeStatement from "./Highgrowthpages/highgrowthStockIncomeStatement/highgrowthStockIncomeStatement";
+import Netify100 from "./Nifty100pages/NiftyStocksTable/NiftyStocksTable";
+import Netify100valuation from "./Nifty100pages/Netify100valuation/Netify100valuation";
+import Netify100IncomeStatement from "./Nifty100pages/Netify100IncomeStatement/Netify100IncomeStatement";
+import Smallcapvaluation from "./Smallcappages/Smallcapvaluation/Smallcapvaluation";
+import SmallcapIncomeStatement from "./Smallcappages/SmallcapIncomeStatement/SmallcapIncomeStatement";
+import Midcapvaluation from "./Midcappages/Midcapvaluation/Midcapvaluation";
+import MidcapIncomeStatement from "./Midcappages/MidcapIncomeStatement/MidcapIncomeStatement";
+import Largecapvaluation from "./Largecappages/Largecapvaluation/Largecapvaluation";
+import LargecapIncomeStatement from "./Largecappages/LargecapIncomeStatement/LargecapIncomeStatement";
+
 
 
 
@@ -134,7 +155,6 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
-      <Route path="/home" element={<Home />} />
       <Route path="/market" element={<Market/>} />
       <Route path="/gold" element={<GoldETF/>} />
       <Route path="/stock" element={<Stocktable/>} />
@@ -143,7 +163,7 @@ function App() {
       <Route path="/balance-sheet" element={<BalanceSheet/>} />
       <Route path="/register" element={<Register/>} />
       <Route path="/stockhandle" element={<Overview/>} />
-      <Route path="/nifty" element={<Netify500/>} />
+      <Route path="/nifty" element={<Netify100/>} />
       <Route path="/smallcap" element={<Smallcap/>} />
       <Route path="/midcap" element={<Midcap/>} />
       <Route path="/largecap" element={<Largecap/>} />
@@ -246,16 +266,37 @@ function App() {
       <Route path="/sectorWeightageTableniffty50" element={<SectorWeightageTableniffty50/>}/>
       <Route path="/nifty50screenerStockunlockList" element={<Nifty50screenerStockunlockList/>}/>
       <Route path="/nifty50pageall" element={<Nifty50all/>}/>
-      <Route path="/watchlistdashboardmain" element={<Watchlistdashboardmain/>}/>
+
+     
+      <Route path="/footerForAllPage" element={<FooterForAllPage/>}/>
+      <Route path="/profilePage" element={<ProfilePage/>}/>
+      <Route path="/settingDashPanel" element={<SettingsDashboard/>}/>
       <Route path="/dashboardchartmain" element={<Dashboardchartmain/>}/>
-      <Route path="/dashboardMainPagetable" element={<DashboardMainPagetable/>}/>
-
-     
-
-
-     
-
+      <Route path="/stockindexall" element={<Stockindexall/>}/>
+      <Route path="/calenderchartmain" element={<Calenderchartmain/>}/>
+      <Route path="/homestockanalyst" element={<Homestockanalyst/>}/>
+      <Route path="/stockanalystall" element={<Stockanalystall/>}/>
+      <Route path="/bestStockvaluation" element={<BestStockvaluation/>}/>
+      <Route path="/bestStockIncomeStatement" element={<BestStockIncomeStatement/>}/>
+      <Route path="/highstockvaluation" element={<Highstockvaluation/>}/>
+      <Route path="/highgrowthStockIncomeStatement" element={<HighStockIncomeStatement/>}/>
+      <Route path="/netify100valuation" element={<Netify100valuation/>}/>
+      <Route path="/netify100IncomeStatement" element={<Netify100IncomeStatement/>}/>
+      <Route path="/smallcapvaluation" element={<Smallcapvaluation/>}/>
+      <Route path="/smallcapIncomeStatement" element={<SmallcapIncomeStatement/>}/>
+      <Route path="/midcapvaluation" element={<Midcapvaluation/>}/>
+      <Route path="/midcapIncomeStatement" element={<MidcapIncomeStatement/>}/>
+      <Route path="/largecapvaluation" element={<Largecapvaluation/>}/>
+      <Route path="/largecapIncomeStatement" element={<LargecapIncomeStatement/>}/>
     
+      
+
+      
+
+
+     
+
+      
 
 
 

@@ -1,7 +1,6 @@
 /* Sidebar.css */
 .sidebar {
-   
-    height: 100vh;
+
     background-color: #ffffff;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;

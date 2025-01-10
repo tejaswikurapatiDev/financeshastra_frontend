@@ -6,6 +6,7 @@ import './nifty50stock.css';
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const Nifty50screenerStockList = () => {
   const [stocks, setStocks] = useState(Nifty50tabledata);
@@ -15,7 +16,7 @@ const Nifty50screenerStockList = () => {
     // Pagination state
   
 const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 6; // Show 7 rows per page
+const itemsPerPage = 10; // Show 7 rows per page
 
 // Calculate the current page's data
 const indexOfLastItem = currentPage * itemsPerPage;
@@ -89,7 +90,7 @@ const handlePageChange = (pageNumber) => {
     }
   };
   const handleNavigate = () => {
-    navigate('/nifty50screenerStockunlockList'); // Navigate to the desired route
+    navigate('/pricehalf'); // Navigate to the desired route
   };
   // Handle sorting logic for columns
   const handleSort = (key) => {
@@ -149,7 +150,9 @@ const handlePageChange = (pageNumber) => {
         </div>
 
         {/* Table Section */}
-        <div className="screener-tablewrapper">
+        <div className="screener-table-wrapper"style={{ overflowY: 'auto',
+     // Prevent x-axis overflow
+    height: '370px'}}>
           <table className="screener-table" style={{ borderCollapse: "collapse", width: "100%" }}>
             <thead
               style={{
@@ -327,6 +330,9 @@ const handlePageChange = (pageNumber) => {
 
         <Navbar />
       </div>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };

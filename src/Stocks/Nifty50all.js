@@ -3,7 +3,7 @@ import Nifty50topheader from './Nifty50topheader/Nifty50topheader'
 import Nifty50page from './Nifty50pagescreener/Nifty50pagescreener'
 import Nifty50screenerStockdatatable from './Nifty50screenerStockdata/Nifty50screenerStockdata';
 import NiftySectorWeightage from './NiftysectorWeightage/NiftysectorWeightage';
-
+import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 function Nifty50all() {
   return (
     <div>
@@ -11,6 +11,9 @@ function Nifty50all() {
       <Nifty50page/>
       <Nifty50screenerStockdatatable/>
       <NiftySectorWeightage/>
+      <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   )
 }

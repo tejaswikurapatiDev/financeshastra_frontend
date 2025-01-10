@@ -374,7 +374,7 @@ const PaymentForm = () => {
             </label>
           </div>
 
-          <button type="submit" className="paypal-button">
+          <button   onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="paypal-button">
             PayPal
           </button>
         </div>

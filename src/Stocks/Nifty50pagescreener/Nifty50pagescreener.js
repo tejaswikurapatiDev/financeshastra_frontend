@@ -110,7 +110,7 @@ const Nifty50page = () => {
             </div>
 
             {/* Line Chart */}
-            <div className="chartmutual-containerr">
+            <div className="chartmutual-containerrnifty">
               <Line data={chartData} options={chartOptions} />
             </div>
           </div>

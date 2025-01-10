@@ -43,6 +43,7 @@ const Portfoliodonut = () => {
     },
   };
 
+  
   return (
     <div className="networth-stocks-dashboard">
       {/* Navigation Tabs */}
@@ -130,7 +131,8 @@ const Portfoliodonut = () => {
             <div className="row">
               {/* Donut Chart */}
               <div className="chartunrealized">
-  <Doughnut data={donutChartData} options={donutChartOptions} />
+ 
+              
 </div>
               {/* Stats */}
               <div className="stats">

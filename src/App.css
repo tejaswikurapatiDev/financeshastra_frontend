@@ -6,6 +6,10 @@
   height: 40vmin;
   pointer-events: none;
 }
+body {
+  font-family: 'Calibri';
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

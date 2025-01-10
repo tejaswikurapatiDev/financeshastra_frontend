@@ -34,4 +34,46 @@
   .niftykeyindicator-cell:last-child {
     text-align: right;
   }
+  /* Mobile View for 768px (Tablet view) */
+@media (max-width: 768px) {
+  .niftykeyindicator {
+      width: 90%; /* Adjust width to take up more space on tablet */
+      margin-left: 1px; /* Center the component horizontally */
+      margin-right: auto;
+      height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .niftykeyindicator-heading {
+      font-size: 16px; /* Reduce heading size for smaller screens */
+  }
+
+  .niftykeyindicator-cell {
+      font-size: 14px; /* Reduce font size for table cells */
+      padding: 12px; /* Adjust padding for table cells */
+  }
+
   
+}
+
+/* Mobile View for 480px (Small Mobile screens) */
+@media (max-width: 480px) {
+  .niftykeyindicator {
+    width: 69%; /* Adjust width to take up more space on tablet */
+    margin-left: 1px; /* Center the component horizontally */
+    margin-right: auto;
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .niftykeyindicator-heading {
+    font-size: 16px; /* Reduce heading size for smaller screens */
+  }
+
+  .niftykeyindicator-cell {
+    font-size: 13px; /* Reduce font size for table cells */
+    padding: 12px; /* Adjust padding for table cells */
+  }
+
+  .niftykeyindicator-cell:last-child {
+      text-align: left; /* Align the last cell to the left for readability */
+  }
+}

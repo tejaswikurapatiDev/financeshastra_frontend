@@ -384,7 +384,7 @@ const ElitePaymenthalfForm = () => {
   </label>
 </div>
 
-          <button type="submit" className="completepayment-button">
+          <button  onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="completepayment-button">
          Complete your Payment
         </button>
         </div>

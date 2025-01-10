@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { PiCaretUpDownFill } from "react-icons/pi";
 import "./SectorWeightageTableniftty50.css";
 import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
 
 const SectorWeightageTableniffty50 = () => {
@@ -60,8 +61,9 @@ const SectorWeightageTableniffty50 = () => {
 
   return (
     <div>
-        <Navbar/>
+       
          <Nifty50topheader/>
+         <Navbar/>
          <div>
   <h1 className="sectorTableHeadingniffty50">Nifty 50 Sector Weightage</h1>
   <div className="sectorTableContainerniffty50" style={{ overflowY: 'auto', height: '450px' }}>
@@ -105,6 +107,9 @@ const SectorWeightageTableniffty50 = () => {
       </table>
       </div>
     </div>
+    <div className="foooterpagesatt">
+    <FooterForAllPage />
+  </div>
     </div>
   );
 };
