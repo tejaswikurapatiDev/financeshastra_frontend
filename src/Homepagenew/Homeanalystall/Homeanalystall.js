@@ -6,6 +6,7 @@ import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboard
 import Sidebar from '../../Sidebar/Sidebar'
 import itiimg from '../../../src/assest/iti.png';
 import Homestockanalyst from '../Homestockanalyst/Homestockanalyst';
+import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
 
 
 
@@ -180,6 +181,9 @@ const Stockanalystall= () => {
 </div>
       </div>
      <Homestockanalyst/>
+     <div className="foooterpagesatt">
+    <FooterForhomeAllPage/>
+  </div>
      
     </div>
   );

@@ -6,6 +6,8 @@ import Navbar from '../../Navbar/Navbar';
 import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboardmain';
 import Dashboardstockindex from '../Stockindex/Stockindex';
 import itiimg from '../../../src/assest/iti.png';
+import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
+
 
 
 
@@ -181,6 +183,9 @@ const Stockindexall = () => {
 </div>
       </div>
       <Dashboardstockindex/>
+      <div className="foooterpagesatt">
+    <FooterForhomeAllPage/>
+  </div>
     </div>
   );
 };

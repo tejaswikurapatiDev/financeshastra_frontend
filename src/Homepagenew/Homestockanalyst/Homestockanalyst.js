@@ -290,8 +290,9 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
 
         {/* Table */}
-        <div className="DashboardMainPagetable-table-container">
-            <table className="DashboardMainPagetable-tablee">
+        
+<div className="DashboardMainPagetable-table-container">
+<table className="DashboardMainPagetable-tableeee">
           <thead>
   <tr>
     <th style={{ height: '40px', padding: '8px', fontSize: '14px' }}>Company</th>

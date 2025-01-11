@@ -6,6 +6,7 @@ import Navbar from '../../Navbar/Navbar';
 import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboardmain';
 import Stockcalender from '../Stockcalender/Stockcalender';
 import itiimg from '../../../src/assest/iti.png';
+import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
 
 
 
@@ -180,6 +181,9 @@ const Calenderchartmain= () => {
 </div>
       </div>
      <Stockcalender/>
+     <div className="foooterpagesatt">
+    <FooterForhomeAllPage/>
+  </div>
     </div>
   );
 };
