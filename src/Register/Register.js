@@ -57,7 +57,7 @@ function Register() {
     }
 
     if (isValid) {
-      const url= 'https://financeshastra-backendupdated.onrender.com/api/register'
+      const url= 'http://localhost:3000/api/register'
       const data= {
         username: formData.name,
         password: formData.password,

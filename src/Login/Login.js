@@ -51,7 +51,7 @@ function Login() {
         email,
         password
       }
-      const url='https://financeshastra-backendupdated.onrender.com/api/signin'
+      const url='http://localhost:3000/api/signin'
       const options={
         method: "post",
         headers: {

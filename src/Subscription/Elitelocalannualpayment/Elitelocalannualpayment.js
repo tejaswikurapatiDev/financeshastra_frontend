@@ -57,9 +57,20 @@ const ElitePaymentPremiumForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      console.log('valid')
+      const url= 'http://localhost:3000/api/user/payment'
+      const options= {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const fetchData= await fetch(url, options)
+      console.log(fetchData)
       console.log("Form Submitted:", formData);
       alert("Payment successfully completed!");
     }
@@ -140,7 +151,7 @@ const ElitePaymentPremiumForm = () => {
         We’ll direct you to PayPal to finish this step. Once your details are verified, PayPal will return
         you to FinanceShastra, where your payment method will be confirmed.
       </p>
-      <div class="custom-radio-group">
+      <div className="custom-radio-group">
   <label>
     <input
       type="radio"
