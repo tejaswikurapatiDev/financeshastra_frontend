@@ -22,6 +22,7 @@ const LocalPaymentPremiumForm = () => {
     postalCode: "",
     billingCycle: "Annually",
     termsAccepted: false,
+    planId: 2
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
@@ -57,13 +58,33 @@ const LocalPaymentPremiumForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Submitted:", formData);
       alert("Payment successfully completed!");
     }
+  };*/
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      const url= 'https://financeshastra-backendupdated.onrender.com/api/user/payment'
+      const options= {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const fetchData= await fetch(url, options)
+      console.log(fetchData)
+      console.log("Form Submitted:", formData);
+      alert("Payment successfully completed!");
+      navigate('/Nifty50screenerStockunlockList')
+    }
   };
+
 
  
   const handleDateChange = (date) => {
