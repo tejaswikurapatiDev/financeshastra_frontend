@@ -22,7 +22,7 @@ const ElitePaymenthalfForm = () => {
     postalCode: "",
     billingCycle: "Half-year",
     termsAccepted: false,
-    planeId: 1,
+    planId: 1,
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
