@@ -61,7 +61,7 @@ const ElitePaymenthalfForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const url= 'http://localhost:3000/api/user/payment'
+      const url= 'https://financeshastra-backendupdated.onrender.com/api/user/payment'
       const options= {
         method: 'post',
         headers: {
