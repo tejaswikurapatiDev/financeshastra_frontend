@@ -18,6 +18,7 @@ const ElitepaymentForm = () => {
     postalCode: "",
     billingCycle: "Annually",
     termsAccepted: false,
+    planeId: 1
   });
 
   const [errors, setErrors] = useState({});
@@ -123,14 +124,33 @@ const ElitepaymentForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Submitted:", formData);
       // Proceed with further logic
       alert("Payment successfully done");
     }
+  };*/
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      const url= 'http://localhost:3000/api/user/payment'
+      const options= {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const fetchData= await fetch(url, options)
+      console.log(fetchData)
+      console.log("Form Submitted:", formData);
+      alert("Payment successfully completed!");
+      navigate('/Nifty50screenerStockunlockList')
+    }
   };
+
 
   const handleBillingCycleChange = (e) => {
     const { value } = e.target;
@@ -377,7 +397,7 @@ const ElitepaymentForm = () => {
             </label>
           </div>
 
-          <button  onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="paypal-button">
+          <button type="submit" className="paypal-button">
             PayPal
           </button>
         </div>

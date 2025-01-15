@@ -22,6 +22,7 @@ const ElitePaymenthalfForm = () => {
     postalCode: "",
     billingCycle: "Half-year",
     termsAccepted: false,
+    planeId: 1,
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
@@ -57,11 +58,22 @@ const ElitePaymenthalfForm = () => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
+      const url= 'http://localhost:3000/api/user/payment'
+      const options= {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const fetchData= await fetch(url, options)
+      console.log(fetchData)
       console.log("Form Submitted:", formData);
       alert("Payment successfully completed!");
+      navigate('/Nifty50screenerStockunlockList')
     }
   };
 
@@ -384,7 +396,7 @@ const ElitePaymenthalfForm = () => {
   </label>
 </div>
 
-          <button  onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="completepayment-button">
+          <button type="submit" className="completepayment-button">
          Complete your Payment
         </button>
         </div>

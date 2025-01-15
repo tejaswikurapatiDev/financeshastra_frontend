@@ -22,6 +22,8 @@ const ElitePaymentPremiumForm = () => {
     postalCode: "",
     billingCycle: "Annually",
     termsAccepted: false,
+    planId: 1,
+    type: "annual"
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
@@ -60,7 +62,6 @@ const ElitePaymentPremiumForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('valid')
       const url= 'http://localhost:3000/api/user/payment'
       const options= {
         method: 'post',
@@ -73,6 +74,7 @@ const ElitePaymentPremiumForm = () => {
       console.log(fetchData)
       console.log("Form Submitted:", formData);
       alert("Payment successfully completed!");
+      navigate('/Nifty50screenerStockunlockList')
     }
   };
 
@@ -155,7 +157,7 @@ const ElitePaymentPremiumForm = () => {
   <label>
     <input
       type="radio"
-      class="custom-radio"
+      className="custom-radio"
       name="paymentMethod"
       value="creditordebit"
       style={{background:"green",color:"white",center:"white"}}
@@ -167,7 +169,7 @@ const ElitePaymentPremiumForm = () => {
   <label>
     <input
       type="radio"
-      class="custom-radio"
+      className="custom-radio"
       name="paymentMethod"
       value="upi"
       onChange={handleChange}
@@ -335,31 +337,31 @@ const ElitePaymentPremiumForm = () => {
         </div>
    {/* Billing Cycle Section */}
    <div className="containerupi">
-        <div class="billing-cycle-options">
-  <label class="custom-radio-container">
+        <div className="billing-cycle-options">
+  <label className="custom-radio-container">
     <input
       type="radio"
-      class="custom-radio"
+      className="custom-radio"
       name="paymentMethod"
       value="Annually"
       checked={formData.billingCycle === "Annually"}
       onChange={handleBillingCycleChange}
     />
-    <span class="custom-radio-label">Annually</span>
-    <p class="billingpayment">Most flexible option. Billed annually.</p>
+    <span className="custom-radio-label">Annually</span>
+    <p className="billingpayment">Most flexible option. Billed annually.</p>
   </label>
 
-  <label class="custom-radio-container">
+  <label className="custom-radio-container">
     <input
       type="radio"
-      class="custom-radio"
+      className="custom-radio"
       name="paymentMethod"
       value="Half-year"
       checked={formData.billingCycle === "Half-year"}
       onChange={handleBillingCycleChange}
     />
-    <span class="custom-radio-label">Half-year</span>
-    <p class="billingpayment">Most flexible option. Billed half-yearly.</p>
+    <span className="custom-radio-label">Half-year</span>
+    <p className="billingpayment">Most flexible option. Billed half-yearly.</p>
   </label>
    </div>
    </div>
@@ -392,7 +394,7 @@ const ElitePaymentPremiumForm = () => {
   </label>
 </div>
 
-          <button  onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="completepayment-button">
+          <button  type="submit" className="completepayment-button">
          Complete your Payment
         </button>
         </div>
