@@ -18,7 +18,7 @@ const PaymentForm = () => {
     postalCode: "",
     billingCycle: "Annually",
     termsAccepted: false,
-    planeId: 1
+    planId: 1
   });
   
   const [errors, setErrors] = useState({});
@@ -113,7 +113,7 @@ const PaymentForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      const url= 'http://localhost:3000/api/user/paymentpaypal'
+      const url= 'https://financeshastra-backendupdated.onrender.com/api/user/paymentpaypal'
       const options= {
         method: 'post',
         headers: {
