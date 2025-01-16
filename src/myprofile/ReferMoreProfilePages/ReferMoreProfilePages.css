@@ -1,0 +1,93 @@
+.refermoreprofilepagess-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .refermoreprofilepagess-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .refermoreprofilepagess-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .refermoreprofilepagess-input-group input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+  }
+  
+  .refermoreprofilepagess-remove-button {
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .refermoreprofilepagess-remove-button:hover {
+    background-color: #e60000;
+  }
+  
+  .refermoreprofilepagess-add-button {
+    display: block;
+    margin: 10px auto;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .refermoreprofilepagess-add-button:hover {
+    background-color: #45a049;
+  }
+  
+  .refermoreprofilepagess-submit-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .refermoreprofilepagess-submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .refermoreprofilepagess-email-template {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    background-color: #fefefe;
+  }
+  
+  .refermoreprofilepagess-email-template h3 {
+    margin-bottom: 15px;
+    color: #333333;
+  }
+  
+  .refermoreprofilepagess-email-content {
+    line-height: 1.6;
+    color: #555555;
+  }
+  
+  .refermoreprofilepagess-email-content strong {
+    color: #000000;
+  }
+  

@@ -1,0 +1,265 @@
+/* Container */
+.upiprofilepage-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family:'calibri';
+    text-align: center;
+  }
+  
+  /* Payment Method Tabs */
+  .upiprofilepage-payment-method {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .upiprofilepage-tab {
+    flex: 1;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #f9f9f9;
+    color: #333;
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+  
+  .upiprofilepage-tab:last-child {
+    margin-right: 0;
+  }
+  
+  .upiprofilepage-tab.active {
+    background: #f0f9f0;
+    color: #2c7a2c;
+    border: 1px solid #2c7a2c;
+  }
+  
+  /* Form Section */
+  .upiprofilepage-form h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+ /* Icons Section */
+.upiprofilepage-icons {
+    display: flex;
+    justify-content: left;
+    gap: 15px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+  
+  /* Style for Images with Border */
+  .upiprofilepage-icons img {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 8px; /* Slight rounding for smooth look */
+    padding: 5px; /* Add padding inside the border */
+    background: white; /* Optional: Add a light background */
+    transition: transform 0.3s ease, border-color 0.3s ease; /* Add hover effect */
+    cursor: pointer;
+    
+  }
+  
+  /* Hover Effect for Images */
+  .upiprofilepage-icons img:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    border-color: #2c7a2c; /* Change border color on hover */
+  }
+  
+  /* Input Field */
+  .upiprofilepage-field {
+    margin-top: 20px;
+  }
+  
+  .upiprofilepage-form {
+    
+    
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  /* Style for the UPI input field */
+  .upi-input {
+    width: 86%;
+    padding: 13px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #dfdfdf;
+    color: #333;
+    margin-left: 50px;
+  }
+  
+  /* Focused input field */
+  
+  
+  .upi-input.error-border {
+    border-color: red;
+  }
+  
+  .upiprofilepage-error-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: left;
+    margin-left: 50px;
+  }
+  
+  /* Verify & Proceed Button */
+  .upiprofilepage-verify-button {
+    background: #24b676;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    width: 65%;
+    margin-left: 130px;
+    margin-top: 20px;
+  }
+  
+  .upiprofilepage-verify-button:hover {
+    background: #276c27;
+  }
+  
+  /* Popup */
+  .upiprofilepage-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .upiprofilepage-popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upi-logo {
+    width: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .upiprofilepage-popup-content p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  /* Mobile view for 768px and below */
+@media screen and (max-width: 768px) {
+  .upiprofilepage-container {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .upiprofilepage-payment-method {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .upiprofilepage-tab {
+      width: 100%;
+      margin-bottom: 10px;
+      font-size: 16px;
+  }
+
+  .upiprofilepage-icons {
+      justify-content: left;
+      margin-left: 0;
+  }
+
+  .upiprofilepage-icons img {
+      width: 30px;
+      height: 30px;
+     
+  }
+
+  .upi-input {
+      width: 100%;
+      margin-left: 0;
+  }
+
+  .upiprofilepage-verify-button {
+    width: 60%;
+      margin-left: 80px;
+      margin-right: auto;
+  }
+
+  .upiprofilepage-form h2 {
+      font-size: 16px;
+  }
+
+  .upiprofilepage-popup-content {
+      width: 90%;
+      margin-right: 0;
+  }
+}
+
+/* Mobile view for 480px and below */
+@media screen and (max-width: 480px) {
+  .upiprofilepage-container {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .upiprofilepage-payment-method {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .upiprofilepage-tab {
+      padding: 10px;
+      font-size: 14px;
+      margin-bottom: 10px;
+  }
+
+  .upiprofilepage-icons {
+      justify-content: center;
+      margin-left: 0;
+  }
+
+  .upiprofilepage-icons img {
+      width: 25px;
+      height: 25px;
+  }
+
+  .upi-input {
+      font-size: 14px;
+      padding: 10px;
+  }
+
+  .upiprofilepage-verify-button {
+      font-size: 14px;
+      padding: 12px;
+  }
+
+  .upiprofilepage-form h2 {
+      font-size: 14px;
+  }
+
+  .upiprofilepage-popup-content {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .upi-logo {
+      width: 40px;
+  }
+}

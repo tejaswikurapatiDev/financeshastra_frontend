@@ -97,7 +97,7 @@ const SettingsDashboard = () => {
 
       {/* Account Delete Panel */}
       <div className="accountDeletePanel">
-  <h3 className="panelHeader">Account Delete</h3>
+  <h3 className="panelHeader">Suspend Delete</h3>
   <p className="deleteWarning">
     Your personal information will be erased in 30 days. You can reverse this decision within that period by clicking "Cancel Account Deletion" at the bottom of the page.
   </p>
@@ -128,7 +128,7 @@ const SettingsDashboard = () => {
         <div className="popupOverlayaccountDeletePanel">
           <div className="popupContentaccountDeletePanel">
             <h3 className="popupContentaccountDeletePanelh3">
-              Are you sure you want to delete your account?
+              Are you sure you want to delete your Suspend?
             </h3>
             <div className="popupButtonsaccountDeletePanel">
               <button
@@ -152,7 +152,7 @@ const SettingsDashboard = () => {
       {accountDeleted && (
         <div className="popupOverlayaccountDeleted">
           <div className="popupContentaccountDeleted">
-            <h3 className="successMessage">Your account deleted successfully!</h3>
+            <h3 className="successMessage">Your Suspend deleted successfully!</h3>
           </div>
          
         </div>

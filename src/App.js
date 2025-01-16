@@ -143,6 +143,13 @@ import Midcapvaluation from "./Midcappages/Midcapvaluation/Midcapvaluation";
 import MidcapIncomeStatement from "./Midcappages/MidcapIncomeStatement/MidcapIncomeStatement";
 import Largecapvaluation from "./Largecappages/Largecapvaluation/Largecapvaluation";
 import LargecapIncomeStatement from "./Largecappages/LargecapIncomeStatement/LargecapIncomeStatement";
+import BillingSubscriptionPages from "./myprofile/BillingSubscriptionPages/BillingSubscriptionPages";
+import BillingDetailsPage from "./myprofile/BillingDetailsPage/BillingDetailsPage";
+import PaypalProfilePage from "./myprofile/PaypalProfilePage/PaypalProfilePage";
+import UPIProfilePage from "./myprofile/UPIProfilePage/UPIProfilePage";
+import ScanPayProfilePage from "./myprofile/scanAndPayProfilePage/scanAndPayProfilePage";
+import BillingDetailsPageannually from "./myprofile/BillingDetailsPageannually/BillingDetailsPageannually";
+import MyReferalPage from "./myprofile/MyReferalPage/MyReferalPage";
 
 
 
@@ -288,12 +295,20 @@ function App() {
       <Route path="/midcapIncomeStatement" element={<MidcapIncomeStatement/>}/>
       <Route path="/largecapvaluation" element={<Largecapvaluation/>}/>
       <Route path="/largecapIncomeStatement" element={<LargecapIncomeStatement/>}/>
-    
+      <Route path="/billingSubscriptionPages" element={<BillingSubscriptionPages/>}/>
+      <Route path="/billingDetailsPage" element={<BillingDetailsPage/>}/>
+      <Route path="/paypalProfilePage" element={<PaypalProfilePage/>}/>
+      <Route path="/uPIProfilePage" element={<UPIProfilePage/>}/>
+      
+      <Route path="/scanPayProfilePage" element={<ScanPayProfilePage/>}/>
+      <Route path="/billingDetailsPageannually" element={<BillingDetailsPageannually/>}/>
+      <Route path="/myReferalPage" element={<MyReferalPage/>}/>
+      
+      
+      
       
 
       
-
-
      
 
       

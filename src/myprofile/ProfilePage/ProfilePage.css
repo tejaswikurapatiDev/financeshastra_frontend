@@ -15,6 +15,7 @@
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
+    margin-left: 70px;
   }
   
   /* Tabs */
@@ -22,6 +23,7 @@
     display: flex;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
+    margin-left: 60px;
   }
   
   .profilepage-tab {
@@ -29,6 +31,7 @@
     cursor: pointer;
     font-size: 16px;
     color: #333;
+    
   }
   
   .profilepage-tab.active {
@@ -169,9 +172,7 @@
     transition: background-color 0.3s;
   }
   
-  .profilepage-verifyemail-btn:hover {
-   
-  }
+ 
   .allemailphone{
     display: flex;
     gap: 50px; /* Adds spacing between the items */
@@ -251,9 +252,7 @@
   .profilepage-save-btn:hover {
     background-color: #62ab8b;
   }
-  .profilepage-field label {
-    /* Removes bold styling */
-  }
+ 
   
   .profilepage-field-income {
     margin-bottom: 20px; /* Example styles */
@@ -458,14 +457,35 @@
   margin-bottom: 15px;
 }
 .profilepage-tabs {
+  display: flex;
   flex-direction: row;
   align-items: flex-start;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping of tabs */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #ccc transparent; /* For Firefox */
+}
+
+/* Optional: Custom scrollbar styling for WebKit browsers (Chrome, Safari) */
+.profilepage-tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.profilepage-tabs::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.profilepage-tabs::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .profilepage-tab {
-    padding: 8px 15px;
-    font-size: 14px;
+  padding: 8px 15px;
+  font-size: 14px;
+  flex-shrink: 0; /* Prevents tabs from shrinking */
 }
+
 
 .profilepage-email-input,
 .profilepage-phone-input,

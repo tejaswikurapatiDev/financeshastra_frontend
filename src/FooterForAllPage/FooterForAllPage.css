@@ -3,6 +3,9 @@
   color: #343a40;
   font-family: 'calibri';
   padding: 10px 0; /* Reduce padding to decrease height */
+  margin-left: -20px;
+  margin-right: -20px;
+ 
 }
 
   

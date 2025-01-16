@@ -1,0 +1,177 @@
+.scanAndPayProfilePage-container {
+    font-family: 'calibri';
+    margin: 50px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scanAndPayProfilePage-methods {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .scanAndPayProfilePage-methods button {
+    flex: 1;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .scanAndPayProfilePage-methods button:hover {
+    background-color: #f1f1f1;
+    border-color: #aaa;
+  }
+  
+  .scanAndPayProfilePage-button {
+    background-color: #e6ffe6;
+    border-color: #28a745;
+    color: #28a745;
+  }
+  
+  .scanAndPayProfilePage-button:hover {
+    background-color: #d4ffd4;
+  }
+  
+  .scanAndPayProfilePage-qr-section {
+    text-align: center;
+  }
+  
+  .scanAndPayProfilePage-qr-code {
+    display: flex;
+    justify-content: flex-start; /* Ensures the content is aligned to the left */
+    margin-left: 50px;
+  }
+  
+  .scanAndPayProfilePage-qr-code img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  .scanAndPayProfilePage-qr-sectionh2{
+    font-weight: normal;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 5px;
+    font-size: 20px;
+    color: #666;
+  }
+  .scanAndPayProfilePage-qr-sectionp{
+    font-weight: normal;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: -10px;
+    font-size: 20px;
+    color: #666;
+  }
+  .scanAndPayProfilePage-qr-sectionstong{
+    color: black;
+    text-align: left;
+    font-size: 24px;
+    margin-right: 570px;
+    margin-top: 1px;
+  }
+  /* Mobile view for 768px and below */
+@media screen and (max-width: 768px) {
+  .scanAndPayProfilePage-container {
+      width: 90%;
+      margin: 20px;
+      padding: 15px;
+  }
+
+  .scanAndPayProfilePage-methods {
+      flex-direction: column;
+      align-items: left;
+  }
+
+  .scanAndPayProfilePage-methods button {
+      width: 100%;
+      margin: 5px 0;
+      font-size: 16px;
+  }
+
+  .scanAndPayProfilePage-qr-code {
+      justify-content: left;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-code img {
+      width: 120px;
+      height: 120px;
+  }
+
+  .scanAndPayProfilePage-qr-sectionh2 {
+      font-size: 18px;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-sectionp {
+      font-size: 18px;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-sectionstong {
+      font-size: 20px;
+      margin-right: 0;
+      text-align: left;
+      margin-right: 300px;
+  }
+}
+
+/* Mobile view for 480px and below */
+@media screen and (max-width: 480px) {
+  .scanAndPayProfilePage-container {
+      width: 100%;
+      margin: 10px;
+      padding: 10px;
+  }
+
+  .scanAndPayProfilePage-methods {
+      flex-direction: column;
+      align-items: left;
+  }
+
+  .scanAndPayProfilePage-methods button {
+      width: 100%;
+      padding: 8px 15px;
+      font-size: 14px;
+      margin: 5px 0;
+  }
+
+  .scanAndPayProfilePage-qr-code {
+      justify-content: left;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-code img {
+      width: 100px;
+      height: 100px;
+      justify-content: left;
+  }
+
+  .scanAndPayProfilePage-qr-sectionh2 {
+      font-size: 16px;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-sectionp {
+      font-size: 16px;
+      margin-left: 0;
+  }
+
+  .scanAndPayProfilePage-qr-sectionstong {
+      font-size: 18px;
+      margin-right: 0;
+  }
+}

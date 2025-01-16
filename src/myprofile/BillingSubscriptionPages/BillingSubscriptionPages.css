@@ -1,0 +1,189 @@
+/* BillingSubscriptionPages.css */
+.billingSubscriptionContainer {
+    padding: 20px;
+    font-family: 'calibri';
+  }
+  
+  .billingSubscriptionTitle, .billingSubscriptionSubtitle {
+    color: #333;
+    margin-bottom: 10px;
+    margin-left: 250px;
+  }
+  
+  .billingSubscriptionCard {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+   
+    border: 5px solid #cae2ee;
+    margin-bottom: 20px;
+    width: 55%;
+    margin-left: 250px;
+  }
+  
+  .billingSubscriptionType {
+    color: #24b676;
+  }
+  
+  .billingSubscriptionNote {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .billingSubscriptionButton {
+    background: #24b676;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .billingSubscriptionButton:hover {
+    background: #218838;
+  }
+  
+ .profilepagee-container{
+  margin-top: 130px;
+  margin-left: 10px;
+ }
+  
+  .billingSubscriptionToggleInactive {
+    background: #ddd;
+    color: #333;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .billingSubscriptionPlans {
+    display: flex;
+    gap: 20px;
+    width: 43%;
+ 
+    margin-left: 480px;
+    margin-top: 30px;
+  }
+  
+  .billingSubscriptionPlan {
+    background: white;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 0.8; /* Adjusted flex value to reduce width */
+    text-align: center;
+    border: 2px solid #a09d9d66; /* Added border with a color */
+   
+  }
+  
+  .billingSubscriptionPlanTitle {
+    color: #24b676;
+    margin-bottom: 10px;
+    font-size: 25px;
+  }
+  
+  .billingSubscriptionPlanButton {
+    background: #24b676;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .billingSubscriptionPlanButton:hover {
+    background: #218838;
+  }
+  @media screen and (max-width: 768px) {
+    .billingSubscriptionContainer {
+      padding: 15px;
+      
+     
+    }
+  
+    .billingSubscriptionTitle, 
+    .billingSubscriptionSubtitle {
+      margin-left: 10px;
+      font-size: 20px;
+      text-align: left;
+    }
+  
+    .billingSubscriptionCard {
+      width: 93%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 12px;
+    }
+  
+    .billingSubscriptionPlans {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: row;
+      margin-bottom: 70px;
+    }
+  
+    .billingSubscriptionPlan {
+      width: 100%;
+      flex: 1;
+    }
+  
+    .billingSubscriptionPlanTitle {
+      font-size: 22px;
+    }
+  
+    .billingSubscriptionButton {
+      width: 40%;
+      padding: 12px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .billingSubscriptionContainer {
+      padding: 15px;
+      
+     
+    }
+  
+    .billingSubscriptionTitle, 
+    .billingSubscriptionSubtitle {
+      margin-left: 10px;
+      font-size: 20px;
+      text-align: left;
+    }
+  
+    .billingSubscriptionCard {
+      width: 93%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 12px;
+    }
+  
+    .billingSubscriptionPlans {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex-direction: row;
+      margin-bottom: 70px;
+    }
+  
+    .billingSubscriptionPlan {
+      width: 100%;
+      flex: 1;
+    }
+  
+    .billingSubscriptionPlanTitle {
+      font-size: 22px;
+    }
+  
+    .billingSubscriptionButton {
+      width: 40%;
+      padding: 12px;
+    }
+  }
+  
