@@ -28,7 +28,61 @@ function Login() {
     return passwordPattern.test(password);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let isValid = true;
+
+    if (!validateEmail(email)) {
+      setEmailError("Enter a valid email address.");
+      isValid = false;
+    } else {
+      setEmailError("");
+    }
+
+    if (!validatePassword(password)) {
+      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
+      isValid = false;
+    } else {
+      setPasswordError("");
+    }
+
+    if (isValid && !isForgotPassword) {
+      const data= {
+        email,
+        password
+      }
+      const url='https://financeshastra-backendupdated.onrender.com/api/signin'
+      const options={
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }
+      const response= await fetch(url, options)
+      if (response.status===404){
+        setEmailError("Email not found. Please register.");
+      }else if (response.status===400){
+        setPasswordError("Incorrect password.");
+      }else{
+        alert("Login Successful");
+        navigate("/dashboardchartmain");
+      }
+
+    /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
+      if (userRegistrationData && userRegistrationData.email === email) {
+        if (userRegistrationData.password === password) {
+          alert("Login Successful");
+          navigate("/home");
+        } else {
+          setPasswordError("Incorrect password.");
+        }
+      } else {
+        setEmailError("Email not found. Please register.");
+      }*/
+    }
+  };
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = true;
 
@@ -59,7 +113,7 @@ function Login() {
         setEmailError("Email not found. Please register.");
       }
     }
-  };
+  };*/
 
   const handleRegisterClick = () => {
     navigate("/register");

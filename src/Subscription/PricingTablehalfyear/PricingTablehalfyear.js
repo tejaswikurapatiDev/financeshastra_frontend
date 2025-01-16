@@ -70,7 +70,7 @@ const SubscriptionPlans = () => {
            
           
           </div>
-          <div class="plan-features">
+          <div className="plan-features">
           <h4 className='plan-featuresh4'>
           <FontAwesomeIcon icon={faCircleCheck} />Features: 
 </h4>
@@ -95,7 +95,7 @@ const SubscriptionPlans = () => {
     </ul>
 </div>
 
-<div class="plan-additional-benefits">
+<div className="plan-additional-benefits">
     <h4 className='plan-featuresh4'> <FontAwesomeIcon icon={faCircleCheck} />Features: Additional Benefits:</h4>
     <ul  className="plan-featuresul">
     <li className="plan-featuresli">

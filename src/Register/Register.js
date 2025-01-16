@@ -36,7 +36,7 @@ function Register() {
     return passwordPattern.test(password);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
 
@@ -57,6 +57,43 @@ function Register() {
     }
 
     if (isValid) {
+      const url= 'https://financeshastra-backendupdated.onrender.com/api/register'
+      const data= {
+        username: formData.name,
+        password: formData.password,
+        email: formData.email
+      }
+      const options= {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const response= await fetch(url, options)
+      const resdata= await response.json()
+      
+      console.log(response)
+      console.log(resdata)
+
+      if (response.status===400){ 
+        alert("User already registered with this email, please login.");
+      }else{
+        alert("Sign-Up Successful");
+        navigate("/");
+      }
+      
+      /*const existingUserData = JSON.parse(localStorage.getItem(formData.email));*/
+      /*if (existingUserData) {
+        alert("User already registered with this email.");
+      } else {
+
+        localStorage.setItem(formData.email, JSON.stringify(formData));
+        alert("Sign-Up Successful");
+        navigate("/");
+      }*/
+    }
+    /*if (isValid) {
       const existingUserData = JSON.parse(localStorage.getItem(formData.email));
       if (existingUserData) {
         alert("User already registered with this email.");
@@ -65,7 +102,7 @@ function Register() {
         alert("Sign-Up Successful");
         navigate("/");
       }
-    }
+    }*/
   };
 
   const handleSignInClick = () => {

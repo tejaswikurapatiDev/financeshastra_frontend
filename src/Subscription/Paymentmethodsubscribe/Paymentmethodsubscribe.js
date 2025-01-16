@@ -18,6 +18,7 @@ const PaymentForm = () => {
     postalCode: "",
     billingCycle: "Annually",
     termsAccepted: false,
+    planId: 1
   });
   
   const [errors, setErrors] = useState({});
@@ -100,12 +101,31 @@ const PaymentForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  /*const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Submitted:", formData);
       // Proceed with further logic
       alert("Payment successfully done");
+    }
+  };*/
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      const url= 'https://financeshastra-backendupdated.onrender.com/api/user/paymentpaypal'
+      const options= {
+        method: 'post',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      }
+      const fetchData= await fetch(url, options)
+      console.log(fetchData)
+      console.log("Form Submitted:", formData);
+      alert("Payment successfully completed!");
+      navigate('/Nifty50screenerStockunlockList')
     }
   };
 
@@ -374,7 +394,7 @@ const PaymentForm = () => {
             </label>
           </div>
 
-          <button   onClick={() => navigate('/Nifty50screenerStockunlockList')} type="submit" className="paypal-button">
+          <button type="submit" className="paypal-button">
             PayPal
           </button>
         </div>
