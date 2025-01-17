@@ -35,11 +35,11 @@ const MyReferalPage = () => {
   <a href="#" className="myreferalpagesss-benefits-link">View benefits</a>
 </div>
 
-        <div className="myreferalpagesss-buttons">
-          <button className="myreferalpagesss-button active">Overview</button>
-          <button className="myreferalpagesss-button">Refer More</button>
-          <button className="myreferalpagesss-button">Earning Calculator</button>
-          <button className="myreferalpagesss-button">My Referrals</button>
+<div className="myreferalpagesss-buttons">
+          <button className="myreferalpagesss-button active"onClick={() => navigate("/myReferalPage")}>Overview</button>
+          <button className="myreferalpagesss-button"onClick={() => navigate("/referMoreProfilePages")}>Refer More</button>
+          <button className="myreferalpagesss-button "onClick={() => navigate("/earningCalculatorProfilePage")}>Earning Calculator</button>
+          <button className="myreferalpagesss-button"onClick={() => navigate("/reffeerralProfilePageSSS")}>My Referrals</button>
         </div>
       </div>
 

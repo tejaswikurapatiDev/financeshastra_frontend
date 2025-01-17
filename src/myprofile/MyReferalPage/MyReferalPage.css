@@ -490,4 +490,149 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   .refer-now-button:hover {
     background-color: #45a049;
   }
-  
+  /* Mobile View - Screen Size 768px */
+@media screen and (max-width: 768px) {
+  .myreferalpagesss {
+    padding: 15px;
+  }
+
+  .myreferalpagesss-header-row {
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .myreferalpagesss-why-refer {
+    width: 100%; /* Fit within the screen */
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .myreferalpagesss-why-refer-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .myreferalpagesss-why-refer-text {
+    margin-left: 0;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .myreferalpagesssimage-section {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .myreferalpagesss-partner-benefits,
+  .how-to-refer-section,
+  .referral-criteria-section {
+    width: 100%; /* Fit within the screen */
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .myreferalpagesss-partner-benefitscontent,
+  .how-to-refer-content,
+  .referral-criteria-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .myreferalpagesss-partner-benefitsimage-section img,
+  .how-to-refer-image img {
+    margin: 0 auto;
+  }
+
+  .refer-now-button,
+  .myreferalpagesss-partner-benefitsrefer-button,
+  .why-financeshastrarefer-now-button {
+    margin: 10px auto;
+  }
+
+  .why-financeshastra-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Mobile View - Screen Size 480px */
+@media screen and (max-width: 480px) {
+  .myreferalpagesss {
+    padding: 10px;
+  }
+
+  .myreferalpagesss-header-row {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;
+  }
+
+  .myreferalpagesss-header-row h1 {
+    font-size: 20px;
+  }
+
+  .myreferalpagesss-benefits-link {
+    font-size: 14px;
+  }
+
+  .myreferalpagesss-why-refer {
+    padding: 10px;
+  }
+
+  .myreferalpagesss-why-refer-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+  }
+
+  .myreferalpagesss-why-refer-text {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .myreferalpagesss-partner-benefits,
+  .how-to-refer-section,
+  .referral-criteria-section {
+    width: 100%; /* Fit within the screen */
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .myreferalpagesss-partner-benefitscontent,
+  .how-to-refer-content,
+  .referral-criteria-content {
+    flex-direction: column; /* Stack content vertically */
+    text-align: center;
+  }
+
+  .how-to-refer-text ul {
+    padding-left: 10px;
+  }
+
+  .myreferalpagesss-partner-benefitstext-section,
+  .how-to-refer-text,
+  .referral-criteria-content p {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .refer-now-button,
+  .myreferalpagesss-partner-benefitsrefer-button,
+  .why-financeshastrarefer-now-button {
+    font-size: 14px;
+    padding: 8px 15px;
+    margin: 10px auto;
+  }
+
+  .myreferalpagesss-partner-benefitsimage-section img,
+  .how-to-refer-image img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .why-financeshastra-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+}

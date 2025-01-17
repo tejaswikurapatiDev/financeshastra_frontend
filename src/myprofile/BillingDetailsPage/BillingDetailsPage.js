@@ -10,7 +10,7 @@ import card1 from '../../assest/visa.png';
 import card2 from '../../assest/mastercard.png';
 import card3 from '../../assest/american express.png';
 import card4 from '../../assest/unionpay.png';
-import {  faShieldAlt } from "@fortawesome/free-solid-svg-icons";
+import {  faShieldAlt,faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoCard } from "react-icons/io5";
 import DatePicker from "react-datepicker";
@@ -23,39 +23,46 @@ import { useNavigate } from "react-router-dom";
 
 registerLocale("en-GB", enGB);
 const BillingDetailsPage = () => {
-   
-    const [cardNumber, setCardNumber] = useState("");
-    const [expiryDate, setExpiryDate] = useState(null);
-    const [cvc, setCvc] = useState("");
-    const [errors, setErrors] = useState({});
-    const [showPopup, setShowPopup] = useState(false);
-    const handlePaymentBillingDetailsPage = () => {
-      const newErrors = {};
-  
-      // Validate card number
-      if (!cardNumber.trim()) {
-        newErrors.cardNumber = "Card number is required.";
-      }
-  
-      // ✅ Fix expiry date validation
-      if (!expiryDate) {  // Remove .trim() since expiryDate is a date object
-        newErrors.expiryDate = "Expiry date is required.";
-      }
-  
-      // Validate CVC
-      if (!cvc.trim()) {
-        newErrors.cvc = "CVC is required.";
-      }
-  
-      setErrors(newErrors);
-  
-      // If no errors, proceed with payment logic
-      if (Object.keys(newErrors).length === 0) {
-        console.log("Processing payment...");
-        // Add your payment processing logic here
-      }
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiryDate, setExpiryDate] = useState(null);
+  const [cvc, setCvc] = useState("");
+  const [errors, setErrors] = useState({});
+  const [showPopup, setShowPopup] = useState(false);
+
+  const validateInputs = () => {
+    let hasErrors = false;
+    const newErrors = {};
+
+    if (!cardNumber || cardNumber.length !== 16) {
+      newErrors.cardNumber = "Invalid card number";
+      hasErrors = true;
+    }
+    if (!expiryDate) {
+      newErrors.expiryDate = "Invalid expiry date";
+      hasErrors = true;
+    }
+    if (!cvc || cvc.length !== 3) {
+      newErrors.cvc = "Invalid CVC";
+      hasErrors = true;
+    }
+
+    setErrors(newErrors);
+    return !hasErrors;
   };
-  
+
+  const handlePaymentBillingDetailsPage = () => {
+    if (validateInputs()) {
+      // All fields are valid, show the popup
+      setShowPopup(true);
+
+      // Simulate redirecting to PayPal or payment process
+      setTimeout(() => {
+        setShowPopup(false);
+       
+      }, 5000); // Hide the popup after 3 seconds
+    }
+  };
+
       const CustomInput = ({ value, onClick }) => (
         <div className="custom-datepicker-input" onClick={onClick}>
           <input
@@ -83,6 +90,7 @@ const BillingDetailsPage = () => {
       const handleScanAndPayProfilePage = () => {
         navigate("/scanPayProfilePage");
        };
+       
     
     return (
       <div className="profilepageee-container">
@@ -266,13 +274,15 @@ const BillingDetailsPage = () => {
       </form>
        {/* Popup */}
        {showPopup && (
-            <div className="paypal-popup">
-              <div className="paypal-popup-content">
-                
-                <p>Redirecting to PayPal</p>
-              </div>
-            </div>
-          )}
+        <div className="payment-popup">
+          <div className="payment-popup-content">
+            <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+            <h2>Payment Successful!</h2>
+            <p className="amount-paid">Amount Paid: ₹2000/-</p>
+            <p className="payment-plan">Plan: Elite (Monthly)</p>
+          </div>
+        </div>
+      )}
     </div>
         </div>
         <Navbar/>

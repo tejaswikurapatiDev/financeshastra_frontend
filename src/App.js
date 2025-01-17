@@ -150,6 +150,9 @@ import UPIProfilePage from "./myprofile/UPIProfilePage/UPIProfilePage";
 import ScanPayProfilePage from "./myprofile/scanAndPayProfilePage/scanAndPayProfilePage";
 import BillingDetailsPageannually from "./myprofile/BillingDetailsPageannually/BillingDetailsPageannually";
 import MyReferalPage from "./myprofile/MyReferalPage/MyReferalPage";
+import ReferMoreProfilePages from "./myprofile/ReferMoreProfilePages/ReferMoreProfilePages";
+import EarningCalculatorProfilePage from "./myprofile/EarningCalculatorProfilePage/EarningCalculatorProfilePage";
+import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/ReffeerralProfilePageSSS";
 
 
 
@@ -303,6 +306,9 @@ function App() {
       <Route path="/scanPayProfilePage" element={<ScanPayProfilePage/>}/>
       <Route path="/billingDetailsPageannually" element={<BillingDetailsPageannually/>}/>
       <Route path="/myReferalPage" element={<MyReferalPage/>}/>
+      <Route path="/referMoreProfilePages" element={<ReferMoreProfilePages/>}/>
+      <Route path="/earningCalculatorProfilePage" element={<EarningCalculatorProfilePage/>}/>
+      <Route path="/reffeerralProfilePageSSS" element={<ReffeerralProfilePageSSS/>}/>
       
       
       

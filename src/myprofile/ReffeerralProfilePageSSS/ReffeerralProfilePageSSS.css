@@ -1,0 +1,43 @@
+.reffeerralprofilepagesss-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    font-family: 'calibri';
+  width: 70%;
+    /* Centering styles */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 200px;
+    margin-top: 70px;
+  }
+  
+  
+  .reffeerralprofilepagesss-card {
+    text-align: center;
+    padding: 5px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px #DBD7F1;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    width: 150px;
+   
+  }
+  
+  .reffeerralprofilepagesss-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .reffeerralprofilepagesss-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
