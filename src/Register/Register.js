@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import { Button } from "@mui/material";
@@ -6,6 +7,13 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../assest/Logo design (1).png";
+import { textAlign } from "@mui/system";
+
+
+const override = {
+  display: "block",
+  textAlign: "center"
+};
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -17,6 +25,7 @@ function Register() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading]= useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +48,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
-
+    setIsLoading(true)
     if (!validateEmail(formData.email)) {
       setEmailError("Enter a valid email address.");
       isValid = false;
@@ -58,11 +67,6 @@ function Register() {
 
     if (isValid) {
       const url= 'https://financeshastra-backendupdated.onrender.com/api/register'
-      const data= {
-        username: formData.name,
-        password: formData.password,
-        email: formData.email
-      }
       const options= {
         method: 'POST',
         headers: {
@@ -73,9 +77,7 @@ function Register() {
       const response= await fetch(url, options)
       const resdata= await response.json()
       
-      console.log(response)
-      console.log(resdata)
-
+      setIsLoading(false)
       if (response.status===400){ 
         alert("User already registered with this email, please login.");
       }else{
@@ -108,6 +110,8 @@ function Register() {
   const handleSignInClick = () => {
     navigate("/");
   };
+
+  
 
   return (
     <div className="login-container">
@@ -171,9 +175,21 @@ function Register() {
               </div>
               {passwordError && <span className="error-text">{passwordError}</span>}
             </div>
-            <button type="submit" className="sign-in-btn">
+             <button type="submit" className="sign-in-btn">
               Register
+              
             </button>
+            <ClipLoader
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+                
+              />
+            
+            
           </form>
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">

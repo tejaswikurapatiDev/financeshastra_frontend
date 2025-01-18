@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
+
+const apiStatusConstantsSign= {
+  initail: "INITIAL",
+  success: "SUCCESS",
+  fail: "FAILURE",
+  inprogress: "INPROGRESS"
+}
+
+const override = {
+  display: "block",
+  textAlign: "center"
+};
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,6 +29,7 @@ function Login() {
   const [isResetPasswordStep, setIsResetPasswordStep] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [isLoading, setIsLoading]= useState(false)
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -31,6 +45,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
+    setIsLoading(true)
 
     if (!validateEmail(email)) {
       setEmailError("Enter a valid email address.");
@@ -60,6 +75,7 @@ function Login() {
         body: JSON.stringify(data)
       }
       const response= await fetch(url, options)
+      setIsLoading(false)
       if (response.status===404){
         setEmailError("Email not found. Please register.");
       }else if (response.status===400){
@@ -248,7 +264,20 @@ function Login() {
     Forgot Password?
   </a>
 </div>
-              <button type="submit" className="sign-in-btn">Sign In</button>
+              
+                  <button type="submit" className="sign-in-btn">
+                  Sign in
+                  </button>
+              
+              <ClipLoader
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+                
+              />
             </form>
           )}
 
