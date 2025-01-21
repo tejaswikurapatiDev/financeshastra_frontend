@@ -7,7 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../assest/Logo design (1).png";
-import { textAlign } from "@mui/system";
+
 
 
 const override = {
@@ -75,7 +75,6 @@ function Register() {
         body: JSON.stringify(formData)
       }
       const response= await fetch(url, options)
-      const resdata= await response.json()
       
       setIsLoading(false)
       if (response.status===400){ 
@@ -186,9 +185,7 @@ function Register() {
                 loading= {isLoading}
                 speedMultiplier={1}
                 color="green"
-                
               />
-            
             
           </form>
           <div className="login-or">Or Login With</div>

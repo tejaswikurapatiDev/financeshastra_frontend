@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-
+import ClipLoader from "react-spinners/ClipLoader";
 import { LuCreditCard } from "react-icons/lu";
 import { MdOutlineDateRange } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+
+const override = {
+  display: "block",
+  textAlign: "center"
+};
 
 const ElitePaymenthalfForm = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +32,7 @@ const ElitePaymenthalfForm = () => {
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isLoading, setisLoading]= useState(false)
   const navigate = useNavigate();
 
   // Handle input changes
@@ -60,6 +67,7 @@ const ElitePaymenthalfForm = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setisLoading(true)
     if (validateForm()) {
       const url= 'https://financeshastra-backendupdated.onrender.com/api/user/payment'
       const options= {
@@ -69,9 +77,8 @@ const ElitePaymenthalfForm = () => {
         },
         body: JSON.stringify(formData)
       }
-      const fetchData= await fetch(url, options)
-      console.log(fetchData)
-      console.log("Form Submitted:", formData);
+      await fetch(url, options)
+      setisLoading(false)
       alert("Payment successfully completed!");
       navigate('/Nifty50screenerStockunlockList')
     }
@@ -399,6 +406,15 @@ const ElitePaymenthalfForm = () => {
           <button type="submit" className="completepayment-button">
          Complete your Payment
         </button>
+        <ClipLoader
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+                
+              />
         </div>
 
         {/* PayPal Button */}

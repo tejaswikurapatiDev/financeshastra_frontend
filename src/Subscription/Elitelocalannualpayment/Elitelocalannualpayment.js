@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../../Navbar/Navbar";
+import ClipLoader from 'react-spinners/ClipLoader'
 import { IoIosArrowForward } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +8,12 @@ import { LuCreditCard } from "react-icons/lu";
 import { MdOutlineDateRange } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+const override = {
+  display: "block",
+  textAlign: "center"
+};
+
 
 const ElitePaymentPremiumForm = () => {
   const [formData, setFormData] = useState({
@@ -26,6 +33,7 @@ const ElitePaymentPremiumForm = () => {
   });
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [errors, setErrors] = useState({});
+  const [isLoading, setisLoading]= useState(false)
   const navigate = useNavigate();
 
   // Handle input changes
@@ -60,6 +68,7 @@ const ElitePaymentPremiumForm = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setisLoading(true)
     if (validateForm()) {
       const url= 'https://financeshastra-backendupdated.onrender.com/api/user/payment'
       const options= {
@@ -69,8 +78,8 @@ const ElitePaymentPremiumForm = () => {
         },
         body: JSON.stringify(formData)
       }
-      const fetchData= await fetch(url, options)
-      console.log(fetchData)
+      await fetch(url, options)
+      setisLoading(false)
       console.log("Form Submitted:", formData);
       alert("Payment successfully completed!");
       navigate('/Nifty50screenerStockunlockList')
@@ -396,6 +405,15 @@ const ElitePaymentPremiumForm = () => {
           <button  type="submit" className="completepayment-button">
          Complete your Payment
         </button>
+        <ClipLoader
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+                
+              />
         </div>
 
         {/* PayPal Button */}

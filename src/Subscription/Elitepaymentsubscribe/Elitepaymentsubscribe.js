@@ -4,7 +4,12 @@ import Navbar from "../../Navbar/Navbar";
 import { IoIosArrowForward } from "react-icons/io";
 import { AiOutlineMessage } from "react-icons/ai"; 
 import { RxCross2 } from "react-icons/rx";
+import ClipLoader from "react-spinners/ClipLoader";
 
+const override = {
+  display: "block",
+  textAlign: "center"
+};
 
 const ElitepaymentForm = () => {
   const [formData, setFormData] = useState({

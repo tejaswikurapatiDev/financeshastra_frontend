@@ -8,12 +8,7 @@ import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
 
-const apiStatusConstantsSign= {
-  initail: "INITIAL",
-  success: "SUCCESS",
-  fail: "FAILURE",
-  inprogress: "INPROGRESS"
-}
+
 
 const override = {
   display: "block",
