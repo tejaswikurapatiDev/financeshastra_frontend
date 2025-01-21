@@ -37,6 +37,27 @@ function Login() {
     return passwordPattern.test(password);
   };
 
+  const handleCredentialResponse= async(response)=>{
+    console.log("Encoded JWT ID token: " + response.credential);
+    // Send the token to your backend for verification and user session creation
+    /*const resp= await fetch('/auth/google', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ token: response.credential })
+    })
+    console.log(resp)*/
+    /*(response => response.json())
+    (data => {
+      console.log(data);
+      if (data.success) {
+        // Redirect to a logged-in page
+        window.location.href = '/dashboard';
+      }
+    });*/
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
@@ -288,6 +309,14 @@ function Login() {
             >
               Continue with Google
             </Button>
+    <div id="g_id_onload"
+     data-client_id="947414397316-ucio00855bbao3298oud1ns28fllgm4m.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     onClick={handleCredentialResponse}
+     data-auto_prompt="false">
+</div>
+<div className="g_id_signin" data-type="standard"></div>
             <br />
             <br />
             <Button
