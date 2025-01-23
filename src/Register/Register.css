@@ -3,6 +3,12 @@
 .login-container body{
     overflow-y: hidden;
 }
+.loader{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
 .login-container {
     display: flex;
     height:720px;

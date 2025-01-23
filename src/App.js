@@ -169,6 +169,9 @@ import AnnuallyPremiumSubscriptionPages from "./Subscription/AnnuallyPremiumSubs
 import AnnuallyPremiumPaypalProfilePage from "./Subscription/AnnuallyPremiumPaypalProfilePage/AnnuallyPremiumPaypalProfilePage";
 import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/AnnuallyPremiumUPIPage";
 import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
+import SipCalculatorAccountPages from "./Account/SipCalculatorAccountPages/SipCalculatorAccountPages";
+import AccountAllMutualFundList from "./Account/AccountAllMutualFundList/AccountAllMutualFundList";
+import SipCalculatorAllMutual from "./Account/SipCalculatorAllMutual/sipcalculatorallmutual";
 
 
 
@@ -342,9 +345,11 @@ function App() {
       <Route path="/annuallyPremiumPaypalProfilePage" element={<AnnuallyPremiumPaypalProfilePage/>}/>
       <Route path="/annuallyPremiumUPIPage" element={<AnnuallyPremiumUPIPage/>}/>
       <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
-      
+      <Route path="/sipCalculatorAccountPages" element={<SipCalculatorAllMutual/>}/>
      
       
+     
+     
       
       
      

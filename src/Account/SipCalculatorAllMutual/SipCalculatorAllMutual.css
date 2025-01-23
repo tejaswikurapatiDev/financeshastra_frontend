@@ -1,0 +1,26 @@
+.sipcalculatorallmutual-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+    padding: 10px; /* Reduced padding for a smaller container */
+    background-color: white; /* Background color */
+    border-radius: 8px; /* Rounded edges */
+    box-shadow: 0px 6px 8px #f2f2f2; /* Shadow */
+    font-family: 'calibri'; /* Font style */
+    border: 4px solid rgb(233, 229, 229);
+    max-width: 950px; /* Set a max-width to reduce overall size */
+    margin: 70px auto; /* Center the container horizontally */
+    height: auto; /* Automatically adjusts based on content */
+  }
+  
+  
+  .sipcalculatorallmutual-left {
+    flex: 1; /* Take equal space or adjust */
+    max-width: 50%; /* Ensure the left side is not too large */
+  }
+  
+  .sipcalculatorallmutual-right {
+    flex: 1; /* Take equal space or adjust */
+    
+  }
+  

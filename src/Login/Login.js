@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import ClipLoader from "react-spinners/ClipLoader";
+
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+
+import './Login.css'
+import { height } from "@mui/system";
+
+const override = {
+  display: "block",
+  textAlign: "center"
+};
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -16,6 +26,7 @@ function Login() {
   const [isResetPasswordStep, setIsResetPasswordStep] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [isLoading, setIsLoading]= useState(false)
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -24,13 +35,16 @@ function Login() {
   };
 
   const validatePassword = (password) => {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordPattern = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     return passwordPattern.test(password);
   };
+
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
+    setIsLoading(true)
 
     if (!validateEmail(email)) {
       setEmailError("Enter a valid email address.");
@@ -60,6 +74,7 @@ function Login() {
         body: JSON.stringify(data)
       }
       const response= await fetch(url, options)
+      setIsLoading(false)
       if (response.status===404){
         setEmailError("Email not found. Please register.");
       }else if (response.status===400){
@@ -158,7 +173,31 @@ function Login() {
       alert("Email not found. Please register.");
     }
   };
-
+  const handleSuccess = async (response) => {
+    const token = response.credential;
+ 
+    try {
+      const res = await fetch("http://localhost:3001/auth/google", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+ 
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Backend Response: ", data);
+      } else {
+        console.error("Authentication failed: ", data);
+      }
+    } catch (err) {
+      console.error("Error sending token to backend: ", err);
+    }
+  };
+ 
+ 
+  const handleFailure = (error) => {
+    console.log("Login Failed: ", error);
+  };
   return (
     <div className="login-container">
       <div className="login-left">
@@ -260,22 +299,36 @@ function Login() {
   </a>
   </div>
 </div>
-              <button type="submit" className="sign-in-btn">Sign In</button>
+              
+                  <button type="submit" className="sign-in-btn">
+                  Sign in
+                  </button>
+              
+              <ClipLoader
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+                
+              />
             </form>
           )}
 
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">
-            <Button
-              variant="outlined"
-              className="Googleall-btn"
-              startIcon={<FcGoogle style={{fontSize:"26px"}} />}
-              component="a"
-              href="https://accounts.google.com/signin"
-              style={{ textTransform: "none" }}
-            >
-              Continue with Google
-            </Button>
+           
+            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com" >
+              <div className="Googlealll-btn" >
+                <GoogleLogin 
+                  onSuccess={handleSuccess}
+                  onError={handleFailure}
+                />
+              </div>
+            </GoogleOAuthProvider>
+   
+
             <br />
             <br />
             <Button

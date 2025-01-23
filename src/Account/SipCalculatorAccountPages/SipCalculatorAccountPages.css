@@ -1,0 +1,42 @@
+.sippcaloculatorrs-container {
+    width: 500px;
+    padding: 20px;
+   
+    
+  
+    background-color: white;
+    font-family: 'calibri';
+    margin-top: 50px;
+  }
+  
+  .sippcaloculatorrs-input {
+    margin-bottom: 20px;
+  }
+  
+  .sippcaloculatorrs-input label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .sippcaloculatorrs-slider-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sippcaloculatorrs-slider {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .sippcaloculatorrs-textbox {
+    width: 70px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+  }
+  
