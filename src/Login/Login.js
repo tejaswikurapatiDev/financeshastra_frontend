@@ -241,12 +241,24 @@ function Login() {
                 {passwordError && <span className="error-text">{passwordError}</span>}
               </div>
               <div className="login-options">
-  <label>
-    <input type="checkbox" /> Remember me
+                <div className="checksigninall">
+                  <div className="signinall">
+                  <div className="allsignall">
+              <label >
+  <input type="checkbox" />
   </label>
+  </div>
+  <div>
+  <p>
+  Remember me</p>
+  </div>
+  </div>
+</div>
+<div>
   <a href="#" onClick={handleForgotPasswordClick} className="forgot-password-link">
     Forgot Password?
   </a>
+  </div>
 </div>
               <button type="submit" className="sign-in-btn">Sign In</button>
             </form>

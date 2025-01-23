@@ -205,7 +205,7 @@ const Navbar = () => {
   const renderUserDropdown = () => (
     <div className="user-menu">
       <div className="dropdown-item">
-        <Link to="/profile"><FaUser className="dropdown-icon" />
+        <Link to="/userDetailsupdate"><FaUser className="dropdown-icon" />
           My Profile</Link>
       </div>
       <div className="dropdown-item">
@@ -292,7 +292,7 @@ const Navbar = () => {
         </div>
 
         <ul className="navbar-links">
-          <li><Link to="/dashboardchartmain">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
 
 
           <li

@@ -156,10 +156,9 @@
 
   .NiftySectorWeightage-explore-btn {
     font-size: 12px;
-      margin-right: -15px;
-      margin-top: 40px;
-
-  }
+    margin-right: -93px;
+    margin-top: 40px;
+}
 
   .NiftySectorWeightage-table {
     font-size: 10px;
@@ -182,6 +181,7 @@
 
   .NiftySectorWeightage-table-wrapper {
     overflow-x: scroll;
-  }
+    width: 135%;
+}
 }
   

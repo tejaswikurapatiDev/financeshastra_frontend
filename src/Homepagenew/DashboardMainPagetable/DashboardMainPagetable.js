@@ -185,7 +185,7 @@ const DashboardMainPagetable = () => {
 </div>
 
 
-<div className="DashboardMainPagetable-table-container">
+<div className="DashboardMainPagetable-table-containerrrrr">
 <table className="DashboardMainPagetable-tableeee">
         <thead>
           <tr>

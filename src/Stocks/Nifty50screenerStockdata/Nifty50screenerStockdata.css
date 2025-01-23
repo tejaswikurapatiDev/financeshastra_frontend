@@ -5,12 +5,14 @@
     font-size: 20px;
     margin-left: 160px;
     margin-top: 50px;
+    font-family: 'calibri';
 
 }
 .screenerheadercontainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'calibri';
 }
 .screenerheaderexplorebtn {
     color: #24b676;
@@ -26,7 +28,7 @@
     width: 78%;
     border-collapse: collapse;
     margin-left: 160px;
-    
+    font-family: 'calibri';
     
    
   }
@@ -141,11 +143,11 @@
   margin-top: 50px;
 
 }
-  .screenerheaderexplorebtn {
-      font-size: 12px;
-      margin-right: -15px;
-      margin-top: 40px;
-  }
+.screenerheaderexplorebtn {
+  font-size: 12px;
+  margin-right: -70px;
+  margin-top: 40px;
+}
 
   .screenertablenifty {
       width: 100%;

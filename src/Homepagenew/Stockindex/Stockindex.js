@@ -140,7 +140,7 @@ const Dashboardstockindex = () => {
   return (
     <div className="DashboardMainPagetable-containerr">
       <div className="DashboardMainPagetable-headerrindex">
-        <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/dashboardchartmain")}>Stock Sector</button>
+        <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/home")}>Stock Sector</button>
         <button className="DashboardMainPagetable-tab active">Stock Index</button>
         <button className="DashboardMainPagetable-tab" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
         <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>

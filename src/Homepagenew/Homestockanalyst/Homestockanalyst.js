@@ -263,7 +263,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   return (
     <div className="DashboardMainPagetable-container">
     <div className="DashboardMainPagetable-headeranalyst">
-      <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/dashboardchartmain")}>Stock Sector</button>
+      <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/home")}>Stock Sector</button>
     <button
     className="DashboardMainPagetable-tab"
     onClick={() => navigate("/stockindexall")}
@@ -291,21 +291,21 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
         {/* Table */}
         
-<div className="DashboardMainPagetable-table-container">
+<div className="DashboardMainPagetable-table-containerrrrr">
 <table className="DashboardMainPagetable-tableeee">
           <thead>
   <tr>
-    <th style={{ height: '40px', padding: '8px', fontSize: '14px' }}>Company</th>
+    <th style={{ height: '40px', padding: '8px',  }}>Company</th>
     <th
       onClick={() => handleSort("ltp")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px' }}
     >
       <span>LTP (₹)</span>
       {renderSortIcon("ltp")}
     </th>
     <th
       onClick={() => handleSort("change")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px' }}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         Change % {renderSortIcon("change")}
@@ -313,7 +313,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("marketCap")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px' }}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         Market Cap (Cr) {renderSortIcon("marketCap")}
@@ -321,7 +321,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("roe")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px'}}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         ROE {renderSortIcon("roe")}
@@ -329,7 +329,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("pe")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px'}}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         P/E {renderSortIcon("pe")}
@@ -337,7 +337,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("pbv")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px' }}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         P/BV {renderSortIcon("pbv")}
@@ -345,7 +345,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("evEbitda")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px'}}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         EV/EBITDA {renderSortIcon("evEbitda")}
@@ -353,7 +353,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("salesGrowth")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px' }}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         5Y Sales Gr. (%) {renderSortIcon("salesGrowth")}
@@ -361,13 +361,13 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
     </th>
     <th
       onClick={() => handleSort("profitGrowth")}
-      style={{ height: '40px', padding: '8px', fontSize: '14px' }}
+      style={{ height: '40px', padding: '8px'}}
     >
       <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         5Y Profit Gr.(%) {renderSortIcon("profitGrowth")}
       </span>
     </th>
-    <th style={{ height: '40px', padding: '8px', fontSize: '14px' }}>Clarification</th>
+    <th style={{ height: '40px', padding: '8px'}}>Clarification</th>
   </tr>
 </thead>
 

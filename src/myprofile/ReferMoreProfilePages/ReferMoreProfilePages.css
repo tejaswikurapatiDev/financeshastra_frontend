@@ -21,7 +21,9 @@
     box-shadow: 0 4px 6px #DBD7F1;
     width: 1920px;
   }
-  
+  .profilepage-tabb{
+    font-family: 'calibri';
+  }
   /* Left Section (Social Media) */
   .refermoreprofilepages-left {
     display: flex;

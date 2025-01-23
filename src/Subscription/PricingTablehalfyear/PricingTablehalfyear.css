@@ -29,7 +29,7 @@
    
     box-shadow: 0 4px 8px #c2c0c0;
     width: 160%; /* Adjusts the width to a percentage of the parent container */
-    height: 900px; /* Set a fixed height (adjust as needed) */
+    
     max-width: 1500px; /* Ensures the width doesn't exceed a certain value */
 }
 
@@ -50,7 +50,7 @@
     
 
     /* Add height or min-height to increase card height */
-    height: 880px; /* Adjust the value as needed */
+    height: 932px; /* Adjust the value as needed */
     min-height: 500px; /* For flexibility */
 }
 
@@ -65,7 +65,7 @@
  
   
   width: 50%; /* Decrease width */
-  height: 870px; /* Adjust the value as needed */
+  height: 920px; /* Adjust the value as needed */
   min-height: 500px; /* For flexibility */
   box-shadow: 0 4px 8px #24b676;
   margin-left: 50px;
@@ -80,7 +80,7 @@
   margin: 0 auto; /* Center the card */
   width: 93%; /* Increase width */
   box-shadow: 0 4px 8px #24b676;
-  height: 797px;/* Adjust the value as needed */
+  height: 850px;/* Adjust the value as needed */
     min-height: 500px; /* For flexibility */
    
 }
@@ -240,7 +240,7 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 140px;
+    margin-right: 100px;
    
   }
   .ribbon-price-detailelite{
@@ -249,7 +249,7 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 180px;
+    margin-right: 150px;
   }
  .text-highlight {
     color: #24b676; /* Green color for highlighted text */

@@ -11,7 +11,7 @@
 }
 
 .DashboardMainPagetable-tablee {
-    width: 95%;
+    width: 98%;
     border-collapse: collapse;
 }
 
@@ -25,8 +25,13 @@
 .DashboardMainPagetable-tablee th {
     background-color: #f2f2f2;
     cursor: pointer;
+    font-size: 16px;
 }
 
+.DashboardMainPagetable-tablee td {
+ 
+  font-size: 15px;
+}
 .DashboardMainPagetable-tablee tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -143,5 +148,33 @@
           margin-bottom: 0px;
        
       }
+      .DashboardMainPagetable-headercalculator {
+        display: flex
+    ;
+            gap: 2px;
+            margin-bottom: 0;
+            margin-left: -20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 120%;
+            box-sizing: border-box;
+            scrollbar-width: thick;
+            margin-top: 120px;
+        }
+        .DashboardMainPagetable-headercalculator::-webkit-scrollbar-thumb {
+          background-color: #ccc; /* Customize scrollbar thumb color */
+          border-radius: 4px; /* Rounded corners for scrollbar thumb */
+        }
+        
+        .DashboardMainPagetable-headercalculator::-webkit-scrollbar-track {
+          background-color: #f9f9f9; /* Scrollbar track background color */
+        }
+        .DashboardMainPagetable-table-container {
+          overflow-x: auto;
+          margin: 20px;
+          width: 170%;
+          margin-left: -20px;
+      }
+      
       
         }

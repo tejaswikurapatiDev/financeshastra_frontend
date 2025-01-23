@@ -82,8 +82,7 @@
 
 .login-options {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    
 }
 
 .login-options a {
@@ -132,13 +131,13 @@
 }
 
 .password-field input {
-    width: 100%;
+    width: 96%;
     padding-right: 2.5rem; /* space for the icon */
 }
 
 .toggle-password {
     position: absolute;
-    right: 10px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
@@ -196,7 +195,13 @@
         display: block;
         width: 67vw;
     }
-
+    .password-field input {
+        width: 90%;
+        padding-right: 2.5rem;
+    }
+    .toggle-password{
+        right: 50px; 
+    }
     .logo {
         width: 150px;
     }
@@ -211,4 +216,21 @@
       .login-left {
         order: 2; 
 }
+.login-options {
+    display: flex;
+  gap: 90px;
+  }
+}
+@media (max-width: 480px) {
+    .password-field {
+        display: block;
+        width: 82vw;
+      }
+      .password-field input {
+        width: 99%;
+        padding-right: 2.5rem;
+    }
+    .toggle-password{
+        right: 30px; 
+    }
 }

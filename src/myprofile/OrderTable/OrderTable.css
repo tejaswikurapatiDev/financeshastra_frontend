@@ -1,0 +1,248 @@
+.order-table-all {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+  width: 900px;
+    margin: auto;
+    margin-top: 100px;
+  }
+  
+  .halfyear{
+    color: #24b676;
+  }
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .tabs button.active-tab {
+    background-color: #24b676;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #24b676;
+   
+}
+
+  .order-table th, .order-table td {
+    padding: 10px;
+    text-align: left;
+    border: none; /* Remove vertical lines (borders) */
+}
+.order-table th {
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #24b676; /* Keep horizontal line */
+    border-right: none; /* Remove vertical line on the right */
+    border-left: none; /* Remove vertical line on the left */
+    border-top: 1px solid #24b676;
+   
+}
+
+
+.order-table td:first-child, 
+.order-table th:first-child{
+    border-left: 1px solid black; /* Add border only to the first column */
+   
+}
+.order-table td:last-child, 
+.order-table th:last-child {
+    border-right: 1px solid black;
+    
+    
+}
+
+
+  
+  .status.completed {
+    color: #24b676;
+  }
+  
+  .status.pending {
+    color: orange;
+  }
+  
+  .status.cancel {
+    color: red;
+  }
+  
+  .order-table-all .order-table tr:nth-child(odd) td {
+    background-color: rgba(0, 74, 173, 0.09);
+  }
+  .profilepage-titleorder {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+  
+  /* Tabs */
+  .profilepage-tabsorder {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .profilepage-tabb {
+    padding: 10px 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #050505;
+
+  }
+  
+  .profilepage-tabb.active {
+    border-bottom: 2px solid #24b676;
+    font-weight: bold;
+    color: #24b676;
+  }
+  
+
+/* Base Styles (already provided) */
+
+/* Mobile View Styles */
+@media (max-width: 768px) {
+  .order-table-all {
+    width: 100%;
+    padding: 15px;
+    margin-top: 100px;
+  }
+  .order-table {
+    width: 95%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #24b676;
+
+   margin-left: 1px;
+   margin-bottom: 90px;
+}
+.profilepage-tabsorder {
+  padding: 5px 10px; /* Add some spacing for a better user experience */
+}
+
+  .profilepage-tabsorder {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Keep items in a single line */
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar {
+    height: 6px; /* Scrollbar height for horizontal scrolling */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar-thumb {
+    background-color: #24b676; /* Scrollbar thumb color */
+    border-radius: 5px; /* Rounded scrollbar corners */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
+  }
+
+  .profilepage-tabb {
+    flex-shrink: 0; /* Prevent tabs from shrinking */
+    margin-right: 10px; /* Add spacing between tabs */
+  }
+  .tabs button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .order-table th, .order-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .profilepage-titleorder {
+    font-size: 18px;
+    margin-left: 0;
+  }
+  
+  .profilepage-tabb {
+    padding: 8px 5px;
+    font-size: 14px;
+  }
+}
+
+/* Additional Tweaks for Extra Small Devices */
+@media (max-width: 480px) {
+  .profilepage-tabsorder {
+    padding: 5px 10px; /* Add some spacing for a better user experience */
+  }
+  .order-table-all {
+    width: 90%;
+    padding: 15px;
+    margin-top: 100px;
+  }
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid #24b676;
+
+   margin-left: 1px;
+   margin-bottom: 90px;
+}
+.profilepage-tabsorder {
+  padding: 5px 10px; /* Add some spacing for a better user experience */
+}
+
+  .profilepage-tabsorder {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Keep items in a single line */
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar {
+    height: 6px; /* Scrollbar height for horizontal scrolling */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar-thumb {
+    background-color: #24b676; /* Scrollbar thumb color */
+    border-radius: 5px; /* Rounded scrollbar corners */
+  }
+
+  .profilepage-tabsorder::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Scrollbar track color */
+  }
+
+  .profilepage-tabb {
+    flex-shrink: 0; /* Prevent tabs from shrinking */
+    margin-right: 10px; /* Add spacing between tabs */
+  }
+  .tabs button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+  
+  .order-table th, .order-table td {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .profilepage-titleorder {
+    font-size: 18px;
+    margin-left: 0;
+  }
+  
+  .profilepage-tabb {
+    padding: 8px 5px;
+    font-size: 14px;
+    margin-left: -10px;
+  }
+ }

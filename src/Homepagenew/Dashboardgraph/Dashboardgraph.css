@@ -1,3 +1,4 @@
+
 .headerdashboardmain{
     margin-left: 170px;
 }
@@ -179,7 +180,7 @@ margin-bottom: 10px;
   
   .headernifty50000 {
     margin-left: 310px;
-    font-size: 20px;
+    font-size: 24px;
     margin-top: 250px;
 }
 .datadisstockdashhh {
@@ -204,75 +205,6 @@ margin-bottom: 10px;
     box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
   }
 
-@media (max-width: 480px) {
-    .headerdashboardmain{
-        margin-left: 10px;
-        font-size: 12px;
-    }
-    .headernifty50{
-        margin-left: 0px;
-        font-size: 20px;
-    }
-    .portfoliomutual-containerrniftydashboard {
-        height: 300px;
-        font-family: 'Calibri';
-        padding: 20px;
-        padding-bottom: 80px;
-        color: #333;
-        width: 30%; /* Adjusted width to take up 90% of the available screen width */
-        margin-top: 5px;
-        margin-left: 10px;
-        margin-bottom: 20px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column-reverse;
-      }
-    
-      .chartmutual-containerrdashboard {
-        height: 200px;
-        width: 80%; /* Adjusted width for smaller screen */
-      }
-    
-    .hompagetopdata{
-   margin-left: 0px;
-        gap: 70px;
-    }
-    
-    .dataquatallnifty{
-display: flex;
-flex-direction: column;
-margin-left: 0px;
-    }
-    .itidata {
-        display: flex;
-        gap: 0px;
-       margin-top: 0px;
-    }
-    .time-rangemutual-selectorrniftydashboard {
-        display: flex;
-        gap: 3px;
-        margin-left: 0px;
-      margin-right: 20px;
-        text-align: center;
-        margin-bottom: 30px;
-        
-      }
-      .homepageamountdata{
-        display: flex;
-        gap: 10px;
-    
-    }
-    .alldatagraphtop{
-        display: flex;
-        gap: 65px;
-        margin-bottom: 10px;
-        }
-      
-      
-}
 @media (max-width: 768px) {
     .headerdashboardmain{
         margin-left: 10px;
@@ -291,9 +223,9 @@ margin-left: 0px;
         padding: 20px; /* Adjust inner spacing */
         padding-bottom: 80px; /* Increase padding at the bottom */
         color: #333;
-        width: auto; /* Maximum width */
+        width: 420px; /* Maximum width */
         margin-top: 5px;
-        margin-left: 10px; /* Left margin adjustment */
+        margin-left: 20px; /* Left margin adjustment */
         margin-bottom: 20px; /* Add extra spacing below the container */
         background-color: #f9f9f9;
         border: 1px solid #ddd; /* Light grey border */
@@ -305,7 +237,7 @@ margin-left: 0px;
       
     .chartmutual-containerrdashboard{
         height: 200px;
-        width: auto;
+        width:400px;
        
      
     }
@@ -337,11 +269,176 @@ margin-left: 0px;
         gap: 10px;
     
     }
+    .headerdashboardmain{
+        margin-left: 20px;
+    }
     .alldatagraphtop{
         display: flex;
         gap: 65px;
         margin-bottom: 10px;
         }
+        .headernifty50000 {
+            margin-left: 20px;
+            font-size: 24px;
+            margin-top: 200px;
+        }
+        .homepagenewdata-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            background-color: #f9fbfc;
+            box-shadow: 0px 4px 6px rgba(217, 212, 212, 0.925);
+            width: 250px;
+            text-align: center;
+            font-family: 'calibri';
+            height: 50px;
+            margin-top: 200px;
+            margin-left: -10px;
+        }
+        
       
+}
+
+@media (max-width: 480px) {
+    .headerdashboardmain{
+        margin-left: 5px;
+        font-size: 12px;
+    }
+    .headernifty50{
+        margin-left: 10px;
+        font-size: 20px;
+    }
+    
+ 
       
+    .portfoliomutual-containerrniftydashboard {
+        height: 300px;
+        font-family: 'Calibri';
+        padding: 20px;
+        padding-bottom: 80px;
+        color: #333;
+        width: 320px;
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956);
+        border-radius: 5px;
+        display: flex
+;
+        flex-direction: column-reverse;
+      }
+      
+    .chartmutual-containerrdashboard{
+        height: 200px;
+        width: auto;
+       
+     
+    }
+    .hompagetopdata{
+       
+        gap: 20px;
+    }
+    .dataquatallnifty{
+display: flex;
+flex-direction: column;
+margin-left: 0px;
+    }
+    .itidata {
+        display: flex;
+        gap: 0px;
+       margin-top: 0px;
+    }
+    .time-rangemutual-selectorrniftydashboard {
+        display: flex
+;
+        gap: 3px;
+        margin-left: 0px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+      .homepageamountdata{
+        display: flex;
+        gap: 10px;
+    
+    }
+    .headerdashboardmain{
+        margin-left: 10px;
+    }
+    
+    .alldatagraphtop {
+        display: flex
+;
+        gap: 2px;
+        margin-bottom: 10px;
+    }
+        .headernifty50000 {
+            margin-left: 10px;
+            font-size: 14px;
+            margin-top: 200px;
+        }
+        .homepagenewdata-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+            background-color: #f9fbfc;
+            box-shadow: 0px 4px 6px rgba(217, 212, 212, 0.925);
+            width: 220px;
+            text-align: center;
+            font-family: 'calibri';
+            height: 30px;
+            margin-top: 260px;
+            margin-left: -270px;
+            margin-bottom: 10px;
+        }
+        .homepagenewdata-title {
+            font-size: 14px;
+            color: #000000;
+            font-weight: 600;
+        }
+        .homepagenewdata-amount {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .homepagenewdata-positive {
+            color: #24b676;
+            font-size: 14px;
+        }
+        .portfoliomutual-card {
+            width: 350px;
+            height: 290px;
+            margin-left: -30px;
+        }
+        .portfoliomutual-titleport {
+            font-size: 13px;
+            color: #333;
+            margin: 0;
+        }
+        .portfoliomutual-value {
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+            margin: 4px 0;
+        }
+        .portfoliomutual-profit {
+            font-size: 13px;
+            color: #333;
+            margin: 0;
+        }
+        .portfoliomutual-valuee {
+            font-size: 13px;
+            font-weight: bold;
+            display: flex
+        ;
+            align-items: center;
+            gap: 8px;
+            color: #333;
+            margin: 4px 0;
+        }
+        .time-rangemutual-button {
+            padding: 4px 10px;
+            font-size: 10px;
+        }
 }

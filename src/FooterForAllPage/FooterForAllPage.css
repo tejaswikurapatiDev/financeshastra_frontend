@@ -166,7 +166,7 @@
       height: 750px; /* Increase height */
       margin: 0 auto; /* Center the footer horizontally */
       border-radius: 10px;
-      border: 2px dashed grey;
+      
       font-family: 'calibri'
 
       ; /* Optional: Add rounded corners for better design */
@@ -174,8 +174,8 @@
     .footermobileviewpages-main-section{
       display: block; /* Show the mobile footer */
       padding: 20px;
-      background-color: #004AAD; /* Example background color */
-      width: 85%; /* Decrease width to 90% of the screen */
+      background-color: #138754; /* Example background color */
+      width: 95%; /* Decrease width to 90% of the screen */
       height: 700px; /* Increase height */
       margin: 0 auto; /* Center the footer horizontally */
       /* Optional: Add rounded corners for better design */

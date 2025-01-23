@@ -112,8 +112,8 @@ const SubscriptionPlans = () => {
         </li>
     </ul>
 </div>
-<button className="pay-now-btn" onClick={() => navigate('/elitePaymenthalfForm')}>
-           Continue
+<button className="pay-now-btn" onClick={() => navigate('/halfyearlySubscriptionPages')}>
+           Subscribe
         </button>
 </div>
        
@@ -224,9 +224,9 @@ const SubscriptionPlans = () => {
 
       <button
         className="pay-now-btnfooter"
-        onClick={() => navigate('/localhalfpremiumForm')}
+        onClick={() => navigate('/premiumSubscriptionPages')}
       >
-        Continue
+        Subscribe
       </button>
       </div>
     </div>

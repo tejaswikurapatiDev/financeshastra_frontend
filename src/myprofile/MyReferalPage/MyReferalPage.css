@@ -579,6 +579,7 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
 
   .myreferalpagesss-why-refer {
     padding: 10px;
+    width: 321px;
   }
 
   .myreferalpagesss-why-refer-content {
@@ -594,7 +595,7 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   .myreferalpagesss-partner-benefits,
   .how-to-refer-section,
   .referral-criteria-section {
-    width: 100%; /* Fit within the screen */
+    width: 321px;
     margin-left: 0;
     padding: 10px;
   }
@@ -635,4 +636,20 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
     flex-direction: column;
     gap: 20px;
   }
+  .referral-criteria-content ul {
+    list-style: disc inside;
+    margin: 15px 0;
+    text-align: left;
+    /* margin-left: 400px; */
+}
+.referral-criteria-content h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
+.referral-criteria-content h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-left: 40px;
+}
 }

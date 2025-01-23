@@ -72,7 +72,7 @@ const BillingDetailsPage = () => {
             readOnly
             className="billing-detailspages-expiry-input"
           />
-          <FaCalendarAlt className="calendar-icon" />
+          <FaCalendarAlt className="calendar-iconnns" />
         </div>
       );
       const navigate = useNavigate();
@@ -97,17 +97,38 @@ const BillingDetailsPage = () => {
     
       <h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
       Billing Details</h1>
-      <div className="profilepage-tabs">
-        <span className="profilepage-tab">My Account</span>
-        <span className="profilepage-tab">Order</span>
-        <span className="profilepage-tab active"onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
-        <span className="profilepage-tab">Risk Profile Report</span>
-        <span className="profilepage-tab">Manage Alert</span>
-        <span className="profilepage-tab">Password & Security</span>
-        <span className="profilepage-tab">Active Devices</span>
-        <span className="profilepage-tab"onClick={() => navigate("/myReferalPage")}
-    >My referrals</span>
+      <div className="profilepage-tabsorderusers" >
+        <span className="profilepage-tabb"onClick={() => navigate("/userDetailsupdate")}
+       >My Account</span>
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/orderTable")}
+        >
+          Orders
+        </span>
+        <span className="profilepage-tabb"  style={{
+          borderBottom: "2px solid #24b676",
+          fontWeight: "bold",
+          color: "#24b676",
+        }}onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
+        <span className="profilepage-tabb" onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/managealert")}
+        >
+          Manage Alert
+        </span>
+
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/accountSettings")}
+        >
+          Password & Security
+        </span>
+        <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
+        <span className="profilepage-tabb"onClick={() => navigate('/myReferalPage')}>My referrals</span>
       </div>
+
         <div className="billing-detailspages-container">
             <div className="billing-detailspages-card">
                 <h2 className="billing-detailspages-amount">
@@ -213,7 +234,7 @@ const BillingDetailsPage = () => {
           }
         }}
       />
-       
+     
           <div className="billing-detailspages-card-icons">
             <img src={card1} alt="Visa" />
             <img src={card2} alt="MasterCard" />
@@ -221,43 +242,46 @@ const BillingDetailsPage = () => {
             <img src={card4} alt="RuPay" />
           </div>
         </div>
+        <div className="expiraycvv">
+  <div className="billing-detailspages-card-expiry">
+    <div
+      className={`billing-detailspages-expiry ${
+        errors.expiryDate ? "error" : ""
+      }`}
+    >
+      <DatePicker
+        selected={expiryDate}
+        onChange={(date) => setExpiryDate(date)}
+        dateFormat="MM/yyyy"
+        showMonthYearPicker
+        customInput={<CustomInput />}
+      />
+    </div>
 
-        <div className="billing-detailspages-card-expiry">
-        <div className={`billing-detailspages-expiry ${errors.expiryDate ? "error" : ""}`}>
-  <DatePicker
-    selected={expiryDate}
-    onChange={(date) => setExpiryDate(date)}
-    dateFormat="MM/yyyy"
-    showMonthYearPicker
-    customInput={<CustomInput />}
-  />
+    <div
+      className={`billing-detailspages-cvc ${errors.cvc ? "error" : ""}`}
+    >
+      <input
+        type="text"
+        placeholder="CVC"
+        aria-label="CVC"
+        className="billing-detailspages-cvc-input"
+        maxLength={3}
+        value={cvc}
+        onChange={(e) => {
+          const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
+          if (value.length <= 3) {
+            setCvc(value);
+          }
+        }}
+      />
+      <FontAwesomeIcon
+        icon={faShieldAlt}
+        className="billing-detailspages-iconnn"
+      />
+    </div>
+  </div>
 </div>
-         
-           
-         
-      <div className={`billing-detailspages-cvc ${errors.cvc ? "error" : ""}`}>
-  <input
-    type="text"
-    placeholder="CVC"
-    aria-label="CVC"
-    className="billing-detailspages-cvc-input"
-    maxLength={3}
-    value={cvc}
-    onChange={(e) => {
-      const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
-      if (value.length <= 3) {
-        setCvc(value);
-      }
-    }}
-  />
-  <FontAwesomeIcon
-    icon={faShieldAlt}
-    className="billing-detailspages-iconnn"
-  />
-</div>
-
-
-        </div>
 
         <p className="billing-detailspages-terms">
           By providing your card information, you allow us to charge your card
@@ -288,6 +312,7 @@ const BillingDetailsPage = () => {
         <Navbar/>
         <FooterForAllPage/>
         </div>
+      
     );
 };
 

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "./FooterForAllPage.css";
 import finanlog from "../assest/finanlogo.svg";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
-
-
 import { AiFillInstagram } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'; // Import icons
@@ -55,12 +53,16 @@ const FooterForAllPage = () => {
     "Refund Policy": "/refundpolicy",
     "Careers": "/careers",
   };
-  const allRoutes = { ...stockRoutes, ...mutualRoutes, ...learnRoutes, ...quickLinksRoutes };
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-  const toggleFooter = () => {
-    setIsFooterVisible(!isFooterVisible);
-};
+  const AboutRoutes = {
+    "Who We Are?": "/whoWeAre",
+    "Why FinanceShastra?": "/talktous",
+    "Contact Us": "/contactUsnew",
+   
+  
+  };
+ 
 
+  const allRoutes = { ...stockRoutes, ...mutualRoutes, ...learnRoutes, ...quickLinksRoutes,...AboutRoutes };
   return (
     <>
       {/* Desktop Footer */}
@@ -128,81 +130,82 @@ const FooterForAllPage = () => {
         <div className="FooterForAllPage-bottom-section">
           <p className="FooterForAllPage-copyright">
             Copyright © 2024 FinanceShastra <br /> All Rights Reserved |{" "}
-            <a href="#" className="FooterForAllPage-link">Terms and Conditions</a> |{" "}
+            <a href="/termsAndConditions" className="FooterForAllPage-link">Terms and Conditions</a> |{" "}
             <a href="#" className="FooterForAllPage-link">Privacy Policy</a>
           </p>
         </div>
       </footer>
-    
+
       {/* Mobile Footer */}
-     
-{isFooterVisible && (
-         <footer className="footermobileviewpages-footer">
-            <div className="footermobileviewpages-main-section">
-               {footerData.map((section, index) => (
-                  <div key={index} className="footermobileviewpages-column">
-                     <div
-                        className="footermobileviewpages-column-title"
-                        onClick={() => toggleSection(index)}
-                     >
-                        {section.title}
-                        <span className="footermobileviewpages-arrow">
-                           {openSection === index ? <FaAngleUp /> : <FaAngleDown />}
-                        </span>
-                     </div>
-                     {openSection === index && (
-                        <ul className="footermobileviewpages-column-list">
-                           {section.links.map((link, linkIndex) => (
-                              <li
-                                 key={linkIndex}
-                                 onClick={() => {
-                                    if (allRoutes[link]) {
-                                       navigate(allRoutes[link]);
-                                    }
-                                 }}
-                                 style={{
-                                    cursor: allRoutes[link] ? "pointer" : "default",
-                                 }}
-                              >
-                                 {link}
-                              </li>
-                           ))}
-                        </ul>
-                     )}
-                  </div>
-               ))}
-
-               <div className="footermobileviewpages-stock-section">
-                  <div className="footermobileviewpages-stock-letters">
-                     <p className="footermobileviewpages-stock-title">Stock List</p>
-                     {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                        <span key={letter} className="footermobileviewpages-letter">{letter}</span>
-                     ))}
-                  </div>
-               </div>
-
-               <div className="footermobileviewpages-social-icons">
-                  <a href="#" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
-                  <a href="#" className="footermobileviewpages-social-icon"><FaTwitter /></a>
-                  <a href="#" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
-                  <a href="#" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
-                  <a href="#" className="footermobileviewpages-social-icon"><FaYoutube /></a>
-               </div>
-
-               <div className="footermobileviewpages-bottom-section">
-                  <p className="footermobileviewpages-copyright">
-                     <span className="copyright-text">Copyright © 2024 FinanceShastra</span>
-                     <br />
-                     <span className="rights-text">
-                        All Rights Reserved |{" "}
-                        <a href="#" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
-                        <a href="#" className="footermobileviewpages-link">Privacy Policy</a>
-                     </span>
-                  </p>
-               </div>
+      <footer className="footermobileviewpages-footer">
+      <div className="footermobileviewpages-main-section">
+        {footerData.map((section, index) => (
+          <div key={index} className="footermobileviewpages-column">
+            <div
+              className="footermobileviewpages-column-title"
+              onClick={() => toggleSection(index)}
+            >
+              {section.title}
+              <span className="footermobileviewpages-arrow">
+                {openSection === index ? <FaAngleUp /> : <FaAngleDown />}
+              </span>
             </div>
-         </footer>
-          )}
+            {openSection === index && (
+              <ul className="footermobileviewpages-column-list">
+                {section.links.map((link, linkIndex) => (
+                  <li
+                  key={linkIndex}
+                  onClick={() => {
+                    // Navigate if the link has a corresponding route
+                    if (allRoutes[link]) {
+                      navigate(allRoutes[link]);
+                    }
+                  }}
+                  style={{
+                    cursor: allRoutes[link] ? "pointer" : "default",
+                  }}
+                >
+                  {link}
+                </li>
+                ))}
+              </ul>
+           )}
+         </div>
+          ))}
+
+          <div className="footermobileviewpages-stock-section">
+            
+            <div className="footermobileviewpages-stock-letters">
+            <p className="footermobileviewpages-stock-title">Stock List</p>
+            {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
+                <span key={letter} className="footermobileviewpages-letter">{letter}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="footermobileviewpages-social-icons">
+            <a href="#" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
+            <a href="#" className="footermobileviewpages-social-icon"><FaTwitter /></a>
+            <a href="#" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
+            <a href="#" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
+            <a href="#" className="footermobileviewpages-social-icon"><FaYoutube /></a>
+          </div>
+          <div className="footermobileviewpages-bottom-section">
+  <p className="footermobileviewpages-copyright">
+    <span className="copyright-text">Copyright © 2024 FinanceShastra</span>
+    <br />
+    <span className="rights-text">
+      All Rights Reserved |{" "}
+      <a href="#" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
+      <a href="#" className="footermobileviewpages-link">Privacy Policy</a>
+    </span>
+  </p>
+</div>
+
+        </div>
+
+        
+      </footer>
     </>
   );
 };

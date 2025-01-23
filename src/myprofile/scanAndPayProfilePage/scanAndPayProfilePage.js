@@ -4,7 +4,7 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { IoCard } from "react-icons/io5";
 import { FaPaypal } from "react-icons/fa";
 import { MdPayment, MdOutlineQrCodeScanner } from "react-icons/md";
-import qrcode from '../../assest/qr-code.png';
+import qrcode from '../../assest/upilogoo.png';
 import { useNavigate } from "react-router-dom";
 import "./scanAndPayProfilePage.css";
 import Navbar from "../../Navbar/Navbar";
@@ -36,16 +36,36 @@ const ScanPayProfilePage = () => {
       </h1>
 
       {/* Navigation Tabs */}
-      <div className="profilepage-tabs">
-        <span className="profilepage-tab">My Account</span>
-        <span className="profilepage-tab">Order</span>
-        <span className="profilepage-tab active"onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
-        <span className="profilepage-tab">Risk Profile Report</span>
-        <span className="profilepage-tab">Manage Alert</span>
-        <span className="profilepage-tab">Password & Security</span>
-        <span className="profilepage-tab">Active Devices</span>
-        <span className="profilepage-tab"onClick={() => navigate("/myReferalPage")}
-    >My referrals</span>
+      <div className="profilepage-tabsorderusers" >
+        <span className="profilepage-tabb"onClick={() => navigate("/userDetailsupdate")}
+       >My Account</span>
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/orderTable")}
+        >
+          Orders
+        </span>
+        <span className="profilepage-tabb"  style={{
+          borderBottom: "2px solid #24b676",
+          fontWeight: "bold",
+          color: "#24b676",
+        }}onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
+        <span className="profilepage-tabb" onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/managealert")}
+        >
+          Manage Alert
+        </span>
+
+        <span
+          className="profilepage-tabb"
+          onClick={() => navigate("/accountSettings")}
+        >
+          Password & Security
+        </span>
+        <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
+        <span className="profilepage-tabb"onClick={() => navigate('/myReferalPage')}>My referrals</span>
       </div>
       {/* Billing Details Section */}
       <div className="billing-detailspages-container">

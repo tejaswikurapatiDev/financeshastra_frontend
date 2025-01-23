@@ -1,0 +1,274 @@
+.userDetails {
+    font-family: 'calibri';
+margin-top: 120px;
+
+   
+  }
+  .allpersonal {
+    display: flex;
+    flex-direction: row; /* Aligns child elements vertically */
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 700px;
+    gap: 20px; /* Adds spacing between child elements */
+    margin-left: 300px;
+    box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+  }
+  
+  
+  .personalDetailAll,
+  .professionalDetailAll,
+  .investmentDetailAll {
+   margin-left: 70px;
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #24b676;
+    margin-left: 300px;
+  }
+  
+  .detailRow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1px;
+    margin: 5px 0px;
+  }
+  
+  .labelprofiledetail {
+    width: 150px; /* Set a fixed width for labels */
+    font-weight: bold;
+    color: #000000;
+  }
+  
+  .value {
+    flex: 1; /* Allow the value to take the remaining space */
+    color: #000000;
+  }
+  
+  .detailRow strong {
+    color: #000000;
+    font-size: 15px;
+  }
+  .editiconprofile{
+    color: #24b676;
+  }
+  .editiconprofilee{
+    color: #24b676;
+    margin-left: 380px;
+  }
+  .editiconprofileee{
+    color: #24b676;
+    margin-left: 280px;
+  }
+  .profilepage-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 250px;
+  }
+  
+  /* Tabs */
+  .profilepage-tabsorderusers {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    
+  }
+
+  
+  .profilepage-tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .profilepage-tab.active {
+    border-bottom: 2px solid #24b676;
+    font-weight: bold;
+    color: #24b676;
+  }
+  .profilepage-tabsorderusers{
+text-align: center;
+margin-left: 240px;
+  }
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid  rgb(208, 206, 206);
+    height:150px;
+    padding: 20px;
+    margin-left: 300px;
+    width: 700px;
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    border-radius: 8px;
+  }
+  
+  .profileImage {
+    width: 110px;
+    height: 90px;
+    border-radius: 50%;
+    margin: auto;
+  }
+  
+  .userwilliamimg {
+    position: relative;
+    width: 170px;
+    height: 120px;
+    background: linear-gradient(90deg, #24b676, #238486);
+   border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+  }
+  
+  .editIcon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .editIcon:hover {
+    background-color: #24b676;
+  }
+  
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+  }
+  
+  .profileName {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .profileOccupation {
+    font-size: 16px;
+    color: gray;
+    margin: 0;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .userDetails {
+      margin-top: 100px;
+      margin-bottom: 130px;
+   
+    }
+      .profilepage-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-left: 10px;
+      }
+      
+      /* Tabs */
+      .profilepage-tabs {
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 20px;
+        margin-left: 0px;
+      }
+      .profilepage-tab {
+        padding: 1px 10px;
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+      }
+      
+      
+      .allpersonal {
+        display: flex;
+        flex-direction: row; /* Aligns child elements vertically */
+        border: 1px solid rgb(208, 206, 206);
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        background-color: white;
+        width: 400px;
+        gap: 0px; /* Adds spacing between child elements */
+        margin-left: 10px;
+        box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+      }
+      .personalDetailAll,
+      .professionalDetailAll,
+      .investmentDetailAll {
+       margin-left: 7px;
+      }
+      .editiconprofilee{
+        color: #24b676;
+        margin-left: 170px;
+      }
+      .editiconprofileee{
+        color: #24b676;
+        margin-left: 150px;
+      }
+      .sectionTitle {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #24b676;
+        margin-left: 15px;
+      }
+  }
+  @media (max-width: 480px) {
+    .userDetails {
+      margin-top: 100px;
+      margin-bottom: 130px;
+      max-width: 50%;
+    }
+  
+    .allpersonal {
+      display: flex;
+      flex-direction: column; /* Align child elements vertically for better responsiveness */
+      border: 1px solid rgb(208, 206, 206); /* Subtle border */
+      padding: 20px; /* Inner spacing */
+      border-radius: 8px; /* Rounded corners */
+      margin-bottom: 20px; /* Space between cards */
+      background-color: white; /* Maintain white background */
+      width: 90%; /* Use percentage for better adaptability */
+      max-width: 320px; /* Prevent the card from exceeding this width */
+      gap: 10px; /* Add consistent spacing between child elements */
+      margin: 0 auto; /* Center the card horizontally */
+      box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Subtle shadow for a modern look */
+    }
+  
+    .personalDetailAll,
+    .professionalDetailAll,
+    .investmentDetailAll {
+      margin-left: 7px; /* Maintain consistent spacing */
+    }
+  
+    .editiconprofilee {
+      color: #24b676; /* Green color for edit icon */
+      margin-left: auto; /* Align icon to the right */
+    }
+  
+    .editiconprofileee {
+      color: #24b676;
+      margin-left: auto; /* Align icon to the right */
+    }
+  
+    .sectionTitle {
+      font-size: 20px; /* Adjust font size for visibility */
+      margin-bottom: 10px; /* Add spacing below the title */
+      color: #24b676; /* Green text for section titles */
+      margin-left: 15px; /* Consistent left alignment */
+    }
+  }
+  

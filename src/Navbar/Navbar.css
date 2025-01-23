@@ -365,6 +365,7 @@ a span {
   z-index: 1000; /* Ensure it appears above other elements */
   border-top: 1px solid #e0e0e0; /* Optional border for separation */
   list-style: none; /* Remove default list styles */
+  font-family: 'calibri';
  
 }
 .footer-item {
@@ -372,6 +373,7 @@ a span {
   flex-direction: column; /* Arrange icon and label vertically */
   align-items: center; /* Center align items */
   gap: 5px; /* Space between icon and label */
+  font-family: 'calibri';
 }
 .footer-item.selected {
   color: #fff; /* Text color */
@@ -385,6 +387,7 @@ a span {
   flex-direction: column; /* Stack icon and text */
   align-items: center; /* Center alignment */
   gap: 0; /* Remove any spacing between icon and text */
+  font-family: 'calibri';
 }
 
 
@@ -393,6 +396,7 @@ a span {
   text-decoration: none;
   color: #24b676;
   font-size: 1rem;
+  font-family: 'calibri';
 }
 
 
@@ -446,11 +450,13 @@ a span {
   z-index: 1000;
   padding: 10px;
   display: none; /* Hide by default */
+  font-family: 'calibri';
 }
 
 /* Display dropdown on toggle */
 .footer-dropdown.open {
   display: block;
+  font-family: 'calibri';
 }
 
 /* For screens 480px and below */
@@ -593,12 +599,20 @@ a span {
   /* Stock dropdown menu adjustments */
   .stockmenu {
     width: 800%;
-  height: 200vh;
-  left: 0;
-  transform: translateY(-30%);
-  gap: 5px;
-  }
-
+    height: 200vh;
+    left: 0;
+    transform: translateY(-30%);
+    gap: 5px;
+    left: -75px;
+}
+  .mutualstockmenu {
+    width: 600%;
+    height: 110vh;
+    gap: 10px;
+    transform: translateY(-50%);
+    /* margin-right: 100px; */
+    left: -130px;
+}
   /* Dropdown menu adjustments */
   .dropdown-menu li {
     font-size: 12px; /* Smaller font size for dropdown */

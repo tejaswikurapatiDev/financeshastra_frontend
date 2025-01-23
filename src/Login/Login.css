@@ -81,10 +81,18 @@
 
 .login-options {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+gap: 310px;
 
+
+ 
+}
+.signinall{
+  display: flex;
+  gap: 10px;
+}
+.allsignall{
+  margin-top: 15px;
+}
 .login-options a {
   color: #007bff;
   text-decoration: none;
@@ -298,7 +306,7 @@ height: 50px;
 
   .password-field {
     display: block;
-    width: 67vw;
+    width: 60vw;
   }
 
   .logo {
@@ -314,6 +322,7 @@ height: 50px;
   color: #007bff; /* Link color */
   cursor: pointer;
   text-decoration: underline !important;
+  margin-top: 70px;
 }
 .login-right {
   order: 1; /* Display login form first on mobile */
@@ -364,7 +373,7 @@ height: 50px;
 
   .password-field {
     display: block;
-    width: 67vw;
+    width: 90vw;
   }
 
   .logo {
@@ -376,16 +385,22 @@ height: 50px;
     height: auto;
   }
 
-.forgot-password-link {
-  color: #007bff; /* Link color */
-  cursor: pointer;
-  text-decoration: underline !important;
-}
+  .forgot-password-link {
+    color: #007bff; /* Link color */
+    cursor: pointer;
+    text-decoration: underline !important;
+    top: 70px;
+  }
 .login-right {
   order: 1; /* Display login form first on mobile */
 }
 .login-left {
   order: 2; 
+}
+
+.login-options {
+  display: flex;
+gap: 90px;
 }
 
 }

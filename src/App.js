@@ -52,7 +52,7 @@ import TopRatedFundsdirect from "./MutualFund/TopRatedFundsdirect/TopRatedFundsd
 import GoldWatchportall from "./Portfoilo/Goldwatchlistall/Goldwatchlistall";
 import Portfoliogoldaccount from "./Portfoilo/Portfoliogoldaccount/Portfoliogoldaccount";
 
-import PaymentForm from "./Subscription/Paymentmethodsubscribe/Paymentmethodsubscribe";
+
 import StockWatchportall from "./Portfoilo/StockWatchlistall/StockWatchlistall";
 import StockWatchsectormcap from "./Portfoilo/StockWatchlistmcap/StockWatchlistmcap";
 import StockWatchsectorlist from "./Portfoilo/StockWatchlistsector/StockWatchlistsector";
@@ -60,17 +60,7 @@ import MutualWatchlist from "./Portfoilo/Mutualfundwatchlistportfolio/Mutualfund
 import MutualWatchtypefundlist from "./Portfoilo/Mutualfundwtchlisttypefund/Mutualfundwtchlisttypefund";
 import MutualWatchsectorlist from "./Portfoilo/Mutualsectorportwatchlist/Mutualsectorportwatchlist";
 import MutualWatchportall from "./Portfoilo/Mutualwatchportall/Mutualwatchportall";
-import ElitepaymentForm from "./Subscription/Elitepaymentsubscribe/Elitepaymentsubscribe";
-import Eliteplanhalfyear from "./Subscription/Eliteplanhalfyear/Eliteplanhalfyear";
-import LocalPaymentPremiumForm from "./Subscription/Localpaymentpremium/Localpaymentpremium";
-import LocalhalfPremiumForm from "./Subscription/Premiumlocalhalf/Premiumlocalhalf";
-import ElitePaymentPremiumForm from "./Subscription/Elitelocalannualpayment/Elitelocalannualpayment";
-import ElitePaymenthalfForm from "./Subscription/Elitelocalhalfpayment/Elitelocalhalfpayment";
-import UpiPaymentFormpremium from "./Subscription/Upiannualpremium/Upiannualpremium";
-import Upihalfyearpremium from "./Subscription/Upihalfyearpremium/Upihalfyearpremium";
-import UpiPaymentFormelite from "./Subscription/Upiannualelite/Upiannualelite";
-import UpihalfyearFormelite from "./Subscription/Upihalfyearelite/Upihalfyearelite";
-import Premiumplanhalfyear from "./Subscription/Premiumplanhalfyear/Premiumplanhalfyear";
+
 import Mutualfund from "./MutualFund/Mutualfund";
 import Bestsmallcapregular from "./MutualFund/Bestsmallcapregular/Bestsmallcapregular";
 import Bestsmallcapdirect from "./MutualFund/Bestsmallcapdirect/Bestsmallcapdirect";
@@ -153,6 +143,32 @@ import MyReferalPage from "./myprofile/MyReferalPage/MyReferalPage";
 import ReferMoreProfilePages from "./myprofile/ReferMoreProfilePages/ReferMoreProfilePages";
 import EarningCalculatorProfilePage from "./myprofile/EarningCalculatorProfilePage/EarningCalculatorProfilePage";
 import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/ReffeerralProfilePageSSS";
+import FAQS from "./FAQS/FAQS";
+import UserDetails from "./myprofile/UserDetails/UserDetails";
+import SessionHistory from "./myprofile/SessionHistory/SessionHistory";
+import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
+import OrderTable from "./myprofile/OrderTable/OrderTable";
+import Managealert from "./myprofile/Managealert/Managealert";
+import ContactFormmanagealert from "./myprofile/ContactFormmanagealert/ContactFormmanagealert";
+import EditProfile from "./myprofile/EditProfile/EditProfile";
+import UserDetailsupdate from "./myprofile/Userupdatedpage/Userupdatedpage";
+import RiskAnalysisDashboard from "./myprofile/Riskanalysis/RiskAnalysisDashboard/RiskAnalysisDashboard";
+import HalfyearlySubscriptionPages from "./Subscription/halfyearlySubscriptionPages/halfyearlySubscriptionPages";
+import HalfyearlyPaypalProfilePage from "./Subscription/HalfyearlypaypalSubscriptionPages/HalfyearlypaypalSubscriptionPages";
+import HalfyearlyUPIPage from "./Subscription/HalfyearlyupiProfilePage/HalfyearlyupiProfilePage";
+import HalfyearlyScanPage from "./Subscription/HalfyearlyScanPage/HalfyearlyScanPage";
+import PremiumSubscriptionPages from "./Subscription/PremiumSubscriptionPages/PremiumSubscriptionPages";
+import PremiumPaypalProfilePage from "./Subscription/PremiumpaypalPages/PremiumpaypalPages";
+import PremiumUPIPage from "./Subscription/PremiumupiProfilePage/PremiumupiProfilePage";
+import PremiumScanPage from "./Subscription/PremiumScanPage/PremiumScanPage";
+import AnnuallySubscriptionPages from "./Subscription/AnnuallySubscriptionPages/AnnuallySubscriptionPages";
+import AnnuallyPaypalProfilePage from "./Subscription/AnnuallyPaypalProfilePage/AnnuallyPaypalProfilePage";
+import AnnuallyUPIPage from "./Subscription/AnnuallyUPIPage/AnnuallyUPIPage";
+import AnnuallyScanPage from "./Subscription/AnnuallyScanPage/AnnuallyScanPage";
+import AnnuallyPremiumSubscriptionPages from "./Subscription/AnnuallyPremiumSubscriptionPages/AnnuallyPremiumSubscriptionPages";
+import AnnuallyPremiumPaypalProfilePage from "./Subscription/AnnuallyPremiumPaypalProfilePage/AnnuallyPremiumPaypalProfilePage";
+import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/AnnuallyPremiumUPIPage";
+import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
 
 
 
@@ -209,23 +225,12 @@ function App() {
       <Route path="/mutualfunddirect" element={<TopRatedFundsdirect/>} />
       <Route path="/goldWatchlistall" element={<GoldWatchportall/>} />
       <Route path="/portfoliogoldtoppage" element={<Portfoliogoldaccount />} />
-     <Route path="/payment" element={<PaymentForm/>} />
+     
       <Route path="/mutualwatchlist" element={<MutualWatchlist/>} />
       <Route path="/mutualwatchlisttype" element={<MutualWatchtypefundlist/>} />
       <Route path="/mutualwatchlistsector" element={<MutualWatchsectorlist/>} />
       <Route path="/mutualwatchlistall" element={<MutualWatchportall/>} />
-      <Route path="/paymentform" element={<PaymentForm/>} />
-      <Route path="/elitepaymentForm" element={<ElitepaymentForm/>} />
-      <Route path="/eliteplanhalfyear" element={<Eliteplanhalfyear/> }/>
-      <Route path="/localpaymentpremiumForm" element={<LocalPaymentPremiumForm/> }/>
-      <Route path="/localhalfpremiumForm" element={<LocalhalfPremiumForm/> }/>
-      <Route path="/elitePaymentPremiumForm" element={<ElitePaymentPremiumForm/> }/>
-      <Route path="/elitePaymenthalfForm" element={<ElitePaymenthalfForm/> }/>
-      <Route path="/upiPaymentFormpremium" element={<UpiPaymentFormpremium/> }/>
-      <Route path="/upihalfyearpremium" element={<Upihalfyearpremium/>}/>
-      <Route path="/upiPaymentFormelite" element={<UpiPaymentFormelite/>}/>
-      <Route path="/upihalfyearFormelite" element={<UpihalfyearFormelite/>}/>
-      <Route path="/premiumplanhalfyear" element={<Premiumplanhalfyear/> }/>
+     
       <Route path="/mutualfundgrowth" element={<Mutualfund/> }/>
       <Route path="/bestsmallcapregular"element={<Bestsmallcapregular/> }/>
       <Route path="/bestsmallcapdirect"element={<Bestsmallcapdirect/> }/>
@@ -281,7 +286,7 @@ function App() {
       <Route path="/footerForAllPage" element={<FooterForAllPage/>}/>
       <Route path="/profilePage" element={<ProfilePage/>}/>
       <Route path="/settingDashPanel" element={<SettingsDashboard/>}/>
-      <Route path="/dashboardchartmain" element={<Dashboardchartmain/>}/>
+      <Route path="/home" element={<Dashboardchartmain/>}/>
       <Route path="/stockindexall" element={<Stockindexall/>}/>
       <Route path="/calenderchartmain" element={<Calenderchartmain/>}/>
       <Route path="/homestockanalyst" element={<Homestockanalyst/>}/>
@@ -309,15 +314,41 @@ function App() {
       <Route path="/referMoreProfilePages" element={<ReferMoreProfilePages/>}/>
       <Route path="/earningCalculatorProfilePage" element={<EarningCalculatorProfilePage/>}/>
       <Route path="/reffeerralProfilePageSSS" element={<ReffeerralProfilePageSSS/>}/>
-      
-      
-      
-      
-
+      <Route path="/fAQS" element={<FAQS/>}/>
+      <Route path="/userDetails" element={<UserDetails/>}/>
+     
+      <Route path="/sessionHistory" element={<SessionHistory/>}/>
+      <Route path="/accountSettings" element={<AccountSettings/>}/>
+      <Route path="/orderTable" element={<OrderTable/>}/>
+      <Route path="/managealert" element={<Managealert/>}/>
+    
+      <Route path="/contactFormmanagealert" element={<ContactFormmanagealert/>}/>
+      <Route path="/editProfile" element={<EditProfile/>} /> 
+      <Route path="/userDetailsupdate" element={<UserDetailsupdate/>} />
+      <Route path="/riskAnalysisDashboard" element={<RiskAnalysisDashboard/>}/>
+      <Route path="/halfyearlySubscriptionPages" element={<HalfyearlySubscriptionPages/>}/>
+      <Route path="/halfyearlyPaypalProfilePage" element={< HalfyearlyPaypalProfilePage/>}/>
+      <Route path="/halfyearlyUPIPage" element={<HalfyearlyUPIPage/>}/>
+      <Route path="/halfyearlyScanPage" element={<HalfyearlyScanPage/>}/>
+      <Route path="/premiumSubscriptionPages" element={<PremiumSubscriptionPages/>}/>
+      <Route path="/premiumPaypalProfilePage" element={<PremiumPaypalProfilePage/>}/>
+      <Route path="/premiumUPIPage" element={< PremiumUPIPage/>}/>
+      <Route path="/premiumScanPage" element={<PremiumScanPage/>}/>
+      <Route path="/annuallySubscriptionPages" element={< AnnuallySubscriptionPages/>}/>
+      <Route path="/annuallyPaypalProfilePage" element={<AnnuallyPaypalProfilePage/>}/>
+      <Route path="/annuallyUPIPage" element={<AnnuallyUPIPage/>}/>
+      <Route path="/annuallyScanPage" element={<AnnuallyScanPage/>}/>
+      <Route path="/annuallyPremiumSubscriptionPages" element={< AnnuallyPremiumSubscriptionPages/>}/>
+      <Route path="/annuallyPremiumPaypalProfilePage" element={<AnnuallyPremiumPaypalProfilePage/>}/>
+      <Route path="/annuallyPremiumUPIPage" element={<AnnuallyPremiumUPIPage/>}/>
+      <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
       
      
-
       
+      
+      
+     
+     
 
 
 

@@ -7,6 +7,7 @@
     background-color: white;
     margin-left: 100px;
   }
+  
   .profilepageee-container{
     margin-top: 130px;
    margin-left: 10px;
@@ -24,6 +25,7 @@
     width: 600px;
     margin-bottom: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Added box-shadow */
+    margin-left: 130px;
 }
 
   
@@ -80,7 +82,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
   /* Remove the negative margin */
-  margin-left: 0; /* Ensure it aligns properly */
+  margin-left: 130px; /* Ensure it aligns properly */
 }
 
   .billing-detailspages-payment-options {
@@ -163,38 +165,72 @@
     height: 20px;
   }
   
-  .billing-detailspages-card-expiry-cvc {
+  .expiraycvv {
     display: flex;
-   
-    gap: 10px;
-    
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px; /* Add space between expiry and CVC sections */
+  }
+  
+  .billing-detailspages-card-expiry {
+    display: flex;
+    flex-direction: row; /* Align expiry date and CVC side by side */
+    gap: 20px; /* Add spacing between expiry and CVC inputs */
+    width: 100%;
   }
   
   .billing-detailspages-expiry,
   .billing-detailspages-cvc {
-    position: relative;
-   
-    
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between input and icon */
+    flex: 1; /* Allow inputs to take equal width */
   }
+  
+  .billing-detailspages-expiry input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .billing-detailspages-expiry input:focus,
+  .billing-detailspages-cvc input:focus {
+    border-color: #24b676; /* Highlight border on focus */
+    box-shadow: 0 0 8px rgba(36, 182, 118, 0.5);
+    outline: none;
+  }
+  
   .billing-detailspages-cvc-input {
-    width: 351px;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+    text-align: left; /* Center-align the CVC input */
+    width: 84%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 16px;
-    background-color: #dfdfdf;
-    margin-left: 390px;
-   
-  }
-  .billing-detailspages-expiry-input {
-    width: 1000%;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     background-color: #dfdfdf;
   }
   
+  .billing-detailspages-iconnn {
+    
+    
+    margin-left: -50px;
+ 
+    color: #888;
+  }
+  
+  .error input {
+    border-color: red; /* Highlight error in red */
+   
+  }
+  
+ 
   .billing-detailspages-icon {
     position: absolute;
     top: 50%;
@@ -202,13 +238,7 @@
     transform: translateY(-50%);
     color: #888;
   }
-  .billing-detailspages-iconnn{
-    position: absolute;
-    top: 50%;
-    right: 70px;
-    transform: translateY(-50%);
-    color: #888;
-  }
+  
   .billing-detailspages-terms {
     font-size: 12px;
     color: #666;
@@ -250,7 +280,7 @@
     margin-top: 4px;
   }
   .billing-detailspages-cvc.error input {
-    border: 2px solid red;
+    border: 1px solid red;
   }
   
   .error input {
@@ -261,7 +291,7 @@
     width: 300px;
   }
   .custom-datepicker-input {
-    display: flex;
+
    
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -279,7 +309,7 @@
     background: transparent;
   }
   
-  .calendar-icon {
+  .calendar-iconnns {
     color: #333;
     margin-left: -25px; 
     cursor: pointer;
