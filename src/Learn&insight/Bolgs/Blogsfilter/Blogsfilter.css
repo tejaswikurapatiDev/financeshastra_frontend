@@ -372,10 +372,9 @@ font-weight: bold;
 }
 
 .blogImageall {
-  width: 100%;  /* Full width */
-  height: 150px;  /* Adjust image height */
+  width: 80%;
+  height: 150px;
 }
-
 /* Blog Content */
 .blogContentsall {
   padding: 8px;
@@ -395,11 +394,11 @@ font-weight: bold;
   font-size: 10px;
 }
 
-.readArticleLinkall,
-.highlightReadArticle {
+.readArticleLinkall, .highlightReadArticle {
   font-size: 10px;
   margin-top: 15px;
   margin-left: 10px;
+  width: 50px;
 }
 
 .readArticleLinkall:hover,

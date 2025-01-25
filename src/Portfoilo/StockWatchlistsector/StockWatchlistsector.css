@@ -63,6 +63,7 @@ height: 170px;
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    font-family: 'calibri';
   }
   
   .stock-tablewatchlist th,
@@ -232,6 +233,12 @@ height: 170px;
   
   .delete-btnwatchlist:hover i {
     color: #24b676;
+  }
+  .filters-sectionwatchlist{
+    font-family: 'calibri';
+  }
+  .group-by-sectionwatchlist{
+    font-family: 'calibri';
   }
   .filter-buttonwatchlist {
     color: black;

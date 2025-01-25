@@ -5,7 +5,7 @@
     align-items: center;
     padding: 20px;
     font-family: 'calibri';
-    background-color: #f8f9fa;
+    background-color: white;
   }
   
   /* Content Wrapper */
@@ -104,7 +104,7 @@
     gap: 15px;
     margin-bottom: 20px;
     align-items: flex-start;
-    margin-right: 200px;
+    margin-right: 250px;
   }
   
   /* Floating Label Input */
@@ -232,11 +232,13 @@
   }
   
   .refermoreprofilepagess-email-templateh3 {
- 
     color: #333333;
     font-size: 22px;
     text-align: center;
-  }
+    /* margin-top: 10px; */
+    margin-bottom: -10px;
+    margin-top: 50px;
+}
   
   .refermoreprofilepagess-email-content {
     line-height: 1.6;
@@ -265,4 +267,123 @@
 .refermoreprofilepages-floating-input.error input {
   border: 1px solid red;
 }
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .refermoreprofilepages-content {
+      flex-direction: column;
+      width: 100%;
+  }
 
+  
+  .refermoreprofilepages-right {
+    width: 69%;
+}
+
+.refermoreprofilepages-left {
+  /* width: 50%; */
+  margin-left: -50px;
+}
+  .refermoreprofilepages-share {
+      margin-left: 0;
+  }
+
+  .refermoreprofilepages-input-group {
+      flex-direction: column;
+      margin-right: 0;
+  }
+
+  .refermoreprofilepages-submit-button {
+      margin-left: 0;
+  }
+
+  .refermoreprofilepagess-email-template {
+      width: 100%;
+      margin-left: 0;
+  }
+  .refermoreprofilepages-right h2 {
+    font-size: 14px;
+    margin-left: 0px;
+  }
+  .refermoreprofilepages-or {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    width: 50px;
+    display: flex
+  ;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+  }
+  .refermoreprofilepages-share h3 {
+    font-size: 14px;
+    margin-left: -0px;
+  }
+  .refermoreprofilepagess-email-templateh3 {
+    color: #333;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top: 50px;
+}
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+  .refermoreprofilepages-content {
+    padding: 10px;
+    width: 109%;
+}
+
+.refermoreprofilepages-share h3 {
+  font-size: 14px;
+}
+  .refermoreprofilepages-share ul li {
+      font-size: 20px;
+  }
+
+ 
+
+  .refermoreprofilepages-floating-input input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 20px; /* Extra padding for icons */
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.2s;
+  }
+
+  .refermoreprofilepages-submit-button {
+      font-size: 14px;
+      padding: 8px 15px;
+  }
+  .refermoreprofilepagess-email-templateh3 {
+    color: #333;
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top: 50px;
+}
+.refermoreprofilepages-right h2 {
+  font-size: 13px;
+  margin-left: 0px;
+}
+.refermoreprofilepages-or {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  width: 50px;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  margin-right: 50px;
+}
+.refermoreprofilepages-right {
+  width: 80%;
+}
+}

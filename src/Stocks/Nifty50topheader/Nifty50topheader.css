@@ -21,11 +21,12 @@
       }
       
       .graphheadernifty h1 {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: bold;
         margin: 0;
         margin-left: 290px;
-      }
+        width: 100px;
+    }
       .graphnavbarrnifty50:hover {
         cursor: pointer;
         color: #24b676;

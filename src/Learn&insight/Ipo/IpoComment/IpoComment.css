@@ -128,3 +128,96 @@
        display: flex;
        gap: 40px;
      }
+     /* Mobile View at 768px */
+@media (max-width: 768px) {
+  .ipocomment-container {
+    margin-left: -10px;
+    width: 38%;
+    height: 50%;
+}
+
+  .ipocomment-title {
+      font-size: 18px; /* Reduce font size for mobile */
+      margin-left: 20px; /* Adjust margin */
+  }
+
+  .ipocomment-subtitle {
+      font-size: 12px; /* Reduce subtitle font size */
+      margin-left: 20px; /* Adjust margin */
+  }
+
+  .ipocomment-form {
+      gap: 10px; /* Reduce the gap between form fields */
+  }
+
+  .ipocommentt-group {
+      width: 100%; /* Allow input to take full width */
+  }
+
+  .ipocomment-group {
+      height: auto; /* Allow input area to expand */
+  }
+
+  .ipocomment-checkbox-group {
+    flex-direction: row;
+    font-size: 12px;
+}
+
+  .ipocomment-button {
+      width: 100%; /* Make the button full-width */
+      margin-left: 0; /* Remove left margin */
+      margin-top: 10px;
+  }
+
+  .iponameemailall {
+      flex-direction: column; /* Stack name/email horizontally on smaller screens */
+      gap: 10px;
+  }
+}
+
+/* Mobile View at 480px */
+@media (max-width: 480px) {
+  .ipocomment-container {
+    margin-left: -15px;
+    width: 30%;
+    height: 50%;
+}
+
+  .ipocomment-title {
+    font-size: 16px;
+    margin-left: -10px;
+}
+.ipocomment-subtitle {
+  font-size: 14px;
+  margin-left: -10px;
+  width: 33%;
+}
+
+  .ipocomment-form {
+      gap: 8px; /* Smaller gap between form fields */
+  }
+
+  .ipocommentt-group {
+      width: 100%; /* Full width for form elements */
+  }
+
+  .ipocomment-group {
+      height: auto; /* Remove height limitation */
+  }
+
+  .ipocomment-checkbox-group {
+    flex-direction: row;
+    font-size: 12px;
+}
+
+  .ipocomment-button {
+      width: 100%; /* Full-width button */
+      font-size: 12px; /* Smaller button text */
+      height: 35px; /* Adjust button height */
+  }
+
+  .iponameemailall {
+      flex-direction: column; /* Stack name/email inputs */
+      gap: 10px; /* Smaller gap */
+  }
+}

@@ -16,7 +16,7 @@
   /* Add Comment Button */
   .add-comment-button {
     padding: 10px 20px;
-    background: #28a745;
+    background: #24b676;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -51,7 +51,7 @@
   .submit-comment-button {
    margin-left: 80px;
     padding: 10px 20px;
-    background: #28a745;
+    background: #24b676;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -63,4 +63,64 @@
   .submit-comment-button:hover {
     background: #218838;
   }
-  
+  /* Responsive Styles */
+@media (max-width: 768px) {
+  .comment-container {
+    margin-left: 50px;
+  }
+
+  .comment-container h2 {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .comment-textarea {
+    width: 80%;
+    margin-right: 0;
+  }
+
+  .add-comment-button {
+    margin-left: 0;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+  }
+
+  .submit-comment-button {
+    margin-left: 0;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comment-container {
+    margin: 10px;
+    margin-left: 20px;
+  }
+
+  .comment-container h2 {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+
+  .comment-textarea {
+    width: 100%;
+    padding: 8px;
+  }
+
+  .add-comment-button {
+    margin-left: 0;
+    font-size: 12px;
+    padding: 6px 12px;
+    margin-bottom: 30px;
+}
+
+.submit-comment-button {
+  margin-left: 0;
+  font-size: 12px;
+  padding: 6px 12px;
+  margin-bottom: 20px;
+}
+}

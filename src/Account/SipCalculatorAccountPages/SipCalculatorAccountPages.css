@@ -39,4 +39,56 @@
     background-color: #fff;
     color: #333;
   }
-  
+  /* For screens with width 768px or less */
+@media (max-width: 768px) {
+  .sippcaloculatorrs-container {
+    width: 90%; /* Adjust width to fit smaller screens */
+    margin: 20px auto; /* Center container */
+    padding: 15px; /* Reduce padding */
+  }
+  .sippcaloculatorrs-slider-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 165%;
+}
+  .sippcaloculatorrs-input label {
+    font-size: 14px; /* Reduce label font size */
+  }
+
+  .sippcaloculatorrs-slider {
+    margin-right: 5px; /* Reduce spacing for smaller screens */
+  }
+
+  .sippcaloculatorrs-textbox {
+    width: 70px; /* Reduce textbox width */
+    font-size: 14px; /* Smaller font size */
+  }
+}
+
+/* For screens with width 480px or less */
+@media (max-width: 480px) {
+  .sippcaloculatorrs-container {
+    width: 100%; /* Full width on very small screens */
+    margin: 10px auto; /* Adjust margins */
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .sippcaloculatorrs-input label {
+    font-size: 12px; /* Smaller label font size */
+  }
+
+  .sippcaloculatorrs-slider-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 135%;
+}
+  .sippcaloculatorrs-slider {
+    margin-bottom: 10px; /* Add space between slider and textbox */
+    width: 100%; /* Make slider take full width */
+  }
+
+  .sippcaloculatorrs-textbox {
+    width: 50px; /* Further reduce textbox width */
+    font-size: 12px; /* Smaller font size */
+  }
+}

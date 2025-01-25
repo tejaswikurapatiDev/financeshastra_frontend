@@ -673,6 +673,12 @@ width: 470px;}
     margin-left: 200px;
     
   }
+  .profilepage-field-income select {
+    width: 320px;
+    padding: 5px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
 
   
 }

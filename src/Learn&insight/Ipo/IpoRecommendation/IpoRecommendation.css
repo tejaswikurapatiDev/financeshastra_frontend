@@ -111,3 +111,105 @@
     font-family: 'calibri';
     margin-left: 70px;
   }
+  /* Mobile View at 768px */
+@media (max-width: 768px) {
+  .iporecommendation-container {
+    margin-left: 10px; /* Further reduce margin */
+    max-width: 100%;
+}
+
+.iporecommendation-title {
+  font-size: 18px;
+  margin-left: -10px;
+}
+
+.iporecommendation-box {
+padding: 4px;
+width: 41%;
+margin-left: -20px;
+}
+.avoidiposubss {
+background-color: #e61f11;
+color: white;
+margin-left: 10px;
+cursor: pointer;
+padding: 10px 15px;
+border-radius: 5px;
+border: 1px solid white;
+margin-top: 10px;
+}
+.iporecommendation-lock-icon img {
+    width: 35px;
+    height: 35px;
+}
+
+.avoidipo, .applyipo {
+    font-size: 10px; /* Even smaller buttons */
+    padding: 6px 12px;
+}
+
+
+  .avoidipo {
+      margin-left: 0;
+  }
+
+  .applyipo {
+      margin-left: 0;
+  }
+
+  .ipoupcomsubs {
+    font-size: 16px;
+    margin-left: 0px;
+    text-align: center;
+    margin-bottom: 90px;
+    width: 41%;
+    margin-top: -20px;
+}
+}
+
+/* Mobile View at 480px */
+@media (max-width: 480px) {
+  .iporecommendation-container {
+      margin-left: 10px; /* Further reduce margin */
+      max-width: 100%;
+  }
+
+  .iporecommendation-title {
+    font-size: 18px;
+    margin-left: -10px;
+}
+
+.iporecommendation-box {
+  padding: 4px;
+  width: 32%;
+  margin-left: -20px;
+}
+.avoidiposubss {
+  background-color: #e61f11;
+  color: white;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid white;
+  margin-top: 10px;
+}
+  .iporecommendation-lock-icon img {
+      width: 35px;
+      height: 35px;
+  }
+
+  .avoidipo, .applyipo {
+      font-size: 10px; /* Even smaller buttons */
+      padding: 6px 12px;
+  }
+
+  .ipoupcomsubs {
+    font-size: 16px;
+    margin-left: -20px;
+    text-align: center;
+    margin-bottom: 90px;
+    width: 33%;
+    margin-top: 0px;
+}
+}

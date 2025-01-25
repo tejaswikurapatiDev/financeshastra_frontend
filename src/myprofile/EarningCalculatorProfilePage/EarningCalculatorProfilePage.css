@@ -1,147 +1,282 @@
 .earningcalculatorprofilepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'calibri';
+  margin: 20px;
+  background-color: #F5F4FA;
+  /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #DBD7F1;
+  border: 1px solid #cccccc;
+
+
+}
+
+.earningcalculatorprofilepage-content {
+  display: flex;
+
+  gap: 30px;
+
+  padding: 20px;
+  background-color: #F5F4FA;
+  /* Light background */
+
+  width: 80%;
+  height: 290px;
+}
+
+.earningcalculatorprofilepage-sliders {
+  flex: 1;
+}
+
+.earningcalculatorprofilepage-slider-group {
+  margin-bottom: 20px;
+}
+
+.earningcalculatorprofilepage-slider-group p {
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+.earningcalculatorprofilepage-slider {
+  width: 80%;
+  margin-right: 10px;
+  appearance: none;
+  height: 8px;
+  border-radius: 4px;
+  background: #ccc;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.earningcalculatorprofilepage-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #24b676;
+  cursor: pointer;
+}
+
+.earningcalculatorprofilepage-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #24b676;
+  cursor: pointer;
+}
+
+.earningcalculatorprofilepage-number-input {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 4px;
+  text-align: center;
+  background-color: #F5F4FA;
+}
+
+.earningcalculatorprofilepage-summary {
+  flex: 1;
+  text-align: left;
+  padding: 10px;
+  background-color: #F5F4FA;
+  /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #DBD7F1;
+  border: 1px solid #cccccc;
+
+  /* Adjust dimensions */
+  height: auto;
+  /* Use this if content dictates height */
+  width: 80%;
+  /* Increase width (adjust percentage or set a specific value like 600px) */
+  max-width: 800px;
+  /* Optional: Set a maximum width */
+  margin: 0 auto;
+  /* Centers the element horizontally */
+}
+
+
+.earningcalculatorprofilepage-summary h3,
+.earningcalculatorprofilepage-summary h2 {
+  margin: 10px 0;
+}
+
+.earningcalculatorprofilepage-summary hr {
+  margin: 15px 0;
+  border: 0.5px solid #ddd;
+}
+
+.earningcalculatorprofilepage-disclaimer {
+  font-size: 16px;
+  color: red;
+  margin-left: 600px;
+}
+
+.earningcalculatorprofilepage-refer-button {
+  background-color: #24b676;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.earningcalculatorprofilepage-refer-button:hover {
+  background-color: #45a049;
+}
+
+.earningcalculatorprofilepage-summaryh3 {
+  text-align: center;
+  color: #333;
+  font-size: 18px;
+}
+
+.earningcalculatorprofilepage-summaryh4 {
+  font-size: 16px;
+  color: #24b676;
+  text-align: center;
+}
+
+.earningcalculatorprofilepage-row {
+  display: flex;
+  justify-content: space-between;
+  /* Distributes items evenly with space between */
+  flex-wrap: wrap;
+  /* Ensures the items wrap if the container is too small */
+  gap: 10px;
+  /* Adds some spacing between the items */
+}
+
+.earningcalculatorprofilepage-row p {
+  flex: 1;
+  /* Ensures equal width for each <p> */
+  text-align: center;
+  /* Centers the text inside each <p> */
+  margin: 0;
+  /* Removes default margins */
+  font-size: 16px;
+  color: black;
+}
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .earningcalculatorprofilepage-content {
+    flex-direction: column;
+    /* Stack the sliders and summary vertically */
+    height: auto;
+    /* Allow height to adjust automatically */
+    width: 90%;
+    /* Reduce width for better fit on smaller screens */
+    gap: 20px;
+    /* Reduce the gap between elements */
+  }
+
+  .earningcalculatorprofilepage-summary {
+    padding: 10px;
+    width: 93%;
+  }
+
+  .earningcalculatorprofilepage-slider {
+    width: 100%;
+    /* Adjust slider width to fit smaller screens */
+  }
+
+  .earningcalculatorprofilepage-number-input {
+    width: 50px;
+    margin-top: 5px;
+    /* Reduce input size */
+  }
+
+  .earningcalculatorprofilepage-disclaimer {
+    margin-left: 0;
+    /* Center disclaimer */
+    text-align: center;
+    /* Align text to center */
+  }
+
+  .earningcalculatorprofilepage-refer-button {
+    font-size: 14px;
+    /* Reduce button font size */
+    padding: 8px 15px;
+    /* Adjust padding */
+  }
+  .earningcalculatorprofilepage-container {
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'calibri';
+    margin: 20px;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    border: 1px solid #cccccc;
+    width: 102%;
+    margin-left: -10px;
+}
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+  .earningcalculatorprofilepage-content {
+    padding: 10px;
+    /* Reduce padding */
+    gap: 10px;
+    /* Reduce gap between elements */
+  }
+
+  .earningcalculatorprofilepage-summary {
+    padding: 10px;
+    width: 93%;
+  }
+
+  .earningcalculatorprofilepage-summaryh3 {
+    font-size: 16px;
+    /* Adjust header font size */
+  }
+
+  .earningcalculatorprofilepage-summaryh4 {
+    font-size: 14px;
+    /* Adjust smaller header font size */
+  }
+
+  .earningcalculatorprofilepage-slider {
+    height: 6px;
+    /* Reduce slider height */
+  }
+
+  .earningcalculatorprofilepage-slider::-webkit-slider-thumb,
+  .earningcalculatorprofilepage-slider::-moz-range-thumb {
+    width: 16px;
+    /* Reduce thumb size */
+    height: 16px;
+    /* Reduce thumb size */
+  }
+
+  .earningcalculatorprofilepage-number-input {
+    width: 45px;
+    margin-top: 5px;
+  }
+  .earningcalculatorprofilepage-refer-button {
+    font-size: 12px;
+    padding: 9px 12px;
+}
+
+  .earningcalculatorprofilepage-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'calibri';
     margin: 20px;
-    background-color: #F5F4FA; /* Light background */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px #DBD7F1;
-    border: 1px solid #cccccc;
-  
-    
-  }
-  
-  .earningcalculatorprofilepage-content {
-    display: flex;
-   
-    gap: 30px;
-   
-    padding: 20px;
-    background-color: #F5F4FA; /* Light background */
-  
-    width: 80%;
-    height: 290px;
-  }
-  
-  .earningcalculatorprofilepage-sliders {
-    flex: 1;
-  }
-  
-  .earningcalculatorprofilepage-slider-group {
-    margin-bottom: 20px;
-  }
-  
-  .earningcalculatorprofilepage-slider-group p {
-    margin: 0 0 10px;
-    font-weight: 600;
-  }
-  
-  .earningcalculatorprofilepage-slider {
-    width: 80%;
-    margin-right: 10px;
-    appearance: none;
-    height: 8px;
-    border-radius: 4px;
-    background: #ccc;
-    outline: none;
-    transition: background 0.3s;
-  }
-  
-  .earningcalculatorprofilepage-slider::-webkit-slider-thumb {
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #24b676;
-    cursor: pointer;
-  }
-  
-  .earningcalculatorprofilepage-slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #24b676;
-    cursor: pointer;
-  }
-  
-  .earningcalculatorprofilepage-number-input {
-    width: 60px;
-    padding: 5px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    text-align: center;
     background-color: #F5F4FA;
-  }
-  .earningcalculatorprofilepage-summary {
-    flex: 1;
-    text-align: left;
-    padding: 10px;
-    background-color: #F5F4FA; /* Light background */
     border-radius: 10px;
     box-shadow: 0 4px 6px #DBD7F1;
     border: 1px solid #cccccc;
-    
-    /* Adjust dimensions */
-    height: auto; /* Use this if content dictates height */
-    width: 80%; /* Increase width (adjust percentage or set a specific value like 600px) */
-    max-width: 800px; /* Optional: Set a maximum width */
-    margin: 0 auto; /* Centers the element horizontally */
+    width: 102%;
+    margin-left: -10px;
   }
-  
-  
-  .earningcalculatorprofilepage-summary h3,
-  .earningcalculatorprofilepage-summary h2 {
-    margin: 10px 0;
-  }
-  
-  .earningcalculatorprofilepage-summary hr {
-    margin: 15px 0;
-    border: 0.5px solid #ddd;
-  }
-  
-  .earningcalculatorprofilepage-disclaimer {
-    font-size: 16px;
-    color: red;
-    margin-left: 600px;
-  }
-  
-  .earningcalculatorprofilepage-refer-button {
-    background-color: #24b676;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-   margin-bottom: 20px;
-  }
-  
-  .earningcalculatorprofilepage-refer-button:hover {
-    background-color: #45a049;
-  }
-  .earningcalculatorprofilepage-summaryh3{
-    text-align: center;
-    color:#333;
-    font-size: 18px;
-  }
-  .earningcalculatorprofilepage-summaryh4{
-    font-size: 16px;
-    color: #24b676;
-    text-align: center;
-  }
-  .earningcalculatorprofilepage-row {
-    display: flex;
-    justify-content: space-between; /* Distributes items evenly with space between */
-    flex-wrap: wrap; /* Ensures the items wrap if the container is too small */
-    gap: 10px; /* Adds some spacing between the items */
-  }
-  
-  .earningcalculatorprofilepage-row p {
-    flex: 1; /* Ensures equal width for each <p> */
-    text-align: center; /* Centers the text inside each <p> */
-    margin: 0; /* Removes default margins */
-    font-size: 16px;
-    color: black;
-  }
-  
+}

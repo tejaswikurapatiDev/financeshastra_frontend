@@ -144,7 +144,7 @@ import ReferMoreProfilePages from "./myprofile/ReferMoreProfilePages/ReferMorePr
 import EarningCalculatorProfilePage from "./myprofile/EarningCalculatorProfilePage/EarningCalculatorProfilePage";
 import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/ReffeerralProfilePageSSS";
 import FAQS from "./FAQS/FAQS";
-import UserDetails from "./myprofile/UserDetails/UserDetails";
+
 import SessionHistory from "./myprofile/SessionHistory/SessionHistory";
 import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 import OrderTable from "./myprofile/OrderTable/OrderTable";
@@ -169,9 +169,10 @@ import AnnuallyPremiumSubscriptionPages from "./Subscription/AnnuallyPremiumSubs
 import AnnuallyPremiumPaypalProfilePage from "./Subscription/AnnuallyPremiumPaypalProfilePage/AnnuallyPremiumPaypalProfilePage";
 import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/AnnuallyPremiumUPIPage";
 import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
-import SipCalculatorAccountPages from "./Account/SipCalculatorAccountPages/SipCalculatorAccountPages";
-import AccountAllMutualFundList from "./Account/AccountAllMutualFundList/AccountAllMutualFundList";
-import SipCalculatorAllMutual from "./Account/SipCalculatorAllMutual/sipcalculatorallmutual";
+
+import Accountsipallpage from "./Account/Accountsipallpage";
+import StocksSmartSIPPS from "./StocksSmartSIPPS/StocksSmartSIPPS";
+
 
 
 
@@ -318,7 +319,7 @@ function App() {
       <Route path="/earningCalculatorProfilePage" element={<EarningCalculatorProfilePage/>}/>
       <Route path="/reffeerralProfilePageSSS" element={<ReffeerralProfilePageSSS/>}/>
       <Route path="/fAQS" element={<FAQS/>}/>
-      <Route path="/userDetails" element={<UserDetails/>}/>
+  
      
       <Route path="/sessionHistory" element={<SessionHistory/>}/>
       <Route path="/accountSettings" element={<AccountSettings/>}/>
@@ -345,7 +346,9 @@ function App() {
       <Route path="/annuallyPremiumPaypalProfilePage" element={<AnnuallyPremiumPaypalProfilePage/>}/>
       <Route path="/annuallyPremiumUPIPage" element={<AnnuallyPremiumUPIPage/>}/>
       <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
-      <Route path="/sipCalculatorAccountPages" element={<SipCalculatorAllMutual/>}/>
+      <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
+      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+     
      
       
      

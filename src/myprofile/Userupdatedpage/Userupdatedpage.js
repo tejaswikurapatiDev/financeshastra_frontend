@@ -74,7 +74,7 @@ const UserDetailsupdate = () => {
   };
 
   return (
-    <div className="userDetails">
+    <div className="userDetailss">
       <h1 className="profilepage-title">My profile</h1>
       <div className="profilepage-tabsorderusers">
         <span className="profilepage-tabb"

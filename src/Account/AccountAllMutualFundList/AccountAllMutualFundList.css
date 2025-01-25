@@ -95,4 +95,63 @@
   .accountallmutualfundlist-button:hover {
     background-color: #1f9e5b;
   }
-  
+  /* For screens with width 768px or less */
+@media (max-width: 768px) {
+  .accountallmutualfundlist-container {
+    width: 130%; /* Full width minus some padding */
+    margin: 20px auto; /* Center the container */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .accountallmutualfundlist-chart {
+    width: 150px; /* Smaller chart for smaller screens */
+    height: 150px;
+  }
+
+  .accountallmutualfundlist-legend {
+    flex-wrap: wrap; /* Allow wrapping for smaller width */
+    gap: 10px;
+  }
+
+  .accountallmutualfundlist-button {
+    width: 50%; /* Expand button width */
+    margin-left:80px;
+   
+  }
+}
+
+/* For screens with width 480px or less */
+@media (max-width: 480px) {
+  .accountallmutualfundlist-container {
+    width: 117%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+  .accountallmutualfundlist-chart {
+    width: 120px; /* Further reduce chart size */
+    height: 120px;
+  }
+
+  .accountallmutualfundlist-legend {
+    flex-direction: row; /* Stack legend items vertically */
+    align-items: center;
+    gap: 8px;
+  }
+
+  .accountallmutualfundlist-legend-item {
+    font-size: 10px; /* Smaller font size */
+  }
+
+  .accountallmutualfundlist-row {
+    flex-direction: row; /* Stack rows vertically */
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .accountallmutualfundlist-button {
+    width: 60%;
+    margin-left: 50px;
+    /* margin-right: auto; */
+}
+}
