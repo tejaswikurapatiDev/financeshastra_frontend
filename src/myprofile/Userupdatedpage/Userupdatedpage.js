@@ -74,7 +74,8 @@ const UserDetailsupdate = () => {
   };
 
   return (
-    <div className="userDetails">
+    <div>
+    <div className="userDetailss">
       <h1 className="profilepage-title">My profile</h1>
       <div className="profilepage-tabsorderusers">
         <span className="profilepage-tabb"
@@ -82,15 +83,15 @@ const UserDetailsupdate = () => {
           borderBottom: "2px solid #24b676",
           fontWeight: "bold",
           color: "#24b676",
-        }} onClick={() => navigate("/userDetailsupdate")}>My Account</span>
+        }}>My Account</span>
         <span
           className="profilepage-tabb"
           onClick={() => navigate("/orderTable")}
         >
           Orders
         </span>
-        <span className="profilepage-tabb"  onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
-        <span className="profilepage-tabb"  onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+        <span className="profilepage-tabb">Billing & Subscription</span>
+        <span className="profilepage-tabb">Risk Profile Report</span>
         <span
           className="profilepage-tabb"
           onClick={() => navigate("/managealert")}
@@ -105,7 +106,7 @@ const UserDetailsupdate = () => {
           Password & Security
         </span>
         <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
-        <span className="profilepage-tabb"  onClick={() => navigate("/myReferalPage")}>My referrals</span>
+        <span className="profilepage-tabb">My referrals</span>
       </div>
 
 
@@ -198,10 +199,12 @@ const UserDetailsupdate = () => {
           <BiSolidEdit />
         </div>
       </div>
-    
+
       <Navbar />
-      <FooterForAllPage/>
-     
+    </div>
+    <div className="foooterpagesattt">
+    <FooterForAllPage/>
+  </div>
     </div>
   );
 };

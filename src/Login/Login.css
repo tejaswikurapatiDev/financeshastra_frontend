@@ -233,28 +233,53 @@ gap: 310px;
 .Googlelink-btn {
   font-size: 12px;
   font-weight: bold;
-  color: #0077b5; /* LinkedIn Blue */
-height: 50px;
+ /* LinkedIn Blue */
+height: 40px;
   box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548); /* Subtle shadow effect */
   width: 218px;
-  margin: 0.9rem 0;
+border: 1px solid white;
 }
 
 .Googlelink-btn:hover {
   background-color: #0077b5;
   color: white;
-  border: 1px solid #005582; /* Darker shade for hover */
+  
 }
-.Googleall-btn{
+
+.nsm7Bb-HzV7m-LgbsSe {
+  
+  width: 218px;
+  margin-left: 170px;
+  color: #0077b5; /* LinkedIn Blue */
   font-size: 10px;
   font-weight: bold;
-  color: #0077b5; /* LinkedIn Blue */
-height: 50px;
-  box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548); /* Subtle shadow effect */
-  width: 218px;
-
+    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
+    margin-bottom: -19px;
+    border: 1px solid #005582;
 }
-.Googleall-btn:hover {
+
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+ 
+  width: 218px;
+  margin-left: 170px;
+  color: #0077b5; /* LinkedIn Blue */
+  font-size: 10px;
+  font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
+    margin-bottom: -19px;
+    border: 1px solid #005582;
+}
+.Googlealll-btn{
+  width: 218px;
+  margin-left: 170px;
+  color: #0077b5; /* LinkedIn Blue */
+  font-size: 10px;
+  font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
+    margin-bottom: -19px;
+  
+}
+.nsm7Bb-HzV7m-LgbsSe:hover {
   background-color: #0077b5;
   color: white;
   border: 1px solid #005582; /* Darker shade for hover */
@@ -318,6 +343,9 @@ height: 50px;
     height: auto;
   }
 
+  .Googlealll-btn{
+    margin-left: 64px;
+    }
 .forgot-password-link {
   color: #007bff; /* Link color */
   cursor: pointer;
@@ -398,6 +426,33 @@ height: 50px;
   order: 2; 
 }
 
+
+.Googlealll-btn{
+margin-left: 56px;
+}
+.nsm7Bb-HzV7m-LgbsSe {
+  
+  width: 218px;
+  margin-left: 50px;
+  color: #0077b5; /* LinkedIn Blue */
+  font-size: 10px;
+  font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
+    margin-bottom: -19px;
+    border: 1px solid #005582;
+}
+
+.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
+ 
+  width: 218px;
+  margin-left: 50px;
+  color: #0077b5; /* LinkedIn Blue */
+  font-size: 10px;
+  font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
+    margin-bottom: -19px;
+    border: 1px solid #005582;
+}
 .login-options {
   display: flex;
 gap: 90px;

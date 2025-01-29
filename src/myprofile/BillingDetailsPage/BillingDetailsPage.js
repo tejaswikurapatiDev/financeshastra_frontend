@@ -93,6 +93,7 @@ const BillingDetailsPage = () => {
        
     
     return (
+      <div>
       <div className="profilepageee-container">
     
       <h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
@@ -310,9 +311,10 @@ const BillingDetailsPage = () => {
     </div>
         </div>
         <Navbar/>
+      
+        </div>
         <FooterForAllPage/>
         </div>
-      
     );
 };
 

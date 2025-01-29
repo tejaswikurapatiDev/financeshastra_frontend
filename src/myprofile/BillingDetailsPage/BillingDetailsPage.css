@@ -357,14 +357,15 @@
     .billing-detailspages-wrapper {
         display: flex;
         flex-direction: column;
+  
     }
 
     /* Payment options - First */
     .billing-detailspages-payment-options {
         justify-content: center;
-        flex-direction: row;
+        flex-direction: column;
         order: 1;
-        margin-right: 53px;
+      margin-left: 70px;
     }
     .payment-option-content {
       display: flex;
@@ -374,6 +375,12 @@
       width: 60px;
     
       
+    }
+    .custom-datepicker-input input {
+      border: none;
+      outline: none;
+      width: 100%;
+      background: transparent;
     }
     /* Card Form - Second */
     .billing-detailspages-card-form {
@@ -389,21 +396,23 @@
 
     /* Main Billing Container - Fourth */
     .billing-detailspages-container {
-        margin-left: 20px;
+        margin-left: -120px;
         padding: 15px;
         order: 4;
     }
 
     /* Payment Section - Fifth */
     .billing-detailspages-payment {
-        width: 90%;
+        width: 65%;
         padding: 15px;
         order: 5;
         margin-bottom: 60px;
     }
 
     /* Additional Styling for Inputs and Button */
-    
+    .billing-detailspages-card{
+      width: 65%
+    }
 
     .billing-detailspages-card-input {
         width: 100%;
@@ -430,8 +439,8 @@
 
     .billing-detailspages-iconnn {
         position: absolute;
-        top: 50%;
-        right: 10px;
+        top: 221%;
+        right: 252px;
         transform: translateY(-50%);
         color: #888;
     }
@@ -447,98 +456,81 @@
     
     .billing-detailspages-cvc-input {
       width: 50%;
-      margin-left: 210px;
+      margin-left: 0px;
     }
     .profilepage-tittlle{
       margin-left: 5px;
       font-size: 22px;
       color: #666;
     }
+    .billing-detailspages-card-expiry{
+      flex-direction: column;
+    }
+    .billing-detailspages-expiry input {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+ 
   }
   
-  
-  
   @media screen and (max-width: 480px) {
+    body, html {
+      overflow-x: hidden; /* Disable horizontal scrolling */
+    }
+  
     .billing-detailspages-container {
-      margin-left: 10px;
+      margin: 0 auto;
       padding: 10px;
+      width: 90%; /* Ensure container fits the viewport */
     }
   
     .billing-detailspages-card,
     .billing-detailspages-payment {
-      width: 85%;
+      width: 90%;
       padding: 10px;
+      margin: 0 auto; /* Center align elements */
     }
   
+     .billing-detailspages-payment {
+      margin-top: 30px;
+     }
     .billing-detailspages-payment-options {
-      flex-direction: row;
-        align-items: center;
-        width: 116px;
-        margin-left: 60px;
-    
+      flex-direction: column; /* Stack payment options vertically */
+      width: 80%;
+      margin: 0 auto;
     }
   
     .billing-detailspages-method {
-      width: 50%;
-      text-align: center;
+      width: 90%; /* Adjust width for smaller screens */
+     /* Center align */
     }
   
-    .billing-detailspages-card-input-container {
-      width: 100%;
+    .billing-detailspages-pay-button {
+      width: 90%;
+      margin: 10px auto; /* Center align */
     }
-    .billing-detailspages-card-input {
+  
+    .custom-datepicker-input {
       width: 100%;
-      margin-left: 0;
-  }
-
-  .billing-detailspages-cvc-input {
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  }
-
-  .billing-detailspages-pay-button {
-      width: 60%;
-      margin-left: auto;
-      margin-right: auto;
-  }
-
-  .custom-datepicker-input {
-      width: 130%;
-      margin-left: 1px;
-      margin-right: auto;
-  }
-
-  .billing-detailspages-iconnn {
+      margin: 0 auto;
+    }
+  
+    .billing-detailspages-card-icons {
       position: absolute;
       top: 50%;
-      right: 10px;
+      right: 20px;
       transform: translateY(-50%);
-      color: #888;
-  }
-
-  .billing-detailspages-card-icons {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 5px;
+      display: flex;
+      gap: 5px;
+    }
+    .billing-detailspages-cvc-input {
+      width: 65%;
+      margin-left: 0px;
+    }
   }
   
-  .billing-detailspages-cvc-input {
-    width: 100%;
-    margin-left: 1px;
-    margin-top: 10px;
-  }
-  .profilepage-tittlle{
-    margin-left: 5px;
-    font-size: 22px;
-    color: #666;
-  }
-  body {
-    overflow-x: hidden;
-    
-  }
-  
-}

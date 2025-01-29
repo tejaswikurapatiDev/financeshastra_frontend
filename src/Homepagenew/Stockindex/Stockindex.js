@@ -99,6 +99,30 @@ const Dashboardstockindex = () => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   const navigate = useNavigate();
 
+
+   const uniqueDashboardtableData = DashboardtableData.filter(
+      (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+    );
+  
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5; // Number of items per page
+  
+    // Calculate total pages
+    const totalPages = Math.ceil(uniqueDashboardtableData.length / itemsPerPage);
+  
+    // Pagination logic
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  
+  
+    // Handle page changes
+    const handlePageChange = (pageNumber) => {
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        setCurrentPage(pageNumber);
+      }
+    };
+ 
+
   // Sort function
   const handleSort = (column) => {
     let direction = "asc";
@@ -136,6 +160,7 @@ const Dashboardstockindex = () => {
     }
     return <PiCaretUpDownFill style={{ color: "black" }} />;
   };
+  const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className="DashboardMainPagetable-containerr">
@@ -279,7 +304,7 @@ const Dashboardstockindex = () => {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map((row) => (
+          {currentStocks.map((row) => (
             <tr key={row.id}>
               <td>{row.company}</td>
               <td>{row.ltp}</td>
@@ -305,6 +330,43 @@ const Dashboardstockindex = () => {
           ))}
         </tbody>
       </table>
+      </div>
+         {/* Pagination Section */}
+         <div className="pagination-containerrindex">
+        <div className="pagination-info">
+          {`Showing ${indexOfFirstItem + 1} to ${
+            indexOfLastItem > uniqueDashboardtableData.length
+              ? uniqueDashboardtableData.length
+              : indexOfLastItem
+          } of ${uniqueDashboardtableData.length} records`}
+        </div>
+        <div className="pagination-slider">
+          <button
+            className="pagination-button"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            &lt;
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              className={`pagination-button ${
+                currentPage === i + 1 ? "active-page" : ""
+              }`}
+              onClick={() => handlePageChange(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            className="pagination-button"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
     </div>
   );

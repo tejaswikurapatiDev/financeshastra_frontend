@@ -144,7 +144,7 @@ import ReferMoreProfilePages from "./myprofile/ReferMoreProfilePages/ReferMorePr
 import EarningCalculatorProfilePage from "./myprofile/EarningCalculatorProfilePage/EarningCalculatorProfilePage";
 import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/ReffeerralProfilePageSSS";
 import FAQS from "./FAQS/FAQS";
-import UserDetails from "./myprofile/UserDetails/UserDetails";
+
 import SessionHistory from "./myprofile/SessionHistory/SessionHistory";
 import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 import OrderTable from "./myprofile/OrderTable/OrderTable";
@@ -169,6 +169,13 @@ import AnnuallyPremiumSubscriptionPages from "./Subscription/AnnuallyPremiumSubs
 import AnnuallyPremiumPaypalProfilePage from "./Subscription/AnnuallyPremiumPaypalProfilePage/AnnuallyPremiumPaypalProfilePage";
 import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/AnnuallyPremiumUPIPage";
 import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
+import Accountsipallpage from "./Accountpages/Accountsipallpage/Accountsipallpage";
+import Lumpsumallpage from "./Accountpages/Lumpsumpage/Lumpsumallpage/Lumpsumallpage";
+import Fdallpages from "./Accountpages/Fdpages/Fdallpages/Fdallpages";
+import Rdallpages from "./Accountpages/Rdpages/Rdallpages/Rdallpages";
+import Ppfallpages from "./Accountpages/Ppfpages/Ppfallpages/Ppfallpages";
+import Cagrallpages from "./Accountpages/Cagrpages/Cagrallpages/Cagrallpages";
+import RevCagrallpages from "./Accountpages/Reversecagrpages/Revcagrallpages/Revcagrallpages";
 
 
 
@@ -315,7 +322,7 @@ function App() {
       <Route path="/earningCalculatorProfilePage" element={<EarningCalculatorProfilePage/>}/>
       <Route path="/reffeerralProfilePageSSS" element={<ReffeerralProfilePageSSS/>}/>
       <Route path="/fAQS" element={<FAQS/>}/>
-      <Route path="/userDetails" element={<UserDetails/>}/>
+    
      
       <Route path="/sessionHistory" element={<SessionHistory/>}/>
       <Route path="/accountSettings" element={<AccountSettings/>}/>
@@ -342,6 +349,13 @@ function App() {
       <Route path="/annuallyPremiumPaypalProfilePage" element={<AnnuallyPremiumPaypalProfilePage/>}/>
       <Route path="/annuallyPremiumUPIPage" element={<AnnuallyPremiumUPIPage/>}/>
       <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
+      <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
+      <Route path="/lumpsumallpage" element={<Lumpsumallpage/>}/>
+      <Route path="/fdallpages" element={<Fdallpages/>}/>
+      <Route path="/rdallpages" element={<Rdallpages/>}/>
+      <Route path="/ppfallpages" element={<Ppfallpages/>}/>
+      <Route path="/cagrallpages" element={<Cagrallpages/>}/>
+      <Route path="/revCagrallpages" element={<RevCagrallpages/>}/>
       
      
       

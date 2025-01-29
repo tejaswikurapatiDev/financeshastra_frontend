@@ -12,6 +12,13 @@ padding: 0 10px; /* Optional: Add padding on left and right to create space */
 width: 70%; /* Ensure the container takes up full width */
 }
 
+.pagination-containeranalyst{
+  display: flex;
+  gap: 850px;
+  align-items: center;
+  margin: 20px 0;
+
+}
 .tabnifty50-buttondash {
 font-size: 10px; /* Adjust font size for better fit */
 margin: 4px; /* Ensure no margin between buttons */
@@ -159,5 +166,12 @@ margin-top: 290px;
       width: 114%;
       margin-left: -20px;
       margin-top: -10px;
+  }
+  .pagination-containeranalyst{
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    margin: 20px 0;
+  
   }
 }

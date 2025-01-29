@@ -9,7 +9,13 @@
     overflow-x: auto;
     margin: 20px;
 }
-
+.pagination-containercalender {
+  display: flex;
+  gap: 820px;
+  align-items: center;
+  margin: 20px 0;
+  margin-left: 20px;
+}
 .DashboardMainPagetable-tablee {
     width: 98%;
     border-collapse: collapse;
@@ -175,6 +181,12 @@
           width: 170%;
           margin-left: -20px;
       }
-      
+      .pagination-containercalender {
+        display: flex;
+        gap: 120px;
+        align-items: center;
+       margin-left: 1px;
+    
+      }
       
         }

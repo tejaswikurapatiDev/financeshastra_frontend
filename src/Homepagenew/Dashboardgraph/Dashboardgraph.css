@@ -223,9 +223,9 @@ margin-bottom: 10px;
         padding: 20px; /* Adjust inner spacing */
         padding-bottom: 80px; /* Increase padding at the bottom */
         color: #333;
-        width: 420px; /* Maximum width */
+        width: 400px; /* Maximum width */
         margin-top: 5px;
-        margin-left: 20px; /* Left margin adjustment */
+        margin-left: 10px; /* Left margin adjustment */
         margin-bottom: 20px; /* Add extra spacing below the container */
         background-color: #f9f9f9;
         border: 1px solid #ddd; /* Light grey border */

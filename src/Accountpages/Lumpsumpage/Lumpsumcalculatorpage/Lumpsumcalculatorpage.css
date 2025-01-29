@@ -1,0 +1,116 @@
+.alllsipcontainerlumsum{
+    display: flex;
+    gap: 20px; /* Space between the child containers */
+    /* Distribute space evenly */
+   /* Allow wrapping on smaller screens */
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+   }
+  
+   .alllsiplum{
+    display: flex;
+    gap: 220px;
+ 
+  }
+  .alllsipratelum{
+    display: flex;
+    gap: 220px;
+  }
+  .alllsipmonthlylum{
+    display: flex;
+    gap: 260px;
+  }
+  .alllsipratelfd{
+    display: flex;
+    gap: 250px;
+  }
+  .lumsumm{
+    width: 530px;
+  }
+  .alllsipmonthlyfd{
+    display: flex;
+    gap: 260px;
+  }
+  .alllsipfd{
+    display: flex;
+    gap: 320px;
+  }
+  @media (max-width: 768px) {
+    .alllsipcontainerlumsum{
+        display: flex;
+        gap: 20px; /* Space between the child containers */
+        flex-direction: column;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-top: -20px;
+       }
+      
+       .alllsiplum{
+        display: flex;
+        gap: 100px;
+     
+      }
+      .alllsipratelum{
+        display: flex;
+        gap: 100px;
+      }
+      .alllsipmonthlylum{
+        display: flex;
+        gap: 110px;
+      }
+      .lumsumm{
+        width: 330px;
+      }
+      .alllsipratelfd{
+        display: flex;
+        gap: 150px;
+      }
+      .alllsipmonthlyfd{
+        display: flex;
+        gap: 110px;
+      }
+      .alllsipfd{
+        display: flex;
+        gap: 150px;
+      }
+  }
+  @media (max-width: 480px) {
+    .alllsipcontainerlumsum{
+        display: flex;
+        gap: 20px; /* Space between the child containers */
+        flex-direction: column;
+        padding: 10px;
+        margin-bottom: 20px;
+        margin-top: -20px;
+       }
+      
+       .alllsiplum{
+        display: flex;
+        gap: 40px;
+     
+      }
+      .alllsipratelum{
+        display: flex;
+        gap: 40px;
+      }
+      .alllsipmonthlylum{
+        display: flex;
+        gap: 40px;
+      }
+      .lumsumm{
+        width: 250px;
+      }
+      .alllsipmonthlyfd{
+        display: flex;
+        gap: 40px;
+      }
+      .alllsipratelfd{
+        display: flex;
+        gap: 70px;
+      }
+      .alllsipfd{
+        display: flex;
+        gap: 90px;
+      }
+  }

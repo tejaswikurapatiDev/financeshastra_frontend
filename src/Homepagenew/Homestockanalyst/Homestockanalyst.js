@@ -123,6 +123,22 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   
 
   
+ const [currentPage, setCurrentPage] = useState(1);
+ const itemsPerPage = 5; // Show 7 rows per page
+ 
+ // Calculate the current page's data
+ const indexOfLastItem = currentPage * itemsPerPage;
+ const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+ const currentStocks = stocks?.slice(indexOfFirstItem, indexOfLastItem) || [];
+ 
+ 
+ const totalPages = Math.ceil(stocks.length / itemsPerPage);
+ 
+ // Change page
+ const handlePageChange = (pageNumber) => {
+   setCurrentPage(pageNumber);
+ };
+ 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   
@@ -372,7 +388,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 </thead>
 
 <tbody>
-  {stocks.map((stock, index) => (
+  {currentStocks.map((stock, index) => (
     <tr key={index}>
      <td 
   className={`${activeTab === "company" ? "active-column" : ""}`}
@@ -425,7 +441,41 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
         {/* Pagination */}
       
-      
+      {/* Pagination Section */}
+<div className="pagination-containeranalyst">
+  <div className="pagination-info">
+    {`Showing ${indexOfFirstItem + 1} to ${
+      indexOfLastItem > stocks.length ? stocks.length : indexOfLastItem
+    } of ${stocks.length} records`}
+  </div>
+  <div className="pagination-slider">
+    <button
+      className="pagination-button"
+      disabled={currentPage === 1}
+      onClick={() => handlePageChange(currentPage - 1)}
+    >
+      &lt;
+    </button>
+    {Array.from({ length: totalPages }, (_, i) => (
+      <button
+        key={i + 1}
+        className={`pagination-button ${
+          currentPage === i + 1 ? "active-page" : ""
+        }`}
+        onClick={() => handlePageChange(i + 1)}
+      >
+        {i + 1}
+      </button>
+    ))}
+    <button
+      className="pagination-button"
+      disabled={currentPage === totalPages}
+      onClick={() => handlePageChange(currentPage + 1)}
+    >
+      &gt;
+    </button>
+  </div>
+</div>
        
 
         <Navbar />

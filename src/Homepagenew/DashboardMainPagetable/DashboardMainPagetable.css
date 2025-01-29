@@ -9,10 +9,17 @@
   margin-top: -240px;
 
 }
+.pagination-containerrsector {
+  display: flex;
+  gap: 810px;
+  align-items: center;
+  margin: 20px 0;
+}
 .DashboardMainPagetable-change{
 font-size: 14px;
 
 }
+
 
 body{
   overflow-x: hidden;
@@ -316,34 +323,8 @@ body{
     body{
       overflow-x: hidden;
     }
-    .DashboardMainPagetable-header {
-      display: flex
-;
-        gap: 2px;
-        margin-bottom: 0;
-        margin-top: -230px;
-        margin-left: -20px;
-        overflow-x: auto;
-        white-space: nowrap;
-        max-width: 200%;
-        box-sizing: border-box;
-        scrollbar-width: thick;
-        /* scrollbar-color: #ccc #f9f9f9;
-    }
-    
-    .DashboardMainPagetable-header::-webkit-scrollbar {
-      height: 8px; /* Height of the scrollbar */
-    }
-    
-    .DashboardMainPagetable-header::-webkit-scrollbar-thumb {
-      background-color: #ccc; /* Customize scrollbar thumb color */
-      border-radius: 4px; /* Rounded corners for scrollbar thumb */
-    }
-    
-    .DashboardMainPagetable-header::-webkit-scrollbar-track {
-      background-color: #f9f9f9; /* Scrollbar track background color */
-    }
-    
+
+
     .DashboardMainPagetable-tab {
       padding: 7px 10px;
       background: #e0e0e0;
@@ -357,7 +338,8 @@ body{
     
   
   .DashboardMainPagetable-tab:hover {
-      background: #d0d0d0; /* Slightly darker shade on hover */
+      background: #47e8a2;
+      color: white; /* Slightly darker shade on hover */
   }
   
   .DashboardMainPagetable-cards {
@@ -366,7 +348,7 @@ body{
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
-    margin-left: -5px;
+    margin-left: 30px;
     
   
 }
@@ -381,21 +363,9 @@ body{
   border-collapse: collapse;
   margin-top: 30px;
 }
-.DashboardMainPagetable-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 5px;
 
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-family: 'calibri';
-  flex: 0 1 calc(50% - 10px); /* Each card takes 50% of the width minus gap */
-  width: 130px;
-    box-sizing: border-box; /* Include padding and borders in width calculations */
-}
 .DashboardMainPagetable-card.custom-card-size {
-  width: 190px;
+  width: 220px;
   margin-left: 70px;
 }
 .DashboardMainPagetable-sector {
@@ -518,7 +488,7 @@ padding: 10px;
 
 .upgraph{
   display: flex;
-  margin-left: 40px;
+  margin-left: -10px;
 }
 .DashboardMainPagetable-table-container {
   overflow: auto; /* Enables both x and y axis scroll */
@@ -552,167 +522,262 @@ padding: 10px;
   text-align: left; /* Align text to the left */
 }
 
+.pagination-containerrsector {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  margin: 20px 0;
+}
+.FooterForAllPage-footerrr{
+  display: none;
+}
+.DashboardMainPagetable-header{
+  display: flex
+;
+        gap: 2px;
+        margin-bottom: 0;
+      
+        margin-left: 0px;
+        overflow-x: auto;
+        white-space: nowrap;
+        max-width: 87%;
+        box-sizing: border-box;
+        scrollbar-width: thick;
+    }
+    .DashboardMainPagetable-header::-webkit-scrollbar-thumb {
+      background-color: #ccc; /* Customize scrollbar thumb color */
+      border-radius: 4px; /* Rounded corners for scrollbar thumb */
+    }
+    
+    .DashboardMainPagetable-header::-webkit-scrollbar-track {
+      background-color: #f9f9f9; /* Scrollbar track background color */
+    }
 
   }
+  
+
+
+
+
+
   @media (max-width: 768px) {
     /* Main Container */
     .DashboardMainPagetable-container {
-      padding: 15px; /* Moderate padding for tablets */
+      padding: 10px; /* Reduced padding for smaller screens */
       font-family: 'calibri';
       background: white;
-      width: 90%; /* Slightly reduced width to fit better on tablets */
-      margin-left: auto; /* Center align horizontally */
-      margin-right: auto;
-      margin-top: -120px; /* Adjusted for better alignment on tablets */
-      box-sizing: border-box; /* Ensure padding is included in width */
+      width: 100%; /* Full width for mobile screens */
+      margin-left: 0; /* No left margin for mobile */
+      margin-top: -100px; /* Adjust alignment for smaller screens */
+      box-sizing: border-box; /* Include padding in width calculation */
     }
   
-
-
-.DashboardMainPagetable-tab:hover {
-  background: #d0d0d0; /* Slightly darker shade on hover */
-}
-
-
-.DashboardMainPagetable-card {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 16px;
-width: 150px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  font-family: 'calibri';
-}
-
-.sector-icon {
-  background-color: #ffcc80; /* Orange for IT */
-  margin-left: 29px;
-  width: 8%; /* Adjust size as needed */
-  height: 28%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-align-items: center;
-justify-content: center;
-padding: 10px;
-
- /* Centers the icon within the circle */
-
- /* Adds some spacing inside the circle */
-}
-
-.sectorenergy-icon{
-  background-color:#24b676; /* Yellow for Energy */
-  margin-left: 20px;
-  width: 8%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-
-.sectorhealth-icon {
-  background-color: #90caf9; /* Blue for Health */
-  margin-left: 20px;
-  width: 10%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-
-.sectorpower-icon{
-  background-color:rgb(228, 102, 102); /* Red for Power */
-  margin-left: 22px;
-  width: 10%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-
-.sectortextile-icon {
-  background-color:#ffcc80; /* Purple for Textiles */
-  margin-left: 22px;
-  width: 10%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-
-.sectorfinance-icon{
-  background-color: #24b676; /* Green for Finance */
-  margin-left: 20px;
-  width: 10%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-
-.sectortele-icon{
-  background-color:rgb(85, 85, 236); /* Teal for Telecommunication */
-  width: 8%; /* Adjust size as needed */
-  height: 25%; /* Adjust size as needed */
-  border-radius: 50%;
-  display: flex; /* Centers the icon within the circle */
-margin-left: 10px;
-align-items: center;
-justify-content: center;
-padding: 10px;
-}
-.DashboardMainPagetable-change{
-  margin-top: 15px;
-  font-size: 12px;
-}
-.DashboardMainPagetable-value{
-  font-size: 12px;
-}
-
-.upgraph{
-  display: flex;
-  margin-left: 15px;
-}
-.FooterForAllPage-footerrr{
-display: none;
-}
-
-
-
-.DashboardMainPagetable-table th {
-  position: sticky;
-  top: 0;
-  background-color: white;
-  font-weight: bold;
-  border-top: 2px solid #24b676;
-  border-bottom: 2px solid #24b676;
-  box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
-  font-size: 15px;
-  z-index: 2; /* Ensure it stays above table content */
-}
-.DashboardMainPagetable-table th,
-.DashboardMainPagetable-table td {
-  padding: 8px 12px; /* Add padding for spacing */
-  text-align: left; /* Align text to the left */
-}
-
-
-  }
+    body {
+      overflow-x: hidden; /* Prevent horizontal scrolling of the body */
+    }
   
+    .DashboardMainPagetable-header {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 0;
+      margin-top: -100px;
+      margin-left: 20px;
+      overflow-x: auto;
+      white-space: nowrap;
+      max-width: 100%;
+      box-sizing: border-box;
+      scrollbar-width: thick;
+    }
+  
+    /* Scrollbar Styling */
+    .DashboardMainPagetable-header::-webkit-scrollbar {
+      height: 8px; /* Height of the scrollbar */
+    }
+  
+    .DashboardMainPagetable-header::-webkit-scrollbar-thumb {
+      background-color: #ccc; /* Customize scrollbar thumb color */
+      border-radius: 4px; /* Rounded corners for scrollbar thumb */
+    }
+  
+    .DashboardMainPagetable-header::-webkit-scrollbar-track {
+      background-color: #f9f9f9; /* Scrollbar track background color */
+    }
+  
+    .DashboardMainPagetable-tab {
+      padding: 7px 10px;
+      background: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      flex-shrink: 0; /* Prevent shrinking */
+      white-space: nowrap; /* Keep tabs in a single line */
+    }
+  
+    .DashboardMainPagetable-tab:hover {
+      background: #d0d0d0; /* Slightly darker shade on hover */
+    }
+  
+    .DashboardMainPagetable-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      margin-left: 50px;
+    }
+  
+    .DashboardMainPagetable-table-container {
+      overflow-x: auto; /* Enables horizontal scrolling */
+      overflow-y: auto; /* Enables vertical scrolling if needed */
+      margin: 20px;
+      width: 100%; /* Adjust width to fill the container */
+      margin-left: -10px;
+      height: 200px; /* Set a fixed height for the table container */
+    }
+    
+    .DashboardMainPagetable-tableeee {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      overflow-x: auto;
+    }
+    
+    .DashboardMainPagetable-table th,
+    .DashboardMainPagetable-table td {
+      padding: 8px 12px; /* Add padding for spacing */
+      text-align: left; /* Align text to the left */
+      border: 1px solid #ddd; /* Add borders for visibility */
+    }
+    
+    .DashboardMainPagetable-table th {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      font-weight: bold;
+      border-top: 2px solid #24b676;
+      border-bottom: 2px solid #24b676;
+      box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
+      font-size: 15px;
+      z-index: 2; /* Ensure it stays above table content */
+    }
+    
+    .DashboardMainPagetable-card {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-family: 'calibri';
+      flex: 0 1 calc(50% - 10px); /* Each card takes 50% of the width minus gap */
+      width: 140px;
+      box-sizing: border-box; /* Include padding and borders in width calculations */
+    }
+  
+    .DashboardMainPagetable-card.custom-card-size {
+      width: 190px;
+      margin-left: 70px;
+    }
+  
+    /* Sector Icons */
+    .sector-icon,
+    .sectorenergy-icon,
+    .sectorhealth-icon,
+    .sectorpower-icon,
+    .sectortextile-icon,
+    .sectorfinance-icon,
+    .sectortele-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      padding: 10px;
+    }
+  
+    .sector-icon {
+      background-color: #ffcc80;
+      margin-left: 29px;
+      width: 8%;
+      height: 28%;
+    }
+  
+    .sectorenergy-icon {
+      background-color: #24b676;
+      margin-left: 20px;
+      width: 8%;
+      height: 25%;
+    }
+  
+    .sectorhealth-icon {
+      background-color: #90caf9;
+      margin-left: 20px;
+      width: 10%;
+      height: 25%;
+    }
+  
+    .sectorpower-icon {
+      background-color: rgb(228, 102, 102);
+      margin-left: 22px;
+      width: 10%;
+      height: 25%;
+    }
+  
+    .sectortextile-icon {
+      background-color: #ffcc80;
+      margin-left: 22px;
+      width: 10%;
+      height: 25%;
+    }
+  
+    .sectorfinance-icon {
+      background-color: #24b676;
+      margin-left: 20px;
+      width: 10%;
+      height: 25%;
+    }
+  
+    .sectortele-icon {
+      background-color: rgb(85, 85, 236);
+      margin-left: -9px;
+      width: 8%;
+      height: 25%;
+    }
+  
+    .DashboardMainPagetable-change {
+      margin-top: 15px;
+      font-size: 12px;
+    }
+  
+    .DashboardMainPagetable-value {
+      font-size: 12px;
+    }
+  
+    .upgraph {
+      display: flex;
+      margin-left: 0px;
+    }
+  
+   
+  
+    .DashboardMainPagetable-table th,
+    .DashboardMainPagetable-table td {
+      padding: 8px 12px; /* Add padding for spacing */
+      text-align: left; /* Align text to the left */
+ 
+    }
+  
+    .pagination-containerrsector {
+      display: flex;
+      gap: 80px;
+      align-items: center;
+      margin: 20px 0;
+    }
+    .FooterForAllPage-footerrr{
+display: none;
+    }
+    .DashboardMainPagetable-card.custom-card-size {
+      width: 320px;
+      margin-left: 70px;
+    }
+  }
   

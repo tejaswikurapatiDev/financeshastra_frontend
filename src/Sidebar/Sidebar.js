@@ -15,7 +15,7 @@ const Sidebar = () => {
                 <RiDashboardLine className="sideicon"/>Dashboard</a>
                 <a href="#portfolio" className="sidebar-item">
                 <GrAnalytics className="sideicon"/>Portfolio Analysis</a>
-                <a href="#watchlist" className="sidebar-item">
+                <a href="stockwatchlist" className="sidebar-item">
                 <BsBookmark className="sideicon"/>Watchlist</a>
                 <a href="#research" className="sidebar-item">
                 <LiaSearchengin className="sideicon"/>Research</a>
