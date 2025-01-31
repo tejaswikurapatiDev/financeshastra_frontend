@@ -1,0 +1,126 @@
+.landingpagesmartsip-container {
+    text-align: center;
+    background: url('../../assest/landingsmatrsipimg.png') no-repeat center center;
+    background-size: cover; /* Ensures full coverage of the background */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #cecece;
+    padding: 40px 20px;
+    font-family: 'calibri';
+    width: 100%;
+    margin-left: -10px;
+  }
+  
+  .landingpagesmartsip-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0349a8;
+    margin-bottom: 20px;
+  }
+  
+  .landingpagesmartsip-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .landingpagesmartsip-card {
+    position: relative;
+    background: #fff;
+    border-radius: 15px;
+    padding: 1px;
+    width: 300px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 2px solid transparent;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(110deg, #2b8048, #1e5da8);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+  
+  .landingpagesmartsip-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  
+  .landingpagesmartsip-card-description {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .landingpagesmartsip-button {
+    background-color: #24b676;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+  }
+  
+  .landingpagesmartsip-button:hover {
+    background-color: #2b8048;
+  }
+  /* Tablet View - max-width: 768px */
+@media (max-width: 768px) {
+  .landingpageadvantage-grid {
+      grid-template-columns: repeat(2, 1fr); /* Reduce columns to 2 */
+      gap: 15px;
+      width: 100%; /* Adjust to fit screen */
+      margin-left: 0; /* Remove extra margin */
+  }
+
+  .landingpageadvantage-card {
+      padding: 10px;
+  }
+
+  .landingpageadvantage-icon {
+      width: 60px; /* Reduce icon size */
+      height: 60px;
+  }
+
+  .landingpageadvantage-text {
+      font-size: 14px; /* Reduce font size */
+  }
+
+  .landingpageadvantage-title {
+      font-size: 20px; /* Adjust title size for tablets */
+  }
+}
+
+/* Mobile View - max-width: 480px */
+@media (max-width: 480px) {
+  .landingpageadvantage-grid {
+     
+      gap: 20px; /* Add spacing between cards */
+      width: 100%; /* Adjust to fit screen */
+      margin-left: 0; /* Remove extra margin */
+  }
+
+  .landingpageadvantage-card {
+      padding: 15px;
+  }
+
+  .landingpageadvantage-icon {
+      width: 50px; /* Further reduce icon size */
+      height: 50px;
+  }
+
+  .landingpageadvantage-text {
+      font-size: 12px; /* Further reduce font size */
+  }
+
+  .landingpageadvantage-title {
+      font-size: 18px; /* Adjust title size for smaller screens */
+  }
+}

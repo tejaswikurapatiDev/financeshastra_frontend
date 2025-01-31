@@ -1,8 +1,8 @@
 import React from "react";
 import "./StocksSmartSIPPS.css";
-import smartsipimg from '../assest/smartsipimg.jpeg';
-import Navbar from "../Navbar/Navbar";
-import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
+import smartsipimg from '../../assest/smartsipimg.jpeg';
+import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 function StocksSmartSIPPS() {
   return (

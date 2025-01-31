@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaBell, FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
+import { FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
+import { VscBell } from "react-icons/vsc";
 import { FaCircleQuestion } from "react-icons/fa6";
-import "./Navbar.css";
+import './Landingnavbar.css';
 import { PiHandCoins } from "react-icons/pi";
 import { useNavigate } from 'react-router-dom';
 import { RiHome5Fill } from 'react-icons/ri'; // Home Icon
@@ -10,10 +11,10 @@ import { RiBriefcase4Line } from "react-icons/ri";
 import { LuChartNoAxesCombined } from "react-icons/lu";
 
 
-import logo from "../assest/Logo design (1).png";
+import logo from "../../assest/Logo design (1).png";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Landingnavbar = () => {
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [footerStockDropdownOpen, setFooterStockDropdownOpen] = useState(false);
@@ -340,23 +341,21 @@ const Navbar = () => {
           <FaSearch className="search-icon" />
         </div>
 
-        <h4 className="subscritebutton" onClick={() => navigate('/pricehalf')} >
-          Subscribe
-        </h4>
-        <div className="navbar-icons">
-          <FaBell className="icon bell-icon" />
-          <div className="profile-section">
-            <li className="" ref={userDropdownRef} >
-              <Link to="#" onClick={toggleUserDropdown}>
-                <FaUserCircle className="iconuser-icon" />
+        <div className="landingnavbar-icons">
+  {/* Bell Icon */}
+  <VscBell className="landingnavbaricon bell-icon" />
 
-              </Link>
-              <span className="willamname">William</span>
-              {userDropdownOpen && renderUserDropdown()}
-            </li>
-          </div>
+  {/* Register Button */}
+  <button className="landingnavbar-buttonregister-button" onClick={() => navigate('/register')}>
+    Register
+  </button>
 
-        </div>
+  {/* Log in Button */}
+  <button className="landingnavbar-buttonlogin-button" onClick={() => navigate('/login')}>
+    Log in
+  </button>
+</div>
+
 
 
       </nav>
@@ -414,4 +413,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Landingnavbar;

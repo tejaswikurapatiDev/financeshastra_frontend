@@ -16,10 +16,11 @@
   }
   
   .NiftySectorWeightage-title {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     color: #333;
-  }
+    margin-left: 140px;
+}
   
   .NiftySectorWeightage-explore-btn {
     color: #24b676;
@@ -29,20 +30,24 @@
     font-size: 14px;
     font-weight: bold;
     margin-top: 20px;
+    margin-left: 100px;
     
   }
   
   /* Table Styling */
   .NiftySectorWeightage-table-wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
+    margin-left: 140px;
   }
   
   .NiftySectorWeightage-table {
     width: 100%;
     border-collapse: collapse;
-    
+   
   }
-  
+
+
+
   .NiftySectorWeightage-table thead {
     background-color: #f9f9f9;
   color: #333;

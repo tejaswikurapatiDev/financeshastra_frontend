@@ -2,7 +2,7 @@
     
 
 .screenerheader{
-    font-size: 20px;
+    font-size: 17px;
     margin-left: 160px;
     margin-top: 50px;
     font-family: 'calibri';
@@ -21,11 +21,11 @@
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
-    margin-right: 210px;
+    margin-right: 110px;
     margin-top: 50px;
 }
   .screenertablenifty{
-    width: 78%;
+    width: 82%;
     border-collapse: collapse;
     margin-left: 160px;
     font-family: 'calibri';

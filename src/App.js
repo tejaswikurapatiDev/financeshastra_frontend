@@ -171,7 +171,13 @@ import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/Annual
 import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
 
 import Accountsipallpage from "./Account/Accountsipallpage";
-import StocksSmartSIPPS from "./StocksSmartSIPPS/StocksSmartSIPPS";
+import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
+
+import LandingPage from "./Landingpages/Landingpage";
+import Landingnavbar from "./Landingpages/Landingnavbar/Landingnavbar";
+import WhyFinadvanceeducationnn from "./whyfinancespages/whyfinancespages";
+import WhyFinavisiontrusted from "./whyfinancespages/WhyFinavisiontrusted/WhyFinavisiontrusted";
+
 
 
 
@@ -184,7 +190,7 @@ import StocksSmartSIPPS from "./StocksSmartSIPPS/StocksSmartSIPPS";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/market" element={<Market/>} />
       <Route path="/gold" element={<GoldETF/>} />
       <Route path="/stock" element={<Stocktable/>} />
@@ -348,8 +354,15 @@ function App() {
       <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
       <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/" element={<LandingPage/>}/>
+      <Route path="/landingnavbar" element={<Landingnavbar/>}/>
+      <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn/>}/>
+      
      
-     
+    
+      
+      
+      
       
      
      

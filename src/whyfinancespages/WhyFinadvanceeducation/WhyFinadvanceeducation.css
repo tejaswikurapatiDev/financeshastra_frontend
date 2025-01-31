@@ -1,0 +1,13 @@
+.whyfinpersonalreal-containerr{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+   
+    background-color: #ffff;
+   
+    font-family: 'calibri';
+    width: 60%;
+    margin-left: 300px;
+    margin-top: 30px;
+}

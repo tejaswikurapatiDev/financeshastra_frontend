@@ -191,9 +191,10 @@ a span {
 /* Chevron Icon */
 .chevron-icon {
   margin-left: 5px;
-  color: black;
+  color: #24b676;
   font-size: 14px;
   transition: transform 0.3s ease;
+ 
 }
 
 /* Logo styling */
@@ -234,12 +235,12 @@ a span {
 }
 
 .navbar-search input {
-  padding: 6px 12px 6px 30px; /* Add padding to make space for the icon */
-  border-radius: 15px;
-  border: 1px solid #cccccc;
-  font-size: 14px;
-  width: 200px; /* Adjust as needed */
-  height: 30px;
+  padding: 10px 12px 6px 30px; /* Add padding to make space for the icon */
+  border-radius: 6px;
+  border: 1px solid #333333;
+  font-size: 12px;
+  width: 220px; /* Adjust as needed */
+  height: 35px;
 }
 
 /* Search icon */
@@ -248,7 +249,7 @@ a span {
   left: 10px; /* Position on the left side inside input */
   top: 50%;
   transform: translateY(-50%);
-  color: #cccccc;
+  color: #333333;
   font-size: 14px; /* Adjust icon size */
 }
 
@@ -407,8 +408,11 @@ a span {
 .footer-nav a:hover {
   color: #24b676;
 }
+.navbar-links > li > a{
+  color: #24b676;
+}
 .navbar-links > li > a:hover {
-  color: #24b676; /* Change navbar link color on hover */
+  color:  #1d9d5b; /* Change navbar link color on hover */
 }
 
 .dropdown-item a:hover {

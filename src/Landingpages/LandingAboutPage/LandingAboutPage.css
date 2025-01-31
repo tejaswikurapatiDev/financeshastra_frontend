@@ -1,0 +1,113 @@
+/* Container */
+.landingaboutpage-container {
+    background: #f5f4fa;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'calibri';
+    border: 2px solid #cecece;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-left: -20px;
+    margin-bottom: 90px;
+  }
+  
+  /* Content Wrapper */
+  .landingaboutpage-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1200px;
+    gap: 30px;
+  }
+  
+  /* Left Section: Image */
+  .landingaboutpage-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+  }
+  
+  /* Right Section: Text */
+  .landingaboutpage-text {
+    flex: 1;
+  }
+  
+  .landingaboutpage-title {
+    font-size: 22px;
+    color: #0349a8;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .landingaboutpage-description,
+  .landingaboutpage-mission {
+    font-size: 15px;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  
+  .landingaboutpage-button {
+    background-color: #24b676;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  .landingaboutpage-button:hover {
+    background-color: #1d9d5b;
+  }
+  /* Media Query for screens <= 768px (Tablet and Mobile) */
+@media (max-width: 768px) {
+  .landingaboutpage-content {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+  }
+  
+  .landingaboutpage-image img {
+      max-width: 100%;
+  }
+  
+  .landingaboutpage-title {
+      font-size: 20px;
+  }
+  
+  .landingaboutpage-description,
+  .landingaboutpage-mission {
+      font-size: 14px;
+  }
+  
+  .landingaboutpage-button {
+      font-size: 16px;
+      padding: 12px 25px;
+  }
+}
+
+/* Media Query for screens <= 480px (Mobile) */
+@media (max-width: 480px) {
+  .landingaboutpage-container {
+      padding: 20px;
+  }
+
+  .landingaboutpage-title {
+      font-size: 18px;
+  }
+  
+  .landingaboutpage-description,
+  .landingaboutpage-mission {
+      font-size: 13px;
+  }
+  
+  .landingaboutpage-button {
+      font-size: 15px;
+      padding: 10px 20px;
+  }
+}

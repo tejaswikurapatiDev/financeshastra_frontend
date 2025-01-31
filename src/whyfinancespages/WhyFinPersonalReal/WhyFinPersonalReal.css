@@ -1,0 +1,69 @@
+.whyfinpersonalreal-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+   
+    background-color: #ffff;
+   
+    font-family: 'calibri';
+    width: 60%;
+    margin-left: 300px;
+  }
+  
+  .whyfinrealmarket-card {
+    background: #f5f4fa; /* 16% transparency */
+    padding: 20px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Increased width */
+    height: 90%; /* Increased height */
+    min-height: 500px; /* Ensures a minimum height */
+    margin: 0 auto; /* Centers the card */
+}
+
+.whyfinpersonalreal-card {
+    background: #f5f4fa; /* 16% transparency */
+    padding: 20px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Increased width */
+    height: 90%; /* Increased height */
+    min-height: 500px; /* Ensures a minimum height */
+    margin: 0 auto; /* Centers the card */
+   
+}
+
+  .whyfinpersonalreal-title,
+  .whyfinrealmarket-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    
+  }
+  
+  .whyfinpersonalreal-text,
+  .whyfinrealmarket-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .whyfinpersonalreal-img-container,
+  .whyfinrealmarket-img-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .whyfinpersonalreal-img,
+  .whyfinrealmarket-img {
+    width: 70%;
+    border-radius: 8px;
+    margin-top: 40px;
+  }
+  .whyfinrealmarket-img{
+    margin-top: 40px;
+  }
