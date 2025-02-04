@@ -1,0 +1,139 @@
+/* Wrapper container for everything */
+.sipcalculatorallmutual-wrapper {
+    background-color: white;
+    padding: 20px;
+    font-family: 'Calibri';
+  }
+  
+  /* Navigation bar styles */
+  .sipcalculatorallmutual-navbar {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-left: 190px;
+    font-family: 'Calibri';
+  }
+  .sipcalculatorallmutualh2{
+    color: black;
+    margin-left: 190px;
+    margin-top: 90px;
+  }
+  .sipcalculatorallmutual-navitem {
+    margin-right: 20px;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'calibri';
+  }
+  
+  .sipcalculatorallmutual-navitem.active {
+    color: #24b676;
+    font-weight: bold;
+    border-bottom: 2px solid #24b676;
+  }
+  
+  /* Main container */
+  .sipcalculatorallmutual-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start; /* Align items to the top */
+    padding: 10px;
+    background-color: white; /* Background color */
+    border-radius: 8px; /* Rounded edges */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    font-family: 'Calibri', sans-serif; /* Font style */
+    border: 4px solid rgb(233, 229, 229);
+    max-width: 950px; /* Set a max-width to reduce overall size */
+    margin: 70px auto; /* Center the container horizontally */
+    height: auto; /* Automatically adjusts based on content */
+  }
+  
+  /* Left content */
+  .sipcalculatorallmutual-left {
+    flex: 1; /* Take equal space */
+    max-width: 50%; /* Ensure the left side is not too large */
+  }
+  
+  /* Right content */
+  .sipcalculatorallmutual-right {
+    flex: 1; /* Take equal space */
+  }
+  /* Mobile view for 480px */
+  @media screen and (max-width: 480px) {
+    .sipcalculatorallmutual-navbar {
+      margin-left: 0;
+      padding-bottom: 8px;
+      overflow-x: auto;  /* Allow horizontal scrolling for the navbar */
+      white-space: nowrap; /* Prevent the navbar items from wrapping to the next line */
+    }
+  
+    .sipcalculatorallmutualh2 {
+      margin-left: 0;
+      margin-top: 40px;
+      font-size: 18px;
+    }
+  
+    .sipcalculatorallmutual-navitem {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  
+    .sipcalculatorallmutual-container {
+      flex-direction: column;
+      padding: 10px;
+      margin: 20px auto;
+      max-width: 100%;
+      gap: 10px;
+    }
+  
+    .sipcalculatorallmutual-left, .sipcalculatorallmutual-right {
+      max-width: 100%;
+      flex: 1;
+    }
+  
+    /* Prevent horizontal scrolling of the page */
+    body {
+      overflow-x: hidden;
+    }
+  }
+  
+  /* Mobile view for 768px */
+  @media screen and (max-width: 768px) {
+    .sipcalculatorallmutual-navbar {
+      margin-left: 0;
+      padding-bottom: 8px;
+      overflow-x: auto;  /* Allow horizontal scrolling for the navbar */
+      white-space: nowrap; /* Prevent the navbar items from wrapping to the next line */
+    }
+  
+    .sipcalculatorallmutualh2 {
+      margin-left: 0;
+      margin-top: 60px;
+      font-size: 20px;
+    }
+  
+    .sipcalculatorallmutual-navitem {
+      margin-right: 15px;
+      font-size: 15px;
+    }
+  
+    .sipcalculatorallmutual-container {
+      flex-direction: column;
+      padding: 15px;
+      margin: 40px auto;
+      max-width: 90%;
+      gap: 15px;
+    }
+  
+    .sipcalculatorallmutual-left, .sipcalculatorallmutual-right {
+      max-width: 100%;
+      flex: 1;
+    }
+  
+    /* Prevent horizontal scrolling of the page */
+    body {
+      overflow-x: hidden;
+    }
+  }

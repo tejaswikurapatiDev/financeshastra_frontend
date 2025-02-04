@@ -138,7 +138,7 @@ margin-left: 260px;
   }
 
   .modulelearncourse-card {
-      width: 100%;
+      width: 90%;
       flex-direction: column;
       align-items: flex-start;
   }
@@ -206,7 +206,7 @@ margin-left: 260px;
   }
 
   .modulelearncourse-card {
-      width: 100%;
+      width: 90%;
       flex-direction: column;
       padding: 10px;
   }
@@ -252,7 +252,7 @@ margin-left: 260px;
   }
 
   .modulelearncourse-instructor-bio {
-      font-size: 12px;
+      font-size: 15px;
   }
 
   /* For Module 3 and 4, adjust the duration margin for very small screens */

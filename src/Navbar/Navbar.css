@@ -463,6 +463,116 @@ a span {
   font-family: 'calibri';
 }
 
+
+
+
+
+
+
+
+
+
+
+
+.notificationall {
+  position: relative;
+  display: inline-block;
+  font-family: 'calibri';
+}
+
+.icon.bell-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.icon.bell-icon:hover {
+  color: #24b676;
+}
+
+.dropdown-content {
+  position: absolute;
+ left: -350px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  width: 450px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.notification-card {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.notification-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notification-header {
+  display: flex;
+
+}
+.notificationall-header{
+  display: flex;
+}
+
+.notification-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dotnotifyicon {
+  font-size: 30px;
+  color:#24b676;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.notification-details {
+  margin-top: 10px;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.notification-date {
+  font-size: 15px;
+  color: #777;
+  margin: 0;
+}
+
+.view-all {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  color: black;
+  text-decoration: underline; /* Adds underline to the text */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 /* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
@@ -566,7 +676,118 @@ a span {
     color: #24b676;
   }
   
+
+
+
+
+
+
+
+  
+  .notificationall {
+    position: relative;
+    display: inline-block;
+    font-family: 'calibri';
+  }
+  
+  .icon.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .icon.bell-icon:hover {
+    color: #24b676;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+   
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 450px;
+    max-height: 500px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+  }
+  
+  .notification-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header {
+    display: flex;
+  
+  }
+  .notificationall-header{
+    display: flex;
+  }
+  
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dotnotifyicon {
+    font-size: 30px;
+    color:#24b676;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  
+  .notification-details {
+    margin-top: 10px;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .notification-date {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+  }
+  
+  .view-all {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    color: black;
+    text-decoration: underline; /* Adds underline to the text */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
 }
+
+  
+ 
+  
+}
+
 
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
@@ -657,5 +878,120 @@ a span {
     vertical-align: middle;
     color: #24b676;
   }
+  
+
+
+
+
+
+
+
+
+
+  
+  .notificationall {
+    position: relative;
+    display: inline-block;
+    font-family: 'calibri';
+  }
+  
+  .icon.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .icon.bell-icon:hover {
+    color: #24b676;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 350px;
+    max-height: 500px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+    margin-left: 85px;
+  }
+  
+  .notification-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+    width: 330px;
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header {
+    display: flex;
+  
+  }
+  .notificationall-header{
+    display: flex;
+  }
+  
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dotnotifyicon {
+    font-size: 30px;
+    color:#24b676;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  
+  .notification-details {
+    margin-top: 10px;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .notification-date {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+  }
+  
+  .view-all {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    color: black;
+    text-decoration: underline; /* Adds underline to the text */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+  
+ 
+  
   
 }

@@ -4,9 +4,9 @@
  
  }
  .portfoliomutual-containerr {
-     font-family: 'calibri';
+    
      padding: 20px;
-     color: #333;
+     color: black;
      max-width:590px; /* Set a maximum width */
      margin: 0 auto; /* Center the container */
  /* Add left margin to prevent overlap with sidebar */
@@ -25,6 +25,7 @@
  .chartmutual-containerr{
      height: 330px;
      width: 600px;
+   
  }
  
  .time-rangemutual-selectorr {
@@ -39,6 +40,7 @@
    color: #24b676;
    font-size: 26px;
    margin-left: 30px;
+   font-family: 'calibri';
  }
  /* Responsive Styling for 768px */
  @media (max-width: 768px) {
@@ -165,8 +167,15 @@
  
    .time-rangemutual-selectorr {
      gap: 4px; /* Smaller gap on mobile */
+     margin-left: 90px; 
    }
-     
+   .chartmutual-containerr canvas {
+    width: 320px !important;  /* Set canvas width to 90% of the parent container */
+    height: 280px !important; /* Set canvas height to 250px */
+margin-left: 10px;
+font-size: 18px;
+color: black;
+  }
      
    }
    

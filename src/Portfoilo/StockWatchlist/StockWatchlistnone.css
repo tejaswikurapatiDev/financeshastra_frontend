@@ -6,12 +6,15 @@
  width:900px;
  height: auto;
  border-radius: 5px;
- margin-left: 180px;
+ margin-left: 100px;
 }
 .scheme-exchange-cell{
 display: flex;
 }
 
+.filters-sectionwatchlist{
+  font-family: 'calibri';
+}
 .watchlist-title {
   text-align: left;
   color: black;
@@ -57,6 +60,7 @@ display: flex;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  font-family: 'calibri';
 }
 
 
@@ -186,7 +190,7 @@ display: flex;
 
 /* Change Text Colors */
 .green {
-  color: green;
+  color: #24b676;
 }
 
 .red {
@@ -201,7 +205,7 @@ border: 1px solid rgb(127, 171, 225);
 border-radius: 8px;
 margin-left:100px;
 width:1200px;
-
+font-family: 'calibri';
 }
 /* Delete Button */
 .delete-btnwatchlist {
@@ -290,10 +294,12 @@ width:1200px;
     width: -webkit-fill-available;
     margin: 20px 0;
     padding: 10px;
+    margin-bottom: 130px;
   }
   
   .stock-tablewatchlist {
     font-size: 12px;
+ 
   }
 
   .stock-tablewatchlist th,
@@ -335,7 +341,7 @@ margin-top: 20px;
      margin-top: 50px;
       overflow-x: scroll/* Adjust container width */;
       width: -webkit-fill-available;
-      
+      margin-bottom: 130px;
        
   }
 

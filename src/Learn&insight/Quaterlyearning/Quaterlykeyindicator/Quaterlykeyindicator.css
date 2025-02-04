@@ -20,7 +20,7 @@
   /* Extra small screen view (max-width: 480px) */
   @media (max-width: 480px) {
     .key-indicators-cardd {
-      width: 100%; /* Full width for mobile */
+      width: 92%; /* Full width for mobile */
       height: auto; /* Auto height for better fitting */
       margin-left: 5px; /* Smaller margin */
       margin-right: 5px; /* Smaller margin */

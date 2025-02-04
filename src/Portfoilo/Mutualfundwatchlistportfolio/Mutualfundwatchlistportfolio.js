@@ -190,7 +190,7 @@ const MutualWatchlist = () => {
         </div>
       </div>
       <div className="content-containerwatchlist">
-        <div className="top-sectionswatchlist" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
+        <div className="top-sectionswatchlistmutual" >
           <div className="filters-sectionwatchlist">
             <span className="filter-labelwatchlist">FILTER:</span>
             <button className={`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`} onClick={() => setActiveFilter("All")}>

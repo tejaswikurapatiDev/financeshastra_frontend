@@ -194,15 +194,15 @@ margin-bottom: 10px;
   }
   
   .foooterpagesatt {
-    background-color: #f8f9fa; /* Example background color */
+ 
     text-align: center; /* Center-align content */
     padding: 10px; /* Example padding */
   /* Makes the footer fixed */
     bottom: 0; /* Positions the footer at the bottom */
     left: 0; /* Aligns it to the left edge */
-    width: 100%; /* Makes the footer span the entire width */
+  
     z-index: 1000; /* Ensures it's above other elements */
-    box-shadow: 0px -1px 5px rgba(0, 0, 0, 0.1); /* Optional shadow effect */
+    
   }
 
 @media (max-width: 768px) {
@@ -223,9 +223,9 @@ margin-bottom: 10px;
         padding: 20px; /* Adjust inner spacing */
         padding-bottom: 80px; /* Increase padding at the bottom */
         color: #333;
-        width: 420px; /* Maximum width */
+        width: 400px; /* Maximum width */
         margin-top: 5px;
-        margin-left: 20px; /* Left margin adjustment */
+        margin-left: 10px; /* Left margin adjustment */
         margin-bottom: 20px; /* Add extra spacing below the container */
         background-color: #f9f9f9;
         border: 1px solid #ddd; /* Light grey border */
@@ -317,9 +317,9 @@ margin-left: 0px;
         padding: 20px;
         padding-bottom: 80px;
         color: #333;
-        width: 320px;
+        width: 280px;
         margin-top: 5px;
-        margin-left: 10px;
+        margin-left: 15px;
         margin-bottom: 5px;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
@@ -407,7 +407,7 @@ margin-left: 0px;
             font-size: 14px;
         }
         .portfoliomutual-card {
-            width: 350px;
+            width: 300px;
             height: 290px;
             margin-left: -30px;
         }

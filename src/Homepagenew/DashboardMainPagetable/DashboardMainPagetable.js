@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useMemo } from "react";
 import "./DashboardMainPagetable.css";
 import { PiCaretUpDownFill } from "react-icons/pi";
 import icon1 from '../../assest/it.svg';
@@ -28,12 +28,37 @@ const DashboardtableData = [
   { id: 4, company: "ITI", ltp: 378.6, change: "15.41%", marketCap: "₹31,517", high: 403.8, low: 210.2, sector: "Telecom", pe: 0.0 },
   { id: 5, company: "Astrazeneca Pharma", ltp: 7328, change: "14.94%", marketCap: "₹15,939", high: 8139.9, low: 4050.2, sector: "Healthcare", pe: 194.57 },
   { id: 6, company: "Adani Total Gas", ltp: 755.4, change: "11.20%", marketCap: "₹74,710", high: 1198, low: 550.3, sector: "Power & Oil", pe: 107.83 },
+  { id: 6, company: "Adani Total Gas", ltp: 755.4, change: "11.20%", marketCap: "₹74,710", high: 1198, low: 550.3, sector: "Power & Oil", pe: 107.83 },
+ 
+ 
 ];
-
 
 const DashboardMainPagetable = () => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   const navigate = useNavigate();
+
+  // Sort function
+  const uniqueDashboardtableData = DashboardtableData.filter(
+    (item, index, self) => index === self.findIndex((t) => t.id === item.id)
+  );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5; // Number of items per page
+
+  // Calculate total pages
+  const totalPages = Math.ceil(uniqueDashboardtableData.length / itemsPerPage);
+
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+
+  // Handle page changes
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
 
   // Sort function
   const handleSort = (column) => {
@@ -44,8 +69,8 @@ const DashboardMainPagetable = () => {
     setSortConfig({ key: column, direction });
   };
 
-  // Sort the data based on the sortConfig
-  const sortedData = [...DashboardtableData].sort((a, b) => {
+  // Sort data
+  const sortedData = [...uniqueDashboardtableData].sort((a, b) => {
     if (sortConfig.key) {
       const aValue = a[sortConfig.key];
       const bValue = b[sortConfig.key];
@@ -75,9 +100,10 @@ const DashboardMainPagetable = () => {
     return <PiCaretUpDownFill style={{ color: "black" }} />;
   };
 
+  const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-header">
+      <div className="DashboardMainPagetable-headerrindexx">
         <button className="DashboardMainPagetable-tab active">Stock Sector</button>
         <button
       className="DashboardMainPagetable-tab"
@@ -185,63 +211,100 @@ const DashboardMainPagetable = () => {
 </div>
 
 
-<div className="DashboardMainPagetable-table-containerrrrr">
+<div className="DashboardMainPagetable-table-container">
 <table className="DashboardMainPagetable-tableeee">
         <thead>
-          <tr>
-            <th>Company</th>
-            <th onClick={() => handleSort("ltp")}>
-              LTP (₹) {renderSortIcon("ltp")}
-            </th>
-            <th onClick={() => handleSort("change")}>
-              Change % {renderSortIcon("change")}
-            </th>
-            <th onClick={() => handleSort("marketCap")}>
-              Market Cap (Cr) {renderSortIcon("marketCap")}
-            </th>
-            <th onClick={() => handleSort("high")}>
-              52W High (₹) {renderSortIcon("high")}
-            </th>
-            <th onClick={() => handleSort("low")}>
-              52W Low (₹) {renderSortIcon("low")}
-            </th>
-            <th onClick={() => handleSort("sector")}>
-              Sector {renderSortIcon("sector")}
-            </th>
-            <th onClick={() => handleSort("pe")}>
-              Current P/E {renderSortIcon("pe")}
-            </th>
-            <th>Clarification</th>
-          </tr>
+        <tr>
+              <th>Company</th>
+              <th onClick={() => handleSort("ltp")}>
+                LTP (₹) {renderSortIcon("ltp")}
+              </th>
+              <th onClick={() => handleSort("change")}>
+                Change % {renderSortIcon("change")}
+              </th>
+              <th onClick={() => handleSort("marketCap")}>
+                Market Cap (Cr) {renderSortIcon("marketCap")}
+              </th>
+              <th onClick={() => handleSort("high")}>
+                52W High (₹) {renderSortIcon("high")}
+              </th>
+              <th onClick={() => handleSort("low")}>
+                52W Low (₹) {renderSortIcon("low")}
+              </th>
+              <th onClick={() => handleSort("sector")}>
+                Sector {renderSortIcon("sector")}
+              </th>
+              <th onClick={() => handleSort("pe")}>
+                Current P/E {renderSortIcon("pe")}
+              </th>
+              <th>Clarification</th>
+            </tr>
         </thead>
         <tbody>
-          {sortedData.map((row) => (
-            <tr key={row.id}>
-              <td>{row.company}</td>
-              <td>{row.ltp}</td>
-              <td
-                className={
-                  parseFloat(row.change) > 0
-                    ? "DashboardMainPagetable-positive"
-                    : "DashboardMainPagetable-negative"
-                }
-              >
-                {row.change}
-              </td>
-              <td>{row.marketCap}</td>
-              <td>{row.high}</td>
-              <td>{row.low}</td>
-              <td>{row.sector}</td>
-              <td>{row.pe}</td>
-              <td>
-                <a href="#" className="clarification-link">
-                  Know more
-                </a>
-              </td>
-            </tr>
-          ))}
-        </tbody>
+            {currentStocks.map((row) => (
+              <tr key={row.id}>
+                <td>{row.company}</td>
+                <td>{row.ltp}</td>
+                <td
+                  className={
+                    parseFloat(row.change) > 0
+                      ? "DashboardMainPagetable-positive"
+                      : "DashboardMainPagetable-negative"
+                  }
+                >
+                  {row.change}
+                </td>
+                <td>{row.marketCap}</td>
+                <td>{row.high}</td>
+                <td>{row.low}</td>
+                <td>{row.sector}</td>
+                <td>{row.pe}</td>
+                <td>
+                  <a href="#" className="clarification-link">
+                    Know more
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
       </table>
+      </div>
+      {/* Pagination Section */}
+      <div className="pagination-containerrsector">
+        <div className="pagination-info">
+          {`Showing ${indexOfFirstItem + 1} to ${
+            indexOfLastItem > uniqueDashboardtableData.length
+              ? uniqueDashboardtableData.length
+              : indexOfLastItem
+          } of ${uniqueDashboardtableData.length} records`}
+        </div>
+        <div className="pagination-slider">
+          <button
+            className="pagination-button"
+            disabled={currentPage === 1}
+            onClick={() => handlePageChange(currentPage - 1)}
+          >
+            &lt;
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              key={i + 1}
+              className={`pagination-button ${
+                currentPage === i + 1 ? "active-page" : ""
+              }`}
+              onClick={() => handlePageChange(i + 1)}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            className="pagination-button"
+            disabled={currentPage === totalPages}
+            onClick={() => handlePageChange(currentPage + 1)}
+          >
+            &gt;
+          </button>
+        </div>
       </div>
     </div>
   );

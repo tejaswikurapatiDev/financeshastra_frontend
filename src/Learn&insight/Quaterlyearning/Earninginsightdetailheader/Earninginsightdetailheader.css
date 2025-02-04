@@ -144,3 +144,62 @@ margin-left: 0px;
 
 }
 
+
+
+/* For screens 768px and below */
+@media (max-width: 480px) {
+  .graphcontainer {
+    width: 98%; 
+    margin-left: 0;
+  
+    
+  }
+  
+  .graphheader h1 {
+    font-size: 20px;
+    margin-left: 0; 
+  }
+  
+  .graph-price-update {
+    
+  }
+  
+  .graphnavbar {
+  
+    margin-left: 0px;
+    margin-right: 40px;
+    
+  }
+  
+  .graphnavbar span, .graphnavbar a {
+    font-size: 14px; 
+  
+     
+  }
+  
+  .graphprice {
+    font-size: 20px; 
+  }
+  
+  .graphupdate {
+    font-size: 10px; 
+  }
+  
+  .graphstock-infoo {
+  margin-left: 0px;
+     
+  }
+  
+  .graphnse, .graphsector {
+    font-size: 12px; 
+    padding: 4px 8px; 
+  }
+  
+  .title-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  }
+  
+  

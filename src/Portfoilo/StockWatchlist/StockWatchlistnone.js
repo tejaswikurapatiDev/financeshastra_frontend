@@ -182,7 +182,7 @@ const StockWatchlist = () => {
          {/* Content Container */}
         
          <div className="content-containerwatchlist">
-          <div className="top-sectionswatchlist"style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
+          <div className="top-sectionswatchlistsectorr">
             {/* Filters Section */}
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>

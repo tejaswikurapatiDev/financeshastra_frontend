@@ -101,7 +101,7 @@
 }
 @media (max-width: 768px) {
   .Watchlistdashboardmain-container {
-    width: 410px;
+    width: 390px;
     background: #ffffff;
     border: 2px solid #e0e0e0; /* Add a border with a light gray color */
     border-radius: 8px;       /* Rounded corners */
@@ -109,13 +109,13 @@
     padding: 20px;
     font-family: 'Calibri';
     height: 420px;
-    margin-left: 5px;
+    margin-left: -5px;
   
   }
 }
 @media (max-width: 480px) {
   .Watchlistdashboardmain-container {
-    width: 320px;
+    width: 280px;
     background: #ffffff;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
@@ -123,7 +123,8 @@
     padding: 20px;
     font-family: 'Calibri';
     height: 400px;
-    margin-left: -10px;
+    margin-left: -1px;
+   
 
   }
   .Watchlistdashboardmain-name {

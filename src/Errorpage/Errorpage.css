@@ -1,0 +1,197 @@
+/* styles.css */
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    font-family: 'calibri';
+ 
+  }
+  
+  .error-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 105px;
+    margin-bottom: -26px;
+}
+
+  .error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .error-message {
+    font-size:20px;
+    color: #24b676;
+    font-weight: bold;
+    margin-top: -20px;
+  }
+  
+  .errorhomepage-button {
+    background: linear-gradient(to right, #24b676, #238486);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  
+  }
+  
+  .errorhomepage-button:hover {
+    background: linear-gradient(to right, #238486, #24b676);
+  }
+
+  .error-image {
+    width: 450px;
+    height: 350px;
+ 
+    margin: 0 auto 1rem;
+  }
+  @media (max-width: 768px) {
+    /* styles.css */
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    font-family: 'calibri';
+ 
+  }
+  
+  .error-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 105px;
+    margin-bottom: -26px;
+}
+
+  .error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .error-message {
+    font-size:24px;
+    color: #24b676;
+    font-weight: bold;
+    margin-top: -20px;
+  }
+  
+  .errorhomepage-button {
+    background: linear-gradient(to right, #24b676, #238486);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  
+  }
+  
+  .errorhomepage-button:hover {
+    background: linear-gradient(to right, #238486, #24b676);
+  }
+
+  .error-image {
+    width: 350px;
+    height: 350px;
+ 
+    margin: 0 auto 1rem;
+  }
+  }
+
+  @media (max-width: 480px) {
+    /* styles.css */
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    font-family: 'calibri';
+ 
+  }
+  
+  .error-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(to right, #24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 105px;
+    margin-bottom: -26px;
+}
+
+  .error-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .error-message {
+    font-size:20px;
+    color: #24b676;
+    font-weight: bold;
+    margin-top: -20px;
+  }
+  
+  .errorhomepage-button {
+    background: linear-gradient(to right, #24b676, #238486);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  
+  }
+  
+  .errorhomepage-button:hover {
+    background: linear-gradient(to right, #238486, #24b676);
+  }
+
+  .error-image {
+    width: 350px;
+    height: 350px;
+ 
+    margin: 0 auto 1rem;
+  }
+  }

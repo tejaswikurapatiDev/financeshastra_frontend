@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import 'react-datepicker/dist/react-datepicker.css';
 import ReactDatePicker from 'react-datepicker';
 import { FaRegCalendarAlt } from "react-icons/fa";
+import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 
 const EarningsInsightLearn = () => {
     const earningsData = [
@@ -451,6 +452,7 @@ const EarningsInsightLearn = () => {
     
        
         return (
+          
             <div className="customDropdown">
                 <label className="dropdownLabel">{label}</label>
                 <div className="dropdownSelect" onClick={() => setIsOpen(!isOpen)}>
@@ -506,6 +508,7 @@ const EarningsInsightLearn = () => {
 
   
     return (
+        <div>
         <div className="earnings-insight-learn-wrapper">
             <header className="earnings-insight-learn-header">
                 <h1 className="earnings-insight-learnh1">Quarterly Earning Results</h1>
@@ -634,6 +637,10 @@ const EarningsInsightLearn = () => {
             </table>
     <Navbar/>
         </div>
+         <div className="foooterpagesatt">
+         <FooterForAllPage />
+       </div>
+       </div>
     );
 };
 

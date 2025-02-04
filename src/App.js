@@ -170,10 +170,29 @@ import AnnuallyPremiumPaypalProfilePage from "./Subscription/AnnuallyPremiumPayp
 import AnnuallyPremiumUPIPage from "./Subscription/AnnuallyPremiumUPIPage/AnnuallyPremiumUPIPage";
 import AnnuallyPremiumScanPage from "./Subscription/AnnuallyPremiumScanPage/AnnuallyPremiumScanPage";
 
+import Lumpsumallpage from "./Accountpages/Lumpsumpage/Lumpsumallpage/Lumpsumallpage";
+import Fdallpages from "./Accountpages/Fdpages/Fdallpages/Fdallpages";
+import Rdallpages from "./Accountpages/Rdpages/Rdallpages/Rdallpages";
+import Ppfallpages from "./Accountpages/Ppfpages/Ppfallpages/Ppfallpages";
+import Cagrallpages from "./Accountpages/Cagrpages/Cagrallpages/Cagrallpages";
+import RevCagrallpages from "./Accountpages/Reversecagrpages/Revcagrallpages/Revcagrallpages";
+import FundTable from "./Accountpages/FundTable/FundTable";
+import ElssTable from "./Accountpages/Accountsipallpage/Elsstable/Elsstable";
+import Errorpage from "./Errorpage/Errorpage";
+import OverviewPortfolioManagergold from "./Portfoilo/Overviewportfoliomanager/Overviewportfoliomanager";
+import StocksThemes from "./Stockthemepages/Stockthemes/Stockthemes";
+import CargoalPlanner from "./Goalplannerpages/Cargoalcalculator/Cargoalcalculator";
+import GoalPlanner from "./Goalplannerpages/GoalPlanner/GoalPlanner";
+import Investgoalcalculate from "./Goalplannerpages/Investgoalcalculate/Investgoalcalculate";
+import Goalplannersubscribe from "./Goalplannerpages/Goalplannersubscribe/Goalplannersubscribe";
+import Goalplannerforallcalculator from "./Goalplannerpages/Goalplannerforallcalculator/Goalplannerforallcalculator";
+import HouseGoalPlanner from "./Goalplannerpages/HouseGoalPlanner/HouseGoalPlanner";
+
+
 import Accountsipallpage from "./Account/Accountsipallpage";
 import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 
-import LandingPage from "./Landingpages/Landingpage";
+
 import Landingnavbar from "./Landingpages/Landingnavbar/Landingnavbar";
 import WhyFinadvanceeducationnn from "./whyfinancespages/whyfinancespages";
 import Banksectorstocktheme from "./Stockthemepages/BankSectorStockTheme/BankSectorStockTheme";
@@ -182,6 +201,7 @@ import Stockthemeunlocknavbar from "./Stockthemepages/stockthemeunlocknavbar/sto
 import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/BankSectorThemePagelock";
 import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
 import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
+import LandingPage from "./Landingpages/Landingpage";
 
 
 
@@ -331,7 +351,11 @@ function App() {
       <Route path="/earningCalculatorProfilePage" element={<EarningCalculatorProfilePage/>}/>
       <Route path="/reffeerralProfilePageSSS" element={<ReffeerralProfilePageSSS/>}/>
       <Route path="/fAQS" element={<FAQS/>}/>
+
   
+
+    
+
      
       <Route path="/sessionHistory" element={<SessionHistory/>}/>
       <Route path="/accountSettings" element={<AccountSettings/>}/>
@@ -359,6 +383,7 @@ function App() {
       <Route path="/annuallyPremiumUPIPage" element={<AnnuallyPremiumUPIPage/>}/>
       <Route path="/annuallyPremiumScanPage" element={<AnnuallyPremiumScanPage/>}/>
       <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
+
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/landingnavbar" element={<Landingnavbar/>}/>
@@ -369,7 +394,27 @@ function App() {
       <Route path="/bankSectorThemePagelock" element={<BankSectorThemePagelock/>}/>
       <Route path="/stockThemesindustriesPages" element={< StockThemesindustriesPages/>}/>
       <Route path="/stockThemesindustrieslockPages" element={<StockThemesindustrieslockPages/>}/>
-      
+
+      <Route path="/lumpsumallpage" element={<Lumpsumallpage/>}/>
+      <Route path="/fdallpages" element={<Fdallpages/>}/>
+      <Route path="/rdallpages" element={<Rdallpages/>}/>
+      <Route path="/ppfallpages" element={<Ppfallpages/>}/>
+      <Route path="/cagrallpages" element={<Cagrallpages/>}/>
+      <Route path="/revCagrallpages" element={<RevCagrallpages/>}/>
+      <Route path="/fundTable" element={<FundTable/>}/>
+      <Route path="/elssTable" element={<ElssTable/>}/>
+      <Route path="/errorpage" element={<Errorpage/>}/>
+      <Route path="/overviewPortfolioManager" element={< OverviewPortfolioManagergold />} />
+      <Route path="/stocksThemes" element={< StocksThemes />} />
+      <Route path="/cargoalPlanner" element={< CargoalPlanner />} />
+      <Route path="/goalPlanner" element={<GoalPlanner/>} />
+      <Route path="/investgoalcalculate" element={<Investgoalcalculate/>} />
+      <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
+      <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
+      <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
+     
+    
+
      
       
       

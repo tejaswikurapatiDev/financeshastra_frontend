@@ -8,12 +8,25 @@ import { RiHome5Fill } from 'react-icons/ri'; // Home Icon
 import { SlBookOpen } from 'react-icons/sl'; // Book Icon
 import { RiBriefcase4Line } from "react-icons/ri";
 import { LuChartNoAxesCombined } from "react-icons/lu";
+import { LuDot } from "react-icons/lu";
+import notiimg1 from '../assest/fst1.webp';
+import notiimg2 from '../assest/mobile.png';
+import notiimg3 from '../assest/letter.png';
+import notiimg4 from '../assest/girl.jpg';
+import notiimg5 from '../assest/mm.jpeg';
+import notiimg6 from '../assest/smartphone.png';
+import notiimg7 from '../assest/video.png';
+import notiimg8 from '../assest/ipoo.webp';
+import notiimg9 from '../assest/images.jpg';
+import notiimg10 from '../assest/portra.webp';
 
 
 import logo from "../assest/Logo design (1).png";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
   const [footerStockDropdownOpen, setFooterStockDropdownOpen] = useState(false);
@@ -22,6 +35,24 @@ const Navbar = () => {
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] = useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] = useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
+    const notifications = [
+      { id: 1, img: notiimg1, title: "Upcoming Quadrant Future Tek IPO analysis", date: "Yesterday 11:15 AM" },
+      { id: 2, img: notiimg2, title: "Your number has been verified successfully.", date: "04 Jan, 2025 11:45 AM" },
+      { id: 3, img: notiimg3, title: "Your email has been verified successfully.", date: "04 Jan, 2025 12:30 PM" },
+      { id: 4, img: notiimg4, title: "Sara commented on blog", date: "01 Jan, 2025 08:15 AM" },
+      { id: 5, img: notiimg5, title: "Lucas commented on sanathans IPO", date: "28 Nov, 2024 11:15 AM" },
+      { id: 6, img: notiimg6, title: "You have new signing in android", date: "12 Nov, 2024 09:28 AM" },
+      { id: 7, img: notiimg7, title: "New courses available", date: "08 Nov, 2024 10:30 PM" },
+      { id: 8, img: notiimg8, title: "Upcoming Laxmi Dental IPO", date: "05 Nov, 2024 09:03 AM" },
+      { id: 9, img: notiimg9, title: "Your profile picture updated successfully.", date: "27 Oct, 2024 02:23 PM" },
+      { id: 10, img: notiimg10, title: "Upcoming IGI IPO", date: "25 Oct, 2024 08:48 AM" },
+      { id: 11, img: notiimg2, title: "Your number has been verified successfully.", date: "04 Jan, 2025 11:45 AM" },
+      { id: 12, img: notiimg3, title: "Your email has been verified successfully.", date: "04 Jan, 2025 12:30 PM" },
+      { id: 13, img: notiimg4, title: "Sara commented on blog", date: "01 Jan, 2025 08:15 AM" },
+      { id: 14, img: notiimg5, title: "Lucas commented on sanathans IPO", date: "28 Nov, 2024 11:15 AM" },
+      { id: 17, img: notiimg6, title: "You have new signing in android", date: "12 Nov, 2024 09:28 AM" },
+    ];
+    const displayedNotifications = showAll ? notifications : notifications.slice(0, 10);
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
@@ -31,6 +62,7 @@ const Navbar = () => {
   const portfolioDropdownRef = useRef(null);
   const mutualFundsDropdownRef = useRef(null);
   const learnDropdownRef = useRef(null);
+
 
 
   const toggleStockDropdown = () => {
@@ -186,10 +218,7 @@ const Navbar = () => {
         <Link to="/ipoComponent">IPO Details
           <p>Key Information on the Latest IPO Trends</p></Link>
       </div>
-      <div className="dropdown-item">
-        <Link to="/stockwatchlist">Market Insights
-          <p>Keep up with in-depth market insights</p></Link>
-      </div>
+     
       <div className="dropdown-item">
         <Link to="/earningsInsightLearn">Quarterly Earnings
           <p>Monitor thorough quarterly earnings summaries</p></Link>
@@ -344,7 +373,39 @@ const Navbar = () => {
           Subscribe
         </h4>
         <div className="navbar-icons">
-          <FaBell className="icon bell-icon" />
+         <div className="notificationall">
+              {/* Bell Icon */}
+              <FaBell className="icon bell-icon" onClick={() => setIsOpen(!isOpen)} />
+        
+              {/* Dropdown Content */}
+              {isOpen && (
+                <div className="dropdown-content">
+                  {displayedNotifications.map((notif) => (
+                    <div key={notif.id} className="notification-card">
+                      <div className="notification-header">
+                        <div className="notificationall-header">
+                          <div>
+                            <img src={notif.img} alt="Notification" className="notification-img" />
+                          </div>
+                        </div>
+                        <div className="notification-details">
+                          <p className="notification-title">{notif.title}</p>
+                          <p className="notification-date">{notif.date}</p>
+                        </div>
+                        <LuDot className="dotnotifyicon" />
+                      </div>
+                    </div>
+                  ))}
+        
+                  {/* View All Button */}
+                  {!showAll && (
+                    <button className="view-all" onClick={() => setShowAll(true)}>
+                      View all notifications
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
           <div className="profile-section">
             <li className="" ref={userDropdownRef} >
               <Link to="#" onClick={toggleUserDropdown}>

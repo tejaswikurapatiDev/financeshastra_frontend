@@ -5,6 +5,7 @@ import ModulecourseDetails from '../Modulelearncourse/Modulelearncourse';
 import Navbar from '../../../Navbar/Navbar';
 import Learncarddetailcourse from '../Learncarddetailcourse/Learncarddetailcourse';
 import FaqDropdown from '../Learnfaq/Learnfaq';
+import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
 
 
 const LearnCourseDetails = () => {
@@ -78,7 +79,11 @@ const LearnCourseDetails = () => {
     <ModulecourseDetails/>
     <FaqDropdown/>
     <Learncarddetailcourse/>
+    <div className="foooterpagesatt">
+      <FooterForAllPage />
     </div>
+    </div>
+     
   );
 };
 

@@ -98,6 +98,28 @@ const Stockcalender = () => {
             currentPE: "23.22",
             clarification: "Know more",
           },
+          {
+            company: "Bajaj Auto Ltd",
+            ltp: "₹4,721",
+            change: "4.92%",
+            marketCap: "₹1,36,254.9 Cr",
+            high52W: "5,192",
+            low52W: "3,720",
+            date: "12 Dec 2024",
+            currentPE: "20.17",
+            clarification: "Know more",
+          },
+          {
+            company: "Hindustan Aeronautics Ltd",
+            ltp: "₹3,565",
+            change: "6.14%",
+            marketCap: "₹1,19,802.5 Cr",
+            high52W: "4,231",
+            low52W: "2,912",
+            date: "25 Dec 2024",
+            currentPE: "14.76",
+            clarification: "Know more",
+          },
         ];
         
     
@@ -125,6 +147,20 @@ const Stockcalender = () => {
         setCalendarOpen(!calendarOpen);
     };
 
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+  
+    const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  
+    const handlePageChange = (pageNumber) => {
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        setCurrentPage(pageNumber);
+      }
+    };
+  
 
    
     const filterEarningsDataByDate = (earningsData, selectedEarningsTab, today = new Date()) => {
@@ -243,7 +279,8 @@ const filterData = (startDate, endDate) => {
 
 
 
-  
+const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+
     return (
       <div className="DashboardMainPagetable-container">
       <div className="DashboardMainPagetable-headercalculator">
@@ -341,7 +378,7 @@ const filterData = (startDate, endDate) => {
                 </thead>
                 <tbody>
   {earningsData.length > 0 ? (
-    sortedData.map((row, index) => (
+    currentStocks.map((row, index) => (
       <tr key={index}>
         <td>
           <a href={row.url} target="_blank" rel="noopener noreferrer">
@@ -385,6 +422,42 @@ const filterData = (startDate, endDate) => {
 
             </table>
             </div>
+         {/* Pagination Section */}
+<div className="pagination-containercalender">
+  <div className="pagination-info">
+    {`Showing ${indexOfFirstItem + 1} to ${
+      indexOfLastItem > sortedData.length ? sortedData.length : indexOfLastItem
+    } of ${sortedData.length} records`}
+  </div>
+  <div className="pagination-slider">
+    <button
+      className="pagination-button"
+      disabled={currentPage === 1}
+      onClick={() => handlePageChange(currentPage - 1)}
+    >
+      &lt;
+    </button>
+    {Array.from({ length: totalPages }, (_, i) => (
+      <button
+        key={i + 1}
+        className={`pagination-button ${
+          currentPage === i + 1 ? "active-page" : ""
+        }`}
+        onClick={() => handlePageChange(i + 1)}
+      >
+        {i + 1}
+      </button>
+    ))}
+    <button
+      className="pagination-button"
+      disabled={currentPage === totalPages}
+      onClick={() => handlePageChange(currentPage + 1)}
+    >
+      &gt;
+    </button>
+  </div>
+</div>
+
             </div>
     <Navbar/>
         </div>

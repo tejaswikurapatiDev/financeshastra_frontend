@@ -2,13 +2,14 @@
 .earnings-insight-learn-tablepeer {
     width: 95%;
   
-  
+  font-family: 'calibri';
     border-collapse: collapse;
 }
 .earningheaderrpeer{
     margin-left: 10px;
     font-size: 24px;
     color: #24b676;
+    font-family: 'calibri';
 }
 
 

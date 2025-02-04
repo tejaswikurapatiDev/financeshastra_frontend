@@ -1,0 +1,95 @@
+.plannergoalallcontainer {
+   font-family: 'calibri';
+    max-width: 1000px;
+  margin-bottom: 50px;
+  }
+  .allplannergoal{
+font-size: 26px;
+text-align: center;
+margin-left: 250px;
+margin-top: 120px;
+
+  }
+  
+  .plannergoalallcontaincalculator {
+    display: flex;
+  
+ 
+    gap: 190px; /* Adds space between the components */
+    margin-top: 20px;
+  }
+  
+  .allplannergoalpara{
+    text-align: center;
+    font-size: 15px;
+    margin-left: 250px;
+  }
+  /* Ensure both child divs take equal width */
+  @media (max-width: 768px) {
+    .plannergoalallcontainer {
+        font-family: 'calibri';
+         max-width: 100%;
+       margin-bottom: 50px;
+       }
+       .allplannergoal{
+     font-size: 24px;
+     text-align: center;
+     margin-left: 0px;
+     margin-top: 120px;
+     
+       }
+       
+       .plannergoalallcontaincalculator {
+         display: flex;
+       flex-direction: column;
+      
+         gap: 190px; /* Adds space between the components */
+         margin-top: 20px;
+       }
+       
+       .allplannergoalpara{
+         text-align: center;
+         font-size: 15px;
+         margin-left: 0px;
+       }
+       .ordercalculatorinvest{
+        order: 1;
+       }
+       .ordercalculatorinvestsubscribe{
+        order: 2;
+       }
+  }
+  @media (max-width: 480px) {
+    .plannergoalallcontainer {
+        font-family: 'calibri';
+         max-width: 90%;
+       margin-bottom: 50px;
+       }
+       .allplannergoal{
+     font-size: 24px;
+     text-align: center;
+     margin-left: 0px;
+     margin-top: 120px;
+     
+       }
+       
+       .plannergoalallcontaincalculator {
+         display: flex;
+       flex-direction: column;
+      
+         gap: 190px; /* Adds space between the components */
+         margin-top: 20px;
+       }
+       
+       .allplannergoalpara{
+         text-align: center;
+         font-size: 15px;
+         margin-left: 0px;
+       }
+       .ordercalculatorinvest{
+        order: 1;
+       }
+       .ordercalculatorinvestsubscribe{
+        order: 2;
+       }
+  }

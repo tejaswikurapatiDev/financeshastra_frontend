@@ -29,11 +29,12 @@ function QuaterelyOverview() {
         
       }}
     >
+       <Earninginsightheader/>
       {/* Navbar with scroll links */}
       <Navbar />
 
       {/* Graph Header */}
-     <Earninginsightheader/>
+    
 
     
 
@@ -42,9 +43,10 @@ function QuaterelyOverview() {
         <ul>
             <Link to="overview" smooth={true} duration={500}></Link>
          
-            <Link to="stockxray" smooth={true} duration={500}></Link>
+           
           
-            <Link to="stockearning" smooth={true} duration={500}></Link>
+            <Link to="financials" smooth={true} duration={500}></Link>
+            <Link to="income" smooth={true} duration={500}></Link>
           
             <Link to="valuation" smooth={true} duration={500}></Link>
           
@@ -82,7 +84,7 @@ function QuaterelyOverview() {
      
       </Element>
       {/* Section: Stock X-Ray */}
-      <Element name="stockearning">
+      <Element name="financials">
       <QuarterlyEarningsReport/>
       </Element>
 
@@ -112,7 +114,7 @@ function QuaterelyOverview() {
       </Element>
 
       {/* Section: Profit & Loss */}
-      <Element name="new">
+      <Element name="news">
       <QuaterlynewsList/>
       </Element>
 

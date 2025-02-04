@@ -13,7 +13,7 @@ height: 170px;
   }
 
   .newwmutual{
-    margin-left: 80px;
+    margin-left: 100px;
     margin-top: 120px;
     font-family: 'calibri';
     
@@ -199,7 +199,7 @@ height: 170px;
   
   /* Change Text Colors */
   .green {
-    color: green;
+    color: #24b676;
   }
   
   .red {
@@ -267,6 +267,36 @@ height: 170px;
     cursor: pointer; /* Show pointer on hover */
     margin-right: 8px; /* Space between radio button and text */
   }
+  .top-sectionswatchlist{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 740px;
+  }
+  .top-sectionswatchlistmutual{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 670px;
+  }
+  .top-sectionswatchlistsector{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 810px;
+  }
+  .top-sectionswatchlistsectorr{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 710px;
+  }
+  .top-sectionswatchlistall{
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    gap: 810px;
+  }
   @media (max-width: 768px) {
     .stocksector-watchlist {
       margin: 10px;
@@ -280,6 +310,30 @@ height: 170px;
     .filters-sectionwatchlist {
       display: flex; /* Enable flexbox for responsive layout */
       /* Slightly larger font size for tablets */
+    }
+    .top-sectionswatchlist{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 40px;
+    }
+    .top-sectionswatchlistsector{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 50px;
+    }
+    .top-sectionswatchlistsectorr{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 100px;
+    }
+    .top-sectionswatchlistall{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 80px;
     }
  
     .content-sectorcontainerwatchlist {
@@ -301,6 +355,7 @@ height: 170px;
       gap: 15px;
     }
   
+    
     
   
     .add-btnwatchlist {
@@ -356,22 +411,34 @@ height: 170px;
      margin-top: 50px;
       overflow-x: scroll/* Adjust container width */;
       width: -webkit-fill-available;
-  
-      
-       
+  width: 415px;
+    
+       margin-left: -3px;
     
     }
-  
+    .top-sectionswatchlistmutual{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 70px;
+    }
   }
   
   /* Media query for devices <= 480px */
   @media (max-width: 480px) {
     .stocksector-watchlist  {
-      margin: 5px;
+    
       padding: 10px;
       border-radius: 6px;
 margin-top: 20px;
-      height: 200px;
+      height: 250px;
+ 
+    }
+    .top-sectionswatchlistmutual{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 170px;
     }
   
     .watchlist-title {
@@ -382,16 +449,37 @@ margin-top: 20px;
     .watchlist-header {
       gap: 10px;
     }
+    .top-sectionswatchlistsector{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 150px;
+    }
   
     .content-sectorcontainerwatchlist {
       margin: 20px 0;
       padding: 10px;
-     margin-top: 50px;
+     margin-top: 100px;
       overflow-x: scroll/* Adjust container width */;
-      width: -webkit-fill-available;
+     margin-left: -5px;
+      width:295px;
       
        
     
+    }
+  
+    .top-sectionswatchlist{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 137px;
+    }
+  
+    .top-sectionswatchlistall{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 1px;
     }
   
     .input-groupwatchlist {
@@ -512,13 +600,13 @@ margin-top: 20px;
      /* Allow items to wrap to the next line */
     
       align-items: center; /* Vertically align items */
-      gap: 10px; /* Add spacing between radio buttons */
+     /* Add spacing between radio buttons */
    
       text-align: center; /* Center-align text */
     }
     .stock-tablewatchlist {
       font-size: 12px; /* Smaller font for mobile */
-      width: 310%;
+      width: 390%;
       border-collapse: collapse;
     }
   
@@ -561,7 +649,12 @@ margin-top: 20px;
       margin-left:30px ;
       
     }
- 
+    .top-sectionswatchlistsectorr{
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      gap: 190px;
+    }
 
   }
  
