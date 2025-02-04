@@ -67,3 +67,82 @@
   .whyfinrealmarket-img{
     margin-top: 40px;
   }
+  /* Tablet View (Max Width: 768px) */
+@media (max-width: 768px) {
+  .whyfinpersonalreal-container {
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .whyfinrealmarket-card, .whyfinpersonalreal-card {
+    width: 101%;
+    padding: 15px;
+    min-height: auto;
+    height: auto;
+    box-shadow: none;
+    border: 1px solid #cecece;
+    margin-left: -18px;
+}
+
+  .whyfinpersonalreal-title,
+  .whyfinrealmarket-title {
+      font-size: 18px;
+      text-align: left;
+      margin-left: 12px;
+  }
+
+  .whyfinpersonalreal-text,
+  .whyfinrealmarket-text {
+      font-size: 14px;
+      text-align: left;
+      margin-left: 13px;
+  }
+
+  .whyfinpersonalreal-img,
+  .whyfinrealmarket-img {
+      width: 60%;
+      margin-top: 20px;
+  }
+}
+
+/* Mobile View (Max Width: 480px) */
+@media (max-width: 480px) {
+  .whyfinpersonalreal-container {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      margin-left: 0;
+  }
+
+  .whyfinrealmarket-card, .whyfinpersonalreal-card {
+    width: 91%;
+    padding: 15px;
+    min-height: auto;
+    height: auto;
+    box-shadow: none;
+    border: 1px solid #cecece;
+    margin-left: -10px;
+}
+
+.whyfinpersonalreal-title, .whyfinrealmarket-title {
+  font-size: 16px;
+  text-align: left;
+}
+
+  .whyfinpersonalreal-text,
+  .whyfinrealmarket-text {
+      font-size: 13px;
+      text-align: left;
+      margin-left: 5px;
+  }
+
+  .whyfinpersonalreal-img,
+  .whyfinrealmarket-img {
+      width: 65%;
+      margin-top: 10px;
+  }
+}

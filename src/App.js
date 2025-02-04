@@ -176,7 +176,13 @@ import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 import LandingPage from "./Landingpages/Landingpage";
 import Landingnavbar from "./Landingpages/Landingnavbar/Landingnavbar";
 import WhyFinadvanceeducationnn from "./whyfinancespages/whyfinancespages";
-import WhyFinavisiontrusted from "./whyfinancespages/WhyFinavisiontrusted/WhyFinavisiontrusted";
+import Banksectorstocktheme from "./Stockthemepages/BankSectorStockTheme/BankSectorStockTheme";
+import StockThemesSectorPages from "./Stockthemepages/StockThemesSectorPages/StockThemesSectorPages";
+import Stockthemeunlocknavbar from "./Stockthemepages/stockthemeunlocknavbar/stockthemeunlocknavbar";
+import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/BankSectorThemePagelock";
+import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
+import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
+
 
 
 
@@ -357,13 +363,19 @@ function App() {
       <Route path="/" element={<LandingPage/>}/>
       <Route path="/landingnavbar" element={<Landingnavbar/>}/>
       <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn/>}/>
+      <Route path="/banksectorstocktheme" element={<Banksectorstocktheme/>}/>
+      <Route path="/stockThemesSectorPages" element={<StockThemesSectorPages/>}/>
+      <Route path="/stockthemeunlocknavbar" element={<Stockthemeunlocknavbar/>}/>
+      <Route path="/bankSectorThemePagelock" element={<BankSectorThemePagelock/>}/>
+      <Route path="/stockThemesindustriesPages" element={< StockThemesindustriesPages/>}/>
+      <Route path="/stockThemesindustrieslockPages" element={<StockThemesindustrieslockPages/>}/>
       
      
-    
       
       
       
       
+     
      
      
       

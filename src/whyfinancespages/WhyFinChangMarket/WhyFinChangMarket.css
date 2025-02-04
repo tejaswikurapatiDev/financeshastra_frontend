@@ -42,4 +42,67 @@
   .whyfinchangmarket-texthighlight {
     color: #24b676;
   }
-  
+  /* Tablet View (Max Width: 768px) */
+@media (max-width: 768px) {
+  .whyfinchangmarket-container {
+      flex-direction: column;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      padding: 15px;
+  }
+
+  .whyfinchangmarket-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .whyfinchangmarket-image {
+      width: 60%;
+      margin-top: 20px;
+      margin-left: 30px;
+  }
+
+  .whyfinchangmarket-text {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .whyfinchangmarket-text h2 {
+      font-size: 18px;
+  }
+}
+
+/* Mobile View (Max Width: 480px) */
+@media (max-width: 480px) {
+  .whyfinchangmarket-container {
+    flex-direction: column;
+    width: 94%;
+    padding: 10px;
+    margin-left: 0;
+    height: auto;
+    box-shadow: none;
+    border: 1px solid #cecece;
+}
+
+  .whyfinchangmarket-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+
+    .whyfinchangmarket-image {
+        width: 65%;
+        margin-top: 10px;
+        margin-left: 30px;
+    }
+  .whyfinchangmarket-text {
+      width: 100%;
+      padding: 10px;
+  }
+
+  .whyfinchangmarket-text h2 {
+      font-size: 16px;
+  }
+}

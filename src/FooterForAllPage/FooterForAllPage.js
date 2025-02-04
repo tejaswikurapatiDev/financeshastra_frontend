@@ -55,7 +55,7 @@ const FooterForAllPage = () => {
   };
   const AboutRoutes = {
     "Who We Are?": "/whoWeAre",
-    "Why FinanceShastra?": "/talktous",
+    "Why FinanceShastra?": "/WhyFinadvanceeducationnn",
     "Contact Us": "/contactUsnew",
    
   
