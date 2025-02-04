@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
+import { useNavigate } from 'react-router-dom';
 
 const Fdcalculatorpage = () => {
   const [investmentAmount, setInvestmentAmount] = useState(100_000); // Initial Investment Amount
   const [fdPeriod, setFdPeriod] = useState(5); // FD Period in years
   const [interestRate, setInterestRate] = useState(6); // Fixed Interest Rate (p.a)
-
+const navigate = useNavigate();
   // Calculate total interest using the compound interest formula
   const totalInterest = Math.round(
     investmentAmount * (Math.pow(1 + interestRate / 100, fdPeriod) - 1)
@@ -155,7 +156,7 @@ const Fdcalculatorpage = () => {
           </div>
 
           {/* Button */}
-          <button className="accountallmutualfundlist-button">
+          <button className="accountallmutualfundlist-button" onClick={() => navigate("/fundTable")}>
           Best Mutual Funds List
           </button>
         </div>

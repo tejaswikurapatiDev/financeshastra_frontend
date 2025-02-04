@@ -176,6 +176,18 @@ import Rdallpages from "./Accountpages/Rdpages/Rdallpages/Rdallpages";
 import Ppfallpages from "./Accountpages/Ppfpages/Ppfallpages/Ppfallpages";
 import Cagrallpages from "./Accountpages/Cagrpages/Cagrallpages/Cagrallpages";
 import RevCagrallpages from "./Accountpages/Reversecagrpages/Revcagrallpages/Revcagrallpages";
+import FundTable from "./Accountpages/FundTable/FundTable";
+import ElssTable from "./Accountpages/Accountsipallpage/Elsstable/Elsstable";
+import Errorpage from "./Errorpage/Errorpage";
+import OverviewPortfolioManagergold from "./Portfoilo/Overviewportfoliomanager/Overviewportfoliomanager";
+import StocksThemes from "./Stockthemepages/Stockthemes/Stockthemes";
+import CargoalPlanner from "./Goalplannerpages/Cargoalcalculator/Cargoalcalculator";
+import GoalPlanner from "./Goalplannerpages/GoalPlanner/GoalPlanner";
+import Investgoalcalculate from "./Goalplannerpages/Investgoalcalculate/Investgoalcalculate";
+import Goalplannersubscribe from "./Goalplannerpages/Goalplannersubscribe/Goalplannersubscribe";
+import Goalplannerforallcalculator from "./Goalplannerpages/Goalplannerforallcalculator/Goalplannerforallcalculator";
+import HouseGoalPlanner from "./Goalplannerpages/HouseGoalPlanner/HouseGoalPlanner";
+
 
 
 
@@ -356,6 +368,19 @@ function App() {
       <Route path="/ppfallpages" element={<Ppfallpages/>}/>
       <Route path="/cagrallpages" element={<Cagrallpages/>}/>
       <Route path="/revCagrallpages" element={<RevCagrallpages/>}/>
+      <Route path="/fundTable" element={<FundTable/>}/>
+      <Route path="/elssTable" element={<ElssTable/>}/>
+      <Route path="/errorpage" element={<Errorpage/>}/>
+      <Route path="/overviewPortfolioManager" element={< OverviewPortfolioManagergold />} />
+      <Route path="/stocksThemes" element={< StocksThemes />} />
+      <Route path="/cargoalPlanner" element={< CargoalPlanner />} />
+      <Route path="/goalPlanner" element={<GoalPlanner/>} />
+      <Route path="/investgoalcalculate" element={<Investgoalcalculate/>} />
+      <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
+      <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
+      <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
+     
+    
       
      
       

@@ -254,6 +254,7 @@ font-weight: bold;
     margin-top: 50px;
     justify-content: left; /* Center tabs */
     gap: 5px;
+    margin-left: 10px;
   }
 
   .networth-tab {

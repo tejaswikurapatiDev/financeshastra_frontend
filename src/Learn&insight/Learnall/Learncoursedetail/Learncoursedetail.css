@@ -21,6 +21,7 @@
 
 .learncourse-info {
     display: flex;
+   gap: 10px;
 }
 
 .learncourse-info-box {
@@ -67,6 +68,7 @@
 
 .learncourse-skills-list li {
     margin-bottom: 5px;
+    font-size: 15px;
 }
 
 .learncourseall {
@@ -130,7 +132,7 @@
 @media screen and (max-width: 768px) {
     .learncourse-details-container {
         margin-left: 20px;
-        max-width: 100%;
+        max-width: 90%;
         height: auto;
         margin-top: 60px;
     }
@@ -143,8 +145,8 @@
     }
 
     .learncourse-summary {
-        flex-direction: row;
-        align-items: flex-start;
+        flex-direction: column;
+     
         margin-top: 10px;
        
        
@@ -153,11 +155,11 @@
     .learncourse-info {
         flex-direction: row;
         margin-top: 10px;
-        
+        margin-left: -10px;
     }
 
     .learncourse-info-box {
-        width: 100%;
+        width: 50%;
         margin-bottom: 10px;
     }
 
@@ -177,13 +179,15 @@
     }
 
     .learntoppart {
-        width: 100%;
+        width: 85%;
         height: auto;
+        margin-left: -20px;
     }
 
     .learndetailimages img {
         max-width: 80%;
         height: auto;
+       
     }
 
     .learnlistcourse h2 {
@@ -203,8 +207,8 @@
 @media screen and (max-width: 480px) {
     .learncourse-details-container {
         margin-left: 10px;
-        max-width: 100%;
-        height: auto;
+        max-width: 90%;
+        height: 1400px;
         margin-top: 40px;
     }
 
@@ -223,23 +227,25 @@
         flex-direction: row;
         margin-top: 10px;
         gap: 20px;
-        margin-left: 40px;
+        margin-left: 20px;
         
     }
 
     .learncourse-info-box {
-        width: 100%;
+        width: 50%;
         margin-bottom: 10px;
     }
 
     .learncourse-description {
-        font-size: 13px;
+        font-size: 15px;
+        width: 300px;
     }
 
     .learncourse-enroll-button {
-        width: 100%;
-        font-size: 12px;
+        width: 80%;
+        font-size: 15px;
         padding: 6px;
+        margin-left: 10px;
     }
 
     .learncourseall {
@@ -266,6 +272,24 @@
     }
 
     .courselearnparatwo {
-        font-size: 12px;
+        font-size: 15px;
+        width: 300px;
     }
+    .learncourse-skills-list {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: black;
+        width: 250px;
+        margin-top: -2px;
+    }
+    
+.durationlearndetail {
+    border: 1px solid #24b676;
+    background-color: #24b676;
+    color: white;
+    border-top-left-radius: 5px; /* Rounds the top-left corner */
+    border-top-right-radius: 5px; /* Rounds the top-right corner */
+    height: 60px;
+    width: 100px;
+}
 }

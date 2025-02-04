@@ -103,7 +103,7 @@ const DashboardMainPagetable = () => {
   const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-header">
+      <div className="DashboardMainPagetable-headerrindexx">
         <button className="DashboardMainPagetable-tab active">Stock Sector</button>
         <button
       className="DashboardMainPagetable-tab"
@@ -211,7 +211,7 @@ const DashboardMainPagetable = () => {
 </div>
 
 
-<div className="DashboardMainPagetable-table-containerrrrr">
+<div className="DashboardMainPagetable-table-container">
 <table className="DashboardMainPagetable-tableeee">
         <thead>
         <tr>

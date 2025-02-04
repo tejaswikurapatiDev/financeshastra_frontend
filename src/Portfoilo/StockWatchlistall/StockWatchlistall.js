@@ -230,7 +230,7 @@ const  StockWatchportall= () => {
         </div>
         {/* Stock Table Section */}
         <div className="content-sectorcontainerwatchlist">
-        <div className="top-sectionswatchlist"style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
+        <div className="top-sectionswatchlistall">
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>
               <button className= {`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`}

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
+import { useNavigate } from 'react-router-dom';
+import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 
 const Ppfcalculatorpage = () => {
   const [investmentAmount, setInvestmentAmount] = useState(1500000); // Default to Rs 15,00,000
   const [fdPeriod, setFdPeriod] = useState(5); // FD Period in years
   const [interestRate, setInterestRate] = useState(6); // Fixed Interest Rate (p.a)
-
+const navigate = useNavigate();
   // Override for specific values
   const predefinedInvestment = 1500000; // Rs 15,00,000
   const predefinedInterest = 1212139; // Rs 12,12,139
@@ -51,6 +53,7 @@ const Ppfcalculatorpage = () => {
   };
 
   return (
+    
     <div className="sippcaloculatorrs-container">
       <div className="alllsipcontainerss">
         {/* Investment Amount */}
@@ -172,12 +175,14 @@ const Ppfcalculatorpage = () => {
           </div>
 
           {/* Button */}
-          <button className="accountallmutualfundlist-button">
+          <button className="accountallmutualfundlist-button"onClick={() => navigate("/elssTable")}>
             Tax Saver Mutual Fund
           </button>
         </div>
       </div>
     </div>
+   
+   
   );
 };
 

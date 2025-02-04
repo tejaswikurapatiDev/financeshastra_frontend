@@ -1,6 +1,6 @@
 .earnings-tablee {
     width: 100%; /* Set the table width to 80% for a narrower layout */
-
+font-family: 'calibri';
     border-collapse: collapse;
     border-radius: 10px; /* Rounded corners for the table */
     overflow: hidden; /* Ensures rounded corners are visible */
@@ -105,6 +105,7 @@
 }
 .earningparaapeer{
   margin-left: 20px;
+  font-family: 'calibri';
 }
 .earningheaderrpeer{
   margin-left: 20px;

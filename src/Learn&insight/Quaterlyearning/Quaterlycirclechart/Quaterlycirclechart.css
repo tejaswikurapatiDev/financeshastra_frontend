@@ -37,8 +37,8 @@
   /* For very small mobile devices */
   @media (max-width: 480px) {
     .circleearning {
-      width: 100%;
-      margin-left: 5px;
+      width: 105%;
+      margin-left: -2px;
       margin-right: 5px;
     }
   

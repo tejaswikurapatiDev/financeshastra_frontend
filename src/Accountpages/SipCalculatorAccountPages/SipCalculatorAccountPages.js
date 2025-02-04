@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./SipCalculatorAccountPages.css";
 import { Doughnut } from "react-chartjs-2";
+import { useNavigate } from 'react-router-dom';
 
 const SipCalculatorAccountPages = () => {
   const [sipAmount, setSipAmount] = useState(5000); // Monthly SIP Amount
   const [sipPeriod, setSipPeriod] = useState(10); // SIP Period in years
   const [expectedReturn, setExpectedReturn] = useState(12); // Expected Return Rate (p.a)
-
+  const navigate = useNavigate();
   // Calculate total investment
   const totalInvestment = sipAmount * 12 * sipPeriod;
 
@@ -161,7 +162,7 @@ const SipCalculatorAccountPages = () => {
       </div>
 
       {/* Button */}
-      <button className="accountallmutualfundlist-button">
+      <button className="accountallmutualfundlist-button"   onClick={() => navigate("/fundTable")}>
         Best Mutual Funds List
       </button>
     </div>

@@ -115,7 +115,7 @@
 }
 @media (max-width: 480px) {
   .Watchlistdashboardmain-container {
-    width: 320px;
+    width: 280px;
     background: #ffffff;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
@@ -123,7 +123,8 @@
     padding: 20px;
     font-family: 'Calibri';
     height: 400px;
-    margin-left: -10px;
+    margin-left: -1px;
+   
 
   }
   .Watchlistdashboardmain-name {

@@ -368,7 +368,7 @@
     }
 
     .earnings-insight-learn-table {
-        width:90%; /* Ensure table occupies full width */
+        width:93%; /* Ensure table occupies full width */
         overflow-x: auto; /* Enable horizontal scrolling */
         display: block; /* Make table behave as a block element */
         margin-bottom: 100px;

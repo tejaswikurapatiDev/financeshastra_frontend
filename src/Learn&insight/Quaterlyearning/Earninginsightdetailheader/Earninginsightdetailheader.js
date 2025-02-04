@@ -69,7 +69,7 @@ function Earninginsightheader() {
           Overview
         </ScrollLink>
         <ScrollLink
-          to="stockxray"
+          to="financials"
           smooth={true}
           duration={500}
           activeClass="active-link"
@@ -77,7 +77,7 @@ function Earninginsightheader() {
           Financials
         </ScrollLink>
         <ScrollLink
-          to="stockearning"
+          to="income"
           smooth={true}
           duration={500}
           activeClass="active-link"

@@ -123,7 +123,27 @@
       margin-bottom: 0px;
    
   }
+  .DashboardMainPagetable-headercalculator {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-top: 120px;
+    width: 380px;
+  }
   
+  .DashboardMainPagetable-tablee {
+    width: 100%;
+    border-collapse: collapse;
+}
+.pagination-containercalender {
+  display: flex;
+ gap: 100px;
+  align-items: center;
+ margin-left: 15px;
+
+}
+
     }
     
     @media (max-width: 480px) {
@@ -178,8 +198,9 @@
         .DashboardMainPagetable-table-container {
           overflow-x: auto;
           margin: 20px;
-          width: 170%;
-          margin-left: -20px;
+          width: 90%;
+          height: 300px;
+          margin-left: 10px;
       }
       .pagination-containercalender {
         display: flex;

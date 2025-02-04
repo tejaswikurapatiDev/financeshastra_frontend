@@ -16,7 +16,12 @@ const StockWatchsectorlist= () => {
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("All"); 
+  const [selectedValue, setSelectedValue] = useState("sectorwatchlist");
 
+  const handleChange = (value, path) => {
+    setSelectedValue(value);
+    navigate(path);
+  };
   // Dummy stock data
   const [stockDatawatchlist, setStockDatawatchlist] =  useState([
     {
@@ -238,7 +243,7 @@ const StockWatchsectorlist= () => {
         </div>
         {/* Stock Table Section */}
         <div className="content-sectorcontainerwatchlist" >
-        <div className="top-sectionswatchlist"style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
+        <div className="top-sectionswatchlistsector">
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>
               <button className= {`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`}
@@ -251,44 +256,46 @@ const StockWatchsectorlist= () => {
             <div className="group-by-sectionwatchlist">
               <label style={{ marginRight: "8px" }}>Group By:</label>
               <input
-                type="radio"
-                name="groupBywatchlist"
-                value="nonewatchlist"
-                onClick={() => navigate("/stockwatchlistall")}
-                defaultChecked
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              None
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="sectorwatchlist"
-                onClick={() => navigate("/stockwatchlistsector")}
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-               
-        Sector
-        <input
-          type="radio"
-          name="groupBywatchlist"
-          value="mcapwatchlist"
-          onClick={() => navigate("/stockwatchlistmcap")}
-          style={{
-            width: "14px",
-            height: "14px",
-            accentColor: "#24b676",
-          }}
-        />
-      
-              M-Cap
+        type="radio"
+        name="groupBywatchlist"
+        value="nonewatchlist"
+        checked={selectedValue === "nonewatchlist"}
+        onChange={() => handleChange("nonewatchlist", "/stockwatchlistall")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "nonewatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      None
+
+      <input
+        type="radio"
+        name="groupBywatchlist"
+        value="sectorwatchlist"
+        checked={selectedValue === "sectorwatchlist"}
+        onChange={() => handleChange("sectorwatchlist", "/stockwatchlistsector")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "sectorwatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      Sector
+
+      <input
+        type="radio"
+        name="groupBywatchlist"
+        value="mcapwatchlist"
+        checked={selectedValue === "mcapwatchlist"}
+        onChange={() => handleChange("mcapwatchlist", "/stockwatchlistmcap")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "mcapwatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      M-Cap
             </div>
           </div>
           <div className="table-containerwatchlist">

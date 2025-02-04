@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import './Rdcalculator.css'
+import { useNavigate } from 'react-router-dom';
 const Rdcalculator = () => {
   const [monthlyInvestment, setMonthlyInvestment] = useState(3000); // Initial Monthly Investment Amount
   const [rdPeriod, setRdPeriod] = useState(12); // RD Period in months
   const [interestRate, setInterestRate] = useState(6); // Fixed Interest Rate (p.a)
-
+const navigate = useNavigate();
   // Function to calculate total interest and maturity amount
   const calculateRD = (monthlyInvestment, rdPeriod, interestRate) => {
     const monthlyRate = interestRate / (12 * 100); // Monthly interest rate
@@ -174,7 +175,7 @@ const Rdcalculator = () => {
           </div>
 
           {/* Button */}
-          <button className="accountallmutualfundlist-button">
+          <button className="accountallmutualfundlist-button"onClick={() => navigate("/fundTable")}>
           Best Mutual Funds List
           </button>
         </div>

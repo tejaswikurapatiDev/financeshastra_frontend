@@ -4,7 +4,7 @@
   align-items: center;
   padding: 5px;
   
- 
+ font-family: 'calibri';
 }
 
 /* Card styling */
@@ -101,7 +101,7 @@
     .candlestick-chart-container {
         margin: 5px;
         padding: 10px; /* Further reduced padding for small devices */
-        width: 350px; /* Full width for small screens */
+        width: 320px; /* Full width for small screens */
         height: 430px;
         margin-top: 120px;
     }

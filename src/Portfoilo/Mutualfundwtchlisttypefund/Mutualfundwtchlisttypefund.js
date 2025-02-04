@@ -13,7 +13,14 @@ const MutualWatchtypefundlist= () => {
   const [groupBy, setGroupBy] = useState("sector");
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const [activeFilter, setActiveFilter] = useState("All"); 
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedValue, setSelectedValue] = useState("mcapwatchlist");
+
+  const handleChange = (value, path) => {
+    setSelectedValue(value);
+    navigate(path);
+  };
+ 
   // Dummy stock data
   const stockDatawatchlist = [
     {
@@ -224,7 +231,7 @@ const MutualWatchtypefundlist= () => {
         </div>
         {/* Stock Table Section */}
         <div className="content-sectorcontainerwatchlist">
-        <div className="top-sectionswatchlist"style={{ display: "flex", justifyContent: "space-between", alignItems: "center", margin: "10px 0" }}>
+        <div className="top-sectionswatchlist">
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>
               <button className= {`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`}
@@ -237,43 +244,47 @@ const MutualWatchtypefundlist= () => {
             </div>
             <div className="group-by-sectionwatchlist">
             <label style={{ marginRight: "8px" }}>Group By:</label>
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="nonewatchlist"
-                onClick={() => navigate("/mutualwatchlistall")}
-                defaultChecked
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              None
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="sectorwatchlist"
-                onClick={() => navigate("/mutualwatchlistsector")}
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              AMC
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="mcapwatchlist"
-                onClick={() => navigate("/mutualwatchlisttype")}
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              Types of Funds
+            <input
+        type="radio"
+        name="groupBywatchlist"
+        value="nonewatchlist"
+        checked={selectedValue === "nonewatchlist"}
+        onChange={() => handleChange("nonewatchlist", "/mutualwatchlistall")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "nonewatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      None
+
+      <input
+        type="radio"
+        name="groupBywatchlist"
+        value="sectorwatchlist"
+        checked={selectedValue === "sectorwatchlist"}
+        onChange={() => handleChange("sectorwatchlist", "/mutualwatchlistsector")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "sectorwatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      AMC
+
+      <input
+        type="radio"
+        name="groupBywatchlist"
+        value="mcapwatchlist"
+        checked={selectedValue === "mcapwatchlist"}
+        onChange={() => handleChange("mcapwatchlist", "/mutualwatchlisttype")}
+        style={{
+          width: "14px",
+          height: "14px",
+          accentColor: selectedValue === "mcapwatchlist" ? "#24b676" : "initial",
+        }}
+      />
+      Types of Funds
             </div>
           </div>
 

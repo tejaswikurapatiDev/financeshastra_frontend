@@ -196,3 +196,64 @@
   
 }
 
+
+@media (max-width: 480px) {
+  .graphcontainer {
+      width: 100%; 
+      margin-left: 0;
+      padding: 10px;
+  }
+
+  .graphheader h1 {
+      font-size: 20px;
+      margin-left: 0; 
+  }
+
+  .graph-price-update {
+      margin-right: 0;
+  }
+
+  .graphnavbar {
+      margin-left: 0;
+      justify-content: space-evenly; 
+  }
+
+  .graphnavbar span, .graphnavbar a {
+      font-size: 14px; 
+      padding: 8px 16px; 
+  }
+
+  .graphprice {
+      font-size: 20px; 
+  }
+
+  .graphupdate {
+      font-size: 10px; 
+  }
+
+  .graphstock-info {
+      margin-left: 0; 
+      justify-content: space-between; 
+      flex-wrap: wrap; 
+  }
+
+  .graphnse, .graphsector {
+      font-size: 12px; 
+      padding: 4px 8px; 
+  }
+
+  .title-container {
+      flex-direction: column; 
+      align-items: flex-start; 
+  }
+  .graphheader {
+    display: flex;
+ gap: 20px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  
+}
+
+

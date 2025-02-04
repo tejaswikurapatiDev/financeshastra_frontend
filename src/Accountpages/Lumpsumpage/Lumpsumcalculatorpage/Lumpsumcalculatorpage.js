@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import './Lumpsumcalculatorpage.css'
 import { Doughnut } from "react-chartjs-2";
+import { useNavigate } from 'react-router-dom';
 
 const LumpSumCalculator = () => {
   const [investmentAmount, setInvestmentAmount] = useState(100000); // Lump Sum Investment Amount
   const [investmentPeriod, setInvestmentPeriod] = useState(10); // Investment Period in years
   const [expectedReturnRate, setExpectedReturnRate] = useState(12); // Expected Return Rate (p.a)
-
+ const navigate = useNavigate();
   // Calculate estimated returns using compound interest formula
   const estimatedReturns = Math.round(
     investmentAmount *
@@ -155,7 +156,7 @@ const LumpSumCalculator = () => {
          </div>
    
          {/* Button */}
-         <button className="accountallmutualfundlist-button">
+         <button className="accountallmutualfundlist-button"  onClick={() => navigate("/fundTable")}>
            Best Mutual Funds List
          </button>
        </div>
