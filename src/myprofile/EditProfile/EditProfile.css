@@ -202,14 +202,19 @@
     flex: 1; /* Makes both sections take equal space */
   }
   .allemailphone input {
-    width: 410px; /* Adjust the width to your preference */
+    width: 400px; /* Adjust the width to your preference */
     padding: 10px; /* Optional: Add padding for better usability */
-    font-size: 16px; /* Optional: Increase the font size for better readability */
+    font-size: 14px; /* Optional: Increase the font size for better readability */
     border: 1px solid black; /* Optional: Style the border */
     border-radius: 4px; /* Optional: Add rounded corners */
+    gap: 30px;
   }
     
-  
+  .pftab{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
   /* Actions */
   .profilepage-actions {
     display: flex;
@@ -558,6 +563,12 @@ width: 470px;}
   margin-top: 1px;
  
 }
+.pftab{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  overflow-x: scroll;
+}
 /* Custom styles for the select dropdown */
 
 
@@ -631,6 +642,7 @@ width: 470px;}
 
   .allemailphone input {
       width: 100%; /* Full width for input fields */
+      font-size: 14px;
   }
 
   .modal-content {
@@ -678,6 +690,12 @@ width: 470px;}
     padding: 5px;
     border: 1px solid #333;
     border-radius: 4px;
+}
+.pftab{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  overflow-x: scroll;
 }
 
   

@@ -6,9 +6,9 @@ import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 const Goldmarket = () => {
   return (
-    <div className="goldetf-container">
+    <div className="etcontainerrr">
       <h1 className="goldetf-title">Gold Exchange Traded Funds</h1>
-      <p className="goldetf-description">
+      <p className="etf-description">
       Gold Exchange Traded Funds (Gold ETFs) are a type of investment fund that tracks the price of gold. 1 
        They are a popular way to invest in gold without the need to physically buy and store gold.
         ETFs trade on the cash market of the National Stock Exchange, like any other company stock, and can be 
@@ -16,9 +16,9 @@ const Goldmarket = () => {
 
         Gold ETFs are traded on stock exchanges, making them highly liquid. Gold ETFs are passive investment instruments that are based on gold prices and invest in gold bullion. Because of its direct gold pricing, there is a complete transparency on the holdings of an ETF. Further due to its unique structure and creation mechanism,
          the ETFs have much lower expenses as compared to physical gold investments
-<h2>LIST OF GOLD ETFS</h2>
+<h2 className='etfh2'>LIST OF GOLD ETFS</h2>
       </p>
-      <table className="goldetf-table">
+      <table className="etf-tablee">
         <thead>
           <tr>
             <th>Issuer</th>
@@ -40,9 +40,9 @@ const Goldmarket = () => {
           ))}
         </tbody>
       </table>
-      <div className="foooterpagesatt">
-    <FooterForAllPage />
-  </div>
+      <div className='marketablefooter'>
+<FooterForAllPage/>
+    </div>
     </div>
   );
 };

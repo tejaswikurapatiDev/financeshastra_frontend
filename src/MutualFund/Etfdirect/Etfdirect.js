@@ -280,7 +280,7 @@ const Etfdirect = () => {
         <div className="funds-table-container">
           <div className="funds-header">
             <h2 className="funds-table-title">Exchange Traded Funds</h2>
-            <div className="button-container">
+            <div className="topfundbutton-container">
               <button
                 className="fund-button regular"
                 style={{backgroundColor: "white", color: "black" }}

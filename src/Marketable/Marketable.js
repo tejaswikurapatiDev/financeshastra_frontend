@@ -5,7 +5,7 @@ import './Marketable.css';
 import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 const Marketable = () => {
   return (
-    <div className="etf-container">
+    <div className="etcontainerrr">
       <h1 className="etf-title">Equity Exchange Traded Funds</h1>
       <p className="etf-description">
       Equity Exchange Traded Funds (ETFs) are a type of investment fund that tracks a specific index, commodity, bonds, or a basket of assets. They are similar to mutual funds in that they
@@ -15,9 +15,9 @@ throughout the trading day, just like individual stocks.<br/><br/>
 Equity ETFs are passive investment instruments that are based on indices and invest in securities in same proportion as the underlying index. Because of its index mirroring property,
 there is a complete transparency on the holdings of an ETF. Further due to its unique structure and creation mechanism, the ETFs have much lower expense ratios as compared to
 mutual funds.
-<h2>LIST OF EQUITY ETFS</h2>
+<h2 className='etfh2'>LIST OF EQUITY ETFS</h2>
       </p>
-      <table className="etf-table">
+      <table className="etf-tablee">
         <thead>
           <tr>
             <th>Issuer</th>
@@ -39,9 +39,9 @@ mutual funds.
           ))}
         </tbody>
       </table>
-      <div className="foooterpagesatt">
-    <FooterForAllPage />
-  </div>
+     <div className='marketablefooter'>
+<FooterForAllPage/>
+    </div>
     </div>
   );
 };

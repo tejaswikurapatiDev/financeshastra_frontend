@@ -856,11 +856,9 @@ a span {
   /* Adjust footer nav layout */
   .footer-nav {
     font-size: 12px;
-   margin-left: -10px;
+    margin-left: 0px;
     height: 60px;
-    
- 
-  }
+}
   .footer-dropdown {
     width: 95%; /* Adjust width for smaller screens */
     height: auto; /* Dynamic height based on content */

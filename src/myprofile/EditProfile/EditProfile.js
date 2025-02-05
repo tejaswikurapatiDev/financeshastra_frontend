@@ -424,38 +424,38 @@ const navigate = useNavigate();
 
   return (
     <div className="profilepage-container">
-       <h1 className="profilepage-titleeeditt">My profile</h1>
-       <div className="profilepage-tabsorderusers">
-        <span className="profilepage-tabb"
-        style={{
-          borderBottom: "2px solid #24b676",
-          fontWeight: "bold",
-          color: "#24b676",
-        }}>My Account</span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
-        >
-          Orders
-        </span>
-        <span className="profilepage-tabb" onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
-        <span className="profilepage-tabb" onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/managealert")}
-        >
-          Manage Alert
-        </span>
+    <h1 className="profilepage-titleeeditt">My profile</h1>
+    <div className="pftab">
+     <span className="profilepage-tabb"
+     style={{
+       borderBottom: "2px solid #24b676",
+       fontWeight: "bold",
+       color: "#24b676",
+     }}>My Account</span>
+     <span
+       className="profilepage-tabb"
+       onClick={() => navigate("/orderTable")}
+     >
+       Orders
+     </span>
+     <span className="profilepage-tabb" onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
+     <span className="profilepage-tabb" onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+     <span
+       className="profilepage-tabb"
+       onClick={() => navigate("/managealert")}
+     >
+       Manage Alert
+     </span>
 
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/accountSettings")}
-        >
-          Password & Security
-        </span>
-        <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
-        <span className="profilepage-tabb">My referrals</span>
-      </div>
+     <span
+       className="profilepage-tabb"
+       onClick={() => navigate("/accountSettings")}
+     >
+       Password & Security
+     </span>
+     <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
+     <span className="profilepage-tabb">My referrals</span>
+   </div>
 
       <div className="profilepage-form">
         {/* First Name and Last Name */}

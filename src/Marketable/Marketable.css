@@ -1,82 +1,154 @@
-.etf-container {
-    padding: 20px;
-    font-family: 'calibri';
-    background-color: #f5f5f5;
-    max-width: 1400px;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 100px;
-  }
-  
-  .etf-title {
-    text-align: center;
-    color: #333;
-    font-size: 28px;
-    margin-bottom: 16px;
-    margin: 0;
+.etcontainerrr {
+  width: 90%;
+  margin: 20px auto;
+  font-family: 'calibri';
+  color: #333;
+  margin-top: 100px;
+}
+.etf-title {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 16px;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  }
-  
-  .etf-description {
-    color: #666;
-    margin-bottom: 24px;
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: justify;
-  }
-  
-  .etf-table {
+}
+
+.etf-description {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.etf-tablee{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.etf-tablee thead th {
+  background-color: #24b676;
+  text-align: left;
+  padding: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+}
+
+.etf-tablee  td {
+  padding: 10px;
+  border: 1px solid #ddd;
+ 
+  font-size: 14px;
+}
+
+.etf-tablee tbody td.marketname {
+  color: #24b676;
+}
+
+.etf-tablee tbody td.symbolmarket {
+  color: #24b676;
+}
+
+.etf-table tbody tr:hover {
+  background-color: #e0f7fa;
+  cursor: pointer;
+}
+.etfh2{
+  font-size: 20px;
+  margin-bottom: -10px;
+}
+.marketablefooter{
+  width: 113%;
+  margin-left: -90px;
+  margin-top: 50px;
+}
+/* Responsive Styles for Tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .etcontainerrr {
     width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
+    margin-top: 30px;
+}
+
+  .etf-title {
+    font-size: 24px; /* Adjust font size for mobile */
+    margin-top: 50px;
   }
-  
-  .etf-table thead th {
-    background-color: #24b676;
-    color: white;
-    padding: 14px;
-    font-weight: bold;
-    text-align: left;
-    border-bottom: 2px solid #ddd;
+
+  .etf-description {
+    font-size: 14px; /* Smaller text size for description */
   }
-  
+
+ 
+  .etf-tablee {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+  .etf-table thead th,
   .etf-table tbody td {
-    padding: 12px;
-    border: 1px solid #ddd;
-   
-    color: black;
+    font-size: 12px; /* Adjust font size for smaller screens */
+    padding: 8px; /* Reduce padding for mobile */
   }
-  .etf-table tbody td.marketname{
-    color:#0349a8;
+  .marketablefooter{
+    width: 113%;
+    margin-left: -25px;
+    margin-top: 50px;
   }
-  .etf-table tbody td.symbolmarket{
-    color: #0349a8;
+}
+
+/* Responsive Styles for Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .etcontainerrr {
+    width: 100%;
+    margin-top: 30px;
+}
+  .etf-title {
+    font-size: 20px; /* Reduce title size for small devices */
+    margin-top: 50px;
   }
 
-  
-  
-  .etf-table tbody tr:hover {
-    background-color: #e0f7fa;
-    cursor: pointer;
+  .etf-description {
+    font-size: 13px; /* Further reduce description text size */
+    text-align: left; /* Align text to left for readability */
   }
 
-  
-  @media (max-width: 600px) {
-    .etf-title {
-      font-size: 24px;
-    }
-  
-    .etf-description {
-      font-size: 14px;
-    }
-  
-    .etf-table thead th,
-    .etf-table tbody td {
-      padding: 10px;
-      font-size: 14px;
-    }
+ 
+  .etf-tablee {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+    margin-bottom: 20px;
+}
+
+.etf-tablee::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+}
+
+.etf-tablee::-webkit-scrollbar-thumb {
+    background-color: #cecece; /* Scrollbar color */
+    border-radius: 4px; /* Rounded edges */
+}
+
+.etf-tablee::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Track color */
+}
+
+
+
+  .etf-table thead th,
+  .etf-table tbody td {
+    font-size: 11px; /* Smaller font size for mobile */
+    padding: 6px; /* Smaller padding for mobile */
   }
+  .marketablefooter{
+    width: 113%;
+    margin-left: -25px;
+    margin-top: 50px;
+  }
+}
