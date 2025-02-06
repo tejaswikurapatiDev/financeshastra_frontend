@@ -1,9 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./NetWorthStocksDashboard.css";
+import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom';
 import MyAccounts from "../Accountstock/Accountstock";
 import Navbar from '../../Navbar/Navbar';
+import { API_BASE_URL } from "../../config";
 function NetWorthStocksDashboard() {
+
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [myInvestment, setMyInvestment] = useState([])
+
+  // Function to fetch data from the backend
+  const fetchData = async () => {
+    try {
+        setLoading(true);
+        const token = Cookies.get("jwtToken");
+        console.log(token)
+
+        if (!token) {
+            setError("No authentication token found.");
+            setLoading(false);
+            return;
+        } else {
+          const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch data");
+        }
+
+        const data = await response.json();
+        console.log(data);
+        setMyInvestment(data.investment_cost)
+        setError(null); // Clear any previous error
+        }
+
+        
+    } catch (err) {
+        setError(err.message);
+    } finally {
+        setLoading(false);
+    }
+};
+
+  
+  // Fetch data when the component mounts
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div><Navbar/>
     

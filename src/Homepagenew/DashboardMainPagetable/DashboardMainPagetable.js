@@ -1,4 +1,4 @@
-import React, { useState ,useMemo } from "react";
+import React, { useState,useEffect, useMemo } from "react";
 import "./DashboardMainPagetable.css";
 import { PiCaretUpDownFill } from "react-icons/pi";
 import icon1 from '../../assest/it.svg';
@@ -9,6 +9,8 @@ import icon5 from '../../assest/finance.svg';
 import icon6 from '../../assest/l.svg';
 import icon7 from '../../assest/message.svg';
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
+import Cookies from "js-cookie";
 
 // Data for the cards and table
 const DashboardPagetable = [
@@ -21,44 +23,46 @@ const DashboardPagetable = [
   { id: 7, sector: "Telecommunication", stocks: 24, value: "₹72,586.42", change: "4.2%", changeType: "down" },
 ];
 
-const DashboardtableData = [
-  { id: 1, company: "Maestros Electronics", ltp: 216.7, change: "19.99%", marketCap: "₹99,949", high: 198.9, low: 91.5, sector: "Telecom", pe: 19.8 },
-  { id: 2, company: "Pasari Spg Mills", ltp: 10.17, change: "19.93%", marketCap: "₹11.70", high: 14.8, low: 6, sector: "Textiles", pe: 27.28 },
-  { id: 3, company: "ABM Knowledgeware", ltp: 150.9, change: "17.98%", marketCap: "₹25,559", high: 171, low: 96.5, sector: "IT", pe: 16.16 },
-  { id: 4, company: "ITI", ltp: 378.6, change: "15.41%", marketCap: "₹31,517", high: 403.8, low: 210.2, sector: "Telecom", pe: 0.0 },
-  { id: 5, company: "Astrazeneca Pharma", ltp: 7328, change: "14.94%", marketCap: "₹15,939", high: 8139.9, low: 4050.2, sector: "Healthcare", pe: 194.57 },
-  { id: 6, company: "Adani Total Gas", ltp: 755.4, change: "11.20%", marketCap: "₹74,710", high: 1198, low: 550.3, sector: "Power & Oil", pe: 107.83 },
-  { id: 6, company: "Adani Total Gas", ltp: 755.4, change: "11.20%", marketCap: "₹74,710", high: 1198, low: 550.3, sector: "Power & Oil", pe: 107.83 },
- 
- 
-];
-
 const DashboardMainPagetable = () => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
+  const [allStocks, setAllStocks] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Sort function
-  const uniqueDashboardtableData = DashboardtableData.filter(
-    (item, index, self) => index === self.findIndex((t) => t.id === item.id)
-  );
-
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5; // Number of items per page
+  const itemsPerPage = 10; // Number of items per page
 
-  // Calculate total pages
-  const totalPages = Math.ceil(uniqueDashboardtableData.length / itemsPerPage);
-
-  // Pagination logic
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-
-
-  // Handle page changes
-  const handlePageChange = (pageNumber) => {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber);
-    }
-  };
+  // Function to fetch data from the backend
+    const fetchData = async () => {
+      try {
+        setLoading(true); 
+        const token = Cookies.get("jwtToken");
+        const response = await fetch(`${API_BASE_URL}/stocksScreener/stockSector`, {
+          method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }); 
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        console.log(data);
+        setAllStocks(data)
+        setError(null); // Clear any previous error
+      } catch (err) {
+        setError(err.message); 
+      } finally {
+        setLoading(false); 
+      }
+    };
+  
+    // Fetch data when the component mounts
+    useEffect(() => {
+      fetchData();
+    }, []);
 
   // Sort function
   const handleSort = (column) => {
@@ -69,24 +73,40 @@ const DashboardMainPagetable = () => {
     setSortConfig({ key: column, direction });
   };
 
-  // Sort data
-  const sortedData = [...uniqueDashboardtableData].sort((a, b) => {
-    if (sortConfig.key) {
-      const aValue = a[sortConfig.key];
-      const bValue = b[sortConfig.key];
-
-      if (typeof aValue === "string") {
-        return sortConfig.direction === "asc"
-          ? aValue.localeCompare(bValue)
-          : bValue.localeCompare(aValue);
+  // Sort the data based on the sortConfig
+  const sortedData = useMemo(() => {
+    return [...allStocks].sort((a, b) => {
+      if (sortConfig.key) {
+        const aValue = a[sortConfig.key];
+        const bValue = b[sortConfig.key];
+  
+        if (typeof aValue === "string") {
+          return sortConfig.direction === "asc"
+            ? aValue.localeCompare(bValue)
+            : bValue.localeCompare(aValue);
+        }
+  
+        if (typeof aValue === "number") {
+          return sortConfig.direction === "asc" ? aValue - bValue : bValue - aValue;
+        }
       }
+      return 0;
+    });
+  }, [allStocks, sortConfig]);
 
-      if (typeof aValue === "number") {
-        return sortConfig.direction === "asc" ? aValue - bValue : bValue - aValue;
-      }
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+
+  const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+
+  // Handle page changes
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
     }
-    return 0;
-  });
+  };
+
 
   // Render sort icons dynamically
   const renderSortIcon = (column) => {
@@ -214,69 +234,69 @@ const DashboardMainPagetable = () => {
 <div className="DashboardMainPagetable-table-container">
 <table className="DashboardMainPagetable-tableeee">
         <thead>
-        <tr>
-              <th>Company</th>
-              <th onClick={() => handleSort("ltp")}>
-                LTP (₹) {renderSortIcon("ltp")}
-              </th>
-              <th onClick={() => handleSort("change")}>
-                Change % {renderSortIcon("change")}
-              </th>
-              <th onClick={() => handleSort("marketCap")}>
-                Market Cap (Cr) {renderSortIcon("marketCap")}
-              </th>
-              <th onClick={() => handleSort("high")}>
-                52W High (₹) {renderSortIcon("high")}
-              </th>
-              <th onClick={() => handleSort("low")}>
-                52W Low (₹) {renderSortIcon("low")}
-              </th>
-              <th onClick={() => handleSort("sector")}>
-                Sector {renderSortIcon("sector")}
-              </th>
-              <th onClick={() => handleSort("pe")}>
-                Current P/E {renderSortIcon("pe")}
-              </th>
-              <th>Clarification</th>
-            </tr>
+          <tr>
+            <th>Company</th>
+            <th onClick={() => handleSort("ltp_inr")}>
+              LTP (₹) {renderSortIcon("ltp_inr")}
+            </th>
+            <th onClick={() => handleSort("change_percent")}>
+              Change % {renderSortIcon("change_percent")}
+            </th>
+            <th onClick={() => handleSort("market_cap_cr")}>
+              Market Cap (Cr) {renderSortIcon("market_cap_cr")}
+            </th>
+            <th onClick={() => handleSort("High_52W_INR")}>
+              52W High (₹) {renderSortIcon("High_52W_INR")}
+            </th>
+            <th onClick={() => handleSort("Low_52W_INR")}>
+              52W Low (₹) {renderSortIcon("Low_52W_INR")}
+            </th>
+            <th onClick={() => handleSort("sector")}>
+              Sector {renderSortIcon("sector")}
+            </th>
+            <th onClick={() => handleSort("pe")}>
+              Current P/E {renderSortIcon("pe")}
+            </th>
+            <th>Clarification</th>
+          </tr>
         </thead>
         <tbody>
-            {currentStocks.map((row) => (
-              <tr key={row.id}>
-                <td>{row.company}</td>
-                <td>{row.ltp}</td>
-                <td
-                  className={
-                    parseFloat(row.change) > 0
-                      ? "DashboardMainPagetable-positive"
-                      : "DashboardMainPagetable-negative"
-                  }
-                >
-                  {row.change}
-                </td>
-                <td>{row.marketCap}</td>
-                <td>{row.high}</td>
-                <td>{row.low}</td>
-                <td>{row.sector}</td>
-                <td>{row.pe}</td>
-                <td>
-                  <a href="#" className="clarification-link">
-                    Know more
-                  </a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
+          {currentStocks.map((row) => (
+            <tr key={row.id}>
+              <td>{row.company}</td>
+              <td>{row.ltp_inr}</td>
+              <td
+                className={
+                  parseFloat(row.change_percent) > 0
+                    ? "DashboardMainPagetable-positive"
+                    : "DashboardMainPagetable-negative"
+                }
+              >
+                {row.change_percent}
+              </td>
+              <td>{row.market_cap_cr}</td>
+              <td>{row.High_52W_INR}</td>
+              <td>{row.Low_52W_INR}</td>
+              <td>{row.sector}</td>
+              <td>{row.pe}</td>
+              <td>
+                <a href="#" className="clarification-link">
+                  Know more
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
       </div>
       {/* Pagination Section */}
       <div className="pagination-containerrsector">
         <div className="pagination-info">
           {`Showing ${indexOfFirstItem + 1} to ${
-            indexOfLastItem > uniqueDashboardtableData.length
-              ? uniqueDashboardtableData.length
+            indexOfLastItem > sortedData.length
+              ? sortedData.length
               : indexOfLastItem
-          } of ${uniqueDashboardtableData.length} records`}
+          } of ${sortedData.length} records`}
         </div>
         <div className="pagination-slider">
           <button

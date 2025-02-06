@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Cookies from 'js-cookie'
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { API_BASE_URL } from "../config";
 
 import './Login.css'
 import { height } from "@mui/system";
@@ -27,6 +28,7 @@ function Login() {
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [isLoading, setIsLoading]= useState(false)
+  const [isCookiesPresent, setCookiesPresent]= useState(false)
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -35,68 +37,83 @@ function Login() {
   };
 
   const validatePassword = (password) => {
-    const passwordPattern = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     return passwordPattern.test(password);
   };
 
- 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    let isValid = true;
-    setIsLoading(true)
+  // Reset errors
+  setEmailError("");
+  setPasswordError("");
 
-    if (!validateEmail(email)) {
-      setEmailError("Enter a valid email address.");
-      isValid = false;
-    } else {
-      setEmailError("");
-    }
+  // Validate inputs
+  const isEmailValid = validateEmail(email);
+  const isPasswordValid = validatePassword(password);
 
-    if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
+  if (!isEmailValid) {
+    setEmailError("Enter a valid email address.");
+  }
 
-    if (isValid && !isForgotPassword) {
-      const data= {
-        email,
-        password
-      }
-      const url='https://financeshastra-backendupdated.onrender.com/api/signin'
-      const options={
-        method: "post",
+  if (!isPasswordValid) {
+    setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
+  }
+
+  if (!isEmailValid || !isPasswordValid) {
+    setIsLoading(false);
+    return; // Stop further execution if validation fails
+  }
+
+  if (!isForgotPassword) {
+    try {
+      const url = `${API_BASE_URL}/users/signin`;
+      const options = {
+        method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
-      }
-      const response= await fetch(url, options)
-      setIsLoading(false)
-      if (response.status===404){
-        setEmailError("Email not found. Please register.");
-      }else if (response.status===400){
-        setPasswordError("Incorrect password.");
-      }else{
-        alert("Login Successful");
-        navigate("/dashboardchartmain");
-      }
+        body: JSON.stringify({ email, password }),
+      };
 
-    /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData && userRegistrationData.email === email) {
-        if (userRegistrationData.password === password) {
-          alert("Login Successful");
-          navigate("/home");
-        } else {
-          setPasswordError("Incorrect password.");
-        }
+      const response = await fetch(url, options);
+      const data = await response.json();
+      setIsLoading(false);
+
+      if (response.ok) {
+        Cookies.set("jwtToken", data.jwtToken);
+        alert("Login Successful");
+        navigate("/home");
       } else {
-        setEmailError("Email not found. Please register.");
-      }*/
+        // Handle specific errors
+        if (response.status === 404) {
+          setEmailError("Email not found. Please register.");
+        } else if (response.status === 400) {
+          setPasswordError("Incorrect password.");
+        } else {
+          alert("An unexpected error occurred. Please try again later.");
+        }
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error during login:", error);
+      alert("An error occurred. Please check your connection and try again.");
     }
-  };
+        /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
+        if (userRegistrationData && userRegistrationData.email === email) {
+          if (userRegistrationData.password === password) {
+            alert("Login Successful");
+            navigate("/home");
+          } else {
+            setPasswordError("Incorrect password.");
+          }
+        } else {
+          setEmailError("Email not found. Please register.");
+        }*/
+  }
+};
+
   /*const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = true;
@@ -177,15 +194,18 @@ function Login() {
     const token = response.credential;
  
     try {
-      const res = await fetch("http://localhost:3001/auth/google", {
+      const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
  
       const data = await res.json();
+      console.log(data)
       if (res.ok) {
         console.log("Backend Response: ", data);
+        alert("Login Successful");
+        navigate("/home");
       } else {
         console.error("Authentication failed: ", data);
       }
@@ -318,8 +338,7 @@ function Login() {
 
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">
-           
-            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com" >
+            <GoogleOAuthProvider clientId="505405282471-r6mpu3r3ib1ce06mlks7rhl2b7bodhq9.apps.googleusercontent.com" >
               <div className="Googlealll-btn" >
                 <GoogleLogin 
                   onSuccess={handleSuccess}
@@ -327,7 +346,6 @@ function Login() {
                 />
               </div>
             </GoogleOAuthProvider>
-   
 
             <br />
             <br />

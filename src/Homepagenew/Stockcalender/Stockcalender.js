@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the sorting icon
 import './Stockcalender.css'
 import Navbar from "../../Navbar/Navbar";
@@ -7,279 +7,170 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ReactDatePicker from 'react-datepicker';
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const Stockcalender = () => {
-    const earningsData = [
-        {
-            company: "Avanti Feeds Ltd",
-            ltp: "₹682.3",
-            change: "13.80%",
-            marketCap: "₹8,168.6 Cr",
-            high52W: "791.1",
-            low52W: "421.7",
-            date: "2025-01-03",
-            currentPE: "19.52",
-            clarification: "Know more",
-          },
-          {
-            company: "CRISIL Ltd",
-            ltp: "₹6,884",
-            change: "11.64%",
-            marketCap: "₹43,786.5 Cr",
-            high52W: "6,119",
-            low52W: "3,665",
-            date: "30 Dec 2024",
-            currentPE: "65.40",
-            clarification: "Know more",
-          },
-          {
-            company: "Godfrey Phillips India Ltd",
-            ltp: "₹5,218",
-            change: "8.88%",
-            marketCap: "₹24,916.8 Cr",
-            high52W: "8,480",
-            low52W: "2,066",
-            date: "2 Oct 2024",
-            currentPE: "27.87",
-            clarification: "Know more",
-          },
-          {
-            company: "NLC India Ltd",
-            ltp: "₹251.5",
-            change: "7.16%",
-            marketCap: "₹32,544.4 Cr",
-            high52W: "311.6",
-            low52W: "193.0",
-            date: "7 Dec 2024",
-            currentPE: "26.47",
-            clarification: "Know more",
-          },
-          {
-            company: "Torrent Power Ltd",
-            ltp: "₹1,484",
-            change: "5.30%",
-            marketCap: "₹71,012.6 Cr",
-            high52W: "2,037",
-            low52W: "931.0",
-            date: "3 Dec 2024",
-            currentPE: "30.98",
-            clarification: "Know more",
-          },
-          {
-            company: "IFCI Ltd",
-            ltp: "₹62.23",
-            change: "5.22%",
-            marketCap: "₹15,456.8 Cr",
-            high52W: "91.39",
-            low52W: "28.29",
-            date: "10 Dec 2024",
-            currentPE: "433.57",
-            clarification: "Know more",
-          },
-          {
-            company: "Thermax Ltd",
-            ltp: "₹4,072",
-            change: "3.79%",
-            marketCap: "₹46,747.4 Cr",
-            high52W: "5,835",
-            low52W: "2,979",
-            date: "30 Dec 2024",
-            currentPE: "63.04",
-            clarification: "Know more",
-          },
-          {
-            company: "UCO Bank",
-            ltp: "₹43.85",
-            change: "3.44%",
-            marketCap: "₹50,681.3 Cr",
-            high52W: "70.66",
-            low52W: "39.20",
-            date: "3 Dec 2024",
-            currentPE: "23.22",
-            clarification: "Know more",
-          },
-          {
-            company: "Bajaj Auto Ltd",
-            ltp: "₹4,721",
-            change: "4.92%",
-            marketCap: "₹1,36,254.9 Cr",
-            high52W: "5,192",
-            low52W: "3,720",
-            date: "12 Dec 2024",
-            currentPE: "20.17",
-            clarification: "Know more",
-          },
-          {
-            company: "Hindustan Aeronautics Ltd",
-            ltp: "₹3,565",
-            change: "6.14%",
-            marketCap: "₹1,19,802.5 Cr",
-            high52W: "4,231",
-            low52W: "2,912",
-            date: "25 Dec 2024",
-            currentPE: "14.76",
-            clarification: "Know more",
-          },
-        ];
-        
-    
-    
-        
-    
-        const [selectedEarningsTab, setSelectedEarningsTab] = useState("Today");
-         const navigate = useNavigate();
-       
-         useState("All");
-        const [sortOrder, setSortOrder] = useState({});
-       
-        const [sortedData, setSortedData] = useState([...earningsData]);
-   
-        const [startDate, setStartDate] = useState(null);
-        const [endDate, setEndDate] = useState(null);
-        const [calendarOpen, setCalendarOpen] = useState(false);
       
+  const [selectedEarningsTab, setSelectedEarningsTab] = useState("Today");
+  const [sortOrder, setSortOrder] = useState({});
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [allStocks, setAllStocks] = useState([]);
+  const [sortedData, setSortedData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const navigate = useNavigate();
 
-    const handleEarningsTabChange = (tab) => {
-        setSelectedEarningsTab(tab);
-    };
+  const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
-    const toggleCalendar = () => {
-        setCalendarOpen(!calendarOpen);
-    };
-
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
-  
-    const totalPages = Math.ceil(sortedData.length / itemsPerPage);
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  
-    const handlePageChange = (pageNumber) => {
-      if (pageNumber >= 1 && pageNumber <= totalPages) {
-        setCurrentPage(pageNumber);
-      }
-    };
-  
-
-   
-    const filterEarningsDataByDate = (earningsData, selectedEarningsTab, today = new Date()) => {
-      return earningsData.filter((data) => {
-        const dataDate = new Date(data.date);
-        dataDate.setHours(0, 0, 0, 0); // Normalize data date to ignore time
-        const normalizedToday = new Date(today);
-        normalizedToday.setHours(0, 0, 0, 0);
-    
-        switch (selectedEarningsTab) {
-          case "Yesterday":
-            const yesterday = new Date(normalizedToday);
-            yesterday.setDate(normalizedToday.getDate() - 1);
-            return dataDate.getTime() === yesterday.getTime();
-    
-          case "Today":
-            return dataDate.getTime() === normalizedToday.getTime();
-    
-          case "Tomorrow":
-            const tomorrow = new Date(normalizedToday);
-            tomorrow.setDate(normalizedToday.getDate() + 1);
-            return dataDate.getTime() === tomorrow.getTime();
-    
-          case "This Week":
-            const startOfWeek = new Date(normalizedToday);
-            startOfWeek.setDate(normalizedToday.getDate() - normalizedToday.getDay()); // Sunday
-            const endOfWeek = new Date(startOfWeek);
-            endOfWeek.setDate(startOfWeek.getDate() + 6); // Saturday
-            return dataDate >= startOfWeek && dataDate <= endOfWeek;
-    
-          case "Next Week":
-            const startOfNextWeek = new Date(normalizedToday);
-            startOfNextWeek.setDate(normalizedToday.getDate() + (7 - normalizedToday.getDay())); // Next Sunday
-            const endOfNextWeek = new Date(startOfNextWeek);
-            endOfNextWeek.setDate(startOfNextWeek.getDate() + 6); // Next Saturday
-            return dataDate >= startOfNextWeek && dataDate <= endOfNextWeek;
-    
-          default:
-            return false;
-        }
-      });
-    };
-
-
-    
-
-
-
-    const handleSort = (column) => {
-      const newSortOrder = sortOrder[column] === "asc" ? "desc" : "asc";
-  
-      const sorted = [...earningsData].sort((a, b) => {
-          let valueA = a[column];
-          let valueB = b[column];
-  
-          // Handle numeric fields (e.g., LTP, Change %, etc.)
-          if (["ltp", "change", "marketCap", "high52W", "low52W", "currentPE"].includes(column)) {
-              valueA = parseFloat(valueA.replace(/₹|%|,/g, ""));
-              valueB = parseFloat(valueB.replace(/₹|%|,/g, ""));
-              return newSortOrder === "asc" ? valueA - valueB : valueB - valueA;
-          }
-  
-          // Handle date field
-          if (column === "date") {
-              valueA = new Date(valueA);
-              valueB = new Date(valueB);
-              return newSortOrder === "asc" ? valueA - valueB : valueB - valueA;
-          }
-  
-          // Fallback for string fields
-          return newSortOrder === "asc"
-              ? valueA.localeCompare(valueB)
-              : valueB.localeCompare(valueA);
-      });
-  
-      setSortOrder((prevSortOrder) => ({
-          ...prevSortOrder,
-          [column]: newSortOrder,
-      }));
-  
-      setSortedData(sorted);
+  // Date formatting function
+  const formatDate = (date) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Intl.DateTimeFormat('en-GB', options).format(new Date(date));
   };
-  
-  const renderSortIcon = (column) => {
-    if (sortOrder[column] === "asc") {
-        return <PiCaretUpDownFill style={{ transform: "rotate(0deg)" }} />;
-    } else if (sortOrder[column] === "desc") {
-        return <PiCaretUpDownFill style={{ transform: "rotate(180deg)" }} />;
+
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${API_BASE_URL}/stocksScreener/stockCalender`);
+      if (!response.ok) throw new Error("Failed to fetch data");
+      const data = await response.json();
+      setAllStocks(data);
+      setSortedData(data); // Directly set sorted data to all stocks initially
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
     }
-    return <PiCaretUpDownFill style={{ color: "black" }} />;
-};
+  };
 
-    
-const handleDateChange = (dates) => {
-  const [start, end] = dates;
-  setStartDate(start);
-  setEndDate(end);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // Filter data based on the selected date range
-  if (start && end) {
-      filterData(start, end);
-  } else {
-      setSortedData([...earningsData]); // Reset data if no range is selected
-  }
-};
+  const handleSort = (column) => {
+    const newSortOrder = sortOrder[column] === "asc" ? "desc" : "asc";
+    const sorted = [...sortedData].sort((a, b) => compareValues(a, b, column, newSortOrder));
+    setSortOrder((prevSortOrder) => ({ ...prevSortOrder, [column]: newSortOrder }));
+    setSortedData(sorted);
+  };
 
-// Function to filter the data based on the date range
-const filterData = (startDate, endDate) => {
-  const filteredData = earningsData.filter((row) => {
-      const rowDate = new Date(row.date); // Convert row.date to Date object
+  const compareValues = (a, b, column, order) => {
+    let valueA = a[column];
+    let valueB = b[column];
+
+    if (["ltp_inr", "change_percent", "market_cap_cr", "High_52W_INR", "Low_52W_INR", "pe"].includes(column)) {
+      valueA = parseFloat(valueA.replace(/₹|%|,/g, ""));
+      valueB = parseFloat(valueB.replace(/₹|%|,/g, ""));
+      return order === "asc" ? valueA - valueB : valueB - valueA;
+    }
+
+    if (column === "date") {
+      valueA = new Date(valueA);
+      valueB = new Date(valueB);
+      return order === "asc" ? valueA - valueB : valueB - valueA;
+    }
+
+    return order === "asc" ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+  };
+
+  const renderSortIcon = (column) => {
+    const sortIconStyle = { transform: sortOrder[column] === "asc" ? "rotate(0deg)" : "rotate(180deg)" };
+    return <PiCaretUpDownFill style={sortIconStyle} />;
+  };
+
+  const handleEarningsTabChange = (tab) => {
+    setSelectedEarningsTab(tab);
+    filterEarningsData(tab);
+  };
+
+  const filterEarningsData = (tab) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set hours to 0 for comparison to ignore the time
+  
+    const filtered = allStocks.filter((data) => {
+      const dataDate = new Date(data.date);
+      dataDate.setHours(0, 0, 0, 0); // Normalize the data date by setting hours to 0
+  
+      switch (tab) {
+        case "Yesterday":
+          const yesterday = new Date(today);
+          yesterday.setDate(today.getDate() - 1); // Set to yesterday
+          return yesterday.getTime() === dataDate.getTime();
+  
+        case "Today":
+          return today.getTime() === dataDate.getTime();
+  
+        case "Tomorrow":
+          const tomorrow = new Date(today);
+          tomorrow.setDate(today.getDate() + 1); // Set to tomorrow
+          return tomorrow.getTime() === dataDate.getTime();
+  
+        case "This Week":
+          return isWithinWeek(dataDate, today);
+  
+        case "Next Week":
+          return isWithinNextWeek(dataDate, today);
+  
+        default:
+          return false;
+      }
+    });
+  
+    setSortedData(filtered);
+  };
+
+  const isWithinWeek = (dataDate, today) => {
+    const startOfWeek = new Date(today);
+    startOfWeek.setDate(today.getDate() - today.getDay()); // Set to the start of the week (Sunday)
+    const endOfWeek = new Date(startOfWeek);
+    endOfWeek.setDate(startOfWeek.getDate() + 6); // Set to the end of the week (Saturday)
+    return dataDate >= startOfWeek && dataDate <= endOfWeek;
+  };
+
+  const isWithinNextWeek = (dataDate, today) => {
+    const startOfNextWeek = new Date(today);
+    startOfNextWeek.setDate(today.getDate() + (7 - today.getDay())); // Set to next Sunday
+    const endOfNextWeek = new Date(startOfNextWeek);
+    endOfNextWeek.setDate(startOfNextWeek.getDate() + 6); // Set to next Saturday
+    return dataDate >= startOfNextWeek && dataDate <= endOfNextWeek;
+  };
+
+  const toggleCalendar = () => setCalendarOpen(!calendarOpen);
+
+  const handleDateChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+
+    if (start && end) {
+      filterDataByDate(start, end);
+    } else {
+      setSortedData(allStocks); // Reset to all stocks when no range is selected
+    }
+  };
+
+  const filterDataByDate = (startDate, endDate) => {
+    const filteredData = allStocks.filter((row) => {
+      const rowDate = new Date(row.date);
       return rowDate >= startDate && rowDate <= endDate;
-  });
-  setSortedData(filteredData);
-};
+    });
+    setSortedData(filteredData);
+  };
 
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
 
-
-
-const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
     return (
       <div className="DashboardMainPagetable-container">
@@ -348,28 +239,28 @@ const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
                       
                         <th>Company</th>
                        
-                        <th onClick={() => handleSort("ltp")} style={{ cursor: "pointer" }}>
-                            LTP ₹ {renderSortIcon("ltp")}
+                        <th onClick={() => handleSort("ltp_inr")} style={{ cursor: "pointer" }}>
+                            LTP ₹ {renderSortIcon("ltp_inr")}
                         </th>
-                        <th onClick={() => handleSort("change")} style={{ cursor: "pointer" }}>
-                            Change % {renderSortIcon("change")}
+                        <th onClick={() => handleSort("change_percent")} style={{ cursor: "pointer" }}>
+                            Change % {renderSortIcon("change_percent")}
                         </th>
-                        <th onClick={() => handleSort("marketCap")} style={{ cursor: "pointer" }}>
-    Market Cap (Cr.) {renderSortIcon("marketCap")}
+                        <th onClick={() => handleSort("market_cap_cr")} style={{ cursor: "pointer" }}>
+    Market Cap (Cr.) {renderSortIcon("market_cap_cr")}
 </th>
-                        <th onClick={() => handleSort("high52W")} style={{ cursor: "pointer" }}>
-                        52W High (₹) {renderSortIcon("high52W")}
+                        <th onClick={() => handleSort("High_52W_INR")} style={{ cursor: "pointer" }}>
+                        52W High (₹) {renderSortIcon("High_52W_INR")}
                         </th>
-                        <th onClick={() => handleSort("low52W")} style={{ cursor: "pointer" }}>
-                        52W Low (₹) {renderSortIcon("low52W")}
+                        <th onClick={() => handleSort("Low_52W_INR")} style={{ cursor: "pointer" }}>
+                        52W Low (₹) {renderSortIcon("Low_52W_INR")}
                         </th>
                         
-                        <th onClick={() => handleSort("date")} style={{ cursor: "pointer" }}>
-                        Date{renderSortIcon("date")}
+                        <th onClick={() => handleSort("event_date")} style={{ cursor: "pointer" }}>
+                        Date{renderSortIcon("event_date")}
                         </th>
                        
-                        <th onClick={() => handleSort("currentPE")} style={{ cursor: "pointer" }}>
-                        Current P/E {renderSortIcon("currentPE")}
+                        <th onClick={() => handleSort("pe")} style={{ cursor: "pointer" }}>
+                        Current P/E {renderSortIcon("pe")}
                         </th>
                         <th >
                         Clarification
@@ -377,27 +268,28 @@ const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
                     </tr>
                 </thead>
                 <tbody>
-  {earningsData.length > 0 ? (
+  {allStocks.length > 0 ? (
     currentStocks.map((row, index) => (
+      
       <tr key={index}>
         <td>
           <a href={row.url} target="_blank" rel="noopener noreferrer">
             {row.company}
           </a>
         </td>
-        <td>{row.ltp}</td>
+        <td>{row.ltp_inr}</td>
         <td
           style={{
-            color: row.change.includes("-") ? "red" : "#24b676", // Red for negative, green for positive
+            color: row.change_percent && row.change_percent.includes("-") ? "red" : "#24b676", // Red for negative, green for positive
           }}
         >
-          {row.change}
+          {row.change_percent}
         </td>
-        <td>{row.marketCap}</td>
-        <td>{row.high52W}</td>
-        <td>{row.low52W}</td>
-        <td>{row.date}</td>
-        <td>{row.currentPE}</td>
+        <td>{row.market_cap_cr}</td>
+        <td>{row.High_52W_INR}</td>
+        <td>{row.Low_52W_INR}</td>
+        <td>{formatDate(row.event_date)}</td>
+        <td>{row.pe}</td>
         <td>
           <a
             href={row.url}
