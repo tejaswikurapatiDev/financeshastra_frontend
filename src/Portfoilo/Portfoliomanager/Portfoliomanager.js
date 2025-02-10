@@ -13,6 +13,8 @@ function Portfolio() {
   const [myInvestment, setMyInvestment] = useState(0);
   const [latestValue, setLatestValue] = useState(0);
   const [unRealizedGains, setUnRealizedGains] = useState(0);
+  const [realizedGains, setRealizedGains] = useState(0);
+  const [capitalGains, setCapitalGains] = useState(0);
 
   // Function to fetch data from the backend
   const fetchData = async () => {
@@ -45,6 +47,8 @@ function Portfolio() {
         setMyInvestment(data[0].investment_cost || 0);
         setLatestValue(data[0].latest_value || 0);
         setUnRealizedGains(data[0].unrealized_gain || 0);
+        setRealizedGains(data[0].realized_gain || 0);
+        setCapitalGains(data[0].capital_gains || 0);
       } else {
         setError("No portfolio data found.");
       }
@@ -124,9 +128,9 @@ function Portfolio() {
           <div className="finance-investment-details-group">
             <h3>Realized Gain</h3>
             <p>Realized Gain</p>
-            <h3 className="finance-negative-gain">₹0</h3>
+            <h3 className="finance-negative-gain">₹{(realizedGains - 0).toLocaleString()}</h3>
             <p>Capital Gain</p>
-            <h3 className="finance-negative-gain">₹0</h3>
+            <h3 className="finance-negative-gain">₹{(capitalGains - 0).toLocaleString()}</h3>
           </div>
           <div className="finance-investment-detailsother">
             <p>Other Gain</p>
