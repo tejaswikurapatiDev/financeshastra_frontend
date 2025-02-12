@@ -31,6 +31,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchData } from "../Store/Slices/searchDataSlice";
 import { debounce } from "lodash";
+import { API_BASE_URL } from "../config";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -160,8 +161,9 @@ const Navbar = () => {
   //Api Call for getAll Data Related search Option
   const getAllData = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/api/allInfo`);
+      const response = await fetch(`${API_BASE_URL}/search/allInfo`);
       const data = await response.json();
+      console.log(data)
 
       //store all data into the redux store
       dispatch(setSearchData(data?.data || []));

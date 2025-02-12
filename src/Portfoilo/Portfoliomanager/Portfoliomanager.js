@@ -6,6 +6,9 @@ import { Link, Navigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import PortfolioManagerDashboard from "../Portfoliodashboard/Portfoliodashboard";
 import { API_BASE_URL } from "../../config";
+import { createContext } from "react";
+
+const portfolioContext = createContext()
 
 function Portfolio() {
   const [error, setError] = useState(null);
