@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, navigate } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import itiimg from '../../../src/assest/iti.png';
@@ -9,6 +9,8 @@ import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboard
 import DashboardMainPagetable from '../DashboardMainPagetable/DashboardMainPagetable';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
+import { API_BASE_URL } from '../../config';
+import Cookies from "js-cookie";
 
 
 
@@ -20,6 +22,59 @@ const Dashboardchartmain = () => {
     percentage: "+0.85%",
     lastUpdated: "05 Dec, 2024",
   });
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [myInvestment, setMyInvestment] = useState(0);
+  const [latestValue, setLatestValue] = useState(0);
+  const [percentChange, setPercentChange] = useState(0);
+
+  const fetchData = async () => {
+      try {
+        setLoading(true);
+        const token = Cookies.get("jwtToken");
+        if (!token) {
+          setError("No authentication token found.");
+          setLoading(false);
+          navigate("/login")
+          return;
+        }
+  
+        const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+  
+        const data = await response.json();
+        console.log("API Data:", data);
+  
+        if (data.length > 0) {
+          console.log(typeof(data[0].investment_cost))
+          setMyInvestment(data[0].investment_cost || 0);
+          setLatestValue(data[0].latest_value || 0);
+          const change = ((data[0].latest_value - data[0].investment_cost)/data[0].investment_cost)*100
+          console.log(change)
+          setPercentChange(change)
+        } else {
+          setError("No portfolio data found.");
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    // Fetch data when the component mounts
+    useEffect(() => {
+      fetchData();
+    }, []);
 
   // Simulate financial data updates every 5 seconds
   useEffect(() => {
@@ -72,9 +127,8 @@ const Dashboardchartmain = () => {
       },
     ],
   };
-  const totalInvestment = "₹12,63,583.90";
-  const percentageChange = "+21.32%";
-  const isPositiveChange = percentageChange.startsWith("+");
+  //const percentageChange = "+21.32%";
+  const isPositiveChange = percentChange >= 0;
 
   const chartOptions = {
     responsive: true,
@@ -107,7 +161,7 @@ const Dashboardchartmain = () => {
        <div className='homepageamountdata'>
             <div className="homepagenewdata-title">Total Investment<br/>
           
-            <div className='homepagenewdata-amount' >{totalInvestment}</div>
+            <div className='homepagenewdata-amount' >{(myInvestment - 0).toLocaleString()}</div>
             </div>
             <div
                 className={`homepagenewdata-change ${
@@ -116,7 +170,7 @@ const Dashboardchartmain = () => {
                         : "homepagenewdata-negative"
                 }`}
             >
-                {isPositiveChange ? "▲" : "▼"} {percentageChange}
+                {isPositiveChange ? "▲" : "▼"} {percentChange}
             </div>
             </div>
         </div>

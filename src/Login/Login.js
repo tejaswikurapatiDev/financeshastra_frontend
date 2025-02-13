@@ -91,6 +91,8 @@ const handleSubmit = async (e) => {
           setEmailError("Email not found. Please register.");
         } else if (response.status === 400) {
           setPasswordError("Incorrect password.");
+        } else if (response.status === 401) {
+          alert("Please Verify your mail.");
         } else {
           alert("An unexpected error occurred. Please try again later.");
         }

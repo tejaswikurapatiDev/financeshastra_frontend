@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../assest/Logo design (1).png";
+import { API_BASE_URL } from "../config";
 
 
 
@@ -66,7 +67,7 @@ function Register() {
     }
 
     if (isValid) {
-      const url= 'https://financeshastra-backendupdated.onrender.com/api/register'
+      const url= `${API_BASE_URL}/users/register`
       const options= {
         method: 'POST',
         headers: {
