@@ -234,7 +234,7 @@ color: #24b676;
       border: 1px solid  rgb(192, 231, 249);
       text-align: center;
     margin-top: 30px;
-      width: 280px; /* Adjust the width as needed */
+      width: auto; /* Adjust the width as needed */
       font-family: 'calibri';
       height: 400px;
       margin-left: 30px;
@@ -259,7 +259,7 @@ color: #24b676;
       justify-content: center;
       margin: 10px 0;
       box-shadow: 0 2px 5px rgb(216, 215, 215);
-      width: 240px;
+      width:auto;
       padding: 20px;
       border-radius: 15px;
       border: 1px solid rgb(219, 216, 216);

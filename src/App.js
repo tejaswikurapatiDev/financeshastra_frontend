@@ -202,6 +202,21 @@ import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/B
 import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
 import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
 import LandingPage from "./Landingpages/Landingpage";
+import EducationGoalPlanner from "./Goalplannerpages/EducationGoalPlanner/EducationGoalPlanner";
+import HolidayGoalPlanner from "./Goalplannerpages/HolidayGoalPlanner/HolidayGoalPlanner";
+import WeddingGoalPlanner from "./Goalplannerpages/Weddinggoalplanner/Weddinggoalplanner";
+import ElectronicGoalPlanner from "./Goalplannerpages/Electronicgoalplanner/Electronicgoalplanner";
+import OtherGoalPlanner from "./Goalplannerpages/OtherGoalPlanner/OtherGoalPlanner";
+import PortfolioCard from "./Portfolioanalysispages/PortfolioCard/PortfolioCard";
+import PortfolioAnalysisnew from "./Portfolioanalysispages/PortfolioAnalysisnew/PortfolioAnalysisnew";
+import PortfolioMetrics from "./Portfolioanalysispages/PortfolioMetrics/PortfolioMetrics";
+
+import SegmentAnalysis from "./Portfolioanalysispages/SegmentAnalysis/SegmentAnalysis";
+import StockTracker from "./Portfolioanalysispages/StockTracker/StockTracker";
+import BestPerformers from "./Portfolioanalysispages/BestPerformers/BestPerformers";
+import Portfolioanalyticchart from "./Portfolioanalysispages/Portfolioanalyticchart/Portfolioanalyticchart";
+
+
 
 
 
@@ -412,6 +427,20 @@ function App() {
       <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
       <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
       <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
+      <Route path="/educationGoalPlanner" element={<EducationGoalPlanner/>} />
+      <Route path="/holidayGoalPlanner" element={<HolidayGoalPlanner/>} />
+      <Route path="/weddingGoalPlanner" element={<WeddingGoalPlanner/>} />
+      <Route path="/electronicGoalPlanner" element={<ElectronicGoalPlanner/>} />
+      <Route path="/otherGoalPlanner" element={<OtherGoalPlanner/>} />
+      <Route path="/portfolioCard" element={<PortfolioCard/>} />
+      <Route path="/portfolioAnalysisnew" element={<PortfolioAnalysisnew/>} />
+     
+      <Route path="/portfolioMetrics" element={<PortfolioMetrics/>} />
+    
+      <Route path="/segmentAnalysis" element={<SegmentAnalysis/>} />
+      <Route path="/stockTracker" element={<StockTracker/>} />
+      <Route path="/bestPerformers" element={<BestPerformers/>} />
+      <Route path="/portfolioanalyticchart" element={<Portfolioanalyticchart/>} />
      
     
 

@@ -1,0 +1,22 @@
+.goalplanner-imageholiday{
+    width: 80px;
+    height: 70px;
+    margin-left: 388px;
+    margin-top: -20px;
+}
+@media (max-width: 768px) {
+    .goalplanner-imageholiday{
+        width: 80px;
+        height: 70px;
+        margin-left: 308px;
+        margin-top: -20px;
+    }
+}
+@media (max-width: 480px) {
+    .goalplanner-imageholiday{
+        width: 80px;
+        height: 70px;
+        margin-left: 210px;
+        margin-top: -10px;
+    }
+}

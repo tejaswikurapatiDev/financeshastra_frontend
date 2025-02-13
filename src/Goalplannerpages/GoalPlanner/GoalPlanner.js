@@ -11,12 +11,12 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const goals = [
-  { title: "Buying House", img: hosimg },
-  { title: "Education", img: bookimg },
-  { title: "Holidays", img: holidayimg },
-  { title: "Wedding", img: wedimg },
+  { title: "Buying House", img: hosimg ,link:"/houseGoalPlanner"},
+  { title: "Education", img: bookimg ,link:"/educationGoalPlanner"},
+  { title: "Holidays", img: holidayimg,link:"/holidayGoalPlanner" },
+  { title: "Wedding", img: wedimg,link:"/weddingGoalPlanner" },
   { title: "Buying Vehicle", img: vehicleimage, link: "/cargoalPlanner" }, 
-  { title: "Other Goals", img: otherimg }
+  { title: "Other Goals", img: otherimg,link:"/otherGoalPlanner" }
 ];
 
 const GoalPlanner = () => {

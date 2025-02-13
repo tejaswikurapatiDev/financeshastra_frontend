@@ -234,7 +234,7 @@ margin-right: 15px;
             border: 2px solid #e3e0e0; /* Adds a border */
            
             margin-left: 10px;
-            
+            order: 2;
         padding: 15px;
             /* Add height or min-height to increase card height */
             height: 720px; /* Adjust the value as needed */
@@ -322,7 +322,7 @@ margin-right: 15px;
             margin: 0 auto 15px; /* Center the container and add spacing below */
             color: #fff; /* White text */
            
-            
+            order: 1;
             width: 48%; /* Decrease width */
             height: 1000px; /* Adjust the value as needed */
             min-height: 500px; /* For flexibility */
@@ -447,6 +447,7 @@ margin-right: 15px;
             /* Add height or min-height to increase card height */
             height: 720px; /* Adjust the value as needed */
            /* For flexibility */
+           order: 2;
         }
         .plan-header-contentgoalcalcu {
             text-align: center; /* Centers the content */
@@ -469,7 +470,7 @@ margin-right: 15px;
           .plan-header-titleelitegoalcalcu::after {
             content: "";
             display: block;
-            width: 580%; /* Adjust this to control the border width */
+            width: 500%; /* Adjust this to control the border width */
             height: 2px;
             background-color: #24b676;
             position: absolute;
@@ -529,10 +530,10 @@ margin-right: 15px;
             text-align: center; /* Center align the text */
             margin: 0 auto 15px; /* Center the container and add spacing below */
             color: #fff; /* White text */
-           
+           order: 1;
             
             width: 58%; /* Decrease width */
-            height: 1060px; /* Adjust the value as needed */
+            height: 1150px; /* Adjust the value as needed */
             /* For flexibility */
             box-shadow: 0 4px 8px #24b676;
             margin-left: 14px;
@@ -547,7 +548,7 @@ margin-right: 15px;
           
            
             box-shadow: 0 4px 8px #24b676;
-            height: 1000px;/* Adjust the value as needed */
+            height: 1080px;/* Adjust the value as needed */
               min-height: 500px; /* For flexibility */
              
           }
@@ -588,7 +589,7 @@ margin-right: 15px;
             border: none;
             border-radius: 15px;
             cursor: pointer;
-          margin-top: -10px;
+          margin-top: 10px;
             margin-left: 20px;
           }
           .pay-now-btnfooterrcal:hover{

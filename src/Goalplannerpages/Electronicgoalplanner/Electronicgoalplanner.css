@@ -1,0 +1,28 @@
+.goalplanner-imagewater {
+   width: 80%;
+    height:350px;
+    border-radius: 10px;
+    margin-top: -20px;
+  }
+  .goalplanner-titleallelectronic{
+    font-size: 25px;
+    display: none;
+  }
+  @media (max-width: 768px) {
+    .goalplanner-titleallelectronic{
+        font-size: 24px;
+        display: block; /* Make it visible in mobile view */
+        font-family: 'calibri';
+        margin-left: 150px;
+        margin-bottom: 0px;
+      }
+  }
+  @media (max-width: 480px) {
+    .goalplanner-titleallelectronic{
+        font-size: 24px;
+        display: block; /* Make it visible in mobile view */
+        font-family: 'calibri';
+        margin-left: 100px;
+        margin-bottom: 0px;
+      }
+  }

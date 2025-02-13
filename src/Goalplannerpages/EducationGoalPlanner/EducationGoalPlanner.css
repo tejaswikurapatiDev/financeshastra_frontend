@@ -1,0 +1,20 @@
+.goalplanner-imagebook{
+   width: 16%;
+    height:50px;
+    margin-left: 395px;
+}
+
+@media (max-width: 768px) {
+    .goalplanner-imagebook{
+        width: 16%;
+         height:50px;
+         margin-left: 335px;
+     }
+  }
+  @media (max-width: 480px) {
+    .goalplanner-imagebook{
+        width: 16%;
+         height:50px;
+         margin-left: 245px;
+     }
+  }

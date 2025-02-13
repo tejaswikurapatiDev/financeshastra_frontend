@@ -20,6 +20,7 @@ const EditProfile = () => {
     gender: personalDetails.gender,
     email: personalDetails.email,
     phoneNumber: personalDetails.phoneNumber,
+    address:personalDetails.address,
     country: personalDetails.country,
     state: personalDetails.state,
     city: personalDetails.city,
@@ -43,6 +44,7 @@ const navigate = useNavigate();
       gender: "",
       email: "",
       phoneNumber: "",
+      address:"",
       country: "India",
       state: "",
       city: "",
@@ -58,6 +60,7 @@ const navigate = useNavigate();
       "lastName",
       "dob",
       "email",
+      "address",
       "phoneNumber",
       "state",
       "city",
@@ -105,10 +108,12 @@ const navigate = useNavigate();
       dob: formData.dob,
       gender: formData.gender,
       phoneNumber: formData.phoneNumber,
+      address:formData.address,
          country: "India",
       state: formData.state,
       city:formData.city,
       pincode: formData.pincode,
+      
      
     
       
@@ -425,7 +430,7 @@ const navigate = useNavigate();
   return (
     <div className="profilepage-container">
        <h1 className="profilepage-titleeeditt">My profile</h1>
-       <div className="profilepage-tabsorderusers">
+       <div className="pftab">
         <span className="profilepage-tabb"
         style={{
           borderBottom: "2px solid #24b676",
@@ -519,13 +524,13 @@ const navigate = useNavigate();
           </div>
         </div>
         <div className="allemailphone">
-        <div className="emailphoneal">
+        <div className="emailphonealssss">
           <div className="profilepage-roww">
             <div className={`profilepage-field email-field ${errors.email ? "error" : ""}`}>
               {/* content */}
             </div>
 
-            <label>Email ID*</label>
+            <label className="emaillabel">Email ID*</label>
             <div
               className="profile-email-container"
               
@@ -627,7 +632,7 @@ const navigate = useNavigate();
 
         <div className="profile-roww">
           <div className={`profile-group ${errors.phoneNumber ? "error" : ""}`}>
-            <label>Phone Number*</label>
+            <label className="phonelabel">Phone Number*</label>
             <div className="profile-phone-container" >
               <div >
                 <input
@@ -746,6 +751,18 @@ const navigate = useNavigate();
 
       
       <div className="profilepage-row">
+      <div className={`profilepage-field pincode-field ${errors.address ? "error" : ""}`}>
+          <label>Address*</label>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className={`profilepage-input ${errors.address ? "error" : ""}`}
+            placeholder=""
+          />
+          {errors.address && <span className="error-text">This field is required</span>}
+        </div>
         <div className="profilepage-field">
           <label>Country*</label>
           <select
@@ -757,7 +774,11 @@ const navigate = useNavigate();
             <option value="India">India</option>
           </select>
         </div>
-        <div className={`profilepage-field state-field ${errors.state ? "error" : ""}`}>
+       
+
+      </div>
+      <div className="profilepage-row">
+      <div className={`profilepage-field state-field ${errors.state ? "error" : ""}`}>
         <label>State*</label>
       <select
         name="state"
@@ -774,9 +795,6 @@ const navigate = useNavigate();
       </select>
           {errors.state && <span className="error-text">This field is required</span>}
         </div>
-
-      </div>
-      <div className="profilepage-row">
         <div className={`profilepage-field city-field ${errors.city ? "error" : ""}`}>
         <label>City*</label>
       <select
@@ -796,7 +814,11 @@ const navigate = useNavigate();
           {errors.city && <span className="error-text">This field is required</span>}
         </div>
 
-        <div className={`profilepage-field pincode-field ${errors.pincode ? "error" : ""}`}>
+       
+
+      </div>
+      <div className="profilepage-row">
+      <div className={`profilepage-field pincode-field ${errors.pincode ? "error" : ""}`}>
           <label>Pincode*</label>
           <input
             type="text"
@@ -808,9 +830,6 @@ const navigate = useNavigate();
           />
           {errors.pincode && <span className="error-text">This field is required</span>}
         </div>
-
-      </div>
-      <div className="profilepage-row">
         <div className="profilepage-field">
           <label>Occupation</label>
           <select
@@ -829,7 +848,10 @@ const navigate = useNavigate();
 
           </select>
         </div>
-        <div className="profilepage-field">
+     
+      </div>
+      <div className="profilepage-row">
+      <div className="profilepage-fieldindustry">
           <label>Industry</label>
           <select
             name="industry"
@@ -853,10 +875,8 @@ const navigate = useNavigate();
             <option value="Others">Others</option>
           </select>
         </div>
-      </div>
-      <div className="profilepage-row">
         <div className="profilepage-field-income">
-          <label>Annual Income</label>
+          <label className="annuallabel">Annual Income</label>
           <select
             name="income"
             value={formData.income}
