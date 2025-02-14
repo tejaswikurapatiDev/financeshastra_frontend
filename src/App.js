@@ -216,6 +216,9 @@ import StockTracker from "./Portfolioanalysispages/StockTracker/StockTracker";
 import BestPerformers from "./Portfolioanalysispages/BestPerformers/BestPerformers";
 import Portfolioanalyticchart from "./Portfolioanalysispages/Portfolioanalyticchart/Portfolioanalyticchart";
 
+import Openemailforgotpass from "./Forgotpaswordpages/Openemailforgotpass/Openemailforgotpass";
+import Forgetpassword from "./Forgotpaswordpages/Forgetpassword/Forgetpassword";
+
 
 
 
@@ -438,9 +441,11 @@ function App() {
       <Route path="/portfolioMetrics" element={<PortfolioMetrics/>} />
     
       <Route path="/segmentAnalysis" element={<SegmentAnalysis/>} />
-      <Route path="/stockTracker" element={<StockTracker/>} />
+      <Route path="/stockTrackerall" element={<StockTracker/>} />
       <Route path="/bestPerformers" element={<BestPerformers/>} />
       <Route path="/portfolioanalyticchart" element={<Portfolioanalyticchart/>} />
+      <Route path="/forgetpassword" element={<Forgetpassword/>} />
+      <Route path="/openemailforgotpass" element={<Openemailforgotpass/>} />
      
     
 

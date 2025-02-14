@@ -16,10 +16,7 @@ const PortfolioAnalysisSpeedometer = () => {
   ];
 
   // Handle Click - Move Needle & Update Text
-  const handleClick = (label, angle) => {
-    setRating(label);
-    setNeedleAngle(angle);
-  };
+
 
   return (
     <div className="speedometer-container">
@@ -65,7 +62,7 @@ const PortfolioAnalysisSpeedometer = () => {
               x={r.x} y={r.y}
               fontSize="10"
               fill={r.label === rating ? "#000" : "#666"}
-              onClick={() => handleClick(r.label, r.angle)}
+            
               style={{ cursor: "pointer", fontWeight: r.label === rating ? "bold" : "normal" }}
             >
               {r.label}

@@ -213,7 +213,7 @@ margin-left: 240px;
 
 
 .investment-itemalluser input[name="stocks"],
-.investment-itemalluser input[name="mutualfund"] {
+.investment-itemalluser input[name="Mutualfund"] {
   width: 80px; /* Smaller width for % fields */
 }
 
@@ -254,6 +254,17 @@ margin-left: 240px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.investment-itemalluser span {
+  display: inline-block;
+  /* Adjust width as needed */
+  padding: 8px;
+
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  color: #090909;
 }
 
 .modal-footer {

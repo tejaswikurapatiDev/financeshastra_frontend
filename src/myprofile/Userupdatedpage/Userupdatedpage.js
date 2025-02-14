@@ -19,7 +19,7 @@ const UserDetailsupdate = () => {
     termInsurance: "₹4,00,000",
     healthInsurance: "₹15,00,000",
     currentInvestments: "₹24,00,500",
-    interestedToInvest: "-",
+    interestedToInvest: "",
   });
 
   const [showModal, setShowModal] = useState(false);
@@ -261,7 +261,7 @@ const UserDetailsupdate = () => {
               <label>Interested to invest in*</label>
       <div className="investment-optionsalluser">
         <div className="investment-itemalluser">
-          <input type="text" value="Stocks" readOnly />
+        <span>Stocks</span>
           <input
             type="number"
             name="stocks"
@@ -272,14 +272,15 @@ const UserDetailsupdate = () => {
         </div>
 
         <div className="investment-itemalluser">
-          <input type="text" value="Mutual Fund" readOnly />
-          <input
-            type="number"
-            name="mutualfund"
-            value={modalData.mutualfund}
-            onChange={handleChange}
-            placeholder="%"
-          />
+  <span>Mutual Fund</span>
+  <input
+    type="number"
+    name="Mutualfund"
+    value={modalData.mutualfund}
+    onChange={handleChange}
+    placeholder="%"
+  />
+
   </div>
 </div>
 

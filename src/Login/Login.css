@@ -6,13 +6,18 @@
   font-family: 'calibri';
   overflow-y: hidden;
 
+  background-color:#f8f6f6e8;
+ 
+
 }
 
 .login-container body {
   display: flex;
   height: 100vh;
   overflow-y: hidden; /* Disables vertical scrolling */
+ 
 }
+
 
 .login-left {
   flex: 1;
@@ -24,9 +29,34 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.login-or{
-  margin-bottom: 10px;
+.login-or {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ensures full center alignment */
+  text-align: center;
+  color: #898989; /* Adjust color as needed */
+  font-weight: 600;
+  font-size: 12px;
+  width: 100%; /* Ensures it spans the full width of the container */
 }
+
+.login-or::before,
+.login-or::after {
+  content: "";
+  flex: 0.3; /* Adjusts the length of the lines */
+  height: 1px;
+  background-color: #ccc; /* Adjust color as needed */
+  margin: 0 10px; /* Adjust spacing */
+}
+
+.sociall-login {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the buttons */
+  gap: 10px; /* Adds spacing between buttons */
+  flex-wrap: wrap; /* Ensures responsiveness */
+}
+
 .login-left h1 {
   font-size: 2.5rem;
   color: #24bc76;
@@ -41,24 +71,40 @@
 
 .login-right {
   flex: 1;
-  background-color: #fff;
+  background-color: #f8f6f6;
   display: flex;
-  justify-content: center;
+
   align-items: center;
+  padding: 10px; /* Reduce internal spacing */
+ 
+  min-width: 50%; /* Adjust width if needed */
 }
+
+
+
 
 .login-box {
-  width: 80%;
+  width: 70%;
   max-width: 400px;
-  padding: 40px;
+  padding: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border-radius: 20px; /* Added border-radius for rounded corners */
+  overflow: hidden; /* Hides any overflowing content */
+  height: 50%;
+  background-color: #ffff;
 }
 
-.login-box h2 {
-  font-size: 1.5rem;
-  color: black;
+
+.h2loginpage {
+  color: #898989;
+  font-weight: bold;
+  font-size: 27px;
+  text-align: left;
+  margin-top: -10px;
+  margin-left: 35px;
 }
+
 
 .input-container {
   margin-bottom: 20px;
@@ -68,44 +114,64 @@
 .input-container label {
   display: block;
   margin-bottom: 5px;
-  color: #333;
+  color: #111111;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 40px;
+  margin-top: -10px;
 }
 
 .input-container input {
-  width: 96%;
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #898989;
   border-radius: 5px;
+  margin-left: 40px;
 }
 
 .login-options {
   display: flex;
-gap: 310px;
-
-
+gap: 100px;
  
 }
-.signinall{
-  display: flex;
-  gap: 10px;
-}
-.allsignall{
-  margin-top: 15px;
-}
-.login-options a {
-  color: #007bff;
-  text-decoration: none;
+.loginpagepara {
+  color: #111111;
+  font-size: 12px;
+  margin-top: 0px;
 }
 
+.signinall{
+  display: flex;
+  gap: 3px;
+}
+.allsignall {
+  margin-top: -1px;
+  margin-left: 35px;
+}
+
+.forgotpasswordlink {
+  color: #0349A8;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: -30px; /* Moves the link down */
+  display: inline-block; /* Ensures spacing applies */
+  margin-left: 40px;
+}
+
+
+
 .sign-in-btn {
-  width: 20%;
-  padding: 12px;
-  background-color: #028744;
-  color: #fff;
+  width: 80%;
+  padding: 10px;
+  background-color: #adaaaa;
+  color:white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
   
 }
 
@@ -165,6 +231,7 @@ gap: 310px;
 
 .login-right {
   position: relative;
+
 }
 
 .logo-container {
@@ -197,13 +264,17 @@ gap: 310px;
 }
 
 .password-field input {
-  width: 100%;
-  padding-right: 2.5rem;
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #898989;
+  border-radius: 5px;
+  margin-left: 40px;
 }
 
 .toggle-password {
   position: absolute;
-  right: 10px;
+  right: 50px;
   cursor: pointer;
   font-size: 1.2rem;
   color: #888;
@@ -226,18 +297,19 @@ gap: 310px;
 }
 
 .forgot-password-link {
-  color: #007bff; /* Link color */
+  color: #0349A8; /* Link color */
   cursor: pointer;
-  text-decoration: underline !important;
+  text-decoration: none !important;
+  margin-top: -10px;
+}
+.Googlealll-btn {
+  display: flex;
 }
 .Googlelink-btn {
-  font-size: 12px;
-  font-weight: bold;
- /* LinkedIn Blue */
-height: 40px;
-  box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548); /* Subtle shadow effect */
-  width: 218px;
-border: 1px solid white;
+  font-size: 12px !important; /* Decrease text size */
+  padding: 6px 12px !important; /* Adjust button padding */
+  min-width: 150px !important; /* Decrease button width */
+  height: 36px !important; /* Adjust height */
 }
 
 .Googlelink-btn:hover {
@@ -269,16 +341,7 @@ border: 1px solid white;
     margin-bottom: -19px;
     border: 1px solid #005582;
 }
-.Googlealll-btn{
-  width: 218px;
-  margin-left: 170px;
-  color: #0077b5; /* LinkedIn Blue */
-  font-size: 10px;
-  font-weight: bold;
-    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
-    margin-bottom: -19px;
-  
-}
+
 .nsm7Bb-HzV7m-LgbsSe:hover {
   background-color: #0077b5;
   color: white;
