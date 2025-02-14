@@ -442,7 +442,7 @@ const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
         {/* Pagination */}
       
       {/* Pagination Section */}
-<div className="pagination-containeranalyst">
+<div className="pagination-containerreasearch">
   <div className="pagination-info">
     {`Showing ${indexOfFirstItem + 1} to ${
       indexOfLastItem > stocks.length ? stocks.length : indexOfLastItem

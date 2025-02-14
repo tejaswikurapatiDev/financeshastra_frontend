@@ -202,6 +202,20 @@ import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/B
 import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
 import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
 import LandingPage from "./Landingpages/Landingpage";
+import Stockresearchpages from "./stockresearchpages/stockresearchpages";
+import PortfolioAnalysisCorporatePage from "./Portfolioanalysispages/PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage";
+import PortfolioAnalysisdividentPage from "./Portfolioanalysispages/PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
+import PortfolioAnalysisbonusPage from "./Portfolioanalysispages/PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
+import PortfolioAnalysissplitPage from "./Portfolioanalysispages/PortfolioAnalysissplitPage/PortfolioAnalysissplitPage";
+import PortfolioAnalysisrightissusePage from "./Portfolioanalysispages/PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage";
+import PortfolioAnalysisAGMPage from "./Portfolioanalysispages/PortfolioAnalysisAGMPage/PortfolioAnalysisAGMPage";
+import PortfolioHoldingPage from "./Portfolioanalysispages/PortfolioHoldingPage/PortfolioHoldingPage";
+import PortfolioHoldingdetailPage from "./Portfolioanalysispages/PortfolioHoldingdetailPage/PortfolioHoldingdetailPage";
+import FundamentalPortfolioAnalysis from "./Portfolioanalysispages/FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis";
+import PerformancePortfolioAnalysis from "./Portfolioanalysispages/PerformancePortfolioAnalysis/PerformancePortfolioAnalysis";
+import Portfolioanalysispages from "./Portfolioanalysispages/Portfolioanalysispages";
+
+
 
 
 
@@ -412,14 +426,23 @@ function App() {
       <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
       <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
       <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
+      <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
+      <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage/>} />
+      <Route path="/portfolioAnalysisdividentPage" element={<PortfolioAnalysisdividentPage/>} />
+      <Route path="/portfolioAnalysisbonusPage" element={<PortfolioAnalysisbonusPage/>} />
+      <Route path="/portfolioAnalysisSplitsPage" element={<PortfolioAnalysissplitPage/>} />
+      <Route path="/portfolioAnalysisRightsPage" element={<PortfolioAnalysisrightissusePage/>} />
+      <Route path="/portfolioAnalysisAgmPage" element={<PortfolioAnalysisAGMPage/>} />
+      <Route path="/portfolioanalysispages" element={<Portfolioanalysispages/>} />
+      <Route path="/portfolioHoldingdetailPage" element={<PortfolioHoldingdetailPage/>} />
+      
+      
      
-    
-
+      
+      
+      
+      
      
-      
-      
-      
-      
      
      
      

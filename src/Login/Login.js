@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import googleimg from '../assest/googleicon.svg';
+import linkedinimg from '../assest/lin.png';
+import logoimg from '../assest/finanlogo.svg';
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
@@ -201,14 +203,16 @@ function Login() {
   return (
     <div className="login-container">
       <div className="login-left">
-        <h1>Login to FinanceShastra</h1>
-        <p>Log in to continue your journey towards financial<br/> growth and informed investing.</p>
+     
+      <img src={logoimg} className="logoforgt"/>
+     
+     
       </div>
       <div className="login-right">
         <div className="login-box">
-          <img src={logo} alt="FinanceShastra Logo" className="logo" />
-          <h2>{isForgotPassword ? "Reset Your Password" : "Welcome Back to FinanceShastra"}</h2>
-          <p>{isForgotPassword ? "Enter your registered email to reset password." : "Login to get started using FinanceShastra"}</p>
+         
+        
+          <h2 className="h2loginpage">{isForgotPassword ? "Enter your registered email to reset password." : "LogIn"}</h2>
           
           {isForgotPassword ? (
             isResetPasswordStep ? (
@@ -288,20 +292,20 @@ function Login() {
   </label>
   </div>
   <div>
-  <p>
+  <p className="loginpagepara">
   Remember me</p>
   </div>
   </div>
 </div>
 <div>
-  <a href="#" onClick={handleForgotPasswordClick} className="forgot-password-link">
+  <a href="#" onClick={handleForgotPasswordClick} className="forgotpasswordlink">
     Forgot Password?
   </a>
   </div>
 </div>
               
                   <button type="submit" className="sign-in-btn">
-                  Sign in
+                  Log in
                   </button>
               
               <ClipLoader
@@ -316,35 +320,50 @@ function Login() {
             </form>
           )}
 
-          <div className="login-or">Or Login With</div>
+          <div className="login-or">Or Sign Up With</div>
           <div className="sociall-login">
-           
-            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com" >
-              <div className="Googlealll-btn" >
-                <GoogleLogin 
-                  onSuccess={handleSuccess}
-                  onError={handleFailure}
-                />
-              </div>
-            </GoogleOAuthProvider>
-   
+  <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
+    <Button
+      variant="contained"
+      className="google-btn"
+      startIcon={<img src={googleimg} alt="Google Icon" className="btn-icon-small" />}
+      onClick={() => document.querySelector(".GoogleLogin button")?.click()} // Trigger Google Login button
+      sx={{ fontSize: "14px" }} // Decrease font size
+    >
+      Sign in with Google
+    </Button>
 
-            <br />
-            <br />
-            <Button
-              variant="outlined"
-              className="Googlelink-btn"
-              startIcon={<FaLinkedin style={{fontSize:"26px"}}/>}
-              component="a"
-              href="https://www.linkedin.com/feed/"
-              style={{ textTransform: "none" }}
-            
-            >
-              Continue with LinkedIn
-            </Button>
-          </div>
+    <div style={{ display: "none" }}>
+      <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
+    </div>
+  </GoogleOAuthProvider>
+
+  <br />
+
+  <Button
+  variant="contained"
+  className="linkedin-btn"
+  startIcon={<img src={linkedinimg} alt="LinkedIn Icon" className="btn-icon-small" />}
+  component="a"
+  href="https://www.linkedin.com/feed/"
+  sx={{ fontSize: "14px" }} // Decrease font size
+>
+  Sign in with LinkedIn
+</Button>
+
+</div>
+<div className="registerContgl">
+  <p className="registerContglp">
+    By clicking “Continue with Google/LinkedIn” or “Create Account”, you agree to Website’s  
+    <a href="#" className="registerContglblue-text"> Terms & Conditions</a>
+    <a href="#" className="registerContglblack-text"> and</a>
+    <a href="#" className="registerContglblue-text"> Privacy Policy</a>.
+  </p>
+</div>
+
+
           <div className="register-link">
-            <p>
+            <p className="register-linkp">
               Don't have an account? <a href="#" onClick={handleRegisterClick}>Register</a>
             </p>
           </div>

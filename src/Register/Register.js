@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
+import logoimg from '../assest/finanlogo.svg';
 import { Button } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import googleimg from '../assest/googleicon.svg';
+import linkedinimg from '../assest/lin.png'
 import logo from "../assest/Logo design (1).png";
 
 
@@ -107,30 +111,43 @@ function Register() {
   };
 
   const handleSignInClick = () => {
-    navigate("/");
+    navigate("/login");
   };
 
-  
+  const handleSuccess = async (response) => {
+    const token = response.credential;
+ 
+    try {
+      const res = await fetch("http://localhost:3001/auth/google", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+ 
+      const data = await res.json();
+      if (res.ok) {
+        console.log("Backend Response: ", data);
+      } else {
+        console.error("Authentication failed: ", data);
+      }
+    } catch (err) {
+      console.error("Error sending token to backend: ", err);
+    }
+  };
+ 
+ 
+  const handleFailure = (error) => {
+    console.log("Login Failed: ", error);
+  };
 
   return (
     <div className="login-container">
       <div className="login-left">
-        <h1>Why Register?</h1>
-        <p>
-          Access expert stock research, personalized <br />insights, and market tools.
-          <br />
-          <br />
-          Track your portfolio and make informed <br />investment decisions with our analytics.
-          <br />
-          <br />
-          Get exclusive tips, reports, and updates straight <br />from industry experts.
-        </p>
+              <img src={logoimg} className="logoforgt"/>
       </div>
       <div className="login-right">
         <div className="login-box">
-          <img src={logo} alt="FinanceShastra Logo" className="logo" />
-          <h2>Create Your FinanceShastra Account</h2>
-          <p>Join us on your journey to smarter investing and better financial planning.</p>
+        <h2 className="h2loginpage">Sign Up</h2>
           <form onSubmit={handleSubmit}>
             <div className="input-container">
               <label>Name*</label>
@@ -175,7 +192,7 @@ function Register() {
               {passwordError && <span className="error-text">{passwordError}</span>}
             </div>
              <button type="submit" className="sign-in-btn">
-              Register
+              Sign Up
               
             </button>
             <ClipLoader
@@ -190,32 +207,46 @@ function Register() {
           </form>
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">
-            <Button
-                         variant="outlined"
-                         className="Googleall-btn"
-                         startIcon={<FcGoogle style={{fontSize:"26px"}} />}
-                         component="a"
-                         href="https://accounts.google.com/signin"
-                         style={{ textTransform: "none" }}
-                       >
-                         Continue with Google
-                       </Button>
-                       <br />
-                       <br />
-                       <Button
-                         variant="outlined"
-                         className="Googlelink-btn"
-                         startIcon={<FaLinkedin style={{fontSize:"26px"}}/>}
-                         component="a"
-                         href="https://www.linkedin.com/feed/"
-                         style={{ textTransform: "none" }}
-                       
-                       >
-                         Continue with LinkedIn
-                       </Button>
-          </div>
+  <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
+    <Button
+      variant="contained"
+      className="google-btn"
+      startIcon={<img src={googleimg} alt="Google Icon" className="btn-icon-small" />}
+      onClick={() => document.querySelector(".GoogleLogin button")?.click()} // Trigger Google Login button
+      sx={{ fontSize: "14px" }} // Decrease font size
+    >
+      Sign in with Google
+    </Button>
+
+    <div style={{ display: "none" }}>
+      <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
+    </div>
+  </GoogleOAuthProvider>
+
+  <br />
+
+  <Button
+  variant="contained"
+  className="linkedin-btn"
+  startIcon={<img src={linkedinimg} alt="LinkedIn Icon" className="btn-icon-small" />}
+  component="a"
+  href="https://www.linkedin.com/feed/"
+  sx={{ fontSize: "14px" }} // Decrease font size
+>
+  Sign in with LinkedIn
+</Button>
+
+</div>
+<div className="registerContgl">
+  <p className="registerContglp">
+    By clicking “Continue with Google/LinkedIn” or “Create Account”, you agree to Website’s  
+    <a href="#"  className="registerContglblue-text"> Terms & Conditions</a>
+    <a href="#"  className="registerContglblack-text"> and</a>
+    <a href="#"  className="registerContglblue-text"> Privacy Policy</a>.
+  </p>
+</div>
           <div className="register-link">
-            <p>
+          <p className="register-linkp">
               Already registered?{" "}
               <a href="#" onClick={handleSignInClick} className="sign-in-link">
                 Sign in

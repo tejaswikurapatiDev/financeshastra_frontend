@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import "./LandingPagePremiumElite.css";
 
 
 const LandingPagePremiumElite = () => {
+   const navigate = useNavigate(); // Hook for navigation
   return (
     <div className="landingpagepremiumelite-container">
       <h2 className="landingpagepremiumelite-heading">
@@ -80,7 +82,7 @@ const LandingPagePremiumElite = () => {
 
 
 
-        <button className="landingpagepremiumelite-button">Continue</button>
+        <button className="landingpagepremiumelite-button"onClick={() => navigate("/premiumSubscriptionPages")}>Continue</button>
       </div>
       </div>
       </div>
@@ -135,7 +137,7 @@ const LandingPagePremiumElite = () => {
           </div>
         </div>
         </div>
-        <button className="landingpageelite-button">Continue</button>
+        <button className="landingpageelite-button"onClick={() => navigate("/halfyearlySubscriptionPages")}>Continue</button>
       </div>
     </div>
      

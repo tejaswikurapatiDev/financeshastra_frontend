@@ -1,0 +1,111 @@
+.stockresearchfaqpage-container {
+    font-family: 'calibri';
+    margin-top: 80px;
+    font-family: 'calibri';
+    margin-bottom: 100px;
+  }
+  
+  .stockresearchfaqpage-title {
+    font-size: 22px;
+    background: linear-gradient(#24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .faq-question {
+    font-size: 14px;
+    font-weight: 600;
+    color: #444; /* Light black */
+}
+
+  .stockresearchfaqpage-faq-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #ffffff;
+  }
+  
+ .faq.answer{
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+ }
+  
+  .stockresearchfaqpage-answer {
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .stockresearchfaqpage-icon {
+    font-size: 1.2rem;
+    color: #333;
+  }
+/* Responsive adjustments for tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .stockresearchfaqpage-container {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .stockresearchfaqpage-title {
+    font-size: 20px; /* Slightly reduce font size */
+  }
+
+  .faq-question {
+    font-size: 13px; /* Reduce font size */
+  }
+
+  .stockresearchfaqpage-faq-item {
+    padding: 8px; /* Adjust padding for smaller screens */
+  }
+
+  .faq.answer {
+    font-size: 12px;
+  }
+
+  .stockresearchfaqpage-answer {
+    font-size: 0.85rem;
+  }
+
+  .stockresearchfaqpage-icon {
+    font-size: 1rem; /* Reduce icon size */
+  }
+}
+
+/* Responsive adjustments for mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .stockresearchfaqpage-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+
+  .stockresearchfaqpage-title {
+    font-size: 18px; /* Further reduce font size */
+    margin-bottom: 15px;
+  }
+
+  .faq-question {
+    font-size: 12px;
+  }
+
+  .stockresearchfaqpage-faq-item {
+    padding: 6px; /* Reduce padding for better fit */
+  }
+
+  .faq.answer {
+    font-size: 11px;
+  }
+
+  .stockresearchfaqpage-answer {
+    font-size: 0.8rem;
+  }
+
+  .stockresearchfaqpage-icon {
+    font-size: 0.9rem; /* Smaller icon for mobile */
+  }
+}
