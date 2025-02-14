@@ -73,7 +73,7 @@ const StockTracker = () => {
   const [selectedFilter, setSelectedFilter] = useState("1D");
 
   return (
-    <div>
+    <div className="alltrackerportfolioanalysis">
     <div className="trackerportfolioanalysis">
           <div className="time-filter-containertrackerport">
         {timeFilters.map((filter) => (
