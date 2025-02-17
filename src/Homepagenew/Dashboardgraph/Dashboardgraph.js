@@ -33,13 +33,13 @@ const Dashboardchartmain = () => {
         setLoading(true);
         const token = Cookies.get("jwtToken");
         if (!token) {
-          setError("No authentication token found.");
+          alert("Session expired, Please login again.");
           setLoading(false);
           navigate("/login")
           return;
         }
   
-        const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+        const response = await fetch(`/myportfolio/dashboard`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

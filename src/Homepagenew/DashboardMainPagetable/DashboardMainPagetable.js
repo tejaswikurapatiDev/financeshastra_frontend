@@ -9,7 +9,6 @@ import icon5 from '../../assest/finance.svg';
 import icon6 from '../../assest/l.svg';
 import icon7 from '../../assest/message.svg';
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
 
 // Data for the cards and table
@@ -38,7 +37,7 @@ const DashboardMainPagetable = () => {
       try {
         setLoading(true); 
         const token = Cookies.get("jwtToken");
-        const response = await fetch(`${API_BASE_URL}/stocksScreener/stockSector`, {
+        const response = await fetch(`/stocksScreener/stockSector`, {
           method: "GET",
             headers: {
                 "Content-Type": "application/json",

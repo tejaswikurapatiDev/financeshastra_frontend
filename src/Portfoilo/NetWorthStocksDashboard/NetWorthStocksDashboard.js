@@ -4,7 +4,6 @@ import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom';
 import MyAccounts from "../Accountstock/Accountstock";
 import Navbar from '../../Navbar/Navbar';
-import { API_BASE_URL } from "../../config";
 function NetWorthStocksDashboard() {
 
   const [error, setError] = useState(null)
@@ -23,7 +22,7 @@ function NetWorthStocksDashboard() {
             setLoading(false);
             return;
         } else {
-          const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+          const response = await fetch(`/myportfolio/dashboard`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",

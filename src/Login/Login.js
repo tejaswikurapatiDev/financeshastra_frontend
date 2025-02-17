@@ -8,7 +8,6 @@ import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { API_BASE_URL } from "../config";
 
 import './Login.css'
 import { height } from "@mui/system";
@@ -68,7 +67,7 @@ const handleSubmit = async (e) => {
 
   if (!isForgotPassword) {
     try {
-      const url = `${API_BASE_URL}/users/signin`;
+      const url = `/users/signin`;
       const options = {
         method: "POST",
         headers: {
@@ -196,7 +195,7 @@ const handleSubmit = async (e) => {
     const token = response.credential;
  
     try {
-      const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
+      const res = await fetch(`/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),

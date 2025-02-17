@@ -5,7 +5,7 @@ import "./Portfoliomanager.css";
 import { Link, Navigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import PortfolioManagerDashboard from "../Portfoliodashboard/Portfoliodashboard";
-import { API_BASE_URL } from "../../config";
+
 
 function Portfolio() {
   const [error, setError] = useState(null);
@@ -28,7 +28,7 @@ function Portfolio() {
         return;
       }
 
-      const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+      const response = await fetch(`/myportfolio/dashboard`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

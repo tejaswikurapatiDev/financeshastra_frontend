@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useCallback} from "react";
 import "./AllocationChart.css";
-import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
 
 const PortfolioAllocationManagerChart = () => {
@@ -24,7 +23,7 @@ const PortfolioAllocationManagerChart = () => {
       const token = Cookies.get("jwtToken");
       if (!token) throw new Error("No authentication token found.");
 
-      const response = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
+      const response = await fetch(`/myportfolio/allocationChart`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -35,12 +34,13 @@ const PortfolioAllocationManagerChart = () => {
       if (!response.ok) throw new Error("Failed to fetch portfolio data.");
 
       const data = await response.json();
+      console.log(data)
       if (!data.length) throw new Error("No portfolio data found.");
 
       setPortfolio({
         stocks: data[0]?.stock_investment ?? 0,
         latestStocks: data[0]?.latest_value ?? 0,
-        mutualFunds: data[1]?.invested_money ?? 0,
+        mutualFunds: data[0]?.fund_investment ?? 0,
         latestMutualFunds: data[1]?.latest_value ?? 0,
         gold: data[2]?.invested_money ?? 0,
         latestGold: data[2]?.latest_value ?? 0,
@@ -57,7 +57,7 @@ const PortfolioAllocationManagerChart = () => {
   }, [fetchData]);
 
   // Calculate investments
-  const myInvestment = portfolio.stocks + portfolio.mutualFunds + portfolio.gold;
+  const myInvestment = parseFloat(portfolio.stocks) + parseFloat(portfolio.mutualFunds) + parseFloat(portfolio.gold);
   const latestValue = portfolio.latestStocks + portfolio.latestMutualFunds + portfolio.latestGold;
 
   const AllocationChart = ({ title, total, data }) => (
