@@ -1,0 +1,373 @@
+/* styles.css */
+
+.news-headerportfoilioanalytick {
+    font-size: 24px;
+    font-weight: bold;
+color: #24b676;
+margin-left: 299px;
+    font-family: 'calibri';
+
+
+  }
+  
+  .news-cardportfoloiaa {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid rgb(213, 208, 208);
+    box-shadow: 0 4px 8px rgb(187, 184, 184);
+
+    padding: 15px;
+    max-width: 1030px;
+    transition: transform 0.3s ease-in-out;
+    font-family: 'calibri';
+    margin-left: 300px;
+    margin-bottom: 15px;
+  }
+  
+  .news-cardportfoloiaa:hover {
+    transform: scale(1.02);
+  }
+  
+  .news-imageportfoloiaa {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .news-contentportfoloiaa {
+    flex: 1;
+  }
+  
+  .news-contentportfoloiaa h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+  }
+  
+  .news-contentportfoloiaa p {
+    font-size: 14px;
+    color:#0349A8;
+    margin-top: 5px;
+  }
+  
+  .know-moreportfoilioanalytick {
+margin-left: 1170px;
+   cursor: pointer;
+    font-family: 'calibri';
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: bold;
+    color:#0349A8;
+    transition: color 0.3s ease-in-out;
+  }
+  
+
+
+  /* styles.css */
+.containerportanalytioccc {
+    max-width: 980px;
+margin-left: 280px;
+    padding: 20px;
+    background-color: white;
+   line-height: 1.6;
+    border-radius: 8px;
+    font-family: 'calibri';
+    margin-bottom: -20px;
+  }
+  
+  .portanalytiocccheading {
+    color:#0349A8;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .portanalytiocccsubheading {
+     color:#0349A8;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+   
+  }
+  
+  .portanalytiocccparagraph {
+    color: black;
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  
+  .portanalytioccclist {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: black;
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  
+  .portanalytioccclist-item {
+    margin-top: 8px;
+   
+  }
+  .portanalytioccclist-item strong{
+    color:#0349A8;
+  }
+  
+  
+  @media (max-width: 768px) {
+    /* styles.css */
+
+.news-headerportfoilioanalytick {
+  font-size: 24px;
+  font-weight: bold;
+color: #24b676;
+margin-left: 19px;
+  font-family: 'calibri';
+
+
+}
+
+.news-cardportfoloiaa {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgb(213, 208, 208);
+  box-shadow: 0 4px 8px rgb(187, 184, 184);
+
+  padding: 15px;
+  max-width: 1030px;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'calibri';
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.news-cardportfoloiaa:hover {
+  transform: scale(1.02);
+}
+
+.news-imageportfoloiaa {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.news-contentportfoloiaa {
+  flex: 1;
+}
+
+.news-contentportfoloiaa h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.news-contentportfoloiaa p {
+  font-size: 14px;
+  color:#0349A8;
+  margin-top: 5px;
+}
+
+.know-moreportfoilioanalytick {
+margin-left: 370px;
+ cursor: pointer;
+  font-family: 'calibri';
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: bold;
+  color:#0349A8;
+  transition: color 0.3s ease-in-out;
+}
+
+
+
+/* styles.css */
+.containerportanalytioccc {
+  max-width: 980px;
+margin-left: 10px;
+  padding: 20px;
+  background-color: white;
+ line-height: 1.6;
+  border-radius: 8px;
+  font-family: 'calibri';
+  margin-bottom: -20px;
+}
+
+.portanalytiocccheading {
+  color:#0349A8;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.portanalytiocccsubheading {
+   color:#0349A8;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+ 
+}
+
+.portanalytiocccparagraph {
+  color: black;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.portanalytioccclist {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: black;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.portanalytioccclist-item {
+  margin-top: 8px;
+ 
+}
+.portanalytioccclist-item strong{
+  color:#0349A8;
+}
+
+  }
+
+
+
+
+
+
+
+
+
+   
+  @media (max-width: 480px) {
+    /* styles.css */
+
+.news-headerportfoilioanalytick {
+  font-size: 20px;
+  font-weight: bold;
+color: #24b676;
+margin-left: 15px;
+  font-family: 'calibri';
+
+
+}
+
+.news-cardportfoloiaa {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid rgb(213, 208, 208);
+  box-shadow: 0 4px 8px rgb(187, 184, 184);
+
+  padding: 15px;
+  max-width: 1030px;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'calibri';
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.news-cardportfoloiaa:hover {
+  transform: scale(1.02);
+}
+
+.news-imageportfoloiaa {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.news-contentportfoloiaa {
+  flex: 1;
+}
+
+.news-contentportfoloiaa h3 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.news-contentportfoloiaa p {
+  font-size: 14px;
+  color:#0349A8;
+  margin-top: 5px;
+}
+
+.know-moreportfoilioanalytick {
+margin-left: 220px;
+ cursor: pointer;
+  font-family: 'calibri';
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: bold;
+  color:#0349A8;
+  transition: color 0.3s ease-in-out;
+}
+
+
+
+/* styles.css */
+.containerportanalytioccc {
+  max-width: 980px;
+margin-left: 5px;
+  padding: 20px;
+  background-color: white;
+ line-height: 1.6;
+  border-radius: 8px;
+  font-family: 'calibri';
+  margin-bottom: -20px;
+}
+
+.portanalytiocccheading {
+  color:#0349A8;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.portanalytiocccsubheading {
+   color:#0349A8;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 20px;
+ 
+}
+
+.portanalytiocccparagraph {
+  color: black;
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.portanalytioccclist {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: black;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.portanalytioccclist-item {
+  margin-top: 8px;
+ 
+}
+.portanalytioccclist-item strong{
+  color:#0349A8;
+}
+.faq-list {
+  width: auto;
+
+}
+
+  }

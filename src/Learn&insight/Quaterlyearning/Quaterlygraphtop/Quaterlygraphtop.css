@@ -1,0 +1,183 @@
+/* Container for the entire layout */
+.dataquatall {
+    display: flex;
+ 
+ }
+ .portfoliomutual-containerr {
+    
+     padding: 20px;
+     color: black;
+     max-width:590px; /* Set a maximum width */
+     margin: 0 auto; /* Center the container */
+ /* Add left margin to prevent overlap with sidebar */
+     font-family: 'Calibri';
+     margin-top: 5px;
+ 
+     background-color: #f9f9f9;
+     border: 1px solid #ddd; /* Light grey border */
+     box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956); /* Soft shadow around the container */
+     border-radius: 5px;
+     display: flex;
+     flex-direction: column-reverse; /* Reverse the container's content */
+ 
+     height: 370px;
+ }
+ .chartmutual-containerr{
+     height: 330px;
+     width: 600px;
+   
+ }
+ 
+ .time-rangemutual-selectorr {
+     display: flex;
+     gap: 5px;
+     margin-bottom: 20px;
+     margin-left: 390px;
+     
+ }
+ .overviewqutarely{
+   margin-top: 1px;
+   color: #24b676;
+   font-size: 26px;
+   margin-left: 30px;
+   font-family: 'calibri';
+ }
+ /* Responsive Styling for 768px */
+ @media (max-width: 768px) {
+     .dataquatall {
+       display: flex;
+       flex-direction: column; /* Stack elements vertically */
+      /* Center-align items */
+       /* Add consistent spacing between stacked items */
+     }
+  
+   
+     /* Optionally adjust the height of the chart for better fitting on smaller screens */
+     .portfoliomutual-card {
+       width: 370px;
+       height: 290px; /* Reduce height of the card */
+       
+     }
+     .chartmutual-containerr canvas {
+       width: 370px !important;  /* Set canvas width to 90% of the parent container */
+       height: 250px !important; /* Set canvas height to 250px */
+  
+     }
+     
+     .time-rangemutual-selectorr {
+         display: flex;
+         gap: 5px; /* Slightly larger spacing for better readability */
+         margin-bottom: 5px; /* Provide minimal bottom margin */
+         margin-left: 110px; /* Align to the left with a small margin */
+         width: auto; /* Let the width adjust based on content */
+         height: auto; /* Let the height adjust based on content */
+         margin-top: 1px;
+       /* Center-align items */
+       
+     }
+     .portfoliomutual-containerr {
+       font-family: 'calibri';
+       padding: 20px;
+       color: #333;
+       max-width:590px; /* Set a maximum width */
+       margin: 0 auto; /* Center the container */
+   /* Add left margin to prevent overlap with sidebar */
+       font-family: 'Calibri';
+       margin-top: 30px;
+   
+       background-color: #f9f9f9;
+       border: 1px solid #ddd; /* Light grey border */
+       box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956); /* Soft shadow around the container */
+       border-radius: 5px;
+       display: flex;
+       flex-direction: column-reverse; /* Reverse the container's content */
+   
+       height: 300px;
+   }
+   .overviewqutarely{
+     margin-top: 40px;
+     color: #24b676;
+     font-size: 24px;
+   }
+     
+     
+   }
+   
+   
+   /* Responsive Styling for 480px */
+   @media (max-width: 480px) {
+     .dataquatall {
+       display: flex;
+       flex-direction: column; /* Stack elements vertically */
+      /* Center-align items */
+       /* Add consistent spacing between stacked items */
+     }
+  
+   
+     /* Optionally adjust the height of the chart for better fitting on smaller screens */
+     .portfoliomutual-card {
+       width: 300px;
+       height: 290px; /* Reduce height of the card */
+       
+     }
+     .chartmutual-containerr canvas {
+       width: 300px !important;  /* Set canvas width to 90% of the parent container */
+       height: 250px !important; /* Set canvas height to 250px */
+  
+     }
+     .overviewqutarely{
+       margin-top: 40px;
+       color: #24b676;
+       font-size: 24px;
+     }
+     .time-rangemutual-selectorr {
+         display: flex;
+         gap: 5px; /* Slightly larger spacing for better readability */
+         margin-bottom: 5px; /* Provide minimal bottom margin */
+         margin-left: 110px; /* Align to the left with a small margin */
+         width: auto; /* Let the width adjust based on content */
+         height: auto; /* Let the height adjust based on content */
+         margin-top: 1px;
+       /* Center-align items */
+       
+     }
+     .portfoliomutual-containerr {
+       font-family: 'calibri';
+       padding: 20px;
+       color: #333;
+       max-width:590px; /* Set a maximum width */
+     
+   /* Add left margin to prevent overlap with sidebar */
+       font-family: 'Calibri';
+       margin-top: 30px;
+   
+       background-color: #f9f9f9;
+       border: 1px solid #ddd; /* Light grey border */
+       box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956); /* Soft shadow around the container */
+       border-radius: 5px;
+       display: flex;
+       flex-direction: column-reverse; /* Reverse the container's content */
+   
+       height: 300px;
+   }
+   .time-rangemutual-button {
+     padding: 4px 8px; /* Further reduce padding */
+     font-size: 10px; /* Smaller font size for mobile */
+   }
+ 
+   .time-rangemutual-selectorr {
+     gap: 4px; /* Smaller gap on mobile */
+     margin-left: 90px; 
+   }
+   .chartmutual-containerr canvas {
+    width: 320px !important;  /* Set canvas width to 90% of the parent container */
+    height: 280px !important; /* Set canvas height to 250px */
+margin-left: 10px;
+font-size: 18px;
+color: black;
+  }
+     
+   }
+   
+ 
+   

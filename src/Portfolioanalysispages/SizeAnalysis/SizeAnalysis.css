@@ -1,0 +1,353 @@
+.size-analysis-container {
+  width: 90%;
+
+font-family: 'calibri';
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+  border: 1px solid rgb(224, 221, 221);
+  box-shadow: 0px 4px 10px rgba(210, 207, 207, 0.929);
+  
+ 
+}
+
+.size-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.size-chart {
+  position: relative;
+  padding-left: 0px; /* Keeps alignment correct */
+}
+
+/* Grid lines container */
+.grid-lines {
+  position: absolute;
+  top: 0;
+  left: 100px; /* Aligns with bars */
+  width: calc(100% - 100px);
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+/* Each vertical grid line */
+.grid-line {
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+
+}
+
+/* Row for each category (Large Cap, Mid Cap, etc.) */
+.size-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px; /* Proper spacing */
+}
+
+/* Category labels (Large Cap, Mid Cap, etc.) */
+.size-label {
+  width: 100px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 15px;
+  white-space: nowrap;
+}
+
+/* Bar container */
+/* Bar container */
+.size-bar-container {
+  flex-grow: 1;
+  height: 30px; /* Increased height for better visibility */
+  background: #f0f0f0;
+  border-radius: 5px;
+width: 500px;
+  position: relative;
+}
+
+/* Blue bar (Large Cap) */
+.size-bar {
+  height: 100%;
+  border-radius: 5px;
+  position: relative;
+  transition: width 1.5s ease-in-out;
+  background-color: #4a90e2 !important; /* Ensures blue color */
+
+}
+
+
+/* Value inside the bar */
+.size-value {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Positioning for the percentage scale at the bottom */
+.size-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-left: 99px;
+  position: relative;
+  
+}
+
+/* Each percentage label (0, 10, 20, ..., 100) */
+.grid-label {
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+  width: 20px;
+  position: relative;
+  top: 8px; /* Ensures it is BELOW the grid line */
+}
+
+@media (max-width: 768px) {
+  .size-analysis-container {
+    width: 94%;
+  
+  font-family: 'calibri';
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 221, 221);
+    box-shadow: 0px 4px 10px rgba(210, 207, 207, 0.929);
+    
+   
+  }
+  
+  .size-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .size-chart {
+    position: relative;
+    padding-left: 0px; /* Keeps alignment correct */
+  }
+  
+  /* Grid lines container */
+  .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 100px; /* Aligns with bars */
+    width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  /* Each vertical grid line */
+  .grid-line {
+    width: 1px;
+    height: 100%;
+    background-color: #ddd;
+  
+  }
+  
+  /* Row for each category (Large Cap, Mid Cap, etc.) */
+  .size-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px; /* Proper spacing */
+  }
+  
+  /* Category labels (Large Cap, Mid Cap, etc.) */
+  .size-label {
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px;
+    white-space: nowrap;
+  }
+  
+  /* Bar container */
+  /* Bar container */
+  .size-bar-container {
+    flex-grow: 1;
+    height: 30px; /* Increased height for better visibility */
+    background: #f0f0f0;
+    border-radius: 5px;
+  width: 500px;
+    position: relative;
+  }
+  
+  /* Blue bar (Large Cap) */
+  .size-bar {
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition: width 1.5s ease-in-out;
+    background-color: #4a90e2 !important; /* Ensures blue color */
+  
+  }
+  
+  
+  /* Value inside the bar */
+  .size-value {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Positioning for the percentage scale at the bottom */
+  .size-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 99px;
+    position: relative;
+    
+  }
+  
+  /* Each percentage label (0, 10, 20, ..., 100) */
+  .grid-label {
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+    width: 20px;
+    position: relative;
+    top: 8px; /* Ensures it is BELOW the grid line */
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .size-analysis-container {
+    width: auto;
+  
+  font-family: 'calibri';
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgb(224, 221, 221);
+    box-shadow: 0px 4px 10px rgba(210, 207, 207, 0.929);
+    
+   
+  }
+  
+  .size-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .size-chart {
+    position: relative;
+    padding-left: 0px; /* Keeps alignment correct */
+  }
+  
+  /* Grid lines container */
+  .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 100px; /* Aligns with bars */
+    width: calc(100% - 100px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+  
+  /* Each vertical grid line */
+  .grid-line {
+    width: 1px;
+    height: 100%;
+    background-color: #ddd;
+  
+  }
+  
+  /* Row for each category (Large Cap, Mid Cap, etc.) */
+  .size-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 15px; /* Proper spacing */
+  }
+  
+  /* Category labels (Large Cap, Mid Cap, etc.) */
+  .size-label {
+    width: 100px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px;
+    white-space: nowrap;
+  }
+  
+  /* Bar container */
+  /* Bar container */
+  .size-bar-container {
+    flex-grow: 1;
+    height: 30px; /* Increased height for better visibility */
+    background: #f0f0f0;
+    border-radius: 5px;
+  width: 500px;
+    position: relative;
+  }
+  
+  /* Blue bar (Large Cap) */
+  .size-bar {
+    height: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition: width 1.5s ease-in-out;
+    background-color: #4a90e2 !important; /* Ensures blue color */
+  
+  }
+  
+  
+  /* Value inside the bar */
+  .size-value {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Positioning for the percentage scale at the bottom */
+  .size-grid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-left: 99px;
+    position: relative;
+    
+  }
+  
+  /* Each percentage label (0, 10, 20, ..., 100) */
+  .grid-label {
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+    width: 20px;
+    position: relative;
+    top: 8px; /* Ensures it is BELOW the grid line */
+  }
+}

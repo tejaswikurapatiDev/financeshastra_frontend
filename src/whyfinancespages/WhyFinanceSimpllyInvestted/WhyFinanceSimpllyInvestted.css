@@ -1,0 +1,179 @@
+.whyfinancesastrasimpllyinvestted-container {
+    padding: 40px;
+    background-color: #ffff;
+    text-align: center;
+    font-family: 'calibri';
+  }
+  
+  .whyfinancesastrasimpllyinvestted-heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 80px;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-description {
+    font-size: 16px;
+    color: #333;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f4fa; /* 16% transparency */
+    padding: 30px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 75%;
+    margin-left: 160px;
+    
+}
+
+  
+  .whyfinancesastrasimpllyinvestted-left {
+    width: 50%;
+    text-align: left;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-subheading {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: -50px;
+    color: #333;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    width: 90%;
+    
+  }
+  
+  .whyfinancesastrasimpllyinvestted-texthighlight {
+    font-weight: bold;
+    color: #24b676;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-point {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-right {
+    width: 40%;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .whyfinancesastrasimpllyinvestted-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+  }
+  
+  /* Tablet View (Max Width: 768px) */
+@media (max-width: 768px) {
+  .whyfinancesastrasimpllyinvestted-content {
+    flex-direction: column;
+    width: 110%;
+    padding: 15px;
+    margin-left: -35px;
+}
+.whyfinancesastrasimpllyinvestted-heading {
+  font-size: 20px;
+  margin-top: 60px;
+}
+
+.whyfinancesastrasimpllyinvestted-description {
+font-size: 15px;
+max-width: 100%;
+text-align: left;
+
+}
+
+
+  .whyfinancesastrasimpllyinvestted-left,
+  .whyfinancesastrasimpllyinvestted-right {
+      width: 100%;
+      text-align: left;
+  }
+
+  .whyfinancesastrasimpllyinvestted-subheading {
+      font-size: 17px;
+      margin-top: 0;
+     margin-left: 0px;
+  }
+  .whyfinancesastrasimpllyinvestted-point {
+    font-size: 17px;
+   
+}
+  .whyfinancesastrasimpllyinvestted-text {
+      font-size: 14px;
+      width: 100%;
+  }
+
+  .whyfinancesastrasimpllyinvestted-image {
+      max-width: 80%;
+  }
+}
+
+/* Mobile View (Max Width: 480px) */
+@media (max-width: 480px) {
+  .whyfinancesastrasimpllyinvestted-container {
+      padding: 20px;
+  }
+
+  .whyfinancesastrasimpllyinvestted-heading {
+    font-size: 20px;
+    margin-top: 60px;
+}
+
+.whyfinancesastrasimpllyinvestted-description {
+  font-size: 14px;
+  max-width: 100%;
+  text-align: left;
+  margin-left: 20px;
+}
+
+  .whyfinancesastrasimpllyinvestted-content {
+    flex-direction: column;
+    width: 101%;
+    padding: 15px;
+    margin-left: -19px;
+}
+.whyfinancesastrasimpllyinvestted-left {
+  width: 100%;
+  text-align: left;
+}
+
+.whyfinancesastrasimpllyinvestted-subheading {
+  font-size: 18px;
+  margin-left: 0px;
+}
+
+  .whyfinancesastrasimpllyinvestted-text {
+      font-size: 12px;
+  }
+
+  .whyfinancesastrasimpllyinvestted-right {
+      width: 100%;
+      text-align: center;
+  }
+
+  .whyfinancesastrasimpllyinvestted-image {
+      max-width: 90%;
+  }
+}

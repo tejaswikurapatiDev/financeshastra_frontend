@@ -1,0 +1,88 @@
+/* RiskOMeter Wrapper */
+.riskometer {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  font-family: 'calibri';
+
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ width: 900px;
+ border-radius: 10px;
+ margin-left: 100px;
+ height: 500px;
+  
+}
+
+.riskometer-title {
+  font-size: 24px;
+margin-top: 500px;
+  color: #333;
+  margin-left: 100px;
+}
+
+/* SVG Container */
+.riskometer svg {
+  display: block;
+  margin: auto;
+
+}
+
+/* Arcs Styling */
+.riskometer path {
+  transition: stroke-width 0.3s ease;
+}
+
+.riskometer path:hover {
+  stroke-width: 40;
+  cursor: pointer;
+}
+
+/* Text Styling for Risk Labels */
+.riskometer text {
+  font-size: 14px;
+  font-weight: bold;
+  fill: #000;
+
+}
+@media (max-width: 768px) {
+  .riskometer {
+    width: 90%; /* Full width for smaller screens */
+    margin: 0 auto; /* Center align */
+    padding: 15px; /* Adjust padding */
+    height: 200px;
+  }
+
+  .riskometer-svg {
+    width: 100%; /* SVG scales with container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .riskometer-title {
+    font-size: 20px; /* Smaller font for title */
+    text-align: left;
+    margin-left: 30px;
+    margin: 20px 0; /* Adjust spacing */
+  }
+
+  .riskometer text {
+    font-size: 12px; /* Adjust label size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .riskometer {
+    padding: 10px;
+  }
+
+  .riskometer-title {
+    font-size: 18px;
+    text-align: left;
+    
+  }
+
+  .riskometer text {
+    font-size: 10px; 
+    text-align: left;/* Further reduce label size */
+  }
+}

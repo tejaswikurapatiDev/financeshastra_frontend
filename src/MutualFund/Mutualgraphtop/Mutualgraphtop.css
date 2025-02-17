@@ -1,0 +1,248 @@
+/* General Container Styles */
+.portfoliomutual-container {
+    font-family: 'calibri';
+    padding: 20px;
+    color: #333;
+    max-width: 750px; /* Set a maximum width */
+    margin: 0 auto; /* Center the container */
+/* Add left margin to prevent overlap with sidebar */
+    font-family: 'Calibri';
+    margin-top: 10px;
+
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column-reverse; /* Reverse the container's content */
+
+    height: 450px;
+}
+
+/* Chart container */
+.chartmutual-container {
+    height: 380px;
+  
+   
+
+}
+
+/* Time range selector styles */
+.time-rangemutual-selector {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+    margin-left: 540px;
+    
+}
+
+.time-rangemutual-button {
+   
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #686868;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(217, 212, 212, 0.853);
+   
+}
+
+.time-rangemutual-button.active {
+    background-color: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+/* Main container */
+.mutualcandletop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   margin-left: 70px;
+margin-top: 150px;
+    border-radius: 8px;
+    width: 1200px;
+    margin-bottom: 40px;
+ 
+   
+  }
+  
+  /* Left Section */
+  .mutualcandletop__left {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mutualcandletop__title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 50px;
+  }
+  
+  /* Tags Section */
+  .mutualcandletop__tags {
+    margin-top: 10px;
+  }
+  
+  .mutualcandletop__tag {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .mutualcandletop__tag:hover {
+    background-color:#24b676;
+    color: white;
+  }
+  
+  /* Right Section */
+  .mutualcandletop__right {
+    text-align: right;
+  }
+  
+  .mutualcandletop__price {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color:#24b676; /* Default green color for positive values */
+  }
+  
+  /* Percentage Styling */
+  .mutualcandletop__percentage {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  
+  /* Positive Percentage */
+  .mutualcandletop__percentage--positive {
+    color: #28a745; /* Green for positive percentages */
+  }
+  
+  /* Negative Percentage */
+  .mutualcandletop__percentage--negative {
+    color: #dc3545; /* Red for negative percentages */
+  }
+  
+  /* Last Updated Info */
+  .mutualcandletop__last-updated {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+  }
+/* Adjustments for 768px screens */
+@media (max-width: 768px) {
+    .portfoliomutual-container {
+        margin-left: 0;
+        padding: 15px;
+       
+    }
+
+    .portfoliomutual-welcome {
+        font-size: 20px;
+        margin-top: 50px;
+    }
+
+    .portfoliomutual-subtitle {
+        font-size: 14px;
+    }
+
+    .portfoliomutual-card {
+        padding: 15px;
+        margin-top: 15px;
+    }
+
+    .portfoliomutual-title {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .time-rangemutual-selector {
+        justify-content: center;
+        gap: 8px;
+        margin-left: 0;
+    }
+
+    .time-rangemutual-button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .chartmutual-container {
+        height: 250px;
+    }
+
+    .mutualcandletop {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+        width: 100%; /* Take full width */
+        margin-top: 20px;
+    }
+
+    .mutualcandletop__left, 
+    .mutualcandletop__right {
+        width: 100%; /* Each section takes full width */
+        text-align: center;
+    }
+    .mutualcandletop__right {
+        margin-top: 20px;
+         text-align: left;
+     }
+ 
+    .mutualcandletop__title {
+        font-size: 1.2rem;
+        text-align: left;
+        margin-top: 100px;
+    }
+
+    .mutualcandletop__tags {
+        margin-top: 20px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .mutualcandletop {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .mutualcandletop__left, 
+    .mutualcandletop__right {
+        text-align: center;
+        width: 100%;
+    }
+
+    .mutualcandletop__title {
+        font-size: 1rem;
+        text-align: left;
+        margin-top: 100px;
+    }
+
+    .mutualcandletop__tags {
+       margin-top: 20px;
+        text-align: left;
+       
+    }
+
+    .mutualcandletop__right {
+       margin-top: 20px;
+        text-align: left;
+    }
+
+    .mutualcandletop__price {
+        font-size: 1.2rem;
+    }
+
+    .mutualcandletop__percentage {
+        font-size: 0.8rem;
+    }
+}

@@ -1,0 +1,389 @@
+/* General form container styles */
+.riskProfileFormAll {
+  width: 1100px;
+    
+      border-radius: 8px;
+      margin: 20px auto;
+      padding: 20px;
+  
+      font-family: 'calibri';
+    }
+    
+    .riskProfileFormpara {
+      font-size: 15px;
+      color: rgb(235, 24, 24); /* Red color for warning */
+      background-color: rgb(255, 223, 223); /* Light red background */
+      width: 100%; /* Full width to be responsive */
+      max-width: 500px; /* Max width */
+      padding: 15px; /* Padding inside the container for better spacing */
+      height: auto; /* Adjust height based on content */
+       /* Center the container and add bottom margin */
+      text-align: center; /* Center the text */
+      border-radius: 8px; /* Rounded corners */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better appearance */
+     /* Improved line height for readability */
+     margin-bottom: 50px;
+     margin-top: 50px;
+    }
+    
+    .riskProfileFormpara h4 {
+      margin: 0; /* Remove default margin */
+      font-weight: bold; /* Make the text bold */
+    }
+    
+    /* Form title */
+    .riskProfileFormAll h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    
+    /* Row of cards */
+    .riskProfileFormAll .questions-rowww {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+    }
+    
+    .questions-rowww h4{
+      font-size: 16px;
+    }
+    /* Individual question card */
+    .riskProfileFormAll .question-card {
+      background-color: #fff;
+      padding: 12px;
+      border-radius: 58px;
+      box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951); /* Adds a subtle shadow */
+      border: 1px solid rgb(196, 193, 193);
+      flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+      box-sizing: border-box;
+      width: 700px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+      height: auto;
+  }
+  
+  /* Adding hover effect for better user experience */
+  .riskProfileFormAll .question-card:hover {
+      transform: translateY(-5px); /* Lift the card slightly on hover */
+      box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  
+    
+    .question-card{
+      width: 100px;
+    }
+    /* Option card container */
+    .riskProfileFormAll .option-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    
+    /* Individual option card style */
+    .riskProfileFormAll .option-card {
+    
+      padding: 10px;
+      border-radius: 6px;
+  
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+   
+    .riskProfileFormAll .option-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    
+    /* Custom square radio button */
+   
+    /* Option card text */
+    .riskProfileFormAll label {
+      margin-left: 8px;
+    }
+    
+    /* Radio button styling */
+  
+    
+    /* Submit button styles */
+    .riskProfileFormAll button {
+      display: block;
+      width: 15%;
+      padding: 13px 15px;
+      background-color: #24b676;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+      margin-left: 500px;
+      margin-bottom: 10px;
+    }
+    
+    /* Submit button hover effect */
+    .riskProfileFormAll button:hover {
+      background-color: #45a049;
+    }
+    /* Style the options to display in a 3-column layout */
+  .riskProfileFormAll .option-row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .riskProfileFormAll .option-card {
+      width: 40.33%; /* Each option will take up one third of the row */
+     
+      display: flex;
+      align-items: center;
+      /* Optional: Add some space between icons and text */
+    }
+    
+    .riskProfileFormAll label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .riskProfileFormAll label svg {
+      font-size: 14px;
+   
+      transition: color 0.3s ease;
+    }
+    
+  
+    .row-layout {
+      flex-direction: row;
+    }
+    
+    .column-layout {
+      flex-direction: column;
+    }
+    
+  .column-layoutcard{
+     
+      
+         
+          display: flex;
+          align-items: center;
+          /* Optional: Add some space between icons and text */
+        
+  }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .riskProfileFormAll {
+  
+    
+          border-radius: 8px;
+         width: 1200px;
+      
+          font-family: 'calibri';
+        }
+        
+        .riskProfileFormpara {
+          font-size: 15px;
+          color: rgb(235, 24, 24); /* Red color for warning */
+          background-color: rgb(255, 223, 223); /* Light red background */
+          /* Full width to be responsive */
+         width: 420px; /* Max width */
+          padding: 15px; /* Padding inside the container for better spacing */
+          height: auto; /* Adjust height based on content */
+           /* Center the container and add bottom margin */
+          text-align: center; /* Center the text */
+          border-radius: 8px; /* Rounded corners */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better appearance */
+         /* Improved line height for readability */
+         margin-bottom: 50px;
+         margin-top: 50px;
+        }
+        
+        .riskProfileFormpara h4 {
+          margin: 0; /* Remove default margin */
+          font-weight: bold; /* Make the text bold */
+        }
+        
+        /* Form title */
+        .riskProfileFormAll h1 {
+          text-align: center;
+          color: #333;
+          margin-bottom: 20px;
+        }
+        
+        /* Row of cards */
+        .riskProfileFormAll .questions-rowww {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+          justify-content: space-between;
+          flex-direction: column;
+         
+        }
+        
+        .questions-rowww h4{
+          font-size: 16px;
+        }
+        /* Individual question card */
+        .riskProfileFormAll .question-card {
+          background-color: #fff;
+          padding: 12px;
+          border-radius: 58px;
+          box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951); /* Adds a subtle shadow */
+          border: 1px solid rgb(196, 193, 193);
+          flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+          box-sizing: border-box;
+          width: 460px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+          height: 350px;
+      }
+      
+      /* Adding hover effect for better user experience */
+      .riskProfileFormAll .question-card:hover {
+          transform: translateY(-5px); /* Lift the card slightly on hover */
+          box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+      }
+      
+        
+        .question-card{
+          width: 100px;
+        }
+        /* Option card container */
+        .riskProfileFormAll .option-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 1px;
+        }
+        
+        /* Individual option card style */
+        .riskProfileFormAll .option-card {
+        
+          padding: 10px;
+          border-radius: 6px;
+      
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+       
+        .riskProfileFormAll .option-row {
+          display: flex;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        
+        /* Custom square radio button */
+       
+        /* Option card text */
+        .riskProfileFormAll label {
+          margin-left: 8px;
+        }
+        
+        /* Radio button styling */
+      
+        
+        /* Submit button styles */
+        .riskProfileFormAll button {
+          display: block;
+          width: 10%;
+          padding: 13px 15px;
+          background-color: #24b676;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-top: 20px;
+          transition: background-color 0.3s ease;
+          margin-left: 160px;
+          margin-bottom: 100px;
+        }
+        
+        /* Submit button hover effect */
+        .riskProfileFormAll button:hover {
+          background-color: #45a049;
+        }
+        /* Style the options to display in a 3-column layout */
+      .riskProfileFormAll .option-row {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        
+        .riskProfileFormAll .option-card {
+          width: 40.33%; /* Each option will take up one third of the row */
+         
+          display: flex;
+          align-items: center;
+          /* Optional: Add some space between icons and text */
+        }
+        
+        .riskProfileFormAll label {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+        
+        .riskProfileFormAll label svg {
+          font-size: 14px;
+       
+          transition: color 0.3s ease;
+        }
+        
+      
+        .row-layout {
+          flex-direction: row;
+        }
+        
+        .column-layout {
+          flex-direction: column;
+        }
+        
+      .column-layoutcard{
+         
+          
+             
+              display: flex;
+              align-items: center;
+              /* Optional: Add some space between icons and text */
+            
+      }
+    }
+    
+  
+  
+     /* Responsive design */
+    /* Responsive design for very small screens */
+  @media (max-width: 480px) {
+    .riskProfileFormAll {
+      border-radius: 8px;
+      width: 90%; /* Full width for small screens */
+      font-family: 'calibri';
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+  
+    .riskProfileFormpara {
+      font-size: 14px;
+      width: 100%; /* Use full width */
+      padding: 10px; /* Reduce padding for smaller areas */
+      margin-left: 0; /* Remove margin for better alignment */
+    }
+  
+    /* Individual question card */
+    .riskProfileFormAll .question-card {
+      width: 100%; /* Full width for cards on small screens */
+      margin-left: 0; /* Center align by removing left margin */
+      height: auto; /* Let height adjust dynamically */
+    }
+  
+    /* Submit button styles */
+    .riskProfileFormAll button {
+      width: 80%; /* Widen the button for easier interaction */
+      margin-left: 10%; /* Center align the button */
+      margin-bottom: 50px; /* Add spacing below the button */
+    }
+  }
+  

@@ -1,0 +1,261 @@
+.segment-card {
+    background: white;
+  padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(196, 193, 193, 0.955);
+    border: 1px solid rgb(231, 227, 227);
+ width: 520px;
+font-family: 'calibri';
+margin-left: 270px;
+
+  }
+  
+  .allsegmentsizeanalysis{
+    display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  }
+  .segment-title {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'calibri';
+    margin-left: 277px;
+    margin-top: 20px;
+  }
+  .chartdonutportfolioana{
+    display: flex;
+    margin-left: -50px;
+  }
+  
+
+  
+  .dropdowncaharportanana {
+    width: 40%;
+    padding: 8px;
+   
+    cursor: pointer;
+  }
+  
+  
+ 
+  .legend-listprtana {
+    list-style: none;
+    padding: 0;
+    margin-top: 53px;
+  }
+  
+  .legend-itemprtana {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .legend-colorprtana {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
+  @media screen and (max-width: 768px){
+    .segment-card {
+      background: white;
+    padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(196, 193, 193, 0.955);
+      border: 1px solid rgb(231, 227, 227);
+   width: 420px;
+  font-family: 'calibri';
+  margin-left: 0px;
+  
+    }
+    
+    .allsegmentsizeanalysis{
+      display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  
+    flex-direction: column;
+    }
+    .segment-title {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'calibri';
+      margin-left: 0px;
+      margin-top: 80px;
+     
+    }
+    .chartdonutportfolioana{
+      display: flex;
+      margin-left: -50px;
+    }
+    
+  
+    
+    .dropdowncaharportanana {
+      width: 40%;
+      padding: 8px;
+     
+      cursor: pointer;
+    }
+    
+    
+   
+    .legend-listprtana {
+      list-style: none;
+      padding: 0;
+      margin-top: 53px;
+    }
+    
+    .legend-itemprtana {
+      display: flex;
+
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    
+    .legend-colorprtana {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+
+
+
+
+
+  
+  @media screen and (max-width: 480px){
+    .segment-card {
+      background: white;
+    padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(196, 193, 193, 0.955);
+      border: 1px solid rgb(231, 227, 227);
+   width: auto;
+  font-family: 'calibri';
+  margin-left: 0px;
+  
+    }
+    
+    .allsegmentsizeanalysis{
+      display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  
+    flex-direction: column;
+    }
+    .segment-title {
+      font-size: 21px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-family: 'calibri';
+      margin-left: 0px;
+      margin-top: 80px;
+     
+    }
+    .chartdonutportfolioana{
+      display: flex;
+      margin-left: -50px;
+    }
+    
+  
+    
+    .dropdowncaharportanana {
+      width: 40%;
+      padding: 8px;
+     
+      cursor: pointer;
+    }
+    
+    
+   
+    .legend-listprtana {
+      list-style: none;
+      padding: 0;
+      margin-top: 53px;
+    }
+    
+    .legend-itemprtana {
+      display: flex;
+
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    
+    .legend-colorprtana {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .legend-itemprtana {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-bottom: 12px;
+      margin-left: -100px;
+    }
+    
+    .legend-colorprtana {
+      width: 14px;
+      height: 13px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    /* Increase size of the legend dot for Power Generation & Distribution */
+.legend-itemprtana:nth-child(5) .legend-colorprtana {
+  width: 18px;  /* Increase dot size */
+  height: 12px; /* Increase dot size */
+  border-radius: 50%; /* Make sure it's a circle */
+  border: 2px solid #3aa7a3;
+}
+.legend-itemprtana:nth-child(1) .legend-colorprtana {
+  width: 15px;  /* Increase dot size */
+  height: 12px; /* Increase dot size */
+  border-radius: 50%; /* Make sure it's a circle */
+  border: 2px solid #6DB8FD;
+}
+.legend-itemprtana:nth-child(4) .legend-colorprtana {
+  width: 15px;  /* Increase dot size */
+  height: 12px; /* Increase dot size */
+  border-radius: 50%; /* Make sure it's a circle */
+  border: 2px solid #EB5757;
+}
+.legend-itemprtana:nth-child(2) .legend-colorprtana {
+  width: 15px;  /* Increase dot size */
+  height: 12px; /* Increase dot size */
+  border-radius: 50%; /* Make sure it's a circle */
+  border: 2px solid#1774FF;
+}
+.legend-itemprtana:nth-child(3) .legend-colorprtana {
+  width: 15px;  /* Increase dot size */
+  height: 12px; /* Increase dot size */
+  border-radius: 50%; /* Make sure it's a circle */
+  border: 2px solid #FF9177;
+}
+/* Decrease dropdown width and font size */
+.dropdown-selectportana {
+ 
+  font-size: 10px;  /* Reduce font size */
+  padding: 3px;  /* Adjust padding for a compact look */
+}
+
+.dropdown-selectportana option {
+  font-size: 10px; /* Reduce option text size */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Show '...' for long text */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+  }

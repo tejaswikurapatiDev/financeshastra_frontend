@@ -1,0 +1,329 @@
+.managealertalldata {
+    font-family: 'calibri';
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+  margin-top: 100px;
+  }
+  
+  .headingmanagealert{
+    text-align: center;
+    color:white;
+    font-size: 25px;
+  }
+  
+  .descriptionnalert{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #24b676;
+    font-weight: bold;
+  }
+  
+  .contact-link {
+    color: rgb(82, 153, 246);
+    font-weight: bold;
+    
+  }
+  
+  .subscription-category {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .category-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .subscription-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Adds gap between flex items */
+    padding: 20px 20px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+}
+
+.subscription-item:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+    transform: translateY(-5px); /* Slight lift on hover */
+}
+
+  
+  
+  .item-name {
+    color: #555;
+  }
+  
+  .subscribe-buttonmanage {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .subscribe-buttonmanage:hover {
+    background-color:#239362;
+  }
+  
+  .subscribe-footerrmanagealert {
+    text-align: center;
+    margin-top: 40px;
+    border: 1px solid rgb(238, 236, 236);
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
+    background-color: #24b676;
+  }
+  
+  .footer-subscribe-buttonmanage {
+    background-color:white;
+    color:  #24b676;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid white;
+  }
+  
+  .footer-subscribe-buttonmanage:hover {
+    background-color: #e2eee9;
+    color:  #24b676;
+  }
+  
+  .subscribe-footerrmanagealert h2{
+    color: white;
+    font-size: 18px;
+
+  }
+  
+  .subscribersuccesful {
+    margin-top: 10px; /* Adds some space between the button and notification */
+    background-color: white; /* Light green background for success message */
+    border: 1px solid white;
+    color: #24b676;
+  
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .unsubscribersuccesful{
+    margin-top: 10px; /* Adds some space between the button and notification */
+    background-color: white; /* Light green background for success message */
+    border: 1px solid white;
+    color: red;
+  
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .unsubscribe-button {
+    background-color: #ff4d4d; /* Red background */
+    color: white;
+    border: 1px solid #ff0000;
+    padding: 10px 4px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .unsubscribe-button:hover {
+    background-color: #e60000;
+    border: 1px solid #cc0000;
+  }
+  .profilepage-tabbbactive {
+    padding: 10px 8px;
+    cursor: pointer;
+    font-size: 16px;
+  
+    border-bottom: 2px solid #24b676;
+   
+    color: #24b676;
+
+  }
+  @media (max-width: 768px) {
+    .managealertalldata {
+        font-family: 'calibri';
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+        background-color: white;
+        border: 1px solid white;
+        border-radius: 8px;
+      margin-top: 100px;
+      }
+      
+      .headingmanagealert{
+        text-align: center;
+        color:white;
+        font-size: 20px;
+      }
+      
+      .descriptionnalert{
+    
+        margin-bottom: 10px;
+        color: #24b676;
+        font-weight: bold;
+        font-size: 13px;
+     
+      }
+      
+      .contact-link {
+        color: rgb(82, 153, 246);
+        font-weight: bold;
+        
+      }
+      
+      .subscription-category {
+        margin-bottom: 30px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+      .category-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      
+      .subscription-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px; /* Adds gap between flex items */
+        padding: 20px 20px;
+        border: 1px solid #f0f0f0;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+        transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+    }
+    
+    .subscription-item:hover {
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+        transform: translateY(-5px); /* Slight lift on hover */
+    }
+    
+      
+      
+      .item-name {
+        color: #555;
+        font-size: 12px;
+      }
+      
+      .subscribe-buttonmanage {
+        background-color: #24b676;
+        color: white;
+        border: none;
+        padding: 10px 10px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      
+      .subscribe-buttonmanage:hover {
+        background-color:#239362;
+      }
+      
+      .subscribe-footerrmanagealert {
+        text-align: center;
+        margin-top: 40px;
+        border: 1px solid rgb(238, 236, 236);
+        height: 200px;
+        border-radius: 10px;
+        box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
+        background-color: #24b676;
+        margin-bottom: 100px;
+      }
+      
+      .footer-subscribe-buttonmanage {
+        background-color:white;
+        color:  #24b676;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        border: 1px solid white;
+       
+      }
+      
+      .footer-subscribe-buttonmanage:hover {
+        background-color: #e2eee9;
+        color:  #24b676;
+      }
+      
+      .subscribe-footerrmanagealert h2{
+        color: white;
+        font-size: 16px;
+        margin-left: 0px;
+    
+      }
+      
+    
+      
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .unsubscribe-button {
+        background-color: #ff4d4d; /* Red background */
+        color: white;
+        border: 1px solid #ff0000;
+        padding: 10px 4px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      
+      .unsubscribe-button:hover {
+        background-color: #e60000;
+        border: 1px solid #cc0000;
+      }
+      .subscribersuccesful {
+        margin-top: 10px; /* Adds some space between the button and notification */
+        background-color: white; /* Light green background for success message */
+        border: 1px solid white;
+        color: #24b676;
+      
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      .unsubscribersuccesful{
+        margin-top: 10px; /* Adds some space between the button and notification */
+        background-color: white; /* Light green background for success message */
+        border: 1px solid white;
+        color: red;
+      
+        border-radius: 5px;
+        font-size: 13px;
+      }
+  }

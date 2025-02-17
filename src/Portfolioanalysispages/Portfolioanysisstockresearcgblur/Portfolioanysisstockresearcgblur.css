@@ -1,0 +1,404 @@
+.report-container {
+    position: relative;
+    width: 80%;
+    max-width: 1090px;
+
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    border: 3px solid rgb(223, 218, 218);
+    box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
+    overflow: hidden;
+    height: 450px;
+    margin-left: 280px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+ .reportcontaineranalysisheaderr{
+font-family: 'calibri';
+margin-left: 280px;
+font-size: 24px;
+color: #24b676;
+margin-top: 50px;
+margin-bottom: -10px;
+  }
+  
+  .blurred-content {
+    filter: blur(8px);
+    pointer-events: none;
+    text-align: center;
+    padding: 50px 0;
+    height: 400px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 12px;
+  }
+  
+  .overlaylocksub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .lock-iconanalysi {
+    width: 60px;
+    margin-bottom: 10px;
+margin-left: 40px;
+   
+  }
+  .stockresearchanalysispagecontainerblur{
+    margin-top: -180px;
+    margin-left: -10px;
+    width: 100%;
+ 
+  }
+ 
+  .subscribe-btnblurone {
+    background: #24b676;
+    color: white;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .subscribe-btnblurone:hover {
+    background: #2ec785;
+  }
+  
+  .stockresearchanalysispage-tableanalysisblur {
+    width: 93%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-bottom: 50px;
+ 
+  
+  }
+  .stockresearchanalysispage-tableanalysisblur th,
+  .stockresearchanalysispage-tableanalysisblur td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  
+  .stockresearchanalysispage-tableanalysisblur th {
+    background-color: #fff;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+    border-top: 1px solid #24b676;
+    /* Top border */
+    border-bottom: 1px solid #24b676;
+    /* Bottom border */
+    border-radius: 7px;
+    /* Border radius */
+    padding: 10px;
+    /* Optional, adds spacing inside the header cells */
+  }
+  
+  /* Remove left and right borders of th */
+  .stockresearchanalysispage-tableanalysisblur th:first-child {
+    border-left: 1px solid #24b676;
+    /* Left border for the first th */
+    border-top-left-radius: 7px;
+    /* Rounded top-left corner */
+    border-bottom-left-radius: 7px;
+    /* Rounded bottom-left corner */
+    border-top: 1px solid #24b676;
+    /* Top border for the first th */
+  }
+  
+  
+  .stockresearchanalysispage-tableanalysisblur th:last-child {
+    border-right: 1px solid #24b676;
+    /* Right border for the last th */
+    border-top-right-radius: 17px;
+    /* Rounded top-right corner */
+    border-bottom-right-radius: 17px;
+    /* Rounded bottom-right corner */
+  }
+
+
+  @media (max-width: 768px) {
+    .report-container {
+      position: relative;
+      width: 80%;
+     width: 400px;
+  
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      border: 3px solid rgb(223, 218, 218);
+      box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
+      overflow: hidden;
+      height: 450px;
+      margin-left: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+   .reportcontaineranalysisheaderr{
+  font-family: 'calibri';
+  margin-left: 20px;
+  font-size: 24px;
+  color: #24b676;
+  margin-top: 50px;
+  margin-bottom: -10px;
+    }
+    
+    .blurred-content {
+      filter: blur(8px);
+      pointer-events: none;
+      text-align: center;
+      padding: 50px 0;
+      height: 400px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+    
+    .overlaylocksub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .lock-iconanalysi {
+      width: 60px;
+      margin-bottom: 10px;
+  margin-left: 40px;
+     
+    }
+    .stockresearchanalysispagecontainerblur{
+      margin-top: -180px;
+      margin-left: -50px;
+      width: 100%;
+   
+    }
+   
+    .subscribe-btnblurone {
+      background: #24b676;
+      color: white;
+      padding: 12px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .subscribe-btnblurone:hover {
+      background: #2ec785;
+    }
+    
+    .stockresearchanalysispage-tableanalysisblur {
+      width: 93%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: -10px;
+    margin-bottom: 50px;
+   
+    
+    }
+    .stockresearchanalysispage-tableanalysisblur th,
+    .stockresearchanalysispage-tableanalysisblur td {
+      border-bottom: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+    
+    
+    .stockresearchanalysispage-tableanalysisblur th {
+      background-color: #fff;
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+      border-top: 1px solid #24b676;
+      /* Top border */
+      border-bottom: 1px solid #24b676;
+      /* Bottom border */
+      border-radius: 7px;
+      /* Border radius */
+      padding: 10px;
+     
+      /* Optional, adds spacing inside the header cells */
+    }
+    
+    /* Remove left and right borders of th */
+    .stockresearchanalysispage-tableanalysisblur th:first-child {
+      border-left: 1px solid #24b676;
+      /* Left border for the first th */
+      border-top-left-radius: 7px;
+      /* Rounded top-left corner */
+      border-bottom-left-radius: 7px;
+      /* Rounded bottom-left corner */
+      border-top: 1px solid #24b676;
+      /* Top border for the first th */
+    }
+    
+    
+    .stockresearchanalysispage-tableanalysisblur th:last-child {
+      border-right: 1px solid #24b676;
+      /* Right border for the last th */
+      border-top-right-radius: 17px;
+      /* Rounded top-right corner */
+      border-bottom-right-radius: 17px;
+      /* Rounded bottom-right corner */
+    } 
+  }
+
+
+
+
+  
+  @media (max-width: 480px) {
+    .report-container {
+      position: relative;
+     width: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      border: 3px solid rgb(223, 218, 218);
+      box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
+      overflow: hidden;
+      height: 450px;
+      margin-left: 5px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+   .reportcontaineranalysisheaderr{
+  font-family: 'calibri';
+  margin-left: 15px;
+  font-size: 20px;
+  color: #24b676;
+  margin-top: 50px;
+  margin-bottom: -10px;
+    }
+    
+    .blurred-content {
+      filter: blur(8px);
+      pointer-events: none;
+      text-align: center;
+      padding: 50px 0;
+      height: 400px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 12px;
+    }
+    
+    .overlaylocksub {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .lock-iconanalysi {
+      width: 60px;
+      margin-bottom: 10px;
+  margin-left: 40px;
+     
+    }
+    .stockresearchanalysispagecontainerblur{
+      margin-top: -180px;
+      margin-left: -5px;
+      width: auto;
+   
+    }
+   
+    .subscribe-btnblurone {
+      background: #24b676;
+      color: white;
+      padding: 12px 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .subscribe-btnblurone:hover {
+      background: #2ec785;
+    }
+    
+    .stockresearchanalysispage-tableanalysisblur {
+      width: 93%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: -10px;
+    margin-bottom: 50px;
+   
+    
+    }
+    .stockresearchanalysispage-tableanalysisblur th,
+    .stockresearchanalysispage-tableanalysisblur td {
+      border-bottom: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+    
+    
+    .stockresearchanalysispage-tableanalysisblur th {
+      background-color: #fff;
+      font-weight: bold;
+      color: #333;
+      white-space: nowrap;
+      border-top: 1px solid #24b676;
+      /* Top border */
+      border-bottom: 1px solid #24b676;
+      /* Bottom border */
+      border-radius: 7px;
+      /* Border radius */
+      padding: 10px;
+     
+      /* Optional, adds spacing inside the header cells */
+    }
+    
+    /* Remove left and right borders of th */
+    .stockresearchanalysispage-tableanalysisblur th:first-child {
+      border-left: 1px solid #24b676;
+      /* Left border for the first th */
+      border-top-left-radius: 7px;
+      /* Rounded top-left corner */
+      border-bottom-left-radius: 7px;
+      /* Rounded bottom-left corner */
+      border-top: 1px solid #24b676;
+      /* Top border for the first th */
+    }
+    
+    
+    .stockresearchanalysispage-tableanalysisblur th:last-child {
+      border-right: 1px solid #24b676;
+      /* Right border for the last th */
+      border-top-right-radius: 17px;
+      /* Rounded top-right corner */
+      border-bottom-right-radius: 17px;
+      /* Rounded bottom-right corner */
+    } 
+  }

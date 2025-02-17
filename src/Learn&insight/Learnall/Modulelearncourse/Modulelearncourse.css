@@ -1,0 +1,263 @@
+.modulelearncourse-container {
+    font-family: 'calibri';
+    padding: 20px;
+    max-width: 800px;
+margin-top: 20px;
+margin-left: 260px;
+  }
+  
+  .modulelearncourse-section {
+    margin-bottom: 40px;
+  }
+  
+  /* Card Styles */
+  .modulelearncourse-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgb(162, 155, 155);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 900px;
+  
+  }
+  
+  .modulelearncourse-card:hover {
+    transform: scale(1.02); /* Slightly enlarges the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Darker shadow effect */
+  }
+  
+  /* Icon Styles */
+  .modulelearncourse-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Info Styles */
+  .modulelearncourse-info {
+    flex: 1;
+    margin-left: 25px;
+    display: flex;
+   
+  }
+  
+  .modulelearncourse-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .modulelearncourse-duration {
+    font-size: 14px;
+    color: #555;
+    margin-left: 310px; /* Adds space on the left */
+    display: flex;
+  /* Vertically aligns the text and icon */
+    gap: 5px; /* Adds space between the text and the icon */
+
+  }
+  
+  .moduleid {
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .moduledownicon {
+    font-size: 16px;
+    color: #555;
+    transition: transform 0.3s ease; /* Smooth rotation transition */
+    cursor: pointer;
+  }
+  
+  .moduledownicon:hover {
+    color: #24b676; /* Changes color on hover */
+  }
+  
+  /* Specific styles for Module 3 */
+  .modulelearncourse-container .modulelearncourse-card:nth-child(3) .modulelearncourse-duration {
+    margin-left: 460px;
+  }
+  
+  /* Specific styles for Module 4 */
+  .modulelearncourse-container .modulelearncourse-card:nth-child(4) .modulelearncourse-duration {
+    margin-left: 470px;
+  }
+  
+  /* Instructor Details */
+  .modulelearncourse-instructor-details {
+    display: flex;
+    align-items: center; /* Ensures image and text are aligned */
+    margin-top: 20px;
+  }
+  
+  .modulelearncourse-instructor-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for the image */
+  }
+  
+  .modulelearncourse-instructor-info {
+    max-width: 300px;
+  }
+  
+  .modulelearncourse-instructor-role {
+    color: rgb(0, 119, 255);
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  
+  .modulelearncourse-instructor-experience {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(0, 119, 255);
+    margin-bottom: 1px;
+  }
+  
+  .modulelearncourse-instructor-bio {
+    font-size: 15px;
+    color: black;
+    line-height: 1.5;
+  }
+  
+  /* Hover Effects */
+  .modulelearncourse-card:hover .modulelearncourse-title {
+    color: #24b676; /* Green highlight for title on hover */
+  }
+  
+  /* Mobile View: 768px */
+@media screen and (max-width: 768px) {
+  .modulelearncourse-container {
+      margin-left: 1px;
+      max-width: 100%;
+  }
+
+  .modulelearncourse-card {
+      width: 90%;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-info {
+      flex-direction: column;
+      margin-left: 0;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-duration {
+      margin-left: 0;
+      margin-top: 10px;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-title {
+      font-size: 14px;
+  }
+
+  .modulelearncourse-icon img {
+      width: 40px;
+      height: 40px;
+  }
+
+  .modulelearncourse-instructor-details {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-instructor-image {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .modulelearncourse-instructor-info {
+      max-width: 100%;
+  }
+
+  .modulelearncourse-instructor-role {
+      font-size: 14px;
+  }
+
+  .modulelearncourse-instructor-experience {
+      font-size: 14px;
+  }
+
+  .modulelearncourse-instructor-bio {
+      font-size: 14px;
+  }
+
+  /* For Module 3 and 4, adjust the duration margin for mobile */
+  .modulelearncourse-container .modulelearncourse-card:nth-child(3) .modulelearncourse-duration,
+  .modulelearncourse-container .modulelearncourse-card:nth-child(4) .modulelearncourse-duration {
+      margin-left: 0;
+  }
+}
+
+/* Mobile View: 480px */
+@media screen and (max-width: 480px) {
+  .modulelearncourse-container {
+      margin-left: 1px;
+      padding: 10px;
+      max-width: 100%;
+  }
+
+  .modulelearncourse-card {
+      width: 90%;
+      flex-direction: column;
+      padding: 10px;
+  }
+
+  .modulelearncourse-info {
+      flex-direction: column;
+      margin-left: 0;
+  }
+
+  .modulelearncourse-duration {
+      margin-left: 0;
+      margin-top: 10px;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-title {
+      font-size: 12px;
+  }
+
+  .modulelearncourse-icon img {
+      width: 30px;
+      height: 30px;
+  }
+
+  .modulelearncourse-instructor-details {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .modulelearncourse-instructor-image {
+      width: 60px;
+      height: 60px;
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+
+  .modulelearncourse-instructor-role {
+      font-size: 12px;
+  }
+
+  .modulelearncourse-instructor-experience {
+      font-size: 12px;
+  }
+
+  .modulelearncourse-instructor-bio {
+      font-size: 15px;
+  }
+
+  /* For Module 3 and 4, adjust the duration margin for very small screens */
+  .modulelearncourse-container .modulelearncourse-card:nth-child(3) .modulelearncourse-duration,
+  .modulelearncourse-container .modulelearncourse-card:nth-child(4) .modulelearncourse-duration {
+      margin-left: 0;
+  }
+}

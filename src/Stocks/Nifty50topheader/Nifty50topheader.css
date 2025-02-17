@@ -1,0 +1,202 @@
+
+    .title-containernifty{
+        margin-left: 50px;
+    }
+    .graphnavbarrnifty50 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        
+       
+        margin-left: 330px;
+        cursor: pointer;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      .graphheadernifty {
+        display: flex;
+        gap: 600px;
+        align-items: center;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+      }
+      
+      .graphheadernifty h1 {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0;
+        margin-left: 290px;
+        width: 100px;
+    }
+      .graphnavbarrnifty50:hover {
+        cursor: pointer;
+        color: #24b676;
+      }
+      
+      .graphnavbarrnifty50 span {
+        font-size: 15px;
+        color: #333;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
+      
+      .graphnavbarrnifty50 span:hover {
+        color: #24b676;
+        text-decoration: underline;
+        text-decoration-color: #24b676;
+      }
+      
+      .graphnavbarrnifty50 a {
+        font-size: 15px;
+        color: #333;
+        padding: 5px 10px;
+       
+        text-decoration: none;
+       
+        font-weight: bold;
+       
+      }
+      
+      .graphnavbarrnifty50 a:hover {
+        color: #24b676;
+        text-decoration: underline;
+      
+      }
+      
+      .graphnavbarrnifty50 a.active {
+        color: #24b676;
+        text-decoration: underline;
+        font-weight: bold;
+      }
+      .graphupdatenifty50 {
+        font-size: 12px;
+        color: #333;
+        margin-top: 2px;
+        margin-left: 210px;
+      }
+      .graphpricenifty50 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-right: 130px;
+        margin-top: 20px;
+      }
+      /* Style for active link */
+      @media (max-width: 768px) {
+        .graphcontainerer {
+        width: 100%; 
+        margin-left: 0;
+        padding: 10px;
+        }
+        
+        .graphheadernifty h1 {
+        font-size: 20px;
+        margin-left: 0; 
+        }
+        .graphheadernifty {
+          display: flex;
+       gap: 50px;
+          align-items: center;
+          padding-bottom: 5px;
+          margin-bottom: 5px;
+        }
+        .graph-price-update {
+        margin-right: 0;
+        }
+        
+        .graphnavbarrnifty50 {
+        
+        margin-left: 30px;
+        margin-right: 20px;
+        
+        }
+        
+        .graphnavbarrnifty50 span, .graphnavbarrnifty50 a {
+        font-size: 14px; 
+        
+         
+        }
+        
+        .graphprice {
+        font-size: 20px; 
+        }
+        
+        .graphupdate {
+        font-size: 10px; 
+        }
+        
+        .graphstock-infoo {
+        margin-left: 0px;
+         
+        }
+        
+        .graphnse, .graphsector {
+        font-size: 12px; 
+        padding: 4px 8px; 
+        }
+        
+        .title-container {
+        flex-direction: column; 
+        align-items: flex-start; 
+        }
+        
+      }/* Mobile View for 480px */
+@media (max-width: 480px) {
+  .graphcontainerer {
+    width: 1%; /* Slightly narrower width */
+    margin-left: 1px; /* Center align */
+    margin-right: auto;
+    padding: 5px;
+  }
+
+  .graphheadernifty h1 {
+    font-size: 18px; /* Smaller font for titles */
+  }
+
+  .graphheadernifty {
+    display: flex;
+    gap: 0px;
+       align-items: center;
+       padding-bottom: 5px;
+       margin-bottom: 5px;
+  }
+
+  .graph-price-update {
+    margin-right: 0;
+    text-align: center; /* Center align price updates */
+  }
+
+  .graphnavbarrnifty50 {
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+
+  .graphnavbarrnifty50 span, .graphnavbarrnifty50 a {
+    font-size: 12px; /* Smaller font for navigation */
+  }
+
+  .graphprice {
+    font-size: 18px; /* Slightly smaller font for price */
+  }
+
+  .graphupdate {
+    font-size: 9px; /* Smaller font for updates */
+  }
+
+  .graphstock-infoo {
+    margin-left: 0px;
+  }
+
+  .graphnse, .graphsector {
+    font-size: 10px; /* Smaller font for NSE and sector */
+    padding: 3px 6px; /* Smaller padding */
+  }
+
+  .title-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}

@@ -1,0 +1,232 @@
+.funds-table-container {
+    width: 90%;
+    margin: 20px auto;
+    font-family: 'calibri';
+    color: #333;
+    margin-top: 100px;
+  }
+  
+  .funds-header {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-top: -40px;
+}
+  
+  .funds-table-title {
+    font-size: 24px;
+    margin: 0;
+    color: #333;
+   margin-top: 60px;
+   margin-bottom: -20px;
+  }
+  
+  .topfundbutton-container {
+    display: flex;
+    gap: 10px;
+   margin-top: 80px;
+   margin-right: 50px;
+  }
+  
+  .fund-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .fund-button.regular {
+    
+    border: 1px solid black;
+
+  }
+  
+  .fund-button.direct {
+   
+    border: 1px solid black;
+   
+  }
+  
+  .funds-table-description {
+    
+    justify-content: space-between;
+    align-items:left;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: black;
+    margin: 15px 0;
+  }
+  
+ 
+  .funds-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .funds-table-header th {
+    background-color: #24b676;
+    text-align: left;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    font-size: 14px;
+}
+  
+  .funds-table-row td {
+    padding: 10px;
+    font-size: 14px;
+}
+.sort-icons {
+  display: inline-flex
+;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 10px;
+  margin-top: 0px;
+}
+  .funds-table-row:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  .funds-table-row td:first-child {
+    text-align: left; /* Ensures the first column, typically the name, aligns left */
+  }
+ 
+  .star {
+    color: #24b676; /* Green color for the stars */
+    font-weight: bold; /* Optional: make the stars bold */
+  }
+  .fund-name-link {
+    text-decoration: none;
+    color: inherit; /* Or define a color */
+  }
+  
+  .fund-name-link:hover {
+    text-decoration: none;
+    color: #24b676;
+  }
+  
+  
+  .sort-icons .active {
+    color: white;
+  }
+  
+  .sort-icons .icon-up,
+  .sort-icons .icon-down {
+    font-size: 10px;
+    color: gray;
+  }
+  
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .funds-table-container {
+      width: 95%;
+      margin-top: 50px;
+  }
+
+  .funds-header {
+      flex-direction: column;
+      align-items: flex-start;
+      
+  }
+
+  .topfundbutton-container {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-top: 20px;
+      gap: 5px;
+  }
+
+  .fund-button {
+      width: 100%;
+      text-align: center;
+  }
+
+  .funds-table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+
+  .funds-table-header th,
+  .funds-table-row td {
+      font-size: 12px;
+      padding: 8px;
+  }
+  .funds-table-title {
+    font-size: 20px;
+    margin-top: 50px;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .funds-table-container {
+      width: 100%;
+      margin-top: 30px;
+  }
+
+  .funds-header {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10px;
+  }
+
+  .funds-table-title {
+    font-size: 20px;
+    margin-top: 90px;
+    margin-bottom: 0px;
+}
+
+  .topfundbutton-container {
+    flex-direction: row;
+    width: 80%;
+    margin-right: 0;
+    align-items: stretch;
+}
+  .fund-button {
+      font-size: 12px;
+      padding: 8px;
+      width: 100%;
+  }
+
+  .funds-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+}
+
+.funds-table::-webkit-scrollbar {
+    height: 8px; /* Set the height of the scrollbar */
+}
+
+.funds-table::-webkit-scrollbar-thumb {
+    background-color: #cecece; /* Scrollbar color */
+    border-radius: 4px; /* Rounded edges */
+}
+
+.funds-table::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Track color */
+}
+
+
+  .funds-table-header th,
+  .funds-table-row td {
+      font-size: 12px;
+      padding: 6px;
+  }
+  .funds-table-description {
+    justify-content: space-between;
+    align-items: left;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: black;
+    margin: 15px 0;
+}
+}

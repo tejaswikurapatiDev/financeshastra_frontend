@@ -1,0 +1,150 @@
+.infoContainer {
+    font-family: 'calibri';
+    max-width: 600px;
+  
+    padding: 20px;
+    
+    border-radius: 8px;
+    margin-left: 50px;
+   
+   
+   
+  }
+  
+  .infoHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333333;
+  }
+  
+  .infoDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .infoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures proper alignment */
+    width: 150%; /* Ensures rows span the full container */
+    padding: 12px 20px; /* Slightly increased padding for a spacious look */
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    color: #333333;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Adjust spacing between rows */
+  }
+  
+  
+  .infoLabel {
+    font-weight: bold;
+    color: #333333;
+    font-size: 16px;
+  }
+  
+  .infoValue {
+    font-size: 16px;
+    color: #000000;
+    flex: 1; /* This ensures even spacing between .infoLabel and .infoValue */
+    text-align: right; /* Aligns the value to the right side */
+    margin-right: 500px;
+  }
+  .infoValue1 {
+    font-size: 16px;
+    color: #000000;
+    flex: 1; /* This ensures even spacing between .infoLabel and .infoValue */
+    text-align: right; /* Aligns the value to the right side */
+    margin-right: 120px;
+  }
+  .infoValue2 {
+    font-size: 16px;
+    color: #000000;
+    flex: 1; /* This ensures even spacing between .infoLabel and .infoValue */
+    text-align: right; /* Aligns the value to the right side */
+    margin-right: 450px;
+  }
+  .infoValue3 {
+    font-size: 16px;
+    color: #000000;
+    flex: 1; /* This ensures even spacing between .infoLabel and .infoValue */
+    text-align: right; /* Aligns the value to the right side */
+    margin-right: 398px;
+  }
+  /* Adjustments for screens up to 768px */
+@media (max-width: 768px) {
+  .infoContainer {
+      max-width: 100%; /* Full width for smaller screens */
+      margin-left: 20px; /* Reduce margin for smaller devices */
+      padding: 15px;
+      margin-bottom: 50px; /* Adjust padding */
+  }
+
+  .infoHeader {
+      font-size: 18px; 
+     /* Reduce font size for smaller screens */
+  }
+
+  .infoDetails {
+      gap: 10px; /* Reduce spacing between rows */
+  }
+
+  .infoRow {
+      flex-direction: column; /* Stack label and value vertically */
+      align-items: flex-start; /* Align content to the left */
+      width: 100%; /* Adjust to fit the container */
+      padding: 10px; /* Reduce padding */
+  }
+
+  .infoLabel {
+      font-size: 14px; /* Reduce label font size */
+      margin-bottom: 5px; /* Add spacing between label and value */
+  }
+
+  .infoValue,
+  .infoValue1,
+  .infoValue2,
+  .infoValue3 {
+      font-size: 14px; /* Reduce value font size */
+      text-align: left; /* Align text to the left */
+      margin-right: 0; /* Remove margin for smaller screens */
+  }
+}
+
+/* Adjustments for screens up to 480px */
+@media (max-width: 480px) {
+  .infoContainer {
+      max-width: 100%; /* Use full width */
+      margin-left: 10px; /* Reduce left margin */
+      padding: 10px; /* Smaller padding */
+  }
+
+  .infoHeader {
+      font-size: 16px; /* Further reduce font size */
+  }
+
+  .infoDetails {
+      gap: 8px; /* Reduce spacing further */
+  }
+
+  .infoRow {
+      flex-direction: column; /* Keep label and value stacked */
+      align-items: flex-start; /* Align to the left */
+      width: 100%; /* Full container width */
+      padding: 8px; /* Smaller padding */
+  }
+
+  .infoLabel {
+      font-size: 12px; /* Further reduce label font size */
+  }
+
+  .infoValue,
+  .infoValue1,
+  .infoValue2,
+  .infoValue3 {
+      font-size: 12px; /* Further reduce value font size */
+      text-align: left; /* Keep left-aligned */
+      margin-right: 0; /* Ensure no margin issues */
+  }
+}

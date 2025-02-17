@@ -1,0 +1,220 @@
+/* Container for the entire component */
+.upcomingipo-container {
+    display: flex;
+    background-color: white;
+    gap: 10px;
+    box-shadow: 0 2px 4px rgba(144, 142, 142, 0.723);
+    border: 2px solid rgb(255, 243, 243);
+    width: 940px;
+    height: 320px;
+    border-radius: 8px;
+    margin-left: 70px;
+    position: relative; /* Ensure no content overlaps */
+    box-sizing: border-box; /* Include padding and border in dimensions */
+    font-family: 'calibri';
+  }
+  
+  /* Upcoming IPOs Section */
+  .upcomingipo-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Match the container height */
+    box-sizing: border-box; /* Ensure padding doesn't exceed boundaries */
+  }
+  
+  .upcomingipo-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .upcomingipo-table-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    height: 220px;
+    box-sizing: border-box; /* Ensures proper spacing */
+    position: relative; /* Align properly within the container */
+  }
+  
+  /* Table Styling */
+  .upcomingipo-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .upcomingipo-table th {
+    border: none; /* Remove all borders */
+    border-top: 2px solid #0d64bb; /* Add only the top border */
+    border-bottom: 2px solid #0d64bb; /* Add only the bottom border */
+  }
+  
+  .upcomingipo-table th:first-child {
+    border-left: 2px solid #0d64bb;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+  
+  .upcomingipo-table th:last-child {
+    border-right: 2px solid #0d64bb;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  .upcomingipo-header {
+    font-weight: bold;
+    background-color: #f8f9fa;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .upcomingipo-row:nth-child(odd) {
+    background-color: #fdfdfd;
+  }
+  
+  .upcomingipo-row:nth-child(even) {
+    background-color: rgb(240, 244, 249);
+  }
+  
+  .upcomingipo-cell {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Analysis Section */
+  .upcomingipo-analysis-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Match the container height */
+    box-sizing: border-box;
+  }
+  
+  .upcomingipo-analysis-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%; /* Ensure the section spans the container */
+    box-sizing: border-box;
+  }
+  
+  .upcomingipo-analysis-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .upcomingipo-analysis-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .upcomingipo-analysis-item:last-child {
+    border-bottom: none;
+  }
+  
+  .upcomingipo-analysis-item:nth-child(even) {
+    background-color: rgb(240, 244, 249);
+  }
+  .imgipoupcoming img{
+    height: 300px;
+  }
+  /* Mobile View at 768px */
+@media (max-width: 768px) {
+  .upcomingipo-container {
+      flex-direction: column; /* Stack the sections vertically */
+      margin-left: -15px;
+      width: 42.6%;
+      margin-bottom: 150px;
+      margin-top: -60px;
+   /* Allow height to adjust */
+  }
+
+  .upcomingipo-section {
+      width: 100%; /* Ensure sections take full width */
+      margin-bottom: 20px; /* Add spacing between sections */
+  }
+
+  .upcomingipo-title {
+      font-size: 20px; /* Reduce font size for smaller screens */
+      margin-left: 20px; /* Adjust margin */
+  }
+
+  .upcomingipo-table-wrapper {
+      width: 100%; /* Make table take full width */
+      height: auto; /* Allow table to grow with content */
+  }
+
+  .upcomingipo-table th {
+      font-size: 14px; /* Reduce font size of headers */
+  }
+
+  .upcomingipo-table td {
+      font-size: 12px; /* Reduce font size of table data */
+      padding: 8px; /* Adjust padding */
+  }
+
+  .upcomingipo-analysis-wrapper {
+      padding: 12px; /* Reduce padding for mobile */
+  }
+
+  .upcomingipo-analysis-item {
+      padding: 10px 0; /* Adjust padding for smaller screens */
+      font-size: 14px; /* Smaller font size */
+  }
+
+  .imgipoupcoming img {
+      height: 200px; /* Resize image for mobile view */
+  }
+  .imgipoupcoming img {
+    height: 150px;
+    justify-content: center;
+    margin-left: 150px;
+}
+ 
+}
+
+/* Mobile View at 480px */
+@media (max-width: 480px) {
+  .upcomingipo-container {
+    margin-left: -15px;
+    width: 34%;
+    margin-bottom: 50px;
+    margin-top: -60px;
+}
+  .upcomingipo-title {
+      font-size: 18px; /* Further reduce title font size */
+      margin-left: 10px; /* Adjust margin */
+  }
+
+  .upcomingipo-table-wrapper {
+      height: auto; /* Let the table grow with content */
+  }
+
+  .upcomingipo-table th,
+  .upcomingipo-table td {
+      font-size: 12px; /* Reduce font size */
+      padding: 6px; /* Adjust padding */
+  }
+
+  .upcomingipo-analysis-wrapper {
+      padding: 8px; /* Reduce padding */
+  }
+
+  .upcomingipo-analysis-item {
+      padding: 8px 0; /* Adjust padding for small screens */
+      font-size: 12px; /* Smaller font size */
+  }
+
+  .imgipoupcoming img {
+    height: 150px;
+    justify-content: center;
+    margin-left: 100px;
+}
+}

@@ -1,0 +1,169 @@
+.performanceportfolioanalysis-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'calibri';
+  }
+  .performanceportfolioanalysis-date-btn {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 60px;
+  }
+  .performanceportfolioanalysis-date-btn:hover {
+    background: #f5f5f5;
+  }
+  .performanceportfolioanalysis-note {
+    font-size: 14px;
+    margin-top: -10px;
+    color: #333;
+    font-family: 'calibri';
+    margin-left: 50px;
+  }
+  /* Style for the Date Picker Button */
+.performanceportfolioanalysis-date-btn {
+    background-color: #24b676; /* Green color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+    font-family: 'calibri';
+    font-weight: 600;
+}
+
+.performanceportfolioanalysis-date-btn:hover {
+    background-color: #1d9b5c; /* Darker green on hover */
+}
+
+/* Style for Date Picker */
+.performanceportfolioanalysis-date-picker {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Keeps it inside the container */
+    display: inline-block;
+   
+}
+
+/* Style for the Selected Date Display */
+.performanceportfolioanalysis-header p {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.react-datepicker {
+  
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 9999; /* Ensure it stays on top */
+    position: absolute; /* Positions it properly */
+    
+    /* Margin Adjustments */
+    margin-top: 300px;
+    margin-left: auto;
+    font-family: 'calibri';
+    left: 86%;
+    transform: translateX(-50%); /* Centers it horizontally */
+}
+
+
+.react-datepicker__header {
+    background: #24b676;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'calibri';
+}
+
+.react-datepicker__day--selected {
+    background: #24b676 !important;
+    color: white !important;
+    font-family: 'calibri';
+}
+
+.react-datepicker__day:hover {
+    background: #1d9b5c !important;
+    color: white !important;
+}
+@media (max-width: 768px) {
+    .react-datepicker {
+  
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        z-index: 9999; /* Ensure it stays on top */
+        position: absolute; /* Positions it properly */
+        
+        /* Margin Adjustments */
+        margin-top: 4470px;
+        margin-left: auto;
+        font-family: 'calibri';
+        left: 63%;
+        transform: translateX(-50%); /* Centers it horizontally */
+    }
+    
+}
+@media (max-width: 480px) {
+    .react-datepicker {
+  
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #ddd;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+        z-index: 9999; /* Ensure it stays on top */
+        position: absolute; /* Positions it properly */
+        
+        /* Margin Adjustments */
+        margin-top: 4770px;
+        margin-left: auto;
+        font-family: 'calibri';
+        left: 58%;
+        transform: translateX(-50%); /* Centers it horizontally */
+    }
+    .performanceportfolioanalysis-date-picker {
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 5px;
+        background: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative; /* Keeps it inside the container */
+        display: inline-block;
+       
+    }
+    .performanceportfolioanalysis-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 10px;
+        font-family: 'calibri';
+      }
+      .performanceportfolioanalysis-note{
+        margin-left: 10px;
+        width: auto;
+      }
+}

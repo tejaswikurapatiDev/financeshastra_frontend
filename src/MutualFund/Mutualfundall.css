@@ -1,0 +1,38 @@
+.mutualfunddflex-container {
+    display: flex;
+    gap: 20px; /* Optional: adds space between the two components */
+    flex-wrap: wrap; /* Allows the components to wrap to the next line on smaller screens */
+   
+  }
+  
+  .mutualfunddflex-container > * {
+    flex: 1; /* Make both components take equal width */
+    min-width: 400px; /* Optional: Set a minimum width for the components */
+  }
+  /* Adjustments for 768px screens */
+@media (max-width: 768px) {
+  .mutualfunddflex-container {
+      flex-direction: column; /* Stack components vertically */
+      gap: 15px; /* Reduce gap for smaller screens */
+      align-items: center; /* Center components */
+  }
+
+  .mutualfunddflex-container > * {
+      flex: unset; /* Remove equal width distribution */
+      width: 100%; /* Make each component take full width */
+      min-width: unset; /* Remove minimum width to prevent overflow */
+  }
+}
+
+/* Adjustments for 480px screens */
+@media (max-width: 480px) {
+  .mutualfunddflex-container {
+      flex-direction: column;
+      gap: 10px; /* Further reduce gap for very small screens */
+      align-items: center;
+  }
+
+  .mutualfunddflex-container > * {
+      width: 95%; /* Ensure components are full width */
+  }
+}

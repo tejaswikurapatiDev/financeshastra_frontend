@@ -1,0 +1,219 @@
+.scheme-allocation-container {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1000px;
+  margin-left: 20px; /* Moves the container to the left */
+  font-family: 'calibri';
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+
+.scheme-allocation-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333333;
+  margin-top: 100px;
+  margin-left: 30px;
+}
+
+.scheme-allocation-tabs {
+  margin-left: 300px;
+  justify-content: center; /* Centers the tabs horizontally */
+  margin-bottom: 20px;
+  
+}
+
+
+.tab-button {
+  width: 150px; /* Set the desired button width */
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: black;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+
+
+
+.tab-button:last-child {
+  margin-right: 0;
+}
+
+.active-tab {
+  background-color: #24b676;
+  color: #ffffff;
+  border: 1px solid #24b676;
+}
+
+.scheme-allocation-content {
+  margin-top: 15px;
+}
+
+.allocation-row {
+  margin-bottom: 20px;
+}
+
+.allocation-name {
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 5px; /* Adds space between name and bar */
+}
+
+.allocation-bar-wrapper {
+background-color: #f9f9f9;
+  border-radius: 5px;
+  overflow: hidden;
+  height: 25px; /* Increased height of the allocation bar */
+  margin-bottom: 5px; /* Adds space between bar and percentage */
+}
+
+.allocation-bar {
+  height: 100%;
+  background-color: #24b676;
+}
+
+.allocation-percentage {
+  font-size: 14px;
+  color: #333333;
+  text-align: right;
+}
+
+.view-holdings-container {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.view-holdings-link {
+  color: #24b676;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.view-holdings-link:hover {
+  text-decoration: underline;
+}
+/* Adjustments for screens up to 768px */
+@media (max-width: 768px) {
+  .scheme-allocation-container {
+      padding: 15px; /* Reduce padding */
+      margin-left: 10px; /* Adjust left margin */
+      max-width: 100%; /* Allow full width */
+  }
+
+  .scheme-allocation-title {
+      font-size: 20px; /* Reduce title size */
+      margin-top: 20px; /* Reduce top margin */
+      margin-left: 10px; /* Remove left margin */
+      text-align: left; /* Center-align the title */
+  }
+
+  .scheme-allocation-tabs {
+      margin-left: 0; /* Center tabs */
+      justify-content: center;
+  }
+
+  .tab-button {
+      width: 120px; /* Adjust button width */
+      font-size: 12px; /* Reduce font size */
+      padding: 8px; /* Reduce padding */
+  }
+
+  .scheme-allocation-content {
+      margin-top: 10px; /* Reduce margin */
+  }
+
+  .allocation-row {
+      margin-bottom: 15px; /* Reduce spacing between rows */
+  }
+
+  .allocation-name {
+      font-size: 12px; /* Reduce font size */
+  }
+
+  .allocation-bar-wrapper {
+      height: 20px; /* Reduce height */
+  }
+
+  .allocation-percentage {
+      font-size: 12px; /* Reduce font size */
+  }
+
+  .view-holdings-container {
+      margin-top: 15px; /* Reduce top margin */
+      text-align: center; /* Center-align link */
+  }
+
+  .view-holdings-link {
+      font-size: 12px; /* Reduce font size */
+  }
+}
+
+/* Adjustments for screens up to 480px */
+@media (max-width: 480px) {
+  .scheme-allocation-container {
+      padding: 10px; /* Further reduce padding */
+      margin-left: 0; /* Remove left margin */
+      max-width: 100%; /* Full width */
+  }
+
+  .scheme-allocation-title {
+      font-size: 18px; /* Smaller title size */
+      margin-top: 30px; /* Reduce top margin */
+      text-align: left; /* Keep centered */
+      margin-left: 0; /* No margin */
+  }
+
+  .scheme-allocation-tabs {
+      margin-left: 0; /* Align tabs centrally */
+     
+      justify-content: center; /* Center tabs */
+      gap: 10px; /* Add spacing between buttons */
+      display: flex;
+  }
+
+  .tab-button {
+      width: 100%; /* Make buttons full width */
+      font-size: 12px; /* Smaller font */
+      padding: 6px; /* Adjust padding */
+  }
+
+  .scheme-allocation-content {
+      margin-top: 10px; /* Reduce margin */
+  }
+
+  .allocation-row {
+      margin-bottom: 10px; /* Smaller spacing */
+  }
+
+  .allocation-name {
+      font-size: 12px; /* Reduce font size */
+  }
+
+  .allocation-bar-wrapper {
+      height: 18px; /* Reduce bar height */
+  }
+
+  .allocation-percentage {
+      font-size: 11px; /* Smaller font size */
+  }
+
+  .view-holdings-container {
+      margin-top: 10px; /* Reduce margin */
+      text-align: center; /* Center-align */
+  }
+
+  .view-holdings-link {
+      font-size: 12px; /* Adjust font size */
+  }
+}

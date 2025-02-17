@@ -1,0 +1,267 @@
+.portfolio-metrics-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(208, 203, 203);
+    box-shadow: 0 4px 8px rgba(169, 167, 167, 0.964);
+    flex: 1; /* Allow it to take available space */
+ max-width: 515px;
+ margin-top: 23px;
+ height: 350px;
+  
+  margin-left: 150px;
+ 
+    font-family: 'calibri';
+  }
+  
+  .metrics-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    
+  }
+  .portfolio-metrics-containerspeedometre {
+    display: flex;
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Add spacing between elements */
+    width: 95%;
+margin-left: 120px;
+   
+  }
+  
+  .metrics-bars {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .bar-container {
+    height: 200px;
+    width: 18px;
+    background: linear-gradient(to bottom, 
+    #3385ef,
+    #A4D8C1,
+    #39BD83);
+    border-radius: 10px;
+    position: relative;
+   
+  }
+  
+  .bar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .marker {
+    width: 18px;
+    height: 18px;
+ 
+    border-radius: 50%;
+    border: 3px solid #4a90e2;
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+  }
+  
+  .metric-value {
+    font-size: 10px;
+    font-weight: bold;
+    color: black;
+    position: absolute;
+   
+    white-space: nowrap;
+    left: -30px;
+  }
+  .metric-name {
+    font-size: 13px;
+    color:black;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .portfolio-metrics-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgb(208, 203, 203);
+      box-shadow: 0 4px 8px rgba(169, 167, 167, 0.964);
+      flex: 1; /* Allow it to take available space */
+width: 95%;
+   margin-top: 23px;
+   height: 350px;
+    margin-left: 0px;
+
+   
+      font-family: 'calibri';
+    }
+    
+    .metrics-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      
+    }
+    .portfolio-metrics-containerspeedometre {
+      display: flex;
+      align-items: flex-start; /* Align items at the top */
+      gap: 20px; /* Add spacing between elements */
+      width: 95%;
+  margin-left: 0px;
+  flex-direction: column;
+     
+    }
+    
+    .metrics-bars {
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .bar-container {
+      height: 200px;
+      width: 18px;
+      background: linear-gradient(to bottom, 
+      #3385ef,
+      #A4D8C1,
+      #39BD83);
+      border-radius: 10px;
+      position: relative;
+     
+    }
+    
+    .bar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .marker {
+      width: 18px;
+      height: 18px;
+   
+      border-radius: 50%;
+      border: 3px solid #4a90e2;
+      position: absolute;
+      left: 49%;
+      transform: translateX(-50%);
+    }
+    
+    .metric-value {
+      font-size: 10px;
+      font-weight: bold;
+      color: black;
+      position: absolute;
+     
+      white-space: nowrap;
+      left: -30px;
+    }
+    .metric-name {
+      font-size: 13px;
+      color:black;
+      font-weight: bold;
+    }
+    
+  }
+
+
+
+  @media (max-width: 480px) {
+    .portfolio-metrics-container {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgb(208, 203, 203);
+      box-shadow: 0 4px 8px rgba(169, 167, 167, 0.964);
+     
+width: 87%;
+   margin-top: 23px;
+   height: 350px;
+    margin-left: 0px;
+
+   
+      font-family: 'calibri';
+    }
+    
+    .metrics-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      
+    }
+    .portfolio-metrics-containerspeedometre {
+      display: flex;
+      align-items: flex-start; /* Align items at the top */
+      gap: 10px; /* Add spacing between elements */
+      width: auto;
+  margin-left: 0px;
+  flex-direction: column;
+     
+    }
+    
+    .metrics-bars {
+      display: flex;
+      justify-content: space-around;
+    }
+    
+    .metric {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .bar-container {
+      height: 200px;
+      width: 18px;
+      background: linear-gradient(to bottom, 
+      #3385ef,
+      #A4D8C1,
+      #39BD83);
+      border-radius: 10px;
+      position: relative;
+     
+    }
+    
+    .bar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    
+    .marker {
+      width: 18px;
+      height: 18px;
+   
+      border-radius: 50%;
+      border: 3px solid #4a90e2;
+      position: absolute;
+      left: 49%;
+      transform: translateX(-50%);
+    }
+    
+    .metric-value {
+      font-size: 10px;
+      font-weight: bold;
+      color: black;
+      position: absolute;
+     
+      white-space: nowrap;
+      left: -30px;
+    }
+    .metric-name {
+      font-size: 13px;
+      color:black;
+      font-weight: bold;
+    }
+    
+  }

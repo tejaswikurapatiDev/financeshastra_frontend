@@ -1,0 +1,136 @@
+/* General Container Styles */
+.portfolio-container {
+    font-family: Calibri, Arial, sans-serif;
+    padding: 20px;
+    color: #333;
+    max-width: 650px; /* Set a maximum width */
+    margin: 0 auto; /* Center the container */
+    margin-left: 262px; /* Add left margin to prevent overlap with sidebar */
+    font-family: 'Calibri';
+    margin-top: 80px;
+    background-color: white;
+}
+.chartportfolio-container{
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 350px;
+}
+.time-range-selector {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 20px;
+  
+}
+
+.time-range-button {
+  
+    border: 1px solid #4c4a4a;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.time-range-button.active {
+    background-color: #22c55e;
+    color: white;
+    border-color: #22c55e;
+}
+
+
+
+
+/* Responsive adjustment if the sidebar is hidden on smaller screens */
+@media (max-width: 768px) {
+    .portfolio-container {
+        margin-left: 0; /* Reset left margin on small screens */
+        padding: 15px; /* Reduce padding */
+        margin-top: 20px; /* Adjust top margin */
+    }
+
+    .portfolio-welcome {
+        font-size: 20px; /* Reduce font size */
+        margin-top: 100px;
+    }
+
+    .portfolio-subtitle {
+        font-size: 14px; /* Reduce font size */
+    }
+
+    .portfolio-card {
+        padding: 15px; /* Reduce padding for cards */
+        margin-top: 15px;
+    }
+
+    .portfolio-title {
+        font-size: 16px; /* Adjust title font size */
+    }
+
+    .time-range-selector span {
+        font-size: 14px; /* Adjust font size for selector */
+    }
+
+    .chart-container {
+        height: 250px; /* Reduce chart height */
+    }
+    .time-range-selector {
+        justify-content: center; /* Center the buttons */
+        gap: 8px;
+    }
+
+    .time-range-button {
+        padding: 6px 12px; /* Slightly smaller padding */
+        font-size: 13px; /* Reduce font size */
+    }
+}
+
+/* Additional adjustment for very small screens (480px and below) */
+@media (max-width: 480px) {
+    
+
+    .portfolio-welcome {
+        font-size: 18px; /* Reduce font size further */
+    }
+
+    .portfolio-subtitle {
+        font-size: 12px; /* Reduce font size further */
+    }
+
+    .portfolio-card {
+        padding: 10px; /* Further reduce padding for cards */
+        margin-top: 10px;
+    }
+
+    .portfolio-title {
+        font-size: 14px; /* Further adjust title font size */
+    }
+
+    .time-range-selector {
+        flex-direction: column; /* Stack the options vertically */
+        gap: 5px; /* Adjust spacing */
+    }
+
+    .time-range-selector span {
+        font-size: 12px; /* Adjust font size for selector */
+    }
+
+    .chart-container {
+        height: 200px; /* Further reduce chart height */
+        width: 320px;
+    }
+    .time-range-selector {
+        flex-direction: row; /* Stack buttons vertically */
+        gap: 10px;
+    }
+
+    .time-range-button {
+        padding: 8px; /* Smaller padding for better fit */
+        font-size: 12px; /* Reduce font size further */
+        width: 100%; /* Full-width buttons */
+    }
+}

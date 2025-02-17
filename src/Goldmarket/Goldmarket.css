@@ -1,0 +1,29 @@
+
+  .goldetf-title {
+    text-align: center;
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 16px;
+    margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  margin-top: -70px;
+  font-family: 'calibri';
+  }
+  
+
+  
+ 
+  /* Responsive styles */
+@media screen and (max-width: 768px) {
+  .goldetf-title {
+    font-size: 20px; /* Reduce title size for small devices */
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .goldetf-title {
+    font-size: 20px;
+    margin-top: -30px;
+}
+}

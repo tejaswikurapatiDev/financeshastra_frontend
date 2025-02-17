@@ -1,0 +1,357 @@
+.PortfolioHoldingPageContainer {
+  width: 95%;
+
+  padding: 20px;
+  font-family: 'calibri';
+}
+
+.PortfolioHoldingPageHeader {
+  display: flex;
+  
+  align-items: center;
+  margin-bottom: 20px;
+  border: 2px solid #e4e3e3;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 2px; /* Reduced padding */
+  height: 50px; /* Adjusted height */
+}
+.PortfolioHoldingPageh2{
+  font-size: 18px;
+  color: #333;
+  margin-left: 20px;
+}
+
+.PortfolioHoldingPageinvestedFilter {
+  padding: 5px;
+  border-radius: 5px;
+  width: 20%;
+  margin-left: 30px;
+}
+.PortfolioHoldingPageactionButtons {
+  display: flex; /* Ensures buttons align properly */
+  gap: 10px; /* Adds a small gap between buttons */
+  margin-left: auto; /* Adjusts alignment instead of fixed margin */
+}
+
+.PortfolioHoldingPageactionButtons button {
+  background: #ffff;
+  border: none;
+  padding: 5px ;
+  cursor: pointer;
+  color: #6db8fd;
+}
+
+
+.PortfolioHoldingPageholdingsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.PortfolioHoldingPageholdingCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.PortfolioHoldingPageholdingDetails {
+  display: flex;
+  align-items: center;
+}
+.PortfolioHoldingPagestockLogo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 2px solid #24b676; /* Adds a border around the icon */
+  border-radius: 5px; /* Rounds the edges slightly */
+  padding: 5px; /* Ensures the icon does not touch the border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* Optional: Adds a background color inside the box */
+}
+
+
+.PortfolioHoldingPagestockName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.PortfolioHoldingPagestockShares {
+  font-size: 12px;
+  color: #fff;
+  border: 2px solid #24b676; /* Adds a border around the text */
+  border-radius: 15px; /* Rounds the corners slightly */
+  padding: 3px 10px; /* Adds space inside the border */
+  display: inline-block; /* Ensures the box wraps around the text */
+  background-color: #24b676;  /* Optional: Light background for better visibility */
+  
+}
+.PortfolioHoldingPagestockPercentage {
+  font-size: 12px;
+  color: #fff;
+  border: 2px solid #24b676; /* Adds a border around the text */
+  border-radius: 15px; /* Rounds the corners slightly */
+  padding: 3px 10px; /* Adds space inside the border */
+  display: inline-block; /* Ensures the box wraps around the text */
+  background-color: #24b676; /* Optional: Light background for better visibility */
+}
+.PortfolioHoldingPagestockDetails {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Small gap between shares and percentage */
+  border: none; /* Keeps it inside a border */
+  margin-top: 0px;
+  
+}
+.PortfolioHoldingPageholdingNumbers {
+  display: flex;
+  gap:0px;
+}
+
+.PortfolioHoldingPageholdingValues {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PortfolioHoldingPagelabel {
+  font-size: 12px;
+  color: gray;
+}
+
+.PortfolioHoldingPagecurrentValue,
+.PortfolioHoldingPageinvestedValue {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.PortfolioHoldingPageprofitLoss {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.gain {
+  color: #24b676;
+
+}
+
+.loss {
+  color: red;
+}
+
+.PortfolioHoldingPageholdingPerformance {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.PortfolioHoldingPagecmp {
+  font-size: 12px;
+}
+
+.PortfolioHoldingPagecmpChange {
+  font-size: 12px;
+}
+
+.positive {
+  color: #24b676;
+}
+
+.negative {
+  color: red;
+}
+
+.PortfolioHoldingPagetradeRecords {
+  text-align: right;
+  margin-top: 20px;
+  color: #6db8fd;
+}
+
+.PortfolioHoldingPagetradeRecords a {
+  color: #6db8fd;
+  text-decoration: none;
+  font-size: 14px;
+}
+.tradeRecordIcon {
+  font-size: 16px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.PortfolioHoldingPagechange{
+  font-size: 14px;
+  font-weight: bold;
+}
+.PortfolioHoldingPagechangePercent{
+  font-size: 14px;
+  font-weight: bold;
+}
+.PortfolioHoldingPagelabel{
+  font-size: 14px;
+  font-weight: bold;
+}
+.PortfolioHoldingPagecurrentValue{
+  font-size: 14px;
+}
+.PortfolioHoldingPageholdingNumbers{
+  margin-left: -10px;
+}
+.PortfolioHoldingPagelabel {
+  color: #333; /* Dark gray for Inv */
+  font-weight: bold;
+}
+
+.PortfolioHoldingPageinvestedValue {
+  color: lightgrey; /* Light grey */
+  font-size: 14px; /* Adjust size if needed */
+}
+.PortfolioHoldingPageholdingValuess{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+.PortfolioHoldingPageholdingprofitlossvalue{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+.PortfolioHoldingPageMoreIcon {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+.PortfolioHoldingPageholdingsimportIcon {
+  font-size: 18px;
+  
+  vertical-align: middle;
+}
+.PortfolioHoldingPageholdingsaddStockIcon {
+  font-size: 18px;
+ margin-top: 0px;
+  vertical-align: middle;
+}
+.PortfolioHoldingPageOptionsMenu {
+  color: white;
+  background: #24b676;
+  border: 1px solid #24b676;
+  padding: 5px;
+  right: 10px;
+  top: 30px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.PortfolioHoldingPageOptionsMenu button {
+  background: #24b676;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  .PortfolioHoldingPageContainer {
+    width: 100%; /* Ensure it takes full width */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent elements from breaking lines */
+    padding: 4px;
+    font-family: 'calibri';
+  }
+
+  /* Ensure tables and wide content are scrollable */
+  .PortfolioHoldingPageholdingsList {
+    display: block; /* Change from flex to block */
+    width: 159%; /* Expand width for scrolling */
+   
+  }
+
+  /* Ensure table structure remains within scrollable area */
+  .PortfolioHoldingPage-table {
+    width: 100%; /* Prevent table from overflowing */
+    min-width: 768px; /* Ensure table doesn't shrink too much */
+    border-collapse: collapse;
+  }
+
+  .PortfolioHoldingPage-table th, 
+  .PortfolioHoldingPage-table td {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+
+
+}
+
+
+
+
+
+@media screen and (max-width:480px) {
+  .PortfolioHoldingPageContainer {
+    width: 100%; /* Ensure it takes full width */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Prevent elements from breaking lines */
+    padding: 4px;
+    font-family: 'calibri';
+   margin-top: 30px;
+  }
+
+  /* Ensure tables and wide content are scrollable */
+  .PortfolioHoldingPageholdingsList {
+    display: block; /* Change from flex to block */
+    width: 179%; /* Expand width for scrolling */
+
+  }
+
+  /* Ensure table structure remains within scrollable area */
+  .PortfolioHoldingPage-table {
+    width: 100%; /* Prevent table from overflowing */
+    min-width: 768px; /* Ensure table doesn't shrink too much */
+    border-collapse: collapse;
+  }
+
+  .PortfolioHoldingPage-table th, 
+  .PortfolioHoldingPage-table td {
+    white-space: nowrap; /* Prevent text from wrapping */
+  }
+
+
+
+  .PortfolioHoldingPagetradeRecords {
+
+    margin-top: 20px;
+    color: #6db8fd;
+  }
+  .PortfolioHoldingPagetradeRecords a{
+    margin-right: -250px;
+  }
+
+  .PortfolioHoldingPageHeader {
+    display: flex;
+    
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #e4e3e3;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 2px; /* Reduced padding */
+    height: 50px; /* Adjusted height */
+    width: 620px;
+  }
+  .PortfolioHoldingPageinvestedFilter{
+margin-left: 10px;
+font-size: 12px;
+  }
+  .PortfolioHoldingPageactionButtons button{
+    font-size: 12px;
+    padding: 5px;
+  }
+}

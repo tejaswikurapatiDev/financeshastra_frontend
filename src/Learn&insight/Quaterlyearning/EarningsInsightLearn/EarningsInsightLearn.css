@@ -1,0 +1,479 @@
+/* General Styling for the Wrapper */
+.earnings-insight-learn-wrapper {
+    font-family: 'calibri';
+    margin-top: 120px;
+  
+}
+
+/* Header Section Styling */
+.earnings-insight-learn-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.earnings-insight-learnp {
+    color: black;
+    font-size: 16px;
+    margin-left: 40px;
+}
+
+.earnings-insight-learnh1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}
+
+/* Header Row (Tab Navigation, Date Picker, and Filter) */
+.earnings-insight-learn-header-row {
+    display: flex;
+    align-items: center;
+    
+}
+
+/* Styling for Tabs (Yesterday, Today, etc.) */
+.earnings-insight-learn-tabs {
+    display: flex;
+    gap: 10px;
+   
+}
+
+.earnings-insight-learn-tab-button {
+  
+    font-size: 14px;
+    font-weight: 500;
+    color:#333; /* Default text color */
+    background-color:white; /* Default background */
+    border: 1px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+
+
+/* Date Picker Section */
+
+
+
+
+/* Custom Dropdown Styling (Select Filter) */
+.earnings-insight-learn-dropdown {
+    display: flex;
+ margin-bottom: 20px;
+    justify-content: flex-start; /* Adjusts to align the dropdown properly */
+    gap: 10px;
+    font-size: 16px;
+    margin-left: 30px; /* Aligns with the rest of the header elements */
+}
+
+.filter-label {
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+
+
+
+/* Table Styling */
+.earnings-insight-learn-table {
+    width: 95%;
+  
+    margin-left: 40px;
+    border-collapse: collapse;
+}
+
+.earnings-insight-learn-table th, 
+.earnings-insight-learn-table td {
+    padding: 8px;
+    text-align: left;
+    border: none;
+    text-align: center;
+}
+
+.earnings-insight-learn-table td {
+    border-bottom: 1px solid #ddd; /* Subtle line between rows */
+    font-size: 15px; /* Adjust font size */
+    color: #333; /* Text color for readability */
+    text-align: center; /* Center-align text in cells */
+    padding: 10px 20px; /* Add space inside cells */
+}
+
+
+.earnings-insight-learn-table th {
+    background-color: white;
+    font-weight: bold;
+    border-top: 2px solid #24b676;
+    border-bottom: 2px solid #24b676;
+    box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
+    font-size: 15px;
+  
+}
+
+.earnings-insight-learn-table th:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-left: 2px solid #24b676;
+}
+
+.earnings-insight-learn-table th:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-right: 2px solid #24b676;
+}
+
+.earnings-insight-learn-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.earnings-insight-learn-table tr:hover {
+    background-color: #f1f1f1;
+}
+.earningquterlyrowall {
+    display: flex;
+    width: 890px;
+    margin-left: 40px;
+    gap: 210px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f9f9f9; /* Light background for better contrast */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    height: 35px;
+    box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+}
+
+.earnings-insight-learn-table a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit the text color from the parent element */
+    
+}
+
+.earnings-insight-learn-table a:hover {
+    color: inherit; /* Maintain the original color on hover */
+    text-decoration: none; /* Ensure no underline appears on hover */
+    color:green;
+}
+
+/* General Styling for Date Picker Section */
+
+
+/* Hover Effect for Toggle Button */
+.earnings-insight-learn-date-picker button:hover {
+    background-color: #1a8b5a;
+}
+
+/* Date Picker Container Styling */
+
+
+/* Reset and Apply Buttons Styling */
+.date-picker-container button {
+    background-color: #f1f1f1;
+
+    color: #333;
+    font-size: 14px;
+  
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+/* Hover Effect for Reset and Apply Buttons */
+.date-picker-container button:hover {
+    background-color: #ddd;
+}
+
+/* Styling for Reset Button Margin */
+.calendar-icon {
+    display: flex;
+   
+    font-size: 16px; /* Adjust size of the icon */
+    cursor: pointer; /* Make it clickable */
+   
+    /* Round corners for the icon button */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    margin-top: 10px;
+}
+.dateinsight{
+    display: flex;
+    border: 1px solid rgb(212, 209, 209);
+    height: 40px;
+    width: 140px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+
+    
+}
+
+/* Focus effect for accessibility */
+.calendar-icon:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 2px #4f94f4; /* Blue outline when focused */
+}
+
+/* Optional: Custom styling for the calendar label and icon */
+.date-picker-label {
+    font-size: 15px; /* Font size for the label */
+    font-weight: 500; /* Weight of the label */
+     /* Space between label and icon */
+     margin-top: 10px;
+     margin-left: 5px;
+}
+
+
+/* Responsive styling for tablets and smaller devices */
+/* Responsive styling for tablets and smaller devices */
+@media (max-width: 768px) {
+    .earnings-insight-learn-wrapper {
+        width: 100%;
+        padding: 0 0.2px;
+        margin-top: 60px;
+    }
+
+    .earnings-insight-learn-header h1 {
+        font-size: 20px; /* Adjust font size for headers */
+        margin-top: 90px;
+    }
+
+    .earnings-insight-learn-tabs {
+        display: none; /* Hide the tabs */
+    }
+
+    .earnings-insight-learn-table {
+        width:100%; /* Ensure table occupies full width */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: block; /* Make table behave as a block element */
+        margin-bottom: 100px;
+        height: 400px;
+    }
+
+    .earnings-insight-learn-table th, 
+    .earnings-insight-learn-table td {
+        padding: 6px; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    .earnings-insight-learn-table th {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        font-weight: bold;
+        border-top: 2px solid #24b676;
+        border-bottom: 2px solid #24b676;
+        box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
+        font-size: 15px;
+        z-index: 2; /* Ensure it stays above table content */
+      
+    }
+    
+    .earningquterlyrowall {
+        width: 70px;
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        gap: 12px; /* Reduced gap for mobile */
+     
+    }
+
+    .earnings-insight-learn-dropdown {
+        /* Reduced gap in dropdown for tablets and smaller devices */
+        margin-left: 1px; /* Adjusted margin for better alignment */
+    }
+
+    .calendar-icon {
+        font-size: 14px; /* Adjust icon size */
+    }
+
+    .date-picker-label {
+        font-size: 14px; /* Adjust label size */
+    }
+
+    .earnings-insight-learn-header-row {
+        display: flex;
+        gap: 60px; /* Adjust gap between header elements */
+       
+    }
+
+    .earnings-insight-learn-dropdown {
+        width: 40px; /* Adjust width */
+        margin-right: 40px;
+    }
+  
+    
+    .dateinsight {
+        display: flex;
+        border: 1px solid rgb(212, 209, 209);
+        height: 35px;
+        width: 140px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+        /* Adjust margin to position the date picker outside */
+    }
+    .react-datepicker {
+        font-size: 0.7rem; /* Smaller font for small screens */
+        /* Ensure the datepicker fits well within the viewport */
+        padding: 0.5rem; /* Add some padding for better touch interaction */
+       
+        top: 40%; /* Place it directly below the triggering element */
+        left: 0; /* Align it to the left of the container */
+        z-index: 1000; /* Ensure it appears above other elements */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 320px; /* Add a subtle shadow for better visibility */
+        justify-content: left;
+    }
+
+    .react-datepicker__header {
+        font-size: 0.8rem; /* Adjust header font size */
+        width: 320px;
+    }
+
+    .react-datepicker__day {
+        padding: 0.3rem; /* Decreased padding for more compact cells */
+        display: inline-block; /* Ensure days remain properly aligned */
+        width: 2rem; /* Optional: Adjust width for uniformity */
+        height: 2rem; /* Optional: Adjust height for uniformity */
+        line-height: 2rem; /* Center align text vertically */
+        text-align: center; /* Center align text horizontally */
+        margin: 0.1rem; /* Optional: Add slight spacing between days */
+        border-radius: 0.2rem; /* Optional: Slight rounding for better aesthetics */
+    }
+    
+    
+  
+    
+   
+}
+
+
+
+/* Responsive styling for mobile devices */
+@media (max-width: 480px) {
+    .earnings-insight-learn-wrapper {
+        padding: 0; 
+        margin-top: 50px;
+    }
+
+    .earnings-insight-learn-header h1 {
+        font-size: 20px; /* Adjust font size for headers */
+        margin-left: 1px;
+    }
+
+    .earnings-insight-learn-tabs {
+        display: none; /* Hide the tabs */
+    }
+
+    .earnings-insight-learn-table {
+        width:93%; /* Ensure table occupies full width */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        display: block; /* Make table behave as a block element */
+        margin-bottom: 100px;
+        height: 400px;
+        margin-left: 1px;
+    }
+
+    .earnings-insight-learn-table th, 
+    .earnings-insight-learn-table td {
+        padding: 6px; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Adjust font size for readability */
+    }
+
+    .earnings-insight-learn-table th {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        font-weight: bold;
+        border-top: 2px solid #24b676;
+        border-bottom: 2px solid #24b676;
+        box-shadow: 4px 4px 5px rgba(36, 182, 118, 0.5);
+        font-size: 15px;
+        z-index: 2; /* Ensure it stays above table content */
+      
+    }
+    
+    .earningquterlyrowall {
+        width: 70px;
+        border: none;
+        box-shadow: none;
+        background-color: white;
+        gap: 1px; /* Reduced gap for mobile */
+        margin-left: -10px;
+     
+    }
+
+    .earnings-insight-learn-dropdown {
+        /* Reduced gap in dropdown for tablets and smaller devices */
+        margin-left: 1px; /* Adjusted margin for better alignment */
+    }
+
+    .calendar-icon {
+        font-size: 14px; /* Adjust icon size */
+    }
+
+    .date-picker-label {
+        font-size: 14px; /* Adjust label size */
+    }
+
+    .earnings-insight-learn-header-row {
+        display: flex;
+        gap: 43px; /* Adjust gap between header elements */
+       
+    }
+
+    .earnings-insight-learn-dropdown {
+        width: 40px; /* Adjust width */
+        margin-right: 14px;
+    }
+  
+    
+    .dateinsight {
+        display: flex;
+        border: 1px solid rgb(212, 209, 209);
+        height: 35px;
+        width: 120px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+        /* Adjust margin to position the date picker outside */
+    }
+    .date-picker-label{
+        font-size: 12px;
+    }
+    .react-datepicker {
+        font-size: 0.7rem; /* Smaller font for small screens */
+       /* Ensure the datepicker fits well within the viewport */
+        padding: 0.5rem; /* Add some padding for better touch interaction */
+       
+        top: 20%; /* Place it directly below the triggering element */
+        left: 0; /* Align it to the left of the container */
+        z-index: 1000; /* Ensure it appears above other elements */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 260px; /* Add a subtle shadow for better visibility */
+        justify-content: left;
+    }
+
+    .react-datepicker__header {
+        font-size: 0.8rem; /* Adjust header font size */
+        width: 260px;
+    }
+
+    .react-datepicker__day {
+        padding: 1px; /* Decreased padding for more compact cells */
+        display: inline-block; /* Ensure days remain properly aligned */
+        width: 2rem; /* Optional: Adjust width for uniformity */
+        height: 2rem; /* Optional: Adjust height for uniformity */
+        line-height: 2rem; /* Center align text vertically */
+        text-align: center; /* Center align text horizontally */
+        margin: 0.1rem; /* Optional: Add slight spacing between days */
+        border-radius: 0.2rem; /* Optional: Slight rounding for better aesthetics */
+    }
+    .earnings-insight-learnp {
+        color: black;
+        
+        margin-left: 1px;
+    }
+  
+}

@@ -1,0 +1,533 @@
+.allpersonall {
+  display: flex;
+  flex-direction: row; /* Aligns child elements vertically */
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 700px;
+  gap: 80px; /* Adds spacing between child elements */
+  margin-left: 300px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+}
+
+
+.userDetailss{
+  font-family: 'calibri';
+  margin-top: 90px;
+  font-family: 'calibri';
+  max-width:1200px ;
+  padding: 20px;
+}
+.allpersonal {
+  display: flex;
+  flex-direction: row; /* Aligns child elements vertically */
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 700px;
+  gap: 20px; /* Adds spacing between child elements */
+  margin-left: 300px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+}
+
+
+.personalDetailAll,
+.professionalDetailAll,
+.investmentDetailAll {
+ margin-left: 70px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #24b676;
+  margin-left: 300px;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+  margin: 5px 0px;
+}
+
+.labelprofiledetail {
+  width: 150px; /* Set a fixed width for labels */
+  font-weight: bold;
+  color: #000000;
+}
+
+.value {
+  flex: 1; /* Allow the value to take the remaining space */
+  color: #000000;
+}
+
+.detailRow strong {
+  color: #000000;
+  font-size: 15px;
+}
+.editiconprofile{
+  color: #24b676;
+  margin-left: 270px;
+}
+.editiconprofilee{
+  color: #24b676;
+  margin-left: 380px;
+}
+.editiconprofileee{
+  color: #24b676;
+  margin-left: 250px;
+}
+.profilepage-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 250px;
+}
+
+/* Tabs */
+.profilepage-tabsorderusers {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  
+}
+
+
+
+.profilepage-tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.profilepage-tab.active {
+  border-bottom: 2px solid #24b676;
+  font-weight: bold;
+  color: #24b676;
+}
+.profilepage-tabsorderusers{
+text-align: center;
+margin-left: 240px;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid  rgb(208, 206, 206);
+  height:150px;
+  padding: 20px;
+  margin-left: 300px;
+  width: 700px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206);
+  border-radius: 8px;
+}
+
+.profileImage {
+  width: 110px;
+  height: 90px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.userwilliamimg {
+  position: relative;
+  width: 170px;
+  height: 120px;
+  background: linear-gradient(90deg, #24b676, #238486);
+ border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.editIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editIcon:hover {
+  background-color: #24b676;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.profileName {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profileOccupation {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+.investment-optionsalluser{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between investment types */
+  flex-wrap: wrap;
+}
+
+
+.investment-item input {
+  width: 10px; /* Set width for consistency */
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.investment-itemalluser{
+  display: flex;
+  gap: 15px;
+}
+
+
+.investment-itemalluser input[name="stocks"],
+.investment-itemalluser input[name="Mutualfund"] {
+  width: 80px; /* Smaller width for % fields */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contentuserupdate{
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 580px;
+  margin-top: 100px;
+}
+
+
+
+.modal-body label {
+  display: block;
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: left;
+  color: #000000;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.investment-itemalluser span {
+  display: inline-block;
+  /* Adjust width as needed */
+  padding: 8px;
+
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  color: #090909;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btnuserrr {
+  background: #24b676;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.save-btnuserrr:hover{
+  background: #2cd98e;
+}
+.cancel-btnuserrrr{
+  background: white;
+  color: #24b676;
+  padding: 8px 15px;
+  border: 1px solid #24b676;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btnuserrrr:hover{
+  background:#24b676;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .userDetailss {
+      font-family: 'calibri';
+      margin-bottom: 130px;
+  
+      
+    }
+    .profilepage-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-left: 10px;
+    }
+    
+  
+    /* Tabs */
+    .profilepage-tabs {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+    
+    .profilepage-tab {
+      padding: 1px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    .profileContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: 1px solid  rgb(208, 206, 206);
+      height:150px;
+      padding: 20px;
+      margin-left: 3px;
+      width: 400px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206);
+      border-radius: 8px;
+    }
+    
+    .allpersonall {
+      display: flex;
+      flex-direction: row; /* Aligns child elements vertically */
+      border: 1px solid rgb(208, 206, 206);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-color: white;
+      width: 410px;
+      gap: 80px; /* Adds spacing between child elements */
+      margin-left: 3px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+    }
+    .profileImage {
+      width: 110px;
+      height: 90px;
+      border-radius: 50%;
+      margin: auto;
+    }
+    
+    .userwilliamimg {
+      position: relative;
+      width: 170px;
+      height: 120px;
+      background: linear-gradient(90deg, #24b676, #238486);
+     border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+    }
+    
+    .allpersonal {
+      display: flex;
+      flex-direction: row; /* Aligns child elements vertically */
+      border: 1px solid rgb(208, 206, 206);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-color: white;
+      width: 400px;
+      gap: 0px; /* Adds spacing between child elements */
+      margin-left: 10px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+    }
+    .personalDetailAll,
+    .professionalDetailAll,
+    .investmentDetailAll {
+     margin-left: 7px;
+    }
+    .editiconprofilee{
+      color: #24b676;
+      margin-left: 170px;
+    }
+    .editiconprofileee{
+      color: #24b676;
+      margin-left: 10px;
+    }
+    .sectionTitle {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #24b676;
+      margin-left: 15px;
+    }
+    .profilepage-tabbbactive{
+      padding: 8px 5px;
+          font-size: 14px;
+          margin-left: -10px;
+      }
+    
+    .profilepage-tabsorderusers{
+     overflow-x: scroll; /* Stack tabs vertically */
+      border-bottom: none; /* Remove unnecessary border */
+      margin-left: 10px;
+      margin-bottom: 15px; /* Adjust spacing */
+      width: 470px;
+    }
+    .profilepage-tabbbactive{
+      display: flex;
+      border-bottom: 1px solid #ccc;
+  
+    }
+}
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .userDetailss {
+    font-family: 'calibri';
+    margin-top: 90px;
+    width: 90%; /* Use 100% width to fit the screen */
+    padding: 20px;
+  }
+.editiconprofile{
+  color: #24b676;
+margin-left: -10px;
+
+}
+  .allpersonall {
+    display: flex;
+    flex-direction:row; /* Align elements vertically to fit the screen */
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: calc(95% - 40px); /* Account for padding */
+    gap: 20px; /* Adjust gap for smaller screens */
+    margin-left: 0; /* Align to the left */
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: auto;
+  }
+
+  .userDetails {
+    font-family: 'calibri';
+    margin-top: 120px;
+    width: 100%; /* Adjust to fit within the screen */
+  }
+
+  .allpersonal {
+    display: flex;
+    flex-direction:row; /* Align elements vertically for small screens */
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: calc(95% - 40px); /* Fit the container */
+    gap: -2px;
+    margin-left: 0;
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: auto;
+  }
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid rgb(208, 206, 206);
+    height: 150px;
+    padding: 20px;
+    margin-left: 0;
+    width: calc(95% - 40px);
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    border-radius: 8px;
+  }
+
+  .personalDetailAll,
+  .professionalDetailAll,
+  .investmentDetailAll {
+    margin-left: 0; /* Align to the left */
+  }
+
+  .editiconprofilee {
+    color: #24b676;
+    margin-left: auto; /* Use auto to align correctly */
+  }
+
+  .editiconprofileee {
+    color: #24b676;
+    margin-left: auto; /* Use auto for better alignment */
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #24b676;
+    margin-left: 15px;
+  }
+
+  .profilepage-tabsorderusers {
+    overflow-x: scroll; /* Prevent horizontal scrolling */
+    border-bottom: none;
+    margin-left: 0;
+    margin-bottom: 15px;
+    width: 100%; /* Adjust width to fit the container */
+  }
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+
+}
