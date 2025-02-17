@@ -95,11 +95,13 @@
   align-items: flex-start; /* Align items at the top */
   width: 40%; /* Decrease card width */
   max-width: 900px; /* Optional max width for larger screens */
-  margin-right: 700px;
-  
+  min-width: 400px;
 }
 
-
+.investh2{
+  margin-left: 0;
+  text-align: center;
+}
 .finance-investment-details-group {
   flex-grow: 1; /* Allow groups to grow evenly */
   margin: 0 8px; /* Add spacing between groups */
@@ -217,10 +219,9 @@
       color: black;
       text-align: center;
       font-weight: bold;
-      
+      white-space: nowrap;
     }     
     .investh2{
-      margin-left: 150px;
       padding: 20px;
     }
     /* Tablet view for 768px and below */
@@ -267,7 +268,7 @@
   }
 
   .finance-investment-details-card {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 100%; /* Adjust width for smaller screens */
     margin-right: 0; /* Remove excessive margin */
   }
 
@@ -295,6 +296,17 @@
   }
 }
 
+@media (max-width:626px) {
+  .finance-investment-details-card {
+    
+    width: 90%; /* Take full width for mobile screens */
+    margin: 0 auto; /* Remove margin */
+    flex-wrap: wrap !important;
+  }
+  .finance-investment-footer{
+    margin-top: 20px;
+  }
+}
 /* Mobile view for 480px and below */
 @media (max-width: 480px) {
   .finance-portfolio-dashboard {
@@ -340,8 +352,11 @@
   }
 
   .finance-investment-details-card {
-    width: 100%; /* Take full width for mobile screens */
-    margin-right: 0; /* Remove margin */
+    
+    width: 90%; /* Take full width for mobile screens */
+    margin: 0 auto; /* Remove margin */
+    flex-wrap: wrap !important;
+    min-width: 299px;
   }
 
   .finance-investment-footer {

@@ -379,7 +379,7 @@ a span {
 .footer-item.selected {
   color: #fff; /* Text color */
   background-color: #24b676; /* Highlighted background */
-  padding: 5px 10px; /* Inner spacing */
+  padding: 5px 5px; /* Inner spacing */
   border-radius: 50%; /* Circular appearance */
   margin-bottom: 10px; /* Space below the selected item */
   box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */

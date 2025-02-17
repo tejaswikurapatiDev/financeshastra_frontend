@@ -12,6 +12,7 @@
   box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
 }
 
+
 .userDetailss{
   font-family: 'calibri';
   margin-top: 90px;
@@ -71,6 +72,7 @@
 }
 .editiconprofile{
   color: #24b676;
+  margin-left: 270px;
 }
 .editiconprofilee{
   color: #24b676;
@@ -78,7 +80,7 @@
 }
 .editiconprofileee{
   color: #24b676;
-  margin-left: 280px;
+  margin-left: 250px;
 }
 .profilepage-title {
   font-size: 24px;
@@ -180,6 +182,123 @@ margin-left: 240px;
   color: #333;
   margin: 0;
   font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+.investment-optionsalluser{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between investment types */
+  flex-wrap: wrap;
+}
+
+
+.investment-item input {
+  width: 10px; /* Set width for consistency */
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.investment-itemalluser{
+  display: flex;
+  gap: 15px;
+}
+
+
+.investment-itemalluser input[name="stocks"],
+.investment-itemalluser input[name="Mutualfund"] {
+  width: 80px; /* Smaller width for % fields */
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contentuserupdate{
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 580px;
+  margin-top: 100px;
+}
+
+
+
+.modal-body label {
+  display: block;
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: left;
+  color: #000000;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.investment-itemalluser span {
+  display: inline-block;
+  /* Adjust width as needed */
+  padding: 8px;
+
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  color: #090909;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btnuserrr {
+  background: #24b676;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.save-btnuserrr:hover{
+  background: #2cd98e;
+}
+.cancel-btnuserrrr{
+  background: white;
+  color: #24b676;
+  padding: 8px 15px;
+  border: 1px solid #24b676;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btnuserrrr:hover{
+  background:#24b676;
+  color: white;
 }
 
 
@@ -322,7 +441,7 @@ margin-left: 240px;
   }
 .editiconprofile{
   color: #24b676;
-
+margin-left: -10px;
 
 }
   .allpersonall {
@@ -337,6 +456,7 @@ margin-left: 240px;
     gap: 20px; /* Adjust gap for smaller screens */
     margin-left: 0; /* Align to the left */
     box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: auto;
   }
 
   .userDetails {
@@ -357,6 +477,7 @@ margin-left: 240px;
     gap: -2px;
     margin-left: 0;
     box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: auto;
   }
 
   .profileContainer {
@@ -402,4 +523,11 @@ margin-left: 240px;
     margin-bottom: 15px;
     width: 100%; /* Adjust width to fit the container */
   }
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+
 }

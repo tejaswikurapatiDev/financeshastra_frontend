@@ -2,7 +2,7 @@
 .profilepage-container {
     font-family: 'Calibri';
     margin: 20px auto;
-    max-width: 1200px;
+    max-width: 1000px;
     padding: 20px;
     width: 100%; /* Ensures the container takes full width without overflow */
     box-sizing: border-box; /* Includes padding and border in the width calculation */
@@ -49,7 +49,7 @@
   
   .profilepage-row {
     display: flex;
-    gap: 20px;
+    gap: 0px;
     margin-bottom: 15px;
   }
   
@@ -72,10 +72,7 @@
     border-radius: 5px;
     font-size: 14px;
   }
-  .profilepageemail-input{
-    width: 50%;
-  }
-  
+
   .profilepage-input:focus,
   .profilepage-select:focus {
     outline: none;
@@ -94,7 +91,7 @@
 .profile-phone-container {
     display: flex;
     align-items: center;
-  
+
     gap: 10px; /* Adds spacing between input and button */
   
    
@@ -103,15 +100,14 @@
   /* Input field styling */
   .profile-phone-input {
     flex: 1; /* Ensures the input takes up available space */
-    padding: 10px;
+    width: 30%;
     font-size: 14px;
-  
+
     border: 1px solid #333;
     border-radius: 4px;
    
   }
-  
-  /* Button styling */
+
   .profile-verify-btn {
     padding: 10px 30px;
     font-size: 14px;
@@ -148,7 +144,7 @@
 .profile-email-container {
     display: flex;
     align-items: center;
-    width: 100%; /* Ensures the container spans full width */
+    width: 70%; /* Ensures the container spans full width */
     gap: 10px; /* Adds spacing between input and button */
   }
   
@@ -159,6 +155,7 @@
     font-size: 14px;
     border: 1px solid #333;
     border-radius: 4px;
+    width: 70%;
   }
   
   /* Verify button styling */
@@ -176,7 +173,7 @@
  
   .allemailphone{
     display: flex;
-    gap: 50px; /* Adds spacing between the items */
+    gap: 1px; /* Adds spacing between the items */
  /* Distributes items with space in between */
     align-items: center; /* Aligns items vertically in the center */
    
@@ -203,7 +200,7 @@
     flex: 1; /* Makes both sections take equal space */
   }
   .allemailphone input {
-    width: 410px; /* Adjust the width to your preference */
+    width: 450px; /* Adjust the width to your preference */
     padding: 10px; /* Optional: Add padding for better usability */
     font-size: 16px; /* Optional: Increase the font size for better readability */
     border: 1px solid black; /* Optional: Style the border */

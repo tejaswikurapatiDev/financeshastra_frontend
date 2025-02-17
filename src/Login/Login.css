@@ -6,6 +6,9 @@
   font-family: 'calibri';
   overflow-y: hidden;
 
+  background-color:#f8f6f6e8;
+ 
+
 }
 
 .login-container {
@@ -85,7 +88,9 @@
 .login-right {
   flex: 1;
   background-color: #f8f6f6;
+  background-color: #f8f6f6;
   display: flex;
+
 
   align-items: center;
   padding: 10px; /* Reduce internal spacing */
@@ -93,9 +98,14 @@
   min-width: 50%; /* Adjust width if needed */
 }
 
+
+
+
 .login-box {
   width: 70%;
+  width: 70%;
   max-width: 400px;
+  padding: 30px;
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -116,6 +126,7 @@
 }
 
 
+
 .input-container {
   margin-bottom: 20px;
   text-align: left;
@@ -129,6 +140,11 @@
   font-size: 14px;
   margin-left: 40px;
   margin-top: -10px;
+  color: #111111;
+  font-weight: bold;
+  font-size: 14px;
+  margin-left: 40px;
+  margin-top: -10px;
 }
 
 .input-container input {
@@ -136,7 +152,12 @@
   padding: 8px;
   font-size: 14px;
   border: 2px solid #898989;
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #898989;
   border-radius: 5px;
+  margin-left: 40px;
   margin-left: 40px;
 }
 
@@ -151,9 +172,21 @@ gap: 100px;
   margin-top: 0px;
 }
 
+
+.loginpagepara {
+  color: #111111;
+  font-size: 12px;
+  margin-top: 0px;
+}
+
 .signinall{
   display: flex;
   gap: 3px;
+  gap: 3px;
+}
+.allsignall {
+  margin-top: -1px;
+  margin-left: 35px;
 }
 .allsignall {
   margin-top: -1px;
@@ -162,7 +195,15 @@ gap: 100px;
 
 .forgotpasswordlink {
   color: #0349A8;
+}
+.forgotpasswordlink {
+  color: #0349A8;
   text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: -30px; /* Moves the link down */
+  display: inline-block; /* Ensures spacing applies */
+  margin-left: 40px;
   font-size: 12px;
   font-weight: 600;
   padding-top: -30px; /* Moves the link down */
@@ -172,12 +213,15 @@ gap: 100px;
 
 
 
+
+
 .sign-in-btn {
   width: 80%;
   padding: 10px;
   background-color: #CECECE;
   color: #fff;
   border: none;
+  border-radius: 10px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 12px;
@@ -251,6 +295,7 @@ gap: 100px;
 
 .login-right {
   position: relative;
+
 }
 
 .logo-container {
@@ -289,10 +334,17 @@ gap: 100px;
   border: 2px solid #898989;
   border-radius: 5px;
   margin-left: 40px;
+  width: 80%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #898989;
+  border-radius: 5px;
+  margin-left: 40px;
 }
 
 .toggle-password {
   position: absolute;
+  right: 50px;
   right: 50px;
   cursor: pointer;
   font-size: 1.2rem;
@@ -316,6 +368,7 @@ gap: 100px;
 }
 
 .forgot-password-link {
+  color: #0349A8; /* Link color */
   color: #0349A8; /* Link color */
   cursor: pointer;
   text-decoration: none !important;
@@ -370,174 +423,58 @@ gap: 100px;
   font-weight: 500;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
     flex-direction: column;
-    height: auto;
+    align-items: center;
   }
-
   
-
-  .login-left h1 {
-    font-size: 1.8rem;
-    margin-top: 30px;
+  .login-left {
+    min-width: 100%;
+    height: 50vh;
+    padding-top: 20px;
   }
-
-  .login-left p {
-    font-size: 1.2rem;
+  
+  .login-right {
+    min-width: 100%;
+    height: auto;
+    padding: 20px;
   }
-
+  
   .login-box {
     width: 90%;
     max-width: 350px;
+    height: auto;
     padding: 20px;
   }
-
-  .input-container label,
-  .input-container input {
-    font-size: 1rem;
-  }
-
-  .sign-in-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-  }
-
-  .google-login,
-  .linkedin-login {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .password-field {
-    display: block;
-    width: 60vw;
-  }
-
-  .logo {
-    width: 150px;
-  }
-
-  .Google-btn {
-    width: 90%;
-    height: auto;
-  }
-
-  .Googlealll-btn{
-    margin-left: 64px;
-    }
-.forgot-password-link {
-  color: #007bff; /* Link color */
-  cursor: pointer;
-  text-decoration: underline !important;
-  margin-top: 70px;
 }
-.login-right {
-  order: 1; /* Display login form first on mobile */
-}
-.login-left {
-  order: 2; 
-}
-}
+
 @media (max-width: 480px) {
-  .login-container {
-    flex-direction: column;
-    height: auto;
-  }
-
-  
-
   .login-left h1 {
-    font-size: 1.8rem;
-    margin-top: 30px;
+    font-size: 2rem;
   }
-
+  
   .login-left p {
     font-size: 1.2rem;
   }
-
-  .login-box {
-    width: 90%;
-    max-width: 350px;
-    padding: 20px;
-  }
-
-  .input-container label,
-  .input-container input {
-    font-size: 1rem;
-  }
-
-  .sign-in-btn {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-  }
-
-  .google-login,
-  .linkedin-login {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .password-field {
-    display: block;
-    width: 90vw;
-  }
-
-  .logo {
-    width: 150px;
-  }
-
-  .Google-btn {
-    width: 90%;
-    height: auto;
-  }
-
-  .forgot-password-link {
-    color: #007bff; /* Link color */
-    cursor: pointer;
-    text-decoration: underline !important;
-    top: 70px;
-  }
-.login-right {
-  order: 1; /* Display login form first on mobile */
-}
-.login-left {
-  order: 2; 
-}
-
-
-.Googlealll-btn{
-margin-left: 56px;
-}
-.nsm7Bb-HzV7m-LgbsSe {
   
-  width: 218px;
-  margin-left: 50px;
-  color: #0077b5; /* LinkedIn Blue */
-  font-size: 10px;
-  font-weight: bold;
-    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
-    margin-bottom: -19px;
-    border: 1px solid #005582;
-}
-
-.nsm7Bb-HzV7m-LgbsSe-MJoBVe {
- 
-  width: 218px;
-  margin-left: 50px;
-  color: #0077b5; /* LinkedIn Blue */
-  font-size: 10px;
-  font-weight: bold;
-    box-shadow: 0px 4px 8px rgba(100, 174, 239, 0.548);
-    margin-bottom: -19px;
-    border: 1px solid #005582;
-}
-.login-options {
-  display: flex;
-gap: 90px;
-}
-
+  .login-box {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .input-container label {
+    font-size: 12px;
+    margin-left: 20px;
+  }
+  
+  .input-container input {
+    width: 90%;
+    margin-left: 20px;
+  }
+  
+  .sign-in-btn {
+    width: 90%;
+  }
 }

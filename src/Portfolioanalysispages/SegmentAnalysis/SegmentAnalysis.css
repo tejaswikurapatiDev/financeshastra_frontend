@@ -1,0 +1,62 @@
+.segment-card {
+    background: white;
+  padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(196, 193, 193, 0.955);
+    border: 1px solid rgb(231, 227, 227);
+    max-width: 550px;
+font-family: 'calibri';
+
+  }
+  
+  .allsegmentsizeanalysis{
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    margin-left: 150px;
+  }
+  .segment-title {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'calibri';
+    margin-left: 160px;
+    margin-top: 20px;
+  }
+  .chartdonutportfolioana{
+    display: flex;
+    margin-left: -50px;
+  }
+  
+
+  
+  .dropdowncaharportanana {
+    width: 40%;
+    padding: 8px;
+   
+    cursor: pointer;
+  }
+  
+  
+ 
+  .legend-listprtana {
+    list-style: none;
+    padding: 0;
+    margin-top: 53px;
+  }
+  
+  .legend-itemprtana {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .legend-colorprtana {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  

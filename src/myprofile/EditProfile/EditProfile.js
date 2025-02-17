@@ -21,6 +21,7 @@ const EditProfile = () => {
     gender: personalDetails.gender,
     email: personalDetails.email,
     phoneNumber: personalDetails.phoneNumber,
+    address:personalDetails.address,
     country: personalDetails.country,
     address:personalDetails.address,
     state: personalDetails.state,
@@ -45,6 +46,7 @@ const navigate = useNavigate();
       gender: "",
       email: "",
       phoneNumber: "",
+      address:"",
       country: "India",
       address:"",
       state: "",
@@ -61,6 +63,7 @@ const navigate = useNavigate();
       "lastName",
       "dob",
       "email",
+      "address",
       "address",
       "phoneNumber",
       "state",
@@ -109,10 +112,12 @@ const navigate = useNavigate();
       dob: formData.dob,
       gender: formData.gender,
       phoneNumber: formData.phoneNumber,
+      address:formData.address,
          country: "India",
       state: formData.state,
       city:formData.city,
       pincode: formData.pincode,
+      
      
     
       
@@ -523,7 +528,7 @@ const navigate = useNavigate();
           </div>
         </div>
         <div className="allemailphone">
-        <div className="emailphoneal">
+        <div className="emailphonealssss">
           <div className="profilepage-roww">
             <div className={`profilepage-field email-field ${errors.email ? "error" : ""}`}>
               {/* content */}

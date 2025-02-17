@@ -202,19 +202,26 @@ import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/B
 import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
 import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
 import LandingPage from "./Landingpages/Landingpage";
-import Stockresearchpages from "./stockresearchpages/stockresearchpages";
-import PortfolioAnalysisCorporatePage from "./Portfolioanalysispages/PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage";
-import PortfolioAnalysisdividentPage from "./Portfolioanalysispages/PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
-import PortfolioAnalysisbonusPage from "./Portfolioanalysispages/PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
-import PortfolioAnalysissplitPage from "./Portfolioanalysispages/PortfolioAnalysissplitPage/PortfolioAnalysissplitPage";
-import PortfolioAnalysisrightissusePage from "./Portfolioanalysispages/PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage";
-import PortfolioAnalysisAGMPage from "./Portfolioanalysispages/PortfolioAnalysisAGMPage/PortfolioAnalysisAGMPage";
-import PortfolioHoldingPage from "./Portfolioanalysispages/PortfolioHoldingPage/PortfolioHoldingPage";
-import PortfolioHoldingdetailPage from "./Portfolioanalysispages/PortfolioHoldingdetailPage/PortfolioHoldingdetailPage";
-import FundamentalPortfolioAnalysis from "./Portfolioanalysispages/FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis";
-import PerformancePortfolioAnalysis from "./Portfolioanalysispages/PerformancePortfolioAnalysis/PerformancePortfolioAnalysis";
-import Portfolioanalysispages from "./Portfolioanalysispages/Portfolioanalysispages";
+import EducationGoalPlanner from "./Goalplannerpages/EducationGoalPlanner/EducationGoalPlanner";
+import HolidayGoalPlanner from "./Goalplannerpages/HolidayGoalPlanner/HolidayGoalPlanner";
+import WeddingGoalPlanner from "./Goalplannerpages/Weddinggoalplanner/Weddinggoalplanner";
+import ElectronicGoalPlanner from "./Goalplannerpages/Electronicgoalplanner/Electronicgoalplanner";
+import OtherGoalPlanner from "./Goalplannerpages/OtherGoalPlanner/OtherGoalPlanner";
+import PortfolioCard from "./Portfolioanalysispages/PortfolioCard/PortfolioCard";
+import PortfolioAnalysisnew from "./Portfolioanalysispages/PortfolioAnalysisnew/PortfolioAnalysisnew";
+import PortfolioMetrics from "./Portfolioanalysispages/PortfolioMetrics/PortfolioMetrics";
 
+import SegmentAnalysis from "./Portfolioanalysispages/SegmentAnalysis/SegmentAnalysis";
+import StockTracker from "./Portfolioanalysispages/StockTracker/StockTracker";
+import BestPerformers from "./Portfolioanalysispages/BestPerformers/BestPerformers";
+import Portfolioanalyticchart from "./Portfolioanalysispages/Portfolioanalyticchart/Portfolioanalyticchart";
+
+import Openemailforgotpass from "./Forgotpaswordpages/Openemailforgotpass/Openemailforgotpass";
+import Forgetpassword from "./Forgotpaswordpages/Forgetpassword/Forgetpassword";
+import Stockresearchpages from "./stockresearchpages/stockresearchpages";
+import LandingPagedarkmode from "./Darkmode/Landingpagedarkmode/Landingpagedarkmode";
+import StocksSmartSIPPSdark from "./Darkmode/StocksSmartSIPPSdark/StocksSmartSIPPSdark";
+import Navbardarkmode from "./Darkmode/Navbardarkmode/Navbardarkmode";
 
 
 
@@ -399,7 +406,9 @@ function App() {
       <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
 
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/stocksSmartSIPPSdark" element={<StocksSmartSIPPSdark/>}/>
       <Route path="/" element={<LandingPage/>}/>
+      <Route path="/landingPagedarkmode" element={<LandingPagedarkmode/>}/>
       <Route path="/landingnavbar" element={<Landingnavbar/>}/>
       <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn/>}/>
       <Route path="/banksectorstocktheme" element={<Banksectorstocktheme/>}/>
@@ -426,18 +435,28 @@ function App() {
       <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
       <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
       <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
-      <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
-      <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage/>} />
-      <Route path="/portfolioAnalysisdividentPage" element={<PortfolioAnalysisdividentPage/>} />
-      <Route path="/portfolioAnalysisbonusPage" element={<PortfolioAnalysisbonusPage/>} />
-      <Route path="/portfolioAnalysisSplitsPage" element={<PortfolioAnalysissplitPage/>} />
-      <Route path="/portfolioAnalysisRightsPage" element={<PortfolioAnalysisrightissusePage/>} />
-      <Route path="/portfolioAnalysisAgmPage" element={<PortfolioAnalysisAGMPage/>} />
-      <Route path="/portfolioanalysispages" element={<Portfolioanalysispages/>} />
-      <Route path="/portfolioHoldingdetailPage" element={<PortfolioHoldingdetailPage/>} />
-      
-      
+      <Route path="/educationGoalPlanner" element={<EducationGoalPlanner/>} />
+      <Route path="/holidayGoalPlanner" element={<HolidayGoalPlanner/>} />
+      <Route path="/weddingGoalPlanner" element={<WeddingGoalPlanner/>} />
+      <Route path="/electronicGoalPlanner" element={<ElectronicGoalPlanner/>} />
+      <Route path="/otherGoalPlanner" element={<OtherGoalPlanner/>} />
+      <Route path="/portfolioCard" element={<PortfolioCard/>} />
+      <Route path="/portfolioAnalysisnew" element={<PortfolioAnalysisnew/>} />
      
+      <Route path="/portfolioMetrics" element={<PortfolioMetrics/>} />
+    
+      <Route path="/segmentAnalysis" element={<SegmentAnalysis/>} />
+      <Route path="/stockTrackerall" element={<StockTracker/>} />
+      <Route path="/bestPerformers" element={<BestPerformers/>} />
+      <Route path="/portfolioanalyticchart" element={<Portfolioanalyticchart/>} />
+      <Route path="/forgetpassword" element={<Forgetpassword/>} />
+      <Route path="/openemailforgotpass" element={<Openemailforgotpass/>} />
+      <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
+      <Route path="/navbardarkmode" element={<Navbardarkmode/>} />
+     
+     
+    
+
       
       
       
