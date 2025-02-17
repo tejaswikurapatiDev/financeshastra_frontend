@@ -70,7 +70,7 @@ function Register() {
     }
 
     if (isValid) {
-      const url= 'https://financeshastra-backendupdated.onrender.com/api/register'
+      const url= `/users/register`
       const options= {
         method: 'POST',
         headers: {

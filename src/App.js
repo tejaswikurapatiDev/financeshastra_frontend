@@ -237,6 +237,8 @@ import Portfoliobonuscall from "./Portfolioanalysispages/Portfoliobonuscall/Port
 import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Portfoliosplitcall";
 import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
 import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
+import {Provider} from "react-redux";
+import { store } from "./Store/store";
 
 
 
@@ -253,6 +255,7 @@ import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/
 
 function App() {
   return (
+    <Provider store={store}>
     <Routes>
       <Route path="/login" element={<Login />} />
       <Route path="/market" element={<Market/>} />
@@ -517,7 +520,7 @@ function App() {
 
       
     </Routes>
-   
+    </Provider>
   );
 }
 

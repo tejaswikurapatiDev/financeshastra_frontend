@@ -7,6 +7,7 @@ import { BiPlusCircle } from "react-icons/bi";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
+import Cookies from 'js-cookie';
 
 const PortfolioAccountStock = () => {
   const location = useLocation();
@@ -15,34 +16,48 @@ const PortfolioAccountStock = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(
     location.pathname === "/portfoliostockaccount"
   );
-  const [transactions, setTransactions] = useState([
-    {
-      id: 1,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-    {
-      id: 2,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-  ]);
+  const [transactions, setTransactions] = useState([]);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
+  const [loading, setLoading] = useState(true)
+  //const [transaction, setTransaction] = useState([])
 
+  const fetchstocks = async() => {
+    try {
+      const token = Cookies.get('jwtToken')
+      if(!token){
+        alert("Session expired, Please Login again")
+        setLoading(false);
+        navigate("/login")
+        return;
+      }
+      const res = await fetch('/myportfolio/transactions', {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      if (!res.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await res.json();
+      console.log("API Data:", data);
+      const mappedData = data.map((transaction, index) => ({
+        id: index + 1, // Assign incremental ID
+        ...transaction,
+      }));
+      setTransactions(mappedData)
+      
+    } catch (error) {
+      
+    }
+  }
+  // Fetch data when the component mounts
+  useEffect(() => {
+    fetchstocks();
+  }, []);
   const handleEdit = (transaction) => {
     navigate("/stockupdate", { state: { transaction } });
   };
@@ -270,10 +285,10 @@ const PortfolioAccountStock = () => {
                         <tr key={transaction.id}>
                           <td>{transaction.date}</td>
                           <td>{transaction.type}</td>
-                          <td>{transaction.quantity}</td>
+                          <td>{Number(transaction.buy_quantity)}</td>
                           <td>{transaction.amount}</td>
-                          <td>{transaction.charges}</td>
-                          <td>{transaction.netAmount}</td>
+                          <td>{transaction.total_charges}</td>
+                          <td>{transaction.net_amount}</td>
                           <td>{transaction.realizedGainLoss}</td>
                           <td>{transaction.holdingBalance}</td>
                           <td>
