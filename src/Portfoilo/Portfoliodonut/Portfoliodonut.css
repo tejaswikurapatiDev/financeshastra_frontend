@@ -362,13 +362,13 @@ font-size: 14px;
     width: 80px;
     height: 80px;
   }
-  .gain-card,
-  .unrealized-card {
-   
+  .gain-card, .unrealized-card {
     padding: 20px;
     margin: 10px auto;
-  }
-
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
   .chartunrealized canvas {
     width: 80px;
     height: 80px;
@@ -423,11 +423,11 @@ font-size: 14px;
     height: 80px;
   }
   .highest-profitunrealized {
-    height: 50px; /* Further decrease height */
-    width: 380px; /* Further increase width */
-  }
+    height: 50px;
+    width: 310px;
+}
   .highest-lossunrealized{
     height: 50px; /* Further decrease height */
-    width: 380px; /* Further increase width */
+    width: 310px; /* Further increase width */
   }
 }

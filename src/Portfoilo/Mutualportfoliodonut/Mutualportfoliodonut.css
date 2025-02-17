@@ -151,13 +151,19 @@ text-align: center;
     gap: 8px; /* Reduce spacing */
     text-align: left;
   }
-  .gainingg-stocks,
+  
   .losingg-stocks {
-    padding: 8px; /* Reduce padding for mobile */
-    margin-left: 0;
-    margin-right: 0;
-  }
-
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 64%;
+    margin-bottom: 20px;
+}
+  .gainingg-stocks{
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+}
   .unnrealized-card {
     width: 100%; /* Take full width */
     padding-left: 15px; /* Less padding on mobile */
@@ -170,9 +176,12 @@ text-align: center;
 
   .gainnn-card {
     height: auto;
-    box-shadow: 0 2px 3px rgb(127, 171, 225); /* Reduce shadow for mobile */
-  }
-
+    box-shadow: 0 2px 3px rgb(127, 171, 225);
+    width: 100%;
+    margin-left: 0px;
+    margin-right: auto;
+    border-radius: 10px;
+}
   .portfolio-gain-loss {
     margin-right: 0;
   }

@@ -45,4 +45,49 @@
     color: #27a745;
     font-weight: bold;
   }
-  
+  /* Tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .gold-returns-container {
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 12px;
+  }
+
+  .gold-returns-title {
+      text-align: center;
+      margin-left: 0;
+  }
+
+  .gold-returns-row {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .gold-returns-label, .gold-returns-value {
+      font-size: 13px;
+  }
+}
+
+/* Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .gold-returns-container {
+      max-width: 95%;
+      padding: 10px;
+  }
+
+  .gold-returns-title {
+      font-size: 16px;
+      text-align: center;
+      margin-top: 30px;
+  }
+
+  .gold-returns-row {
+    flex-direction: row;
+    text-align: center;
+}
+
+  .gold-returns-label, .gold-returns-value {
+      font-size: 12px;
+  }
+}

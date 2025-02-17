@@ -221,6 +221,9 @@ import Openemailforgotpass from "./Forgotpaswordpages/Openemailforgotpass/Openem
 import Forgetpassword from "./Forgotpaswordpages/Forgetpassword/Forgetpassword";
 
 import Stockresearchpages from "./stockresearchpages/stockresearchpages";
+import LandingPagedarkmode from "./Darkmode/Landingpagedarkmode/Landingpagedarkmode";
+import StocksSmartSIPPSdark from "./Darkmode/StocksSmartSIPPSdark/StocksSmartSIPPSdark";
+import Navbardarkmode from "./Darkmode/Navbardarkmode/Navbardarkmode";
 import PortfolioAnalysisCorporatePage from "./Portfolioanalysispages/PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage";
 import PortfolioAnalysisdividentPage from "./Portfolioanalysispages/PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
 import PortfolioAnalysisbonusPage from "./Portfolioanalysispages/PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
@@ -426,7 +429,9 @@ function App() {
       <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage/>}/>
 
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/stocksSmartSIPPSdark" element={<StocksSmartSIPPSdark/>}/>
       <Route path="/" element={<LandingPage/>}/>
+      <Route path="/landingPagedarkmode" element={<LandingPagedarkmode/>}/>
       <Route path="/landingnavbar" element={<Landingnavbar/>}/>
       <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn/>}/>
       <Route path="/banksectorstocktheme" element={<Banksectorstocktheme/>}/>
@@ -475,6 +480,11 @@ function App() {
 
 
       <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
+      <Route path="/navbardarkmode" element={<Navbardarkmode/>} />
+     
+     
+    
+
       <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage/>} />
       <Route path="/portfolioAnalysisdividentPage" element={<PortfolioAnalysisdividentPage/>} />
       <Route path="/portfolioAnalysisbonusPage" element={<PortfolioAnalysisbonusPage/>} />
