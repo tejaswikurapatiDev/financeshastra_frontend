@@ -5,6 +5,7 @@ import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-
 import { FaEdit } from "react-icons/fa";
 import { BiPlusCircle } from "react-icons/bi";
 import { Link, useNavigate, useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 import Navbar from "../../Navbar/Navbar";
 import Portfoliogoldtop from "../Portfoliogoldtoppage/Portfoliogoldtoppage";
@@ -43,6 +44,36 @@ const Portfoliogoldaccount = () => {
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
+
+    const fetchStocks = async () => {
+      const token = Cookies.get("jwtToken");
+      if (!token) {
+        alert("Session expired, Please Login again");
+        navigate("/login");
+        return;
+      }
+    
+      try {
+        const res = await fetch("/myportfolio/transactions", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+    
+        if (!res.ok) throw new Error("Failed to fetch data");
+    
+        const data = await res.json();
+        setTransactions(data);
+        console.log(data)
+      } catch (error) {
+        console.error("Error fetching transactions:", error);
+      }
+    };
+    
+    useEffect(() => {
+      fetchStocks();
+    }, []);
 
   const handleEdit = (transaction) => {
     navigate("/updatestockportfolio", { state: { transaction } });
@@ -206,7 +237,7 @@ const Portfoliogoldaccount = () => {
                         <tr key={transaction.id}>
                           <td>{transaction.date}</td>
                           <td>{transaction.type}</td>
-                          <td>{transaction.quantity}</td>
+                          <td>{transaction.buy_quantity}</td>
                           <td>{transaction.amount}</td>
                           <td>{transaction.charges}</td>
                           <td>{transaction.netAmount}</td>
