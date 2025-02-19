@@ -1,0 +1,50 @@
+.faq-titleportfoliooanalysis {
+    background: linear-gradient(to right, #24B676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    margin-left:490px;
+    margin-top: -100px;
+}
+.faqquestans-container{
+    font-family: 'calibri';
+    margin-left: 180px;
+}
+
+
+@media (max-width: 768px) {
+    .faq-titleportfoliooanalysis {
+        background: linear-gradient(to right, #24B676, #238486);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 24px;
+        margin-left:70px;
+        margin-top: -100px;
+    }
+    .faqquestans-container{
+        font-family: 'calibri';
+        margin-left: 10px;
+       margin-bottom: 150px;
+    }
+    
+    
+}
+
+@media (max-width: 480px) {
+    .faq-titleportfoliooanalysis {
+        background: linear-gradient(to right, #24B676, #238486);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 20px;
+        margin-left:38px;
+        margin-top: -100px;
+        margin-bottom: 30px;
+    }
+    .faqquestans-container{
+        font-family: 'calibri';
+        margin-left: 5px;
+       margin-bottom: 150px;
+    }
+    
+    
+}

@@ -1,0 +1,34 @@
+.stockresearchatable-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    background: linear-gradient(#24b676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.pdfstockresearch-link{
+  color: #0349a8; /* Blue color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+/* Styling for screens 768px and smaller */
+@media (max-width: 768px) {
+    .stockresearchatable-title {
+      font-size: 18px; /* Reduce font size for tablets */
+    text-align: left; /* Adjust left margin for smaller screens */
+      margin-bottom: 15px; /* Adjust bottom margin for better spacing */
+      margin-left: 0px;
+    }
+  }
+  
+  /* Styling for screens 480px and smaller */
+  @media (max-width: 480px) {
+    .stockresearchatable-title {
+        font-size: 20px;
+       margin-left: 0px;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+  }

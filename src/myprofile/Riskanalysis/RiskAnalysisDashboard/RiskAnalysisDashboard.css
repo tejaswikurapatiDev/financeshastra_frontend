@@ -423,7 +423,8 @@ max-width: 1100px;
       color: #050505;
       flex-shrink: 0;
       margin-right: 10px;
-    }
+      margin-left: auto;
+  }
   
     .riskreportprofile-factors {
       display: flex;

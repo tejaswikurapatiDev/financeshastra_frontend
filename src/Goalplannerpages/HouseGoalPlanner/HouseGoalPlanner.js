@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import houseeimg from "../../assest/housee.png"; // Ensure the correct path
+import houseeimg from "../../assest/housee.png";
 import houseimg from "../../assest/house.png"; 
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { IoChevronBackSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import './HouseGoalPlanner.css'
 
 const HouseGoalPlanner = () => {
   const navigate = useNavigate(); 
@@ -19,17 +20,19 @@ const HouseGoalPlanner = () => {
   // Calculate the total amount considering inflation
   const calculateTotalAmount = (goalCost, inflationRate, tenure) => {
     return Math.round(goalCost * Math.pow(1 + inflationRate / 100, tenure));
-  };
-  
-  const calculateMonthlyAmount = (goalCost, inflationRate, returnRate, tenure) => {
-    const futureGoalCost = calculateTotalAmount(goalCost, inflationRate, tenure);
+};
+
+const calculateMonthlyAmount = (goalCost, inflationRate, returnRate, tenure) => {
+    const futureGoalCost = goalCost * Math.pow(1 + inflationRate / 100, tenure);
+
     const monthlyRate = (returnRate / 100) / 12;
     const months = tenure * 12;
-  
+
     const monthlyInvestment = (futureGoalCost * monthlyRate) / (Math.pow(1 + monthlyRate, months) - 1);
-  
+
     return Math.round(monthlyInvestment);
-  };
+};
+
   
   // Handle the calculation when user clicks on 'Calculate Now'
   const handleCalculate = () => {
@@ -61,7 +64,7 @@ const HouseGoalPlanner = () => {
         <div className="goalplanner-left">
           <h1 className="goalplanner-title">Buying House</h1>
           <div className="goalplanner-image-container">
-            <img src={houseimg} alt="House Illustration" className="goalplanner-image" />
+            <img src={houseimg} alt="House Illustration" className="goalplanner-imagehouse" />
           </div>
           <div className="goalplanner-results">
             {calculated && (
@@ -81,9 +84,17 @@ const HouseGoalPlanner = () => {
 
         <div className="goalplanner-right">
           <div className="goalplanner-slider-group">
+              <div className="goalplanner-image-containerrr">
+                   
+                      <img src={houseeimg} alt="Car Illustration" className="goalplanner-imagecarhousee" />
+                    </div>
             <div className="costtopcargoal">
+            <div>
               <label>Cost to achieve the goal</label>
+              </div>
+              <div className="cargoalparacost">
               <p>Rs {goalCost}</p>
+              </div>
             </div>
             <input
               type="range"
@@ -98,8 +109,12 @@ const HouseGoalPlanner = () => {
 
           <div className="goalplanner-slider-group">
             <div className="costtopcargoal">
+            <div>
               <label>Tenure to achieve the goal</label>
+              </div>
+              <div className="cargoalparacost">
               <p>{tenure} yrs</p>
+              </div>
             </div>
             <input
               type="range"
@@ -113,8 +128,12 @@ const HouseGoalPlanner = () => {
 
           <div className="goalplanner-slider-group">
             <div className="costtopcargoal">
+            <div>
               <label>Expected rate of inflation</label>
+              </div>
+              <div className="cargoalparacost">
               <p>{inflationRate} %</p>
+            </div>
             </div>
             <input
               type="range"
@@ -128,8 +147,12 @@ const HouseGoalPlanner = () => {
 
           <div className="goalplanner-slider-group">
             <div className="costtopcargoal">
+            <div>
               <label>Expected rate of return</label>
+              </div>
+              <div className="cargoalparacost">
               <p>{returnRate} %</p>
+              </div>
             </div>
             <input
               type="range"

@@ -198,6 +198,44 @@ import BankSectorThemePagelock from "./Stockthemepages/BankSectorThemePagelock/B
 import StockThemesindustriesPages from "./Stockthemepages/stockthemeindustriespage/stockthemeindustriespage";
 import StockThemesindustrieslockPages from "./Stockthemepages/StockThemesindustriesPageslock/StockThemesindustriesPageslock";
 import LandingPage from "./Landingpages/Landingpage";
+
+import EducationGoalPlanner from "./Goalplannerpages/EducationGoalPlanner/EducationGoalPlanner";
+import HolidayGoalPlanner from "./Goalplannerpages/HolidayGoalPlanner/HolidayGoalPlanner";
+import WeddingGoalPlanner from "./Goalplannerpages/Weddinggoalplanner/Weddinggoalplanner";
+import ElectronicGoalPlanner from "./Goalplannerpages/Electronicgoalplanner/Electronicgoalplanner";
+import OtherGoalPlanner from "./Goalplannerpages/OtherGoalPlanner/OtherGoalPlanner";
+import PortfolioCard from "./Portfolioanalysispages/PortfolioCard/PortfolioCard";
+import PortfolioAnalysisnew from "./Portfolioanalysispages/PortfolioAnalysisnew/PortfolioAnalysisnew";
+import PortfolioMetrics from "./Portfolioanalysispages/PortfolioMetrics/PortfolioMetrics";
+
+import SegmentAnalysis from "./Portfolioanalysispages/SegmentAnalysis/SegmentAnalysis";
+import StockTracker from "./Portfolioanalysispages/StockTracker/StockTracker";
+import BestPerformers from "./Portfolioanalysispages/BestPerformers/BestPerformers";
+import Portfolioanalyticchart from "./Portfolioanalysispages/Portfolioanalyticchart/Portfolioanalyticchart";
+
+import Openemailforgotpass from "./Forgotpaswordpages/Openemailforgotpass/Openemailforgotpass";
+import Forgetpassword from "./Forgotpaswordpages/Forgetpassword/Forgetpassword";
+
+import Stockresearchpages from "./stockresearchpages/stockresearchpages";
+import PortfolioAnalysisCorporatePage from "./Portfolioanalysispages/PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage";
+import PortfolioAnalysisdividentPage from "./Portfolioanalysispages/PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
+import PortfolioAnalysisbonusPage from "./Portfolioanalysispages/PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
+import PortfolioAnalysissplitPage from "./Portfolioanalysispages/PortfolioAnalysissplitPage/PortfolioAnalysissplitPage";
+import PortfolioAnalysisrightissusePage from "./Portfolioanalysispages/PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage";
+import PortfolioAnalysisAGMPage from "./Portfolioanalysispages/PortfolioAnalysisAGMPage/PortfolioAnalysisAGMPage";
+
+import PortfolioHoldingdetailPage from "./Portfolioanalysispages/PortfolioHoldingdetailPage/PortfolioHoldingdetailPage";
+
+import Porfolioanalysisallpagecall from "./Portfolioanalysispages/Porfolioanalysisallpagecall/Porfolioanalysisallpagecall";
+import AnalysisResearchReportblur from "./Portfolioanalysispages/Portfolioanysisstockresearcgblur/Portfolioanysisstockresearcgblur";
+import Portfolioanalysisdividendcall from "./Portfolioanalysispages/Portfolioanalysisdividendcall/Portfolioanalysisdividendcall";
+import Portfoliobonuscall from "./Portfolioanalysispages/Portfoliobonuscall/Portfoliobonuscall";
+import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Portfoliosplitcall";
+import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
+import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
+
+
+
 import {Provider} from "react-redux";
 import { store } from "./Store/store";
 
@@ -528,34 +566,82 @@ function App() {
           element={<StockThemesindustrieslockPages />}
         />
 
-        <Route path="/lumpsumallpage" element={<Lumpsumallpage />} />
-        <Route path="/fdallpages" element={<Fdallpages />} />
-        <Route path="/rdallpages" element={<Rdallpages />} />
-        <Route path="/ppfallpages" element={<Ppfallpages />} />
-        <Route path="/cagrallpages" element={<Cagrallpages />} />
-        <Route path="/revCagrallpages" element={<RevCagrallpages />} />
-        <Route path="/fundTable" element={<FundTable />} />
-        <Route path="/elssTable" element={<ElssTable />} />
-        <Route path="/errorpage" element={<Errorpage />} />
-        <Route
-          path="/overviewPortfolioManager"
-          element={<OverviewPortfolioManagergold />}
-        />
-        <Route path="/stocksThemes" element={<StocksThemes />} />
-        <Route path="/cargoalPlanner" element={<CargoalPlanner />} />
-        <Route path="/goalPlanner" element={<GoalPlanner />} />
-        <Route path="/investgoalcalculate" element={<Investgoalcalculate />} />
-        <Route
-          path="/goalplannersubscribe"
-          element={<Goalplannersubscribe />}
-        />
-        <Route
-          path="/goalplannerforallcalculator"
-          element={<Goalplannerforallcalculator />}
-        />
-        <Route path="/houseGoalPlanner" element={<HouseGoalPlanner />} />
+      <Route path="/lumpsumallpage" element={<Lumpsumallpage/>}/>
+      <Route path="/fdallpages" element={<Fdallpages/>}/>
+      <Route path="/rdallpages" element={<Rdallpages/>}/>
+      <Route path="/ppfallpages" element={<Ppfallpages/>}/>
+      <Route path="/cagrallpages" element={<Cagrallpages/>}/>
+      <Route path="/revCagrallpages" element={<RevCagrallpages/>}/>
+      <Route path="/fundTable" element={<FundTable/>}/>
+      <Route path="/elssTable" element={<ElssTable/>}/>
+      <Route path="/errorpage" element={<Errorpage/>}/>
+      <Route path="/overviewPortfolioManager" element={< OverviewPortfolioManagergold />} />
+      <Route path="/stocksThemes" element={< StocksThemes />} />
+      <Route path="/cargoalPlanner" element={< CargoalPlanner />} />
+      <Route path="/goalPlanner" element={<GoalPlanner/>} />
+      <Route path="/investgoalcalculate" element={<Investgoalcalculate/>} />
+      <Route path="/goalplannersubscribe" element={<Goalplannersubscribe/>} />
+      <Route path="/goalplannerforallcalculator" element={<Goalplannerforallcalculator/>} />
+      <Route path="/houseGoalPlanner" element={<HouseGoalPlanner/>} />
+
+      <Route path="/educationGoalPlanner" element={<EducationGoalPlanner/>} />
+      <Route path="/holidayGoalPlanner" element={<HolidayGoalPlanner/>} />
+      <Route path="/weddingGoalPlanner" element={<WeddingGoalPlanner/>} />
+      <Route path="/electronicGoalPlanner" element={<ElectronicGoalPlanner/>} />
+      <Route path="/otherGoalPlanner" element={<OtherGoalPlanner/>} />
+      <Route path="/portfolioCard" element={<PortfolioCard/>} />
+      <Route path="/portfolioAnalysisnew" element={<PortfolioAnalysisnew/>} />
+     
+      <Route path="/portfolioMetrics" element={<PortfolioMetrics/>} />
+    
+      <Route path="/segmentAnalysis" element={<SegmentAnalysis/>} />
+      <Route path="/stockTrackerall" element={<StockTracker/>} />
+      <Route path="/bestPerformers" element={<BestPerformers/>} />
+      <Route path="/portfolioanalyticchart" element={<Portfolioanalyticchart/>} />
+      <Route path="/forgetpassword" element={<Forgetpassword/>} />
+      <Route path="/openemailforgotpass" element={<Openemailforgotpass/>} />
+     
+    
 
 
+      <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
+      <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage/>} />
+      <Route path="/portfolioAnalysisdividentPage" element={<PortfolioAnalysisdividentPage/>} />
+      <Route path="/portfolioAnalysisbonusPage" element={<PortfolioAnalysisbonusPage/>} />
+      <Route path="/portfolioAnalysisSplitsPage" element={<PortfolioAnalysissplitPage/>} />
+      <Route path="/portfolioAnalysisRightsPage" element={<PortfolioAnalysisrightissusePage/>} />
+      <Route path="/portfolioAnalysisAgmPage" element={<PortfolioAnalysisAGMPage/>} />
+ 
+      <Route path="/portfolioHoldingdetailPage" element={<PortfolioHoldingdetailPage/>} />
+      <Route path="/porfolioanalysisallpagecall" element={<Porfolioanalysisallpagecall/>} />
+      <Route path="/analysisResearchReportblur" element={<AnalysisResearchReportblur/>} />
+      <Route path="/portfolioanalysisdividendcall" element={<Portfolioanalysisdividendcall/>} />
+      <Route path="/portfoliobonuscall" element={<Portfoliobonuscall/>}/>
+      <Route path="/portfoliosplitcall" element={<Portfoliosplitcall/>}/>
+      <Route path="/portfolioanalysisrightscall" element={<Portfolioanalysisrightscall/>}/>
+      <Route path="/portfolioAGMcall" element={<PortfolioAGMcall/>}/>
+      
+      
+
+     
+      
+      
+      
+      
+     
+     
+     
+     
+      
+      
+     
+     
+
+
+
+    
+    
+     
 
 
 

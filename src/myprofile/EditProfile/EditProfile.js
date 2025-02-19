@@ -6,6 +6,7 @@ import Navbar from "../../Navbar/Navbar";
 import "./EditProfile.css";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const EditProfile = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -20,7 +21,9 @@ const EditProfile = () => {
     gender: personalDetails.gender,
     email: personalDetails.email,
     phoneNumber: personalDetails.phoneNumber,
+    address:personalDetails.address,
     country: personalDetails.country,
+    address:personalDetails.address,
     state: personalDetails.state,
     city: personalDetails.city,
     occupation: professionalDetails.occupation,
@@ -43,7 +46,9 @@ const navigate = useNavigate();
       gender: "",
       email: "",
       phoneNumber: "",
+      address:"",
       country: "India",
+      address:"",
       state: "",
       city: "",
       occupation: "",
@@ -58,6 +63,7 @@ const navigate = useNavigate();
       "lastName",
       "dob",
       "email",
+      "address",
       "phoneNumber",
       "state",
       "city",
@@ -105,10 +111,12 @@ const navigate = useNavigate();
       dob: formData.dob,
       gender: formData.gender,
       phoneNumber: formData.phoneNumber,
+      address:formData.address,
          country: "India",
       state: formData.state,
       city:formData.city,
       pincode: formData.pincode,
+      
      
     
       
@@ -519,13 +527,13 @@ const navigate = useNavigate();
           </div>
         </div>
         <div className="allemailphone">
-        <div className="emailphoneal">
+        <div className="emailphonealssss">
           <div className="profilepage-roww">
             <div className={`profilepage-field email-field ${errors.email ? "error" : ""}`}>
               {/* content */}
             </div>
 
-            <label>Email ID*</label>
+            <label className="emailidlabel">Email ID*</label>
             <div
               className="profile-email-container"
               
@@ -627,7 +635,7 @@ const navigate = useNavigate();
 
         <div className="profile-roww">
           <div className={`profile-group ${errors.phoneNumber ? "error" : ""}`}>
-            <label>Phone Number*</label>
+            <label className="phonenulabel">Phone Number*</label>
             <div className="profile-phone-container" >
               <div >
                 <input
@@ -745,7 +753,19 @@ const navigate = useNavigate();
         </div>
 
       
-      <div className="profilepage-row">
+      <div className="profilepage-rowss">
+      <div className={`profilepage-field pincode-field ${errors.address ? "error" : ""}`}>
+          <label>Address*</label>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            className={`profilepage-input ${errors.address ? "error" : ""}`}
+            placeholder=""
+          />
+          {errors.address && <span className="error-text">This field is required</span>}
+        </div>
         <div className="profilepage-field">
           <label>Country*</label>
           <select
@@ -757,7 +777,10 @@ const navigate = useNavigate();
             <option value="India">India</option>
           </select>
         </div>
-        <div className={`profilepage-field state-field ${errors.state ? "error" : ""}`}>
+      
+      </div>
+      <div className="profilepage-rowss">
+      <div className={`profilepage-field state-field ${errors.state ? "error" : ""}`}>
         <label>State*</label>
       <select
         name="state"
@@ -774,9 +797,6 @@ const navigate = useNavigate();
       </select>
           {errors.state && <span className="error-text">This field is required</span>}
         </div>
-
-      </div>
-      <div className="profilepage-row">
         <div className={`profilepage-field city-field ${errors.city ? "error" : ""}`}>
         <label>City*</label>
       <select
@@ -796,7 +816,10 @@ const navigate = useNavigate();
           {errors.city && <span className="error-text">This field is required</span>}
         </div>
 
-        <div className={`profilepage-field pincode-field ${errors.pincode ? "error" : ""}`}>
+
+      </div>
+      <div className="profilepage-rowss">
+      <div className={`profilepage-field pincode-field ${errors.pincode ? "error" : ""}`}>
           <label>Pincode*</label>
           <input
             type="text"
@@ -808,9 +831,6 @@ const navigate = useNavigate();
           />
           {errors.pincode && <span className="error-text">This field is required</span>}
         </div>
-
-      </div>
-      <div className="profilepage-row">
         <div className="profilepage-field">
           <label>Occupation</label>
           <select
@@ -829,6 +849,26 @@ const navigate = useNavigate();
 
           </select>
         </div>
+       
+      </div>
+      <div className="profilepage-rowss">
+        <div className="profilepage-field">
+          <label>Annual Income</label>
+          <select
+            name="income"
+            value={formData.income}
+            onChange={handleChange}
+            className="profilepageocc-select"
+          >
+            <option value="">Select</option>
+            <option value="0-5L">Less than 5 Lacs</option>
+            <option value="5L-10L">5 Lacs to 10 Lacs</option>
+            <option value="10L-15L">10 Lacs to 15 Lacs</option>
+            <option value="15L-20L">15 Lacs to 20 Lacs</option>
+            <option value="20L+">More than 20 Lacs</option>
+          </select>
+
+        </div>
         <div className="profilepage-field">
           <label>Industry</label>
           <select
@@ -837,7 +877,7 @@ const navigate = useNavigate();
             onChange={handleChange}
             onFocus={(e) => e.target.style.marginBottom = "20px"}
             onBlur={(e) => e.target.style.marginBottom = "0px"} // Reset margin on blur
-            className="profilepage-industry-select"
+            className="profilepageocc-select"
           >
             <option value="">Select</option>
 
@@ -852,25 +892,6 @@ const navigate = useNavigate();
             <option value="Travel and Tourism">Travel and Tourism</option>
             <option value="Others">Others</option>
           </select>
-        </div>
-      </div>
-      <div className="profilepage-row">
-        <div className="profilepage-field-income">
-          <label>Annual Income</label>
-          <select
-            name="income"
-            value={formData.income}
-            onChange={handleChange}
-            className="profilepageincome-select"
-          >
-            <option value="">Select</option>
-            <option value="0-5L">Less than 5 Lacs</option>
-            <option value="5L-10L">5 Lacs to 10 Lacs</option>
-            <option value="10L-15L">10 Lacs to 15 Lacs</option>
-            <option value="15L-20L">15 Lacs to 20 Lacs</option>
-            <option value="20L+">More than 20 Lacs</option>
-          </select>
-
         </div>
       </div>
 
@@ -888,10 +909,11 @@ const navigate = useNavigate();
       {isPopupVisible && <SuccessModal onClose={closePopup} />}
       
     </div>
+   
       <Navbar/>
+      
     </div>
   
-
 
 
   );

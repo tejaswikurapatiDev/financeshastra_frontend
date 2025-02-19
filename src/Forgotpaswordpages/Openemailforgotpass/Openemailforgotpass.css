@@ -1,0 +1,19 @@
+.signbtnopengamail {
+    width: 80%;
+    padding: 10px;
+    background-color: #24b676;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    
+  }
+  .inboximgg {
+    width: 100%; /* Makes the image responsive */
+    max-width: 50px; /* Adjust size as needed */
+    height: 50px; /* Maintain aspect ratio */
+    display: block; /* Removes extra space under the image */
+    margin-left: 200px;
+  }

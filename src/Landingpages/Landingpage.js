@@ -16,11 +16,11 @@ const LandingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 5000); // Show after 5 seconds
-
+    }, 180000); // Show after 3 minutes (180,000 ms)
+  
     return () => clearTimeout(timer);
   }, []);
-
+  
   return (
     <div>
       {showPopup && <PopupUnlockLandingPage onClose={() => setShowPopup(false)} />}

@@ -1,0 +1,36 @@
+/* General styling for the container */
+.data-not-present-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-right: 70px;
+    font-family: 'calibri';
+  }
+  
+  /* Styling for the icon container */
+  .data-not-present-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px; /* Adjust width as needed */
+    height: 80px; /* Adjust height as needed */
+  }
+  
+  /* Image styling */
+  .data-not-present-icon img {
+    width: 95%; /* Ensures the image scales properly */
+    height: 95%; /* Maintains aspect ratio */
+    object-fit: contain;
+  }
+  
+  /* Text styling */
+  .data-not-present-text {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #333; /* Tailwind's gray-500 */
+    font-weight: 600;
+    text-align: center;
+  }
+  

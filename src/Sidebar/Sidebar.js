@@ -11,9 +11,9 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar-menu">
-                <a href="#dashboard" className="sidebar-item active">
+                <a href="home" className="sidebar-item active">
                 <RiDashboardLine className="sideicon"/>Dashboard</a>
-                <a href="#portfolio" className="sidebar-item">
+                <a href="porfolioanalysisallpagecall" className="sidebar-item">
                 <GrAnalytics className="sideicon"/>Portfolio Analysis</a>
                 <a href="stockwatchlist" className="sidebar-item">
                 <BsBookmark className="sideicon"/>Watchlist</a>

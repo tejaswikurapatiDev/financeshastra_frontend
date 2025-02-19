@@ -1,0 +1,101 @@
+.stockresearchreportpage-container {
+    font-family: 'calibri';
+    line-height: 1.6;
+    margin: 20px;
+    width: 80%;
+  }
+  
+  .stockresearchreportpage-title {
+    font-size: 19px;
+    font-weight: bold;
+    color: #0349a8;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  
+  .stockresearchreportpage-description {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-left: 50px;
+  }
+  
+  .stockresearchreportpage-subtitle {
+    font-size: 19px;
+    font-weight: bold;
+    color: #0349a8;
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+  .stockresearchreportpagestrong{
+    color: #0349a8;
+  }
+  
+  .stockresearchreportpage-list {
+    list-style-type: disc;
+    padding-left: 70px;
+    color: #333;
+    font-size: 14px;
+  }
+  .stockresearchreportpage-list li::marker {
+    color: #0349a8;
+  }
+  
+  .stockresearchreportpage-listitem {
+    margin-bottom: 10px;
+    
+  }
+/* Responsive adjustments for tablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .stockresearchreportpage-container {
+    width: 90%;
+    margin: 15px;
+  }
+
+  .stockresearchreportpage-title,
+  .stockresearchreportpage-subtitle {
+    font-size: 17px;
+    margin-left: 20px;
+  }
+
+  .stockresearchreportpage-description {
+    font-size: 13px;
+    margin-left: 20px;
+  }
+
+  .stockresearchreportpage-list {
+    padding-left: 40px;
+    font-size: 13px;
+  }
+}
+
+/* Responsive adjustments for mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .stockresearchreportpage-container {
+    width: 100%;
+    margin: 10px;
+  }
+
+  .stockresearchreportpage-title,
+  .stockresearchreportpage-subtitle {
+    font-size: 15px;
+    margin-left: 0px;
+    text-align: left; /* Center-align text for small screens */
+  }
+
+  .stockresearchreportpage-description {
+    
+      font-size: 12px;
+      margin-left: 0px;
+      text-align: left;
+      width: 95%;/* Center-align text for better readability */
+  }
+
+  .stockresearchreportpage-list {
+    padding-left: 10px;
+    font-size: 12px;
+    width: 90%;
+}
+}
+  

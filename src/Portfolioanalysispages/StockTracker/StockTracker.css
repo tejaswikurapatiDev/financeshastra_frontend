@@ -1,0 +1,176 @@
+.trackerportfolioanalysis {
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(223, 222, 222, 0.993);
+    font-family: 'calibri';
+    width: 1110px;
+    border: 3px solid rgb(237, 236, 236);
+    margin-top: 50px;
+    margin-left: 270px;
+  
+  }
+  
+  .stock-containertrackerport {
+    display: flex;
+    gap: 10px;
+   
+    padding-bottom: 10px;
+   
+  }
+  
+  .stock-cardtrackerport {
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 196px;
+
+  }
+  
+  .trackerpositive {
+    background-color: #d4edda;
+    color: #24b676;
+  }
+  
+  .trackernegative {
+    background-color: #f8d7da;
+    color: red;
+  }
+  
+  .stock-changetrackerport {
+    font-weight: bold;
+    display: block;
+    font-size: 18px;
+    text-align: right;
+  }
+  
+  .stock-nametrackerport {
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+  }
+  .stock-imagetrackerport {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 50%; /* Makes the image round */
+    object-fit: cover; /* Ensures the image is properly cropped */
+    background-color: white;
+  }
+  .imagenametracker {
+    display: flex;
+    align-items: center; /* Vertically aligns image and text */
+    gap: 10px; /* Adjusts spacing between image and text */
+    padding: 1px 10px;
+  }
+  
+  .stock-pricetrackerport {
+    font-size: 15px;
+  
+  }
+  
+  .time-filter-containertrackerport {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .time-filtertrackerport {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .time-filtertrackerport.active {
+    background: #24b676;
+    color: white;
+  }
+  @media screen and (max-width: 768px) {
+    .alltrackerportfolioanalysis{
+      max-width: 100%;
+    }
+    .trackerportfolioanalysis {
+        width: 95%; /* Make it responsive */
+        margin: 20px auto;
+        padding: 12px;
+        overflow: hidden; /* Prevents unwanted scrollbars */
+    }
+
+    .stock-containertrackerport {
+        display: flex;
+        flex-wrap: nowrap; /* Prevents wrapping */
+        overflow-x: auto; /* Enables horizontal scrolling */
+        white-space: nowrap; /* Keeps elements in one line */
+        gap: 8px;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling:scroll; /* Smooth scrolling on mobile */
+    }
+
+    .stock-cardtrackerport {
+        flex: 0 0 auto; /* Prevents shrinking */
+        min-width: 160px; /* Adjust card width */
+        padding: 8px;
+        text-align: center;
+    }
+
+  
+
+    /* Optional: Hide scrollbar for Firefox */
+    .stock-containertrackerport {
+      overflow-x: auto;
+    
+      width: 100%;
+    }
+    .portfolianalysiscorporatepage-table-wrapper {
+      overflow-x: auto;
+    
+      width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+  .trackerportfolioanalysis {
+      width:93%; /* Make it responsive */
+     margin-left: 1px;
+      padding: 12px;
+      overflow: hidden; /* Prevents unwanted scrollbars */
+      margin-top: 30px;
+  }
+
+  .stock-containertrackerport {
+      display: flex;
+      flex-wrap: nowrap; /* Prevents wrapping */
+      overflow-x: auto; /* Enables horizontal scrolling */
+      white-space: nowrap; /* Keeps elements in one line */
+      gap: 8px;
+      padding-bottom: 10px;
+      -webkit-overflow-scrolling:scroll; /* Smooth scrolling on mobile */
+  }
+
+  .portfolianalysiscorporatepage-table-wrapper {
+    overflow-x: auto;
+  
+    width: 100%;
+  }
+  
+  .stock-cardtrackerport {
+      flex: 0 0 auto; /* Prevents shrinking */
+      min-width: 160px; /* Adjust card width */
+      padding: 8px;
+      text-align: center;
+  }
+
+  /* Hide scrollbar in WebKit browsers */
+  .stock-containertrackerport::-webkit-scrollbar {
+      display: none;
+  }
+
+  /* Optional: Hide scrollbar for Firefox */
+  .stock-containertrackerport {
+      scrollbar-width: none;
+  }
+}
