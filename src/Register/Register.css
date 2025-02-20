@@ -27,6 +27,9 @@
 
 
 
+
+
+
 .login-box form {
     margin: 20px 0;
 }
@@ -60,6 +63,7 @@
 
 
 
+
 .toggle-password:hover {
     color: #555;
 }
@@ -83,7 +87,7 @@
     }
 
     .login-box {
-        width: 90%;
+        width: 150%;
         max-width: 350px;
         padding: 20px;
     }

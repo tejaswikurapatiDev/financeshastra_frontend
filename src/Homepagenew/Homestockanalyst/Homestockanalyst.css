@@ -110,6 +110,11 @@ margin-left: 10px;
 margin-top: 290px;
 }
 
+.pagination-containerreasearch{
+  display: flex;
+  padding: 10px;
+  gap: 900px;
+}
 @media (max-width: 768px) {
 
   .tabsnifty50-containerdash {
@@ -193,6 +198,11 @@ margin-top: 290px;
     align-items: center;
     margin: 20px 0;
   
+  }
+  .pagination-containerreasearch{
+    display: flex;
+    padding: 10px;
+    gap: 100px;
   }
   
   .tabsnifty50-containerdash {

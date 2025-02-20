@@ -1,5 +1,5 @@
 .portfolio-account-stock-container {
-  font-family: 'Calibri', Arial, sans-serif;
+  font-family: 'Calibri';
   background-color: #ffffff;
   border: 3px solid #a79a9a;
   border-radius: 8px;
@@ -285,4 +285,36 @@ color: red;
 .no-button {
   background-color: #f44336;
   color: white;
+}
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .portfolio-account-stock-container {
+    font-family: 'Calibri';
+    background-color: #ffffff;
+    border: 3px solid #a79a9a;
+    border-radius: 8px;
+    padding: 16px;
+    width: 85%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+}
+}
+
+@media (max-width: 480px) {
+  .portfolio-account-stock-container {
+    font-family: 'Calibri';
+    background-color: #ffffff;
+    border: 3px solid #a79a9a;
+    border-radius: 8px;
+    padding: 16px;
+    width: 85%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
 }

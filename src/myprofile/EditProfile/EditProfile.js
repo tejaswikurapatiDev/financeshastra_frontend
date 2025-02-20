@@ -64,6 +64,7 @@ const navigate = useNavigate();
       "dob",
       "email",
       "address",
+      "address",
       "phoneNumber",
       "state",
       "city",

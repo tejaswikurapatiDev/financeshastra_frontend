@@ -17,6 +17,7 @@
 
 .portfolio-accounts-section {
   margin-bottom: 20px;
+  overflow-x: auto;
 }
 
 .portfolio-accounts-table {
@@ -30,6 +31,7 @@
   color: #fff;
   text-align: left;
   padding: 10px;
+  white-space: nowrap;
 }
 
 .portfolio-accounts-table td {
@@ -102,6 +104,7 @@
 
   display: block;
   font-size: 12px;
+  white-space: nowrap;
   color: white;
   
 }
@@ -153,6 +156,7 @@
 
   .portfolio-accounts-table th {
     font-size: 14px; /* Adjust font size in the table header */
+    white-space: nowrap !important;
   }
 
   .portfolio-accounts-table td {
@@ -189,11 +193,13 @@
 @media (max-width: 480px) {
   .portfolio-dashboard-container {
     padding: 10px; /* Reduce padding for smaller mobile screens */
-    width: 510px;
+    width: 90%;
+    margin-bottom: 100px;
   }
   
   .portfoliomanager-h3 {
     font-size: 1.2em; /* Further reduce heading size */
+    text-align: center;
   }
 
   .portfolio-accounts-table th,
@@ -213,11 +219,13 @@
     flex-direction: row; /* Stack buttons vertically */
     gap: 6px; /* Reduce gap between buttons */
     align-items: flex-start; /* Align buttons to the left */
+    justify-content: center;
   }
 
   .portfolio-allocation-section {
     flex-direction: column; /* Stack allocation section vertically */
     gap: 8px; /* Reduce gap */
+    width: 80%;
   }
 
   .portfolio-pie-chart {
@@ -232,6 +240,12 @@
   .portfolio-add-link {
     font-size: 12px; /* Reduce font size for mobile */
   }
+  .portfolio-accounts-section {
+   width: 90%;
+   margin: 0 auto;
+   overflow-x: auto;
+  }
+  
 
   .portfolio-add {
     font-size: 14px; /* Adjust font size for "add" button */

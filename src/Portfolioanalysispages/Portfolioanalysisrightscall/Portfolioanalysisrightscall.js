@@ -8,10 +8,12 @@ import AnalysisResearchReportblur from '../Portfolioanysisstockresearcgblur/Port
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import PortfolioAnalysisrightissusePage from '../PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage'
+import './Portfolioanalysisrightscall.css'
 
 function Portfolioanalysisrightscall() {
   return (
     <div className='allpagecallanalysis'>
+     
         <Portfolioanalyticchart/>
         <StockTracker/>
         < PortfolioAnalysisrightissusePage/>

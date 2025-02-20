@@ -50,7 +50,7 @@
     
 
     /* Add height or min-height to increase card height */
-    height: 932px; /* Adjust the value as needed */
+    height: 970px; /* Adjust the value as needed */
     min-height: 500px; /* For flexibility */
 }
 
@@ -65,7 +65,7 @@
  
   
   width: 50%; /* Decrease width */
-  height: 920px; /* Adjust the value as needed */
+  height: 950px; /* Adjust the value as needed */
   min-height: 500px; /* For flexibility */
   box-shadow: 0 4px 8px #24b676;
   margin-left: 50px;
@@ -80,7 +80,7 @@
   margin: 0 auto; /* Center the card */
   width: 93%; /* Increase width */
   box-shadow: 0 4px 8px #24b676;
-  height: 850px;/* Adjust the value as needed */
+  height: 880px;/* Adjust the value as needed */
     min-height: 500px; /* For flexibility */
    
 }
@@ -350,7 +350,7 @@ margin-top: 10px;
 
  
   .subscriptionh2{
-   margin-left: 140px;
+   margin-left: 130px;
    
    color: #24b676;
    font-weight: bold;

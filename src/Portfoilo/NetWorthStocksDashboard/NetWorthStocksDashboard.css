@@ -10,11 +10,10 @@
 
 /* Navigation Tabs */
 .networth-tabs {
-  display: flex;
-  gap: 10px; /* Adjust gap between tabs */
-  margin-left: 100px;
-  margin-top: 20px;
- 
+      display: flex;
+      gap: 10px;
+      margin-left: 100px;
+      margin-top: 20px;
 }
 
 .networth-tab {
@@ -58,8 +57,9 @@
   z-index: 10; /* Ensure it stays on top of other elements */
   display: flex;
   justify-content: space-between;
+  right: 90px;
   align-items: center; /* Align items vertically */
-  margin-top: 100px;
+  margin-top: 120px;
   border: 3px solid #a79a9a;
 }
 
@@ -186,6 +186,15 @@ font-size: 16px; /* Adjust the font size as needed */
 color: black; /* Change the color if necessary */
 font-weight: bold;
 }
+
+@media (max-width:1145px)
+{
+  .networth-summary{
+    position: static;
+    margin: 10px auto;
+    width: 344px;
+  }
+}
 /* Media query for 768px (tablet view) */
 @media (max-width: 768px) {
   .networth-tabs {
@@ -193,7 +202,7 @@ font-weight: bold;
     margin: 30px auto;
     justify-content: left; /* Center tabs horizontally */
     gap: 10px;
-    margin-top: 70px;
+    margin-left: 10px;
   }
   .networth-stocks-dashboard {
     padding: 15px; /* Reduce padding for medium screens */
@@ -251,7 +260,7 @@ font-weight: bold;
 @media (max-width: 480px) {
   .networth-tabs {
     flex-direction: row; /* Keep tabs in a row */
-    margin-top: 50px;
+    margin-top:10px;
     justify-content: left; /* Center tabs */
     gap: 5px;
     margin-left: 10px;

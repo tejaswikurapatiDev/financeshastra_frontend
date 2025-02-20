@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { json, useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-import googleimg from '../assest/googleicon.svg';
-import linkedinimg from '../assest/lin.png';
-import logoimg from '../assest/finanlogo.svg';import Cookies from 'js-cookie'
+import googleimg from "../assest/googleicon.svg";
+import linkedinimg from "../assest/lin.png";
+import logoimg from "../assest/finanlogo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
 import logo from "./../assest/Logo design (1).png";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import './Login.css'
+import Cookies from "js-cookie";
+
+import "./Login.css";
 import { height } from "@mui/system";
 import { API_BASE_URL } from "../config";
 
 const override = {
   display: "block",
-  textAlign: "center"
+  textAlign: "center",
 };
 
 function Login() {
@@ -28,8 +30,7 @@ function Login() {
   const [isResetPasswordStep, setIsResetPasswordStep] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const [isLoading, setIsLoading]= useState(false)
-  const [isCookiesPresent, setCookiesPresent]= useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -38,85 +39,118 @@ function Login() {
   };
 
   const validatePassword = (password) => {
-    const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+    const passwordPattern =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     return passwordPattern.test(password);
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setEmailError("");
+    setPasswordError("");
+    if (!validateEmail(email)) {
+      setEmailError("Invalid email format");
+      return;
+    }
 
-  // Reset errors
-  setEmailError("");
-  setPasswordError("");
+    if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be 8+ characters, include an uppercase letter, a number, and a special character."
+      );
+      return;
+    }
 
-  // Validate inputs
-  const isEmailValid = validateEmail(email);
-  const isPasswordValid = validatePassword(password);
-
-  if (!isEmailValid) {
-    setEmailError("Enter a valid email address.");
-  }
-
-  if (!isPasswordValid) {
-    setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-  }
-
-  if (!isEmailValid || !isPasswordValid) {
-    setIsLoading(false);
-    return; // Stop further execution if validation fails
-  }
-
-  if (!isForgotPassword) {
+    setIsLoading(true);
     try {
       const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      };
+      });
 
-      const response = await fetch(url, options);
-      const data = await response.json();
-      setIsLoading(false);
-
-      if (response.ok) {
-        Cookies.set("jwtToken", data.jwtToken);
-        alert("Login Successful");
-        navigate("/home");
-      } else {
-        // Handle specific errors
-        if (response.status === 404) {
-          setEmailError("Email not found. Please register.");
-        } else if (response.status === 400) {
-          setPasswordError("Incorrect password.");
-        } else if (response.status === 401) {
-          alert("Please Verify your mail.");
-        } else {
-          alert("An unexpected error occurred. Please try again later.");
-        }
+      if (!response.ok) {
+        throw new Error("Login Faild");
       }
+      const data = await response.json();
+      const { jwtToken } = data;
+      console.log(data);
+      // localStorage.setItem(
+      //   "authData",
+      //   JSON.stringify({ token: jwtToken, user })
+      // );
+      Cookies.set("jwtToken", jwtToken, {
+        expires: 7,
+        sameSite: "Strict",
+      });
+      navigate("/home");
     } catch (error) {
-      setIsLoading(false);
       console.error("Error during login:", error);
-      alert("An error occurred. Please check your connection and try again.");
+      setPasswordError("Invalid email or password");
+    } finally {
+      setIsLoading(false);
     }
-        /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
-        if (userRegistrationData && userRegistrationData.email === email) {
-          if (userRegistrationData.password === password) {
-            alert("Login Successful");
-            navigate("/home");
-          } else {
-            setPasswordError("Incorrect password.");
-          }
-        } else {
-          setEmailError("Email not found. Please register.");
-        }*/
-  }
-};
+  };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   let isValid = true;
+  //   setIsLoading(true);
+
+  //   if (!validateEmail(email)) {
+  //     setEmailError("Enter a valid email address.");
+  //     isValid = false;
+  //   } else {
+  //     setEmailError("");
+  //   }
+
+  //   if (!validatePassword(password)) {
+  //     setPasswordError(
+  //       "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
+  //     );
+  //     isValid = false;
+  //   } else {
+  //     setPasswordError("");
+  //   }
+
+  //   if (isValid && !isForgotPassword) {
+  //     const data = {
+  //       email,
+  //       password,
+  //     };
+  //     const url =
+  //       "https://financeshastra-backendupdated.onrender.com/api/signin";
+  //     const options = {
+  //       method: "post",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     };
+  //     const response = await fetch(url, options);
+  //     setIsLoading(false);
+  //     if (response.status === 404) {
+  //       setEmailError("Email not found. Please register.");
+  //     } else if (response.status === 400) {
+  //       setPasswordError("Incorrect password.");
+  //     } else {
+  //       alert("Login Successful");
+  //       navigate("/dashboardchartmain");
+  //     }
+
+  //     /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
+  //     if (userRegistrationData && userRegistrationData.email === email) {
+  //       if (userRegistrationData.password === password) {
+  //         alert("Login Successful");
+  //         navigate("/home");
+  //       } else {
+  //         setPasswordError("Incorrect password.");
+  //       }
+  //     } else {
+  //       setEmailError("Email not found. Please register.");
+  //     }*/
+  //   }
+  // };
   /*const handleSubmit = (e) => {
     e.preventDefault();
     let isValid = true;
@@ -177,7 +211,9 @@ const handleSubmit = async (e) => {
   const handleResetPassword = (e) => {
     e.preventDefault();
     if (!validatePassword(newPassword)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
+      setPasswordError(
+        "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
+      );
       return;
     }
 
@@ -195,20 +231,17 @@ const handleSubmit = async (e) => {
   };
   const handleSuccess = async (response) => {
     const token = response.credential;
- 
+
     try {
       const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
- 
+
       const data = await res.json();
-      console.log(data)
       if (res.ok) {
         console.log("Backend Response: ", data);
-        alert("Login Successful");
-        navigate("/home");
       } else {
         console.error("Authentication failed: ", data);
       }
@@ -216,25 +249,23 @@ const handleSubmit = async (e) => {
       console.error("Error sending token to backend: ", err);
     }
   };
- 
- 
+
   const handleFailure = (error) => {
     console.log("Login Failed: ", error);
   };
   return (
     <div className="login-container">
       <div className="login-left">
-     
-      <img src={logoimg} className="logoforgt"/>
-     
-     
+        <img src={logoimg} className="logoforgt" />
       </div>
       <div className="login-right">
         <div className="login-box">
-         
-        
-          <h2 className="h2loginpage">{isForgotPassword ? "Enter your registered email to reset password." : "LogIn"}</h2>
-          
+          <h2 className="h2loginpage">
+            {isForgotPassword
+              ? "Enter your registered email to reset password."
+              : "LogIn"}
+          </h2>
+
           {isForgotPassword ? (
             isResetPasswordStep ? (
               <form onSubmit={handleResetPassword}>
@@ -248,10 +279,20 @@ const handleSubmit = async (e) => {
                     required
                     className={passwordError ? "input-error" : ""}
                   />
-                  {passwordError && <span className="error-text">{passwordError}</span>}
+                  {passwordError && (
+                    <span className="error-text">{passwordError}</span>
+                  )}
                 </div>
-                <button type="submit" className="sign-in-btn">Reset Password</button>
-                <button type="button" className="cancel-btn" onClick={() => setIsForgotPassword(false)}>Cancel</button>
+                <button type="submit" className="sign-in-btn">
+                  Reset Password
+                </button>
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={() => setIsForgotPassword(false)}
+                >
+                  Cancel
+                </button>
               </form>
             ) : (
               <form onSubmit={handleForgotPasswordEmailSubmit}>
@@ -265,12 +306,22 @@ const handleSubmit = async (e) => {
                     required
                     className={emailError ? "input-error" : ""}
                   />
-                  {emailError && <span className="error-text">{emailError}</span>}
+                  {emailError && (
+                    <span className="error-text">{emailError}</span>
+                  )}
                 </div>
                 <div className="button-container">
-    <button type="submit" className="sign-in-btn">Reset Password</button>
-    <button type="button" className="cancel-btn" onClick={() => setIsForgotPassword(false)}>Cancel</button>
-</div>
+                  <button type="submit" className="sign-in-btn">
+                    Reset Password
+                  </button>
+                  <button
+                    type="button"
+                    className="cancel-btn"
+                    onClick={() => setIsForgotPassword(false)}
+                  >
+                    Cancel
+                  </button>
+                </div>
               </form>
             )
           ) : (
@@ -298,101 +349,137 @@ const handleSubmit = async (e) => {
                     required
                     className={passwordError ? "input-error" : ""}
                   />
-                  <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                  <span
+                    className="toggle-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
                   </span>
                 </div>
-                {passwordError && <span className="error-text">{passwordError}</span>}
+                {passwordError && (
+                  <span className="error-text">{passwordError}</span>
+                )}
               </div>
               <div className="login-options">
                 <div className="checksigninall">
                   <div className="signinall">
-                  <div className="allsignall">
-              <label >
-  <input type="checkbox" />
-  </label>
-  </div>
-  <div>
-  <p className="loginpagepara">
-  Remember me</p>
-  </div>
-  </div>
-</div>
-<div>
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault(); // Prevent default anchor behavior
-          navigate("/forgetpassword");
-        }}
-        className="forgotpasswordlink"
-      >
-        Forgot Password?
-      </a>
-    </div>
-</div>
-              
-                  <button type="submit" className="sign-in-btn">
-                  Log in
-                  </button>
-              
+                    <div className="allsignall">
+                      <label>
+                        <input type="checkbox" />
+                      </label>
+                    </div>
+                    <div>
+                      <p className="loginpagepara">Remember me</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault(); // Prevent default anchor behavior
+                      navigate("/forgetpassword");
+                    }}
+                    className="forgotpasswordlink"
+                  >
+                    Forgot Password?
+                  </a>
+                </div>
+              </div>
+
+              <button type="submit" className="sign-in-btn">
+                Log in
+              </button>
+
               <ClipLoader
                 cssOverride={override}
                 size={35}
                 data-testid="loader"
-                loading= {isLoading}
+                loading={isLoading}
                 speedMultiplier={1}
                 color="green"
-                
               />
             </form>
           )}
 
           <div className="login-or">Or Sign Up With</div>
           <div className="sociall-login">
-  <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
-    <Button
-      variant="contained"
-      className="google-btn"
-      startIcon={<img src={googleimg} alt="Google Icon" className="btn-icon-small" />}
-      onClick={() => document.querySelector(".GoogleLogin button")?.click()} // Trigger Google Login button
-      sx={{ fontSize: "14px" }} // Decrease font size
-    >
-      Sign in with Google
-    </Button>
+            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
+              <Button
+                variant="contained"
+                className="google-btn"
+                startIcon={
+                  <img
+                    src={googleimg}
+                    alt="Google Icon"
+                    className="btn-icon-small"
+                  />
+                }
+                onClick={() =>
+                  document.querySelector(".GoogleLogin button")?.click()
+                } // Trigger Google Login button
+                sx={{ fontSize: "14px" }} // Decrease font size
+              >
+                Sign in with Google
+              </Button>
 
-    <div style={{ display: "none" }}>
-      <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
-    </div>
-  </GoogleOAuthProvider>
+              <div style={{ display: "none" }}>
+                <GoogleLogin
+                  onSuccess={handleSuccess}
+                  onError={handleFailure}
+                />
+              </div>
+            </GoogleOAuthProvider>
 
-  <br />
+            <br />
 
-  <Button
-  variant="contained"
-  className="linkedin-btn"
-  startIcon={<img src={linkedinimg} alt="LinkedIn Icon" className="btn-icon-small" />}
-  component="a"
-  href="https://www.linkedin.com/feed/"
-  sx={{ fontSize: "14px" }} // Decrease font size
->
-  Sign in with LinkedIn
-</Button>
-
-</div>
-<div className="registerContgl">
-  <p className="registerContglp">
-    By clicking “Continue with Google/LinkedIn” or “Create Account”, you agree to Website’s  
-    <a href="#" className="registerContglblue-text"> Terms & Conditions</a>
-    <a href="#" className="registerContglblack-text"> and</a>
-    <a href="#" className="registerContglblue-text"> Privacy Policy</a>.
-  </p>
-</div>
-
+            <Button
+              variant="contained"
+              className="linkedin-btn"
+              startIcon={
+                <img
+                  src={linkedinimg}
+                  alt="LinkedIn Icon"
+                  className="btn-icon-small"
+                />
+              }
+              component="a"
+              href="https://www.linkedin.com/feed/"
+              sx={{ fontSize: "14px" }} // Decrease font size
+            >
+              Sign in with LinkedIn
+            </Button>
+          </div>
+          <div className="registerContgl">
+            <p className="registerContglp">
+              By clicking “Continue with Google/LinkedIn” or “Create Account”,
+              you agree to Website’s
+              <a href="#" className="registerContglblue-text">
+                {" "}
+                Terms & Conditions
+              </a>
+              <a href="#" className="registerContglblack-text">
+                {" "}
+                and
+              </a>
+              <a href="#" className="registerContglblue-text">
+                {" "}
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </div>
 
           <div className="register-link">
             <p className="register-linkp">
-              Don't have an account? <a href="#" onClick={handleRegisterClick}>Register</a>
+              Don't have an account?{" "}
+              <a href="#" onClick={handleRegisterClick}>
+                Register
+              </a>
             </p>
           </div>
         </div>
