@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./PortfolioAccountStock.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,47 +8,20 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
 import Cookies from 'js-cookie';
+import { API_BASE_URL } from "../../config";
+
+import { PortfolioContext } from "./context/PortfolioContext";
 
 const PortfolioAccountStock = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [expandedRows, setExpandedRows] = useState(() => ({}));
-  const [transactions, setTransactions] = useState(() => []);
+  const { transactions, setTransactions } = useContext(PortfolioContext);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
-  const [loading, setLoading] = useState(true)
 
-  const fetchStocks = async () => {
-    const token = Cookies.get("jwtToken");
-    if (!token) {
-      alert("Session expired, Please Login again");
-      navigate("/login");
-      return;
-    }
-  
-    try {
-      const res = await fetch("/myportfolio/transactions", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-  
-      if (!res.ok) throw new Error("Failed to fetch data");
-  
-      const data = await res.json();
-      setTransactions(data);
-      console.log(data)
-    } catch (error) {
-      console.error("Error fetching transactions:", error);
-    }
-  };
-  
-  useEffect(() => {
-    fetchStocks();
-  }, []);
 
   const handleEdit = (transaction) => {
     navigate("/stockupdate", { state: { transaction } });
@@ -63,7 +36,7 @@ const PortfolioAccountStock = () => {
     if (!transactionToDelete) return;
     
     try {
-      await fetch(`/myportfolio/transactions/${transactionToDelete.id}`, {
+      await fetch(`${API_BASE_URL}/myportfolio/transactions/${transactionToDelete.id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${Cookies.get("jwtToken")}` },
       });
@@ -196,25 +169,12 @@ const PortfolioAccountStock = () => {
 
                 {/* Expanded Subcategory Row */}
                 {expandedRows[transaction.stock_name] && (
+
+                  
                   <tr>
                     <td colSpan="8" className="subcategory-row">
                       <table className="subcategory-table">
                         <thead>
-                          <tr>
-                            {[
-                              { path: "/portfoliostockaccount", label: "Transaction History" },
-                              { path: "/overview", label: "Overview" },
-                              { path: "/accountfund", label: "Fundamentals" },
-                              { path: "/accountalert", label: "Alerts" },
-                              { path: "/accountreturn", label: "Returns" }
-                            ].map((link, idx) => (
-                              <th key={idx} className="hover-effect" style={{ backgroundColor: "white", color: "black", textAlign: "center", borderRight: idx !== 4 ? "1px solid #ccc" : "none", padding: "10px" }}>
-                                <Link to={link.path} style={{ textDecoration: "none", color: "black" }}>
-                                  {link.label}
-                                </Link>
-                              </th>
-                            ))}
-                          </tr>
                           <tr>
                             <th>Date</th>
                             <th>Type</th>

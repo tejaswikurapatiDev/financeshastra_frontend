@@ -234,10 +234,13 @@ import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Port
 import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
 import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
 
+//Context
+ 
 
 
 import {Provider} from "react-redux";
 import { store } from "./Store/store";
+import { PortfolioProvider } from "./Portfoilo/PortfolioAccountStock/context/PortfolioContext";
 
 function App() {
   return (
@@ -259,17 +262,55 @@ function App() {
         <Route path="/niftystock" element={<NiftyStocks />} />
         <Route path="/highgrowth" element={<Highstock />} />
         <Route path="/beststock" element={<Beststock />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+        <Route 
+          path="/portfolio" 
+          element={
+            <Portfolio />
+          } 
+        />
+        
         <Route path="/portfoliostock" element={<NetWorthStocksDashboard />} />
         <Route path="/portfoliodonut" element={<Portfoliodonut />} />
         <Route
           path="/portfoliostockaccount"
-          element={<PortfolioAccountStock />}
+          element={
+          <PortfolioProvider>
+            <PortfolioAccountStock />
+          </PortfolioProvider>
+        }
         />
-        <Route path="/accountfund" element={<AccountStockfundamental />} />
-        <Route path="/accountalert" element={<AccountStockalert />} />
-        <Route path="/accountreturn" element={<AccountStockreturn />} />
-        <Route path="/overview" element={<OverviewPortfolioManager />} />
+        <Route 
+          path="/accountfund" 
+          element={
+            <PortfolioProvider>
+              <AccountStockfundamental />
+            </PortfolioProvider>
+          } 
+        />
+        <Route 
+          path="/accountalert" 
+          element={
+            <PortfolioProvider>
+                <AccountStockalert />
+            </PortfolioProvider>
+          } 
+        />
+        <Route 
+          path="/accountreturn" 
+          element={
+            <PortfolioProvider>
+              <AccountStockreturn />
+            </PortfolioProvider>
+          } 
+        />
+        <Route 
+          path="/overview" 
+          element={
+            <PortfolioProvider>
+              <OverviewPortfolioManager />
+            </PortfolioProvider>
+          } 
+        />
         <Route path="/stocksector" element={<PortfolioStocksector />} />
         <Route path="/stockmcap" element={<PortfolioStockmcap />} />
         <Route path="/stockadd" element={<AddTransactionstock />} />

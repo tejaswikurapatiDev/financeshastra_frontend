@@ -12,6 +12,7 @@ import logo from "./../assest/Logo design (1).png";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import './Login.css'
 import { height } from "@mui/system";
+import { API_BASE_URL } from "../config";
 
 const override = {
   display: "block",
@@ -68,7 +69,7 @@ const handleSubmit = async (e) => {
 
   if (!isForgotPassword) {
     try {
-      const url = `/users/signin`;
+      const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
         headers: {
@@ -196,7 +197,7 @@ const handleSubmit = async (e) => {
     const token = response.credential;
  
     try {
-      const res = await fetch(`/users/auth/google`, {
+      const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),

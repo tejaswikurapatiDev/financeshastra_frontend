@@ -11,6 +11,7 @@ import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import googleimg from '../assest/googleicon.svg';
 import linkedinimg from '../assest/lin.png'
 import logo from "../assest/Logo design (1).png";
+import { API_BASE_URL } from "../config";
 
 
 
@@ -70,7 +71,7 @@ function Register() {
     }
 
     if (isValid) {
-      const url= `/users/register`
+      const url= `${API_BASE_URL}/users/register`
       const options= {
         method: 'POST',
         headers: {
@@ -118,7 +119,7 @@ function Register() {
     const token = response.credential;
  
     try {
-      const res = await fetch("http://localhost:3001/auth/google", {
+      const res = await fetch(`${API_BASE_URL}/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
