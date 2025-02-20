@@ -242,6 +242,10 @@ import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanaly
 import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
 import {Provider} from "react-redux";
 import { store } from "./Store/store";
+import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
+import Logindarkmode from "./Darkmode/Logindarkmode/Logindarkmode";
+import Registerdarkmode from "./Darkmode/Registerdarkmode/Registerdarkmode";
+import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpassworddarkmode";
 
 
 
@@ -499,8 +503,11 @@ function App() {
       <Route path="/portfoliobonuscall" element={<Portfoliobonuscall/>}/>
       <Route path="/portfoliosplitcall" element={<Portfoliosplitcall/>}/>
       <Route path="/portfolioanalysisrightscall" element={<Portfolioanalysisrightscall/>}/>
-      <Route path="/portfolioAGMcall" element={<PortfolioAGMcall/>}/>
-      
+      <Route path="/portfolioAGMcall" element={<PortfolioAGMcall/>}/> 
+      <Route path="/forgotresetpassword" element={<Forgotresetpassword/>}/>
+      <Route path="/logindarkmode" element={<Logindarkmode/>}/>
+      <Route path="/registerdarkmode" element={<Registerdarkmode/>}/>
+      <Route path="/forgetpassworddarkmode" element={<Forgetpassworddarkmode/>}/>
       
 
      

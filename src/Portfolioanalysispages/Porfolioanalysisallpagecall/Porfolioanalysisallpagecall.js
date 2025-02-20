@@ -12,7 +12,7 @@ import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/Perfor
 
 function Porfolioanalysisallpagecall() {
   return (
-    <div className='allpagecallanalysis'>
+    <div>
         <Portfolioanalyticchart/>
         <StockTracker/>
         <PortfolioAnalysisCorporatePage/>

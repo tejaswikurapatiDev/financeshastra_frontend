@@ -44,14 +44,15 @@ const PortfolioAnalysisSpeedometer = () => {
       <div className="speedometer-gauge">
         <svg viewBox="0 -10 200 120" width="100%" height="100%">
           <defs>
-            <linearGradient id="gradient" x1="0%" y1="0%" x2="110%" y2="0%">
-              <stop offset="20%" style={{ stopColor: "#F82307" }} />
-              <stop offset="25%" style={{ stopColor: "#97959D" }} />
-              <stop offset="49%" style={{ stopColor: "#898989" }} />
-              <stop offset="61%" style={{ stopColor: "#898989" }} />
-              <stop offset="75%" style={{ stopColor: "#42DC99" }} />
-              <stop offset="100%" style={{ stopColor: "#069455" }} />
-            </linearGradient>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="110%" y2="0%">
+  <stop offset="10%" style={{ stopColor: "#F82307" }} />  {/* Deep Red - Strong Sell */}
+  <stop offset="14%" style={{ stopColor: "#f48f8f" }} />  {/* Lighter Red - Sell */}
+  <stop offset="50%" style={{ stopColor: "rgb(138, 136, 136)" }} />  {/* Gray - Neutral */}
+  <stop offset="70%" style={{ stopColor: "#A0E6A0" }} />  {/* Light Green - Buy */}
+  <stop offset="100%" style={{ stopColor: "#069459" }} /> {/* Deep Green - Strong Buy */}
+</linearGradient>
+
+
           </defs>
 
           {/* Arc Path */}

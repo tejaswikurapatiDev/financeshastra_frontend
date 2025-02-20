@@ -1,52 +1,56 @@
 /* Global font application */
-.login-container, .login-left, .login-left h1, .login-left p, 
-.login-right, .login-box, .login-box h2, .input-container label, 
-.input-container input, .login-options a, .sign-in-btn, .google-login, 
-.linkedin-login, .register-link a, .error-text, .toggle-password , .cancel-btn , .forgot-password-link{
+.login-containerdarkmode, .login-leftdarkmode, .login-leftdarkmode h1, .login-leftdarkmode p, 
+.login-rightdarkmode, .login-boxdarkmode, .login-boxdarkmode h2, .input-containerdarkmode label, 
+.input-containerdarkmode input, .login-optionsdarkmode a, .sign-in-btndarkmode, .google-logindarkmode, 
+.linkedin-logindarkmode, .register-linkdarkmode a, .error-textdarkmode, .toggle-passworddarkmode , .cancel-btndarkmode , .forgot-password-linkdarkmode{
   font-family: 'calibri';
   overflow-y: hidden;
 
-  
-
-}
-.login-container{
-  background-color:#f8f6f6e8;
+  background-color: #292F42;
  
+
 }
 
-.login-container {
+.login-containerdarkmode {
   display: flex;
-
+width: 120%;
   align-items: stretch; /* Ensures both sections stretch equally */
   overflow-x: hidden;
+  overflow-y: hidden;
+
+ background-color: #292F42;
+ margin-left: -8px;
+ margin-top: -8px;
+ margin-bottom: -30px;
+
  
 
 }
-.login-left {
+.login-leftdarkmode {
   flex: 1; /* Increase flex ratio to make it wider */
     display: flex;
     flex-direction: column;
     background-image: 
-    url('../assest/loginimg.JPG'); 
+    url('../../assest/logindarkimg.png'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #F2F2FF; /* Fallback color */
+    background-color: #292F42; /* Fallback color */
     min-width: 57%; /* Ensure it takes more space */
 
     height: 105vh;
     padding-top: 10px; /* Prevent cropping */
 
 }
-.logoforgt {
+.logoforgtdarkmode {
   display: block; /* Ensures proper spacing */
   max-width: 240px; /* Adjust size as needed */
   width: 100%; /* Responsive scaling */
   height: auto; /* Maintain aspect ratio */
-  background-color:#f8f6f6;
+  background-color: #292F42;
   margin-top: -10px;
 }
-.login-or {
+.login-ordarkmode {
   display: flex;
   align-items: center;
   justify-content: center; /* Ensures full center alignment */
@@ -56,11 +60,11 @@
   font-size: 12px;
   width: 100%; /* Ensures it spans the full width of the container */
   margin-bottom: -10px;
-  margin-top: -10px;
+  margin-top: 10px;
 }
 
-.login-or::before,
-.login-or::after {
+.login-ordarkmode::before,
+.login-ordarkmode::after {
   content: "";
   flex: 0.3; /* Adjusts the length of the lines */
   height: 1px;
@@ -68,7 +72,7 @@
   margin: 0 10px; /* Adjust spacing */
 }
 
-.sociall-login {
+.sociall-logindarkmode {
   display: flex;
   align-items: center;
   justify-content: center; /* Centers the buttons */
@@ -76,81 +80,78 @@
   flex-wrap: wrap; /* Ensures responsiveness */
 }
 
-.login-left h1 {
+.login-leftdarkmode h1 {
   font-size: 2.5rem;
   color: #24bc76;
   margin-top: 100px;
 }
 
-.login-left p {
+.login-leftdarkmode p {
   font-size: 1.5rem;
   color: #0349a8;
   font-weight: bolder;
 }
 
-.login-right {
-  flex: 1;
-  background-color: #f8f6f6;
-  background-color: #f8f6f6;
-  display: flex;
-
-
-  align-items: center;
-  padding: 10px; /* Reduce internal spacing */
-  margin: 0; /* Ensure no extra margin */
-  min-width: 50%; /* Adjust width if needed */
-}
-
+.login-rightdarkmode {
+    flex: 1;
+    background: linear-gradient(to right, #292F42, #3B3F4F); /* Dark Blue Gradient */
+    display: flex;
+    align-items: center;
+   
+    margin: 0; /* Ensure no extra margin */
+    min-width: 50%; /* Adjust width if needed */
+    margin-right: 10px;
+  }
+  
 
 
 
-.login-box {
+.login-boxdarkmode {
   width: 70%;
   width: 70%;
   max-width: 400px;
   padding: 30px;
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   text-align: center;
   border-radius: 20px; /* Added border-radius for rounded corners */
   overflow: hidden; /* Hides any overflowing content */
   height: 57%;
-  background-color: #ffff;
+  background-color: #292F42;
 }
 
 
-.h2loginpage {
-  color: #898989;
-  font-weight: bold;
-  font-size: 27px;
-  text-align: left;
-  margin-top: -10px;
-  margin-left: 35px;
-}
+.h2loginpagedarkmode {
+    background: linear-gradient(to right, #24b676, #238486); /* Green to Teal */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
+    font-weight: bold;
+    font-size: 27px;
+    text-align: left;
+    margin-top: -10px;
+    margin-left: 35px;
+  }
+  
 
 
 
-.input-container {
+.input-containerdarkmode {
   margin-bottom: 20px;
   text-align: left;
 }
 
-.input-container label {
+.input-containerdarkmode label {
   display: block;
   margin-bottom: 5px;
-  color: #111111;
-  font-weight: bold;
-  font-size: 14px;
-  margin-left: 40px;
-  margin-top: -10px;
-  color: #111111;
+  color: #ffff;
   font-weight: bold;
   font-size: 14px;
   margin-left: 40px;
   margin-top: -10px;
 }
 
-.input-container input {
+.input-containerdarkmode input {
   width: 80%;
   padding: 8px;
   font-size: 14px;
@@ -164,63 +165,42 @@
   margin-left: 40px;
 }
 
-.login-options {
+.login-optionsdarkmode {
   display: flex;
 gap: 100px;
  
 }
-.loginpagepara {
-  color: #111111;
+.loginpageparadarkmode {
+  color: #ffff;
   font-size: 12px;
   margin-top: 0px;
 }
 
 
-.loginpagepara {
-  color: #111111;
-  font-size: 12px;
-  margin-top: 0px;
-}
 
-.signinall{
+
+.signinalldarkmode{
   display: flex;
   gap: 3px;
   gap: 3px;
 }
-.allsignall {
+.allsignalldarkmode {
   margin-top: -1px;
   margin-left: 35px;
 }
-.allsignall {
+.allsignalldarkmode {
   margin-top: -1px;
   margin-left: 35px;
 }
 
-.forgotpasswordlink {
-  color: #0349A8;
-}
-.forgotpasswordlink {
-  color: #0349A8;
+.forgotpasswordlinkdarkmode {
+  color: #24b676;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
   padding-top: -30px; /* Moves the link down */
   display: inline-block; /* Ensures spacing applies */
   margin-left: 40px;
-}
-
-.signinall{
-  display: flex;
-  gap: 3px;
-}
-.allsignall {
-  margin-top: -1px;
-  margin-left: 35px;
-}
-
-.forgotpasswordlink {
-  color: #0349A8;
-  text-decoration: none;
   font-size: 12px;
   font-weight: 600;
   padding-top: -30px; /* Moves the link down */
@@ -232,7 +212,7 @@ gap: 100px;
 
 
 
-.sign-in-btn {
+.sign-in-btndarkmode {
   width: 80%;
   padding: 10px;
   background-color: #CECECE;
@@ -245,7 +225,7 @@ gap: 100px;
   font-weight: bold;
   
 }
-.sign-in-btn:hover {
+.sign-in-btndarkmode:hover {
   background-color: #24b676;
   color: #fff;
   cursor: pointer;
@@ -255,8 +235,8 @@ gap: 100px;
 
 }
 
-.google-login,
-.linkedin-login {
+.google-logindarkmode,
+.linkedin-logindarkmode {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -265,68 +245,68 @@ gap: 100px;
   cursor: pointer;
 }
 
-.google-login {
+.google-logindarkmode {
   background-color: #0077b5;
   color: white;
 
 }
 
-.linkedin-login {
+.linkedin-logindarkmode {
   background-color: #0077b5;
   color: white;
 }
 
-.google-login .linkedin-login {
+.google-logindarkmode .linkedin-logindarkmode {
   font-size: 15px;
 }
 
-.google-login svg, .linkedin-login svg {
+.google-logindarkmode svg, .linkedin-logindarkmode svg {
   height: 5%;
   width: 5%;
 }
 
-.register-link {
+.register-linkdarkmode {
   margin-top: 10px;
 }
 
-.register-link a {
-  color: #0349A8;
+.register-linkdarkmode a {
+  color: #24b676;
   text-decoration: none;
   font-weight: bold;
   font-size: 13px;
 }
-.register-linkp{
+.register-linkpdarkmode{
   font-size: 13px;
   font-weight: 500;
-  color: #111111;
+  color: #ffff;
 }
-.input-error {
+.input-errordarkmode {
   border: 1px solid red;
 }
 
-.error-text {
+.error-textdarkmode {
   color: red;
   font-size: 0.9rem;
   margin-top: 5px;
 }
 
-.login-right {
+.login-rightdarkmode {
   position: relative;
 
 }
 
-.logo-container {
+.logo-containerdarkmode {
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-.logo {
+.logodarkmode {
   width: 250px;
   height: auto;
 }
 
-.Google-btn {
+.Google-btndarkmode {
   color: black;
   background-color: white;
   border-radius: 10px;
@@ -338,13 +318,13 @@ gap: 100px;
 
 }
 
-.password-field {
+.password-fielddarkmode {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.password-field input {
+.password-fielddarkmode input {
   width: 80%;
   padding: 8px;
   font-size: 14px;
@@ -359,7 +339,7 @@ gap: 100px;
   margin-left: 40px;
 }
 
-.toggle-password {
+.toggle-passworddarkmode {
   position: absolute;
   right: 50px;
   right: 50px;
@@ -369,11 +349,11 @@ gap: 100px;
   transition: color 0.2s ease;
 }
 
-.toggle-password:hover {
+.toggle-passworddarkmode:hover {
   color: #555;
 }
 
-.cancel-btn{
+.cancel-btndarkmode{
   width: 20%;
   padding: 12px;
   background-color: #028744;
@@ -384,19 +364,19 @@ gap: 100px;
  
 }
 
-.forgot-password-link {
+.forgot-password-linkdarkmode {
   color: #0349A8; /* Link color */
   color: #0349A8; /* Link color */
   cursor: pointer;
   text-decoration: none !important;
   margin-top: -10px;
 }
-.sociall-login .google-btn, 
-.sociall-login .linkedin-btn {
+.sociall-logindarkmode .google-btndarkmode, 
+.sociall-logindarkmode .linkedin-btndarkmode {
   width: 35%;
   height: 40px;
-  background-color: white !important;  /* Added !important */
-  color: #333 !important;
+  background-color: #292F42 !important;  /* Added !important */
+  color: #ffff !important;
   border-radius: 8px;
   text-transform: none;
   display: flex;
@@ -410,32 +390,32 @@ gap: 100px;
   font-size: 10px;
   cursor: pointer;
 }
-.btn-icon-small {
+.btn-icon-smalldarkmode {
   width: 18px; /* Decreased image size */
   height: 18px;
 }
-.registerContgl {
+.registerContgldarkmode {
   width: 65%; /* Decreased width */
   margin: auto;
   text-align: center;
   line-height: 18px;
 }
 
-.registerContgl {
+.registerContgldarkmode {
   font-size: 13px;
-  color: #111111;
+  color: #ffff;
   font-weight: 500;
 }
 
-.registerContglblue-text {
-  color: #0349A8;
+.registerContglblue-textdarkmode {
+  color: #24b676;
   text-decoration: none;
   font-weight: 500;
   
 }
 
-.registerContglblack-text {
-  color: black;
+.registerContglblack-textdarkmode {
+  color: #ffff;
   text-decoration: none;
   font-weight: 500;
 }
@@ -460,8 +440,8 @@ gap: 100px;
   }
   
   .login-box {
-    width: 150%;
- 
+    width: 90%;
+    max-width: 350px;
     height: auto;
     padding: 20px;
   }

@@ -92,7 +92,14 @@ const Portfolioanalyticchart = () => {
   };
 
   return (
+    <div>
+      <div className="aallportfolio">
+      <h3>Portfolio Analysis Tool</h3>
+      <p>The Portfolio Analysis tool provides investors with insights into the performance of their holdings,
+         dividends declared, and access to research reports for individual stocks. Additionally, within the Research Report section,
+         investors can access the latest brokerage recommendations tailored to their portfolio holdings.</p></div>
     <div className="portfolioanalysisallchart">
+      
       <div className="portfolio-cardanalysisssmainchart">
         {/* Portfolio Summary */}
         <div className="mainchartanalysisss">
@@ -178,6 +185,7 @@ const Portfolioanalyticchart = () => {
       <div>
  <PortfolioHoldingPage/>
  </div>
+      </div>
       </div>
  
   );
