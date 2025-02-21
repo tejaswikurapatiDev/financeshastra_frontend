@@ -169,8 +169,32 @@ const PortfolioAccountStock = () => {
 
                 {/* Expanded Subcategory Row */}
                 {expandedRows[transaction.stock_name] && (
-
-                  
+                  <>
+                    <tr>
+                            <td colSpan="8" className="subcategory-row">
+                              <table className="subcategory-table">
+                                <thead>
+                                  <tr>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/portfoliostockaccount" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>Fundamentals</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>Alerts</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', padding: '10px' }}>
+                                      <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>Returns</Link>
+                                    </th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </td>
+                          </tr>
                   <tr>
                     <td colSpan="8" className="subcategory-row">
                       <table className="subcategory-table">
@@ -216,6 +240,7 @@ const PortfolioAccountStock = () => {
                       </table>
                     </td>
                   </tr>
+                  </>
                 )}
               </React.Fragment>
             ))}
