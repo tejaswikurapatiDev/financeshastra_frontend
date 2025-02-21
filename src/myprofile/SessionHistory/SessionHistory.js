@@ -4,7 +4,7 @@ import systemimg from "../../assest/comp.svg";
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
+import { API_BASE_URL } from "../../config.js";
 
 const SessionHistory = () => {
   const navigate = useNavigate();
@@ -13,17 +13,16 @@ const SessionHistory = () => {
   const [error, setError] = useState(null);
   const token = Cookies.get("jwtToken");
 
-  // console.log("User ID:", decoded.userId);
-  const decoded = jwtDecode(token);
-  const userId = decoded.userId;
-
   const getLogeinDevices = async () => {
     setLoading(true);
     try {
-      if (!userId) throw new Error("User ID is missing!");
-      const response = await fetch(
-        `http://localhost:3000/users/devices/${userId}`
-      );
+      if (!token) throw new Error("User ID is missing!");
+      const response = await fetch(`${API_BASE_URL}/users/devices`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
       if (!response.ok) {
         throw new Error("Faild to fetch devices");
       }
@@ -46,14 +45,17 @@ const SessionHistory = () => {
   //api call for end session
   const endDeviceSession = async (device_id) => {
     try {
-      const response = await fetch("http://localhost:3000/users/end-session", {
+      const response = await fetch(`${API_BASE_URL}/users/end-session`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userId, device_id }),
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ device_id }),
       });
 
       if (!response.ok) {
-        throw new Error("Faild to end session");
+        throw new Error("Failed to end session");
       }
 
       const data = await response.json();
@@ -61,7 +63,6 @@ const SessionHistory = () => {
       // console.log(data);
       if (data?.success) {
         alert(data?.message);
-        // Cookies.remove("jwtToken");
         navigate("/login");
       }
       // update the state after ending device
@@ -174,10 +175,10 @@ const SessionHistory = () => {
                   <p>
                     {session.device_name} · {session.status}{" "}
                     {formatDate(session.login_time)}{" "}
-                    <span style={{ color: "red" }}>Logout Time :</span>
-                    {session.logout_time
-                      ? formatDate(session.logout_time)
-                      : "Online"}
+                    <span style={{ color: "red" }}>
+                      {session.logout_time ? `Logout Time` : ""}
+                    </span>
+                    {session.logout_time ? formatDate(session.logout_time) : ""}
                   </p>
                 </div>
               </div>
@@ -196,7 +197,7 @@ const SessionHistory = () => {
                     endDeviceSession(session.device_id);
                   }}
                 >
-                  End session
+                  {session.is_active ? "End session" : "Session is Expire"}
                 </button>
               </div>
             </div>

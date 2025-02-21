@@ -48,41 +48,46 @@ function Login() {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
+  
     if (!validateEmail(email)) {
       setEmailError("Invalid email format");
       return;
     }
-
+  
     if (!validatePassword(password)) {
       setPasswordError(
         "Password must be 8+ characters, include an uppercase letter, a number, and a special character."
       );
       return;
     }
-
+  
     setIsLoading(true);
+  
     try {
       const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      });
-
+      };
+  
+      const response = await fetch(url, options);
+  
       if (!response.ok) {
-        throw new Error("Login Faild");
+        throw new Error("Login Failed");
       }
+  
       const data = await response.json();
-      const { jwtToken } = data;
+      const { jwtToken, user } = data;
+  
       console.log(data);
-      // localStorage.setItem(
-      //   "authData",
-      //   JSON.stringify({ token: jwtToken, user })
-      // );
+  
+      // localStorage.setItem("authData", JSON.stringify({ token: jwtToken, user }));
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
       });
+  
       navigate("/home");
     } catch (error) {
       console.error("Error during login:", error);
