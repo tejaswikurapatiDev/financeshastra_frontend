@@ -252,6 +252,7 @@ import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpass
 import {Provider} from "react-redux";
 import { store } from "./Store/store";
 import { PortfolioProvider } from "./Portfoilo/PortfolioAccountStock/context/PortfolioContext";
+import { MutualPortfolioProvider } from "./Portfoilo/Mutualtransaction/context/MutualContext";
 
 function App() {
   return (
@@ -327,7 +328,14 @@ function App() {
       <Route path="/mutualsector" element={<Mutualsector/>} />
       <Route path="/mutualnone" element={<Mutualnone/>} />
       <Route path="/mutualtype" element={<Mutualtypefund/>} />
-      <Route path="/mutualaccount" element={<MutualAccountStock/>} />
+      <Route 
+        path="/mutualaccount" 
+        element={
+          <MutualPortfolioProvider>
+            <MutualAccountStock/>
+          </MutualPortfolioProvider>
+        }
+      />
       <Route path="/mutualoverview" element={<OverviewMutual/>} />
       <Route path="/accountperformance" element={<Accountmutualperformance/>} />
       <Route path="/stockwatchlist" element={<StockWatchlist/>} />

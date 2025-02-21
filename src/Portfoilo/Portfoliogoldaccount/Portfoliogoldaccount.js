@@ -181,45 +181,45 @@ const Portfoliogoldaccount = () => {
 
             {/* Subcategory Row */}
             {isDropdownOpen && (
+              <>
+                              <tr>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link
+                  to="/portfoliogoldtoppage"
+                  style={{ textDecoration: 'none', color: 'black' }}
+                >
+                  Transaction History
+                </Link>
+              </th>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link to="/overviewPortfolioManager" style={{ textDecoration: 'none', color: 'black' }}>
+                  Overview
+                </Link>
+              </th>
+             
+            </tr>
               <tr>
                 <td colSpan="8" className="subcategory-row">
                   <table className="subcategory-table">
                     <thead>
-                        
-<tr>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link
-      to="/portfoliogoldtoppage"
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      Transaction History
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/overviewPortfolioManager" style={{ textDecoration: 'none', color: 'black' }}>
-      Overview
-    </Link>
-  </th>
- 
-</tr>
                       <tr>
                         <th>Date</th>
                         <th>Type</th>
@@ -263,7 +263,7 @@ const Portfoliogoldaccount = () => {
                   </table>
                 </td>
               </tr>
-            
+              </>
             )}
                <tr className="table-total">
                <td>Total</td>

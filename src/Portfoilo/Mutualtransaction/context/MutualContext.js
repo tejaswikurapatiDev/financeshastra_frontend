@@ -3,10 +3,10 @@ import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../../config";
 
 // Create the context
-export const PortfolioContext = createContext();
+export const MutualContext = createContext();
 
 // Provider Component
-export const PortfolioProvider = ({ children }) => {
+export const MutualPortfolioProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   // Fetch transactions data
@@ -18,7 +18,7 @@ export const PortfolioProvider = ({ children }) => {
     }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/myportfolio/stocksTransactions`, {
+      const res = await fetch(`${API_BASE_URL}/myportfolio/mutualTransactions`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -39,8 +39,8 @@ export const PortfolioProvider = ({ children }) => {
   }, []);
 
   return (
-    <PortfolioContext.Provider value={{ transactions, setTransactions, fetchStocks }}>
+    <MutualContext.Provider value={{ transactions, setTransactions, fetchStocks }}>
       {children}
-    </PortfolioContext.Provider>
+    </MutualContext.Provider>
   );
 };

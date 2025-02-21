@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,39 +8,18 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import Navbar from "../../Navbar/Navbar";
 import Mutualportfoliodonut from "../Mutualportfoliodonut/Mutualportfoliodonut";
+import { MutualContext } from "./context/MutualContext";
 
 const MutualAccountStock = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const {transactions, setTransactions } = useContext(MutualContext)
+
   // State management
   const [isDropdownOpen, setIsDropdownOpen] = useState(
     location.pathname === "/portfoliostockaccount"
   );
-  const [transactions, setTransactions] = useState([
-    {
-      id: 1,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-    {
-      id: 2,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-  ]);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
@@ -151,7 +130,9 @@ const MutualAccountStock = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {transactions.map((transaction, index) => (
+              <React.Fragment>
+                <tr>
               <td className="stock-name">
                 <span className="dropdown-icon" onClick={toggleDropdown}>
                   <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
@@ -263,6 +244,8 @@ const MutualAccountStock = () => {
                 </td>
               </tr>
             )}
+              </React.Fragment>
+            ))}
           </tbody>
         </table>
 
