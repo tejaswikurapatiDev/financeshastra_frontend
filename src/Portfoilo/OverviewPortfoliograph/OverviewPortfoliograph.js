@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
-import { PortfolioContext } from "../PortfolioAccountStock/context/PortfolioContext";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 // Register required Chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, Tooltip, Legend);
@@ -17,7 +17,7 @@ ChartJS.register(LineElement, CategoryScale, LinearScale, Tooltip, Legend);
 const OverviewPortfolioManager = () => {
   const location = useLocation();
 
-  const {transactions, setTransactions} = useContext(PortfolioContext)
+  const {stockTransactions} = useContext(PortfolioStocksContext)
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(
     location.pathname === "/portfoliostockaccount"
@@ -166,7 +166,7 @@ const OverviewPortfolioManager = () => {
         </thead>
         <tbody>
           {/* Main Row */}
-          {transactions.map((transaction, index) => (
+          {stockTransactions.map((transaction, index) => (
                       <React.Fragment key = {index}>
                       <tr>
                         <td className="stock-name">

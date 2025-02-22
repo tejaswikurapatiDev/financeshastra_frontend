@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
 
-import { PortfolioContext } from "../PortfolioAccountStock/context/PortfolioContext";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 
 const AccountStockfundamental = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {transactions, setTransacctions} = useContext(PortfolioContext)
+  const {stockTransactions} = useContext(PortfolioStocksContext)
 
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(
@@ -93,7 +93,7 @@ const AccountStockfundamental = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction, index) => (
+          {stockTransactions.map((transaction, index) => (
                       <React.Fragment key={index}>
                       <tr>
                         <td className="stock-name">

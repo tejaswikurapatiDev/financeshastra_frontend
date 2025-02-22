@@ -251,8 +251,9 @@ import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpass
 
 import {Provider} from "react-redux";
 import { store } from "./Store/store";
-import { PortfolioProvider } from "./Portfoilo/PortfolioAccountStock/context/PortfolioContext";
-import { MutualPortfolioProvider } from "./Portfoilo/Mutualtransaction/context/MutualContext";
+import { PortfolioStockProvider } from "./Portfoilo/context/PortfolioStocksContext";
+import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsContext";
+import {PortfolioDashboardProvider} from "./Portfoilo/context/PortfolioDashboardContext"
 
 function App() {
   return (
@@ -277,47 +278,58 @@ function App() {
       <Route 
           path="/portfolio" 
           element={
-            <Portfolio/>
+            <PortfolioDashboardProvider>
+              <Portfolio/>
+            </PortfolioDashboardProvider>
           } 
         />
         
-      <Route path="/portfoliostock" element={<NetWorthStocksDashboard/>} />
+      <Route 
+      path="/portfoliostock" 
+      element={
+        <PortfolioDashboardProvider>
+          <NetWorthStocksDashboard/>
+        </PortfolioDashboardProvider>
+        } 
+        />
       <Route path="/portfoliodonut" element={<Portfoliodonut/>} />
      <Route path="/portfoliostockaccount" element={
-          <PortfolioProvider>
-            <PortfolioAccountStock/>
-          </PortfolioProvider>
+          <PortfolioDashboardProvider>
+            <PortfolioStockProvider>
+              <PortfolioAccountStock/>
+            </PortfolioStockProvider>
+          </PortfolioDashboardProvider>
         } />
       <Route 
           path="/accountfund" 
           element={
-            <PortfolioProvider>
+            <PortfolioStockProvider>
               <AccountStockfundamental/>
-            </PortfolioProvider>
+            </PortfolioStockProvider>
           } 
         />
       <Route 
           path="/accountalert" 
           element={
-            <PortfolioProvider>
+            <PortfolioStockProvider>
                 <AccountStockalert/>
-            </PortfolioProvider>
+            </PortfolioStockProvider>
           } 
         />
       <Route 
           path="/accountreturn" 
           element={
-            <PortfolioProvider>
+            <PortfolioStockProvider>
               <AccountStockreturn/>
-            </PortfolioProvider>
+            </PortfolioStockProvider>
           } 
         />
       <Route 
           path="/overview" 
           element={
-            <PortfolioProvider>
+            <PortfolioStockProvider>
               <OverviewPortfolioManager/>
-            </PortfolioProvider>
+            </PortfolioStockProvider>
           } 
         />
       <Route path="/stocksector" element={<PortfolioStocksector/>} />
@@ -331,12 +343,19 @@ function App() {
       <Route 
         path="/mutualaccount" 
         element={
-          <MutualPortfolioProvider>
+          <PortfolioMutualsProvider>
             <MutualAccountStock/>
-          </MutualPortfolioProvider>
+          </PortfolioMutualsProvider>
         }
       />
-      <Route path="/mutualoverview" element={<OverviewMutual/>} />
+      <Route 
+        path="/mutualoverview" 
+        element={
+          <PortfolioMutualsProvider>
+            <OverviewMutual/>
+          </PortfolioMutualsProvider>
+        } 
+      />
       <Route path="/accountperformance" element={<Accountmutualperformance/>} />
       <Route path="/stockwatchlist" element={<StockWatchlist/>} />
       <Route path="/stockwatchlistsector" element={<StockWatchsectorlist/>} />

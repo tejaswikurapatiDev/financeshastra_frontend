@@ -5,12 +5,12 @@ import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-
 import {useNavigate, Link, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from '../../Navbar/Navbar';
-import { PortfolioContext } from "../PortfolioAccountStock/context/PortfolioContext";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 const AccountStockreturn = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const {transactions, setTransactions} = useContext(PortfolioContext)
+  const {stockTransactions, setTransactions} = useContext(PortfolioStocksContext)
   const [expandedRows, setExpandedRows] = useState(() => ({}));
 
   const [showPopup, setShowPopup] = useState(false);
@@ -94,7 +94,7 @@ const AccountStockreturn = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction, index) => (
+          {stockTransactions.map((transaction, index) => (
             <React.Fragment key={index}>
               <tr>
                 <td className="stock-name">

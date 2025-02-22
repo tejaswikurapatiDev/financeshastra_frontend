@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import {useNavigate, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
-import { PortfolioContext } from "../PortfolioAccountStock/context/PortfolioContext";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 
 const AccountStockalert = () => {
@@ -14,7 +14,7 @@ const AccountStockalert = () => {
   const navigate = useNavigate();
 
   const [expandedRows, setExpandedRows] = useState(() => ({}));
-  const {transactions, setTransaction} = useContext(PortfolioContext)
+  const {stockTransactions} = useContext(PortfolioStocksContext)
 
   // State for dropdown toggle
   const [isDropdownOpen, setIsDropdownOpen] = useState(
@@ -98,7 +98,7 @@ const AccountStockalert = () => {
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction, index) => (
+          {stockTransactions.map((transaction, index) => (
                       <React.Fragment key={index}>
                       {/* Main Row */}
                       <tr>

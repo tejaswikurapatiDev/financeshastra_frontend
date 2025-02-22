@@ -1,13 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 import Cookies from "js-cookie";
-import { API_BASE_URL } from "../../../config";
+import { API_BASE_URL } from "../../config";
 
 // Create the context
-export const PortfolioContext = createContext();
+export const PortfolioMutualsContext = createContext();
 
 // Provider Component
-export const PortfolioProvider = ({ children }) => {
-  const [transactions, setTransactions] = useState([]);
+export const PortfolioMutualsProvider = ({ children }) => {
+  const [mutualTransactions, setMutualTransactions] = useState([]);
 
   // Fetch transactions data
   const fetchStocks = async () => {
@@ -18,7 +18,7 @@ export const PortfolioProvider = ({ children }) => {
     }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/myportfolio/stocksTransactions`, {
+      const res = await fetch(`${API_BASE_URL}/myportfolio/mutualTransactions`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -28,7 +28,7 @@ export const PortfolioProvider = ({ children }) => {
       if (!res.ok) throw new Error("Failed to fetch data");
 
       const data = await res.json();
-      setTransactions(data);
+      setMutualTransactions(data);
     } catch (error) {
       console.error("Error fetching transactions:", error);
     }
@@ -39,8 +39,8 @@ export const PortfolioProvider = ({ children }) => {
   }, []);
 
   return (
-    <PortfolioContext.Provider value={{ transactions, setTransactions, fetchStocks }}>
+    <PortfolioMutualsContext.Provider value={{ mutualTransactions, setMutualTransactions }}>
       {children}
-    </PortfolioContext.Provider>
+    </PortfolioMutualsContext.Provider>
   );
 };

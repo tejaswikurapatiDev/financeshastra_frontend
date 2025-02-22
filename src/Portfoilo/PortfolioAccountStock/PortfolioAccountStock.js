@@ -10,14 +10,14 @@ import Navbar from "../../Navbar/Navbar";
 import Cookies from 'js-cookie';
 import { API_BASE_URL } from "../../config";
 
-import { PortfolioContext } from "./context/PortfolioContext";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 const PortfolioAccountStock = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const [expandedRows, setExpandedRows] = useState(() => ({}));
-  const { transactions, setTransactions } = useContext(PortfolioContext);
+  const { stockTransactions, setStockTransactions } = useContext(PortfolioStocksContext);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
@@ -41,7 +41,7 @@ const PortfolioAccountStock = () => {
         headers: { Authorization: `Bearer ${Cookies.get("jwtToken")}` },
       });
   
-      setTransactions((prev) => prev.filter((txn) => txn.id !== transactionToDelete.id));
+      setStockTransactions((prev) => prev.filter((txn) => txn.id !== transactionToDelete.id));
     } catch (error) {
       console.error("Error deleting transaction:", error);
     } finally {
@@ -65,7 +65,7 @@ const PortfolioAccountStock = () => {
     if (location.state?.updatedTransaction) {
       const updatedTransaction = location.state.updatedTransaction;
 
-      setTransactions((prev) =>
+      setStockTransactions((prev) =>
         prev.map((txn) =>
           txn.id === updatedTransaction.id ? updatedTransaction : txn
         )
@@ -139,7 +139,7 @@ const PortfolioAccountStock = () => {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction, index) => (
+            {stockTransactions.map((transaction, index) => (
               <React.Fragment key={index}>
                 {/* Main Stock Row */}
                 <tr>
@@ -212,7 +212,7 @@ const PortfolioAccountStock = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {transactions
+                          {stockTransactions
                             .filter((txn) => txn.stock_name === transaction.stock_name)
                             .map((txn) => (
                               <tr key={txn.id}>
