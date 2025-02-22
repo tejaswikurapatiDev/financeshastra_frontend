@@ -101,6 +101,7 @@ width: 120%;
     margin: 0; /* Ensure no extra margin */
     min-width: 50%; /* Adjust width if needed */
     margin-right: 10px;
+    margin-left: -20px;
   }
   
 
@@ -420,58 +421,4 @@ gap: 100px;
   font-weight: 500;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .login-left {
-    min-width: 100%;
-    height: 50vh;
-    padding-top: 20px;
-  }
-  
-  .login-right {
-    min-width: 100%;
-    height: auto;
-    padding: 20px;
-  }
-  
-  .login-box {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    padding: 20px;
-  }
-}
 
-@media (max-width: 480px) {
-  .login-left h1 {
-    font-size: 2rem;
-  }
-  
-  .login-left p {
-    font-size: 1.2rem;
-  }
-  
-  .login-box {
-    width: 100%;
-    padding: 15px;
-  }
-  
-  .input-container label {
-    font-size: 12px;
-    margin-left: 20px;
-  }
-  
-  .input-container input {
-    width: 90%;
-    margin-left: 20px;
-  }
-  
-  .sign-in-btn {
-    width: 90%;
-  }
-}

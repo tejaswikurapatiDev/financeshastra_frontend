@@ -246,6 +246,11 @@ import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
 import Logindarkmode from "./Darkmode/Logindarkmode/Logindarkmode";
 import Registerdarkmode from "./Darkmode/Registerdarkmode/Registerdarkmode";
 import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpassworddarkmode";
+import Openemaildarkmode from "./Darkmode/Openemaildarkmode/Openemaildarkmode";
+import Dashboardchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Dashboardgraphdarkmode/Dashboardgraphdarkmode";
+import Stockindexalldarkmode from "./Darkmode/Dashboarddarkmode/Stockindexallpagedarkmode/Stockindexallpagedarkmode";
+import Calenderchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Stockcalendergraphdarkmode/Stockcalendergraphdarkmode";
+import Stockanalystalldarkmode from "./Darkmode/Dashboarddarkmode/Homeanalystalldarkmode/Homeanalystalldarkmode";
 
 
 
@@ -508,6 +513,11 @@ function App() {
       <Route path="/logindarkmode" element={<Logindarkmode/>}/>
       <Route path="/registerdarkmode" element={<Registerdarkmode/>}/>
       <Route path="/forgetpassworddarkmode" element={<Forgetpassworddarkmode/>}/>
+      <Route path="/openemaildarkmode" element={<Openemaildarkmode/>}/>
+      <Route path="/dashboardchartmaindarkmode" element={<Dashboardchartmaindarkmode/>}/>
+      <Route path="/stockindexalldarkmode" element={<Stockindexalldarkmode/>}/>
+      <Route path="/calenderchartmaindarkmode" element={<Calenderchartmaindarkmode/>}/>
+      <Route path="/stockanalystalldarkmode" element={<Stockanalystalldarkmode/>}/>
       
 
      

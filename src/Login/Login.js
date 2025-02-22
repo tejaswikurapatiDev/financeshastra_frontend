@@ -7,7 +7,7 @@ import logoimg from '../assest/finanlogo.svg';
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
+
 import logo from "./../assest/Logo design (1).png";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
@@ -278,7 +278,7 @@ function Login() {
                     className={passwordError ? "input-error" : ""}
                   />
                   <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                    
                   </span>
                 </div>
                 {passwordError && <span className="error-text">{passwordError}</span>}

@@ -11,7 +11,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye ico
 
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 
-import './Logindarkmode.css'
+
 import { height } from "@mui/system";
 
 const override = {
@@ -19,7 +19,7 @@ const override = {
   textAlign: "center"
 };
 
-function Logindarkmode() {
+function Openemaildarkmode() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -380,4 +380,4 @@ function Logindarkmode() {
   );
 }
 
-export default Logindarkmode;
+export default Openemaildarkmode;
