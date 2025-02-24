@@ -4,6 +4,7 @@ import Navbar from "../../Navbar/Navbar";
 import './Homestockanalyst.css';
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import { API_BASE_URL } from "../../config";
 
 const Homestockanalyst = () => {
 
@@ -22,7 +23,7 @@ const Homestockanalyst = () => {
     try {
       setLoading(true); 
       const token = Cookies.get("jwtToken");
-      const response = await fetch(`/stocksScreener/sectorAnalyst`, {
+      const response = await fetch(`${API_BASE_URL}/stocksScreener/sectorAnalyst`, {
         method: "GET",
             headers: {
                 "Content-Type": "application/json",

@@ -175,15 +175,16 @@ const Stockcalenderdarkmode = () => {
     return (
       <div className="DashboardMainPagetable-containerdarkmode">
       <div className="DashboardMainPagetable-headercalculator">
-        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/home")}>Stock Sector</button>
-      <button
+      <button className="DashboardMainPagetable-tabdarkmode" onClick={() => navigate("/dashboardchartmaindarkmode")}>Stock Sector</button>
+        <button
       className="DashboardMainPagetable-tabdarkmode"
-      onClick={() => navigate("/stockindexall")}
+      onClick={() => navigate("/stockindexalldarkmode")}
     >
       Stock Index
     </button>
-        <button className="DashboardMainPagetable-tabdarkmode active" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
-        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>
+        <button className="DashboardMainPagetable-tabdarkmode active"
+         onClick={() => navigate("/calenderchartmaindarkmode")}>Stock Calendar</button>
+        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/stockanalystalldarkmode")}>Stock Analyst</button>
       </div>
         <div className="earnings-insight-learn-wrapperr">
          

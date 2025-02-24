@@ -168,15 +168,17 @@ const  Homestockanalystdark = () => {
   return (
     <div className="DashboardMainPagetable-containerdarkmode">
     <div className="DashboardMainPagetable-headeranalyst">
-      <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/home")}>Stock Sector</button>
-    <button
-    className="DashboardMainPagetable-tabdarkmode"
-    onClick={() => navigate("/stockindexall")}
-  >
-    Stock Index
-  </button>
-      <button className="DashboardMainPagetable-tabdarkmode" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
-      <button className="DashboardMainPagetable-tabdarkmode active">Stock Analyst</button>
+      <button className="DashboardMainPagetable-tabdarkmode" onClick={() => navigate("/dashboardchartmaindarkmode")}>Stock Sector</button>
+
+        <button
+      className="DashboardMainPagetable-tabdarkmode"
+      onClick={() => navigate("/stockindexalldarkmode")}
+    >
+      Stock Index
+    </button>
+        <button className="DashboardMainPagetable-tabdarkmode"
+         onClick={() => navigate("/calenderchartmaindarkmode")}>Stock Calendar</button>
+        <button className="DashboardMainPagetable-tabdarkmode active"  onClick={() => navigate("/stockanalystalldarkmode")}>Stock Analyst</button>
     </div>
     <div>
       <div className="screener-containerr">

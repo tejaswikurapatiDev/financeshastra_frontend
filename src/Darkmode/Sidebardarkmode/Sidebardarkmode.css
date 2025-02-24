@@ -43,21 +43,8 @@
     color:white;
 }
 @media (max-width: 768px) {
-    .sidebar {
-        width: 200px; /* Optional: make it narrower */
-        transform: translateX(-100%); /* Hide sidebar by default */
-        position: fixed;
-        z-index: 1000; /* Ensure it overlays other content */
-    }
-
-    /* Show sidebar when it's active (e.g., toggled open) */
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    /* Full-width main content */
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
+    .sidebardarkmode{
+       display: none;
+     
     }
 }

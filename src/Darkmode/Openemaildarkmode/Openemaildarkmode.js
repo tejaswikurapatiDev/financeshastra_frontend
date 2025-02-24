@@ -1,27 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ClipLoader from "react-spinners/ClipLoader";
-import googleimg from '../../assest/googleicon.svg';
-import linkedinimg from '../../assest/lin.png';
+import './Openemaildarkmode.css'
 import logoimg from '../../assest/navlogo.png';
-import { FcGoogle } from "react-icons/fc";
-import { FaLinkedin } from "react-icons/fa";
-import { Button } from "@mui/material";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"; // Eye icons
+import inboximgdark from '../../assest/emaildark.png';
 
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-
-
-import { height } from "@mui/system";
-
-const override = {
-  display: "block",
-  textAlign: "center"
-};
 
 function Openemaildarkmode() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
@@ -41,99 +27,26 @@ function Openemaildarkmode() {
     return passwordPattern.test(password);
   };
 
- 
+  const override = {
+    display: "block",
+    textAlign: "center"
+  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    let isValid = true;
-    setIsLoading(true)
-
-    if (!validateEmail(email)) {
-      setEmailError("Enter a valid email address.");
-      isValid = false;
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent page reload
+  
+    if (!email.trim()) {
+      setEmailError("Email is required");
     } else {
-      setEmailError("");
-    }
-
-    if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    if (isValid && !isForgotPassword) {
-      const data= {
-        email,
-        password
-      }
-      const url='https://financeshastra-backendupdated.onrender.com/api/signin'
-      const options={
-        method: "post",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-      }
-      const response= await fetch(url, options)
-      setIsLoading(false)
-      if (response.status===404){
-        setEmailError("Email not found. Please register.");
-      }else if (response.status===400){
-        setPasswordError("Incorrect password.");
-      }else{
-        alert("Login Successful");
-        navigate("/dashboardchartmain");
-      }
-
-    /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData && userRegistrationData.email === email) {
-        if (userRegistrationData.password === password) {
-          alert("Login Successful");
-          navigate("/home");
-        } else {
-          setPasswordError("Incorrect password.");
-        }
-      } else {
-        setEmailError("Email not found. Please register.");
-      }*/
+      setEmailError(""); // Clear error if valid
+      console.log("Form submitted with email:", email);
+      // Add API call or navigation here
     }
   };
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    let isValid = true;
-
-    if (!validateEmail(email)) {
-      setEmailError("Enter a valid email address.");
-      isValid = false;
-    } else {
-      setEmailError("");
-    }
-
-    if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    if (isValid && !isForgotPassword) {
-      const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData && userRegistrationData.email === email) {
-        if (userRegistrationData.password === password) {
-          alert("Login Successful");
-          navigate("/home");
-        } else {
-          setPasswordError("Incorrect password.");
-        }
-      } else {
-        setEmailError("Email not found. Please register.");
-      }
-    }
-  };*/
-
+  
+  
   const handleRegisterClick = () => {
-    navigate("/registerdarkmode");
+    navigate("/register");
   };
 
   const handleForgotPasswordClick = () => {
@@ -202,179 +115,39 @@ function Openemaildarkmode() {
   };
   return (
     <div className="login-containerdarkmode">
-      <div className="login-leftdarkmode">
-     
+         
+      <div className="login-leftforgetdarkmode">
       <img src={logoimg} className="logoforgtdarkmode"/>
-     
      
       </div>
       <div className="login-rightdarkmode">
-        <div className="login-boxdarkmode">
-         
-        
-          <h2 className="h2loginpagedarkmode">{isForgotPassword ? "Enter your registered email to reset password." : "LogIn"}</h2>
-          
-          {isForgotPassword ? (
-            isResetPasswordStep ? (
-              <form onSubmit={handleResetPassword}>
-                <div className="input-containerdarkmode">
-                  <label>New Password*</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your new password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    required
-                    className={passwordError ? "input-errordarkmode" : ""}
-                  />
-                  {passwordError && <span className="error-textdarkmode">{passwordError}</span>}
-                </div>
-                <button type="submit" className="sign-in-btndarkmode">Reset Password</button>
-                <button type="button" className="cancel-btndarkmode" onClick={() => setIsForgotPassword(false)}>Cancel</button>
-              </form>
-            ) : (
-              <form onSubmit={handleForgotPasswordEmailSubmit}>
-                <div className="input-containerdarkmode">
-                  <label>Email Address*</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className={emailError ? "input-errordarkmode" : ""}
-                  />
-                  {emailError && <span className="error-textdarkmode">{emailError}</span>}
-                </div>
-                <div className="button-containerdarkmode">
-    <button type="submit" className="sign-in-btndarkmode">Reset Password</button>
-    <button type="button" className="cancel-btndarkmode" onClick={() => setIsForgotPassword(false)}>Cancel</button>
-</div>
-              </form>
-            )
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="input-containerdarkmode">
-                <label>Email Address*</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className={emailError ? "input-errordarkmode" : ""}
-                />
-                {emailError && <span className="error-textdarkmode">{emailError}</span>}
-              </div>
-              <div className="input-containerdarkmode">
-                <label>Password*</label>
-                <div className="password-fielddarkmode">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className={passwordError ? "input-errordarkmode" : ""}
-                  />
-                  <span className="toggle-passworddarkmode" onClick={() => setShowPassword(!showPassword)}>
-                    {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-                  </span>
-                </div>
-                {passwordError && <span className="error-textdarkmode">{passwordError}</span>}
-              </div>
-              <div className="login-optionsdarkmode">
-                <div className="checksigninalldarkmode">
-                  <div className="signinalldarkmode">
-                  <div className="allsignalldarkmode">
-              <label >
-  <input type="checkbox" />
-  </label>
-  </div>
-  <div>
-  <p className="loginpageparadarkmode">
-  Remember me</p>
-  </div>
-  </div>
-</div>
-<div>
-<a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault(); // Prevent default anchor behavior
-          navigate("/forgetpassworddarkmode");
-        }}
-        className="forgotpasswordlink"
-      >
-        Forgot Password?
-      </a>
-  </div>
-</div>
-              
-                  <button type="submit" className="sign-in-btndarkmode">
-                  Log in
-                  </button>
-              
-              <ClipLoader
-                cssOverride={override}
-                size={35}
-                data-testid="loader"
-                loading= {isLoading}
-                speedMultiplier={1}
-                color="green"
+        <div className="login-boxforgetdarkmode">
+                 
+                <img src={inboximgdark} className="inboximggdarkmode"/>
+                  <h2 className="h2loginpagefcheckinboxdarkmode">Check Your Inbox</h2>
+                  <p className="paraforgotdarkmode">We sent a password reset link to your email, please<br/>
+                  check your inbox</p>
+                  
                 
-              />
-            </form>
-          )}
-
-          <div className="login-ordarkmode">Or Sign Up With</div>
-          <div className="sociall-logindarkmode">
-  <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
-    <Button
-      variant="contained"
-      className="google-btndarkmode"
-      startIcon={<img src={googleimg} alt="Google Icon" className="btn-icon-smalldarkmode" />}
-      onClick={() => document.querySelector(".GoogleLogin button")?.click()} // Trigger Google Login button
-      sx={{ fontSize: "14px" }} // Decrease font size
-    >
-      Sign in with Google
-    </Button>
-
-    <div style={{ display: "none" }}>
-      <GoogleLogin onSuccess={handleSuccess} onError={handleFailure} />
-    </div>
-  </GoogleOAuthProvider>
-
-  <br />
-
-  <Button
-  variant="contained"
-  className="linkedin-btndarkmode"
-  startIcon={<img src={linkedinimg} alt="LinkedIn Icon" className="btn-icon-smalldarkmode" />}
-  component="a"
-  href="https://www.linkedin.com/feed/"
-  sx={{ fontSize: "14px" }} // Decrease font size
->
-  Sign in with LinkedIn
-</Button>
-
-</div>
-<div className="registerContgldarkmode">
-  <p className="registerContglpdarkmode">
-    By clicking “Continue with Google/LinkedIn” or “Create Account”, you agree to Website’s  
-    <a href="#" className="registerContglblue-textdarkmode"> Terms & Conditions</a>
-    <a href="#" className="registerContglblack-textdarkmode"> and</a>
-    <a href="#" className="registerContglblue-textdarkmode"> Privacy Policy</a>.
-  </p>
-</div>
-
-
-          <div className="register-linkdarkmode">
-            <p className="register-linkpdarkmode">
-              Don't have an account? <a href="#" onClick={handleRegisterClick}>Register</a>
-            </p>
-          </div>
-        </div>
+                      
+        
+                      
+                  <button 
+          type="submit" 
+          className="signbtnopengamail" 
+          onClick={() => window.open("https://mail.google.com/", "_blank")}
+        >
+          Open Gmail
+        </button>
+        
+                      
+                   
+               
+               
+        
+                 <p className="paragraphforgettdark">Didn’t received the email? <strong style={{color:"#24b676",cursor:"pointer"}}>Resend</strong></p>
+                  
+                </div>
       </div>
     </div>
   );

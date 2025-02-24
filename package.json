@@ -1,5 +1,4 @@
 {
-  "proxy": "https://newbackend-repo.onrender.com",
   "name": "sign",
   "version": "0.1.0",
   "private": true,
@@ -22,6 +21,8 @@
     "firebase": "^11.0.1",
     "font-awesome": "^4.7.0",
     "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.474.0",
     "papaparse": "^5.4.1",
     "react": "^18.3.1",

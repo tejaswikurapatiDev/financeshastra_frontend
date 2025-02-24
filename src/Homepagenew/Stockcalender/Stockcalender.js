@@ -7,6 +7,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ReactDatePicker from 'react-datepicker';
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
 
 const Stockcalender = () => {
       
@@ -36,7 +37,7 @@ const Stockcalender = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`/stocksScreener/stockCalender`);
+      const response = await fetch(`${API_BASE_URL}/stocksScreener/stockCalender`);
       if (!response.ok) throw new Error("Failed to fetch data");
       const data = await response.json();
       setAllStocks(data);

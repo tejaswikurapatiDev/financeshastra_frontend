@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./PortfolioAccountStock.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,56 +8,21 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
 import Cookies from 'js-cookie';
+import { API_BASE_URL } from "../../config";
+
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 const PortfolioAccountStock = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
-  );
-  const [transactions, setTransactions] = useState([]);
+  const [expandedRows, setExpandedRows] = useState(() => ({}));
+  const { stockTransactions, setStockTransactions } = useContext(PortfolioStocksContext);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
-  const [loading, setLoading] = useState(true)
-  //const [transaction, setTransaction] = useState([])
 
-  const fetchstocks = async() => {
-    try {
-      const token = Cookies.get('jwtToken')
-      if(!token){
-        alert("Session expired, Please Login again")
-        setLoading(false);
-        navigate("/login")
-        return;
-      }
-      const res = await fetch('/myportfolio/transactions', {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      if (!res.ok) {
-        throw new Error("Failed to fetch data");
-      }
-      const data = await res.json();
-      console.log("API Data:", data);
-      const mappedData = data.map((transaction, index) => ({
-        id: index + 1, // Assign incremental ID
-        ...transaction,
-      }));
-      setTransactions(mappedData)
-      
-    } catch (error) {
-      
-    }
-  }
-  // Fetch data when the component mounts
-  useEffect(() => {
-    fetchstocks();
-  }, []);
+
   const handleEdit = (transaction) => {
     navigate("/stockupdate", { state: { transaction } });
   };
@@ -67,37 +32,46 @@ const PortfolioAccountStock = () => {
     setShowPopup(true);
   };
 
-  const confirmDelete = () => {
-    if (transactionToDelete) {
-      setTransactions((prev) =>
-        prev.filter((txn) => txn.id !== transactionToDelete.id)
-      );
+  const confirmDelete = async () => {
+    if (!transactionToDelete) return;
+    
+    try {
+      await fetch(`${API_BASE_URL}/myportfolio/transactions/${transactionToDelete.id}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${Cookies.get("jwtToken")}` },
+      });
+  
+      setStockTransactions((prev) => prev.filter((txn) => txn.id !== transactionToDelete.id));
+    } catch (error) {
+      console.error("Error deleting transaction:", error);
+    } finally {
       setShowPopup(false);
       setTransactionToDelete(null);
     }
-  };
+  };   
 
   const cancelDelete = () => {
     setShowPopup(false);
     setTransactionToDelete(null);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = (stock_name) => {
+    setExpandedRows((prev) => ({ ...prev, [stock_name]: !prev[stock_name] }));
   };
+    
 
   // Update the transactions if coming back from the Edit page
   useEffect(() => {
     if (location.state?.updatedTransaction) {
       const updatedTransaction = location.state.updatedTransaction;
 
-      setTransactions((prev) =>
+      setStockTransactions((prev) =>
         prev.map((txn) =>
           txn.id === updatedTransaction.id ? updatedTransaction : txn
         )
       );
     }
-  }, [location.state]);
+  }, [location.state]); 
 
   return (
     <div>
@@ -165,157 +139,111 @@ const PortfolioAccountStock = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="stock-name">
-                <span className="dropdown-icon" onClick={toggleDropdown}>
-                  <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
-                </span>
-                ITI (2)
-                <span className="stock-actions">
-                  <span className="action-text">Add | Sell</span>
-                  <span className="trash-icon">
-                    <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDeleteIconClick()} />
-                  </span>
-                </span>
-              </td>
-              <td className="negative">291.40<br />-0.12</td>
-              <td className="negative">-0.48(-0.04%)</td>
-              <td>4</td>
-              <td>1,170.00</td>
-              <td>1,165.60</td>
-              <td className="negative">-4(-0.38%)</td>
-              <td>-</td>
-            </tr>
+            {stockTransactions.map((transaction, index) => (
+              <React.Fragment key={index}>
+                {/* Main Stock Row */}
+                <tr>
+                  <td className="stock-name">
+                    <span className="dropdown-icon" onClick={() => toggleDropdown(transaction.stock_name)}>
+                      <FontAwesomeIcon icon={expandedRows[transaction.stock_name] ? faCaretDown : faCaretUp} />
+                    </span>
+                    {transaction.stock_name}
+                    <span className="stock-actions">
+                      <span className="action-text">Add | Sell</span>
+                      <span className="trash-icon">
+                        <FontAwesomeIcon icon={faTrashAlt} onClick={() => handleDeleteIconClick(transaction)} />
+                      </span>
+                    </span>
+                  </td>
+                  <td className="negative">291.40<br />-0.12</td>
+                  <td className="negative">-0.48(-0.04%)</td>
+                  <td>{Number(transaction.buy_quantity)}</td>
+                  <td>{transaction.amount}</td>
+                  <td>1,165.60</td>
+                  <td className="negative">-4(-0.38%)</td>
+                  <td>{transaction.sell_price != 0 && transaction.sell_quantity != 0 ? 
+                      ((transaction.sell_price - transaction.buy_price) * transaction.buy_quantity).toFixed(2) 
+                      : 0}
+                  </td>
+                </tr>
 
-            {/* Subcategory Row */}
-            {isDropdownOpen && (
-              <tr>
-                <td colSpan="8" className="subcategory-row">
-                  <table className="subcategory-table">
-                    <thead>
-                      <tr>
-                      <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link
-      to="/portfoliostockaccount"
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      Transaction History
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>
-      Overview
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>
-      Fundamentals
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>
-      Alerts
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      padding: '10px',
-      hovercolor:'green'
-    }}
-  >
-    <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>
-      Returns
-    </Link>
-  </th>
-  </tr>
-  <tr>
-                        <th>Date</th>
-                        <th>Type</th>
-                        <th>Quantity</th>
-                        <th>Amount</th>
-                        <th>Charges</th>
-                        <th>Net Amount</th>
-                        <th>Realized Gain/Loss</th>
-                        <th>Holding Balance</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {transactions.map((transaction) => (
-                        <tr key={transaction.id}>
-                          <td>{transaction.date}</td>
-                          <td>{transaction.type}</td>
-                          <td>{Number(transaction.buy_quantity)}</td>
-                          <td>{transaction.amount}</td>
-                          <td>{transaction.total_charges}</td>
-                          <td>{transaction.net_amount}</td>
-                          <td>{transaction.realizedGainLoss}</td>
-                          <td>{transaction.holdingBalance}</td>
-                          <td>
-                            <span className="icon-container">
-                              <FaEdit
-                                className="edit-icon"
-                                onClick={() => handleEdit(transaction)}
-                              />
-                               <FontAwesomeIcon
-            icon={faTrashAlt}
-            className="delete-icon"
-            onClick={() => handleDeleteIconClick(transaction)}
-        />
-                               <BiPlusCircle
-            className="add-icon"
-          
-            onClick={() => window.location.href = '/stockadd'} // Navigate to the add page
-          />
-                            </span>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-            )}
+                {/* Expanded Subcategory Row */}
+                {expandedRows[transaction.stock_name] && (
+                  <>
+                    <tr>
+                            <td colSpan="8" className="subcategory-row">
+                              <table className="subcategory-table">
+                                <thead>
+                                  <tr>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/portfoliostockaccount" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>Fundamentals</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>Alerts</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', padding: '10px' }}>
+                                      <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>Returns</Link>
+                                    </th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </td>
+                          </tr>
+                  <tr>
+                    <td colSpan="8" className="subcategory-row">
+                      <table className="subcategory-table">
+                        <thead>
+                          <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Quantity</th>
+                            <th>Amount</th>
+                            <th>Charges</th>
+                            <th>Net Amount</th>
+                            <th>Realized Gain/Loss</th>
+                            <th>Holding Balance</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {stockTransactions
+                            .filter((txn) => txn.stock_name === transaction.stock_name)
+                            .map((txn) => (
+                              <tr key={txn.id}>
+                                <td>{new Date(txn.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</td>
+                                <td>{txn.type}</td>
+                                <td>{Number(txn.buy_quantity)}</td>
+                                <td>{txn.amount}</td>
+                                <td>{txn.total_charges}</td>
+                                <td>{txn.net_amount}</td>
+                                <td>{txn.sell_price != 0 && txn.sell_quantity != 0 ? 
+                                  ((txn.sell_price - txn.buy_price) * txn.buy_quantity).toFixed(2) 
+                                  : 0 }
+                                </td>
+                                <td>{txn.holdingBalance}</td>
+                                <td>
+                                  <span className="icon-container">
+                                    <FaEdit className="edit-icon" onClick={() => handleEdit(txn)} />
+                                    <FontAwesomeIcon icon={faTrashAlt} className="delete-icon" onClick={() => handleDeleteIconClick(txn)} />
+                                    <BiPlusCircle className="add-icon" onClick={() => navigate("/stockadd")} />
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  </>
+                )}
+              </React.Fragment>
+            ))}
           </tbody>
         </table>
 

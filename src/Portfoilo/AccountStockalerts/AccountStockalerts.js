@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import "./AccountStockalerts.css"; // Assuming your styles are in this file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -6,11 +6,15 @@ import { Link } from "react-router-dom";
 import {useNavigate, useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 
 const AccountStockalert = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const [expandedRows, setExpandedRows] = useState(() => ({}));
+  const {stockTransactions} = useContext(PortfolioStocksContext)
 
   // State for dropdown toggle
   const [isDropdownOpen, setIsDropdownOpen] = useState(
@@ -18,9 +22,10 @@ const AccountStockalert = () => {
   );
 
   // Function to toggle dropdown visibility
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = (stock_name) => {
+    setExpandedRows((prev) => ({ ...prev, [stock_name]: !prev[stock_name] }));
   };
+
 
   return (
     <div> 
@@ -93,134 +98,141 @@ const AccountStockalert = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Main Row */}
-          <tr>
-            <td className="stock-name">
-              <span className="dropdown-icon" onClick={toggleDropdown}>
-                <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
-              </span>
-              ITI (2)
-              <span className="stock-actions">
-                <span className="action-text">Add | Sell</span>
-                <span className="trash-icon">
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </span>
-              </span>
-            </td>
-            <td className="negative">291.40<br />-0.12</td>
-            <td className="negative">-0.48(-0.04%)</td>
-            <td>4</td>
-            <td>1,170.00</td>
-            <td>1,165.60</td>
-            <td className="negative">-4(-0.38%)</td>
-            <td>-</td>
-          </tr>
-
-          {/* Dropdown Subcategory Row */}
-          {isDropdownOpen && (
-            <tr>
-              <td colSpan="8" className="subcategory-row">
-                <table className="subcategory-table">
-                  <thead>
-                  <tr>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link
-      to="/portfoliostockaccount"
-      style={{ textDecoration: 'none', color: 'black' }}
-    >
-      Transaction History
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>
-      Overview
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>
-      Fundamentals
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      borderRight: '1px solid #ccc',
-      padding: '10px',
-    }}
-  >
-    <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>
-      Alerts
-    </Link>
-  </th>
-  <th
-    className="hover-effect"
-    style={{
-      backgroundColor: 'white',
-      color: 'black',
-      textAlign: 'center',
-      padding: '10px',
-      hovercolor:'green'
-    }}
-  >
-    <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>
-      Returns
-    </Link>
-  </th>
-</tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td colSpan="5" style={{ textAlign: "center", padding: "20px" }}>
-                        No Alerts Found
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </td>
+          {stockTransactions.map((transaction, index) => (
+                      <React.Fragment key={index}>
+                      {/* Main Row */}
+                      <tr>
+                        <td className="stock-name">
+                          <span className="dropdown-icon" onClick={() => toggleDropdown(transaction.stock_name)}>
+                            <FontAwesomeIcon icon={expandedRows[transaction.stock_name] ? faCaretDown : faCaretUp} />
+                          </span>
+                          {transaction.stock_name}
+                          <span className="stock-actions">
+                            <span className="action-text">Add | Sell</span>
+                            <span className="trash-icon">
+                              <FontAwesomeIcon icon={faTrashAlt} />
+                            </span>
+                          </span>
+                        </td>
+                        <td className="negative">291.40<br />-0.12</td>
+                        <td className="negative">-0.48(-0.04%)</td>
+                        <td>{Number(transaction.buy_quantity)}</td>
+                        <td>{transaction.amount}</td>
+                        <td>1,165.60</td>
+                        <td className="negative">-4(-0.38%)</td>
+                        <td>{transaction.sell_price != 0 && transaction.sell_quantity != 0 ? 
+                            ((transaction.sell_price - transaction.buy_price) * transaction.buy_quantity).toFixed(2) 
+                            : 0}
+                        </td>
+                      </tr>
+          
+                      {/* Dropdown Subcategory Row */}
+                      {expandedRows[transaction.stock_name] && (
+                        <tr>
+                          <td colSpan="8" className="subcategory-row">
+                            <table className="subcategory-table">
+                              <thead>
+                              <tr>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link
+                  to="/portfoliostockaccount"
+                  style={{ textDecoration: 'none', color: 'black' }}
+                >
+                  Transaction History
+                </Link>
+              </th>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>
+                  Overview
+                </Link>
+              </th>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>
+                  Fundamentals
+                </Link>
+              </th>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  borderRight: '1px solid #ccc',
+                  padding: '10px',
+                }}
+              >
+                <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>
+                  Alerts
+                </Link>
+              </th>
+              <th
+                className="hover-effect"
+                style={{
+                  backgroundColor: 'white',
+                  color: 'black',
+                  textAlign: 'center',
+                  padding: '10px',
+                  hovercolor:'green'
+                }}
+              >
+                <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>
+                  Returns
+                </Link>
+              </th>
             </tr>
-          )}
-
-          {/* Totals Row */}
-          <tr className="table-total">
-            <td>Total</td>
-            <td>-</td>
-            <td className="negative">-0.48(-0.04%)</td>
-            <td>-</td>
-            <td>1,170</td>
-            <td>1,160</td>
-            <td className="negative">-4(-0.38%)</td>
-            <td>-</td>
-          </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td colSpan="5" style={{ textAlign: "center", padding: "20px" }}>
+                                    No Alerts Found
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      )}
+          
+                      {/* Totals Row */}
+                      <tr className="table-total">
+                        <td>Total</td>
+                        <td>-</td>
+                        <td className="negative">-0.48(-0.04%)</td>
+                        <td>-</td>
+                        <td>1,170</td>
+                        <td>1,160</td>
+                        <td className="negative">-4(-0.38%)</td>
+                        <td>-</td>
+                      </tr>
+                    </React.Fragment>
+          ))}
         </tbody>
       </table>
 

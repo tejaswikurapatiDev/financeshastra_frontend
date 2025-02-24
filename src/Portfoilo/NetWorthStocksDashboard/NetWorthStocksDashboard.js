@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./NetWorthStocksDashboard.css";
 import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom';
 import MyAccounts from "../Accountstock/Accountstock";
 import Navbar from '../../Navbar/Navbar';
+import { API_BASE_URL } from "../../config";
+import { PortfolioDashboardContext } from "../context/PortfolioDashboardContext";
+
 function NetWorthStocksDashboard() {
 
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
   const [myInvestment, setMyInvestment] = useState([])
+
+  const {latestValue} = useContext(PortfolioDashboardContext)
 
   // Function to fetch data from the backend
   const fetchData = async () => {
@@ -22,7 +27,7 @@ function NetWorthStocksDashboard() {
             setLoading(false);
             return;
         } else {
-          const response = await fetch(`/myportfolio/dashboard`, {
+          const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -76,7 +81,7 @@ function NetWorthStocksDashboard() {
       <div className="networth-summary">
         <div>
           <p className='networthp'>My Net Worth</p>
-          <h2>₹0</h2>
+          <h2>₹{latestValue}</h2>
         </div>
         <div>
           <p className='networthp'>Today's Gain / Loss</p>

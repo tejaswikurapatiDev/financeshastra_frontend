@@ -137,8 +137,8 @@ const FooterForAllPagedarkmode = () => {
       </footer>
 
       {/* Mobile Footer */}
-      <footer className="footermobileviewpages-footer">
-      <div className="footermobileviewpages-main-section">
+      <footer className="footermobileviewdarkpages-footer">
+      <div className="footermobileviewpages-main-darksection">
         {footerData.map((section, index) => (
           <div key={index} className="footermobileviewpages-column">
             <div

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -8,39 +8,19 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 import Navbar from "../../Navbar/Navbar";
 import Mutualportfoliodonut from "../Mutualportfoliodonut/Mutualportfoliodonut";
+import { PortfolioMutualsContext } from "../context/PortfolioMutualsContext";
 
 const MutualAccountStock = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const {mutualTransactions, setMutualTransactons } = useContext(PortfolioMutualsContext)
+  const [expandedRows, setExpandedRows] = useState(() => ({}));
+  console.log("Trans data: ",mutualTransactions)
   // State management
   const [isDropdownOpen, setIsDropdownOpen] = useState(
     location.pathname === "/portfoliostockaccount"
   );
-  const [transactions, setTransactions] = useState([
-    {
-      id: 1,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-    {
-      id: 2,
-      date: "18/11/2024",
-      type: "Buy My Account",
-      quantity: 2,
-      amount: 584.4,
-      charges: 0.6,
-      netAmount: 585,
-      realizedGainLoss: "-",
-      holdingBalance: 4,
-    },
-  ]);
 
   const [showPopup, setShowPopup] = useState(false);
   const [transactionToDelete, setTransactionToDelete] = useState(null);
@@ -57,7 +37,7 @@ const MutualAccountStock = () => {
 
   const confirmDelete = () => {
     if (transactionToDelete) {
-      setTransactions((prev) =>
+      setMutualTransactons((prev) =>
         prev.filter((txn) => txn.id !== transactionToDelete.id)
       );
       setShowPopup(false);
@@ -70,8 +50,8 @@ const MutualAccountStock = () => {
     setTransactionToDelete(null);
   };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDropdown = (stock_name) => {
+    setExpandedRows((prev) => ({ ...prev, [stock_name]: !prev[stock_name] }));
   };
 
   // Handle updates from navigation state
@@ -79,7 +59,7 @@ const MutualAccountStock = () => {
     if (location.state?.updatedTransaction) {
       const updatedTransaction = location.state.updatedTransaction;
 
-      setTransactions((prev) =>
+      setMutualTransactons((prev) =>
         prev.map((txn) =>
           txn.id === updatedTransaction.id ? updatedTransaction : txn
         )
@@ -151,12 +131,14 @@ const MutualAccountStock = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {mutualTransactions.map((transaction, index) => (
+              <React.Fragment key={index}>
+                <tr>
               <td className="stock-name">
-                <span className="dropdown-icon" onClick={toggleDropdown}>
-                  <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
+                <span className="dropdown-icon" onClick={() => toggleDropdown(transaction.scheme)}>
+                  <FontAwesomeIcon icon={expandedRows[transaction.scheme] ? faCaretDown : faCaretUp} />
                 </span>
-                ITI (2)
+                {transaction.scheme}
                 <span className="stock-actions">
                   <span className="action-text">Add | Sell</span>
                   <span className="trash-icon">
@@ -169,15 +151,19 @@ const MutualAccountStock = () => {
               </td>
               <td className="negative">291.40<br />-0.12</td>
               <td className="negative">-0.48<br />-0.04%</td>
-              <td>4</td>
-              <td>1,170.00</td>
+              <td>{transaction.buy_quantity}</td>
+              <td>{transaction.amount}</td>
               <td>1,165.60</td>
               <td className="negative">-4<br />-0.38%</td>
-              <td>-</td>
+              <td>
+                  {transaction.sell_price != 0 && transaction.sell_quantity != 0 ? 
+                  ((transaction.sell_price - transaction.buy_price) * transaction.buy_quantity).toFixed(2) 
+                  : 0}
+              </td>
             </tr>
 
             {/* Subcategory Row */}
-            {isDropdownOpen && (
+            {expandedRows[transaction.scheme] && (
               <tr>
                 <td colSpan="8" className="subcategory-row">
                   <table className="subcategory-table">
@@ -232,7 +218,7 @@ const MutualAccountStock = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {transactions.map((transaction) => (
+                      {mutualTransactions.map((transaction) => (
                         <tr key={transaction.id}>
                           <td>{transaction.date}</td>
                           <td>{transaction.type}</td>
@@ -263,6 +249,8 @@ const MutualAccountStock = () => {
                 </td>
               </tr>
             )}
+              </React.Fragment>
+            ))}
           </tbody>
         </table>
 

@@ -165,10 +165,16 @@ const Dashboardstockindexdarkmode = () => {
   return (
     <div className="DashboardMainPagetable-containerr">
       <div className="DashboardMainPagetable-headerrindex">
-        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/dashboardchartmaindarkmode")}>Stock Sector</button>
-        <button className="DashboardMainPagetable-tabdarkmode active">Stock Index</button>
-        <button className="DashboardMainPagetable-tabdarkmode" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
-        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>
+      <button className="DashboardMainPagetable-tabdarkmode"onClick={() => navigate("/dashboardchartmaindarkmode")}>Stock Sector</button>
+        <button
+      className="DashboardMainPagetable-tabdarkmode active"
+      onClick={() => navigate("/stockindexalldarkmode")}
+    >
+      Stock Index
+    </button>
+        <button className="DashboardMainPagetable-tabdarkmode"
+         onClick={() => navigate("/calenderchartmaindarkmode")}>Stock Calendar</button>
+        <button className="DashboardMainPagetable-tabdarkmode"  onClick={() => navigate("/stockanalystalldarkmode")}>Stock Analyst</button>
       </div>
       <div className="DashboardMainPagetable-cardss">
   {DashboardPagetable.map((card) => (

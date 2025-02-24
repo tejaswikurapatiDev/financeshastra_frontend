@@ -304,7 +304,7 @@ function Logindarkmode() {
           e.preventDefault(); // Prevent default anchor behavior
           navigate("/forgetpassworddarkmode");
         }}
-        className="forgotpasswordlink"
+        className="forgotpasswordlinkdarkmode"
       >
         Forgot Password?
       </a>

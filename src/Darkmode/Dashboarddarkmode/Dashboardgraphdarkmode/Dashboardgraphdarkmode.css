@@ -322,145 +322,218 @@ margin-left: 0px;
 }
 
 @media (max-width: 480px) {
-    .headerdashboardmain{
-        margin-left: 5px;
-        font-size: 12px;
+   
+    .headerdashboardmaindarkmode {
+      margin-left: 10px;
+      color: white;
     }
-    .headernifty50{
-        margin-left: 10px;
-        font-size: 20px;
+  
+    .allheadddarkmode,
+    .headernifty50000darkmode,
+    .headerdashboardmaindarkmode,
+    .homepagenewdata-titledarkmode,
+    .homepagenewdata-amountdarkmode,
+    .portfoliomutual-titleportdarkmode,
+    .portfoliomutual-valuedarkmode,
+    .portfoliomutual-profitdarkmode,
+    .portfoliomutual-profittdarkmode,
+    .portfoliomutual-valueedarkmode {
+      color: white !important;
     }
-    
- 
+  
+    .portfoliomutual-containerrniftydashboarddarkmode {
+      height: auto;
+      font-family: 'calibri';
+      padding: 20px;
+      color: #333;
+      width: auto;
+      /* Add left margin to prevent overlap with sidebar */
+      font-family: 'Calibri';
+      margin-top: 5px;
+      margin-left: 10px;
+      background-color: #212639;
+      border: 2px solid #000000; /* Light grey border */
+      box-shadow: 0px 4px 6px rgba(33, 33, 33, 0.956); /* Soft shadow around the container */
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column-reverse; /* Reverse the container's content */
+    }
+  
+    .chartmutual-containerrdashboard {
+      height: auto;
+      width: auto;
+    }
+  
+    .allheadddarkmode {
+      margin-top: -70px;
+      font-family: 'calibri';
+      background-color: #292F42;
+      margin-right: -10px;
+      margin-bottom: -10px;
       
-    .portfoliomutual-containerrniftydashboard {
-        height: 300px;
-        font-family: 'Calibri';
-        padding: 20px;
-        padding-bottom: 80px;
-        color: #333;
-        width: 280px;
-        margin-top: 5px;
-        margin-left: 15px;
-        margin-bottom: 5px;
-        background-color: #f9f9f9;
-        border: 1px solid #ddd;
-        box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956);
-        border-radius: 5px;
-        display: flex
-;
-        flex-direction: column-reverse;
-      }
-      
-    .chartmutual-containerrdashboard{
-        height: 200px;
-        width: auto;
-       
-     
     }
-    .hompagetopdata{
-       
-        gap: 20px;
+  
+    .headerdashboardmain {
+      font-family: 'calibri';
+      margin-left: 310px;
     }
-    .dataquatallnifty{
-display: flex;
-flex-direction: column;
-margin-left: 0px;
+  
+    .homepagenewdata-carddarkmode {
+      border: 1px solid #000000;
+      border-radius: 8px;
+      padding: 16px;
+      background-color: #212639;
+      box-shadow: 0px 4px 6px rgba(27, 27, 27, 0.925);
+      width: 250px;
+      text-align: center;
+      font-family: 'calibri';
+      height: 50px;
+      margin-top: 210px;
+      margin-left: -10px;
     }
-    .itidata {
-        display: flex;
-        gap: 0px;
-       margin-top: 0px;
+  
+    .homepagenewdata-title {
+      font-size: 16px;
+      color: #000000;
+      font-weight: 600;
     }
-    .time-rangemutual-selectorrniftydashboard {
-        display: flex
-;
-        gap: 3px;
-        margin-left: 0px;
-        text-align: center;
-        margin-bottom: 10px;
+  
+    .homepagenewdata-amountdarkmode {
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
     }
-      .homepageamountdata{
-        display: flex;
-        gap: 10px;
-    
+  
+    .homepagenewdata-changedarkmode {
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
     }
-    .headerdashboardmain{
-        margin-left: 10px;
+  
+    .homepagenewdata-positive {
+      color: #24b676;
+      font-size: 16px;
     }
-    
+  
+    .homepagenewdata-negative {
+      color: red;
+    }
+  
+    .hompagetopdata {
+      display: flex;
+      gap: 470px;
+    }
+  
+    .homepageamountdata {
+      display: flex;
+      gap: 50px;
+    }
+  
+    .portfoliomutual-titleportdarkmode {
+      font-size: 16px;
+      color: #575757;
+      margin: 0; /* Removed the bottom margin */
+    }
+  
+    .portfoliomutual-valuedarkmode {
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      margin: 4px 0; /* Reduced gap between value and title */
+    }
+  
+    .portfoliomutual-profitdarkmode {
+      font-size: 14px;
+      color: white;
+      margin: 0; /* Removed unnecessary margins */
+    }
+  
+    .portfoliomutual-profitdarkmode span {
+      color: #24b676;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  
     .alldatagraphtop {
-        display: flex
-;
-        gap: 2px;
-        margin-bottom: 10px;
+      display: flex;
+      gap: 170px;
+      margin-bottom: 10px;
     }
-        .headernifty50000 {
-            margin-left: 10px;
-            font-size: 14px;
-            margin-top: 200px;
-        }
-        .homepagenewdata-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 16px;
-            background-color: #f9fbfc;
-            box-shadow: 0px 4px 6px rgba(217, 212, 212, 0.925);
-            width: 220px;
-            text-align: center;
-            font-family: 'calibri';
-            height: 30px;
-            margin-top: 260px;
-            margin-left: -270px;
-            margin-bottom: 10px;
-        }
-        .homepagenewdata-title {
-            font-size: 14px;
-            color: #000000;
-            font-weight: 600;
-        }
-        .homepagenewdata-amount {
-            font-size: 14px;
-            font-weight: bold;
-            color: #333;
-        }
-        .homepagenewdata-positive {
-            color: #24b676;
-            font-size: 14px;
-        }
-        .portfoliomutual-card {
-            width: 300px;
-            height: 290px;
-            margin-left: -30px;
-        }
-        .portfoliomutual-titleport {
-            font-size: 13px;
-            color: #333;
-            margin: 0;
-        }
-        .portfoliomutual-value {
-            font-size: 12px;
-            font-weight: bold;
-            color: black;
-            margin: 4px 0;
-        }
-        .portfoliomutual-profit {
-            font-size: 13px;
-            color: #333;
-            margin: 0;
-        }
-        .portfoliomutual-valuee {
-            font-size: 13px;
-            font-weight: bold;
-            display: flex
-        ;
-            align-items: center;
-            gap: 8px;
-            color: #333;
-            margin: 4px 0;
-        }
-        .time-rangemutual-button {
-            padding: 4px 10px;
-            font-size: 10px;
-        }
-}
+  
+    .portfoliomutual-profittdarkmode {
+      font-size: 14px;
+      color: white;
+      font-weight: 500;
+      margin: 0; /* Removed unnecessary margins */
+    }
+  
+    .itidata {
+      display: flex;
+      gap: 30px;
+      align-items: center; /* Optional: Align items vertically */
+    }
+  
+    .itidata > div {
+      padding: 0 5px; /* Add some padding for spacing inside */
+    }
+  
+    .itidata > div:not(:last-child) {
+      border-right: 1px solid #ccc; /* Add vertical border except for the last item */
+    }
+  
+    .portfoliomutual-valueedarkmode {
+      font-size: 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center; /* Align text and image vertically */
+      gap: 8px; /* Add space between the image and text */
+      color: white;
+      margin: 4px 0;
+    }
+  
+    .portfolio-logo {
+      width: 24px; /* Set the desired width of the image */
+      height: 24px; /* Set the desired height of the image */
+      object-fit: cover; /* Ensure the image is not stretched */
+      border-radius: 4px; /* Optional: Add rounded corners to the image */
+    }
+  
+    .bestprofitdata {
+      margin-bottom: 22px;
+    }
+  
+    .time-rangemutual-selectorrniftydashboard {
+      display: flex;
+      gap: 3px;
+      margin-left: 250px;
+    }
+  
+    .headernifty50000darkmode {
+      margin-left: 310px;
+      font-size: 24px;
+      margin-top: 250px;
+      color: white;
+    }
+  
+    .datadisstockdashhh {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures the main content covers full viewport height */
+    }
+    
+    .main-content {
+      flex: 1; /* Pushes the footer to the bottom */
+    }
+    
+    .foooterpagesatt {
+      text-align: center; /* Center-align content */
+      padding: 10px; /* Example padding */
+      /* Makes the footer fixed */
+      bottom: 0; /* Positions the footer at the bottom */
+      left: 0; /* Aligns it to the left edge */
+      z-index: 1000; /* Ensures it's above other elements */
+    }
+  }
+  

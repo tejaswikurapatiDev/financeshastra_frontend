@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./OverviewPortfoliograph.css"; // Assuming your styles are in this file
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faCaretUp, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
@@ -9,12 +9,15 @@ import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import Portfoliodonut from "../Portfoliodonut/Portfoliodonut";
 import Navbar from "../../Navbar/Navbar";
+import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
 
 // Register required Chart.js components
 ChartJS.register(LineElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const OverviewPortfolioManager = () => {
   const location = useLocation();
+
+  const {stockTransactions} = useContext(PortfolioStocksContext)
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(
     location.pathname === "/portfoliostockaccount"
@@ -163,125 +166,132 @@ const OverviewPortfolioManager = () => {
         </thead>
         <tbody>
           {/* Main Row */}
-          <tr>
-            <td className="stock-name">
-              <span className="dropdown-icon" onClick={toggleDropdown}>
-                <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
-              </span>
-              ITI (2)
-              <span className="stock-actions">
-                <span className="action-text">Add | Sell</span>
-                <span className="trash-icon">
-                  <FontAwesomeIcon icon={faTrashAlt} />
-                </span>
-              </span>
-            </td>
-            <td className="negative">291.40<br />-0.12</td>
-            <td className="negative">-0.48(-0.04%)</td>
-            <td>4</td>
-            <td>1,170.00</td>
-            <td>1,165.60</td>
-            <td className="negative">-4(-0.38%)</td>
-            <td>-</td>
-          </tr>
-
-          {/* Dropdown Subcategory Row */}
-          {isDropdownOpen && (
-            <>
-              <tr>
-                <td colSpan="8" className="subcategory-row">
-                  <table className="subcategory-table">
-                    <thead>
+          {stockTransactions.map((transaction, index) => (
+                      <React.Fragment key = {index}>
                       <tr>
-                        <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                          <Link to="/portfoliostockaccount" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
-                        </th>
-                        <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                          <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>
-                        </th>
-                        <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                          <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>Fundamentals</Link>
-                        </th>
-                        <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                          <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>Alerts</Link>
-                        </th>
-                        <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', padding: '10px' }}>
-                          <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>Returns</Link>
-                        </th>
+                        <td className="stock-name">
+                          <span className="dropdown-icon" onClick={toggleDropdown}>
+                            <FontAwesomeIcon icon={isDropdownOpen ? faCaretDown : faCaretUp} />
+                          </span>
+                          {transaction.stock_name}
+                          <span className="stock-actions">
+                            <span className="action-text">Add | Sell</span>
+                            <span className="trash-icon">
+                              <FontAwesomeIcon icon={faTrashAlt} />
+                            </span>
+                          </span>
+                        </td>
+                        <td className="negative">291.40<br />-0.12</td>
+                        <td className="negative">-0.48(-0.04%)</td>
+                        <td>{Number(transaction.buy_quantity)}</td>
+                        <td>{transaction.amount}</td>
+                        <td>1,165.60</td>
+                        <td className="negative">-4(-0.38%)</td>
+                        <td>{transaction.sell_price != 0 && transaction.sell_quantity != 0 ? 
+                            ((transaction.sell_price - transaction.buy_price) * transaction.buy_quantity).toFixed(2) 
+                            : 0}
+                        </td>
                       </tr>
-                    </thead>
-                  </table>
-                </td>
-              </tr>
-
-              {/* Intraday Chart Section */}
-              <tr>
-                <td colSpan="8">
-                  <div className="portfolio-manager-container">
-                    <div className="portfolio-market-data">
-                      <div className="market-data-container">
-                        <div className="market-data-header">
-                          <h3 className="portheadmanager" style={{ margin: 0, borderRadius: "8px 8px 0 0" }}>
-                            Market Data
-                          </h3>
-                        </div>
-                        <div className="market-data-content">
-                          <div className="market-data-row">
-                            <span>Bid (Qty):</span>
-                            <span>0 (0)</span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>Ask (Qty):</span>
-                            <span>292.18 (56,744)</span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>Total B/S:</span>
-                            <span>-</span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>Volume:</span>
-                            <span>130.41 L</span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>Today's O/C:</span>
-                            <span>298.00 / 291.40</span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>Today's H/L:</span>
-                            <span>301.80 / <span className="highlight-red">287.65</span></span>
-                          </div>
-                          <div className="market-data-row">
-                            <span>52 WK H / L:</span>
-                            <span>384.30 / <span className="highlight-red">210.00</span></span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Intraday Stock Trading Graph Section */}
-                      <div className="chart-containerportfolio">
-                        <h3 style={{ marginLeft: "50px" }}>{title}</h3>
-                        <div className="chart-wrapper" style={{ height: "300px", width: "500px", marginLeft: "50px" }}>
-                          <Line data={intradayData} options={intradayOptions} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </>
-          )}
-
-          {/* Portfolio Note */}
-          <tr className="table-total">
-            <td>Total</td>
-            <td>-</td>
-            <td className="negative">-0.48(-0.04%)</td>
-            <td>-</td>
-            <td>1,170</td>
-            <td>1,160</td>
-            <td className="negative">-4(-0.38%)</td>
-            <td>-</td>
-          </tr>
+            
+                      {/* Dropdown Subcategory Row */}
+                      {isDropdownOpen && (
+                        <>
+                          <tr>
+                            <td colSpan="8" className="subcategory-row">
+                              <table className="subcategory-table">
+                                <thead>
+                                  <tr>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/portfoliostockaccount" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountfund" style={{ textDecoration: 'none', color: 'black' }}>Fundamentals</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
+                                      <Link to="/accountalert" style={{ textDecoration: 'none', color: 'black' }}>Alerts</Link>
+                                    </th>
+                                    <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', padding: '10px' }}>
+                                      <Link to="/accountreturn" style={{ textDecoration: 'none', color: 'black' }}>Returns</Link>
+                                    </th>
+                                  </tr>
+                                </thead>
+                              </table>
+                            </td>
+                          </tr>
+            
+                          {/* Intraday Chart Section */}
+                          <tr>
+                            <td colSpan="8">
+                              <div className="portfolio-manager-container">
+                                <div className="portfolio-market-data">
+                                  <div className="market-data-container">
+                                    <div className="market-data-header">
+                                      <h3 className="portheadmanager" style={{ margin: 0, borderRadius: "8px 8px 0 0" }}>
+                                        Market Data
+                                      </h3>
+                                    </div>
+                                    <div className="market-data-content">
+                                      <div className="market-data-row">
+                                        <span>Bid (Qty):</span>
+                                        <span>0 (0)</span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>Ask (Qty):</span>
+                                        <span>292.18 (56,744)</span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>Total B/S:</span>
+                                        <span>-</span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>Volume:</span>
+                                        <span>130.41 L</span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>Today's O/C:</span>
+                                        <span>298.00 / 291.40</span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>Today's H/L:</span>
+                                        <span>301.80 / <span className="highlight-red">287.65</span></span>
+                                      </div>
+                                      <div className="market-data-row">
+                                        <span>52 WK H / L:</span>
+                                        <span>384.30 / <span className="highlight-red">210.00</span></span>
+                                      </div>
+                                    </div>
+                                  </div>
+            
+                                  {/* Intraday Stock Trading Graph Section */}
+                                  <div className="chart-containerportfolio">
+                                    <h3 style={{ marginLeft: "50px" }}>{title}</h3>
+                                    <div className="chart-wrapper" style={{ height: "300px", width: "500px", marginLeft: "50px" }}>
+                                      <Line data={intradayData} options={intradayOptions} />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </>
+                      )}
+            
+                      {/* Portfolio Note */}
+                      <tr className="table-total">
+                        <td>Total</td>
+                        <td>-</td>
+                        <td className="negative">-0.48(-0.04%)</td>
+                        <td>-</td>
+                        <td>1,170</td>
+                        <td>1,160</td>
+                        <td className="negative">-4(-0.38%)</td>
+                        <td>-</td>
+                      </tr>
+                      </React.Fragment>
+          ))}
         </tbody>
       </table>
       <div className="portfolio-account-stock-note">
