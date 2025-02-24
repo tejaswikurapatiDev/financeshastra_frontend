@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome CSS
-
 import Navbar from "../../Navbar/Navbar";
+import { useSelector } from "react-redux";
+import { debounce } from "lodash";
 
 const MutualWatchlist = () => {
   const [stockName, setStockName] = useState("");
@@ -11,6 +12,9 @@ const MutualWatchlist = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [watchlists, setWatchlists] = useState(["Watchlist 01"]);
   const [activeFilter, setActiveFilter] = useState("All");
+  const [filterData, setFilterData] = useState([]);
+  //getting data into redux store
+  const getStockData = useSelector((store) => store?.searchData?.searchData);
   const navigate = useNavigate();
 
   const stockDatawatchlist = [
@@ -36,6 +40,30 @@ const MutualWatchlist = () => {
     },
   ];
 
+  // **Debounced Search Function**
+  const debounceSearch = useCallback(
+    debounce((searchText) => {
+      if (!searchText) {
+        setFilterData([]);
+        return;
+      }
+      const results = getStockData.filter((item) => {
+        const Scheme_Name = item.Scheme_Name?.toLowerCase() || "";
+
+        return Scheme_Name.includes(searchText.toLowerCase());
+      });
+
+      setFilterData(results);
+    }, 300),
+    [getStockData]
+  );
+
+  // **Trigger Debounce on Input Change**
+  useEffect(() => {
+    debounceSearch(stockName);
+    return () => debounceSearch.cancel();
+  }, [stockName]);
+
   // Add stock to watchlist
   const handleAddStock = () => {
     if (stockName.trim() === "") return alert("Stock name cannot be empty!");
@@ -46,7 +74,9 @@ const MutualWatchlist = () => {
     const newStock = {
       stockName,
       nav1dchange: (Math.random() * 10 - 5).toFixed(2),
-      fiftytwoweekhighorlow: `${(Math.random() * 1000).toFixed(2)} / ${(Math.random() * 1000).toFixed(2)}`,
+      fiftytwoweekhighorlow: `${(Math.random() * 1000).toFixed(2)} / ${(
+        Math.random() * 1000
+      ).toFixed(2)}`,
       onemonth: `${(Math.random() * 10).toFixed(2)}%`,
       threemonths: `${(Math.random() * 10).toFixed(2)}%`,
       fiveyears: `${(Math.random() * 20).toFixed(2)}%`,
@@ -96,7 +126,9 @@ const MutualWatchlist = () => {
 
   // Filter stocks based on the selected filter
   const filteredData = stockDatawatchlist
-    .filter((stock) => stock.stockName.toLowerCase().includes(stockName.toLowerCase()))
+    .filter((stock) =>
+      stock.stockName.toLowerCase().includes(stockName.toLowerCase())
+    )
     .filter((stock) => {
       if (activeFilter === "Gainers") {
         return parseFloat(stock.threemonths) > 0;
@@ -110,22 +142,29 @@ const MutualWatchlist = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="newwmutual" >
-        Mutual Fund Watchlist
-      </h2>
+      <h2 className="newwmutual">Mutual Fund Watchlist</h2>
       <div className="networth-tabs">
         <Link to="/stockWatchlist">
-          <button className="networth-tab" style={{ background: "white", color: "black",  }}>
+          <button
+            className="networth-tab"
+            style={{ background: "white", color: "black" }}
+          >
             Stocks
           </button>
         </Link>
         <Link to="/mutualWatchlist">
-          <button className="networth-tab" style={{ background: "#24b676", color: "white" }}>
+          <button
+            className="networth-tab"
+            style={{ background: "#24b676", color: "white" }}
+          >
             Mutual Fund
           </button>
         </Link>
         <Link to="/goldWatchlistall">
-          <button className="networth-tab" style={{ background: "white", color: "black" }}>
+          <button
+            className="networth-tab"
+            style={{ background: "white", color: "black" }}
+          >
             Gold
           </button>
         </Link>
@@ -138,18 +177,31 @@ const MutualWatchlist = () => {
                 type="radio"
                 name="watchlist"
                 defaultChecked={index === 0}
-                style={{ width: "14px", height: "14px", accentColor: "#24b676" }}
+                style={{
+                  width: "14px",
+                  height: "14px",
+                  accentColor: "#24b676",
+                }}
               />
               <label className="watchlist-label">{watchlist}</label>
-              <button className="menu-iconwatchlist" onClick={() => toggleDropdown(index)}>
+              <button
+                className="menu-iconwatchlist"
+                onClick={() => toggleDropdown(index)}
+              >
                 ⋮
               </button>
               {activeDropdown === index && (
                 <div className="menu-dropdownwatchlist">
-                  <button className="menu-itemwatchlist" onClick={() => handleRenameWatchlist(index)}>
+                  <button
+                    className="menu-itemwatchlist"
+                    onClick={() => handleRenameWatchlist(index)}
+                  >
                     Rename
                   </button>
-                  <button className="menu-itemwatchlist" onClick={() => handleDeleteWatchlist(index)}>
+                  <button
+                    className="menu-itemwatchlist"
+                    onClick={() => handleDeleteWatchlist(index)}
+                  >
                     Delete
                   </button>
                 </div>
@@ -160,29 +212,45 @@ const MutualWatchlist = () => {
             + Create Watchlist
           </button>
         </div>
-        <h2 style={{marginLeft:"10px",fontSize:"19px"}}>Add Watchlist</h2>
+        <h2 style={{ marginLeft: "10px", fontSize: "19px" }}>Add Watchlist</h2>
         <div className="watchlist-header">
-        <div className="scheme-exchange-cell">
-          <div className="input-groupwatchlist">
-            <label htmlFor="stockName">Scheme Name</label>
-            <input
-              id="stockName"
-              type="text"
-              placeholder="Type to search"
-              value={stockName}
-              onChange={(e) => setStockName(e.target.value)}
-            />
-          </div>
-          <div className="input-groupwatchlist">
-            <label htmlFor="exchange">Exchange</label>
-            <input
-              id="exchange"
-              type="text"
-              value={exchange}
-              readOnly
-              style={{ backgroundColor: "#f9f9f9", border: "1px solid #ccc", width: "50px" }}
-            />
-          </div>
+          <div className="scheme-exchange-cell">
+            <div className="input-groupwatchlist">
+              <label htmlFor="stockName">Scheme Name</label>
+              <input
+                id="stockName"
+                type="text"
+                placeholder="Type to search"
+                value={stockName}
+                onChange={(e) => setStockName(e.target.value)}
+              />
+              {/* display input results  */}
+              <div>
+                {filterData.length > 0 ? (
+                  <ul>
+                    {filterData.map((data) => {
+                      return <li key={data.id}>{data.Scheme_Name}</li>;
+                    })}
+                  </ul>
+                ) : (
+                  stockName && <p>No result found</p>
+                )}
+              </div>
+            </div>
+            <div className="input-groupwatchlist">
+              <label htmlFor="exchange">Exchange</label>
+              <input
+                id="exchange"
+                type="text"
+                value={exchange}
+                readOnly
+                style={{
+                  backgroundColor: "#f9f9f9",
+                  border: "1px solid #ccc",
+                  width: "50px",
+                }}
+              />
+            </div>
           </div>
           <button className="add-btnwatchlist" onClick={handleAddStock}>
             + Add
@@ -190,60 +258,75 @@ const MutualWatchlist = () => {
         </div>
       </div>
       <div className="content-containerwatchlist">
-        <div className="top-sectionswatchlistmutual" >
+        <div className="top-sectionswatchlistmutual">
           <div className="filters-sectionwatchlist">
             <span className="filter-labelwatchlist">FILTER:</span>
-            <button className={`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""}`} onClick={() => setActiveFilter("All")}>
+            <button
+              className={`filter-buttonwatchlist ${
+                activeFilter === "All" ? "active" : ""
+              }`}
+              onClick={() => setActiveFilter("All")}
+            >
               All
             </button>
-            <button className={`filter-buttonwatchlist ${activeFilter === "Gainers" ? "active" : ""}`} onClick={() => setActiveFilter("Gainers")}>
+            <button
+              className={`filter-buttonwatchlist ${
+                activeFilter === "Gainers" ? "active" : ""
+              }`}
+              onClick={() => setActiveFilter("Gainers")}
+            >
               Gainers
             </button>
-            <button className={`filter-buttonwatchlist ${activeFilter === "Losers" ? "active" : ""}`} onClick={() => setActiveFilter("Losers")}>
+            <button
+              className={`filter-buttonwatchlist ${
+                activeFilter === "Losers" ? "active" : ""
+              }`}
+              onClick={() => setActiveFilter("Losers")}
+            >
               Losers
             </button>
           </div>
           <div className="group-by-sectionwatchlist">
             <label style={{ marginRight: "8px" }}>Group By:</label>
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="nonewatchlist"
-                onClick={() => navigate("/mutualwatchlistall")}
-                defaultChecked
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              None
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="sectorwatchlist"
-                onClick={() => navigate("/mutualwatchlistsector")}
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              AMC
-              <input
-                type="radio"
-                name="groupBywatchlist"
-                value="mcapwatchlist"
-                onClick={() => navigate("/mutualwatchlisttype")}
-                style={{
-                  width: "14px",
-                  height: "14px",
-                  accentColor: "#24b676",
-                }}
-              />
-              Types of Funds
-            </div>
+            <input
+              type="radio"
+              name="groupBywatchlist"
+              value="nonewatchlist"
+              onClick={() => navigate("/mutualwatchlistall")}
+              defaultChecked
+              style={{
+                width: "14px",
+                height: "14px",
+                accentColor: "#24b676",
+              }}
+            />
+            None
+            <input
+              type="radio"
+              name="groupBywatchlist"
+              value="sectorwatchlist"
+              onClick={() => navigate("/mutualwatchlistsector")}
+              style={{
+                width: "14px",
+                height: "14px",
+                accentColor: "#24b676",
+              }}
+            />
+            AMC
+            <input
+              type="radio"
+              name="groupBywatchlist"
+              value="mcapwatchlist"
+              onClick={() => navigate("/mutualwatchlisttype")}
+              style={{
+                width: "14px",
+                height: "14px",
+                accentColor: "#24b676",
+              }}
+            />
+            Types of Funds
           </div>
+        </div>
         <div className="table-containerwatchlist">
           <table className="stock-tablewatchlist">
             <thead>
@@ -274,7 +357,10 @@ const MutualWatchlist = () => {
                     <td>{stock.fiveyears}</td>
                     <td>{stock.tenyears}</td>
                     <td>
-                      <button className="delete-btnwatchlist" onClick={() => handleDeleteStock(index)}>
+                      <button
+                        className="delete-btnwatchlist"
+                        onClick={() => handleDeleteStock(index)}
+                      >
                         <i className="fa fa-trash"></i>
                       </button>
                     </td>
