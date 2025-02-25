@@ -428,7 +428,14 @@ function App() {
       <Route path="/footerForAllPage" element={<FooterForAllPage/>}/>
       <Route path="/profilePage" element={<ProfilePage/>}/>
       <Route path="/settingDashPanel" element={<SettingsDashboard/>}/>
-      <Route path="/home" element={<Dashboardchartmain/>}/>
+      <Route 
+        path="/home" 
+        element={
+          <PortfolioDashboardProvider>
+            <Dashboardchartmain/>
+          </PortfolioDashboardProvider>
+        }
+      />
       <Route path="/stockindexall" element={<Stockindexall/>}/>
       <Route path="/calenderchartmain" element={<Calenderchartmain/>}/>
       <Route path="/homestockanalyst" element={<Homestockanalyst/>}/>

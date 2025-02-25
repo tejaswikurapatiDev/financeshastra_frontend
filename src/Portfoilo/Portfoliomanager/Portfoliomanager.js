@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import PortfolioManagerDashboard from "../Portfoliodashboard/Portfoliodashboard";
 import { PortfolioDashboardContext } from "../context/PortfolioDashboardContext";
+import { PortfolioDashboardProvider } from "../context/PortfolioDashboardContext";
 
 
 function Portfolio() {

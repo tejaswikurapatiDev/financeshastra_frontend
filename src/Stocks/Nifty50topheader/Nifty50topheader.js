@@ -3,8 +3,7 @@ import { Link as ScrollLink } from 'react-scroll';  // For scroll navigation
 import './Nifty50topheader.css'
 
 import { Divider } from '@mui/material';
-import { useNavigate } from 'react-router-dom'; 
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Nifty50topheader() {
   const [change, setChange] = useState(0); // For storing dynamic change value in rupees

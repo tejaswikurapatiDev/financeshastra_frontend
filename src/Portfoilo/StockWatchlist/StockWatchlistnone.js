@@ -3,6 +3,8 @@ import { Link,useNavigate } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome CSS
 import "./StockWatchlistnone.css";
 import Navbar from "../../Navbar/Navbar";
+import { API_BASE_URL } from "../../config";
+import Cookies from 'js-cookie'
 
 const StockWatchlist = () => {
   const [stockName, setStockName] = useState("");
@@ -15,7 +17,7 @@ const StockWatchlist = () => {
 
 
   // Handle stock addition
-  const handleAddStock = () => {
+  const handleAddStock = async () => {
     if (stockName.trim() === "") return alert("Stock name cannot be empty!");
 
     // Check for duplicate stocks
@@ -23,18 +25,27 @@ const StockWatchlist = () => {
       return alert("This stock is already in your watchlist.");
     }
 
-    const newStock = {
-      stockName,
-      livePrice: (Math.random() * 1000).toFixed(2),
-      change: (Math.random() * 10 - 5).toFixed(2),
-      changePercent: (Math.random() * 2).toFixed(2),
-      volume: Math.floor(Math.random() * 10000),
-      high: (Math.random() * 1000).toFixed(2),
-      low: (Math.random() * 1000).toFixed(2),
-    };
+    const token = Cookies.get("jwtToken")
 
-    setStockDetails([...stockDetails, newStock]);
-    setStockName(""); // Clear input
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/addStockToWatchklist`,{
+        method: "POST",
+        headers: { 
+          Authorization: `Bearer ${token}` 
+        },
+        body: JSON.stringify(stockName),
+      })
+      if (!response.ok) {
+        throw new Error("Failed to add stock");
+      }
+
+      const newStock = await response.json();
+      setStockDetails([...stockDetails, newStock]);
+      setStockName(""); // Clear input
+    } catch (error) {
+      console.error("Error adding stock:", error);
+      alert("Failed to add stock. Please try again later.");
+    }
   };
 
   // Handle adding a new watchlist

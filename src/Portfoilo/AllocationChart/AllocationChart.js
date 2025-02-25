@@ -41,7 +41,7 @@ const PortfolioAllocationManagerChart = () => {
       setPortfolio({
         stocks: data[0]?.stock_investment ?? 0,
         latestStocks: data[0]?.latest_value ?? 0,
-        mutualFunds: data[0]?.fund_investment ?? 0,
+        mutualFunds: data[0]?.mutualfund_investment ?? 0,
         latestMutualFunds: data[1]?.latest_value ?? 0,
         gold: data[2]?.invested_money ?? 0,
         latestGold: data[2]?.latest_value ?? 0,
