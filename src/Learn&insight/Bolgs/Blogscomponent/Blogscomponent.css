@@ -35,14 +35,14 @@ margin-left: 220px;
   margin: 5px 0;
 }
 
-.tabsContainer {
+.tabsContainerblogggs {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-right: 220px;
+  margin-right: 0px;
 }
 
-.tabButton {
+.tabButtonblogggs {
   background-color: #f1f1f1;
   border: none;
   padding: 10px 12px;
@@ -52,7 +52,7 @@ margin-left: 220px;
   transition: background-color 0.3s;
 }
 
-.tabButton.activeTab {
+.tabButtonblogggs.activeTab {
   background-color: #24b676;
   color: #fff;
 }

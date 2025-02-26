@@ -67,6 +67,9 @@
 .toggle-password:hover {
     color: #555;
 }
+.password-field input {
+    width: 320px; /* or your preferred width */
+  }
 
 /* Mobile View Adjustments */
 @media (max-width: 768px) {
@@ -132,9 +135,7 @@
     .login-right {
         order: 1; /* Display login form first on mobile */
       }
-      .login-left {
-        order: 2; 
-}
+
 .login-options {
     display: flex;
   gap: 90px;
@@ -145,11 +146,19 @@
         display: block;
         width: 82vw;
       }
-      .password-field input {
-        width: 99%;
-        padding-right: 2.5rem;
-    }
+   
     .toggle-password{
         right: 30px; 
     }
+    .login-options {
+        display: flex;
+      gap: 30px;
+      }
+
+.login-right {
+margin-bottom: -20px;
+}
+.password-field input {
+    width: 93%; /* or a different width as needed */
+  }
 }

@@ -101,6 +101,7 @@ width: 120%;
     margin: 0; /* Ensure no extra margin */
     min-width: 50%; /* Adjust width if needed */
     margin-right: 10px;
+    margin-left: -20px;
   }
   
 
@@ -420,58 +421,150 @@ gap: 100px;
   font-weight: 500;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login-container {
+@media (max-width: 480px) {
+
+  /* Adjust main container for single-column layout */
+  .login-containerdarkmode {
     flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 98vh;
+  
+  }
+
+  /* Left section: use full width and auto height */
+ 
+
+  /* Logo adjustments for mobile */
+
+
+  .login-leftdarkmode {
+   display: none;
+  
+  }
+ 
+ .login-boxforgetcontaindarkmode{
+     width:auto;
+     max-width: 90%;
+     padding: 30px;
+     border: 3px solid #232633;
+     box-shadow: 0 4px 8px #161922;
+     text-align: center;
+     border-radius: 50px;
+     height: 65%;
+     background-color:#292F42;
+ 
+ }
+
+  .signinalldarkmode {
+  margin-left: -20px;
+  }
+  /* Headings and paragraphs in the left section */
+  .login-leftdarkmode h1 {
+   
+    margin-top: 50px;
+  }
+  .login-leftdarkmode p {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  /* Right section: take full width and center content */
+  .login-rightdarkmode {
+    width: auto;
+    min-width: 90%;
+   
+    padding: 20px;
+    background: linear-gradient(to right, #292F42, #3B3F4F);
+    display: flex
+;
     align-items: center;
-  }
-  
-  .login-left {
-    min-width: 100%;
-    height: 50vh;
-    padding-top: 20px;
-  }
-  
-  .login-right {
-    min-width: 100%;
-    height: auto;
-    padding: 20px;
-  }
-  
-  .login-box {
-    width: 90%;
-    max-width: 350px;
-    height: auto;
-    padding: 20px;
-  }
+    justify-content: center;
+    margin-left: 5px;
 }
 
-@media (max-width: 480px) {
-  .login-left h1 {
-    font-size: 2rem;
+
+  /* Login box: scale down width, adjust padding and margins */
+  .login-boxdarkmode {
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 20px;
+    margin-top: -100px;
   }
-  
-  .login-left p {
-    font-size: 1.2rem;
+
+  /* Input containers: center labels and inputs */
+  .input-containerdarkmode {
+    margin: 10px auto;
+    text-align: center;
   }
-  
-  .login-box {
-    width: 100%;
-    padding: 15px;
-  }
-  
-  .input-container label {
-    font-size: 12px;
+  .input-containerdarkmode label {
+    margin: 0 auto 5px;
+    font-size: 14px;
+    text-align: left;
+    display: block;
     margin-left: 20px;
   }
-  
-  .input-container input {
+  .input-containerdarkmode input {
     width: 90%;
-    margin-left: 20px;
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #898989;
+    border-radius: 5px;
+    margin: 0 auto;
   }
-  
-  .sign-in-btn {
+
+  /* Sign-in button: make it wider and centered */
+  .sign-in-btndarkmode {
     width: 90%;
+    padding: 10px;
+    margin: 10px auto;
+  }
+
+  /* Social login buttons: adjust width and margins */
+  .google-logindarkmode,
+  .linkedin-logindarkmode {
+    width: 90%;
+    padding: 12px;
+    margin: 10px auto;
+  }
+
+  /* Login order separator adjustments */
+  .login-ordarkmode {
+    font-size: 10px;
+    margin: 10px 0;
+    padding: 0 10px;
+  }
+  .login-ordarkmode::before,
+  .login-ordarkmode::after {
+    margin: 0 5px;
+  }
+
+  /* Forgot password and register links: center-align */
+
+
+  /* Toggle password icon: adjust positioning */
+  .toggle-passworddarkmode {
+    right: 20px;
+  }
+
+  /* Cancel button: adjust size and center alignment */
+  .cancel-btndarkmode {
+    width: 40%;
+    margin: 10px auto;
+  }
+  .sociall-logindarkmode .google-btndarkmode, .sociall-logindarkmode .linkedin-btndarkmode{
+    width: 45%;
+    height: 40px;
+  }
+  .login-optionsdarkmode{
+    display: flex
+    ;
+        gap: 30px;
   }
 }

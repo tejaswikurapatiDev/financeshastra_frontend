@@ -473,12 +473,15 @@ gap: 100px;
   }
   
   .login-left p {
-    font-size: 1.2rem;
+    font-size: 15px;
   }
   
   .login-box {
-    width: 100%;
+    width: auto;
     padding: 15px;
+    box-shadow: 0 4px 8px rgba(194, 191, 191, 0.9);
+    border: 3px solid rgb(188, 188, 188);
+ 
   }
   
   .input-container label {
@@ -491,7 +494,11 @@ gap: 100px;
     margin-left: 20px;
   }
   
-  .sign-in-btn {
-    width: 90%;
+  .sociall-login .google-btn, .sociall-login .linkedin-btn {
+    width: 40%;
+  }
+  .login-left {
+    background-image: none;
   }
 }
+
