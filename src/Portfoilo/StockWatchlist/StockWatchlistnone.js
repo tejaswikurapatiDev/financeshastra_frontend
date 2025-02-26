@@ -1,109 +1,133 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome CSS
+import "font-awesome/css/font-awesome.min.css";
 import "./StockWatchlistnone.css";
 import Navbar from "../../Navbar/Navbar";
 import { API_BASE_URL } from "../../config";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 
 const StockWatchlist = () => {
   const [stockName, setStockName] = useState("");
   const [stockDetails, setStockDetails] = useState([]);
-  const [exchange, setExchange] = useState("NSE");
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [watchlists, setWatchlists] = useState(["Watchlist 01"]);
+  const [watchlists, setWatchlists] = useState([]);
+  const [selectedWatchlist, setSelectedWatchlist] = useState(null);
   const [filterData, setFilterData] = useState([]);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  
   const navigate = useNavigate();
-  //getting data into redux store
   const getStockData = useSelector((store) => store?.searchData?.searchData);
 
-  // **Debounced Search Function**
+  // Debounced Search Function
   const debounceSearch = useCallback(
     debounce((searchText) => {
-      if (!searchText) {
-        setFilterData([]);
-        return;
-      }
-
-      const results = getStockData.filter((item) => {
-        const company = item.company?.toLowerCase() || "";
-
-        return company.includes(searchText.toLowerCase());
-      });
-
-      setFilterData(results);
+      setFilterData(
+        searchText ? getStockData.filter((item) => item.company?.toLowerCase().includes(searchText.toLowerCase())) : []
+      );
     }, 300),
     [getStockData]
   );
 
-  // **Trigger Debounce on Input Change**
-  useEffect(() => {
-    debounceSearch(stockName);
-    return () => debounceSearch.cancel();
-  }, [stockName]);
+  // Fetch Watchlists
+  const fetchWatchlists = async () => {
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!response.ok) throw new Error("Failed to fetch watchlists");
+      const data = await response.json();
+      setWatchlists(data);
+      if (data.length > 0) setSelectedWatchlist(data[0].watchlist_id);
+    } catch (error) {
+      console.error(error);
+      alert(error.message || "Failed to fetch watchlists.");
+    }
+  };
+
+  // Fetch Watchlist Assets
+  const fetchWatchlistAssets = useCallback(async () => {
+    if (!selectedWatchlist) return;
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/getWatchlistAssets?watchlist_id=${selectedWatchlist}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!response.ok) throw new Error("Failed to fetch watchlist assets");
+      setStockDetails(await response.json());
+    } catch (error) {
+      console.error(error);
+      alert(error.message || "Failed to fetch watchlist assets.");
+    }
+  }, [selectedWatchlist]);
 
   // Handle stock addition
   const handleAddStock = async () => {
-    if (stockName.trim() === "") return alert("Stock name cannot be empty!");
-
-    // Check for duplicate stocks
-    if (stockDetails.some((stock) => stock.stockName === stockName)) {
+    if (!stockName.trim()) return alert("Stock name cannot be empty!");
+    
+    const normalizedStockName = stockName.toUpperCase();
+    
+    if (stockDetails.some((stock) => stock.asset_symbol === normalizedStockName)) {
       return alert("This stock is already in your watchlist.");
     }
-
-    const token = Cookies.get("jwtToken")
-
+  
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+  
     try {
-      const response = await fetch(`${API_BASE_URL}/Watchlist/addStockToWatchklist`,{
+      const response = await fetch(`${API_BASE_URL}/Watchlist/addStockToWatchklist`, {
         method: "POST",
-        headers: { 
-          Authorization: `Bearer ${token}` 
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(stockName),
-      })
-      if (!response.ok) {
-        throw new Error("Failed to add stock");
-      }
-
+        body: JSON.stringify({
+          asset_symbol: normalizedStockName,
+          watchlist_id: selectedWatchlist || null,
+          asset_type: "Stock",
+        }),
+      });
+  
+      if (!response.ok) throw new Error(await response.text());
+  
+      // Get the new stock details from API response
       const newStock = await response.json();
-      setStockDetails([...stockDetails, newStock]);
-      setStockName(""); // Clear input
+  
+      // Ensure stock is added with the correct property names
+      setStockDetails((prevStocks) => [
+        ...prevStocks,
+        { ...newStock, asset_symbol: normalizedStockName },
+      ]);
+  
+      setStockName(""); // Clear input field after adding
     } catch (error) {
-      console.error("Error adding stock:", error);
-      alert("Failed to add stock. Please try again later.");
+      console.error(error);
+      alert(error.message || "Failed to add stock.");
     }
   };
+  
 
-  // Handle adding a new watchlist
-  const handleCreateWatchlist = () => {
-    const newWatchlistName = `Watchlist ${watchlists.length + 1}`;
-    setWatchlists([...watchlists, newWatchlistName]);
+  //handle stocks name
+  const handleStockNameChange = (event) => {
+    setStockName(event.target.value);
   };
 
-  // Toggle dropdown visibility for a specific watchlist
-  const toggleDropdown = (index) => {
-    setActiveDropdown(activeDropdown === index ? null : index);
-  };
-
-  // Handle deleting a watchlist
-  const handleDeleteWatchlist = (index) => {
-    if (window.confirm("Are you sure you want to delete this watchlist?")) {
-      setWatchlists(watchlists.filter((_, i) => i !== index));
-      setActiveDropdown(null);
+  // Handle stock deletion
+  const handleDeleteStock = useCallback((index) => {
+    if (window.confirm("Are you sure you want to delete this stock?")) {
+      setStockDetails((prevStocks) => prevStocks.filter((_, i) => i !== index));
     }
-  };
+  }, []);
 
-  // Handle renaming a watchlist
+  // Handle watchlist actions
   const handleRenameWatchlist = (index) => {
-    const newName = prompt("Enter the new name for the watchlist:");
-    if (newName && newName.trim() !== "") {
-      setWatchlists(
-        watchlists.map((watchlist, i) => (i === index ? newName : watchlist))
-      );
-    }
-    setActiveDropdown(null);
+    const newName = prompt("Enter new watchlist name:");
+    if (newName?.trim()) setWatchlists((prev) => prev.map((w, i) => (i === index ? { ...w, name: newName } : w)));
   };
 
   // Determine the color for the change value
@@ -111,12 +135,46 @@ const StockWatchlist = () => {
     return change >= 0 ? "green" : "red";
   };
 
-  // Handle deleting a stock
-  const handleDeleteStock = (index) => {
-    if (window.confirm("Are you sure you want to delete this stock?")) {
-      setStockDetails(stockDetails.filter((_, i) => i !== index));
+  const handleDeleteWatchlist = (index) => {
+    if (window.confirm("Are you sure you want to delete this watchlist?")) {
+      setWatchlists((prev) => prev.filter((_, i) => i !== index));
+      setActiveDropdown(null);
     }
   };
+  const handleCreateWatchlist = async () => {
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+  
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/create`, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json", 
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ name: `My Watchlist ${watchlists.length + 1}` }),
+      });
+  
+      if (!response.ok) throw new Error("Failed to create watchlist");
+  
+      const newWatchlist = await response.json();
+      setWatchlists([...watchlists, newWatchlist]);
+    } catch (error) {
+      alert(error.message || "Error creating watchlist");
+    }
+  };
+
+  const toggleDropdown = (index) => setActiveDropdown(activeDropdown === index ? null : index);
+
+  useEffect(() => {
+    fetchWatchlists();
+    debounceSearch(stockName);
+    return () => debounceSearch.cancel();
+  }, [stockName]);
+
+  useEffect(() => {
+    fetchWatchlistAssets();
+  }, [fetchWatchlistAssets]);
 
   return (
     <div>
@@ -158,13 +216,14 @@ const StockWatchlist = () => {
                   type="radio"
                   name="watchlist"
                   defaultChecked={index === 0}
+                  onChange={() => setSelectedWatchlist(watchlist.watchlist_id)}
                   style={{
                     width: "14px",
                     height: "14px",
                     accentColor: "#24b676",
                   }}
                 />
-                <label className="watchlist-label">{watchlist}</label>
+                <label className="watchlist-label">{watchlist.name}</label>
                 <button
                   className="menu-iconwatchlist"
                   onClick={() => toggleDropdown(index)}
@@ -209,7 +268,7 @@ const StockWatchlist = () => {
                   type="text"
                   placeholder="Enter stock name..."
                   value={stockName}
-                  onChange={(e) => setStockName(e.target.value)}
+                  onChange={handleStockNameChange}
                 />
 
                 {/* display input results  */}
@@ -325,7 +384,7 @@ const StockWatchlist = () => {
                 ) : (
                   stockDetails.map((stock, index) => (
                     <tr key={index}>
-                      <td>{stock.stockName}</td>
+                      <td>{stock.asset_symbol}</td>
                       <td>{stock.livePrice}</td>
                       <td style={{ color: getChangeColor(stock.change) }}>
                         {stock.change >= 0 ? `+${stock.change}` : stock.change}

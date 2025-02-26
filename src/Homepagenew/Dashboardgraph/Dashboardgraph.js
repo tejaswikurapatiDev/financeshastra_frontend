@@ -58,11 +58,9 @@ const Dashboardchartmain = () => {
         console.log("API Data:", data);
   
         if (data.length > 0) {
-          console.log(typeof(data[0].total_investment))
           setMyInvestment(data[0].total_investment || 0);
           setLatestValue(data[0].latest_value || 0);
-          const change = ((data[0].latest_value - data[0].total_investment)/data[0].total_investment)*100
-          console.log(change)
+          const change = ((data[0].latest_value - data[0].total_investment)/data[0].total_investment)*100 || 0
           setPercentChange(change)
         } else {
           setError("No portfolio data found.");
