@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const IpoRecommendation = () => {
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/ipoDetailsubscribe"); // Navigate to "ipoDetailsubscribe"
+    navigate("/pricehalf"); // Navigate to "ipoDetailsubscribe"
   };
   return (
     <div className="iporecommendation-container">

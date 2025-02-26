@@ -438,15 +438,26 @@ gap: 100px;
  
 
   /* Logo adjustments for mobile */
-  .logoforgtdarkmode {
-    max-width: 200px;
-    margin: 10px auto;
-    display:visible;
-  }
+
+
   .login-leftdarkmode {
    display: none;
   
   }
+ 
+ .login-boxforgetcontaindarkmode{
+     width:auto;
+     max-width: 90%;
+     padding: 30px;
+     border: 3px solid #232633;
+     box-shadow: 0 4px 8px #161922;
+     text-align: center;
+     border-radius: 50px;
+     height: 65%;
+     background-color:#292F42;
+ 
+ }
+
   .signinalldarkmode {
   margin-left: -20px;
   }
@@ -463,15 +474,18 @@ gap: 100px;
 
   /* Right section: take full width and center content */
   .login-rightdarkmode {
-    width:auto;
+    width: auto;
     min-width: 90%;
-    margin: 0;
+   
     padding: 20px;
     background: linear-gradient(to right, #292F42, #3B3F4F);
-    display: flex;
+    display: flex
+;
     align-items: center;
     justify-content: center;
-  }
+    margin-left: 5px;
+}
+
 
   /* Login box: scale down width, adjust padding and margins */
   .login-boxdarkmode {
@@ -481,6 +495,7 @@ gap: 100px;
     height: auto;
     margin: 20px auto;
     border-radius: 20px;
+    margin-top: -100px;
   }
 
   /* Input containers: center labels and inputs */
@@ -550,6 +565,6 @@ gap: 100px;
   .login-optionsdarkmode{
     display: flex
     ;
-        gap: 10px;
+        gap: 30px;
   }
 }

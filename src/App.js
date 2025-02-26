@@ -260,6 +260,15 @@ import { PortfolioStockProvider } from "./Portfoilo/context/PortfolioStocksConte
 import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsContext";
 import {PortfolioDashboardProvider} from "./Portfoilo/context/PortfolioDashboardContext"
 import Forgetresetpassworddarkmode from "./Darkmode/Forgetresetpassworddarkmode/Forgetresetpassworddarkmode";
+import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
+
+import RefundPolicy from "./Footernavigatepages/Refundpage/Refundpage";
+import Disclaimerdarkmode from "./Darkmode/Footernavigatedarkmode/Disclamerdarkmode/Disclamerdarkmode";
+import RefundPolicydarkmode from "./Darkmode/Footernavigatedarkmode/Refundpagedarkmode/Refundpagedarkmode";
+import WhoWeAre from "./Footernavigatepages/WhoWeAre/WhoWeAre";
+import WhoWeAredarkmode from "./Darkmode/Footernavigatedarkmode/Whowearedarkmode/Whowearedarkmode";
+import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAndConditions";
+import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
 
 function App() {
   return (
@@ -578,6 +587,14 @@ function App() {
       <Route path="/calenderchartmaindarkmode" element={<Calenderchartmaindarkmode/>}/>
       <Route path="/stockanalystalldarkmode" element={<Stockanalystalldarkmode/>}/>
       <Route path="/forgetresetpassworddarkmode" element={<Forgetresetpassworddarkmode/>}/>
+      <Route path="/disclaimer" element={<Disclaimer/>}/>
+      <Route path="/disclaimerdarkmode" element={<Disclaimerdarkmode/>}/>
+      <Route path="/refundPolicy" element={<RefundPolicy/>}/>
+      <Route path="/refundPolicydarkmode" element={<RefundPolicydarkmode/>}/>
+      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+      <Route path="/whoWeAredarkmode" element={<WhoWeAredarkmode/>}/>
+      <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
+      <Route path="/termsAndConditionsdarkmode" element={<TermsAndConditionsdarkmode/>}/>
       
 
      
