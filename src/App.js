@@ -271,7 +271,7 @@ import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAn
 import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
 
 function App() {
-  return (
+  return (  
     <Provider store={store}>
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -584,7 +584,7 @@ function App() {
       <Route path="/portfoliosplitcall" element={<Portfoliosplitcall/>}/>
       <Route path="/portfolioanalysisrightscall" element={<Portfolioanalysisrightscall/>}/>
       <Route path="/portfolioAGMcall" element={<PortfolioAGMcall/>}/> 
-      <Route path="/forgotresetpassword" element={<Forgotresetpassword/>}/>
+      <Route path="/forgotresetpassword/:token" element={<Forgotresetpassword/>}/>
       <Route path="/logindarkmode" element={<Logindarkmode/>}/>
       <Route path="/registerdarkmode" element={<Registerdarkmode/>}/>
       <Route path="/forgetpassworddarkmode" element={<Forgetpassworddarkmode/>}/>
