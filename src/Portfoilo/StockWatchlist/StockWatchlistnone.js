@@ -39,9 +39,12 @@ const StockWatchlist = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch watchlists");
+
       const data = await response.json();
       setWatchlists(data);
-      if (data.length > 0) setSelectedWatchlist(data[0].watchlist_id);
+
+      // Set only if no watchlist is selected
+      setSelectedWatchlist((prev) => prev ?? data[0]?.watchlist_id);
     } catch (error) {
       console.error(error);
       alert(error.message || "Failed to fetch watchlists.");
@@ -137,12 +140,12 @@ const StockWatchlist = () => {
 
   const handleDeleteWatchlist = async (watchlistId) => {
     if (!window.confirm("Are you sure you want to delete this watchlist?")) return;
-  
+
     try {
       const token = Cookies.get("jwtToken");
       console.log(watchlistId)
       if (!token) return alert("Unauthorized: No token provided");
-  
+
       const response = await fetch(`${API_BASE_URL}/watchlist/deleteWatchlist`, {
         method: "DELETE",
         headers: {
@@ -151,18 +154,18 @@ const StockWatchlist = () => {
         },
         body: JSON.stringify({ watchlist_id: watchlistId }),
       });
-  
+
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Failed to delete watchlist");
-  
+
       // Filter out the deleted watchlist
       setWatchlists((prev) => prev.filter((watchlist) => watchlist.watchlist_id !== watchlistId));
-  
+
       // Ensure selected watchlist remains unchanged
       if (watchlistId === selectedWatchlist) {
         setSelectedWatchlist(watchlists[0]?.watchlist_id || null);
       }
-  
+
       setActiveDropdown(null);
       alert("Watchlist deleted successfully");
     } catch (error) {
@@ -170,7 +173,7 @@ const StockWatchlist = () => {
       alert(error.message || "An error occurred while deleting the watchlist");
     }
   };
-  
+
 
   const handleCreateWatchlist = async () => {
     const token = Cookies.get("jwtToken");
@@ -205,7 +208,7 @@ const StockWatchlist = () => {
 
   useEffect(() => {
     fetchWatchlistAssets();
-  }, [fetchWatchlistAssets]);
+  }, [selectedWatchlist]);
 
   return (
     <div>
@@ -246,7 +249,7 @@ const StockWatchlist = () => {
                 <input
                   type="radio"
                   name="watchlist"
-                  defaultChecked={index === 0}
+                  checked={selectedWatchlist === watchlist.watchlist_id}
                   onChange={() => setSelectedWatchlist(watchlist.watchlist_id)}
                   style={{
                     width: "14px",
