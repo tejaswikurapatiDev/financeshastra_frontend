@@ -1,12 +1,35 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import AddSIPForm from "../AddSIPFormstock/AddSIPFormstock"; // Adjust path as needed
 import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchData } from "../../Store/Slices/searchDataSlice";
+import { debounce } from "lodash";
 
 const AddTransactionstock = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const stocksData = useSelector((store) => store?.searchData?.searchData);
+
+  // **Fetch All Data**
+  useEffect(() => {
+    if (!stocksData || stocksData.length === 0) {
+      const getAllData = async () => {
+        try {
+          const response = await fetch(`${API_BASE_URL}/search/allInfo`);
+          const data = await response.json();
+          console.log("hii api called");
+          dispatch(setSearchData(data?.data || []));
+        } catch (error) {
+          console.error("Error fetching search data:", error);
+        }
+      };
+
+      getAllData();
+    }
+  }, [dispatch, stocksData]);
 
   // Access the transaction to be edited, if passed via state
   const transaction = location.state?.transaction;
@@ -27,6 +50,32 @@ const AddTransactionstock = () => {
       showSIP: false,
     }
   );
+  const [filterData, setFilterData] = useState([]);
+
+  // **Debounced Search Function**
+  const debounceSearch = useCallback(
+    debounce((searchText) => {
+      if (!searchText) {
+        setFilterData([]);
+        return;
+      }
+
+      const results = stocksData.filter((item) => {
+        const company = item.company?.toLowerCase() || "";
+
+        return company.includes(searchText.toLowerCase());
+      });
+
+      setFilterData(results);
+    }, 300),
+    [stocksData]
+  );
+
+  // **Trigger Debounce on Input Change**
+  useEffect(() => {
+    debounceSearch(transactionData.stock_name);
+    return () => debounceSearch.cancel();
+  }, [transactionData.stock_name]);
 
   // Handle input changes dynamically
   const handleInputChange = (e) => {
@@ -110,7 +159,8 @@ const AddTransactionstock = () => {
           <div className="transaction-row">
             {/* Transaction Type */}
             <label>
-              <p1 style={{ marginLeft: "49px" }}>Type</p1><br />
+              <p1 style={{ marginLeft: "49px" }}>Type</p1>
+              <br />
               <select
                 name="type"
                 value={transactionData.type}
@@ -125,7 +175,8 @@ const AddTransactionstock = () => {
 
             {/* Stock Name */}
             <label>
-              Stock Name<br />
+              Stock Name
+              <br />
               <input
                 type="text"
                 name="stock_name"
@@ -133,11 +184,24 @@ const AddTransactionstock = () => {
                 onChange={handleInputChange}
                 className="transaction-input"
               />
+              {/* display input results  */}
+              <div>
+                {filterData.length > 0 ? (
+                  <ul>
+                    {filterData.map((data) => {
+                      return <li key={data.id}>{data.company}</li>;
+                    })}
+                  </ul>
+                ) : (
+                  transactionData.stock_name && <p>No result found</p>
+                )}
+              </div>
             </label>
 
             {/* Exchange */}
             <label>
-              Exchange<br />
+              Exchange
+              <br />
               <input
                 type="text"
                 name="exchange"
@@ -186,15 +250,19 @@ const AddTransactionstock = () => {
             </label>
           </div>
 
-          <br /><br />
+          <br />
+          <br />
 
-          <div className="transaction-row" style={{
-            borderTop: "1px solid #ccc",
-            marginBottom: "10px",
-            paddingBottom: "10px",
-          }}>
+          <div
+            className="transaction-row"
+            style={{
+              borderTop: "1px solid #ccc",
+              marginBottom: "10px",
+              paddingBottom: "10px",
+            }}
+          >
             {/* Amount */}
-            <label className='amountupdate'>
+            <label className="amountupdate">
               <p1 style={{ marginLeft: "35px" }}>Amount</p1>
               <input
                 type="number"
@@ -261,7 +329,11 @@ const AddTransactionstock = () => {
         <div className="form-buttons">
           <button
             type="button"
-            style={{ marginLeft: "600px", background: "#24b676", color: "white" }}
+            style={{
+              marginLeft: "600px",
+              background: "#24b676",
+              color: "white",
+            }}
             onClick={handleAddTransaction}
             className="save-button"
           >
