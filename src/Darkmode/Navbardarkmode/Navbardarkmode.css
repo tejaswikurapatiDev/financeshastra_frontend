@@ -1,7 +1,7 @@
 .searchdarkerrrmodeicon{
     position: absolute;
-    left: 1000px; /* Position on the left side inside input */
-    top: 50%;
+    left: 975px; /* Position on the left side inside input */
+    top: 52%;
     transform: translateY(-50%);
     color: #ffff;
     font-size: 14px; /* Adjust icon size */

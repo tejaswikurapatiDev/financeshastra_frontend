@@ -49,8 +49,8 @@ const FooterForAllPagedarkmode = () => {
   const quickLinksRoutes = {
     "Plan & Pricing": "/pricehalf",
     "Talk to Us": "/talktous",
-    "Disclaimer": "/disclaimer",
-    "Refund Policy": "/refundpolicy",
+    "Disclaimer": "/disclaimerdarkmode",
+    "Refund Policy": "/refundPolicydarkmode",
     "Careers": "/careers",
   };
   const AboutRoutes = {
@@ -130,15 +130,15 @@ const FooterForAllPagedarkmode = () => {
         <div className="FooterForAllPage-bottom-section">
           <p className="FooterForAllPage-copyright">
             Copyright © 2024 FinanceShastra <br /> All Rights Reserved |{" "}
-            <a href="/termsAndConditions" className="FooterForAllPage-darklink">Terms and Conditions</a> |{" "}
+            <a href="/termsAndConditionsdarkmode" className="FooterForAllPage-darklink">Terms and Conditions</a> |{" "}
             <a href="#" className="FooterForAllPage-darklink">Privacy Policy</a>
           </p>
         </div>
       </footer>
 
       {/* Mobile Footer */}
-      <footer className="footermobileviewpages-footer">
-      <div className="footermobileviewpages-main-section">
+      <footer className="footermobileviewdarkpages-footer">
+      <div className="footermobileviewpages-main-darksection">
         {footerData.map((section, index) => (
           <div key={index} className="footermobileviewpages-column">
             <div

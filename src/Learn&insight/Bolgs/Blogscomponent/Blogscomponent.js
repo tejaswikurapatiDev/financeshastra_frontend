@@ -103,11 +103,11 @@ const BlogsComponent = () => {
       </ul>
 
       {/* Tabs */}
-      <div className="tabsContainer">
+      <div className="tabsContainerblogggs">
         {tabs.map((tab) => (
           <button
             key={tab}
-            className={`tabButton ${activeTab === tab ? "activeTab" : ""}`}
+            className={`tabButtonblogggs ${activeTab === tab ? "activeTab" : ""}`}
             onClick={() => setActiveTab(tab)}
           >
             {tab}

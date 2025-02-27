@@ -1,4 +1,5 @@
-import React, { useState, useEffect, navigate } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import itiimg from '../../../src/assest/iti.png';
@@ -28,6 +29,8 @@ const Dashboardchartmain = () => {
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
 
+  const navigate = useNavigate();
+
   const fetchData = async () => {
       try {
         setLoading(true);
@@ -39,7 +42,7 @@ const Dashboardchartmain = () => {
           return;
         }
   
-        const response = await fetch(`/myportfolio/dashboard`, {
+        const response = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -55,11 +58,9 @@ const Dashboardchartmain = () => {
         console.log("API Data:", data);
   
         if (data.length > 0) {
-          console.log(typeof(data[0].investment_cost))
-          setMyInvestment(data[0].investment_cost || 0);
+          setMyInvestment(data[0].total_investment || 0);
           setLatestValue(data[0].latest_value || 0);
-          const change = ((data[0].latest_value - data[0].investment_cost)/data[0].investment_cost)*100
-          console.log(change)
+          const change = ((data[0].latest_value - data[0].total_investment)/data[0].total_investment)*100 || 0
           setPercentChange(change)
         } else {
           setError("No portfolio data found.");

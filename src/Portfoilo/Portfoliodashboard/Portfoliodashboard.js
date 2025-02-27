@@ -1,9 +1,53 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 import "./Portfoliodashboard.css";
-
+import { API_BASE_URL } from "../../config";
 import PortfolioAllocationManagerChart from "../AllocationChart/AllocationChart";
 
 const PortfolioManagerDashboard = () => {
+
+  const [portfolioData, setPortfolioData] = useState([])
+
+  // Fetch portfolio stocks data
+  const fetchData = async () => {
+    const token = Cookies.get("jwtToken");
+    if (!token) {
+      alert("Session expired, Please Login again");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!res.ok) throw new Error("Failed to fetch data");
+
+      const data = await res.json();
+      console.log("portfolio: ", data)
+      setPortfolioData(data);
+    } catch (error) {
+      console.error("Error fetching transactions:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const stockInvestment = portfolioData[0]?.stock_investment || 0;
+  const stocksPercent = portfolioData[0]?.total_investment ? (portfolioData[0].stock_investment) / (portfolioData[0].total_investment) * 100 : 0;
+  const stockUnrealizedGains = portfolioData[0]?.unrealized_stock_gain || 0;
+  const stockUnrealizedGainsPercent = portfolioData[0]?.total_investment ? (portfolioData[0].unrealized_stock_gain) / (portfolioData[0].total_investment) * 100 : 0;
+
+  const mutualInvestment = portfolioData[0]?.mutualfund_investment || 0;
+  const mutualPercent = portfolioData[0]?.total_investment ? (portfolioData[0].mutualfund_investment) / (portfolioData[0].total_investment) * 100 : 0;
+  const mutualUnrealizedGains = portfolioData[0]?.unrealized_mutual_gain || 0;
+  const mutualUnrealizedGainsPercent = portfolioData[0]?.total_investment ? (portfolioData[0].unrealized_mutual_gain) / (portfolioData[0].total_investment) * 100 : 0;
+
   return (
     <div className="portfolio-dashboard-container">
       <h3 className="portfoliomanager-h3">My Accounts</h3>
@@ -55,9 +99,9 @@ const PortfolioManagerDashboard = () => {
                 <span className="portfolio-add">Add</span>
               </td>
               <td>
-                1,170
+                {stockInvestment}
                 <br />
-                <span>100.0%</span>
+                <span>{stocksPercent.toFixed(2)}%</span>
               </td>
               <td>
                 1,166
@@ -65,16 +109,16 @@ const PortfolioManagerDashboard = () => {
                 <span>100.0%</span>
               </td>
               <td style={{ color: -0.48 < 0 ? "red" : "green" }}>
-             -0.48
-            <br />
-           <span style={{ color: -0.48 < 0 ? "red" : "green" }}>
-         (-0.04%)
-       </span>
-        </td>
-              <td style={{ color: -4 < 0 ? "red" : "green" }}>
-                -4
+                -0.48
                 <br />
-                <span style={{ color: "-0.04" < 0 ? "red" : "green" }}>(-0.04%)</span>
+                <span style={{ color: -0.48 < 0 ? "red" : "green" }}>
+                  (-0.04%)
+                </span>
+              </td>
+              <td style={{ color: -4 < 0 ? "red" : "green" }}>
+                {stockUnrealizedGains}
+                <br />
+                <span style={{ color: "-0.04" < 0 ? "red" : "green" }}>({stockUnrealizedGainsPercent.toFixed(2)}%)</span>
               </td>
               <td>0</td>
               <td>0</td>
@@ -86,9 +130,31 @@ const PortfolioManagerDashboard = () => {
                 <br />
                 <span className="portfolio-add">Add</span>
               </td>
-              <td colSpan="7" className="portfolio-add-link">
-                No data: + Click to Add Mutual Funds in your Portfolio
+              <td>
+                {mutualInvestment}
+                <br />
+                <span>{mutualPercent.toFixed(2)}%</span>
               </td>
+              <td>
+                1,166
+                <br />
+                <span>100.0%</span>
+              </td>
+              <td style={{ color: -0.48 < 0 ? "red" : "green" }}>
+                -0.48
+                <br />
+                <span style={{ color: -0.48 < 0 ? "red" : "green" }}>
+                  (-0.04%)
+                </span>
+              </td>
+              <td style={{ color: -4 < 0 ? "red" : "green" }}>
+                {mutualUnrealizedGains}
+                <br />
+                <span style={{ color: "-0.04" < 0 ? "red" : "green" }}>({mutualUnrealizedGainsPercent.toFixed(2)}%)</span>
+              </td>
+              <td>0</td>
+              <td>0</td>
+              <td style={{ color: '-4' < 0 ? 'red' : 'black' }}>-4</td>
             </tr>
             <tr>
               <td>

@@ -1,4 +1,5 @@
-import React, { createContext, useState, useEffect, navigate } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../config";
 
@@ -9,6 +10,7 @@ export const PortfolioDashboardProvider = ({ children }) => {
 
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate()
 
     const [myInvestment, setMyInvestment] = useState(0);
     const [latestValue, setLatestValue] = useState(0);

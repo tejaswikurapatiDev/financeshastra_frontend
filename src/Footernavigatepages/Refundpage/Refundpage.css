@@ -1,0 +1,293 @@
+.refundpolicyy {
+    font-family: 'Calibri';
+    width: 900px;
+   margin-left: 300px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 120px;
+  }
+  
+  .refundpolicyy h1 {
+  font-size: 26px;
+  margin-left: 80px;
+    color:black;
+    margin-bottom: 10px;
+  }
+  
+  .refundpolicyy-lastupdated {
+ margin-right: 520px;
+    font-size: 14px;
+    color:black;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icons and text */
+  }
+  
+  .calenderrefundicon {
+    color:black ;
+    font-size: 16px;
+  }
+  
+  .dotrefund {
+    color: #24b676;
+    font-size: 26px;
+  }
+  
+  .refundpolicyy-header {
+
+    margin-bottom: 10px;
+  }
+  .refundpolicyy-header p{
+    font-size: 15px;
+    color: black;
+  }
+  
+  .refundpolicyy-image {
+margin-left: 60px;
+  width: 800px;
+  height: 400px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: -70px;
+  }
+  
+  .refundpolicyy-section h2 {
+    color: black;
+    font-size: 24px;
+    margin-top: 10px;
+    
+  }
+  
+  .refundpolicyy-section h3 {
+  color: black;
+    font-size: 18px;
+ 
+  }
+  
+  .refundpolicyy-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 15px;
+    color: black;
+  }
+  
+  .refundpolicyy-section ul li {
+margin-left: 10px;
+  }
+  
+  .refundpolicyy-section p ,.refundpolicyy-contact p{
+    font-size: 15px;
+    color: black;
+  }
+
+  .refundpolicyy-contact {
+ margin-bottom: 130px;
+  font-size: 15px;
+  color: black;
+    
+  }
+  
+  @media (max-width: 768px) {
+    .refundpolicyy {
+        font-family: 'Calibri';
+        width: 900px;
+       margin-left: 0px;
+        color: #333;
+        line-height: 1.6;
+        margin-top: 120px;
+      }
+      
+      .refundpolicyy h1 {
+      font-size: 24px;
+      margin-left: 10px;
+        color:black;
+        margin-bottom: 10px;
+      }
+      
+      .refundpolicyy-lastupdated {
+     margin-right: 668px;
+        font-size: 14px;
+        color:black;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px; /* Space between icons and text */
+      }
+      
+      .calenderrefundicon {
+        color:black ;
+        font-size: 16px;
+      }
+      
+      .dotrefund {
+        color: #24b676;
+        font-size: 26px;
+      }
+      
+      .refundpolicyy-header {
+    
+        margin-bottom: 10px;
+      }
+      .refundpolicyy-header p{
+        font-size: 15px;
+        color: black;
+        width: 450px;
+        margin-left: 10px;
+      }
+      
+      .refundpolicyy-image {
+    margin-left: 0px;
+      width: 500px;
+      height: 400px;
+        display: block;
+        border-radius: 8px;
+        margin-bottom: -70px;
+      }
+      
+      .refundpolicyy-section h2 {
+        color: black;
+        font-size: 24px;
+        margin-top: 10px;
+        
+      }
+      
+      .refundpolicyy-section h3 {
+      color: black;
+        font-size: 18px;
+     
+      }
+      
+      .refundpolicyy-section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-size: 15px;
+        color: black;
+       
+      }
+      
+      .refundpolicyy-section ul li {
+    margin-left: 10px;
+    width: 400px;
+      }
+      
+      .refundpolicyy-section p ,.refundpolicyy-contact p{
+        font-size: 15px;
+        color: black;
+        width: 400px;
+        margin-left: 20px;
+      }
+    
+      .refundpolicyy-contact {
+     margin-bottom: 130px;
+     width: 400px;
+     margin-left: 20px;
+      
+        
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .refundpolicyy {
+        font-family: 'Calibri';
+        width: 900px;
+       margin-left: 0px;
+        color: #333;
+        line-height: 1.6;
+        margin-top: 120px;
+      }
+      
+      .refundpolicyy h1 {
+      font-size: 24px;
+      margin-left: 10px;
+        color:black;
+        margin-bottom: 10px;
+      }
+      
+      .refundpolicyy-lastupdated {
+     margin-right: 668px;
+        font-size: 14px;
+        color:black;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px; /* Space between icons and text */
+      }
+      
+      .calenderrefundicon {
+        color:black ;
+        font-size: 16px;
+      }
+      
+      .dotrefund {
+        color: #24b676;
+        font-size: 26px;
+      }
+      
+      .refundpolicyy-header {
+    
+        margin-bottom: 10px;
+      }
+      .refundpolicyy-header p{
+        font-size: 15px;
+        color: black;
+        width: 450px;
+        margin-left: 10px;
+      }
+      
+      .refundpolicyy-image {
+    margin-left: 0px;
+      width: 450px;
+      height: 400px;
+        display: block;
+        border-radius: 8px;
+        margin-bottom: -70px;
+      }
+      
+      .refundpolicyy-section h2 {
+        color: black;
+        font-size: 24px;
+        margin-top: 10px;
+        
+      }
+      
+      .refundpolicyy-section h3 {
+      color: black;
+        font-size: 18px;
+     
+      }
+      
+      .refundpolicyy-section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        font-size: 15px;
+        color: black;
+       
+      }
+      
+      .refundpolicyy-section ul li {
+    margin-left: 10px;
+    width: 400px;
+      }
+      
+      .refundpolicyy-section p ,.refundpolicyy-contact p{
+        font-size: 15px;
+        color: black;
+        width: 400px;
+        margin-left: 20px;
+      }
+    
+      .refundpolicyy-contact {
+     margin-bottom: 130px;
+     width: 400px;
+     margin-left: 20px;
+      
+        
+      }
+  }
+  
+  
+  

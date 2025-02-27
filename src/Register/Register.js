@@ -6,7 +6,7 @@ import logoimg from '../assest/finanlogo.svg';
 import { Button } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import googleimg from '../assest/googleicon.svg';
 import linkedinimg from '../assest/lin.png'
@@ -177,17 +177,19 @@ function Register() {
             <div className="input-container">
               <label>Password*</label>
               <div className="password-field">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                  className={passwordError ? "input-error" : ""}
-                />
+              <input
+  type={showPassword ? "text" : "password"}
+  placeholder="Enter your password"
+  name="password"
+  value={formData.password}
+  onChange={handleChange}
+  required
+  
+  className={passwordError ? "input-error" : ""}
+/>
+
                 <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+                  
                 </span>
               </div>
               {passwordError && <span className="error-text">{passwordError}</span>}

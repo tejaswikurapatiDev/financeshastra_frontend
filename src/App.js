@@ -244,6 +244,11 @@ import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
 import Logindarkmode from "./Darkmode/Logindarkmode/Logindarkmode";
 import Registerdarkmode from "./Darkmode/Registerdarkmode/Registerdarkmode";
 import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpassworddarkmode";
+import Openemaildarkmode from "./Darkmode/Openemaildarkmode/Openemaildarkmode";
+import Dashboardchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Dashboardgraphdarkmode/Dashboardgraphdarkmode";
+import Stockindexalldarkmode from "./Darkmode/Dashboarddarkmode/Stockindexallpagedarkmode/Stockindexallpagedarkmode";
+import Calenderchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Stockcalendergraphdarkmode/Stockcalendergraphdarkmode";
+import Stockanalystalldarkmode from "./Darkmode/Dashboarddarkmode/Homeanalystalldarkmode/Homeanalystalldarkmode";
 
 //Context
  
@@ -254,6 +259,16 @@ import { store } from "./Store/store";
 import { PortfolioStockProvider } from "./Portfoilo/context/PortfolioStocksContext";
 import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsContext";
 import {PortfolioDashboardProvider} from "./Portfoilo/context/PortfolioDashboardContext"
+import Forgetresetpassworddarkmode from "./Darkmode/Forgetresetpassworddarkmode/Forgetresetpassworddarkmode";
+import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
+
+import RefundPolicy from "./Footernavigatepages/Refundpage/Refundpage";
+import Disclaimerdarkmode from "./Darkmode/Footernavigatedarkmode/Disclamerdarkmode/Disclamerdarkmode";
+import RefundPolicydarkmode from "./Darkmode/Footernavigatedarkmode/Refundpagedarkmode/Refundpagedarkmode";
+import WhoWeAre from "./Footernavigatepages/WhoWeAre/WhoWeAre";
+import WhoWeAredarkmode from "./Darkmode/Footernavigatedarkmode/Whowearedarkmode/Whowearedarkmode";
+import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAndConditions";
+import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
 
 function App() {
   return (
@@ -428,7 +443,14 @@ function App() {
       <Route path="/footerForAllPage" element={<FooterForAllPage/>}/>
       <Route path="/profilePage" element={<ProfilePage/>}/>
       <Route path="/settingDashPanel" element={<SettingsDashboard/>}/>
-      <Route path="/home" element={<Dashboardchartmain/>}/>
+      <Route 
+        path="/home" 
+        element={
+          <PortfolioDashboardProvider>
+            <Dashboardchartmain/>
+          </PortfolioDashboardProvider>
+        }
+      />
       <Route path="/stockindexall" element={<Stockindexall/>}/>
       <Route path="/calenderchartmain" element={<Calenderchartmain/>}/>
       <Route path="/homestockanalyst" element={<Homestockanalyst/>}/>
@@ -566,6 +588,20 @@ function App() {
       <Route path="/logindarkmode" element={<Logindarkmode/>}/>
       <Route path="/registerdarkmode" element={<Registerdarkmode/>}/>
       <Route path="/forgetpassworddarkmode" element={<Forgetpassworddarkmode/>}/>
+      <Route path="/openemaildarkmode" element={<Openemaildarkmode/>}/>
+      <Route path="/dashboardchartmaindarkmode" element={<Dashboardchartmaindarkmode/>}/>
+      <Route path="/stockindexalldarkmode" element={<Stockindexalldarkmode/>}/>
+      <Route path="/calenderchartmaindarkmode" element={<Calenderchartmaindarkmode/>}/>
+      <Route path="/stockanalystalldarkmode" element={<Stockanalystalldarkmode/>}/>
+      <Route path="/forgetresetpassworddarkmode" element={<Forgetresetpassworddarkmode/>}/>
+      <Route path="/disclaimer" element={<Disclaimer/>}/>
+      <Route path="/disclaimerdarkmode" element={<Disclaimerdarkmode/>}/>
+      <Route path="/refundPolicy" element={<RefundPolicy/>}/>
+      <Route path="/refundPolicydarkmode" element={<RefundPolicydarkmode/>}/>
+      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+      <Route path="/whoWeAredarkmode" element={<WhoWeAredarkmode/>}/>
+      <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
+      <Route path="/termsAndConditionsdarkmode" element={<TermsAndConditionsdarkmode/>}/>
       
 
      

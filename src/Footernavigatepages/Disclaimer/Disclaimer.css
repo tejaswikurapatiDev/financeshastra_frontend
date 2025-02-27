@@ -1,0 +1,276 @@
+.disclaimer {
+    font-family: 'Calibri';
+    width: 900px;
+  margin-left: 250px;
+    line-height: 1.6;
+  }
+  
+  .disclaimer-title {
+
+    font-size: 26px;
+    color: black;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+  }
+  
+  .disclaimer-intro {
+    
+    margin-bottom: 10px;
+  }
+  .disclaimer-intro p{
+    
+font-size: 15px;
+color: black;
+  }
+  
+  .disclaimer-intro a{
+    
+   text-decoration: none;
+  }
+  
+  .disclaimer-image {
+ 
+    width: 650px;
+    height: 300px;
+   margin-left: 80px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  
+  .disclaimer-section {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-section h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: -5px;
+
+  }
+  
+  .disclaimer-section p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: black;
+  }
+  
+  .disclaimer-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 15px;
+    color: black;
+  }
+  
+  .disclaimer-section ul li {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-contact {
+
+    margin-top: 0px;
+    margin-bottom: 100px;
+  }
+  
+  .disclaimer-contact h3 {
+    font-size: 24px;
+    color:black;
+    margin-bottom: -5px;
+  }
+  .disclaimer-contact a {
+    text-decoration: none;
+  }
+  
+  .disclaimer-contact p{
+    margin-bottom: -10px;
+   font-size: 15px;
+   color: black;
+   
+  }
+  @media (max-width: 768px) {
+    .disclaimer {
+        font-family: 'Calibri';
+        width: 900px;
+      margin-left: 0px;
+        line-height: 1.6;
+      }
+      
+      .disclaimer-title {
+    
+        font-size: 24px;
+        color: black;
+        margin-top: 120px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+      }
+      
+      .disclaimer-intro {
+        
+        margin-bottom: 10px;
+      }
+      
+      .disclaimer-image {
+     
+        width: 460px;
+        height: auto;
+       margin-left: 0px;
+        display: block;
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
+      
+      .disclaimer-section {
+        margin-bottom: 0px;
+      }
+      
+      .disclaimer-section h2 {
+        font-size: 22px;
+        color: black;
+        margin-bottom: -5px;
+        margin-left: 7px;
+    
+      }
+      
+      .disclaimer-section p {
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: black;
+        width: 450px;
+        margin-left: 10px;
+      }
+      .disclaimer-intro p{
+        width: 450px;
+        font-size: 15px;
+        color: black;
+        margin-left: 10px;
+          }
+          
+      
+      .disclaimer-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 15px;
+        color: black;
+      }
+      
+      .disclaimer-section ul li {
+        margin-bottom: 0px;
+        width: 400px;
+      }
+      
+      .disclaimer-contact {
+    
+        margin-top: 0px;
+        margin-bottom: 100px;
+      }
+      
+      .disclaimer-contact h3 {
+        font-size: 24px;
+        color:black;
+        margin-bottom: -5px;
+      }
+      
+      .disclaimer-contact p{
+        margin-bottom: -10px;
+       font-size: 15px;
+       color: black;
+       margin-left: 10px;
+       
+      }
+  }
+  @media (max-width: 480px) {
+    .disclaimer {
+        font-family: 'Calibri';
+        width: 900px;
+      margin-left: 0px;
+        line-height: 1.6;
+      }
+      
+      .disclaimer-title {
+    
+        font-size: 24px;
+        color: black;
+        margin-top: 120px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+      }
+      
+      .disclaimer-intro {
+        
+        margin-bottom: 10px;
+      }
+      
+      .disclaimer-image {
+     
+        width: 360px;
+        height: auto;
+       margin-left: 0px;
+        display: block;
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
+      
+      .disclaimer-section {
+        margin-bottom: 0px;
+      }
+      
+      .disclaimer-section h2 {
+        font-size: 22px;
+        color: black;
+        margin-bottom: -5px;
+        margin-left: 7px;
+    
+      }
+      
+      .disclaimer-section p {
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: black;
+        width: 360px;
+        margin-left: 10px;
+      }
+      .disclaimer-intro p{
+        width: 360px;
+        font-size: 15px;
+        color: black;
+        margin-left: 10px;
+          }
+          
+      
+      .disclaimer-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 15px;
+        color: black;
+      }
+      
+      .disclaimer-section ul li {
+        margin-bottom: 0px;
+        width: 200px;
+      }
+      
+      .disclaimer-contact {
+    
+        margin-top: 0px;
+        margin-bottom: 100px;
+      }
+      
+      .disclaimer-contact h3 {
+        font-size: 24px;
+        color:black;
+        margin-bottom: -5px;
+      }
+      
+      .disclaimer-contact p{
+        margin-bottom: -10px;
+       font-size: 15px;
+       color: black;
+       margin-left: 10px;
+       width: 360px;
+       
+      }
+  }
+
+  
+  

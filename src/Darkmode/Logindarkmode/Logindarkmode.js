@@ -298,9 +298,16 @@ function Logindarkmode() {
   </div>
 </div>
 <div>
-  <a href="#" onClick={handleForgotPasswordClick} className="forgotpasswordlinkdarkmode">
-    Forgot Password?
-  </a>
+<a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault(); // Prevent default anchor behavior
+          navigate("/forgetpassworddarkmode");
+        }}
+        className="forgotpasswordlinkdarkmode"
+      >
+        Forgot Password?
+      </a>
   </div>
 </div>
               

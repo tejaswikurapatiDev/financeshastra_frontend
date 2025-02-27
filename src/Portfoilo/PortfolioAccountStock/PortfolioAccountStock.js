@@ -34,11 +34,12 @@ const PortfolioAccountStock = () => {
 
   const confirmDelete = async () => {
     if (!transactionToDelete) return;
-    
+    const token = Cookies.get("jwtToken")
+
     try {
       await fetch(`${API_BASE_URL}/myportfolio/transactions/${transactionToDelete.id}`, {
         method: "DELETE",
-        headers: { Authorization: `Bearer ${Cookies.get("jwtToken")}` },
+        headers: { Authorization: `Bearer ${token}` },
       });
   
       setStockTransactions((prev) => prev.filter((txn) => txn.id !== transactionToDelete.id));
