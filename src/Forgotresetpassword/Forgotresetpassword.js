@@ -10,7 +10,6 @@ function Forgotresetpassword() {
   const [passwordError, setPasswordError] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   //getting token from params
   const { token } = useParams();
@@ -59,7 +58,6 @@ function Forgotresetpassword() {
     }
 
     //logic to reset password
-    setIsLoading(true);
     try {
       const url = `${API_BASE_URL}/users/reset-password/${token}`;
       const response = await fetch(url, {
@@ -79,8 +77,6 @@ function Forgotresetpassword() {
     } catch (error) {
       console.error("Reset password error:", error);
       alert(error.response?.data?.message || "Something went wrong.");
-    } finally {
-      setIsLoading(false);
     }
   };
 
