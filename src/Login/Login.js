@@ -44,10 +44,39 @@ function Login() {
     return passwordPattern.test(password);
   };
 
+  const isFormValid = validateEmail(email) && validatePassword(password);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
+<<<<<<< HEAD
+  
+    let hasError = false;
+  
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      hasError = true;
+    } else if (!validateEmail(email)) {
+      setEmailError("Invalid email address");
+      hasError = true;
+    }
+    
+    console.log("Email Error State:", emailError); // Debugging ke liye
+    
+    if (!password.trim()) {
+      setPasswordError("Password is required");
+      hasError = true;
+    } else if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be at least 8 characters"
+      );
+      hasError = true;
+    }
+  
+    if (hasError) {
+      return; // Stop execution if there are errors
+=======
 
     if (!validateEmail(email)) {
       setEmailError("Invalid email format");
@@ -59,6 +88,7 @@ function Login() {
         "Password must be 8+ characters, include an uppercase letter, a number, and a special character."
       );
       return;
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
     }
 
     setIsLoading(true);
@@ -78,11 +108,16 @@ function Login() {
       }
 
       const data = await response.json();
+<<<<<<< HEAD
+      const { jwtToken } = data;
+  
+=======
       const { jwtToken, user } = data;
 
       console.log(data);
 
       // localStorage.setItem("authData", JSON.stringify({ token: jwtToken, user }));
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
@@ -96,7 +131,11 @@ function Login() {
       setIsLoading(false);
     }
   };
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
   const handleRegisterClick = () => {
     navigate("/register");
   };
@@ -221,18 +260,15 @@ function Login() {
             ) : (
               <form onSubmit={handleForgotPasswordEmailSubmit}>
                 <div className="input-container">
-                  <label>Email Address*</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className={emailError ? "input-error" : ""}
-                  />
-                  {emailError && (
-                    <span className="error-text">{emailError}</span>
-                  )}
+                <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  />
+  {emailError && <span className="error-text">{emailError}</span>}
                 </div>
                 <div className="button-container">
                   <button type="submit" className="sign-in-btn">
@@ -250,7 +286,41 @@ function Login() {
             )
           ) : (
             <form onSubmit={handleSubmit}>
+              
               <div className="input-container">
+<<<<<<< HEAD
+  <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  /><br/>
+  {emailError && <span className="error-textlogin">{emailError}</span>}
+</div>
+
+<div className="input-container">
+  <label>Password*</label>
+  <div className="password-field">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className={passwordError ? "input-error" : ""}
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+  
+    </span>
+  </div>
+  {passwordError && <span className="error-textlogin">{passwordError}</span>}
+</div>
+
+=======
                 <label>Email Address*</label>
                 <input
                   type="email"
@@ -284,6 +354,7 @@ function Login() {
                   <span className="error-text">{passwordError}</span>
                 )}
               </div>
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
               <div className="login-options">
                 <div className="checksigninall">
                   <div className="signinall">
@@ -311,9 +382,18 @@ function Login() {
                 </div>
               </div>
 
-              <button type="submit" className="sign-in-btn">
-                Log in
-              </button>
+              <button 
+    type="submit" 
+    className="sign-in-btn"
+    style={{
+      backgroundColor: isFormValid ? "#24b676" : "#ccc",
+      cursor: isFormValid ? "pointer" : "not-allowed",
+    }}
+    visible={!isFormValid} // Button disabled when form is invalid
+  >
+    Log in
+  </button>
+
 
               <ClipLoader
                 cssOverride={override}

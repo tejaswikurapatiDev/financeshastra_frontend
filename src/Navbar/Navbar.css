@@ -228,29 +228,49 @@ a span {
   color: black;
 }
 
-/* Search bar */
 .navbar-search {
   position: relative;
-  display: inline-block;
+  display: flex;
+  
 }
 
 .navbar-search input {
-  padding: 10px 12px 6px 30px; /* Add padding to make space for the icon */
-  border-radius: 6px;
-  border: 1px solid #333333;
-  font-size: 12px;
-  width: 220px; /* Adjust as needed */
-  height: 35px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 4px;
 }
 
-/* Search icon */
 .search-icon {
   position: absolute;
-  left: 10px; /* Position on the left side inside input */
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #333333;
-  font-size: 14px; /* Adjust icon size */
+}
+
+.navbar-search div {
+  width:100%;
+  background: white;
+  position: absolute;
+  top: 100%; /* Ensures it appears just below input */
+  left: 0;
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+  max-height: 170px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.search-results ul li {
+  cursor: pointer; /* Makes the text clickable */
+  padding: 5px;
+  transition: background 0.2s ease-in-out;
+  
+}
+
+.search-results ul li:hover {
+  background: #f0f0f0; /* Light grey background on hover */
 }
 
 /* Icons section */

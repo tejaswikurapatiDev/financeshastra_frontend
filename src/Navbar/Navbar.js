@@ -629,29 +629,29 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar-search">
-          <input
-            type="text"
-            placeholder="Search for Stocks, Mutual..."
-            onChange={(e) => setSearchInputText(e.target.value)}
-          />
-          <FaSearch className="search-icon" />
-          {/* to display result */}
-          <div>
-            {filterData.length > 0 ? (
-              <ul>
-                {filterData.map((data) => {
-                  return (
-                    <li key={data.id}>
-                      {data.company} {data.Scheme_Name} {data.sector}
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              searchInputText && <p>No result found</p>
-            )}
-          </div>
-        </div>
+  <input
+    type="text"
+    placeholder="Search for Stocks, Mutual..."
+    onChange={(e) => setSearchInputText(e.target.value)}
+  />
+  <FaSearch className="search-icon" />
+
+  {/* Show results only when there is input */}
+  {searchInputText && (
+    <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
+      {filterData.length > 0 ? (
+        <ul>
+          {filterData.map((data) => (
+            <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
+          ))}
+        </ul>
+      ) : (
+        <p>No result found</p>
+      )}
+    </div>
+  )}
+</div>
+
 
         <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
           Subscribe
