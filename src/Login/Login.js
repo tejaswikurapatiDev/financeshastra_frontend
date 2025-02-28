@@ -66,6 +66,7 @@ function Login() {
       hasError = true;
     } else if (!validatePassword(password)) {
       setPasswordError("Password must be at least 8 characters");
+      setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
     
@@ -155,25 +156,28 @@ function Login() {
   const handleSuccess = async (response) => {
     console.log("Google Login Success:", response);
     const token = response.credential; // Ensure we receive a valid token
-  
+
     if (!token) {
       console.error("Token not received from Google!");
       return;
     }
-  
+
     try {
       const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
-  
+
       const data = await res.json();
       console.log("Backend Response:", data);
-  
+
       if (res.ok) {
         // Store JWT token in cookies
-        Cookies.set("jwtToken", data.jwtToken, { expires: 7, sameSite: "Strict" });
+        Cookies.set("jwtToken", data.jwtToken, {
+          expires: 7,
+          sameSite: "Strict",
+        });
         navigate("/home");
       } else {
         console.error("Authentication failed:", data.error);
@@ -181,7 +185,7 @@ function Login() {
     } catch (err) {
       console.error("Error sending token to backend:", err);
     }
-  }; 
+  };
 
   const handleFailure = (error) => {
     console.log("Login Failed: ", error);
@@ -230,15 +234,17 @@ function Login() {
             ) : (
               <form onSubmit={handleForgotPasswordEmailSubmit}>
                 <div className="input-container">
-                <label>Email Address*</label>
-  <input
-    type="email"
-    placeholder="Enter your email address"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className={emailError ? "input-error" : ""}
-  />
-  {emailError && <span className="error-text">{emailError}</span>}
+                  <label>Email Address*</label>
+                  <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className={emailError ? "input-error" : ""}
+                  />
+                  {emailError && (
+                    <span className="error-text">{emailError}</span>
+                  )}
                 </div>
                 <div className="button-container">
                   <button type="submit" className="sign-in-btn">
@@ -256,7 +262,6 @@ function Login() {
             )
           ) : (
             <form onSubmit={handleSubmit}>
-              
               <div className="input-container">
   <label>Email Address*</label>
   <input
@@ -316,18 +321,17 @@ function Login() {
                 </div>
               </div>
 
-              <button 
-    type="submit" 
-    className="sign-in-btn"
-    style={{
-      backgroundColor: isFormValid ? "#24b676" : "#ccc",
-      cursor: isFormValid ? "pointer" : "not-allowed",
-    }}
-    visible={!isFormValid} // Button disabled when form is invalid
-  >
-    Log in
-  </button>
-
+              <button
+                type="submit"
+                className="sign-in-btn"
+                style={{
+                  backgroundColor: isFormValid ? "#24b676" : "#ccc",
+                  cursor: isFormValid ? "pointer" : "not-allowed",
+                }}
+                visible={!isFormValid} // Button disabled when form is invalid
+              >
+                Log in
+              </button>
 
               <ClipLoader
                 cssOverride={override}
@@ -351,7 +355,6 @@ function Login() {
               width="150"
               theme="outline"
             />
-
 
             <br />
 
