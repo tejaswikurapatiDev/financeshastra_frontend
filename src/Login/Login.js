@@ -50,9 +50,9 @@ function Login() {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
-    
+
     let hasError = false;
-    
+
     if (!email.trim()) {
       setEmailError("Please enter Email Address");
       hasError = true;
@@ -60,7 +60,7 @@ function Login() {
       setEmailError("Invalid email address");
       hasError = true;
     }
-    
+
     if (!password.trim()) {
       setPasswordError("Please enter Password");
       hasError = true;
@@ -69,13 +69,13 @@ function Login() {
       setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
-    
+
     if (hasError) {
       return;
     }
-    
+
     setIsLoading(true);
-    
+
     try {
       const url = `${API_BASE_URL}/users/signin`;
       const options = {
@@ -83,21 +83,21 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       };
-      
+
       const response = await fetch(url, options);
       const data = await response.json();
-      
+
       if (!response.ok) {
         throw new Error(data.message || "Login Failed");
       }
-      
+
       const { jwtToken } = data;
-      
+
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
       });
-      
+
       navigate("/home");
     } catch (error) {
       console.error("Error during login:", error);
@@ -105,8 +105,8 @@ function Login() {
     } finally {
       setIsLoading(false);
     }
-  };  
-  
+  };
+
   const handleRegisterClick = () => {
     navigate("/register");
   };
@@ -263,36 +263,36 @@ function Login() {
           ) : (
             <form onSubmit={handleSubmit}>
               <div className="input-container">
-  <label>Email Address*</label>
-  <input
-    type="email"
-    placeholder="Enter your email address"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className={emailError ? "input-error" : ""}
-  /><br/>
-  {emailError && <span className="error-textlogin">{emailError}</span>}
-</div>
+                <label>Email Address*</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={emailError ? "input-error" : ""}
+                /><br />
+                {emailError && <span className="error-textlogin">{emailError}</span>}
+              </div>
 
-<div className="input-container">
-  <label>Password*</label>
-  <div className="password-field">
-    <input
-      type={showPassword ? "text" : "password"}
-      placeholder="Enter your password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      className={passwordError ? "input-error" : ""}
-    />
-    <span
-      className="toggle-password"
-      onClick={() => setShowPassword(!showPassword)}
-    >
-  
-    </span>
-  </div>
-  {passwordError && <span className="error-textlogin">{passwordError}</span>}
-</div>
+              <div className="input-container">
+                <label>Password*</label>
+                <div className="password-field">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter your password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className={passwordError ? "input-error" : ""}
+                  />
+                  <span
+                    className="toggle-password"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+
+                  </span>
+                </div>
+                {passwordError && <span className="error-textlogin">{passwordError}</span>}
+              </div>
 
               <div className="login-options">
                 <div className="checksigninall">

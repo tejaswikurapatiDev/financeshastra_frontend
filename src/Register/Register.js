@@ -12,6 +12,7 @@ import googleimg from "../assest/googleicon.svg";
 import linkedinimg from "../assest/lin.png";
 import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
+import Cookies from "js-cookie";
 
 const override = {
   display: "block",
@@ -53,7 +54,7 @@ function Register() {
     e.preventDefault();
     setIsLoading(true);
     let isValid = true;
-    
+
     if (!validateEmail(formData.email)) {
       setEmailError("Enter a valid email address.");
       isValid = false;
@@ -84,12 +85,12 @@ function Register() {
         },
         body: JSON.stringify(formData),
       };
-      
+
       const response = await fetch(url, options);
       const data = await response.json();
-  
+
       console.log(response);
-  
+
       if (response.status === 200) {
         alert(data.message);
         navigate("/");
@@ -109,23 +110,36 @@ function Register() {
   };
 
   const handleSuccess = async (response) => {
-    const token = response.credential;
+    console.log("Google Login Success:", response);
+    const token = response.credential; // Ensure we receive a valid token
+
+    if (!token) {
+      console.error("Token not received from Google!");
+      return;
+    }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/auth/google`, {
+      const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
 
       const data = await res.json();
+      console.log("Backend Response:", data);
+
       if (res.ok) {
-        console.log("Backend Response: ", data);
+        // Store JWT token in cookies
+        Cookies.set("jwtToken", data.jwtToken, {
+          expires: 7,
+          sameSite: "Strict",
+        });
+        navigate("/home");
       } else {
-        console.error("Authentication failed: ", data);
+        console.error("Authentication failed:", data.error);
       }
     } catch (err) {
-      console.error("Error sending token to backend: ", err);
+      console.error("Error sending token to backend:", err);
     }
   };
 
@@ -202,32 +216,15 @@ function Register() {
           </form>
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">
-            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
-              <Button
-                variant="contained"
-                className="google-btn"
-                startIcon={
-                  <img
-                    src={googleimg}
-                    alt="Google Icon"
-                    className="btn-icon-small"
-                  />
-                }
-                onClick={() =>
-                  document.querySelector(".GoogleLogin button")?.click()
-                } // Trigger Google Login button
-                sx={{ fontSize: "14px" }} // Decrease font size
-              >
-                Sign in with Google
-              </Button>
-
-              <div style={{ display: "none" }}>
-                <GoogleLogin
-                  onSuccess={handleSuccess}
-                  onError={handleFailure}
-                />
-              </div>
-            </GoogleOAuthProvider>
+            <GoogleLogin
+              variant="contained"
+              className="google-btn"
+              onSuccess={handleSuccess}
+              onError={handleFailure}
+              text="Sign in with Google"
+              width="150"
+              theme="outline"
+            />
 
             <br />
 
