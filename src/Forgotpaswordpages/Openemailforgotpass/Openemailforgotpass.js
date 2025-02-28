@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import './Openemailforgotpass.css'
-import logoimg from '../../assest/finanlogo.svg';
-import inboximg from '../../assest/inbox.jpeg';
-
-
+import "./Openemailforgotpass.css";
+import logoimg from "../../assest/finanlogo.svg";
+import inboximg from "../../assest/inbox.jpeg";
 
 function Openemailforgotpass() {
   const [email, setEmail] = useState("");
@@ -16,7 +14,7 @@ function Openemailforgotpass() {
   const [isResetPasswordStep, setIsResetPasswordStep] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const [isLoading, setIsLoading]= useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -25,19 +23,20 @@ function Openemailforgotpass() {
   };
 
   const validatePassword = (password) => {
-    const passwordPattern = /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+    const passwordPattern =
+      /^(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
     return passwordPattern.test(password);
   };
 
   const override = {
     display: "block",
-    textAlign: "center"
+    textAlign: "center",
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     let isValid = true;
-    setIsLoading(true)
+    setIsLoading(true);
 
     if (!validateEmail(email)) {
       setEmailError("Enter a valid email address.");
@@ -47,37 +46,40 @@ function Openemailforgotpass() {
     }
 
     if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
+      setPasswordError(
+        "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
+      );
       isValid = false;
     } else {
       setPasswordError("");
     }
 
     if (isValid && !isForgotPassword) {
-      const data= {
+      const data = {
         email,
-        password
-      }
-      const url='https://financeshastra-backendupdated.onrender.com/api/signin'
-      const options={
+        password,
+      };
+      const url =
+        "https://financeshastra-backendupdated.onrender.com/api/signin";
+      const options = {
         method: "post",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(data)
-      }
-      const response= await fetch(url, options)
-      setIsLoading(false)
-      if (response.status===404){
+        body: JSON.stringify(data),
+      };
+      const response = await fetch(url, options);
+      setIsLoading(false);
+      if (response.status === 404) {
         setEmailError("Email not found. Please register.");
-      }else if (response.status===400){
+      } else if (response.status === 400) {
         setPasswordError("Incorrect password.");
-      }else{
+      } else {
         alert("Login Successful");
         navigate("/dashboardchartmain");
       }
 
-    /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
+      /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
       if (userRegistrationData && userRegistrationData.email === email) {
         if (userRegistrationData.password === password) {
           alert("Login Successful");
@@ -150,7 +152,9 @@ function Openemailforgotpass() {
   const handleResetPassword = (e) => {
     e.preventDefault();
     if (!validatePassword(newPassword)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
+      setPasswordError(
+        "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
+      );
       return;
     }
 
@@ -168,14 +172,14 @@ function Openemailforgotpass() {
   };
   const handleSuccess = async (response) => {
     const token = response.credential;
- 
+
     try {
       const res = await fetch("http://localhost:3001/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
- 
+
       const data = await res.json();
       if (res.ok) {
         console.log("Backend Response: ", data);
@@ -186,51 +190,43 @@ function Openemailforgotpass() {
       console.error("Error sending token to backend: ", err);
     }
   };
- 
- 
+
   const handleFailure = (error) => {
     console.log("Login Failed: ", error);
   };
   return (
     <div className="login-container">
-         
       <div className="login-leftforget">
-      <img src={logoimg} className="logoforgt"/>
-     
+        <img src={logoimg} className="logoforgt" />
       </div>
       <div className="login-right">
         <div className="login-boxforget">
-         
-        <img src={inboximg} className="inboximgg"/>
+          <img src={inboximg} className="inboximgg" />
           <h2 className="h2loginpagefcheckinbox">Check Your Inbox</h2>
-          <p className="paraforgot">We sent a password reset link to your email, please<br/>
-          check your inbox</p>
-          
-        
-              
+          <p className="paraforgot">
+            We sent a password reset link to your email, please
+            <br />
+            check your inbox
+          </p>
 
-              
-          <button 
-  type="submit" 
-  className="signbtnopengamail" 
-  onClick={() => window.open("https://mail.google.com/", "_blank")}
->
-  Open Gmail
-</button>
+          <button
+            type="submit"
+            className="signbtnopengamail"
+            onClick={() => window.open("https://mail.google.com/", "_blank")}
+          >
+            Open Gmail
+          </button>
 
-              
-           
-       
-       
-
-         <p className="paragraphforgett">Didn’t received the email ? <strong style={{color:"#0349A8",cursor:"pointer"}}>Resend</strong></p>
-          
+          <p className="paragraphforgett">
+            Didn’t received the email ?{" "}
+            <strong style={{ color: "#0349A8", cursor: "pointer" }}>
+              Resend
+            </strong>
+          </p>
         </div>
       </div>
     </div>
   );
 }
 
-     
-     
 export default Openemailforgotpass;

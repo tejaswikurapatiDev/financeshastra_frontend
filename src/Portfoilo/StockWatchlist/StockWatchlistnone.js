@@ -16,7 +16,7 @@ const StockWatchlist = () => {
   const [selectedWatchlist, setSelectedWatchlist] = useState(null);
   const [filterData, setFilterData] = useState([]);
   const [activeDropdown, setActiveDropdown] = useState(null);
-  
+
   const navigate = useNavigate();
   const getStockData = useSelector((store) => store?.searchData?.searchData);
 
@@ -34,15 +34,18 @@ const StockWatchlist = () => {
   const fetchWatchlists = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-    
+
     try {
       const response = await fetch(`${API_BASE_URL}/Watchlist/`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Failed to fetch watchlists");
+
       const data = await response.json();
       setWatchlists(data);
-      if (data.length > 0) setSelectedWatchlist(data[0].watchlist_id);
+
+      // Set only if no watchlist is selected
+      setSelectedWatchlist((prev) => prev ?? data[0]?.watchlist_id);
     } catch (error) {
       console.error(error);
       alert(error.message || "Failed to fetch watchlists.");
@@ -54,7 +57,7 @@ const StockWatchlist = () => {
     if (!selectedWatchlist) return;
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-    
+
     try {
       const response = await fetch(`${API_BASE_URL}/Watchlist/getWatchlistAssets?watchlist_id=${selectedWatchlist}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -70,16 +73,16 @@ const StockWatchlist = () => {
   // Handle stock addition
   const handleAddStock = async () => {
     if (!stockName.trim()) return alert("Stock name cannot be empty!");
-    
+
     const normalizedStockName = stockName.toUpperCase();
-    
+
     if (stockDetails.some((stock) => stock.asset_symbol === normalizedStockName)) {
       return alert("This stock is already in your watchlist.");
     }
-  
+
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-  
+
     try {
       const response = await fetch(`${API_BASE_URL}/Watchlist/addStockToWatchklist`, {
         method: "POST",
@@ -93,25 +96,25 @@ const StockWatchlist = () => {
           asset_type: "Stock",
         }),
       });
-  
+
       if (!response.ok) throw new Error(await response.text());
-  
+
       // Get the new stock details from API response
       const newStock = await response.json();
-  
+
       // Ensure stock is added with the correct property names
       setStockDetails((prevStocks) => [
         ...prevStocks,
         { ...newStock, asset_symbol: normalizedStockName },
       ]);
-  
+
       setStockName(""); // Clear input field after adding
     } catch (error) {
       console.error(error);
       alert(error.message || "Failed to add stock.");
     }
   };
-  
+
 
   //handle stocks name
   const handleStockNameChange = (event) => {
@@ -136,28 +139,59 @@ const StockWatchlist = () => {
     return change >= 0 ? "green" : "red";
   };
 
-  const handleDeleteWatchlist = (index) => {
-    if (window.confirm("Are you sure you want to delete this watchlist?")) {
-      setWatchlists((prev) => prev.filter((_, i) => i !== index));
+  const handleDeleteWatchlist = async (watchlistId) => {
+    if (!window.confirm("Are you sure you want to delete this watchlist?")) return;
+
+    try {
+      const token = Cookies.get("jwtToken");
+      console.log(watchlistId)
+      if (!token) return alert("Unauthorized: No token provided");
+
+      const response = await fetch(`${API_BASE_URL}/watchlist/deleteWatchlist`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ watchlist_id: watchlistId }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Failed to delete watchlist");
+
+      // Filter out the deleted watchlist
+      setWatchlists((prev) => prev.filter((watchlist) => watchlist.watchlist_id !== watchlistId));
+
+      // Ensure selected watchlist remains unchanged
+      if (watchlistId === selectedWatchlist) {
+        setSelectedWatchlist(watchlists[0]?.watchlist_id || null);
+      }
+
       setActiveDropdown(null);
+      alert("Watchlist deleted successfully");
+    } catch (error) {
+      console.error("Error deleting watchlist:", error);
+      alert(error.message || "An error occurred while deleting the watchlist");
     }
   };
+
+
   const handleCreateWatchlist = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-  
+
     try {
-      const response = await fetch(`${API_BASE_URL}/Watchlist/create`, {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/CreateWatchList`, {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json", 
+        headers: {
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({ name: `My Watchlist ${watchlists.length + 1}` }),
       });
-  
+
       if (!response.ok) throw new Error("Failed to create watchlist");
-  
+
       const newWatchlist = await response.json();
       setWatchlists([...watchlists, newWatchlist]);
     } catch (error) {
@@ -175,7 +209,7 @@ const StockWatchlist = () => {
 
   useEffect(() => {
     fetchWatchlistAssets();
-  }, [fetchWatchlistAssets]);
+  }, [selectedWatchlist]);
 
   return (
     <div>
@@ -216,7 +250,7 @@ const StockWatchlist = () => {
                 <input
                   type="radio"
                   name="watchlist"
-                  defaultChecked={index === 0}
+                  checked={selectedWatchlist === watchlist.watchlist_id}
                   onChange={() => setSelectedWatchlist(watchlist.watchlist_id)}
                   style={{
                     width: "14px",
@@ -241,10 +275,11 @@ const StockWatchlist = () => {
                     </button>
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => handleDeleteWatchlist(index)}
+                      onClick={() => handleDeleteWatchlist(watchlists[index].watchlist_id)}
                     >
                       Delete
                     </button>
+
                   </div>
                 )}
               </div>
