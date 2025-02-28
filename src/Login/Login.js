@@ -44,21 +44,37 @@ function Login() {
     return passwordPattern.test(password);
   };
 
+  const isFormValid = validateEmail(email) && validatePassword(password);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
   
-    if (!validateEmail(email)) {
-      setEmailError("Invalid email format");
-      return;
+    let hasError = false;
+  
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      hasError = true;
+    } else if (!validateEmail(email)) {
+      setEmailError("Invalid email address");
+      hasError = true;
+    }
+    
+    console.log("Email Error State:", emailError); // Debugging ke liye
+    
+    if (!password.trim()) {
+      setPasswordError("Password is required");
+      hasError = true;
+    } else if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be at least 8 characters"
+      );
+      hasError = true;
     }
   
-    if (!validatePassword(password)) {
-      setPasswordError(
-        "Password must be 8+ characters, include an uppercase letter, a number, and a special character."
-      );
-      return;
+    if (hasError) {
+      return; // Stop execution if there are errors
     }
   
     setIsLoading(true);
@@ -78,11 +94,8 @@ function Login() {
       }
   
       const data = await response.json();
-      const { jwtToken, user } = data;
+      const { jwtToken } = data;
   
-      console.log(data);
-  
-      // localStorage.setItem("authData", JSON.stringify({ token: jwtToken, user }));
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
@@ -96,99 +109,7 @@ function Login() {
       setIsLoading(false);
     }
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   let isValid = true;
-  //   setIsLoading(true);
-
-  //   if (!validateEmail(email)) {
-  //     setEmailError("Enter a valid email address.");
-  //     isValid = false;
-  //   } else {
-  //     setEmailError("");
-  //   }
-
-  //   if (!validatePassword(password)) {
-  //     setPasswordError(
-  //       "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
-  //     );
-  //     isValid = false;
-  //   } else {
-  //     setPasswordError("");
-  //   }
-
-  //   if (isValid && !isForgotPassword) {
-  //     const data = {
-  //       email,
-  //       password,
-  //     };
-  //     const url =
-  //       "https://financeshastra-backendupdated.onrender.com/api/signin";
-  //     const options = {
-  //       method: "post",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     };
-  //     const response = await fetch(url, options);
-  //     setIsLoading(false);
-  //     if (response.status === 404) {
-  //       setEmailError("Email not found. Please register.");
-  //     } else if (response.status === 400) {
-  //       setPasswordError("Incorrect password.");
-  //     } else {
-  //       alert("Login Successful");
-  //       navigate("/dashboardchartmain");
-  //     }
-
-  //     /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
-  //     if (userRegistrationData && userRegistrationData.email === email) {
-  //       if (userRegistrationData.password === password) {
-  //         alert("Login Successful");
-  //         navigate("/home");
-  //       } else {
-  //         setPasswordError("Incorrect password.");
-  //       }
-  //     } else {
-  //       setEmailError("Email not found. Please register.");
-  //     }*/
-  //   }
-  // };
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    let isValid = true;
-
-    if (!validateEmail(email)) {
-      setEmailError("Enter a valid email address.");
-      isValid = false;
-    } else {
-      setEmailError("");
-    }
-
-    if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    if (isValid && !isForgotPassword) {
-      const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData && userRegistrationData.email === email) {
-        if (userRegistrationData.password === password) {
-          alert("Login Successful");
-          navigate("/home");
-        } else {
-          setPasswordError("Incorrect password.");
-        }
-      } else {
-        setEmailError("Email not found. Please register.");
-      }
-    }
-  };*/
-
+  
   const handleRegisterClick = () => {
     navigate("/register");
   };
@@ -302,18 +223,15 @@ function Login() {
             ) : (
               <form onSubmit={handleForgotPasswordEmailSubmit}>
                 <div className="input-container">
-                  <label>Email Address*</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className={emailError ? "input-error" : ""}
-                  />
-                  {emailError && (
-                    <span className="error-text">{emailError}</span>
-                  )}
+                <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  />
+  {emailError && <span className="error-text">{emailError}</span>}
                 </div>
                 <div className="button-container">
                   <button type="submit" className="sign-in-btn">
@@ -331,40 +249,39 @@ function Login() {
             )
           ) : (
             <form onSubmit={handleSubmit}>
+              
               <div className="input-container">
-                <label>Email Address*</label>
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className={emailError ? "input-error" : ""}
-                />
-                {emailError && <span className="error-text">{emailError}</span>}
-              </div>
-              <div className="input-container">
-                <label>Password*</label>
-                <div className="password-field">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    className={passwordError ? "input-error" : ""}
-                  />
-                  <span
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                  
-                  </span>
-                </div>
-                {passwordError && (
-                  <span className="error-text">{passwordError}</span>
-                )}
-              </div>
+  <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  /><br/>
+  {emailError && <span className="error-textlogin">{emailError}</span>}
+</div>
+
+<div className="input-container">
+  <label>Password*</label>
+  <div className="password-field">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className={passwordError ? "input-error" : ""}
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+  
+    </span>
+  </div>
+  {passwordError && <span className="error-textlogin">{passwordError}</span>}
+</div>
+
               <div className="login-options">
                 <div className="checksigninall">
                   <div className="signinall">
@@ -392,9 +309,18 @@ function Login() {
                 </div>
               </div>
 
-              <button type="submit" className="sign-in-btn">
-                Log in
-              </button>
+              <button 
+    type="submit" 
+    className="sign-in-btn"
+    style={{
+      backgroundColor: isFormValid ? "#24b676" : "#ccc",
+      cursor: isFormValid ? "pointer" : "not-allowed",
+    }}
+    visible={!isFormValid} // Button disabled when form is invalid
+  >
+    Log in
+  </button>
+
 
               <ClipLoader
                 cssOverride={override}

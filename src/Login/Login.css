@@ -13,6 +13,18 @@
   background-color:#f8f6f6e8;
  
 }
+.input-error {
+  border: 2px solid red !important;
+  outline: none;
+}
+
+.error-textlogin {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-left: 44px;
+}
+
 
 .login-container {
   display: flex;
@@ -114,7 +126,7 @@
   text-align: center;
   border-radius: 20px; /* Added border-radius for rounded corners */
   overflow: hidden; /* Hides any overflowing content */
-  height: 57%;
+  height:auto;
   background-color: #ffff;
 }
 

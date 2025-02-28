@@ -16,7 +16,7 @@ const FooterForAllPagedarkmode = () => {
   const footerData = [
     { title: "Stocks", links: ["Stock Screener", "High Growth Stocks", "Nifty 50 Companies", "Small Cap Stocks", "Mid Cap Stocks","Large Cap Stocks"] },
     { title: "Mutual Fund", links: ["Fund Screener", "Best Small Cap Fund", "Best Growth Fund", "Best Flexi Cap Fund", "Best ETF Fund"] },
-    { title: "Learn & Insights", links: ["Stock News", "IPO Details", "Market Insights", "Quarterly Earnings", "Learn"] },
+    { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs", "Market Insights", "Quarterly Earnings", "Learn"] },
     { title: "Quick Links", links: ["Plan & Pricing", "Talk to Us", "Disclaimer", "Refund Policy", "Careers"] },
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
@@ -54,7 +54,7 @@ const FooterForAllPagedarkmode = () => {
     "Careers": "/careers",
   };
   const AboutRoutes = {
-    "Who We Are?": "/whoWeAre",
+    "Who We Are?": "/whoWeAredarkmode",
     "Why FinanceShastra?": "/WhyFinadvanceeducationnn",
     "Contact Us": "/contactUsnew",
    
@@ -98,7 +98,7 @@ const FooterForAllPagedarkmode = () => {
             {[
               { title: "Stocks", links: ["Stock Screener", "High Growth Stocks", "Nifty 50 Companies","Small Cap Stocks", "Mid Cap Stocks","Large Cap Stocks"] },
               { title: "Mutual Fund", links: ["Top Rated Funds","Fund Screener", "Best Small Cap Fund", "Best Growth Fund", "Best Flexi Cap Fund", "Best ETF Fund"] },
-              { title: "Learn & Insights", links: ["Stock News", "IPO Details"," Blogs","Market Insights", "Quarterly Earnings", "Learn"] },
+              { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs","Market Insights", "Quarterly Earnings", "Learn"] },
               { title: "Quick Links", links: ["Plan & Pricing", "Talk to Us", "Disclaimer", "Refund Policy", "Careers"] },
               { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
             ].map((section, index) => (

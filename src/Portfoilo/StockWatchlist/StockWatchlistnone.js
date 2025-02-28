@@ -7,6 +7,7 @@ import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const StockWatchlist = () => {
   const [stockName, setStockName] = useState("");
@@ -409,6 +410,7 @@ const StockWatchlist = () => {
           </div>
         </div>
       </div>
+     <FooterForAllPage/>
     </div>
   );
 };
