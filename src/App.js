@@ -269,6 +269,8 @@ import WhoWeAre from "./Footernavigatepages/WhoWeAre/WhoWeAre";
 import WhoWeAredarkmode from "./Darkmode/Footernavigatedarkmode/Whowearedarkmode/Whowearedarkmode";
 import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAndConditions";
 import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
+import FAQSdarkmode from "./Darkmode/FAQSdarkmode/FAQSdarkmode";
+import GoalPlannerdarkmode from "./Darkmode/Goalplannerpagesdarkmode/GoalPlannerdarkmode/GoalPlannerdarkmode";
 
 function App() {
   return (  
@@ -602,6 +604,8 @@ function App() {
       <Route path="/whoWeAredarkmode" element={<WhoWeAredarkmode/>}/>
       <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
       <Route path="/termsAndConditionsdarkmode" element={<TermsAndConditionsdarkmode/>}/>
+      <Route path="/fAQSdarkmode" element={<FAQSdarkmode/>}/>
+      <Route path="/goalPlannerdarkmode" element={<GoalPlannerdarkmode/>}/>
       
 
      

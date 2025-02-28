@@ -9,7 +9,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
 
 import logo from "./../assest/Logo design (1).png";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
 import Cookies from "js-cookie";
 
 import "./Login.css";
@@ -44,25 +44,55 @@ function Login() {
     return passwordPattern.test(password);
   };
 
+  const isFormValid = validateEmail(email) && validatePassword(password);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmailError("");
     setPasswordError("");
+<<<<<<< HEAD
   
+    let hasError = false;
+  
+    if (!email.trim()) {
+      setEmailError("Email is required");
+      hasError = true;
+    } else if (!validateEmail(email)) {
+      setEmailError("Invalid email address");
+      hasError = true;
+    }
+    
+    console.log("Email Error State:", emailError); // Debugging ke liye
+    
+    if (!password.trim()) {
+      setPasswordError("Password is required");
+      hasError = true;
+    } else if (!validatePassword(password)) {
+      setPasswordError(
+        "Password must be at least 8 characters"
+      );
+      hasError = true;
+    }
+  
+    if (hasError) {
+      return; // Stop execution if there are errors
+=======
+
     if (!validateEmail(email)) {
       setEmailError("Invalid email format");
       return;
     }
-  
+
     if (!validatePassword(password)) {
       setPasswordError(
         "Password must be 8+ characters, include an uppercase letter, a number, and a special character."
       );
       return;
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
     }
-  
+
     setIsLoading(true);
-  
+
     try {
       const url = `${API_BASE_URL}/users/signin`;
       const options = {
@@ -70,24 +100,29 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       };
-  
+
       const response = await fetch(url, options);
-  
+
       if (!response.ok) {
         throw new Error("Login Failed");
       }
-  
+
       const data = await response.json();
+<<<<<<< HEAD
+      const { jwtToken } = data;
+  
+=======
       const { jwtToken, user } = data;
-  
+
       console.log(data);
-  
+
       // localStorage.setItem("authData", JSON.stringify({ token: jwtToken, user }));
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
       });
-  
+
       navigate("/home");
     } catch (error) {
       console.error("Error during login:", error);
@@ -96,99 +131,11 @@ function Login() {
       setIsLoading(false);
     }
   };
+<<<<<<< HEAD
+  
+=======
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   let isValid = true;
-  //   setIsLoading(true);
-
-  //   if (!validateEmail(email)) {
-  //     setEmailError("Enter a valid email address.");
-  //     isValid = false;
-  //   } else {
-  //     setEmailError("");
-  //   }
-
-  //   if (!validatePassword(password)) {
-  //     setPasswordError(
-  //       "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
-  //     );
-  //     isValid = false;
-  //   } else {
-  //     setPasswordError("");
-  //   }
-
-  //   if (isValid && !isForgotPassword) {
-  //     const data = {
-  //       email,
-  //       password,
-  //     };
-  //     const url =
-  //       "https://financeshastra-backendupdated.onrender.com/api/signin";
-  //     const options = {
-  //       method: "post",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     };
-  //     const response = await fetch(url, options);
-  //     setIsLoading(false);
-  //     if (response.status === 404) {
-  //       setEmailError("Email not found. Please register.");
-  //     } else if (response.status === 400) {
-  //       setPasswordError("Incorrect password.");
-  //     } else {
-  //       alert("Login Successful");
-  //       navigate("/dashboardchartmain");
-  //     }
-
-  //     /*const userRegistrationData = JSON.parse(localStorage.getItem(email));
-  //     if (userRegistrationData && userRegistrationData.email === email) {
-  //       if (userRegistrationData.password === password) {
-  //         alert("Login Successful");
-  //         navigate("/home");
-  //       } else {
-  //         setPasswordError("Incorrect password.");
-  //       }
-  //     } else {
-  //       setEmailError("Email not found. Please register.");
-  //     }*/
-  //   }
-  // };
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    let isValid = true;
-
-    if (!validateEmail(email)) {
-      setEmailError("Enter a valid email address.");
-      isValid = false;
-    } else {
-      setEmailError("");
-    }
-
-    if (!validatePassword(password)) {
-      setPasswordError("Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol.");
-      isValid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    if (isValid && !isForgotPassword) {
-      const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData && userRegistrationData.email === email) {
-        if (userRegistrationData.password === password) {
-          alert("Login Successful");
-          navigate("/home");
-        } else {
-          setPasswordError("Incorrect password.");
-        }
-      } else {
-        setEmailError("Email not found. Please register.");
-      }
-    }
-  };*/
-
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
   const handleRegisterClick = () => {
     navigate("/register");
   };
@@ -234,26 +181,37 @@ function Login() {
       alert("Email not found. Please register.");
     }
   };
-  const handleSuccess = async (response) => {
-    const token = response.credential;
 
+  const handleSuccess = async (response) => {
+    console.log("Google Login Success:", response);
+    const token = response.credential; // Ensure we receive a valid token
+  
+    if (!token) {
+      console.error("Token not received from Google!");
+      return;
+    }
+  
     try {
       const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
-
+  
       const data = await res.json();
+      console.log("Backend Response:", data);
+  
       if (res.ok) {
-        console.log("Backend Response: ", data);
+        // Store JWT token in cookies
+        Cookies.set("jwtToken", data.jwtToken, { expires: 7, sameSite: "Strict" });
+        navigate("/home");
       } else {
-        console.error("Authentication failed: ", data);
+        console.error("Authentication failed:", data.error);
       }
     } catch (err) {
-      console.error("Error sending token to backend: ", err);
+      console.error("Error sending token to backend:", err);
     }
-  };
+  }; 
 
   const handleFailure = (error) => {
     console.log("Login Failed: ", error);
@@ -302,18 +260,15 @@ function Login() {
             ) : (
               <form onSubmit={handleForgotPasswordEmailSubmit}>
                 <div className="input-container">
-                  <label>Email Address*</label>
-                  <input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className={emailError ? "input-error" : ""}
-                  />
-                  {emailError && (
-                    <span className="error-text">{emailError}</span>
-                  )}
+                <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  />
+  {emailError && <span className="error-text">{emailError}</span>}
                 </div>
                 <div className="button-container">
                   <button type="submit" className="sign-in-btn">
@@ -331,7 +286,41 @@ function Login() {
             )
           ) : (
             <form onSubmit={handleSubmit}>
+              
               <div className="input-container">
+<<<<<<< HEAD
+  <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  /><br/>
+  {emailError && <span className="error-textlogin">{emailError}</span>}
+</div>
+
+<div className="input-container">
+  <label>Password*</label>
+  <div className="password-field">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className={passwordError ? "input-error" : ""}
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+  
+    </span>
+  </div>
+  {passwordError && <span className="error-textlogin">{passwordError}</span>}
+</div>
+
+=======
                 <label>Email Address*</label>
                 <input
                   type="email"
@@ -358,13 +347,14 @@ function Login() {
                     className="toggle-password"
                     onClick={() => setShowPassword(!showPassword)}
                   >
-                  
+
                   </span>
                 </div>
                 {passwordError && (
                   <span className="error-text">{passwordError}</span>
                 )}
               </div>
+>>>>>>> bff6fbdc82eb3cb997515210265eb474aa293c54
               <div className="login-options">
                 <div className="checksigninall">
                   <div className="signinall">
@@ -392,9 +382,18 @@ function Login() {
                 </div>
               </div>
 
-              <button type="submit" className="sign-in-btn">
-                Log in
-              </button>
+              <button 
+    type="submit" 
+    className="sign-in-btn"
+    style={{
+      backgroundColor: isFormValid ? "#24b676" : "#ccc",
+      cursor: isFormValid ? "pointer" : "not-allowed",
+    }}
+    visible={!isFormValid} // Button disabled when form is invalid
+  >
+    Log in
+  </button>
+
 
               <ClipLoader
                 cssOverride={override}
@@ -409,32 +408,16 @@ function Login() {
 
           <div className="login-or">Or Sign Up With</div>
           <div className="sociall-login">
-            <GoogleOAuthProvider clientId="911634901536-usv7quddvlrir3t8rv86ouqo5oehpsj6.apps.googleusercontent.com">
-              <Button
-                variant="contained"
-                className="google-btn"
-                startIcon={
-                  <img
-                    src={googleimg}
-                    alt="Google Icon"
-                    className="btn-icon-small"
-                  />
-                }
-                onClick={() =>
-                  document.querySelector(".GoogleLogin button")?.click()
-                } // Trigger Google Login button
-                sx={{ fontSize: "14px" }} // Decrease font size
-              >
-                Sign in with Google
-              </Button>
+            <GoogleLogin
+              variant="contained"
+              className="google-btn"
+              onSuccess={handleSuccess}
+              onError={handleFailure}
+              text="Sign in with Google"
+              width="150"
+              theme="outline"
+            />
 
-              <div style={{ display: "none" }}>
-                <GoogleLogin
-                  onSuccess={handleSuccess}
-                  onError={handleFailure}
-                />
-              </div>
-            </GoogleOAuthProvider>
 
             <br />
 

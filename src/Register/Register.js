@@ -28,7 +28,7 @@ function Register() {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading]= useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,6 +37,7 @@ function Register() {
       [name]: value,
     }));
   };
+
 
   const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -49,60 +50,77 @@ function Register() {
     return passwordPattern.test(password);
   };
 
+  const isFormValid =
+  formData.name.trim() !== "" &&
+  validateEmail(formData.email) &&
+  validatePassword(formData.password);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     let isValid = true;
-    
+    setIsLoading(true)
     if (!validateEmail(formData.email)) {
       setEmailError("Enter a valid email address.");
       isValid = false;
     } else {
       setEmailError("");
     }
-
-    if (!validatePassword(formData.password)) {
+  
+    // Password validation
+    if (!formData.password.trim()) {
+      setPasswordError("Password is required.");
+      isValid = false;
+    } else if (!validatePassword(formData.password)) {
       setPasswordError(
-        "Password must be at least 8 characters, contain 1 uppercase letter, 1 number, and 1 symbol."
+        "Password must be at least 8 characters"
       );
       isValid = false;
     } else {
       setPasswordError("");
     }
 
-    if (!isValid) {
-      setIsLoading(false);
-      return;
-    }
-
-    try {
-      const url = `${API_BASE_URL}/users/register`;
-      const options = {
-        method: "POST",
+    if (isValid) {
+      const url= `${API_BASE_URL}/users/register`
+      const options= {
+        method: 'POST',
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
-      };
-      
-      const response = await fetch(url, options);
-      const data = await response.json();
-  
-      console.log(response);
-  
-      if (response.status === 200) {
-        alert(data.message);
-        navigate("/");
-      } else {
-        alert(data.message);
+        body: JSON.stringify(formData)
       }
-    } catch (error) {
-      alert("Something went wrong. Please try again later.");
-      console.error("Registration error:", error);
-    } finally {
-      setIsLoading(false);
+      const response= await fetch(url, options)
+      
+      setIsLoading(false)
+      if (response.status===400){ 
+        alert("User already registered with this email, please login.");
+      }else{
+        alert("Sign-Up Successful");
+        navigate("/");
+      }
+      
+      /*const existingUserData = JSON.parse(localStorage.getItem(formData.email));*/
+      /*if (existingUserData) {
+        alert("User already registered with this email.");
+      } else {
+
+        localStorage.setItem(formData.email, JSON.stringify(formData));
+        alert("Sign-Up Successful");
+        navigate("/");
+      }*/
     }
+    /*if (isValid) {
+      const existingUserData = JSON.parse(localStorage.getItem(formData.email));
+      if (existingUserData) {
+        alert("User already registered with this email.");
+      } else {
+        localStorage.setItem(formData.email, JSON.stringify(formData));
+        alert("Sign-Up Successful");
+        navigate("/");
+      }
+    }*/
   };
+  
 
   const handleSignInClick = () => {
     navigate("/login");
@@ -169,36 +187,36 @@ function Register() {
             <div className="input-container">
               <label>Password*</label>
               <div className="password-field">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                  className={passwordError ? "input-error" : ""}
-                />
+              <input
+  type={showPassword ? "text" : "password"}
+  placeholder="Enter your password"
+  name="password"
+  value={formData.password}
+  onChange={handleChange}
+  required
+  
+  className={passwordError ? "input-error" : ""}
+/>
 
-                <span
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                ></span>
+                <span className="toggle-password" onClick={() => setShowPassword(!showPassword)}>
+                  
+                </span>
               </div>
-              {passwordError && (
-                <span className="error-text">{passwordError}</span>
-              )}
+              {passwordError && <span className="error-text">{passwordError}</span>}
             </div>
-            <button type="submit" className="sign-in-btn">
+             <button type="submit" className="sign-in-btn">
               Sign Up
+              
             </button>
             <ClipLoader
-              cssOverride={override}
-              size={35}
-              data-testid="loader"
-              loading={isLoading}
-              speedMultiplier={1}
-              color="green"
-            />
+                cssOverride={override}
+                size={35}
+                data-testid="loader"
+                loading= {isLoading}
+                speedMultiplier={1}
+                color="green"
+              />
+            
           </form>
           <div className="login-or">Or Login With</div>
           <div className="sociall-login">
