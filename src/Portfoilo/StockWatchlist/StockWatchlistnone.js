@@ -129,10 +129,45 @@ const StockWatchlist = () => {
   }, []);
 
   // Handle watchlist actions
-  const handleRenameWatchlist = (index) => {
+  const handleRenameWatchlist = async (watchlistId) => {
     const newName = prompt("Enter new watchlist name:");
-    if (newName?.trim()) setWatchlists((prev) => prev.map((w, i) => (i === index ? { ...w, name: newName } : w)));
+    if (!newName?.trim()) return;
+  
+    try {
+      const token = Cookies.get("jwtToken");
+      if (!token) {
+        alert("Unauthorized: No token provided");
+        return;
+      }
+  
+      console.log("Renaming watchlist:", { watchlistId, newName });
+  
+      const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ watchlist_id: watchlistId, name: newName }),
+      });
+  
+      const data = await response.json();
+      console.log("Server Response:", data);
+  
+      if (response.ok) {
+        setWatchlists((prev) =>
+          prev.map((w) => (w.watchlist_id === watchlistId ? { ...w, name: newName } : w))
+        );
+        alert(data.message);
+      } else {
+        alert(data.error || "Failed to rename watchlist");
+      }
+    } catch (error) {
+      console.error("Error renaming watchlist:", error);
+      alert("An error occurred. Please try again.");
+    }
   };
+    
 
   // Determine the color for the change value
   const getChangeColor = (change) => {
@@ -269,7 +304,7 @@ const StockWatchlist = () => {
                   <div className="menu-dropdownwatchlist">
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => handleRenameWatchlist(index)}
+                      onClick={() => handleRenameWatchlist(watchlists[index].watchlist_id)}
                     >
                       Rename
                     </button>
