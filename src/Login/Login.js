@@ -155,41 +155,51 @@ function Login() {
 
   const handleSuccess = async (response) => {
     console.log("Google Login Success:", response);
-    const token = response.credential; // Ensure we receive a valid token
-
+    const token = response.credential; // Extract token from Google response
+  
     if (!token) {
       console.error("Token not received from Google!");
       return;
     }
-
+  
     try {
       const res = await fetch(`${API_BASE_URL}/users/auth/google`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token }),
       });
-
+  
       const data = await res.json();
       console.log("Backend Response:", data);
-
+  
       if (res.ok) {
         // Store JWT token in cookies
         Cookies.set("jwtToken", data.jwtToken, {
-          expires: 7,
+          expires: 1, // Token expiration (1 day)
           sameSite: "Strict",
+          secure: true, // Ensure secure cookies (only works with HTTPS)
         });
+  
+        // Store user details in local storage for quick access
+        localStorage.setItem("user", JSON.stringify(data.user));
+  
+        console.log(data.message); // Log success message from backend
         navigate("/home");
       } else {
         console.error("Authentication failed:", data.error);
+        alert(`Authentication Failed: ${data.error}`);
       }
     } catch (err) {
       console.error("Error sending token to backend:", err);
+      alert("An error occurred during login. Please try again.");
     }
   };
-
+  
   const handleFailure = (error) => {
-    console.log("Login Failed: ", error);
+    console.log("Google Login Failed: ", error);
+    alert("Google Sign-In failed. Please try again.");
   };
+  
   return (
     <div className="login-container">
       <div className="login-left">

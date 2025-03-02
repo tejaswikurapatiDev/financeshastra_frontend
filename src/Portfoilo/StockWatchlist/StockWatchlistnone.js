@@ -122,11 +122,41 @@ const StockWatchlist = () => {
   };
 
   // Handle stock deletion
-  const handleDeleteStock = useCallback((index) => {
-    if (window.confirm("Are you sure you want to delete this stock?")) {
+  const handleDeleteStock = async (index, assetSymbol) => {
+    if (!window.confirm("Are you sure you want to delete this stock?")) return;
+  
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+  
+    const payload = {
+      asset_symbol: assetSymbol,
+      watchlist_id: selectedWatchlist, // Ensure this variable is correctly set
+    };
+  
+    console.log("Sending request with payload:", payload); // Debugging log
+  
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/removeStockFromWatchlist`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(payload),
+      });
+  
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || "Failed to delete stock");
+  
       setStockDetails((prevStocks) => prevStocks.filter((_, i) => i !== index));
+      alert("Stock deleted successfully");
+    } catch (error) {
+      console.error("Error deleting stock:", error);
+      alert(error.message || "An error occurred while deleting the stock");
     }
-  }, []);
+  };
+  
+   
 
   // Handle watchlist actions
   const handleRenameWatchlist = async (watchlistId) => {
@@ -214,7 +244,14 @@ const StockWatchlist = () => {
   const handleCreateWatchlist = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-
+  
+    const newWatchlistTemp = { 
+      id: Date.now(), 
+      name: `My Watchlist ${watchlists.length + 1}` 
+    };
+  
+    setWatchlists(prev => [...prev, newWatchlistTemp]); // Temporary optimistic update
+  
     try {
       const response = await fetch(`${API_BASE_URL}/Watchlist/CreateWatchList`, {
         method: "POST",
@@ -222,15 +259,24 @@ const StockWatchlist = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ name: `My Watchlist ${watchlists.length + 1}` }),
+        body: JSON.stringify({ name: newWatchlistTemp.name }),
       });
-
+  
       if (!response.ok) throw new Error("Failed to create watchlist");
-
+  
       const newWatchlist = await response.json();
-      setWatchlists([...watchlists, newWatchlist]);
+      console.log("New Watchlist from API:", newWatchlist);
+  
+      setWatchlists(prev => prev.map(w => 
+        w.id === newWatchlistTemp.id ? newWatchlist : w
+      ));
+  
+      setSelectedWatchlist(newWatchlist.watchlist_id); // Ensure selection updates
     } catch (error) {
       alert(error.message || "Error creating watchlist");
+  
+      // Revert UI if API call fails
+      setWatchlists(prev => prev.filter(w => w.id !== newWatchlistTemp.id));
     }
   };
 
@@ -238,6 +284,9 @@ const StockWatchlist = () => {
 
   useEffect(() => {
     fetchWatchlists();
+  }, [])
+
+  useEffect(() => {
     debounceSearch(stockName);
     return () => debounceSearch.cancel();
   }, [stockName]);
@@ -467,7 +516,7 @@ const StockWatchlist = () => {
                       <td>
                         <button
                           className="delete-btnwatchlist"
-                          onClick={() => handleDeleteStock(index)}
+                          onClick={() => handleDeleteStock(index, stock.asset_symbol)}
                         >
                           <i className="fa fa-trash"></i>
                         </button>
