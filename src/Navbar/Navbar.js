@@ -6,6 +6,7 @@ import React, {
   useContext,
 } from "react";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
+import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
 
 import {
   FaBell,
