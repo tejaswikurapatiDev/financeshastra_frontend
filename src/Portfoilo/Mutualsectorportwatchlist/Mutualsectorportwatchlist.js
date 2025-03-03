@@ -2,6 +2,7 @@ import React,{useState } from "react";
 import { Link ,useNavigate} from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css'; // Import FontAwesome CSS
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const MutualWatchsectorlist= () => {
   const [stockName, setStockName] = useState("");
@@ -323,6 +324,7 @@ const MutualWatchsectorlist= () => {
           </div>
         </div>
       </div>
+      <FooterForAllPage/>
     </div>
   );
 };

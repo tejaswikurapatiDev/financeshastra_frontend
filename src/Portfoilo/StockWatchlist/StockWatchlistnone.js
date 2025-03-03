@@ -16,6 +16,10 @@ const StockWatchlist = () => {
   const [selectedWatchlist, setSelectedWatchlist] = useState(null);
   const [filterData, setFilterData] = useState([]);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [selectedStock, setSelectedStock] = useState(null);
+  const [renamePopup, setRenamePopup] = useState(false);
+  const [renameIndex, setRenameIndex] = useState(null);
+  const [newWatchlistName, setNewWatchlistName] = useState("");
 
   const navigate = useNavigate();
   const getStockData = useSelector((store) => store?.searchData?.searchData);
@@ -29,6 +33,11 @@ const StockWatchlist = () => {
     }, 300),
     [getStockData]
   );
+  const handleSelectStock = (stock) => {
+    setStockName(stock.company); // Display selected stock name in input
+    setSelectedStock(stock); // Store full stock details for later use
+    setFilterData([]); // Hide suggestions
+  };
 
   // Fetch Watchlists
   const fetchWatchlists = async () => {
@@ -159,44 +168,44 @@ const StockWatchlist = () => {
    
 
   // Handle watchlist actions
-  const handleRenameWatchlist = async (watchlistId) => {
-    const newName = prompt("Enter new watchlist name:");
-    if (!newName?.trim()) return;
+  // const handleRenameWatchlist = async (watchlistId) => {
+  //   const newName = prompt("Enter new watchlist name:");
+  //   if (!newName?.trim()) return;
   
-    try {
-      const token = Cookies.get("jwtToken");
-      if (!token) {
-        alert("Unauthorized: No token provided");
-        return;
-      }
+  //   try {
+  //     const token = Cookies.get("jwtToken");
+  //     if (!token) {
+  //       alert("Unauthorized: No token provided");
+  //       return;
+  //     }
   
-      console.log("Renaming watchlist:", { watchlistId, newName });
+  //     console.log("Renaming watchlist:", { watchlistId, newName });
   
-      const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ watchlist_id: watchlistId, name: newName }),
-      });
+  //     const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify({ watchlist_id: watchlistId, name: newName }),
+  //     });
   
-      const data = await response.json();
-      console.log("Server Response:", data);
+  //     const data = await response.json();
+  //     console.log("Server Response:", data);
   
-      if (response.ok) {
-        setWatchlists((prev) =>
-          prev.map((w) => (w.watchlist_id === watchlistId ? { ...w, name: newName } : w))
-        );
-        alert(data.message);
-      } else {
-        alert(data.error || "Failed to rename watchlist");
-      }
-    } catch (error) {
-      console.error("Error renaming watchlist:", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
+  //     if (response.ok) {
+  //       setWatchlists((prev) =>
+  //         prev.map((w) => (w.watchlist_id === watchlistId ? { ...w, name: newName } : w))
+  //       );
+  //       alert(data.message);
+  //     } else {
+  //       alert(data.error || "Failed to rename watchlist");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error renaming watchlist:", error);
+  //     alert("An error occurred. Please try again.");
+  //   }
+  // };
     
 
   // Determine the color for the change value
@@ -241,6 +250,19 @@ const StockWatchlist = () => {
   };
 
 
+  const handleRenameWatchlist = (index) => {
+    setRenameIndex(index);
+    setNewWatchlistName(watchlists[index].name);
+    setRenamePopup(true);
+  };
+
+  const handleRenameConfirm = () => {
+    if (!newWatchlistName.trim()) return;
+    setWatchlists((prev) =>
+      prev.map((w, i) => (i === renameIndex ? { ...w, name: newWatchlistName } : w))
+    );
+    setRenamePopup(false);
+  };
   const handleCreateWatchlist = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
@@ -393,15 +415,23 @@ const StockWatchlist = () => {
 
                 {/* display input results  */}
                 <div>
-                  {filterData.length > 0 ? (
-                    <ul>
-                      {filterData.map((data) => {
-                        return <li key={data.id}>{data.company}</li>;
-                      })}
-                    </ul>
-                  ) : (
-                    stockName && <p>No result found</p>
-                  )}
+                {/* display input results */}
+{stockName && (
+  <div className={`search-resultswatchlistsector ${filterData.length > 0 ? "active" : ""}`}>
+    {filterData.length > 0 ? (
+      <ul>
+        {filterData.map((data) => (
+          <li key={data.id} onClick={() => handleSelectStock(data)}>
+            {data.company}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p style={{ padding: "8px" }}>No result found</p>
+    )}
+  </div>
+)}
+
                 </div>
               </div>
 
@@ -528,8 +558,25 @@ const StockWatchlist = () => {
             </table>
           </div>
         </div>
+        {renamePopup && (
+        <div className="popup-overlay">
+          <div className="popup-container">
+            <h3>Rename Watchlist</h3>
+            <input
+              type="text"
+              value={newWatchlistName}
+              onChange={(e) => setNewWatchlistName(e.target.value)}
+            />
+            <div className="watchlistpopup-btn">
+              <button  className="popup-btnconfirm"onClick={handleRenameConfirm}>Save</button>
+              <button onClick={() => setRenamePopup(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+        <FooterForAllPage/>
       </div>
-     <FooterForAllPage/>
+  
     </div>
   );
 };

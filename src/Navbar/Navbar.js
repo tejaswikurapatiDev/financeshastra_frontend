@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useContext,
+} from "react";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 
 import {
@@ -574,7 +580,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={darkMode ? "navbardarkerrrrmode" :"navbar"}>
+      <nav className={darkMode ? "navbardarkerrrrmode" : "navbar"}>
         <div className="navbar-logo">
           <img src={`${darkMode ? Darkmodelogo : logo}`} alt="FinanceShastra Logo" className="logo-image" />
         </div>

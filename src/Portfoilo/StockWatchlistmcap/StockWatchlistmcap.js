@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'; // Import FontAwesome CSS
 
 import Navbar from "../../Navbar/Navbar";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const StockWatchsectormcap= () => {
   const [stockName, setStockName] = useState("");
@@ -355,6 +356,7 @@ const StockWatchsectormcap= () => {
           </div>
         </div>
       </div>
+      <FooterForAllPage/>
     </div>
   );
 };

@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import AddSIPForm from "../AddSIPFormstock/AddSIPFormstock"; // Adjust path as needed
 import "./UpdateTransactionstock.css"; // Ensure CSS file exists
+import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import Sidebar from "../../Sidebar/Sidebar";
+
 
 
 const UpdateTransaction = () => {
@@ -76,7 +80,7 @@ const UpdateTransaction = () => {
 
   return (
     <div className="transaction-form">
-      <h2 style={{ marginLeft: "40px" }}>Edit Transaction</h2>
+      <h2 className="tranheaderform">Edit Transaction</h2>
       <div className="tabsadd">
         <button className="tabadd active">Stocks</button>
         <button className="tabadd">Mutual Fund</button>
@@ -240,6 +244,10 @@ const UpdateTransaction = () => {
           
         </div>
       </div>
+      <Navbar/>
+      <Sidebar/>
+      <FooterForAllPage/>
+
     </div>
   );
 };

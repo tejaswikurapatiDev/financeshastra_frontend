@@ -1,0 +1,37 @@
+.transaction-inputcharge{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 50%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: 50px;
+}
+.transaction-inputnet{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 50%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: -50px;  
+}
+.form-buttonsmoreadd button{
+    margin-left: 730px;
+    border: none;
+    color: #24b676;
+    background-color: white;
+    cursor: pointer;
+}
+
+.save-button button{
+    margin-left: 600px;
+}
+
+
+
+
+
+
+
+
+
+

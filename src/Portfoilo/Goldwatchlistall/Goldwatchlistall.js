@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const GoldWatchportall = () => {
   const [stockName, setStockName] = useState("");
   const [stockDetails, setStockDetails] = useState([]);
@@ -249,6 +250,7 @@ const handleDeleteWatchlist = (index) => {
           </table>
         </div>
       </div>
+      <FooterForAllPage/>
     </div>
   );
 };

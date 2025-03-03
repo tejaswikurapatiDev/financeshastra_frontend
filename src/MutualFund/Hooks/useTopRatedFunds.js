@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { API_BASE_URL } from "../../config";
 
 const useTopRatedFunds = () => {
   const [topRatedFunds, setTopRatedFunds] = useState([]);
@@ -9,7 +10,7 @@ const useTopRatedFunds = () => {
   const getTopRatedFunds = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/mutualFunds/topRated-Funds`
+        `${API_BASE_URL}/mutualFunds/topRated-Funds`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch smallcap mutual funds data");
