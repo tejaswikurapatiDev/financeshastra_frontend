@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  useContext,
+} from "react";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import {
   FaBell,
@@ -36,9 +42,7 @@ import { API_BASE_URL } from "../config";
 import { Button } from "react-scroll";
 
 const Navbar = () => {
-
-  const {darkMode, toggleDarkMode} = useContext(DarkModeContext)
-
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -169,7 +173,7 @@ const Navbar = () => {
     try {
       const response = await fetch(`${API_BASE_URL}/search/allInfo`);
       const data = await response.json();
-      console.log(data)
+      console.log(data);
 
       //store all data into the redux store
       dispatch(setSearchData(data?.data || []));
@@ -180,8 +184,10 @@ const Navbar = () => {
 
   useEffect(() => {
     //Function Call for All data
-    getAllData();
-  }, []);
+    if (!getDataFromStore || getDataFromStore.length === 0) {
+      getAllData();
+    }
+  }, [getDataFromStore, dispatch]);
 
   //Search data from store with using debounce
   const debounceSearch = useCallback(
@@ -565,11 +571,11 @@ const Navbar = () => {
   //toggle darkmode
   const handleToggleDarkMode = () => {
     toggleDarkMode(); // Calls the function from context to toggle dark mode
-  };  
+  };
 
   return (
     <>
-      <nav className={darkMode ? "navbardarkerrrrmode" :"navbar"}>
+      <nav className={darkMode ? "navbardarkerrrrmode" : "navbar"}>
         <div className="navbar-logo">
           <img src={logo} alt="FinanceShastra Logo" className="logo-image" />
         </div>
@@ -652,11 +658,17 @@ const Navbar = () => {
 
           {/* Show results only when there is input */}
           {searchInputText && (
-            <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
+            <div
+              className={`search-results ${
+                filterData.length > 0 ? "active" : ""
+              }`}
+            >
               {filterData.length > 0 ? (
                 <ul>
                   {filterData.map((data) => (
-                    <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
+                    <li key={data.id}>
+                      {data.company} {data.Scheme_Name} {data.sector}
+                    </li>
                   ))}
                 </ul>
               ) : (
@@ -665,7 +677,6 @@ const Navbar = () => {
             </div>
           )}
         </div>
-
 
         <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
           Subscribe
