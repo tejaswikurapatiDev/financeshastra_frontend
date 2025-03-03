@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import {
   FaBell,
   FaUserCircle,
@@ -32,8 +33,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchData } from "../Store/Slices/searchDataSlice";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
+import { Button } from "react-scroll";
 
 const Navbar = () => {
+
+  const {darkMode, toggleDarkMode} = useContext(DarkModeContext)
+
+
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -481,6 +487,9 @@ const Navbar = () => {
           Logout
         </Link>
       </div>
+      <div className="dropdown-item">
+        <Button onClick={handleToggleDarkMode}>Dark Mode</Button>
+      </div>
     </div>
   );
 
@@ -553,9 +562,14 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
+  //toggle darkmode
+  const handleToggleDarkMode = () => {
+    toggleDarkMode(); // Calls the function from context to toggle dark mode
+  };  
+
   return (
     <>
-      <nav className="navbar">
+      <nav className={darkMode ? "navbardarkerrrrmode" :"navbar"}>
         <div className="navbar-logo">
           <img src={logo} alt="FinanceShastra Logo" className="logo-image" />
         </div>
@@ -629,28 +643,28 @@ const Navbar = () => {
         </ul>
 
         <div className="navbar-search">
-  <input
-    type="text"
-    placeholder="Search for Stocks, Mutual..."
-    onChange={(e) => setSearchInputText(e.target.value)}
-  />
-  <FaSearch className="search-icon" />
+          <input
+            type="text"
+            placeholder="Search for Stocks, Mutual..."
+            onChange={(e) => setSearchInputText(e.target.value)}
+          />
+          <FaSearch className="search-icon" />
 
-  {/* Show results only when there is input */}
-  {searchInputText && (
-    <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
-      {filterData.length > 0 ? (
-        <ul>
-          {filterData.map((data) => (
-            <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No result found</p>
-      )}
-    </div>
-  )}
-</div>
+          {/* Show results only when there is input */}
+          {searchInputText && (
+            <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
+              {filterData.length > 0 ? (
+                <ul>
+                  {filterData.map((data) => (
+                    <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>No result found</p>
+              )}
+            </div>
+          )}
+        </div>
 
 
         <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
