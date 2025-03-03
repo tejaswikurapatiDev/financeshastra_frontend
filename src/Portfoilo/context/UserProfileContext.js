@@ -1,0 +1,46 @@
+import React, { createContext, useState, useEffect } from "react";
+import { API_BASE_URL } from "../../config";
+
+export const UserProfileContext = createContext();
+
+export const UserProfileProvider = ({ children }) => {
+  const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchUser = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) throw new Error("No token found");
+
+      const response = await fetch(`${API_BASE_URL}/users/`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) throw new Error("Failed to fetch user");
+      const data = await response.json();
+      console.log(data);
+      setUser(data[0]?.name || "Unknown User");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
+  return (
+    <UserProfileContext.Provider value={{ user, loading, error }}>
+      {children}
+    </UserProfileContext.Provider>
+  );
+};

@@ -1053,7 +1053,7 @@ a span {
 
 .dropdown-menudarkerrmode li a {
   text-decoration: none;
-  color: #333;
+  color: white;
   display: block;
   padding: 5px;
 }
@@ -1203,18 +1203,6 @@ a span {
  
 }
 
-/* Logo styling */
-.navbar-logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  width: 220px; /* Increased logo width */
-  height: auto; /* Keeps aspect ratio */
-  margin-right: 8px;
-}
-
 /* Navigation links */
 .navbar-linksdarkerrrrmode {
   display: flex;
@@ -1280,10 +1268,10 @@ a span {
   align-items: center;
 }
 
-.profile-section span {
+.profile-sectiondarkmode span {
   margin-left: 8px;
   font-size: 16px;
-  color: #333333;
+  color: white;
 }
 
 /* Dropdown menu for user profile */
@@ -1348,7 +1336,7 @@ a span {
 
 .dropdown-menudarkerrmode a {
   text-decoration: none; /* Remove underline from links */
-  color: #333; /* Link color */
+  color: white; /* Link color */
   display: block; /* Make the entire area clickable */
 }
 
@@ -1579,6 +1567,11 @@ a span {
   cursor: pointer;
 }
 
+.willamnamedarkmode{
+  margin-bottom: 50px;
+  color: white;
+}
+
 /* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
@@ -1586,11 +1579,6 @@ a span {
   .navbar-icons,
   .profile-section {
     display: flex;
-  }
-
-  /* Hide main navbar links in mobile view */
-  .navbar-links {
-    display: none;
   }
 
   .footer-nav {
