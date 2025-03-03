@@ -168,49 +168,45 @@ const StockWatchlist = () => {
    
 
   // Handle watchlist actions
-<<<<<<< HEAD
-  const handleRenameWatchlist = async (watchlistId) => {
-    const newName = prompt("Enter new watchlist name:");
-    if (!newName?.trim()) return;
+  // const handleRenameWatchlist = async (watchlistId) => {
+  //   const newName = prompt("Enter new watchlist name:");
+  //   if (!newName?.trim()) return;
   
-    try {
-      const token = Cookies.get("jwtToken");
-      if (!token) {
-        alert("Unauthorized: No token provided");
-        return;
-      }
+  //   try {
+  //     const token = Cookies.get("jwtToken");
+  //     if (!token) {
+  //       alert("Unauthorized: No token provided");
+  //       return;
+  //     }
   
-      console.log("Renaming watchlist:", { watchlistId, newName });
+  //     console.log("Renaming watchlist:", { watchlistId, newName });
   
-      const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ watchlist_id: watchlistId, name: newName }),
-      });
+  //     const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
+  //       method: "PUT",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify({ watchlist_id: watchlistId, name: newName }),
+  //     });
   
-      const data = await response.json();
-      console.log("Server Response:", data);
+  //     const data = await response.json();
+  //     console.log("Server Response:", data);
   
-      if (response.ok) {
-        setWatchlists((prev) =>
-          prev.map((w) => (w.watchlist_id === watchlistId ? { ...w, name: newName } : w))
-        );
-        alert(data.message);
-      } else {
-        alert(data.error || "Failed to rename watchlist");
-      }
-    } catch (error) {
-      console.error("Error renaming watchlist:", error);
-      alert("An error occurred. Please try again.");
-    }
-  };
+  //     if (response.ok) {
+  //       setWatchlists((prev) =>
+  //         prev.map((w) => (w.watchlist_id === watchlistId ? { ...w, name: newName } : w))
+  //       );
+  //       alert(data.message);
+  //     } else {
+  //       alert(data.error || "Failed to rename watchlist");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error renaming watchlist:", error);
+  //     alert("An error occurred. Please try again.");
+  //   }
+  // };
     
-=======
-
->>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
 
   // Determine the color for the change value
   const getChangeColor = (change) => {

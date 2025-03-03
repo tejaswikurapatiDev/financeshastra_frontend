@@ -650,7 +650,6 @@ const Navbar = () => {
           />
           <FaSearch className="search-icon" />
 
-<<<<<<< HEAD
           {/* Show results only when there is input */}
           {searchInputText && (
             <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
@@ -666,23 +665,6 @@ const Navbar = () => {
             </div>
           )}
         </div>
-=======
-  {/* Show results only when there is input */}
-  {searchInputText && (
-    <div className={`search-resultswatchlist ${filterData.length > 0 ? "active" : ""}`}>
-      {filterData.length > 0 ? (
-        <ul>
-          {filterData.map((data) => (
-            <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>No result found</p>
-      )}
-    </div>
-  )}
-</div>
->>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
 
 
         <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
