@@ -51,6 +51,10 @@ function Login() {
     setEmailError("");
     setPasswordError("");
 
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
     let hasError = false;
 
     if (!email.trim()) {
@@ -71,7 +75,12 @@ function Login() {
     }
 
     if (hasError) {
+<<<<<<< HEAD
       return;
+=======
+      return; // Stop execution if there are errors
+
+>>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
     }
 
     setIsLoading(true);
@@ -91,7 +100,14 @@ function Login() {
         throw new Error(data.message || "Login Failed");
       }
 
+<<<<<<< HEAD
       const { jwtToken } = data;
+=======
+      const data = await response.json();
+
+      const { jwtToken } = data;
+  
+>>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
 
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
@@ -107,6 +123,11 @@ function Login() {
     }
   };
 
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
   const handleRegisterClick = () => {
     navigate("/register");
   };
@@ -273,6 +294,7 @@ function Login() {
           ) : (
             <form onSubmit={handleSubmit}>
               <div className="input-container">
+<<<<<<< HEAD
                 <label>Email Address*</label>
                 <input
                   type="email"
@@ -304,6 +326,41 @@ function Login() {
                 {passwordError && <span className="error-textlogin">{passwordError}</span>}
               </div>
 
+=======
+
+  <label>Email Address*</label>
+  <input
+    type="email"
+    placeholder="Enter your email address"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className={emailError ? "input-error" : ""}
+  /><br/>
+  {emailError && <span className="error-textlogin">{emailError}</span>}
+</div>
+
+<div className="input-container">
+  <label>Password*</label>
+  <div className="password-field">
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className={passwordError ? "input-error" : ""}
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+    >
+  
+    </span>
+  </div>
+  {passwordError && <span className="error-textlogin">{passwordError}</span>}
+</div>
+
+
+>>>>>>> 5162929bf35fac9f2f52a04e0cca0b98a1dac03c
               <div className="login-options">
                 <div className="checksigninall">
                   <div className="signinall">

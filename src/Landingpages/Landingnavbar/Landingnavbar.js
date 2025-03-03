@@ -517,30 +517,29 @@ const Landingnavbar = () => {
           </li>
         </ul>
 
-        <div className="navbar-search">
-          <input
-            type="text"
-            placeholder="Search for Stocks, Mutual..."
-            onChange={(e) => setSearchInputText(e.target.value)}
-          />
-          <FaSearch className="search-icon" />
-          {/* to display result */}
-          <div>
+       <div className="navbar-search">
+        <input
+          type="text"
+          placeholder="Search for Stocks, Mutual..."
+          onChange={(e) => setSearchInputText(e.target.value)}
+        />
+        <FaSearch className="search-icon" />
+      
+        {/* Show results only when there is input */}
+        {searchInputText && (
+          <div className={`search-resultswatchlist ${filterData.length > 0 ? "active" : ""}`}>
             {filterData.length > 0 ? (
               <ul>
-                {filterData.map((data) => {
-                  return (
-                    <li key={data.id}>
-                      {data.company} {data.Scheme_Name} {data.sector}
-                    </li>
-                  );
-                })}
+                {filterData.map((data) => (
+                  <li key={data.id}>{data.company} {data.Scheme_Name} {data.sector}</li>
+                ))}
               </ul>
             ) : (
-              searchInputText && <p>No result found</p>
+              <p>No result found</p>
             )}
           </div>
-        </div>
+        )}
+      </div>
 
         <div className="landingnavbar-icons">
           {/* Bell Icon */}

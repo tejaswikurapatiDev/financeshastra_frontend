@@ -6,7 +6,12 @@
 /* Change the highlight color for dropdown options */
  
 
-
+.pagination-containeranalystreaserch{
+  margin-left: 50px;
+  display: flex;
+  gap: 800px;
+  margin-top: -30px;
+}
 
 
 .stockresearchanalysispage-container {

@@ -200,7 +200,7 @@ const StockResearchtablePage = () => {
       </table>
 
       {/* Pagination Section */}
-      <div className="pagination-containeranalyst">
+      <div className="pagination-containeranalystreaserchtable">
         <div className="pagination-info">
           {`Showing ${indexOfFirstItem + 1} to ${
             indexOfLastItem > filteredstock.length ? filteredstock.length : indexOfLastItem

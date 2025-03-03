@@ -1,0 +1,45 @@
+.transaction-inputdividened{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 20%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: 200px;
+}
+.noteall{
+    margin-left: -200px;
+}
+.transaction-inputnote{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 70%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: -50px;
+   
+    
+}
+
+.sip-linkmutual {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px; /* Add some spacing */
+    font-size: 15px;
+    margin-left: -50px;
+
+  }
+  
+  .sip-linkmutual a {
+    color: #24b676;
+    text-decoration: none;
+ font-weight: bold;
+    cursor: pointer;
+    margin-right: 70px;
+    margin-top: 20px;
+    text-decoration: underline;
+  }
+  
+  .sip-linkmutual a:hover {
+    text-decoration: underline;
+  }

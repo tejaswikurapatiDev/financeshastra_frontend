@@ -3,6 +3,7 @@ import { Link ,useNavigate} from "react-router-dom";
 import 'font-awesome/css/font-awesome.min.css'; // Import FontAwesome CSS
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const  StockWatchportall= () => {
   const [stockName, setStockName] = useState("");
@@ -329,7 +330,9 @@ const  StockWatchportall= () => {
           </table>
         </div>
       </div>
-  </div></div>
+  </div>
+  <FooterForAllPage/>
+  </div>
   );
 };
 

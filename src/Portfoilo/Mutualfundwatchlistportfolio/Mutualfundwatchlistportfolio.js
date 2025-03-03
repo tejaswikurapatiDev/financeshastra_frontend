@@ -4,6 +4,8 @@ import "font-awesome/css/font-awesome.min.css"; // Import FontAwesome CSS
 import Navbar from "../../Navbar/Navbar";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import './Mutualfundwatchlistportfolio.css'
 
 const MutualWatchlist = () => {
   const [stockName, setStockName] = useState("");
@@ -215,28 +217,37 @@ const MutualWatchlist = () => {
         <h2 style={{ marginLeft: "10px", fontSize: "19px" }}>Add Watchlist</h2>
         <div className="watchlist-header">
           <div className="scheme-exchange-cell">
-            <div className="input-groupwatchlist">
-              <label htmlFor="stockName">Scheme Name</label>
-              <input
-                id="stockName"
-                type="text"
-                placeholder="Type to search"
-                value={stockName}
-                onChange={(e) => setStockName(e.target.value)}
-              />
-              {/* display input results  */}
-              <div>
-                {filterData.length > 0 ? (
-                  <ul>
-                    {filterData.map((data) => {
-                      return <li key={data.id}>{data.Scheme_Name}</li>;
-                    })}
-                  </ul>
-                ) : (
-                  stockName && <p>No result found</p>
-                )}
-              </div>
-            </div>
+          <div className="input-groupwatchlist" style={{ position: "relative" }}>
+  <label htmlFor="stockName">Scheme Name</label>
+  <input
+    id="stockName"
+    type="text"
+    placeholder="Type to search"
+    value={stockName}
+    onChange={(e) => setStockName(e.target.value)}
+  />
+  {/* display input results  */}
+  {stockName && (
+    <div className="search-resultswatchlist">
+      {filterData.length > 0 ? (
+        <ul>
+          {filterData.map((data) => (
+            <li 
+              key={data.id} 
+              onClick={() => setStockName(data.Scheme_Name)} 
+              style={{ cursor: "pointer", padding: "8px" }}
+            >
+              {data.Scheme_Name}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p style={{ padding: "8px" }}>No result found</p>
+      )}
+    </div>
+  )}
+</div>
+
             <div className="input-groupwatchlist">
               <label htmlFor="exchange">Exchange</label>
               <input
@@ -370,7 +381,9 @@ const MutualWatchlist = () => {
             </tbody>
           </table>
         </div>
+       
       </div>
+      <FooterForAllPage/>
     </div>
   );
 };

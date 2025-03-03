@@ -233,13 +233,18 @@ a span {
   display: flex;
   
 }
-
 .navbar-search input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid white;
-  border-radius: 4px;
+ 
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  width: 90%; /* Makes inputs take full width of their label container */
+  box-sizing: border-box;  
+
 }
+
+/* Add bottom border only on focus */
+
 
 .search-icon {
   position: absolute;
@@ -266,7 +271,7 @@ a span {
   cursor: pointer; /* Makes the text clickable */
   padding: 5px;
   transition: background 0.2s ease-in-out;
-  
+  list-style: none;
 }
 
 .search-results ul li:hover {
