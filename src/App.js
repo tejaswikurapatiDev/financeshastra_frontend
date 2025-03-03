@@ -260,7 +260,6 @@ import { PortfolioStockProvider } from "./Portfoilo/context/PortfolioStocksConte
 import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsContext";
 import { PortfolioDashboardProvider } from "./Portfoilo/context/PortfolioDashboardContext"
 import { DarkModeProvider } from "./Portfoilo/context/DarkModeContext";
-import { UserProfileContext, UserProfileProvider } from "./Portfoilo/context/UserProfileContext";
 
 import Forgetresetpassworddarkmode from "./Darkmode/Forgetresetpassworddarkmode/Forgetresetpassworddarkmode";
 import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
