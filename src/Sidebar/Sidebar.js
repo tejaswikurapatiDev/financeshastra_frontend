@@ -17,7 +17,7 @@ const Sidebar = () => {
                 <GrAnalytics className="sideicon"/>Portfolio Analysis</a>
                 <a href="stockwatchlist" className="sidebar-item">
                 <BsBookmark className="sideicon"/>Watchlist</a>
-                <a href="#research" className="sidebar-item">
+                <a href="stockresearchpages" className="sidebar-item">
                 <LiaSearchengin className="sideicon"/>Research</a>
                 <a href="#security" className="sidebar-item">
                 <  AiOutlineSecurityScan className="sideicon" />Security</a>

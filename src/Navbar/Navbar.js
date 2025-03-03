@@ -638,7 +638,7 @@ const Navbar = () => {
 
   {/* Show results only when there is input */}
   {searchInputText && (
-    <div className={`search-results ${filterData.length > 0 ? "active" : ""}`}>
+    <div className={`search-resultswatchlist ${filterData.length > 0 ? "active" : ""}`}>
       {filterData.length > 0 ? (
         <ul>
           {filterData.map((data) => (

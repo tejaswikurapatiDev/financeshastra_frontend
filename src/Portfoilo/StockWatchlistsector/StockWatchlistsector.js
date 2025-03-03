@@ -4,6 +4,7 @@ import 'font-awesome/css/font-awesome.min.css'; // Import FontAwesome CSS
 import './StockWatchlistsector.css'
 import Navbar from "../../Navbar/Navbar";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const StockWatchsectorlist= () => {
   const [stockName, setStockName] = useState("");
@@ -141,6 +142,7 @@ const StockWatchsectorlist= () => {
     return groups;
   }, {});
   return (
+   
     <div>
       <Navbar />
       <h2 className="newwmutual" >
@@ -353,7 +355,10 @@ const StockWatchsectorlist= () => {
           </div>
         </div>
       </div>
+      <FooterForAllPage/>
     </div>
+  
+
   );
 };
 

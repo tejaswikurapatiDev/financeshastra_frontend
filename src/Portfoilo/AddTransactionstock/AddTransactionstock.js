@@ -6,6 +6,9 @@ import Cookies from "js-cookie";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchData } from "../../Store/Slices/searchDataSlice";
 import { debounce } from "lodash";
+import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import Sidebar from "../../Sidebar/Sidebar";
 
 const AddTransactionstock = () => {
   const location = useLocation();
@@ -50,6 +53,7 @@ const AddTransactionstock = () => {
       showSIP: false,
     }
   );
+  const [showDropdown, setShowDropdown] = useState(false); 
   const [filterData, setFilterData] = useState([]);
 
   // **Debounced Search Function**
@@ -79,6 +83,8 @@ const AddTransactionstock = () => {
 
   // Handle input changes dynamically
   const handleInputChange = (e) => {
+    setTransactionData({ ...transactionData, stock_name: e.target.value });
+    setShowDropdown(true); // Show dropdown when typing
     let { name, value } = e.target;
 
     if (name === "quantity" || name === "price") {
@@ -102,6 +108,27 @@ const AddTransactionstock = () => {
     });
   };
 
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".search-resultswatchlist")) {
+        setShowDropdown(false);
+      }
+    };
+  
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+  
+  const handleStockSelect = (selectedStock) => {
+    setTransactionData({ ...transactionData, stock_name: selectedStock });
+    setShowDropdown(false); // Hide dropdown after selection
+  };
+  
+
+
+
+ 
   // Handle save action
   const handleAddTransaction = async () => {
     try {
@@ -148,11 +175,11 @@ const AddTransactionstock = () => {
 
   return (
     <div className="transaction-form">
-      <h2 style={{ marginLeft: "40px" }}>Add Transaction</h2>
+      <h2 className="tranheaderform">Add Transaction</h2>
       <div className="tabsadd">
-        <button className="tabadd active">Stocks</button>
-        <button className="tabadd">Mutual Fund</button>
-        <button className="tabadd">Gold</button>
+        <button className="tabadd" style={{background:"#24b676",color:"white"}}onClick={() => navigate("/stockadd")}>Stocks</button>
+        <button className="tabadd"onClick={() => navigate("/addTransactionmutual")}>Mutual Fund</button>
+        <button className="tabadd"onClick={() => navigate("/addTransactiongold")}>Gold</button>
       </div>
       <div className="addcontainer">
         <form className="transaction-row-wrapper">
@@ -174,29 +201,35 @@ const AddTransactionstock = () => {
             </label>
 
             {/* Stock Name */}
-            <label>
-              Stock Name
-              <br />
-              <input
-                type="text"
-                name="stock_name"
-                value={transactionData.stock_name}
-                onChange={handleInputChange}
-                className="transaction-input"
-              />
-              {/* display input results  */}
-              <div>
-                {filterData.length > 0 ? (
-                  <ul>
-                    {filterData.map((data) => {
-                      return <li key={data.id}>{data.company}</li>;
-                    })}
-                  </ul>
-                ) : (
-                  transactionData.stock_name && <p>No result found</p>
-                )}
-              </div>
-            </label>
+            <label style={{ position: "relative" }}>
+  Stock Name
+  <br />
+  <input
+    type="text"
+    name="stock_name"
+    value={transactionData.stock_name}
+    onChange={handleInputChange}
+    className="transaction-input"
+    onFocus={() => setShowDropdown(true)} // Show dropdown when input is focused
+  />
+
+  {/* Dropdown to display search results */}
+  {showDropdown && transactionData.stock_name && filterData.length > 0 && (
+    <div className="search-resultswatchlist">
+      <ul>
+        {filterData.map((data) => (
+          <li
+            key={data.id}
+            onClick={() => handleStockSelect(data.company)} // Select stock
+          >
+            {data.company}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )}
+</label>
+
 
             {/* Exchange */}
             <label>
@@ -330,7 +363,7 @@ const AddTransactionstock = () => {
           <button
             type="button"
             style={{
-              marginLeft: "600px",
+           
               background: "#24b676",
               color: "white",
             }}
@@ -341,6 +374,9 @@ const AddTransactionstock = () => {
           </button>
         </div>
       </div>
+      <Navbar/>
+      <FooterForAllPage/>
+    <Sidebar/>
     </div>
   );
 };

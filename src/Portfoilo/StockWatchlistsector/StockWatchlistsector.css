@@ -8,6 +8,7 @@ height: 170px;
     margin-left: 80px;
     width: 700px;
     border-radius: 5px;
+    margin-bottom: 390px;
   
  
   }
@@ -153,6 +154,7 @@ height: 170px;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    margin-left: 5px;
   }
   
   .create-watchlist:hover {

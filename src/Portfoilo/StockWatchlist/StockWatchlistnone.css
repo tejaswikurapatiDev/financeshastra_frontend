@@ -8,7 +8,63 @@
  border-radius: 5px;
  margin-left: 100px;
 
+
 }
+.input-groupwatchlist {
+  position: relative;
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+}
+
+.input-groupwatchlist input {
+
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-resultswatchlistsector {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none; /* By default hidden */
+}
+
+.search-resultswatchlistsector.active {
+  display: block; /* Show only when there are results */
+}
+
+.search-resultswatchlistsector ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-resultswatchlistsector ul li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.search-resultswatchlistsector ul li:hover {
+  background: #f0f0f0;
+}
+
+
+
+
+
+
+
 .scheme-exchange-cell{
 display: flex;
 }
@@ -62,6 +118,7 @@ display: flex;
   border-collapse: collapse;
   margin-top: 20px;
   font-family: 'calibri';
+
 
 }
 
@@ -208,6 +265,7 @@ border-radius: 8px;
 margin-left:100px;
 width:1200px;
 font-family: 'calibri';
+margin-bottom: 100px;
 }
 /* Delete Button */
 .delete-btnwatchlist {
@@ -229,6 +287,122 @@ font-family: 'calibri';
   /* Mobile View (up to 480px) */
 /* Media query for devices <= 768px */
 /* Media query for devices <= 768px */
+
+
+
+
+
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup Container */
+.popup-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: 'calibri';
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Popup Title */
+.popup-container h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+ 
+}
+
+/* Input Field */
+.popup-container input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.popup-container input:focus {
+  border: 1px solid #24b676;
+}
+
+/* Popup Buttons */
+.watchlistpopup-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* Common button styles */
+.popup-btnconfirm,
+.watchlistpopup-btn button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 45%;
+  transition: 0.3s ease;
+}
+
+/* Confirm Button */
+.popup-btnconfirm {
+  background: #24b676;
+  color: white;
+}
+
+.popup-btnconfirm:hover {
+  background: #1f9a5c;
+}
+
+/* Cancel Button */
+.watchlistpopup-btn button:last-child {
+  background: #ccc;
+  color: black;
+}
+
+.watchlistpopup-btn button:last-child:hover {
+  background: #b3b3b3;
+}
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .stock-watchlist {
     margin: 10px;

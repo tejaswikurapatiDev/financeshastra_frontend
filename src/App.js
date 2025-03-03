@@ -271,6 +271,8 @@ import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAn
 import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
 import FAQSdarkmode from "./Darkmode/FAQSdarkmode/FAQSdarkmode";
 import GoalPlannerdarkmode from "./Darkmode/Goalplannerpagesdarkmode/GoalPlannerdarkmode/GoalPlannerdarkmode";
+import AddTransactionmutual from "./Portfoilo/Addtransactionmutual/Addtransactionmutual";
+import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongold";
 
 function App() {
   return (  
@@ -605,7 +607,9 @@ function App() {
       <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
       <Route path="/termsAndConditionsdarkmode" element={<TermsAndConditionsdarkmode/>}/>
       <Route path="/fAQSdarkmode" element={<FAQSdarkmode/>}/>
-      <Route path="/goalPlannerdarkmode" element={<GoalPlannerdarkmode/>}/>
+      <Route path="/goalPlannerdarkmode" element={<GoalPlannerdarkmode/>}/> 
+      <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
+      <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
       
 
      

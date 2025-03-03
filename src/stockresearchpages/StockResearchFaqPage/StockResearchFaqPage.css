@@ -3,6 +3,7 @@
     margin-top: 80px;
     font-family: 'calibri';
     margin-bottom: 100px;
+    margin-left: 170px;
   }
   
   .stockresearchfaqpage-title {
@@ -18,6 +19,7 @@
     font-size: 14px;
     font-weight: 600;
     color: #444; /* Light black */
+
 }
 
   .stockresearchfaqpage-faq-item {
@@ -25,6 +27,7 @@
     border-radius: 8px;
     padding: 10px;
     background: #ffffff;
+ 
   }
   
  .faq.answer{
@@ -42,6 +45,9 @@
   .stockresearchfaqpage-icon {
     font-size: 1.2rem;
     color: #333;
+  }
+  .faq-item{
+    margin-bottom: 10px;
   }
 /* Responsive adjustments for tablets (max-width: 768px) */
 @media (max-width: 768px) {

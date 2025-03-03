@@ -1,6 +1,12 @@
 .transaction-form {
   padding: 20px;
   font-family: 'calibri';
+  margin-top: 70px;
+
+}
+.tranheaderform{
+  margin-left: 280px;
+  margin-top: 30px;
 }
 
 .addcontainer {
@@ -10,15 +16,18 @@
 .tabsadd {
   display: flex;
   margin-top: 20px;
-  margin-left: 40px;
+  margin-left: 270px;
+  gap: 5px;
 }
 
 .tabadd {
-  padding: 6px;
+  padding: 8px;
   cursor: pointer;
   background-color: white;
-  border: 1px solid grey;
-  box-shadow: 4px 4px 10px 0 rgba(122, 120, 120, 0.973);
+  border: 1px solid rgb(197, 190, 190);
+  box-shadow: 4px 4px 10px 0 rgba(220, 215, 215, 0.973);
+  width: 100px;
+  border-radius: 5px;
 }
 
 .tabadd:hover {
@@ -40,30 +49,33 @@
   text-align: left;
 }
 
-input,
-select {
+.transaction-input,
+select.transaction-input {
   padding: 5px;
   border: 1px solid #333;
   border-radius: 5px;
   width: 90%; /* Makes inputs take full width of their label container */
-  box-sizing: border-box; /* Includes padding in width calculation */
+  box-sizing: border-box;
 }
 
 .transaction-row-wrapper {
   margin-bottom: 20px;
-  background-color: rgb(248, 241, 241);
+  background-color: #F5F4FA;
   height: auto; /* Allows the height to adjust based on content */
-  width: 100%;
+  width: 80%;
   max-width: 1200px;
-  margin-left: auto;
+  margin-left: 270px;
   margin-right: auto;
   padding-bottom: 20px; /* Adds spacing at the bottom */
+
 }
 
 .form-buttons {
   margin-top: 20px;
   display: flex;
-  justify-content: space-between; /* Spacing between the buttons */
+  
+  margin-bottom: 70px;
+  margin-left: 690px;
 }
 
 .form-buttons button {
@@ -89,11 +101,11 @@ select {
   display: block; /* Center the button */
 }
 
-.reset {
-  color: green;
+.resetgold {
+  color: #24b676;
   border: none;
   align-items: center;
-  font-size: 16px; /* Adjust font size */
+  font-size: 15px; /* Adjust font size */
   cursor: pointer; /* Pointer cursor for better UX */
   padding: 0; /* Remove padding */
   background-color: transparent;
