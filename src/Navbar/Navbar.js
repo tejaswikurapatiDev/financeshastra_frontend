@@ -648,7 +648,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className={darkMode ? "navbar-darksearch" : "navbar-search"}>
+        <div className={darkMode ? "navbar-search" : "navbar-search"}>
           <input
             type="text"
             placeholder="Search for Stocks, Mutual..."

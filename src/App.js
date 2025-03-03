@@ -115,7 +115,7 @@ import FooterForAllPage from "./FooterForAllPage/FooterForAllPage";
 import ProfilePage from "./myprofile/ProfilePage/ProfilePage";
  
 import SettingsDashboard from "./sidebardash/SettingDashPanel/SettingDashPanel";
-import Dashboardchartmain from './pagenew/Dashboardgraph/Dashboardgraph';
+import Dashboardchartmain from './Homepagenew/Dashboardgraph/Dashboardgraph';
 import Stockindexall from "./Homepagenew/Stockindexallpage/Stockindexallpage";
 import Calenderchartmain from "./Homepagenew/Stockcalendergraph/Stockcalendergraph";
 import Homestockanalyst from "./Homepagenew/Homestockanalyst/Homestockanalyst";
