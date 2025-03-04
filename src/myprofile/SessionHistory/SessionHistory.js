@@ -37,7 +37,14 @@ const SessionHistory = () => {
   };
 
   useEffect(() => {
-    getLogeinDevices();
+    const token = Cookies.get("jwtToken");
+    const deviceId = Cookies.get("deviceId");
+
+    if (!token || !deviceId) {
+      handleLogout();
+    } else {
+      getLogeinDevices();
+    }
   }, []);
 
   console.log(devices);
@@ -45,6 +52,15 @@ const SessionHistory = () => {
   //api call for end session
   const endDeviceSession = async (device_id) => {
     try {
+      //getting token form cookies
+      const token = Cookies.get("jwtToken");
+
+      if (!token) {
+        alert("Session expired. Please log in again.");
+        navigate("/login");
+        return;
+      }
+
       const response = await fetch(`${API_BASE_URL}/users/end-session`, {
         method: "POST",
         headers: {
@@ -59,16 +75,15 @@ const SessionHistory = () => {
       }
 
       const data = await response.json();
-      console.log(data);
 
       if (data?.success) {
         alert(data?.message);
 
         //getting current device
-        const currentDeviceId = devices[0].device_id;
+        const currentDeviceId = Cookies.get("deviceId");
 
-        console.log(currentDeviceId);
         if (device_id === currentDeviceId) {
+          Cookies.remove("jwtToken");
           navigate("/login");
         } else {
           setDevices((prevDevices) =>
@@ -83,6 +98,13 @@ const SessionHistory = () => {
     } catch (error) {
       console.error("Error ending session:", error);
     }
+  };
+
+  // Logout function
+  const handleLogout = () => {
+    Cookies.remove("jwtToken");
+    Cookies.remove("deviceId");
+    navigate("/login");
   };
 
   const formatDate = (isoString) => {
@@ -165,7 +187,7 @@ const SessionHistory = () => {
       </p>
       <div className="sessions-list">
         {devices &&
-          devices.slice(0, 3).map((session) => (
+          devices.map((session) => (
             <div key={session.device_id} className="session-card">
               <div className="session-details">
                 <img
