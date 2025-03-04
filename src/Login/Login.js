@@ -82,7 +82,8 @@ function Login() {
     setIsLoading(true);
 
     try {
-      const url = `${API_BASE_URL}/users/signin`;
+      //const url = `${API_BASE_URL}/users/signin`;
+      const url= `http://localhost:3000/users/signin`
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,15 +96,29 @@ function Login() {
       if (!response.ok) {
         throw new Error(data.message || "Login Failed");
       }
-
+  
+      
+      
+      if (response.ok=== true){
+        console.log("data:", data)
       const { jwtToken } = data;
-
+      
+  
+      // localStorage.setItem("authData", JSON.stringify({ token: jwtToken, user }));
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
         sameSite: "Strict",
       });
+      Cookies.set('user', email)
+      
+      localStorage.setItem("user", JSON.stringify({email, password}))
+      localStorage.setItem("token", jwtToken)
 
-      navigate("/home");
+        alert('You are successfully logedin!')
+        navigate("/home");
+        
+      }
+      
     } catch (error) {
       console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password");
