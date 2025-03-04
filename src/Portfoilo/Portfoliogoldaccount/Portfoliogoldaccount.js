@@ -9,7 +9,6 @@ import Cookies from "js-cookie";
 
 import Navbar from "../../Navbar/Navbar";
 import Portfoliogoldtop from "../Portfoliogoldtoppage/Portfoliogoldtoppage";
-import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const Portfoliogoldaccount = () => {
   const location = useLocation();
@@ -303,7 +302,6 @@ const Portfoliogoldaccount = () => {
 
         <Navbar />
       </div>
-      <FooterForAllPage/>
     </div>
   );
 };

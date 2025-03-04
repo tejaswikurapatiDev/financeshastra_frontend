@@ -15,7 +15,6 @@ import {
   FaChevronDown,
   FaUser,
 } from "react-icons/fa";
-import Cookies from "js-cookie";
 import { FaCircleQuestion } from "react-icons/fa6";
 import "./Navbar.css";
 import { PiHandCoins } from "react-icons/pi";
@@ -23,7 +22,7 @@ import { useNavigate } from "react-router-dom";
 import { RiHome5Fill } from "react-icons/ri"; // Home Icon
 import { SlBookOpen } from "react-icons/sl"; // Book Icon
 import { RiBriefcase4Line } from "react-icons/ri";
-import { LuChartNoAxesCombined, LuLogOut } from "react-icons/lu";
+import { LuChartNoAxesCombined } from "react-icons/lu";
 import { LuDot } from "react-icons/lu";
 import notiimg1 from "../assest/fst1.webp";
 import notiimg2 from "../assest/mobile.png";
@@ -169,39 +168,10 @@ const Navbar = () => {
   const portfolioDropdownRef = useRef(null);
   const mutualFundsDropdownRef = useRef(null);
   const learnDropdownRef = useRef(null);
+  const searchResultsRef = useRef(null);
 
-  const dispatch = useDispatch();
-  // getting data from redux store
-  const getDataFromStore = useSelector((store) => store.searchData.searchData);
-  console.log(getDataFromStore);
-  const onLogout= ()=>{
-    localStorage.removeItem('user')
-    localStorage.removeItem("token")
-    Cookies.remove('user')
-    Cookies.remove('jwtToken')
-  }
-  //Api Call for getAll Data Related search Option
-  
-  const getAllData = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/search/allInfo`);
-      const data = await response.json();
-      console.log(data)
-
-      //store all data into the redux store
-      dispatch(setSearchData(data?.data || []));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    //Function Call for All data
-    getAllData();
-  }, []);
-
-  //Search data from store with using debounce
-  const debounceSearch = useCallback(
+  // Debounced search function that only filters existing data from Redux
+  const debouncedSearch = useCallback(
     debounce((searchText) => {
       if (!searchText.trim()) {
         setFilterData([]);
@@ -255,15 +225,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    //const user= localStorage.getItem('user')
-    const userCookie= Cookies.get('user')
-    getAllData();
-    if (userCookie){
-      const user_name= userCookie.split('@')[0]
-      setuserName(user_name)
-    }
-    
-    
     const handleClickOutside = (event) => {
       if (
         stockDropdownRef.current &&

@@ -9,7 +9,6 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import Mutualportfoliodonut from "../Mutualportfoliodonut/Mutualportfoliodonut";
 import { PortfolioMutualsContext } from "../context/PortfolioMutualsContext";
-import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const MutualAccountStock = () => {
   const location = useLocation();
@@ -275,7 +274,6 @@ const MutualAccountStock = () => {
 
         <Navbar />
       </div>
-      <FooterForAllPage/>
     </div>
   );
 };

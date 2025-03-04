@@ -5,7 +5,6 @@ import Navbar from "../../Navbar/Navbar";
 import PortfolioManagerDashboard from "../Portfoliodashboard/Portfoliodashboard";
 import { PortfolioDashboardContext } from "../context/PortfolioDashboardContext";
 import { PortfolioDashboardProvider } from "../context/PortfolioDashboardContext";
-import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 
 function Portfolio() {
@@ -99,7 +98,6 @@ function Portfolio() {
       {/* Navbar and PortfolioManagerDashboard Components */}
       <Navbar />
       <PortfolioManagerDashboard />
-      <FooterForAllPage/>
     </div>
   );
 }

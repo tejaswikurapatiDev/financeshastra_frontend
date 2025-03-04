@@ -4,9 +4,7 @@ import smartsipimg from '../../assest/smartsipimg.jpeg';
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
-import { useNavigate } from "react-router-dom";
 function StocksSmartSIPPS() {
-   const navigate = useNavigate();
   return (
     <div className="smartsip-container">
       <h1 className="smartsip-title">Stocks SmartSIP</h1>
@@ -68,9 +66,9 @@ function StocksSmartSIPPS() {
           </ul>
         </div>
         <div className="smartsip-subscribe">
-          <h3 >Subscribe Now!</h3>
+          <h3>Subscribe Now!</h3>
           <p>Choose a plan that aligns with your investment goals!</p>
-          <button className="smartsip-button"onClick={() => navigate("/pricehalf")}>Subscribe</button>
+          <button className="smartsip-button">Subscribe</button>
         </div>
       </div>
       <Navbar/>
