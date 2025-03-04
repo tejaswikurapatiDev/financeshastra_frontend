@@ -11,6 +11,7 @@ import Cookies from 'js-cookie';
 import { API_BASE_URL } from "../../config";
 
 import { PortfolioStocksContext } from "../context/PortfolioStocksContext";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const PortfolioAccountStock = () => {
   const location = useLocation();
@@ -267,7 +268,9 @@ const PortfolioAccountStock = () => {
         )}
 
         <Navbar />
+       
       </div>
+      <FooterForAllPage/>
     </div>
   );
 };
