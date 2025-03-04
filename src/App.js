@@ -190,7 +190,7 @@ import HouseGoalPlanner from "./Goalplannerpages/HouseGoalPlanner/HouseGoalPlann
  
  
 import Accountsipallpage from "./Account/Accountsipallpage";
-import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
+
  
  
 import Landingnavbar from "./Landingpages/Landingnavbar/Landingnavbar";
@@ -269,6 +269,7 @@ import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongol
  
 import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
 import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
+import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 
 function App() {
   return (  
@@ -640,7 +641,8 @@ function App() {
       <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
       <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
       <Route path="/contactUsnew" element={<ContactUsnew/>}/>
-      <Route path="/contactCards" element={<ContactCards/>}/>
+      <Route path="/contactCards" element={<ContactCards/>}/> 
+      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
       
 
 

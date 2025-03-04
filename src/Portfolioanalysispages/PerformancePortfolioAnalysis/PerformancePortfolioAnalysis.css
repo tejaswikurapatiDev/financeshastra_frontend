@@ -68,7 +68,7 @@
     font-weight: bold;
     margin-top: 10px;
 }
-.react-datepicker {
+.performanceportfolioanalysis-date-picker{
   
     border-radius: 8px;
     overflow: hidden;
@@ -87,7 +87,7 @@
 }
 
 
-.react-datepicker__header {
+.performanceportfolioanalysis-date-picker__header {
     background: #24b676;
     color: white;
     font-weight: bold;
@@ -95,13 +95,13 @@
     font-family: 'calibri';
 }
 
-.react-datepicker__day--selected {
+.performanceportfolioanalysis-date-picker__day--selected {
     background: #24b676 !important;
     color: white !important;
     font-family: 'calibri';
 }
 
-.react-datepicker__day:hover {
+.performanceportfolioanalysis-date-picker__day:hover {
     background: #1d9b5c !important;
     color: white !important;
 }
