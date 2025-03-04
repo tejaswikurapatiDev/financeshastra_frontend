@@ -221,9 +221,7 @@ import Openemailforgotpass from "./Forgotpaswordpages/Openemailforgotpass/Openem
 import Forgetpassword from "./Forgotpaswordpages/Forgetpassword/Forgetpassword";
  
 import Stockresearchpages from "./stockresearchpages/stockresearchpages";
-import LandingPagedarkmode from "./Darkmode/Landingpagedarkmode/Landingpagedarkmode";
-import StocksSmartSIPPSdark from "./Darkmode/StocksSmartSIPPSdark/StocksSmartSIPPSdark";
-import Navbardarkmode from "./Darkmode/Navbardarkmode/Navbardarkmode";
+
 import PortfolioAnalysisCorporatePage from "./Portfolioanalysispages/PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage";
 import PortfolioAnalysisdividentPage from "./Portfolioanalysispages/PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
 import PortfolioAnalysisbonusPage from "./Portfolioanalysispages/PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
@@ -241,14 +239,7 @@ import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Port
 import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
 import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
 import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
-import Logindarkmode from "./Darkmode/Logindarkmode/Logindarkmode";
-import Registerdarkmode from "./Darkmode/Registerdarkmode/Registerdarkmode";
-import Forgetpassworddarkmode from "./Darkmode/Forgetpassworddarkmode/Forgetpassworddarkmode";
-import Openemaildarkmode from "./Darkmode/Openemaildarkmode/Openemaildarkmode";
-import Dashboardchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Dashboardgraphdarkmode/Dashboardgraphdarkmode";
-import Stockindexalldarkmode from "./Darkmode/Dashboarddarkmode/Stockindexallpagedarkmode/Stockindexallpagedarkmode";
-import Calenderchartmaindarkmode from "./Darkmode/Dashboarddarkmode/Stockcalendergraphdarkmode/Stockcalendergraphdarkmode";
-import Stockanalystalldarkmode from "./Darkmode/Dashboarddarkmode/Homeanalystalldarkmode/Homeanalystalldarkmode";
+
  
 //Context
  
@@ -262,21 +253,23 @@ import { PortfolioDashboardProvider } from "./Portfoilo/context/PortfolioDashboa
 import { DarkModeProvider } from "./Portfoilo/context/DarkModeContext";
 import {UserProfileProvider } from "./Portfoilo/context/UserProfileContext";
 
-import Forgetresetpassworddarkmode from "./Darkmode/Forgetresetpassworddarkmode/Forgetresetpassworddarkmode";
+
 import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
  
 import RefundPolicy from "./Footernavigatepages/Refundpage/Refundpage";
-import Disclaimerdarkmode from "./Darkmode/Footernavigatedarkmode/Disclamerdarkmode/Disclamerdarkmode";
-import RefundPolicydarkmode from "./Darkmode/Footernavigatedarkmode/Refundpagedarkmode/Refundpagedarkmode";
+
+
 import WhoWeAre from "./Footernavigatepages/WhoWeAre/WhoWeAre";
-import WhoWeAredarkmode from "./Darkmode/Footernavigatedarkmode/Whowearedarkmode/Whowearedarkmode";
+
 import TermsAndConditions from "./Footernavigatepages/TermsAndConditions/TermsAndConditions";
-import TermsAndConditionsdarkmode from "./Darkmode/Footernavigatedarkmode/TermsAndConditionsdarkmode/TermsAndConditionsdarkmode";
-import FAQSdarkmode from "./Darkmode/FAQSdarkmode/FAQSdarkmode";
-import GoalPlannerdarkmode from "./Darkmode/Goalplannerpagesdarkmode/GoalPlannerdarkmode/GoalPlannerdarkmode";
+
+
 import AddTransactionmutual from "./Portfoilo/Addtransactionmutual/Addtransactionmutual";
 import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongold";
  
+import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
+import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
+
 function App() {
   return (  
     <Provider store={store}>
@@ -522,9 +515,9 @@ function App() {
             <Route path="/sipCalculatorAccountPages" element={<Accountsipallpage />} />
 
             <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
-            <Route path="/stocksSmartSIPPSdark" element={<StocksSmartSIPPSdark />} />
+           
             <Route path="/" element={<LandingPage />} />
-            <Route path="/landingPagedarkmode" element={<LandingPagedarkmode />} />
+           
             <Route path="/landingnavbar" element={<Landingnavbar />} />
             <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn />} />
             <Route path="/banksectorstocktheme" element={<Banksectorstocktheme />} />
@@ -573,9 +566,7 @@ function App() {
 
 
             <Route path="/stockresearchpages" element={<Stockresearchpages />} />
-            <Route path="/navbardarkmode" element={<Navbardarkmode />} />
-
-
+        
 
 
             <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage />} />
@@ -594,26 +585,63 @@ function App() {
             <Route path="/portfolioanalysisrightscall" element={<Portfolioanalysisrightscall />} />
             <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
             <Route path="/forgotresetpassword/:token" element={<Forgotresetpassword />} />
-            <Route path="/logindarkmode" element={<Logindarkmode />} />
-            <Route path="/registerdarkmode" element={<Registerdarkmode />} />
-            <Route path="/forgetpassworddarkmode" element={<Forgetpassworddarkmode />} />
-            <Route path="/openemaildarkmode" element={<Openemaildarkmode />} />
-            <Route path="/dashboardchartmaindarkmode" element={<Dashboardchartmaindarkmode />} />
-            <Route path="/stockindexalldarkmode" element={<Stockindexalldarkmode />} />
-            <Route path="/calenderchartmaindarkmode" element={<Calenderchartmaindarkmode />} />
-            <Route path="/stockanalystalldarkmode" element={<Stockanalystalldarkmode />} />
-            <Route path="/forgetresetpassworddarkmode" element={<Forgetresetpassworddarkmode />} />
+          
             <Route path="/disclaimer" element={<Disclaimer />} />
-            <Route path="/disclaimerdarkmode" element={<Disclaimerdarkmode />} />
+         
             <Route path="/refundPolicy" element={<RefundPolicy />} />
-            <Route path="/refundPolicydarkmode" element={<RefundPolicydarkmode />} />
             <Route path="/whoWeAre" element={<WhoWeAre />} />
-            <Route path="/whoWeAredarkmode" element={<WhoWeAredarkmode />} />
-            <Route path="/termsAndConditions" element={<TermsAndConditions />} />
-            <Route path="/termsAndConditionsdarkmode" element={<TermsAndConditionsdarkmode />} />
-            <Route path="/fAQSdarkmode" element={<FAQSdarkmode />} />
-            <Route path="/goalPlannerdarkmode" element={<GoalPlannerdarkmode />} />
+     
+            <Route path="/termsAndConditions" element={<TermsAndConditions />} />   
 
+      <Route path="/educationGoalPlanner" element={<EducationGoalPlanner/>} />
+      <Route path="/holidayGoalPlanner" element={<HolidayGoalPlanner/>} />
+      <Route path="/weddingGoalPlanner" element={<WeddingGoalPlanner/>} />
+      <Route path="/electronicGoalPlanner" element={<ElectronicGoalPlanner/>} />
+      <Route path="/otherGoalPlanner" element={<OtherGoalPlanner/>} />
+      <Route path="/portfolioCard" element={<PortfolioCard/>} />
+      <Route path="/portfolioAnalysisnew" element={<PortfolioAnalysisnew/>} />
+     
+      <Route path="/portfolioMetrics" element={<PortfolioMetrics/>} />
+    
+      <Route path="/segmentAnalysis" element={<SegmentAnalysis/>} />
+      <Route path="/stockTrackerall" element={<StockTracker/>} />
+      <Route path="/bestPerformers" element={<BestPerformers/>} />
+      <Route path="/portfolioanalyticchart" element={<Portfolioanalyticchart/>} />
+      <Route path="/forgetpassword" element={<Forgetpassword/>} />
+      <Route path="/openemailforgotpass" element={<Openemailforgotpass/>} />
+      <Route path="/stockresearchpages" element={<Stockresearchpages/>} />
+
+      <Route path="/portfolioAnalysisCorporatePage" element={<PortfolioAnalysisCorporatePage/>} />
+      <Route path="/portfolioAnalysisdividentPage" element={<PortfolioAnalysisdividentPage/>} />
+      <Route path="/portfolioAnalysisbonusPage" element={<PortfolioAnalysisbonusPage/>} />
+      <Route path="/portfolioAnalysisSplitsPage" element={<PortfolioAnalysissplitPage/>} />
+      <Route path="/portfolioAnalysisRightsPage" element={<PortfolioAnalysisrightissusePage/>} />
+      <Route path="/portfolioAnalysisAgmPage" element={<PortfolioAnalysisAGMPage/>} />
+ 
+      <Route path="/portfolioHoldingdetailPage" element={<PortfolioHoldingdetailPage/>} />
+      <Route path="/porfolioanalysisallpagecall" element={<Porfolioanalysisallpagecall/>} />
+      <Route path="/analysisResearchReportblur" element={<AnalysisResearchReportblur/>} />
+      <Route path="/portfolioanalysisdividendcall" element={<Portfolioanalysisdividendcall/>} />
+      <Route path="/portfoliobonuscall" element={<Portfoliobonuscall/>}/>
+      <Route path="/portfoliosplitcall" element={<Portfoliosplitcall/>}/>
+      <Route path="/portfolioanalysisrightscall" element={<Portfolioanalysisrightscall/>}/>
+      <Route path="/portfolioAGMcall" element={<PortfolioAGMcall/>}/> 
+      <Route path="/forgotresetpassword/:token" element={<Forgotresetpassword/>}/>
+
+ 
+      <Route path="/disclaimer" element={<Disclaimer/>}/>
+     
+      <Route path="/refundPolicy" element={<RefundPolicy/>}/>
+  
+      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+  
+      <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
+   
+      <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
+      <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
+      <Route path="/contactUsnew" element={<ContactUsnew/>}/>
+      <Route path="/contactCards" element={<ContactCards/>}/>
+      
 
 
 

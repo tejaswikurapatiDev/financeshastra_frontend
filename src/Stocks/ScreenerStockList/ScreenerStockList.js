@@ -1008,7 +1008,7 @@ const perfOptions = [
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/unlockstockscreener'); // Navigate to the desired route
+    navigate('/pricehalf'); // Navigate to the desired route
   };
   return (
     <div className="screener-container">

@@ -238,8 +238,8 @@ const Dashboardchartmain = () => {
       </div>
       <DashboardMainPagetable />
       <div className="foooterpagesatt">
-        <FooterForhomeAllPage />
-      </div>
+    <FooterForAllPage/>
+  </div>
     </div>
   );
 };

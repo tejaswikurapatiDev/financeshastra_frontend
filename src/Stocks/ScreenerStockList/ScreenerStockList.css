@@ -178,7 +178,7 @@
 content: "Unlock with Subscription";
 position: absolute;
 bottom: -30px;
-left: 50%; /* Center the tooltip */
+left: 23%; /* Center the tooltip */
 transform: translateX(-50%);
 background-color: #24b676;
 color: white;

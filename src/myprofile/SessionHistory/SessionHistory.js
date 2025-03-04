@@ -59,24 +59,27 @@ const SessionHistory = () => {
       }
 
       const data = await response.json();
+      console.log(data);
 
-      // console.log(data);
       if (data?.success) {
         alert(data?.message);
-        navigate("/login");
+
+        //getting current device
+        const currentDeviceId = devices[0].device_id;
+
+        console.log(currentDeviceId);
+        if (device_id === currentDeviceId) {
+          navigate("/login");
+        } else {
+          setDevices((prevDevices) =>
+            prevDevices.map((device) =>
+              device.device_id === device_id
+                ? { ...device, is_active: false, logout_time: data.logoutTime }
+                : device
+            )
+          );
+        }
       }
-      // update the state after ending device
-      setDevices((prevDevices) =>
-        prevDevices.map((device) =>
-          device.device_id === device_id
-            ? {
-                ...device,
-                is_active: false,
-                logout_time: new Date().toISOString(),
-              }
-            : device
-        )
-      );
     } catch (error) {
       console.error("Error ending session:", error);
     }
@@ -192,12 +195,13 @@ const SessionHistory = () => {
                 </p>
 
                 <button
-                  className="end-session-button"
-                  onClick={() => {
-                    endDeviceSession(session.device_id);
-                  }}
+                  className={`end-session-button ${
+                    !session.is_active ? "disabled-button" : ""
+                  }`}
+                  onClick={() => endDeviceSession(session.device_id)}
+                  disabled={!session.is_active}
                 >
-                  {session.is_active ? "End session" : "Session is Expire"}
+                  {session.is_active ? "End session" : "Session Expired"}
                 </button>
               </div>
             </div>
