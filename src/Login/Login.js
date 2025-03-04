@@ -8,7 +8,7 @@ import logoimg from "../assest/finanlogo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import logo from "./../assest/Logo design (1).png";
 import { GoogleLogin } from "@react-oauth/google";
 import Cookies from "js-cookie";
@@ -96,7 +96,6 @@ function Login() {
       }
 
       const { jwtToken, deviceId } = data;
-
 
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,

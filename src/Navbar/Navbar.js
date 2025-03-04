@@ -44,9 +44,7 @@ import { API_BASE_URL } from "../config";
 
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const { user } = useContext(UserProfileContext);
-  console.log(user);
-
+  const {user} = useContext(UserProfileContext)
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -816,9 +814,7 @@ const Navbar = () => {
                   }
                 />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                Willam
-              </span>
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>{user}</span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
           </div>

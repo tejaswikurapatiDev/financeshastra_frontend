@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { API_BASE_URL } from "../../config";
+import Cookies from 'js-cookie';
 
 export const UserProfileContext = createContext();
 
@@ -12,7 +13,7 @@ export const UserProfileProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const token = localStorage.getItem("token");
+      const token = Cookies.get("jwtToken");
       if (!token) throw new Error("No token found");
 
       const response = await fetch(`${API_BASE_URL}/users/`, {
