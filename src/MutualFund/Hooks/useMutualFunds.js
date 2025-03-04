@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../config";
 
 const useMutualFunds = () => {
   const [allFunds, setAllFunds] = useState([]);
@@ -8,9 +9,7 @@ const useMutualFunds = () => {
   // Fetch all funds data from backend API
   const getAllFunds = async () => {
     try {
-      const response = await fetch(
-        "http://localhost:3000/mutualFunds/allFunds"
-      );
+      const response = await fetch(`${API_BASE_URL}/mutualFunds/allFunds`);
       if (!response.ok) {
         throw new Error("Failed to fetch mutual funds data");
       }

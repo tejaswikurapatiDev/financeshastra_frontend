@@ -194,7 +194,14 @@ const StockWatchlist = () => {
   const handleCreateWatchlist = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) return alert("Unauthorized: No token provided");
-
+  
+    const newWatchlistTemp = { 
+      id: Date.now(), 
+      name: `My Watchlist ${watchlists.length + 1}` 
+    };
+  
+    setWatchlists(prev => [...prev, newWatchlistTemp]); // Temporary optimistic update
+  
     try {
       const response = await fetch(`${API_BASE_URL}/Watchlist/CreateWatchList`, {
         method: "POST",
@@ -202,15 +209,24 @@ const StockWatchlist = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ name: `My Watchlist ${watchlists.length + 1}` }),
+        body: JSON.stringify({ name: newWatchlistTemp.name }),
       });
-
+  
       if (!response.ok) throw new Error("Failed to create watchlist");
-
+  
       const newWatchlist = await response.json();
-      setWatchlists([...watchlists, newWatchlist]);
+      console.log("New Watchlist from API:", newWatchlist);
+  
+      setWatchlists(prev => prev.map(w => 
+        w.id === newWatchlistTemp.id ? newWatchlist : w
+      ));
+  
+      setSelectedWatchlist(newWatchlist.watchlist_id); // Ensure selection updates
     } catch (error) {
       alert(error.message || "Error creating watchlist");
+  
+      // Revert UI if API call fails
+      setWatchlists(prev => prev.filter(w => w.id !== newWatchlistTemp.id));
     }
   };
 
@@ -218,6 +234,9 @@ const StockWatchlist = () => {
 
   useEffect(() => {
     fetchWatchlists();
+  }, [])
+
+  useEffect(() => {
     debounceSearch(stockName);
     return () => debounceSearch.cancel();
   }, [stockName]);
@@ -285,7 +304,7 @@ const StockWatchlist = () => {
                   <div className="menu-dropdownwatchlist">
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => handleRenameWatchlist(index)}
+                      onClick={() => handleRenameWatchlist(watchlists[index].watchlist_id)}
                     >
                       Rename
                     </button>
@@ -456,7 +475,7 @@ const StockWatchlist = () => {
                       <td>
                         <button
                           className="delete-btnwatchlist"
-                          onClick={() => handleDeleteStock(index)}
+                          onClick={() => handleDeleteStock(index, stock.asset_symbol)}
                         >
                           <i className="fa fa-trash"></i>
                         </button>

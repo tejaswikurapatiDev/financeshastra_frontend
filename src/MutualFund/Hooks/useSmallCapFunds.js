@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { API_BASE_URL } from "../../config";
 
 const useSmallCapFunds = () => {
   const [smallCapfunds, setSmallCapFunds] = useState([]);
@@ -9,14 +10,14 @@ const useSmallCapFunds = () => {
   const getSmallCapFunds = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/mutualFunds/smallCap-Funds`
+        `${API_BASE_URL}/mutualFunds/smallCap-Funds`
       );
 
       if (!response.ok) {
         throw new Error("Failed to fetch smallcap mutual funds data");
       }
 
-      const data =await response.json();
+      const data = await response.json();
       // console.log(data)
       setSmallCapFunds(data?.data || []);
     } catch (error) {

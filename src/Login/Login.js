@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { json, useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
 import googleimg from "../assest/googleicon.svg";
@@ -22,6 +23,10 @@ const override = {
 };
 
 function Login() {
+
+  //darkmode context 
+  const { darkMode } = useContext(DarkModeContext);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -51,32 +56,27 @@ function Login() {
     setEmailError("");
     setPasswordError("");
 
-  
     let hasError = false;
-  
+
     if (!email.trim()) {
-      setEmailError("Email is required");
+      setEmailError("Please enter Email Address");
       hasError = true;
     } else if (!validateEmail(email)) {
       setEmailError("Invalid email address");
       hasError = true;
     }
-    
-    console.log("Email Error State:", emailError); // Debugging ke liye
-    
+
     if (!password.trim()) {
-      setPasswordError("Password is required");
+      setPasswordError("Please enter Password");
       hasError = true;
     } else if (!validatePassword(password)) {
-      setPasswordError(
-        "Password must be at least 8 characters"
-      );
+      setPasswordError("Password must be at least 8 characters");
+      setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
-  
-    if (hasError) {
-      return; // Stop execution if there are errors
 
+    if (hasError) {
+      return;
     }
 
     setIsLoading(true);
@@ -90,15 +90,13 @@ function Login() {
       };
 
       const response = await fetch(url, options);
-
-      if (!response.ok) {
-        throw new Error("Login Failed");
-      }
-
       const data = await response.json();
 
+      if (!response.ok) {
+        throw new Error(data.message || "Login Failed");
+      }
+
       const { jwtToken } = data;
-  
 
       Cookies.set("jwtToken", jwtToken, {
         expires: 7,
@@ -108,13 +106,11 @@ function Login() {
       navigate("/home");
     } catch (error) {
       console.error("Error during login:", error);
-      setPasswordError("Invalid email or password");
+      setPasswordError(error.message || "Invalid email or password");
     } finally {
       setIsLoading(false);
     }
   };
-
-  
 
   const handleRegisterClick = () => {
     navigate("/register");
@@ -164,7 +160,7 @@ function Login() {
 
   const handleSuccess = async (response) => {
     console.log("Google Login Success:", response);
-    const token = response.credential; // Ensure we receive a valid token
+    const token = response.credential; // Extract token from Google response
   
     if (!token) {
       console.error("Token not received from Google!");
@@ -183,239 +179,243 @@ function Login() {
   
       if (res.ok) {
         // Store JWT token in cookies
-        Cookies.set("jwtToken", data.jwtToken, { expires: 7, sameSite: "Strict" });
+        Cookies.set("jwtToken", data.jwtToken, {
+          expires: 1, // Token expiration (1 day)
+          sameSite: "Strict",
+          secure: true, // Ensure secure cookies (only works with HTTPS)
+        });
+  
+        // Store user details in local storage for quick access
+        localStorage.setItem("user", JSON.stringify(data.user));
+  
+        console.log(data.message); // Log success message from backend
         navigate("/home");
       } else {
         console.error("Authentication failed:", data.error);
+        alert(`Authentication Failed: ${data.error}`);
       }
     } catch (err) {
       console.error("Error sending token to backend:", err);
+      alert("An error occurred during login. Please try again.");
     }
-  }; 
-
-  const handleFailure = (error) => {
-    console.log("Login Failed: ", error);
   };
-  return (
-    <div className="login-container">
-      <div className="login-left">
-        <img src={logoimg} className="logoforgt" />
-      </div>
-      <div className="login-right">
-        <div className="login-box">
-          <h2 className="h2loginpage">
-            {isForgotPassword
-              ? "Enter your registered email to reset password."
-              : "LogIn"}
-          </h2>
+  
+  const handleFailure = (error) => {
+    console.log("Google Login Failed: ", error);
+    alert("Google Sign-In failed. Please try again.");
+  };
+ 
+  
+return (
+  <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
+    <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
+      <img src={logoimg} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} />
+    </div>
+    <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
+      <div className={darkMode ? "login-boxdarkmode" : "login-box"}>
+        <h2 className={darkMode ? "h2loginpagedarkmode" : "h2loginpage"}>
+          {isForgotPassword
+            ? "Enter your registered email to reset password."
+            : "Log In"}
+        </h2>
 
-          {isForgotPassword ? (
-            isResetPasswordStep ? (
-              <form onSubmit={handleResetPassword}>
-                <div className="input-container">
-                  <label>New Password*</label>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your new password"
-                    value={newPassword}
-                    onChange={(e) => setNewPassword(e.target.value)}
-                    required
-                    className={passwordError ? "input-error" : ""}
-                  />
-                  {passwordError && (
-                    <span className="error-text">{passwordError}</span>
-                  )}
-                </div>
-                <button type="submit" className="sign-in-btn">
+        {isForgotPassword ? (
+          isResetPasswordStep ? (
+            <form onSubmit={handleResetPassword}>
+              <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
+                <label>New Password*</label>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your new password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  required
+                  className={darkMode
+                    ? passwordError ? "input-errordarkmode" : ""
+                    : passwordError ? "input-error" : ""}
+                />
+                {passwordError && (
+                  <span className={darkMode ? "error-textdarkmode" : "error-text"}>
+                    {passwordError}
+                  </span>
+                )}
+              </div>
+              <button type="submit" className={darkMode ? "sign-in-btndarkmode" : "sign-in-btn"}>
+                Reset Password
+              </button>
+              <button
+                type="button"
+                className={darkMode ? "cancel-btndarkmode" : "cancel-btn"}
+                onClick={() => setIsForgotPassword(false)}
+              >
+                Cancel
+              </button>
+            </form>
+          ) : (
+            <form onSubmit={handleForgotPasswordEmailSubmit}>
+              <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
+                <label>Email Address*</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className={darkMode
+                    ? emailError ? "input-errordarkmode" : ""
+                    : emailError ? "input-error" : ""}
+                />
+                {emailError && (
+                  <span className={darkMode ? "error-textdarkmode" : "error-text"}>
+                    {emailError}
+                  </span>
+                )}
+              </div>
+              <div className="button-container">
+                <button type="submit" className={darkMode ? "sign-in-btndarkmode" : "sign-in-btn"}>
                   Reset Password
                 </button>
                 <button
                   type="button"
-                  className="cancel-btn"
+                  className={darkMode ? "cancel-btndarkmode" : "cancel-btn"}
                   onClick={() => setIsForgotPassword(false)}
                 >
                   Cancel
                 </button>
-              </form>
-            ) : (
-              <form onSubmit={handleForgotPasswordEmailSubmit}>
-                <div className="input-container">
-                <label>Email Address*</label>
-  <input
-    type="email"
-    placeholder="Enter your email address"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className={emailError ? "input-error" : ""}
-  />
-  {emailError && <span className="error-text">{emailError}</span>}
-                </div>
-                <div className="button-container">
-                  <button type="submit" className="sign-in-btn">
-                    Reset Password
-                  </button>
-                  <button
-                    type="button"
-                    className="cancel-btn"
-                    onClick={() => setIsForgotPassword(false)}
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </form>
-            )
-          ) : (
-            <form onSubmit={handleSubmit}>
-              
-              <div className="input-container">
+              </div>
+            </form>
+          )
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
+              <label>Email Address*</label>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className={darkMode
+                  ? emailError ? "input-errordarkmode" : ""
+                  : emailError ? "input-error" : ""}
+              /><br />
+              {emailError && (
+                <span className={darkMode ? "error-textdarkmode" : "error-textlogin"}>
+                  {emailError}
+                </span>
+              )}
+            </div>
 
-  <label>Email Address*</label>
-  <input
-    type="email"
-    placeholder="Enter your email address"
-    value={email}
-    onChange={(e) => setEmail(e.target.value)}
-    className={emailError ? "input-error" : ""}
-  /><br/>
-  {emailError && <span className="error-textlogin">{emailError}</span>}
-</div>
+            <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
+              <label>Password*</label>
+              <div className="password-field">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={darkMode
+                    ? passwordError ? "input-errordarkmode" : ""
+                    : passwordError ? "input-error" : ""}
+                />
+                <span
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                ></span>
+              </div>
+              {passwordError && (
+                <span className={darkMode ? "error-textdarkmode" : "error-textlogin"}>
+                  {passwordError}
+                </span>
+              )}
+            </div>
 
-<div className="input-container">
-  <label>Password*</label>
-  <div className="password-field">
-    <input
-      type={showPassword ? "text" : "password"}
-      placeholder="Enter your password"
-      value={password}
-      onChange={(e) => setPassword(e.target.value)}
-      className={passwordError ? "input-error" : ""}
-    />
-    <span
-      className="toggle-password"
-      onClick={() => setShowPassword(!showPassword)}
-    >
-  
-    </span>
-  </div>
-  {passwordError && <span className="error-textlogin">{passwordError}</span>}
-</div>
-
-
-              <div className="login-options">
-                <div className="checksigninall">
-                  <div className="signinall">
-                    <div className="allsignall">
-                      <label>
-                        <input type="checkbox" />
-                      </label>
-                    </div>
-                    <div>
-                      <p className="loginpagepara">Remember me</p>
-                    </div>
+            <div className="login-options">
+              <div className="checksigninall">
+                <div className="signinall">
+                  <div className="allsignall">
+                    <label>
+                      <input type="checkbox" />
+                    </label>
+                  </div>
+                  <div>
+                    <p className={darkMode ? "loginpageparadarkmode" : "loginpagepara"}>
+                      Remember me
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault(); // Prevent default anchor behavior
-                      navigate("/forgetpassword");
-                    }}
-                    className="forgotpasswordlink"
-                  >
-                    Forgot Password?
-                  </a>
-                </div>
               </div>
+              <div>
+                <a
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/forgetpassword");
+                  }}
+                  className={darkMode ? "forgotpasswordlinkdarkmode" : "forgotpasswordlink"}
+                >
+                  Forgot Password?
+                </a>
+              </div>
+            </div>
 
-              <button 
-    type="submit" 
-    className="sign-in-btn"
-    style={{
-      backgroundColor: isFormValid ? "#24b676" : "#ccc",
-      cursor: isFormValid ? "pointer" : "not-allowed",
-    }}
-    visible={!isFormValid} // Button disabled when form is invalid
-  >
-    Log in
-  </button>
-
-
-              <ClipLoader
-                cssOverride={override}
-                size={35}
-                data-testid="loader"
-                loading={isLoading}
-                speedMultiplier={1}
-                color="green"
-              />
-            </form>
-          )}
-
-          <div className="login-or">Or Sign Up With</div>
-          <div className="sociall-login">
-            <GoogleLogin
-              variant="contained"
-              className="google-btn"
-              onSuccess={handleSuccess}
-              onError={handleFailure}
-              text="Sign in with Google"
-              width="150"
-              theme="outline"
-            />
-
-
-            <br />
-
-            <Button
-              variant="contained"
-              className="linkedin-btn"
-              startIcon={
-                <img
-                  src={linkedinimg}
-                  alt="LinkedIn Icon"
-                  className="btn-icon-small"
-                />
-              }
-              component="a"
-              href="https://www.linkedin.com/feed/"
-              sx={{ fontSize: "14px" }} // Decrease font size
+            <button
+              type="submit"
+              className={darkMode ? "sign-in-btndarkmode" : "sign-in-btn"}
+              style={{
+                backgroundColor: isFormValid ? "#24b676" : "#ccc",
+                cursor: isFormValid ? "pointer" : "not-allowed",
+              }}
+              visible={!isFormValid}
             >
-              Sign in with LinkedIn
-            </Button>
-          </div>
-          <div className="registerContgl">
-            <p className="registerContglp">
-              By clicking “Continue with Google/LinkedIn” or “Create Account”,
-              you agree to Website’s
-              <a href="#" className="registerContglblue-text">
-                {" "}
-                Terms & Conditions
-              </a>
-              <a href="#" className="registerContglblack-text">
-                {" "}
-                and
-              </a>
-              <a href="#" className="registerContglblue-text">
-                {" "}
-                Privacy Policy
-              </a>
-              .
-            </p>
-          </div>
+              Log in
+            </button>
 
-          <div className="register-link">
-            <p className="register-linkp">
-              Don't have an account?{" "}
-              <a href="#" onClick={handleRegisterClick}>
-                Register
-              </a>
-            </p>
-          </div>
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isLoading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </form>
+        )}
+
+        <div className={darkMode ? "login-or-darkmode" : "login-or"}>Or Sign Up With</div>
+        <div className="social-login">
+          <GoogleLogin
+            variant="contained"
+            className="google-btn"
+            onSuccess={handleSuccess}
+            onError={handleFailure}
+            text="Sign in with Google"
+            width="150"
+            theme={`${darkMode ?  "filled_blue" : "outline"}`}
+          />
+          <br />
+        </div>
+        <div className="registerContgl">
+          <p className="registerContglp">
+            By clicking “Continue with Google/LinkedIn” or “Create Account”,
+            you agree to Website’s
+            <a href="#" className="registerContglblue-text"> Terms & Conditions</a>
+            <a href="#" className="registerContglblack-text"> and</a>
+            <a href="#" className="registerContglblue-text"> Privacy Policy</a>.
+          </p>
+        </div>
+
+        <div className="register-link">
+          <p className="register-linkp">
+            Don't have an account?{" "}
+            <a href="#" onClick={handleRegisterClick}>
+              Register
+            </a>
+          </p>
         </div>
       </div>
     </div>
-  );
+  </div>
+);
+
 }
 
 export default Login;

@@ -133,7 +133,7 @@ const UserDetailsupdate = () => {
           Orders
         </span>
         <span className="profilepage-tabb">Billing & Subscription</span>
-        <span className="profilepage-tabb">Risk Profile Report</span>
+        <span className="profilepage-tabb"onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
         <span
           className="profilepage-tabb"
           onClick={() => navigate("/managealert")}
