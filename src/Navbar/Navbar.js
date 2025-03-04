@@ -41,10 +41,11 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const {user} = useContext(UserProfileContext)
+  const { user } = useContext(UserProfileContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -169,6 +170,13 @@ const Navbar = () => {
   const mutualFundsDropdownRef = useRef(null);
   const learnDropdownRef = useRef(null);
   const searchResultsRef = useRef(null);
+
+  // Logout function
+  const handleLogout = () => {
+    Cookies.remove("jwtToken");
+    Cookies.remove("deviceId");
+    navigate("/login");
+  };
 
   // Debounced search function that only filters existing data from Redux
   const debouncedSearch = useCallback(
@@ -536,13 +544,12 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/">
-          {" "}
+        <div onClick={handleLogout}>
           <FaUserCircle
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />
           Logout
-        </Link>
+        </div>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
@@ -814,7 +821,9 @@ const Navbar = () => {
                   }
                 />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>{user}</span>
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                {user}
+              </span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
           </div>
