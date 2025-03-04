@@ -542,7 +542,7 @@ function App() {
             <Route path="/revCagrallpages" element={<RevCagrallpages />} />
             <Route path="/fundTable" element={<FundTable />} />
             <Route path="/elssTable" element={<ElssTable />} />
-            <Route path="/errorpage" element={<Errorpage />} />
+            <Route path="*" element={<Errorpage />} />
             <Route path="/overviewPortfolioManager" element={< OverviewPortfolioManagergold />} />
             <Route path="/stocksThemes" element={< StocksThemes />} />
             <Route path="/cargoalPlanner" element={< CargoalPlanner />} />
