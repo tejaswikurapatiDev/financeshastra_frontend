@@ -557,7 +557,13 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <div className="navbar-logo">
-          <img src={logo} alt="FinanceShastra Logo" className="logo-image" />
+        <img 
+  src={logo} 
+  alt="FinanceShastra Logo" 
+  onClick={() => navigate("/")} 
+  className="logo-image"
+  style={{cursor:"pointer"}} 
+/>
         </div>
 
         <ul className="navbar-links">

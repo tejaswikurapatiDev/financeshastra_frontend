@@ -273,6 +273,8 @@ import FAQSdarkmode from "./Darkmode/FAQSdarkmode/FAQSdarkmode";
 import GoalPlannerdarkmode from "./Darkmode/Goalplannerpagesdarkmode/GoalPlannerdarkmode/GoalPlannerdarkmode";
 import AddTransactionmutual from "./Portfoilo/Addtransactionmutual/Addtransactionmutual";
 import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongold";
+import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
+import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
 
 function App() {
   return (  
@@ -610,6 +612,8 @@ function App() {
       <Route path="/goalPlannerdarkmode" element={<GoalPlannerdarkmode/>}/> 
       <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
       <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
+      <Route path="/contactUsnew" element={<ContactUsnew/>}/>
+      <Route path="/contactCards" element={<ContactCards/>}/>
       
 
      

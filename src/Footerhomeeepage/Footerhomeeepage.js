@@ -74,7 +74,7 @@ const FooterForhomeAllPage = () => {
         <div className="FooterForAllPage-main-section">
           <div className="FooterForAllPage-logo-social">
             <div className="FooterForAllPage-logo">
-              <img src={finanlog} alt="FinanceShastra Logo" className="FooterForAllPage-logo-img" />
+              <img src={finanlog} alt="FinanceShastra Logo" onClick={() => navigate("/")} style={{cursor:"pointer"}} className="FooterForAllPage-logo-img" />
             </div>
             <div className="FooterForAllPage-social-iconss">
               <a href="#" className="FooterForAllPage-social-icon"><FaFacebookF /></a>

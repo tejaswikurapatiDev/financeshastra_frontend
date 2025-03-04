@@ -1,0 +1,236 @@
+/* ContactCards.css */
+.contacthelpcarddds {
+    text-align: center;
+      font-family:'calibri';
+     margin-left: -39px;
+    
+  
+    }
+    
+    .headercontactttimagehelpcenter{
+      display: flex;
+    width: 1150px;
+      padding: 1px;
+      gap: 10px;
+  margin-top: 100px;
+      margin-left: 210px;
+      border-bottom: 3px solid #24b676;
+  
+    }
+    .contactimageeehelpcenter img{
+      width: 49%;
+      height:79%;
+      border-radius: 8px;
+      margin-bottom: -40px;
+    }
+    .contacthelpcarddds h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    
+    .cardshelpcenter {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 90px;
+    }
+    
+    .cardhelpcenter {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      width: 200px;
+      height: 220px;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .cardhelpcenter:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cardhelpcenter-icon {
+      margin-bottom: 15px;
+    }
+    
+    .cardhelpcenter h4 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: black;
+      margin-top: 3px;
+    }
+    
+    
+    .cardhelpcenter h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: black;
+    }
+    
+    .cardhelpcenter p {
+      font-size: 15px;
+      margin: 4px 0;
+      color: #555;
+    }
+    
+    .cardhelpcenter button {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background-color: white;
+      color: #24b676;
+      border: 1px solid  #24b676;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      justify-items: center;
+      width: 160px;
+      font-weight: bold;
+    }
+    
+    .cardhelpcenter button:hover {
+      background-color: #24b676;
+      color:  white;
+    }
+    
+    .cardhelpcenter-icon {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Add space between the images */
+    }
+    
+    .cardhelpcenter-icon img {
+      width: 40px; /* Adjust size as needed */
+      height: 40px; /* Ensure consistent height */
+      margin-top: 20px;
+    }
+    .contacthelpcarddds h1{
+      font-size: 24px;
+              }
+              .headercontactttimagehelpcenter h2{
+  font-size: 18px;
+  color: #24b676;
+              }
+  
+  
+  
+  
+  
+  
+  
+              
+  
+    @media (max-width: 768px) {
+      .contacthelpcarddds {
+          
+      
+            font-family:'calibri';
+           margin-left: 0px;
+          
+        
+          }
+          .gethelp{
+              margin-left: -10px;
+          }
+          .contacthelpcarddds h1{
+  font-size: 20px;
+          }
+          .headercontactttimagehelpcenter h2{
+              font-size: 18px;
+              color: #24b676;
+                          }
+          .headercontactttimagehelpcenter{
+            display: flex;
+          width: 450px;
+            padding: 1px;
+            gap: 10px;
+        margin-top: 100px;
+            margin-left: 0px;
+            border-bottom: 3px solid #24b676;
+        
+          }
+          .cardshelpcenter {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+              margin-left: 55px;
+            
+            }
+            
+            .cardhelpcenter {
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              padding: 16px;
+              width: 300px;
+              height: 220px;
+              background-color: #fff;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              text-align: center;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+         
+            
+         
+    }
+    
+    @media (max-width: 480px) {
+      .contacthelpcarddds {
+          
+      
+            font-family:'calibri';
+           margin-left: 0px;
+          
+        
+          }
+          .gethelp{
+              margin-left: -1px;
+          }
+          .contacthelpcarddds h1{
+  font-size: 20px;
+          }
+          .headercontactttimagehelpcenter h2{
+              font-size: 18px;
+              color: #24b676;
+                          }
+          .headercontactttimagehelpcenter{
+            display: flex;
+          width: 400px;
+            padding: 1px;
+            gap: 10px;
+        margin-top: 100px;
+            margin-left: 0px;
+            border-bottom: 3px solid #24b676;
+        
+          }
+          .cardshelpcenter {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+              margin-left: 15px;
+            
+            }
+            
+            .cardhelpcenter {
+              border: 1px solid #ddd;
+              border-radius: 8px;
+              padding: 16px;
+              width: 300px;
+              height: 220px;
+              background-color: #fff;
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+              text-align: center;
+              transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+         
+            
+         
+    }
