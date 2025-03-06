@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import './Mutualfundwatchlistportfolio.css'
+import Cookies from 'js-cookie'
+import { API_BASE_URL } from "../../config";
 
 const MutualWatchlist = () => {
   const [stockName, setStockName] = useState("");
@@ -66,6 +68,31 @@ const MutualWatchlist = () => {
     return () => debounceSearch.cancel();
   }, [stockName]);
 
+  // Helper function to get JWT token from cookies
+  const getJwtToken = () => {
+    const cookieString = document.cookie;
+    const cookies = cookieString.split("; ");
+    const tokenCookie = cookies.find(row => row.startsWith("jwtToken="));
+    return tokenCookie ? tokenCookie.split("=")[1] : null;
+  };
+
+  // Fetch watchlists
+  const fetchWatchlists = async () => {
+    try {
+      const jwtToken = getJwtToken();
+      const response = await fetch(`${API_BASE_URL}/Watchlist/getmutualfundwatchlist`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`
+        }
+      });
+      if (!response.ok) throw new Error("Failed to fetch watchlists");
+      const data = await response.json();
+      setWatchlists(data);
+    } catch (error) {
+      console.error("Error fetching watchlists:", error);
+    }
+  };
+
   // Add stock to watchlist
   const handleAddStock = () => {
     if (stockName.trim() === "") return alert("Stock name cannot be empty!");
@@ -90,10 +117,38 @@ const MutualWatchlist = () => {
   };
 
   // Create a new watchlist
-  const handleCreateWatchlist = () => {
-    const newWatchlistName = `Watchlist ${watchlists.length + 1}`;
-    setWatchlists([...watchlists, newWatchlistName]);
+  const handleCreateWatchlist = async () => {
+    const token = Cookies.get("jwtToken");
+    if (!token) return alert("Unauthorized: No token provided");
+  
+    const newWatchlistTemp = { 
+      id: Date.now(), 
+      name: `My Watchlist ${watchlists.length + 1}` 
+    };
+  
+    try {
+      const response = await fetch(`${API_BASE_URL}/Watchlist/CreateMutualWatchList`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ name: newWatchlistTemp.name }),
+      });
+  
+      if (!response.ok) throw new Error("Failed to create watchlist");
+  
+      const newWatchlist = await response.json();
+      console.log("New Watchlist from API:", newWatchlist);
+      
+    } catch (error) {
+      alert(error.message || "Error creating watchlist");
+  
+      // Revert UI if API call fails
+      setWatchlists(prev => prev.filter(w => w.id !== newWatchlistTemp.id));
+    }
   };
+
 
   // Toggle dropdown for watchlist actions
   const toggleDropdown = (index) => {
@@ -217,36 +272,36 @@ const MutualWatchlist = () => {
         <h2 style={{ marginLeft: "10px", fontSize: "19px" }}>Add Watchlist</h2>
         <div className="watchlist-header">
           <div className="scheme-exchange-cell">
-          <div className="input-groupwatchlist" style={{ position: "relative" }}>
-  <label htmlFor="stockName">Scheme Name</label>
-  <input
-    id="stockName"
-    type="text"
-    placeholder="Type to search"
-    value={stockName}
-    onChange={(e) => setStockName(e.target.value)}
-  />
-  {/* display input results  */}
-  {stockName && (
-    <div className="search-resultswatchlist">
-      {filterData.length > 0 ? (
-        <ul>
-          {filterData.map((data) => (
-            <li 
-              key={data.id} 
-              onClick={() => setStockName(data.Scheme_Name)} 
-              style={{ cursor: "pointer", padding: "8px" }}
-            >
-              {data.Scheme_Name}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p style={{ padding: "8px" }}>No result found</p>
-      )}
-    </div>
-  )}
-</div>
+            <div className="input-groupwatchlist" style={{ position: "relative" }}>
+              <label htmlFor="stockName">Scheme Name</label>
+              <input
+                id="stockName"
+                type="text"
+                placeholder="Type to search"
+                value={stockName}
+                onChange={(e) => setStockName(e.target.value)}
+              />
+              {/* display input results  */}
+              {stockName && (
+                <div className="search-resultswatchlist">
+                  {filterData.length > 0 ? (
+                    <ul>
+                      {filterData.map((data) => (
+                        <li
+                          key={data.id}
+                          onClick={() => setStockName(data.Scheme_Name)}
+                          style={{ cursor: "pointer", padding: "8px" }}
+                        >
+                          {data.Scheme_Name}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p style={{ padding: "8px" }}>No result found</p>
+                  )}
+                </div>
+              )}
+            </div>
 
             <div className="input-groupwatchlist">
               <label htmlFor="exchange">Exchange</label>
@@ -273,25 +328,22 @@ const MutualWatchlist = () => {
           <div className="filters-sectionwatchlist">
             <span className="filter-labelwatchlist">FILTER:</span>
             <button
-              className={`filter-buttonwatchlist ${
-                activeFilter === "All" ? "active" : ""
-              }`}
+              className={`filter-buttonwatchlist ${activeFilter === "All" ? "active" : ""
+                }`}
               onClick={() => setActiveFilter("All")}
             >
               All
             </button>
             <button
-              className={`filter-buttonwatchlist ${
-                activeFilter === "Gainers" ? "active" : ""
-              }`}
+              className={`filter-buttonwatchlist ${activeFilter === "Gainers" ? "active" : ""
+                }`}
               onClick={() => setActiveFilter("Gainers")}
             >
               Gainers
             </button>
             <button
-              className={`filter-buttonwatchlist ${
-                activeFilter === "Losers" ? "active" : ""
-              }`}
+              className={`filter-buttonwatchlist ${activeFilter === "Losers" ? "active" : ""
+                }`}
               onClick={() => setActiveFilter("Losers")}
             >
               Losers
@@ -381,9 +433,9 @@ const MutualWatchlist = () => {
             </tbody>
           </table>
         </div>
-       
+
       </div>
-      <FooterForAllPage/>
+      <FooterForAllPage />
     </div>
   );
 };
