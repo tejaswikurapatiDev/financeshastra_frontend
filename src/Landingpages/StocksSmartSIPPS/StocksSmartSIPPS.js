@@ -1,13 +1,25 @@
-import React from "react";
+
 import "./StocksSmartSIPPS.css";
 import smartsipimg from '../../assest/smartsipimg.jpeg';
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
+import React, {
+ 
+  useContext,
+} from "react"
+
 
 function StocksSmartSIPPS() {
+<<<<<<< HEAD
+=======
+   const navigate = useNavigate();
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+   
+>>>>>>> 45d4f8f5702efbdec2bd4868c896e80d1df4b98c
   return (
-    <div className="smartsip-container">
-      <h1 className="smartsip-title">Stocks SmartSIP</h1>
+    <div className={darkMode ? "smartsip-darkcontainer" : "smartsip-container"}>
+      <h1 className={darkMode ? "smartsip-darktitle" :"smartsip-title"}>Stocks SmartSIP</h1>
       <div className="smartsip-content">
         <img
           src={smartsipimg} // Replace this placeholder with your actual image URL
@@ -15,8 +27,8 @@ function StocksSmartSIPPS() {
           className="smartsip-image"
         />
         <div className="smartsip-details">
-          <h2 className="smartsip-detailsh2">1. Benefits of SmartSIP</h2>
-          <ul className="smartsip-list">
+          <h2 className={darkMode ? "smartsip-darkdetailsh2" :"smartsip-detailsh2"}>1. Benefits of SmartSIP</h2>
+          <ul className={darkMode ? "smartsip-darklist" :"smartsip-list"}>
             <li>
               <strong>Rupee Cost Averaging:</strong> Spread out investments to
               reduce the impact of market volatility.
@@ -34,8 +46,8 @@ function StocksSmartSIPPS() {
               anytime without penalties.
             </li>
           </ul>
-          <h2 className="smartsip-detailsh2">2. Who is SmartSIP For?</h2>
-          <ul className="smartsip-list">
+          <h2 className= {darkMode ? "smartsip-darkdetailsh2" :"smartsip-detailsh2"}>2. Who is SmartSIP For?</h2>
+          <ul className={darkMode ? "smartsip-darklist" :"smartsip-list"}>
             <li>
               <strong>Beginners:</strong> Investors starting with small amounts
               who want to enter the share market systematically.
@@ -49,8 +61,8 @@ function StocksSmartSIPPS() {
               specific, long-term financial goals in mind.
             </li>
           </ul>
-          <h2 className="smartsip-detailsh2">3. Additional Offerings</h2>
-          <ul className="smartsip-list">
+          <h2 className= {darkMode ? "smartsip-darkdetailsh2" :"smartsip-detailsh2"}>3. Additional Offerings</h2>
+          <ul className={darkMode ? "smartsip-darklist" :"smartsip-list"}>
             <li>
               <strong>Smart Alerts:</strong> Notifications on underperforming or
               overperforming stocks for timely decisions.

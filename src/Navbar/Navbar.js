@@ -458,6 +458,16 @@ const Navbar = () => {
               </Link>
             </div>
           </li>
+          <li>
+            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+              <Link to="/bankSectorThemePagelock">
+              Stock Themes
+                <p>
+                Research is key before buying any stock
+                </p>
+              </Link>
+            </div>
+          </li>
         </ul>
       </div>
     </div>

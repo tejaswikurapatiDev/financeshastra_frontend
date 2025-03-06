@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"; // For navigation to the homepag
 import "./SettingDashPanel.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 
 
@@ -60,7 +61,7 @@ const SettingsDashboard = () => {
   };
 
   return (
-    
+    <div>
  
     <div className={`settingsContainer ${isBlurred ? "popupOverlayBlur" : ""}`}>
       <h2 className="settingsTitle">Settings</h2>
@@ -160,7 +161,12 @@ const SettingsDashboard = () => {
 
       <Navbar />
       <Sidebar />
+      
       </div> 
+      <div className="foooterpagesattt">
+      <FooterForAllPage/>
+      </div>
+      </div>
   
     
   );

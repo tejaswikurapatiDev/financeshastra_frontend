@@ -222,6 +222,7 @@ const Stockcalender = () => {
                                inline
                                dateFormat="yyyy-MM-dd"
                                onClick={() => setCalendarOpen(false)} // Close the calendar when clicking outside
+                               
                            />
                             )}
                         </div>

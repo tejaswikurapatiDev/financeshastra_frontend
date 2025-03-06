@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 import './FAQS.css'
 import Navbar from '../Navbar/Navbar';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
-
+import React, {
+ 
+  useContext,useState
+} from "react"
+import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 const FAQS = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFaqAnswer = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+ const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const faqs = [
     {
       question: ' What are the assets available for a retail investor?',
@@ -139,35 +143,37 @@ const FAQS = () => {
 
   return (
     <div>
-    <div className="faqquestans-container">
-      <h2 className="faq-title">Frequently Asked Questions</h2>
-      <div className="faq-list">
+     <div className={darkMode ? "faqquestans-containerdarkmode" :"faqquestans-container"}>
+      <h2 className={darkMode ? "faq-titledarkmode" :"faq-titlee"}>Frequently Asked Questions</h2>
+      <div className={darkMode ? "faq-listdarkmode" :"faq-listt"}>
       
         {faqs.map((faq, index) => (
-          <div key={index} className="faq-item">
+          <div key={index} className={darkMode ? "faq-itemdarkmode" :"faq-item"}>
             <button
-              className="faq-question"
+              className={darkMode ? "faq-questiondarkmode" :"faq-question"}
               onClick={() => toggleFaqAnswer(index)}
             >
               {index + 1}. {faq.question}
-              <span className="faq-icon">
+              <span className={darkMode ? "faq-icondarkmode" :"faq-icon"}>
                 {openIndex === index ? <FaAngleUp  className='upfaq'/> : <FaAngleDown  className='downfaq'/>}
               </span>
             </button>
            
             {openIndex === index && (
-              <p className="faq-answer">{faq.answer}</p>
+              <p className={darkMode ? "faq-answerdarkmode" :"faq-answer"}>{faq.answer}</p>
             )}
           
           </div>
         ))}
 
       </div>
+      <Navbar/>
+      <div className={darkMode ? "foooterpagesattt" :"foooterpagesatttfaq"}>
+      <FooterForAllPage/>
+      </div>
     </div>
-    <Navbar/>
-    <div className="foooterpagesattt">
-    <FooterForAllPage/>
-  </div>
+   
+  
     </div>
   );
 };
