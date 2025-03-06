@@ -3,6 +3,8 @@
     width: 900px;
   margin-left: 250px;
     line-height: 1.6;
+  
+  
   }
   
   .disclaimer-title {
@@ -87,6 +89,122 @@ color: black;
    font-size: 15px;
    color: black;
    
+  }
+
+
+
+
+
+
+
+  .disclaimerdarkmode {
+    font-family: 'Calibri';
+
+margin-left: -8px;
+    line-height: 1.6;
+    background-color: #292F42;
+    margin-right: -10px;
+  
+    
+  }
+  
+  .disclaimer-titledarkmode {
+
+    font-size: 26px;
+    color: white;
+    margin-top: 110px;
+    margin-bottom: -10px;
+    margin-left: 550px;
+  }
+  
+  .disclaimer-introdarkmode {
+    width: 800px;
+
+    
+    margin-left: 300px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .disclaimer-introdarkmode p{
+    
+font-size: 15px;
+color: white;
+  }
+  
+  .disclaimer-introdarkmode a{
+    
+   text-decoration: none;
+   color: #24b676;
+  }
+  
+  .disclaimer-imagedarkmode {
+ 
+    width: 650px;
+    height: 300px;
+   margin-left: 50px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+  }
+  
+  .disclaimer-sectiondarkmode {
+    margin-bottom: 0px;
+    width: 900px;
+    margin-left: 320px;
+  }
+  
+  .disclaimer-sectiondarkmode h2 {
+    font-size: 24px;
+    color:white;
+    margin-bottom: -5px;
+
+  }
+  
+  .disclaimer-sectiondarkmode p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: white;
+  }
+  
+  .disclaimer-sectiondarkmode ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white;
+  }
+  
+  .disclaimer-sectiondarkmode ul li {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-contactdarkmode {
+
+    margin-top: 0px;
+margin-bottom: 100px;
+    margin-left: 320px;
+  }
+  
+  .disclaimer-contactdarkmode h3 {
+    font-size: 24px;
+    color:white;
+    margin-bottom: -5px;
+  }
+  .disclaimer-contactdarkmode a {
+    text-decoration: none;
+  }
+  
+  .disclaimer-contactdarkmode p{
+    margin-bottom: -10px;
+   font-size: 15px;
+   color: white;
+   
+
+   
+  }
+  .foooterpagesatttdisclaimer{
+    width: 1450px;
+    margin-left: -230px;
   }
   @media (max-width: 768px) {
     .disclaimer {
@@ -177,6 +295,10 @@ color: black;
        color: black;
        margin-left: 10px;
        
+      }
+      .foooterpagesatttdisclaimer{
+        width: 470px;
+        margin-left: -3px;
       }
   }
   @media (max-width: 480px) {
@@ -269,6 +391,10 @@ color: black;
        margin-left: 10px;
        width: 360px;
        
+      }
+      .foooterpagesatttdisclaimer{
+        width: 370px;
+        margin-left: -3px;
       }
   }
 

@@ -1,22 +1,25 @@
-import React from "react";
+
 import refundImage from "../../assest/refund.png"; // Update with the actual image path
 import './Refundpage.css';
 import { FaRegCalendar } from "react-icons/fa";
 import { LuDot } from "react-icons/lu";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import React, {useContext} from "react"
+import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
 
 const RefundPolicy = () => {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div>
-    <div className="refundpolicyy">
+    <div className={darkMode ? "refundpolicyydarkmode" :"refundpolicyy"}>
       <h1>Cancellation and Refund Policy</h1>
-      <p className="refundpolicyy-lastupdated">
-        <FaRegCalendar className="calenderrefundicon" /> Last updated: 08 Dec 2024{" "}
+      <p className={darkMode ? "refundpolicyy-lastupdateddarkmode" :"refundpolicyy-lastupdated"}>
+        <FaRegCalendar className={darkMode ? "calenderrefundicondarkmode" :"calenderrefundicon"} /> Last updated: 08 Dec 2024{" "}
         <LuDot className="dotrefund" />
       </p>
-      <div className="refundpolicyy-header">
-        <img src={refundImage} alt="Cancellation and Refund" className="refundpolicyy-image" />
+      <div className={darkMode ? "refundpolicyy-headerdarkmode" :"refundpolicyy-header"}>
+        <img src={refundImage} alt="Cancellation and Refund" className={darkMode ? "refundpolicyy-imagedarkmode" :"refundpolicyy-image" }/>
         <p>
         At FinanceShastra, customer satisfaction is our priority. We aim to provide top-notch 
         financial insights and services to empower our clients in their investment journey. However, 
@@ -25,7 +28,7 @@ const RefundPolicy = () => {
         </p>
       </div>
 
-      <div className="refundpolicyy-section">
+      <div className={darkMode ? "refundpolicyy-sectiondarkmode" :"refundpolicyy-section"}>
      
         <h2>Cancellation Policy</h2>
         <h3>Request for Cancellation:</h3>
@@ -46,7 +49,7 @@ const RefundPolicy = () => {
         </ul>
       </div>
 
-      <div className="refundpolicyy-section">
+      <div className={darkMode ? "refundpolicyy-sectiondarkmode" :"refundpolicyy-section"}>
         <h2>Refund Policy</h2>
         <h3>Refund for Eligible Plans:</h3>
         <ul>
@@ -84,16 +87,16 @@ const RefundPolicy = () => {
         </p>
       </div>
 
-      <p className="refundpolicyy-contact">
+      <p className={darkMode ? "refundpolicyy-contactdarkmode" :"refundpolicyy-contact"}>
         If you have any queries regarding our Cancellation and Refund Policy, feel free to reach out to us at{" "}
         <a href="mailto:help@financeshastra.com">help@financeshastra.com</a>.
       </p>
-   
+      <div className={darkMode ? "foooterpagesattt" :"foooterpagesatttrefund"}>
+      <FooterForAllPage/>
+      </div>
     </div>
     <Navbar/>
-    <div className="foooterpagesattt">
-    <FooterForAllPage/>
-  </div>
+   
     </div>
   );
 };

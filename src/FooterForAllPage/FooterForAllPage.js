@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+
 import "./FooterForAllPage.css";
 import finanlog from "../assest/finanlogo.svg";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { AiFillInstagram } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'; // Import icons
+import React, {
+ useState,
+  useContext,
+} from "react"
+import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 
 const FooterForAllPage = () => {
   const [openSection, setOpenSection] = useState(null);
+   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  
 
   const toggleSection = (section) => {
     setOpenSection(openSection === section ? null : section);
@@ -40,7 +47,7 @@ const FooterForAllPage = () => {
     "Stock News": "/stockNewsComponent",
     "IPO Details": "/ipoComponent",
     "Blogs": "/blogsComponent",
-    "Market Insights": "/marketinsights",
+   
     "Quarterly Earnings": "/earningsInsightLearn",
     "Learn": "/learncard",
   };
@@ -66,7 +73,8 @@ const FooterForAllPage = () => {
   return (
     <>
       {/* Desktop Footer */}
-      <footer className="FooterForAllPage-footer">
+      
+      <footer className={darkMode ? "FooterForAllPagedarkfooter" : "FooterForAllPage-footer"}>
         <div className="FooterForAllPage-top-section">
           <div className="FooterForAllPage-stock-list">
             <div className="FooterForAllPage-stock-letters">
@@ -86,11 +94,11 @@ const FooterForAllPage = () => {
               <img src={finanlog} alt="FinanceShastra Logo" onClick={() => navigate("/")}style={{cursor:"pointer"}} className="FooterForAllPage-logo-img" />
             </div>
             <div className="FooterForAllPage-social-icons">
-              <a href="#" className="FooterForAllPage-social-icon"><FaFacebookF /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaTwitter /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><AiFillInstagram /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaLinkedinIn /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaYoutube /></a>
+              <a href="#" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaFacebookF /></a>
+              <a href="#" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaTwitter /></a>
+              <a href="#" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><AiFillInstagram /></a>
+              <a href="#" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaLinkedinIn /></a>
+              <a href="#" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaYoutube /></a>
             </div>
           </div>
 
@@ -98,13 +106,13 @@ const FooterForAllPage = () => {
             {[
               { title: "Stocks", links: ["Stock Screener", "High Growth Stocks", "Nifty 50 Companies","Small Cap Stocks", "Mid Cap Stocks","Large Cap Stocks"] },
               { title: "Mutual Fund", links: ["Top Rated Funds","Fund Screener", "Best Small Cap Fund", "Best Growth Fund", "Best Flexi Cap Fund", "Best ETF Fund"] },
-              { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs","Market Insights", "Quarterly Earnings", "Learn"] },
+              { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs", "Quarterly Earnings", "Learn"] },
               { title: "Quick Links", links: ["Plan & Pricing", "Talk to Us", "Disclaimer", "Refund Policy", "Careers"] },
               { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
             ].map((section, index) => (
               <div key={index} className="FooterForAllPage-column">
               <h4 className="FooterForAllPage-column-title">{section.title}</h4>
-              <ul className="FooterForAllPage-column-list">
+              <ul className={darkMode ? "FooterForAllPage-column-darklist" : "FooterForAllPage-column-list"}>
                 {section.links.map((link, linkIndex) => (
                  <li
                  key={linkIndex}
@@ -130,15 +138,15 @@ const FooterForAllPage = () => {
         <div className="FooterForAllPage-bottom-section">
           <p className="FooterForAllPage-copyright">
             Copyright © 2024 FinanceShastra <br /> All Rights Reserved |{" "}
-            <a href="/termsAndConditions" className="FooterForAllPage-link">Terms and Conditions</a> |{" "}
-            <a href="#" className="FooterForAllPage-link">Privacy Policy</a>
+            <a href="/termsAndConditions" className={darkMode ? "FooterForAllPage-darklink" :"FooterForAllPage-link"}>Terms and Conditions</a> |{" "}
+            <a href="#" className={darkMode ? "FooterForAllPage-darklink" :"FooterForAllPage-link"}>Privacy Policy</a>
           </p>
         </div>
       </footer>
 
       {/* Mobile Footer */}
-      <footer className="footermobileviewpages-footer">
-      <div className="footermobileviewpages-main-section">
+      <footer className={darkMode ? "footermobileviewdarkpages-footer" :"footermobileviewpages-footer"}>
+      <div className={darkMode ? "footermobileviewpages-main-darksection" :"footermobileviewpages-main-section"}>
         {footerData.map((section, index) => (
           <div key={index} className="footermobileviewpages-column">
             <div

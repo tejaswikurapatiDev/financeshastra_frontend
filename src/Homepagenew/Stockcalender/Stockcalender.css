@@ -91,7 +91,8 @@
     height: 35px;
     box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
   }
-  
+ 
+
     @media (max-width: 768px) {
   
   .dateinsighttt {

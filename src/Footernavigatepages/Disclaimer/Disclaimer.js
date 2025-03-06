@@ -1,18 +1,22 @@
-import React from "react";
+
 import "./Disclaimer.css"; // Import the CSS file
 import disclaimerImage from "../../assest/disclamer.png"; // Update with the actual image path
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
+import React, {useContext} from "react"
+import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
+
 
 
 const Disclaimer = () => {
+   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div>
-    <div className="disclaimer">
-      <h1 className="disclaimer-title">FinanceShastra Disclaimer</h1>
-      <div className="disclaimer-intro">
-        <img src={disclaimerImage} alt="Disclaimer" className="disclaimer-image" />
+    <div className={darkMode ? "disclaimerdarkmode" :"disclaimer"}>
+      <h1 className={darkMode ? "disclaimer-titledarkmode" :"disclaimer-title"}>FinanceShastra Disclaimer</h1>
+      <div className={darkMode ? "disclaimer-introdarkmode" :"disclaimer-intro"}>
+        <img src={disclaimerImage} alt="Disclaimer" className={darkMode ? "disclaimer-imagedarkmode" :"disclaimer-image"}/>
         <p>
         FinanceShastra Co. is a private limited company having its registered office at Vishrantwadi, Pune-15.
          FinanceShastra is an investment advisory offering a range of tools and resources to assist users in making informed 
@@ -20,7 +24,7 @@ const Disclaimer = () => {
          information collected on and services provided by FinanceShastra on/through  <a href="https://www.financeshastra.com">https://www.financeshastra.com</a>
         </p>
       </div>
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>I. General</h2>
         <p>
         The Site publishes information related to financial and investment issues. All information disseminated 
@@ -48,7 +52,7 @@ The content and tools provided on the Site may utilize data from third-party sou
         <p>FinanceShastra is not a Portfolio Manager, Broker, or Sub-broker and is not registered with any stock exchange. Users are responsible for their own investment decisions and assume all associated risks. </p>
       </div>
 
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>II. No Warranties</h2>
         <p>
           The Site is provided "as is" without any representations or warranties, express or implied. FinanceShastra makes no
@@ -61,7 +65,7 @@ The content and tools provided on the Site may utilize data from third-party sou
         </ul>
       </div>
 
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>III. Limitation of Liability</h2>
         <p>
           FinanceShastra, its employees, and affiliates shall not be liable for any direct, indirect, incidental, or consequential
@@ -74,20 +78,20 @@ The content and tools provided on the Site may utilize data from third-party sou
         </ul>
       </div>
 
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>IV. Notices</h2>
         <p>
           All notices related to the Site should be addressed to FinanceShastra's registered office mentioned above. Users are
           encouraged to perform their own research and consult professionals before making financial decisions.
         </p>
       </div>
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>V. Dispute Resolution</h2>
         <p>
         This Disclaimer and its interpretation shall be governed by the laws of India. All disputes arising hereunder shall be subject to the jurisdiction of the Courts of Pune, Maharashtra, India. 
         </p>
       </div>
-      <div className="disclaimer-section">
+      <div className={darkMode ? "disclaimer-sectiondarkmode" :"disclaimer-section"}>
         <h2>VI. Miscellaneous</h2>
         <p>
         If any provision of this Disclaimer is found to be unenforceable under applicable law, the remaining provisions shall remain in effect. 
@@ -96,7 +100,7 @@ This Disclaimer constitutes the entire agreement between FinanceShastra and the 
         </p>
       </div>
 
-      <div className="disclaimer-contact">
+      <div className={darkMode ? "disclaimer-contactdarkmode" :"disclaimer-contact"}>
         <h3>VII. Contact Us</h3>
         <p>
         If you have any questions regarding this Disclaimer, please contact us:</p>
@@ -105,11 +109,13 @@ This Disclaimer constitutes the entire agreement between FinanceShastra and the 
 <strong>Phone: +91- 92266 08469</strong></p><p> <strong>Address:  Alandi Road, Vishrantwadi, Pune-411015, Maharashtra, India.</strong> 
         </p>
       </div>
+     
+      <Navbar/>
+    <div className={darkMode ? "foooterpagesattt" :"foooterpagesatttdisclaimer"}>
+      <FooterForAllPage/>
+      </div>
     </div>
-    <Navbar/>
-    <div className="foooterpagesattt">
-    <FooterForAllPage/>
-  </div>
+   
     </div>
   );
 };

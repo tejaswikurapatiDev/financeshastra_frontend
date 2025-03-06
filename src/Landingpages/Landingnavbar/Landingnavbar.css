@@ -54,6 +54,64 @@
   .landingnavbar-buttonlogin-button:hover {
     background-color: #1d9d5b;
   }
+
+
+
+
+
+  .navbar-darksearch input {
+    padding: 10px 12px 6px 30px; /* Add padding to make space for the icon */
+    border-radius: 6px;
+    border: 1px solid #333333;
+    font-size: 12px;
+    width: 200px; /* Adjust as needed */
+    height: 20px;
+    background-color: #000000;
+    color: white;
+  }
+  .navbar-darksearch input::placeholder {
+    color: white; /* White color for placeholder text */
+    opacity: 0.7; /* Optional: Adjust opacity for better visibility */
+}
+.searchdarkicon {
+    position: absolute;
+    left: 985px; /* Position on the left side inside input */
+    top: 55%;
+    transform: translateY(-50%);
+    color: #ffff;
+    font-size: 14px; /* Adjust icon size */
+
+  }
+
+
+
+ 
+
+  .darkmodenavbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #292F42;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: 'Calibri', sans-serif;
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Align it to the top of the viewport */
+    left: 0; /* Align it to the left */
+    right: 0; /* Align it to the right */
+    z-index: 1000;
+  }
+  
+.logo-darkimage {
+  width: 220px; /* Increased logo width */
+  height: auto; /* Keeps aspect ratio */
+  margin-right: 8px;
+  background-color: #292F42;
+}
+
+
+
+  
  /* Media Query for screens <= 768px (Tablets) */
 @media (max-width: 768px) {
   .landingnavbar-icons {

@@ -9,6 +9,7 @@ import AnalysisResearchReportblur from '../Portfolioanysisstockresearcgblur/Port
 import PortfolioAnalysisCorporatePage from '../PortfolioAnalysisCorporatePage/PortfolioAnalysisCorporatePage'
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
 
 function Porfolioanalysisallpagecall() {
   return (
@@ -22,6 +23,7 @@ function Porfolioanalysisallpagecall() {
         <PortfolioAnalysisnew/>
         <Sidebar/>
         <Navbar/>
+        <FooterForAllPage/>
     </div>
   )
 }

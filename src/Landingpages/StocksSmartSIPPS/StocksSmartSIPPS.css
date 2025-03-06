@@ -110,6 +110,53 @@
     width: 102%;
     margin-left: -20px;
   }
+
+
+
+
+
+
+
+
+
+  .smartsip-darkcontainer {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: #292F42;
+    text-align: center;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  
+  .smartsip-darktitle {
+    background: #ffff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 25px;
+    margin-bottom: 0px;
+    margin-left: -40px;
+    font-family: 'calibri';
+    margin-top: 90px;
+  }
+  .smartsip-darkdetailsh2{
+    color: #24B676;
+    font-size: 18px;
+    font-family: 'calibri';
+    
+  }
+  .smartsip-darklist {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 20px;
+    color: #ffff;
+  }
+  
+  .smartsip-darklist li {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
   /* Responsive Styles */
 @media (max-width: 768px) {
     .smartsip-title {
