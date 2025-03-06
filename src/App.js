@@ -352,7 +352,14 @@ function App() {
             />
             <Route path="/stocksector" element={<PortfolioStocksector />} />
             <Route path="/stockmcap" element={<PortfolioStockmcap />} />
-            <Route path="/stockadd" element={<AddTransactionstock />} />
+            <Route 
+              path="/stockadd" 
+              element={
+                <PortfolioStockProvider>
+                  <AddTransactionstock />
+                </PortfolioStockProvider>
+              } 
+            />
             <Route path="/stockupdate" element={<UpdateTransaction />} />
             <Route path="/stockdelete" element={<Deletepopupstock />} />
             <Route path="/mutualsector" element={<Mutualsector />} />

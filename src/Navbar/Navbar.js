@@ -739,7 +739,7 @@ const Navbar = () => {
               <Link to="#" onClick={toggleUserDropdown}>
                 <FaUserCircle className={darkMode ? "iconuser-darkerrmodeicon": "iconuser-icon"} />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>Willam</span>
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>{user}</span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
           </div>
