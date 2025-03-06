@@ -14,6 +14,7 @@ import Navbar from "../../../Navbar/Navbar";
 import { CgProfile } from "react-icons/cg";
 import { MdDateRange } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
+import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 
 
 const IpoComponent = () => {
@@ -92,6 +93,7 @@ const IpoComponent = () => {
 
 
   return (
+    <div>
     <div className="stockNewsContainer">
       <h2 className="stockNewsTitle">IPO Details</h2>
       <div className="stockNewsList">
@@ -119,6 +121,9 @@ const IpoComponent = () => {
         ))}
       </div>
       <Navbar />
+      
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 };
