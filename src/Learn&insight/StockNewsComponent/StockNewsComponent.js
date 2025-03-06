@@ -11,6 +11,7 @@ import img7 from '../../../src/assest/img7.JPG';
 import img9 from '../../../src/assest/img8.JPG';
 import img8 from '../../../src/assest/img9.JPG';
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const StockNewsComponent = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const StockNewsComponent = () => {
       id: 9,
       title: "Adani Group: How The World’s 3rd Richest Man Is Pulling The Largest Con In Corporate History",
       description: "Indian conglomerate Adani Group has engaged in a brazen stock manipulation and accounting fraud scheme.",
-      image: img9,
+      image: img8,
     },
    
     {
@@ -64,7 +65,7 @@ const StockNewsComponent = () => {
       id: 8,
       title: "Technical View: Nifty closes above 24,600 in rangebound session; crucial support lies at 24,500",
       description: "On the sectoral front, buying was seen in the auto, FMCG, IT sectors.",
-      image: img8,
+      image: img9,
     },
     {
       id: 2,
@@ -88,6 +89,7 @@ const StockNewsComponent = () => {
   };
 
   return (
+    <div>
     <div className="stockNewsContainer">
       <h2 className="stockNewsTitle">Stock News</h2>
       <div className="stockNewsList">
@@ -113,6 +115,8 @@ const StockNewsComponent = () => {
         ))}
       </div>
       <Navbar />
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 };

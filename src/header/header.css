@@ -1,7 +1,7 @@
 /* Default styles */
 .graphcontainer {
   width: 150%; 
-  margin-left: -20%; 
+  margin-left: -25%; 
   padding: 6px;
   font-family: "calibri";
   margin-top: 100px;
@@ -20,18 +20,20 @@
 
 .graphheader {
   display: flex;
-  gap: 600px;
+  gap: 500px;
   align-items: center;
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
 
+
 .graphheader h1 {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-  margin-left: 290px;
+  margin-left: 300px;
 }
+
 
 .graphsubtitle {
   font-size: 17px;
@@ -133,7 +135,9 @@
   border-color: #24b676;
   font-weight: bold;
 }
-
+.graphprice{
+  font-size: 20px;
+}
 /* Media Queries for Mobile Views */
 
 /* For screens 768px and below */

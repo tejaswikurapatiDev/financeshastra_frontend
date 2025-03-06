@@ -16,7 +16,7 @@ import Cookies from "js-cookie";
 
 
 
-const Dashboardchartmain = () => {
+const Dashboardchartmain = ({children}) => {
   const [timeRange, setTimeRange] = useState('1D');
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
@@ -152,6 +152,7 @@ const Dashboardchartmain = () => {
   };
 
   return (
+    <div>
     <div className='allheadd'>
       <div className='hompagetopdata'>
    <div>
@@ -227,7 +228,7 @@ const Dashboardchartmain = () => {
           </div>
         </div>
         <div className="datadisstockdashhh">
-  <Sidebar/>
+ 
   <div className="main-content">
     <Navbar />
     <Watchlistdashboardmain />
@@ -236,9 +237,16 @@ const Dashboardchartmain = () => {
 
       </div>
       <DashboardMainPagetable/>
-      <div className="foooterpagesatt">
-    <FooterForAllPage/>
-  </div>
+  
+    </div>
+
+    <div className="layout">
+      <Sidebar />
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <FooterForAllPage />
+      </div>
+    </div>
     </div>
   );
 };

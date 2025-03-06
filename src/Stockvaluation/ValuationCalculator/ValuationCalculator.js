@@ -1,34 +1,50 @@
-import React, { useState } from 'react';
-import { Slider, TextField, Button, Typography, Box } from '@mui/material';
-import './ValuationCalculator.css';
+import React, { useState, useEffect } from "react";
+import { Slider, TextField, Button, Typography, Box } from "@mui/material";
+import "./ValuationCalculator.css";
 
 const ValuationCalculator = () => {
   const [epsGrowthRate, setEpsGrowthRate] = useState(0);
   const [rateOfReturn, setRateOfReturn] = useState(0);
-  const [futurePE, setFuturePE] = useState(0);
-  const [baseEPS, setBaseEPS] = useState(0);
-  const [dps, setDPS] = useState(0);
+  const [futurePE, setFuturePE] = useState(10);
+  const [baseEPS, setBaseEPS] = useState(10);
+  const [dps, setDPS] = useState(20);
   const [mos, setMOS] = useState(0);
+  const [mrp, setMRP] = useState(0);
+  const [dp, setDP] = useState(0);
+  const [activeButton, setActiveButton] = useState("base"); // Tracks active button
 
   const handleSliderChange = (setter) => (event, newValue) => {
     setter(newValue);
   };
 
-  const saveMyValuation = () => {
-    alert('Valuation saved');
+  // Function to calculate MRP
+  const calculateMRP = () => {
+    const futureEPS = baseEPS * (1 + epsGrowthRate / 100);
+    return (futureEPS * futurePE).toFixed(2);
   };
 
-  // Marks for EPS Growth Rate and Rate of Return Sliders
-  const percentageMarks = [
-    { value: 0, label: '0%' },
-    { value: 50, label: '50%' }
-  ];
+  // Function to calculate DP (now includes DPS)
+  const calculateDP = () => {
+    return (calculateMRP() * (1 - mos / 100) * (1 + rateOfReturn / 100) + dps).toFixed(2);
+  };
 
-  // Marks for Future PE Slider
-  const peMarks = [
-    { value: 0, label: '0' },
-    { value: 200, label: '200' }
-  ];
+  // Update MRP and DP whenever relevant state changes
+  useEffect(() => {
+    setMRP(calculateMRP());
+    setDP(calculateDP());
+  }, [epsGrowthRate, rateOfReturn, futurePE, baseEPS, mos, dps]);
+
+  // Handle button click (Base Value / My Valuation)
+  const handleButtonClick = (type) => {
+    setActiveButton(type);
+    if (type === "base") {
+      setMRP(calculateMRP());
+      setDP(calculateDP());
+    } else if (type === "my") {
+      setMRP((calculateMRP() * 1.1).toFixed(2)); // Example: Adjusted MRP
+      setDP((calculateDP() * 1.1).toFixed(2)); // Example: Adjusted DP
+    }
+  };
 
   return (
     <div>
@@ -39,151 +55,144 @@ const ValuationCalculator = () => {
         </Typography>
 
         <Box className="valuationRow">
-          <Box className="valuationColumn" sx={{ marginRight: 50 }}> {/* Adds space between columns */}
+          {/* Sliders Column */}
+          <Box className="valuationColumn" sx={{ marginRight: 5 }}>
+            {/* EPS Growth Rate Slider */}
             <Box className="sliderSection">
               <Typography>Expected EPS Growth Rate:</Typography>
               <Slider
                 value={epsGrowthRate}
                 onChange={handleSliderChange(setEpsGrowthRate)}
-                aria-labelledby="eps-growth-rate-slider"
                 valueLabelDisplay="auto"
                 min={0}
                 max={50}
-                marks={percentageMarks}
-                sx={{
-                  width: '90%', // Default to 100% width for small screens
-                  '@media (min-width: 480px)': {
-                    width: '20%', // Adjust width for screens 480px and above
-                  },
-                  '@media (min-width: 768px)': {
-                    width: '160%', // Adjust width for larger screens (tablets and up)
-                  },
-                }}
+                sx={{ width: '100%' }}
               />
-              <Typography>Base {epsGrowthRate}%</Typography>
+              <div className="basevaluation">
+                <Typography>Base {epsGrowthRate}%</Typography>
+              </div>
             </Box>
 
+            {/* Expected Rate of Return Slider */}
             <Box className="sliderSection">
               <Typography>Expected Rate of Return:</Typography>
               <Slider
                 value={rateOfReturn}
                 onChange={handleSliderChange(setRateOfReturn)}
-                aria-labelledby="rate-of-return-slider"
                 valueLabelDisplay="auto"
                 min={0}
                 max={50}
-                marks={percentageMarks}
-                sx={{
-                  width: '90%', // Default to 100% width for small screens
-                  '@media (min-width: 480px)': {
-                    width: '20%', // Adjust width for screens 480px and above
-                  },
-                  '@media (min-width: 768px)': {
-                    width: '160%', // Adjust width for larger screens (tablets and up)
-                  },
-                }}
+                sx={{ width: '100%' }}
               />
-              <Typography>Base {rateOfReturn}%</Typography>
+              <div className="basevaluation">
+                <Typography>Base {rateOfReturn}%</Typography>
+              </div>
             </Box>
 
+            {/* Future PE Slider */}
             <Box className="sliderSection">
               <Typography>Future PE:</Typography>
               <Slider
                 value={futurePE}
                 onChange={handleSliderChange(setFuturePE)}
-                aria-labelledby="future-pe-slider"
                 valueLabelDisplay="auto"
                 min={0}
                 max={200}
-                marks={peMarks}
-                sx={{
-                  width: '90%', // Default to 100% width for small screens
-                
-                  '@media (min-width: 480px)': {
-                    width: '20%', 
-                    // Adjust width for screens 480px and above
-                  },
-                  '@media (min-width: 768px)': {
-                    width: '160%', // Adjust width for larger screens (tablets and up)
-                  },
-                }}
+                sx={{ width: '100%' }}
               />
-              <Typography>Base {futurePE}</Typography>
+              <div className="basevaluation">
+                <Typography>Base {futurePE}%</Typography>
+              </div>
             </Box>
           </Box>
 
+          {/* Inputs & Calculations Column */}
           <Box className="valuationColumn">
+            {/* Buttons for Base Value / My Valuation */}
             <Box className="buttonSection">
-              <Button variant="outlined" color="success" className="baseValueButton"  sx={{
-    
-    width: '150px',  // Set the width here if needed
-    height: '40px',  // Set the height here
-  }}>
+              <Button
+                variant="outlined"
+                onClick={() => handleButtonClick("base")}
+                sx={{
+                  width: "150px",
+                  height: "40px",
+                  backgroundColor: activeButton === "base" ? "#24b676" : "transparent",
+                  color: activeButton === "base" ? "white" : "black",
+                  border: activeButton === "base" ? "none" : "1px solid #24b676",
+                }}
+              >
                 Base Value
               </Button>
-              <Button variant="outlined" color="success" className="myValuationButton"
-              sx={{
-    
-                width: '150px',  // Set the width here if needed
-                height: '40px',
-               
-              }}>
+
+              <Button
+                variant="outlined"
+                onClick={() => handleButtonClick("my")}
+                sx={{
+                  width: "150px",
+                  height: "40px",
+                  backgroundColor: activeButton === "my" ? "#24b676" : "transparent",
+                  color: activeButton === "my" ? "white" : "black",
+                  border: activeButton === "my" ? "none" : "1px solid #24b676",
+                  marginLeft: "10px",
+                }}
+              >
                 My Valuation
               </Button>
             </Box>
 
-            {/* MRP and DP in the same row */}
-            <Box className="mrpDpRow" display="flex" justifyContent="space-between">
-            <Typography sx={{ fontSize: '16px' }}> MRP: ₹0</Typography>
-            <Typography sx={{ fontSize: '14px' }}>DP: ₹0</Typography>
+            {/* MRP & DP Values */}
+            <Box className="mrpDpRow" display="flex" justifyContent="space-between" marginBottom="10px">
+              <Typography sx={{ fontSize: "16px" }}>MRP: ₹{mrp}</Typography>
+              <Typography sx={{ fontSize: "16px" }}>DP: ₹{dp}</Typography>
             </Box>
 
+            {/* Base EPS Input */}
             <Box className="inputSection">
-            <Typography sx={{ fontSize: '16px' }}>Base EPS ₹:
-                <TextField
-                  type="number"
-                  value={baseEPS}
-                  onChange={(e) => setBaseEPS(e.target.value)}
-                  sx={{ width: '150px', float: 'right' }} // Adjust the width and alignment to the right
-                  className="inputField"
-                />
-              </Typography>
+              <Typography sx={{ fontSize: "16px" }}>Base EPS ₹:</Typography>
+              <TextField
+                type="number"
+                value={baseEPS}
+                onChange={(e) => setBaseEPS(parseFloat(e.target.value) || 0)}
+                sx={{ width: "90px", "& .MuiInputBase-root": { height: "40px", borderRadius: "10px" } }}
+              />
             </Box>
 
+            {/* DPS Input */}
             <Box className="inputSection">
-            <Typography sx={{ fontSize: '16px' }}>DPS ₹:
-                <TextField
-                  type="number"
-                  value={dps}
-                  onChange={(e) => setDPS(e.target.value)}
-                  sx={{ width: '150px', float: 'right' }} // Adjust the width and alignment to the right
-                  className="inputField"
-                />
-              </Typography>
+              <Typography>DPS ₹:</Typography>
+              <TextField
+                type="number"
+                value={dps}
+                onChange={(e) => setDPS(parseFloat(e.target.value) || 0)}
+                sx={{ width: "150px", "& .MuiInputBase-root": { height: "40px", borderRadius: "10px" } }}
+              />
             </Box>
 
+            {/* MOS Input */}
             <Box className="inputSection">
-            <Typography sx={{ fontSize: '16px' }}>MOS (%):
-                <TextField
-                  type="number"
-                  value={mos}
-                  onChange={(e) => setMOS(e.target.value)}
-                  sx={{ width: '150px', float: 'right' }}
-                  className="inputField"
-                />
-              </Typography>
+              <Typography>MOS (%):</Typography>
+              <TextField
+                type="number"
+                value={mos}
+                onChange={(e) => setMOS(parseFloat(e.target.value) || 0)}
+                sx={{ width: "90px", "& .MuiInputBase-root": { height: "40px", borderRadius: "10px" } }}
+              />
             </Box>
 
-            {/* Align "Save my Valuation" Button to the right */}
-            <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 2 }}>
-              <Button variant="outlined" color="success" onClick={saveMyValuation} className="saveButton"
+            {/* Save Button */}
+            <Box sx={{ display: "flex", justifyContent: "flex-end", marginBottom: 2 }}>
+              <Button
+                variant="outlined"
+                color="success"
                 sx={{
-                  color: 'white',
-                  backgroundColor: '#24b676',
-                  '&:hover': {
-                    backgroundColor: '#1e9e64',
-                  }
-                }}>
+                  color: "white",
+                  backgroundColor: "#24b676",
+                  padding: "8px",
+                  borderRadius: "10px",
+                  marginRight: "5px",
+                }}
+                onClick={() => alert("Valuation saved")}
+              >
                 Save my Valuation
               </Button>
             </Box>

@@ -1,12 +1,11 @@
 .FooterForAllPage-footer {
   background-color: rgba(0, 74, 173, 0.09); /* Background with 9% opacity */
-  color: #343a40;
+  width: 99%;
+
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
   font-family: 'calibri';
-  padding: 10px 0; /* Reduce padding to decrease height */
-  margin-left: -20px;
-  margin-right: -20px;
- 
- 
 }
 
   
@@ -68,7 +67,7 @@
   .FooterForAllPage-logo-img {
     max-width: 280px;
     fill: blue;
-    margin-left: 110px;
+    margin-left: 90px;
   }
    
     
