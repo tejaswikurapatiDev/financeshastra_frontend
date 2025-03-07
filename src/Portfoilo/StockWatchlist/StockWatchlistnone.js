@@ -394,7 +394,7 @@ const StockWatchlist = () => {
 
   useEffect(() => {
     fetchWatchlistAssets();
-  }, [watchlistState.selected, fetchWatchlistAssets]);
+  }, [watchlistState.selected]);
 
   // UI Components
   const RenamePopup = () => (
