@@ -699,7 +699,7 @@ const Navbar = () => {
 
             {/* Dropdown Content */}
             {isOpen && (
-              <div className="dropdown-content">
+              <div className="dropdown-contentnoti">
                 {displayedNotifications.map((notif) => (
                   <div key={notif.id} onClick={() => navigate(notif.navigate)} style={{ cursor: "pointer" }} className="notification-card">
                     <div className="notification-header">
@@ -735,7 +735,7 @@ const Navbar = () => {
               <Link to="#" onClick={toggleUserDropdown}>
                 <FaUserCircle className={darkMode ? "iconuser-darkerrmodeicon": "iconuser-icon"} />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>Willam</span>
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>{user}</span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
           </div>

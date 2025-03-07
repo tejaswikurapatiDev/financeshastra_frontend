@@ -13,7 +13,8 @@ const UpdateTransaction = () => {
   const navigate = useNavigate();
 
   // Access the transaction to be edited passed via state
-  const transaction = location.state?.transaction;
+  const { transaction } = location.state || {};
+  console.log(transaction)
 
   // Initialize state for the editable transaction
   const [editedTransaction, setEditedTransaction] = useState(
@@ -114,7 +115,7 @@ const UpdateTransaction = () => {
               <input
                 type="text"
                 name="stockName"
-                value={editedTransaction.stockName}
+                value={editedTransaction.stock_name}
                 onChange={handleChange}
                 className="transaction-input"
               />
@@ -148,7 +149,7 @@ const UpdateTransaction = () => {
               <input
                 type="number"
                 name="quantity"
-                value={editedTransaction.quantity}
+                value={Number(editedTransaction.buy_quantity)}
                 onChange={handleChange}
                 className="transaction-input"
               />
@@ -160,7 +161,7 @@ const UpdateTransaction = () => {
               <input
                 type="number"
                 name="price"
-                value={editedTransaction.price}
+                value={editedTransaction.buy_price}
                 onChange={handleChange}
                 className="transaction-input"
               />
@@ -178,7 +179,7 @@ const UpdateTransaction = () => {
               <input
                 type="number"
                 name="amount"
-                value={editedTransaction.amount}
+                value={editedTransaction.buy_quantity*editedTransaction.buy_price}
                 readOnly
                 className="transaction-input read-only"
                
@@ -191,7 +192,7 @@ const UpdateTransaction = () => {
               <input
                 type="number"
                 name="netAmount"
-                value={editedTransaction.netAmount}
+                value={editedTransaction.buy_quantity*editedTransaction.buy_price}
                 readOnly
                 className="transaction-input read-only"
               />
@@ -203,7 +204,7 @@ const UpdateTransaction = () => {
               <input
                 type="number"
                 name="totalCharges"
-                value={editedTransaction.totalCharges}
+                value={editedTransaction.buy_quantity*editedTransaction.buy_price}
                 readOnly
                 className="transaction-input read-only"
               />

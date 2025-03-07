@@ -515,19 +515,20 @@ a span {
   color: #24b676;
 }
 
-.dropdown-content {
+.dropdown-contentnoti {
   position: absolute;
  left: -350px;
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
-  width: 450px;
+  width: 420px;
   max-height: 500px;
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
   margin-top: 10px;
   padding: 15px;
+  overflow-x: hidden;
 }
 
 .notification-card {
@@ -539,6 +540,7 @@ a span {
   margin-bottom: 10px;
   padding: 10px;
   transition: box-shadow 0.3s ease;
+  width: 390px;
 }
 
 .notification-card:hover {
@@ -725,7 +727,7 @@ a span {
     color: #24b676;
   }
   
-  .dropdown-content {
+  .dropdown-contentnoti {
     position: absolute;
    
     background-color: #fff;
@@ -928,7 +930,7 @@ a span {
     color: #24b676;
   }
   
-  .dropdown-content {
+  .dropdown-contentnoti {
     position: absolute;
 
     background-color: #fff;

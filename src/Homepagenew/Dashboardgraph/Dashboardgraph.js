@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserProfileContext } from '../../Portfoilo/context/UserProfileContext';
 import { useNavigate } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -28,6 +29,8 @@ const Dashboardchartmain = ({children}) => {
   const [myInvestment, setMyInvestment] = useState(0);
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+
+  const { user } = useContext(UserProfileContext)
 
   const navigate = useNavigate();
 
