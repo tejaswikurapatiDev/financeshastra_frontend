@@ -75,12 +75,12 @@
       width: 140px;
       border-radius: 5px;
       box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
-  
+ 
       
   }
   .earningquterlyrowalll {
     display: flex;
-    width: 890px;
+
     margin-left: 40px;
     gap: 210px;
     margin-bottom: 20px;
