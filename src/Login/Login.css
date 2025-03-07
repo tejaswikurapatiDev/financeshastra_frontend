@@ -59,6 +59,7 @@
   height: auto; /* Maintain aspect ratio */
   background-color:#f8f6f6;
   margin-top: -10px;
+  cursor: pointer;
 }
 .login-or {
   display: flex;

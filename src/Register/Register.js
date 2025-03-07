@@ -150,7 +150,7 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-left">
-        <img src={logoimg} className="logoforgt" />
+      <img src={logoimg} onClick={() => navigate("/")} className="logoforgt" />
       </div>
       <div className="login-right">
         <div className="login-box">
@@ -246,10 +246,10 @@ function Register() {
             </Button>
           </div>
           <div className="registerContgl">
-            <p className="registerContglp">
+          <p className="registerContglp">
               By clicking “Continue with Google/LinkedIn” or “Create Account”,
               you agree to Website’s
-              <a href="#" className="registerContglblue-text">
+              <a href="termsAndConditions" className="registerContglblue-text">
                 {" "}
                 Terms & Conditions
               </a>

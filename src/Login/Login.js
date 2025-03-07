@@ -209,7 +209,7 @@ function Login() {
 return (
   <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
     <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
-      <img src={logoimg} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} />
+    <img src={logoimg} onClick={() => navigate("/")} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} />
     </div>
     <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
       <div className={darkMode ? "login-boxdarkmode" : "login-box"}>
@@ -397,7 +397,10 @@ return (
           <p className="registerContglp">
             By clicking “Continue with Google/LinkedIn” or “Create Account”,
             you agree to Website’s
-            <a href="#" className="registerContglblue-text"> Terms & Conditions</a>
+            <a href="termsAndConditions" className="registerContglblue-text">
+                {" "}
+                Terms & Conditions
+              </a>
             <a href="#" className="registerContglblack-text"> and</a>
             <a href="#" className="registerContglblue-text"> Privacy Policy</a>.
           </p>
