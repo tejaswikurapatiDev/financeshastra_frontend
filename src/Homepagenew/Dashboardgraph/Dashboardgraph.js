@@ -13,6 +13,9 @@ import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
 import { API_BASE_URL } from '../../config';
 import Cookies from "js-cookie";
+import Dashboardstockindex from '../Stockindex/Stockindex';
+import Stockcalender from '../Stockcalender/Stockcalender';
+import Homestockanalyst from '../Homestockanalyst/Homestockanalyst';
 
 
 
@@ -29,6 +32,7 @@ const Dashboardchartmain = ({children}) => {
   const [myInvestment, setMyInvestment] = useState(0);
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+  const [activeTab, setActiveTab] = useState("Stock Sector");
 
   const { user } = useContext(UserProfileContext)
 
@@ -239,7 +243,38 @@ const Dashboardchartmain = ({children}) => {
 </div>
 
       </div>
-      <DashboardMainPagetable/>
+      <div className="DashboardMainPagetable-headerrindexx">
+        <button
+          className={`DashboardMainPagetable-tab ${activeTab === "Stock Sector" ? "active" : ""}`}
+          onClick={() => setActiveTab("Stock Sector")}
+        >
+          Stock Sector
+        </button>
+        <button
+          className={`DashboardMainPagetable-tab ${activeTab === "Stock Index" ? "active" : ""}`}
+          onClick={() => setActiveTab("Stock Index")}
+        >
+          Stock Index
+        </button>
+        <button
+          className={`DashboardMainPagetable-tab ${activeTab === "Stock Calendar" ? "active" : ""}`}
+          onClick={() => setActiveTab("Stock Calendar")} // ✅ Fixed Issue
+        >
+          Stock Calendar
+        </button>
+        <button
+          className={`DashboardMainPagetable-tab ${activeTab === "Stock Analyst" ? "active" : ""}`}
+          onClick={() => setActiveTab("Stock Analyst")} // ✅ Fixed Here
+        >
+          Stock Analyst
+        </button>
+      </div>
+
+      {/* Show component based on activeTab */}
+      {activeTab === "Stock Sector" && <DashboardMainPagetable />}
+      {activeTab === "Stock Index" && <Dashboardstockindex />}
+      {activeTab === "Stock Calendar" && <Stockcalender />}
+      {activeTab === "Stock Analyst" && <Homestockanalyst />}
   
     </div>
 
@@ -250,6 +285,7 @@ const Dashboardchartmain = ({children}) => {
         <FooterForAllPage />
       </div>
     </div>
+   
     </div>
   );
 };

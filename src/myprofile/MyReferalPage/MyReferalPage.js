@@ -117,7 +117,7 @@ const MyReferalPage = () => {
                     </ul>
                     <button className="myreferalpagesss-partner-benefitsrefer-button"
                      onClick={() => {
-                      navigate("/WhyFinadvanceeducationnn"); 
+                      navigate("/referMoreProfilePages"); 
                       window.scrollTo(0, 0); // Scroll to top after navigation
                     }}>
     Refer Now <FaArrowRight />

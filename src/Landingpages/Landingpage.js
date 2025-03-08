@@ -17,7 +17,7 @@ const LandingPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopup(true);
-    }, 5000); // Show after 5 seconds (5000 ms)
+    }, 3000); // Show after 5 seconds (5000 ms)
 
     return () => clearTimeout(timer);
   }, []);

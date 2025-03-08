@@ -123,18 +123,7 @@ const DashboardMainPagetable = () => {
   const currentStocks = sortedData.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-headerrindexx">
-        <button className="DashboardMainPagetable-tab active">Stock Sector</button>
-        <button
-      className="DashboardMainPagetable-tab"
-      onClick={() => navigate("/stockindexall")}
-    >
-      Stock Index
-    </button>
-        <button className="DashboardMainPagetable-tab"
-         onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
-        <button className="DashboardMainPagetable-tab"  onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>
-      </div>
+    
       <div className="DashboardMainPagetable-cards">
   {DashboardPagetable.map((card) => (
     <div  key={card.id}
