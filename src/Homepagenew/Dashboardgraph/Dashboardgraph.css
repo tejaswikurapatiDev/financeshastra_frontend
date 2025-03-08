@@ -215,7 +215,7 @@ margin-bottom: 10px;
 /* Main layout to make sure everything is structured */
 .layout {
     display: flex;
-    min-height: 100vh;
+    min-height: 50vh;
 }
 
 /* Sidebar fixed on the left */
@@ -227,7 +227,7 @@ margin-bottom: 10px;
     margin-left: 250px; /* Same as sidebar width */
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 10vh;
 }
 
 /* Ensure content takes full height */

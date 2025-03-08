@@ -209,17 +209,7 @@ const Stockcalender = () => {
 
   return (
     <div className="DashboardMainPagetable-container">
-      <div className="DashboardMainPagetable-headercalculator">
-        <button className="DashboardMainPagetable-tab" onClick={() => navigate("/home")}>Stock Sector</button>
-        <button
-          className="DashboardMainPagetable-tab"
-          onClick={() => navigate("/stockindexall")}
-        >
-          Stock Index
-        </button>
-        <button className="DashboardMainPagetable-tab active" onClick={() => navigate("/calenderchartmain")}>Stock Calendar</button>
-        <button className="DashboardMainPagetable-tab" onClick={() => navigate("/stockanalystall")}>Stock Analyst</button>
-      </div>
+      
       <div className="earnings-insight-learn-wrapperr">
 
 
@@ -388,7 +378,7 @@ const Stockcalender = () => {
           </div>
 
         </div>
-        <Navbar />
+        
       </div>
     </div>
 
