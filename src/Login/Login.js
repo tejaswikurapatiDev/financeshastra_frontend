@@ -8,6 +8,7 @@ import logoimg from "../assest/finanlogo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
+import {Link} from 'react-router-dom'
 
 import logo from "./../assest/Logo design (1).png";
 import { GoogleLogin } from "@react-oauth/google";
@@ -82,7 +83,8 @@ function Login() {
     setIsLoading(true);
 
     try {
-      const url = `${API_BASE_URL}/users/signin`;
+      const url= "http://localhost:3000/users/signin"
+      //const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,15 +97,21 @@ function Login() {
       if (!response.ok) {
         throw new Error(data.message || "Login Failed");
       }
-
       const { jwtToken } = data;
 
-      Cookies.set("jwtToken", jwtToken, {
-        expires: 7,
-        sameSite: "Strict",
-      });
-
-      navigate("/home");
+      if (response.ok=== true){
+        alert('You are logedin seccessfully!')
+        Cookies.set("jwtToken", jwtToken, {
+          expires: 7,
+          sameSite: "Strict",
+        });
+        Cookies.set('email')
+        localStorage.setItem("token", jwtToken)
+        localStorage.setItem("user", JSON.stringify({email, password}))
+    
+  
+        navigate("/home");
+      }
     } catch (error) {
       console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password");
@@ -209,7 +217,7 @@ function Login() {
 return (
   <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
     <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
-      <img src={logoimg} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} />
+      <Link to= "/"><img src={logoimg} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} /></Link>
     </div>
     <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
       <div className={darkMode ? "login-boxdarkmode" : "login-box"}>

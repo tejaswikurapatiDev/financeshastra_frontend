@@ -6,6 +6,7 @@ import logoimg from "../assest/finanlogo.svg";
 import { Button } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
+import {Link} from 'react-router-dom';
 
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import googleimg from "../assest/googleicon.svg";
@@ -151,7 +152,7 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-left">
-        <img src={logoimg} className="logoforgt" />
+        <Link to="/"><img src={logoimg} className="logoforgt" /></Link>
       </div>
       <div className="login-right">
         <div className="login-box">

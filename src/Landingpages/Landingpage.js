@@ -9,16 +9,20 @@ import LandingAboutPage from "./LandingAboutPage/LandingAboutPage";
 import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 import Landingnavbar from "./Landingnavbar/Landingnavbar";
 import PopupUnlockLandingPage from "./PopupUnlockLandingPage/PopupUnlockLandingPage";
+import Cookies from 'js-cookie';
 
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowPopup(true);
-    }, 180000); // Show after 3 minutes (180,000 ms)
-  
-    return () => clearTimeout(timer);
+    const token = Cookies.get("jwtToken");
+    if (!token) {
+      const timer = setTimeout(() => {
+        setShowPopup(true);
+      }, 180000); // Show after 3 minutes (180,000 ms)
+    
+      return () => clearTimeout(timer);
+    }
   }, []);
   
   return (
