@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import newsadaniImage from '../../assest/img8.JPG'; // Adjust the path based on your folder structure
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import Navbar from '../../Navbar/Navbar';
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 
 
 
@@ -50,6 +51,7 @@ const StocknewsAdanigroup = () => {
 
 
     return (
+        <div>
         <div className="stocknewsss">
             <h2 className='stocknewsssheadone'>Stock News</h2>
 
@@ -96,6 +98,8 @@ const StocknewsAdanigroup = () => {
                 Another firm called Monterosa Investment Holdings controls 5 supposedly independent funds that collectively hold over INR 360 billion (U.S. $4.5 billion) in shares of listed Adani companies, according to Legal Entity Identifier (LEI) data and Indian exchange data.
             </p>
             <Navbar />
+        </div>
+        <FooterForAllPage/>
         </div>
     );
 };

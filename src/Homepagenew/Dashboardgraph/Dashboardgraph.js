@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserProfileContext } from '../../Portfoilo/context/UserProfileContext';
 import { useNavigate } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -16,7 +17,7 @@ import Cookies from "js-cookie";
 
 
 
-const Dashboardchartmain = () => {
+const Dashboardchartmain = ({children}) => {
   const [timeRange, setTimeRange] = useState('1D');
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
@@ -28,6 +29,8 @@ const Dashboardchartmain = () => {
   const [myInvestment, setMyInvestment] = useState(0);
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+
+  const { user } = useContext(UserProfileContext)
 
   const navigate = useNavigate();
 
@@ -152,6 +155,7 @@ const Dashboardchartmain = () => {
   };
 
   return (
+    <div>
     <div className='allheadd'>
       <div className='hompagetopdata'>
    <div>
@@ -227,7 +231,7 @@ const Dashboardchartmain = () => {
           </div>
         </div>
         <div className="datadisstockdashhh">
-  <Sidebar/>
+ 
   <div className="main-content">
     <Navbar />
     <Watchlistdashboardmain />
@@ -236,9 +240,16 @@ const Dashboardchartmain = () => {
 
       </div>
       <DashboardMainPagetable/>
-      <div className="foooterpagesatt">
-    <FooterForAllPage/>
-  </div>
+  
+    </div>
+
+    <div className="layout">
+      <Sidebar />
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <FooterForAllPage />
+      </div>
+    </div>
     </div>
   );
 };

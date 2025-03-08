@@ -13,6 +13,7 @@ import linkedinimg from "../assest/lin.png";
 import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
 import Cookies from "js-cookie";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 
 const override = {
   display: "block",
@@ -150,7 +151,7 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-left">
-      <img src={logoimg} onClick={() => navigate("/")} className="logoforgt" />
+        <img src={logoimg} onClick={() => navigate("/")} className="logoforgt" />
       </div>
       <div className="login-right">
         <div className="login-box">
@@ -194,9 +195,18 @@ function Register() {
                 />
 
                 <span
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                ></span>
+                     className="toggle-password"
+                     onClick={() => setShowPassword(!showPassword)}
+                     style={{
+                       cursor: "pointer",
+                       position: "absolute",
+                       right: "28px",
+                       top: "50%",
+                       transform: "translateY(-50%)",
+                     }}
+                   >
+                     {showPassword ? <FaEye size={20}/> : <FaEyeSlash size={20} />}
+                   </span>
               </div>
               {passwordError && (
                 <span className="error-text">{passwordError}</span>
@@ -246,7 +256,7 @@ function Register() {
             </Button>
           </div>
           <div className="registerContgl">
-          <p className="registerContglp">
+            <p className="registerContglp">
               By clicking “Continue with Google/LinkedIn” or “Create Account”,
               you agree to Website’s
               <a href="termsAndConditions" className="registerContglblue-text">

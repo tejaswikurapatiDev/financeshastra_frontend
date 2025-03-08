@@ -7,12 +7,13 @@ import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboard
 import Dashboardstockindex from '../Stockindex/Stockindex';
 import itiimg from '../../../src/assest/iti.png';
 import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 
 
 
 
 
-const Stockindexall = () => {
+const Stockindexall = ({children}) => {
    
   const [timeRange, setTimeRange] = useState('1D');
   const [financialData, setFinancialData] = useState({
@@ -183,9 +184,13 @@ const Stockindexall = () => {
 </div>
       </div>
       <Dashboardstockindex/>
-      <div className="foooterpagesatt">
-    <FooterForhomeAllPage/>
-  </div>
+      <div className="layout">
+      <Sidebar />
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <FooterForAllPage />
+      </div>
+    </div>
     </div>
   );
 };

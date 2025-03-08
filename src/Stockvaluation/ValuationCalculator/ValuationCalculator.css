@@ -1,8 +1,8 @@
 /* Container styling */
 .valuationContainer {
   margin-top: 10px;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1000px;
+margin-left: 30px;
   padding: 20px;
   font-family: 'Calibri';
   max-height: 400px;
@@ -24,13 +24,13 @@
 
 .valuationHead {
   font-size: 25px;
-  margin-left: 50px;
+  margin-left: 30px;
   margin-top: 20px;
   font-family: 'Calibri';
   font-weight: bold;
   color:#24b676;
   margin-top:80px ;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
 /* Column Styling */
@@ -82,13 +82,30 @@
 
 /* Text Field Styling */
 .inputSection .MuiTextField-root {
-  width: 50%;
- 
- 
+  width: 40%; 
+}
+.basevaluation{
+  border: 1px solid gray;
+  width: 90px;
+  text-align: center;
+padding: 6px;
+border-radius: 5px;
+}
+
+.successsvaebutton:hover {
+  background-color: #24b676; /* Darker Shade on Hover */
+  border-color: #178a55; /* Border Color Change */
+  color: white;
+}
+
+.inputSection{
+display: flex;
+justify-content: space-between;
 }
 .inputField {
   width: 30px;
   float: right;
+
  
 }
 

@@ -16,7 +16,7 @@ import Cookies from "js-cookie";
 import "./Login.css";
 import { height } from "@mui/system";
 import { API_BASE_URL } from "../config";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 const override = {
   display: "block",
   textAlign: "center",
@@ -305,28 +305,38 @@ return (
             </div>
 
             <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
-              <label>Password*</label>
-              <div className="password-field">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Enter your password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className={darkMode
-                    ? passwordError ? "input-errordarkmode" : ""
-                    : passwordError ? "input-error" : ""}
-                />
-                <span
-                  className="toggle-password"
-                  onClick={() => setShowPassword(!showPassword)}
-                ></span>
-              </div>
-              {passwordError && (
-                <span className={darkMode ? "error-textdarkmode" : "error-textlogin"}>
-                  {passwordError}
-                </span>
-              )}
-            </div>
+  <label>Password*</label>
+  <div className="password-field" style={{ position: "relative" }}>
+    <input
+      type={showPassword ? "text" : "password"}
+      placeholder="Enter your password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      className={darkMode
+        ? passwordError ? "input-errordarkmode" : ""
+        : passwordError ? "input-error" : ""}
+     // Ensure space for the icon
+    />
+    <span
+      className="toggle-password"
+      onClick={() => setShowPassword(!showPassword)}
+      style={{
+        cursor: "pointer",
+        position: "absolute",
+        right: "28px",
+        top: "50%",
+        transform: "translateY(-50%)",
+      }}
+    >
+      {showPassword ? <FaEye size={20}/> : <FaEyeSlash size={20} />}
+    </span>
+  </div>
+  {passwordError && (
+    <span className={darkMode ? "error-textdarkmode" : "error-textlogin"}>
+      {passwordError}
+    </span>
+  )}
+</div>
 
             <div className="login-options">
               <div className="checksigninall">

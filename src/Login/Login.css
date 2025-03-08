@@ -11,6 +11,14 @@
   
 
 }
+/* Remove built-in eye icon in Edge & Chrome */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+    pointer-events: none;
+}
+
 .login-container{
   background-color:#f8f6f6e8;
  

@@ -11,6 +11,7 @@ import UpcomingIPOs from '../UpcomingIPOs/UpcomingIPOs';
 import IpoRecommendation from '../IpoRecommendation/IpoRecommendation';
 import IpoComment from '../IpoComment/IpoComment';
 import RecentIPOs from '../RecentIPOs/RecentIPOs';
+import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
 
 
 const IpoDetails = () => {
@@ -46,6 +47,7 @@ const IpoDetails = () => {
   };
 
   return (
+    <div>
     <div className="ipoDetailsContainer">
       <h2 className="ipoNewsTitle">{ipoDetails.title}</h2>
       <p className="ipoNewsSubtitle">{ipoDetails.subtitle}</p>
@@ -122,6 +124,9 @@ prominent names like Welspun, Premco Global, and Page.</p>
       <IpoRecommendation/>
       <IpoComment/>
       <UpcomingIPOs/>
+     
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 };
