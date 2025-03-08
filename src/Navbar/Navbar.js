@@ -18,7 +18,7 @@ import {
 import { FaCircleQuestion } from "react-icons/fa6";
 import "./Navbar.css";
 import { PiHandCoins } from "react-icons/pi";
-
+import { useNavigate } from "react-router-dom";
 import { RiHome5Fill } from "react-icons/ri"; // Home Icon
 import { SlBookOpen } from "react-icons/sl"; // Book Icon
 import { RiBriefcase4Line } from "react-icons/ri";
@@ -34,7 +34,7 @@ import notiimg7 from "../assest/video.png";
 import notiimg8 from "../assest/ipoo.webp";
 import notiimg9 from "../assest/images.jpg";
 import notiimg10 from "../assest/portra.webp";
-import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
 import logo from "../assest/Logo design (1).png";
 import Darkmodelogo from "../assest/navlogo.png";
 import { Link } from "react-router-dom";
@@ -42,12 +42,11 @@ import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
 
+
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const dropdownRef = useRef(null);
-
   const {user} = useContext(UserProfileContext)
-  console.log(user)
+  console.log("user:", user)
 
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -73,73 +72,91 @@ const Navbar = () => {
       img: notiimg1,
       title: "Upcoming Quadrant Future Tek IPO analysis",
       date: "Yesterday 11:15 AM",
-        navigate: "/ipoComponent",
     },
     {
       id: 2,
       img: notiimg2,
       title: "Your number has been verified successfully.",
       date: "04 Jan, 2025 11:45 AM",
-      navigate: "/editProfile",
     },
     {
       id: 3,
       img: notiimg3,
       title: "Your email has been verified successfully.",
       date: "04 Jan, 2025 12:30 PM",
-      navigate: "/editProfile",
     },
     {
       id: 4,
       img: notiimg4,
       title: "Sara commented on blog",
       date: "01 Jan, 2025 08:15 AM",
-      navigate: "/blogsComponent",
-
     },
     {
       id: 5,
       img: notiimg5,
       title: "Lucas commented on sanathans IPO",
       date: "28 Nov, 2024 11:15 AM",
-      navigate: "/ipoComponent",
     },
     {
       id: 6,
       img: notiimg6,
       title: "You have new signing in android",
       date: "12 Nov, 2024 09:28 AM",
-       navigate: "/sessionHistory"
     },
     {
       id: 7,
       img: notiimg7,
       title: "New courses available",
       date: "08 Nov, 2024 10:30 PM",
-       navigate: "/learncard"
     },
     {
       id: 8,
       img: notiimg8,
       title: "Upcoming Laxmi Dental IPO",
       date: "05 Nov, 2024 09:03 AM",
-      navigate: "/ipoComponent",
     },
     {
       id: 9,
       img: notiimg9,
       title: "Your profile picture updated successfully.",
       date: "27 Oct, 2024 02:23 PM",
-      navigate:"/userDetailsupdate",
     },
     {
       id: 10,
       img: notiimg10,
       title: "Upcoming IGI IPO",
       date: "25 Oct, 2024 08:48 AM",
-      navigate: "/ipoComponent",
     },
-    
+    {
+      id: 11,
+      img: notiimg2,
+      title: "Your number has been verified successfully.",
+      date: "04 Jan, 2025 11:45 AM",
+    },
+    {
+      id: 12,
+      img: notiimg3,
+      title: "Your email has been verified successfully.",
+      date: "04 Jan, 2025 12:30 PM",
+    },
+    {
+      id: 13,
+      img: notiimg4,
+      title: "Sara commented on blog",
+      date: "01 Jan, 2025 08:15 AM",
+    },
+    {
+      id: 14,
+      img: notiimg5,
+      title: "Lucas commented on sanathans IPO",
+      date: "28 Nov, 2024 11:15 AM",
+    },
+    {
+      id: 17,
+      img: notiimg6,
+      title: "You have new signing in android",
+      date: "12 Nov, 2024 09:28 AM",
+    },
   ];
   
   const displayedNotifications = showAll
@@ -156,18 +173,6 @@ const Navbar = () => {
   const learnDropdownRef = useRef(null);
   const searchResultsRef = useRef(null);
 
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false); // Dropdown close ho jayega
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
   // Debounced search function that only filters existing data from Redux
   const debouncedSearch = useCallback(
     debounce((searchText) => {
@@ -205,6 +210,12 @@ const Navbar = () => {
 
   // Close search results when clicking outside
   useEffect(() => {
+    const token = Cookies.get("jwtToken");
+          if (!token) {
+            alert("Session expired, Please login again.");
+            navigate("/login")
+            return;
+          }
     const handleClickOutside = (event) => {
       if (
         searchResultsRef.current && 
@@ -287,6 +298,13 @@ const Navbar = () => {
     };
   }, [debouncedSearch]);
 
+  const onLogout = ()=>{
+    Cookies.remove('jwtToken')
+    Cookies.remove('token')
+    localStorage.clear()
+    navigate('/')
+  }
+
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
   };
@@ -318,6 +336,8 @@ const Navbar = () => {
   const togglelearnDropdown = () => {
     setLearnDropdownOpen(!learnDropdownOpen);
   };
+
+  
 
   const renderStockDropdown = () => (
     <div className={darkMode ? "stockmenudarkerrrrmode" : "stockmenu"}>
@@ -504,11 +524,10 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/">
-          {" "}
+        <button className="butn" onClick={onLogout} type="button"  >
           <FaUserCircle className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"} />
           Logout
-        </Link>
+        </button>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <div onClick={toggleDarkMode} style={{cursor: 'pointer'}}>Dark Mode</div>
@@ -690,18 +709,18 @@ const Navbar = () => {
           Subscribe
         </h4>
         <div className="navbar-icons">
-          <div className="notificationall"ref={dropdownRef}>
+          <div className="notificationall">
             {/* Bell Icon */}
             <FaBell
               className={darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"}
-              onClick={() => setIsOpen(!isOpen)} 
+              onClick={() => setIsOpen(!isOpen)}
             />
 
             {/* Dropdown Content */}
             {isOpen && (
-              <div className="dropdown-contentnoti">
+              <div className="dropdown-content">
                 {displayedNotifications.map((notif) => (
-                  <div key={notif.id} onClick={() => navigate(notif.navigate)} style={{ cursor: "pointer" }} className="notification-card">
+                  <div key={notif.id} className="notification-card">
                     <div className="notification-header">
                       <div className="notificationall-header">
                         <div>
