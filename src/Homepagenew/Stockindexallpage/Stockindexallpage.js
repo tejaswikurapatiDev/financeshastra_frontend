@@ -100,22 +100,22 @@ const Stockindexall = ({children}) => {
         percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Adds "+" for positive percentages
         lastUpdated: newLastUpdated, // Updates with the latest timestamp
       });
-      }, 5000); // Update every 5 seconds
-      
-      return () => clearInterval(interval); // Cleanup interval on component unmount
-      }, []); // Dependency array ensures this effect runs once on mount
-      
+    }, 5000); // Update every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []); // Dependency array ensures this effect runs once on mount
+
 
   // Chart data for different time ranges
   const chartDataByRange = {
-    '1D': [ 3000, 6000,2000, 12000, 4000, 10000],
-    '5D':  [ 3000, 6000, 9000,0, 12000, 15000],
-    '1M': [ 3500, 6000, 3,9000, 12000, 15000],
-    '6M': [6000,0, 3000,  9000, 12000, 15000],
-    '1Y': [6000, 3000, 0, 9000,  15000,12000],
-    '3Y':  [6000, 9000,0, 3000, 12000, 15000],
-    '5Y': [9000,0, 3000, 6000, 15000,12000,],
-    'Max': [15000,703, 3000, 6000, 9000, 12000],
+    '1D': [3000, 6000, 2000, 12000, 4000, 10000],
+    '5D': [3000, 6000, 9000, 0, 12000, 15000],
+    '1M': [3500, 6000, 3, 9000, 12000, 15000],
+    '6M': [6000, 0, 3000, 9000, 12000, 15000],
+    '1Y': [6000, 3000, 0, 9000, 15000, 12000],
+    '3Y': [6000, 9000, 0, 3000, 12000, 15000],
+    '5Y': [9000, 0, 3000, 6000, 15000, 12000,],
+    'Max': [15000, 703, 3000, 6000, 9000, 12000],
   };
 
   const chartData = {
