@@ -3,8 +3,13 @@ import './OrderTable.css'
 
 import Navbar from "../../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
+<<<<<<< HEAD
 import { API_BASE_URL } from "../../config";
 /*const ordersData = [
+=======
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+const ordersData = [
+>>>>>>> 777af86faad6a5fd2daefda652d5a048e80e38a1
   { id: "#7234531", order: "Elite ", date: "08-07-2024", amount: "₹2,000", status: "Completed" },
   { id: "#7234532", order: "Premium ", date: "08-06-2024", amount: "₹5,999", status: "Completed" },
   { id: "#7234533", order: "Premium ", date: "07-06-2024", amount: "₹5,999", status: "Pending" },
@@ -71,6 +76,7 @@ const OrderTable = () => {
         console.log("filteredOrders", filteredOrders)
   
     return (
+      <div>
       <div className="order-table-all">
         <h1 className="profilepage-titleorder">My Orders</h1>
       <div className="profilepage-tabsorder">
@@ -122,6 +128,7 @@ const OrderTable = () => {
           </tbody>
         </table>
         <Navbar/>
+<<<<<<< HEAD
         {!isLogin && (
         <div className="payment-popup">
           <div className="payment-popup-content">
@@ -132,6 +139,11 @@ const OrderTable = () => {
           </div>
         </div>
       )}
+=======
+        
+      </div>
+      <FooterForAllPage/>
+>>>>>>> 777af86faad6a5fd2daefda652d5a048e80e38a1
       </div>
     );
   };

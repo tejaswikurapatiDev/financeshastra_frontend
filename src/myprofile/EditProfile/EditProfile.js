@@ -1,9 +1,10 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMessage } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
 import { FaRegEdit } from "react-icons/fa";
 import Navbar from "../../Navbar/Navbar";
 import "./EditProfile.css";
+import { FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
@@ -17,7 +18,7 @@ const EditProfile = () => {
   const location = useLocation();
 
   const [formData, setFormData] = useState({
-    firstName: personalDetails.firstName ,
+    firstName: personalDetails.firstName,
     lastName: personalDetails.lastName,
     dob: personalDetails.dob,
     gender: personalDetails.gender,
@@ -27,14 +28,16 @@ const EditProfile = () => {
     state: personalDetails.state,
     city: personalDetails.city,
     occupation: professionalDetails.occupation,
-    pincode: personalDetails.pincode ,
+    pincode: personalDetails.pincode,
     industry: professionalDetails.industry,
     income: professionalDetails.income,
+
   });
 
   const [errors, setErrors] = useState({}); // For validation errors
 
   const navigate = useNavigate();
+  
 
 
   const profilePageCancel = () => {
@@ -235,7 +238,46 @@ const EditProfile = () => {
   const [otpStep, setOtpStep] = useState(false);
   const [otp, setOtp] = useState("");
   const [showPopupp, setShowPopupp] = useState(false);
+
+
   const [isVerified, setIsVerified] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isEmailVerified, setIsEmailVerified] = useState(false);
+  const [showVerificationPopup, setShowVerificationPopup] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [showEmailSuccessPopup, setShowEmailSuccessPopup] = useState(false);
+
+
+
+  const [isOtpValid, setIsOtpValid] = useState(null);
+
+  const handleEmailPopupClose = () => {
+    setShowEmailSuccessPopup(false);
+  };
+  /*const handleEmailVerifyClick = () => {
+    if (!formData.email || errors.email) {
+      return; // Don't show popup if email is invalid
+    }
+    setShowVerificationPopup(true);
+  };*/
+
+  const handleOtpSubmit = () => {
+    if (otp !== "1234") {
+    setErrors((prevErrors) => ({
+    ...prevErrors,
+    otp: "Invalid OTP. Please try again.",
+    }));
+    } else {
+    setShowPopupp(true); // Show success popup
+    setShowPopup(false); // Close OTP popup
+    setOtpStep(false); // Reset OTP step
+    setIsVerified(true); // Mark as verified
+    }
+    };
+    const handlePopupClosee = () => {
+    setShowPopupp(false);
+    };
+
 
   // Regex for phone number validation
   const phoneRegex = /^[0-9]{10}$/;
@@ -289,6 +331,9 @@ const EditProfile = () => {
   }));
   }
   };
+
+  
+
   const handleOtpSubmitemail = () => {
   if (otp !== "1234") {
   setErrors((prevErrors) => ({
@@ -303,22 +348,8 @@ const EditProfile = () => {
   setIsModalOpen(false); // Close modal
   }
   };
-  const handleOtpSubmit = () => {
-  if (otp !== "1234") {
-  setErrors((prevErrors) => ({
-  ...prevErrors,
-  otp: "Invalid OTP. Please try again.",
-  }));
-  } else {
-  setShowPopupp(true); // Show success popup
-  setShowPopup(false); // Close OTP popup
-  setOtpStep(false); // Reset OTP step
-  setIsVerified(true); // Mark as verified
-  }
-  };
-  const handlePopupClosee = () => {
-  setShowPopupp(false);
-  };
+  
+
 
   const popupStyles = {
   overlay: {
@@ -369,7 +400,7 @@ const EditProfile = () => {
   },
 
   };
-  const [isEmailVerified, setIsEmailVerified] = useState(false); // Email verification status
+
   const [showVerifiedPopup, setShowVerifiedPopup] = useState(false); // Control verified success popup
   const handleSendOtpClick = () => {
   // Validate the email first
@@ -457,6 +488,7 @@ const EditProfile = () => {
   };
 
 
+
   const handleStateChange = (e) => {
   const selectedState = e.target.value;
   setFormData((prev) => ({ ...prev, state: selectedState, city: "" }));
@@ -475,6 +507,15 @@ const EditProfile = () => {
 
   // Get cities for the selected state
   const cities = stateCityMapping[formData.state] || [];
+  const maskEmail = (email) => {
+    if (!email) return "your email"; // Default text if email is missing
+
+    const [name, domain] = email.split("@");
+    if (!domain) return email; // Handle invalid email cases
+
+    const maskedName = name.slice(0, 3) + "********"; // Keep first 3 characters, mask the rest
+    return `${maskedName}@${domain}`;
+  };
 
 
   return (
@@ -678,6 +719,7 @@ const EditProfile = () => {
   </div>
   )}
   </div>
+
 
 
   <div className="profile-roww">

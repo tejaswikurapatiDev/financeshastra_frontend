@@ -15,15 +15,13 @@ const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
-    const token = Cookies.get("jwtToken");
-    if (!token) {
-      const timer = setTimeout(() => {
-        setShowPopup(true);
-      }, 180000); // Show after 3 minutes (180,000 ms)
-    
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000); // Show after 5 seconds (5000 ms)
+
+    return () => clearTimeout(timer);
   }, []);
+
   
   return (
     <div>
