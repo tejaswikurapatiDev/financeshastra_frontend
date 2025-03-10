@@ -261,8 +261,8 @@ const Dashboardstockindex = () => {
 </div>
 
 
-<div className="DashboardMainPagetable-table-containerer">
-            <table className="DashboardMainPagetable-table">
+<div className="DashboardMainPagetable-table-containerrrrr">
+            <table className="DashboardMainPagetable-tableeee">
         <thead>
           <tr>
             <th>Company</th>
