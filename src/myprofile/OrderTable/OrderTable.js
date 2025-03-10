@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './OrderTable.css'
 
 import Navbar from "../../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
+import { API_BASE_URL } from "../../config";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+/*const ordersData = [
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const ordersData = [
   { id: "#7234531", order: "Elite ", date: "08-07-2024", amount: "₹2,000", status: "Completed" },
@@ -15,16 +18,60 @@ const ordersData = [
   { id: "#7234538", order: "Premium (half yearly)", date: "02-02-2024", amount: "₹5,999", status: "Completed" },
   { id: "#7234539", order: "Premium (half yearly)", date: "01-02-2024", amount: "₹5,999", status: "Pending" },
   { id: "#7234540", order: "Premium (half yearly)", date: "01-01-2024", amount: "₹5,999", status: "Cancel" },
-];
+];*/
 
 const OrderTable = () => {
+  const [isLogin, setislogin]=useState(true)
+  const [ordersdatastate, setordersData]= useState([])
+  useEffect(()=>{
+    const fetOrders= async ()=>{
+      const localtoken= localStorage.getItem('token')
+      if (!localtoken){
+        setislogin(false)
+      }
+      const options= {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localtoken}`
+        }
+      }
+      const url=`${API_BASE_URL}/orders`
+      const urllocal= 'http://localhost:3000/orders'
+      const response= await fetch(urllocal, options)
+      console.log("orders response: ", response)
+      if (response.ok===true){
+        const data= await response.json()
+        console.log("orders Data: ",data)
+        if (data.length !=0 ){
+          const formattedordersData= data.map(e =>({
+            id : e.order_id,
+            order: e.order_name,
+            date: e.order_date,
+            amount: e.Amount,
+            status: e.Status
+          }))
+          console.log("formattedordersData:", formattedordersData)
+          setordersData(formattedordersData)
+        }
+        
+      }
+    }
+    fetOrders()
+  }, [])
+
+  const onlogin=()=>{
+    navigate('/login')
+  }
+
   const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState("All orders");
   
     const filteredOrders =
       activeTab === "All orders"
-        ? ordersData
-        : ordersData.filter((order) => order.status === activeTab);
+        ? ordersdatastate
+        : ordersdatastate.filter((order) => order.status === activeTab);
+        console.log("filteredOrders", filteredOrders)
   
     return (
       <div>
@@ -79,6 +126,16 @@ const OrderTable = () => {
           </tbody>
         </table>
         <Navbar/>
+        {!isLogin && (
+        <div className="payment-popup">
+          <div className="payment-popup-content">
+            <h2>You Are not Logged in!</h2>
+            <p className="amount-paid">Please Login</p>
+            <button type="button" onClick={onlogin}
+              className="loginbtnpopupnot">Login</button>
+          </div>
+        </div>
+      )}
         
       </div>
       <FooterForAllPage/>

@@ -306,8 +306,8 @@ const UserDetailsupdate = () => {
           <div className="payment-popup-content">
             <h2>You Are not Logged in!</h2>
             <p className="amount-paid">Please Login</p>
-            <button type="button" onClick={onlogin}
-              className="loginbtn billing-detailspages-pay-button">Login</button>
+            <button  onClick={onlogin}
+              className="loginbtnpopupnot">Login</button>
           </div>
         </div>
       )}
