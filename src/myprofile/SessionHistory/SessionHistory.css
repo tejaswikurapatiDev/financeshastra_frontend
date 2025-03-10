@@ -1,14 +1,14 @@
 .session-history {
-  width: 80%;
-  margin: 20px auto;
-  font-family: 'calibri';
-  margin-top: 120px;
-}
-
-.session-history h2 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  font-weight: bold;
+    width: 80%;
+    margin: 20px auto;
+    font-family:'calibri';
+    margin-top: 120px;
+  }
+  
+  .session-history h2 {
+    font-size:22px;
+    margin-bottom: 10px;
+    font-weight: bold;
 
 }
 

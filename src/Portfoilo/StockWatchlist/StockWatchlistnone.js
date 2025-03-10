@@ -10,246 +10,487 @@ import { debounce } from "lodash";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const StockWatchlist = () => {
-  const [stockName, setStockName] = useState("");
-  const [stockDetails, setStockDetails] = useState([]);
-  const [watchlists, setWatchlists] = useState([]);
-  const [selectedWatchlist, setSelectedWatchlist] = useState(null);
-  const [filterData, setFilterData] = useState([]);
-  const [activeDropdown, setActiveDropdown] = useState(null);
-  const [selectedStock, setSelectedStock] = useState(null);
-  const [renamePopup, setRenamePopup] = useState(false);
-  const [renameIndex, setRenameIndex] = useState(null);
-  const [newWatchlistName, setNewWatchlistName] = useState("");
-  const [deletePopup, setDeletePopup] = useState(false);
-  const [deleteIndex, setDeleteIndex] = useState(null);
-  const [deleteWatchlistPopup, setDeleteWatchlistPopup] = useState(false);
-
-
   const navigate = useNavigate();
-  const getStockData = useSelector((store) => store?.searchData?.searchData);
+  const getStockData = useSelector((store) => store?.searchData?.searchData || []);
 
-  // Debounced Search Function
-  const debounceSearch = useCallback(
-    debounce((searchText) => {
-      setFilterData(
-        searchText ? getStockData.filter((item) => item.company?.toLowerCase().includes(searchText.toLowerCase())) : []
-      );
-    }, 300),
-    [getStockData]
-  );
-  const handleSelectStock = (stock) => {
-    setStockName(stock.company); // Display selected stock name in input
-    setSelectedStock(stock); // Store full stock details for later use
-    setFilterData([]); // Hide suggestions
-  };
+  // Refs for popup containers
+  const renamePopupRef = useRef(null);
+  const deletePopupRef = useRef(null);
+  const deleteWatchlistPopupRef = useRef(null);
+  const dropdownRefs = useRef([]);
 
-  // Fetch Watchlists
+  // State management with logical grouping
+  const [stockInput, setStockInput] = useState({
+    name: "",
+    selected: null,
+    filterResults: []
+  });
+
+  const [watchlistState, setWatchlistState] = useState({
+    list: [],
+    selected: null,
+    stockDetails: []
+  });
+
+  const [uiState, setUiState] = useState({
+    activeDropdown: null,
+    renamePopup: false,
+    renameIndex: null,
+    newWatchlistName: "",
+    deletePopup: false,
+    deleteIndex: null,
+    deleteWatchlistPopup: false
+  });
+  // Fetch watchlists
   const fetchWatchlists = async () => {
-    const token = Cookies.get("jwtToken");
-    if (!token) return alert("Unauthorized: No token provided");
-
     try {
+      const token = Cookies.get("jwtToken");
       const response = await fetch(`${API_BASE_URL}/Watchlist/`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
-      if (!response.ok) throw new Error("Failed to fetch watchlists");
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
 
       const data = await response.json();
-      setWatchlists(data);
-
-      // Set only if no watchlist is selected
-      setSelectedWatchlist((prev) => prev ?? data[0]?.watchlist_id);
+      setWatchlistState(prev => ({
+        ...prev,
+        list: data,
+        selected: prev.selected || data[0]?.watchlist_id
+      }));
     } catch (error) {
-      console.error(error);
       alert(error.message || "Failed to fetch watchlists.");
     }
   };
 
-  // Fetch Watchlist Assets
+  // Fetch watchlist assets
   const fetchWatchlistAssets = useCallback(async () => {
-    if (!selectedWatchlist) return;
-    const token = Cookies.get("jwtToken");
-    if (!token) return alert("Unauthorized: No token provided");
+    if (!watchlistState.selected) return;
 
     try {
-      const response = await fetch(`${API_BASE_URL}/Watchlist/getWatchlistAssets?watchlist_id=${selectedWatchlist}`, {
-        headers: { Authorization: `Bearer ${token}` },
+      const token = Cookies.get("jwtToken");
+      const response = await fetch(`${API_BASE_URL}/Watchlist/getWatchlistAssets?watchlist_id=${watchlistState.selected}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
-      if (!response.ok) throw new Error("Failed to fetch watchlist assets");
-      setStockDetails(await response.json());
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setWatchlistState(prev => ({
+        ...prev,
+        stockDetails: data
+      }));
     } catch (error) {
-      console.error(error);
       alert(error.message || "Failed to fetch watchlist assets.");
     }
-  }, [selectedWatchlist]);
+  }, [watchlistState.selected]);
 
-  // Handle stock addition
+  // Handle stock search
+  const debounceSearch = useCallback(
+    debounce((searchText) => {
+      setStockInput(prev => ({
+        ...prev,
+        filterResults: searchText
+          ? getStockData.filter((item) =>
+            item.company?.toLowerCase().includes(searchText.toLowerCase())
+          )
+          : []
+      }));
+    }, 300),
+    [getStockData]
+  );
+
+  // Handle stock selection from search results
+  const handleSelectStock = (stock) => {
+    setStockInput({
+      name: stock.company,
+      selected: stock,
+      filterResults: []
+    });
+  };
+
+  // Handle stock name input change
+  const handleStockNameChange = (event) => {
+    setStockInput(prev => ({
+      ...prev,
+      name: event.target.value
+    }));
+  };
+
+  // Add stock to watchlist
   const handleAddStock = async () => {
-    if (!stockName.trim()) return alert("Stock name cannot be empty!");
-
-    const normalizedStockName = stockName.toUpperCase();
-
-    if (stockDetails.some((stock) => stock.asset_symbol === normalizedStockName)) {
-      return alert("This stock is already in your watchlist.");
+    if (!stockInput.name.trim()) {
+      alert("Stock name cannot be empty!");
+      return;
     }
 
-    const token = Cookies.get("jwtToken");
-    if (!token) return alert("Unauthorized: No token provided");
+    const normalizedStockName = stockInput.name.toUpperCase();
+
+    if (watchlistState.stockDetails.some((stock) => stock.asset_symbol === normalizedStockName)) {
+      alert("This stock is already in your watchlist.");
+      return;
+    }
 
     try {
+      const token = Cookies.get("jwtToken");
       const response = await fetch(`${API_BASE_URL}/Watchlist/addStockToWatchklist`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
           asset_symbol: normalizedStockName,
-          watchlist_id: selectedWatchlist || null,
+          watchlist_id: watchlistState.selected,
           asset_type: "Stock",
         }),
       });
 
-      if (!response.ok) throw new Error(await response.text());
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
 
-      // Get the new stock details from API response
       const newStock = await response.json();
 
-      // Ensure stock is added with the correct property names
-      setStockDetails((prevStocks) => [
-        ...prevStocks,
-        { ...newStock, asset_symbol: normalizedStockName },
-      ]);
+      setWatchlistState(prev => ({
+        ...prev,
+        stockDetails: [
+          ...prev.stockDetails,
+          { ...newStock, asset_symbol: normalizedStockName }
+        ]
+      }));
 
-      setStockName(""); // Clear input field after adding
+      setStockInput(prev => ({
+        ...prev,
+        name: "",
+        selected: null
+      }));
     } catch (error) {
-      console.error(error);
       alert(error.message || "Failed to add stock.");
     }
   };
 
-
-  //handle stocks name
-  const handleStockNameChange = (event) => {
-    setStockName(event.target.value);
-  };
-
-
-  // Determine the color for the change value
-  const getChangeColor = (change) => {
-    return change >= 0 ? "green" : "red";
-  };
-
-  const handleDeleteWatchlist = async () => {
-    if (!selectedWatchlist) return;
-    const token = Cookies.get("jwtToken");
-    if (!token) return alert("Unauthorized: No token provided");
-  
-    try {
-      const response = await fetch(`${API_BASE_URL}/Watchlist/deleteWatchlist?watchlist_id=${selectedWatchlist}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
-  
-      if (!response.ok) throw new Error("Failed to delete watchlist");
-  
-      // Remove deleted watchlist from state
-      setWatchlists((prevWatchlists) => prevWatchlists.filter(watchlist => watchlist.watchlist_id !== selectedWatchlist));
-  
-      setSelectedWatchlist(null);
-      setStockDetails([]);
-      setDeleteWatchlistPopup(false);
-    } catch (error) {
-      console.error(error);
-      alert(error.message || "Failed to delete watchlist.");
-    }
-  };
-  
-  const handleRenameWatchlist = (index) => {
-    setRenameIndex(index);
-    setNewWatchlistName(watchlists[index].name);
-    setRenamePopup(true);
-  };
-
-  const handleRenameConfirm = () => {
-    if (!newWatchlistName.trim()) return;
-    setWatchlists((prev) =>
-      prev.map((w, i) => (i === renameIndex ? { ...w, name: newWatchlistName } : w))
-    );
-    setRenamePopup(false);
-  };
-
-
-  const handleDeleteStock = (index) => {
-    setDeleteIndex(index);
-    setDeletePopup(true);
-  };
-
-  const confirmDeleteStock = () => {
-    if (deleteIndex !== null) {
-      setStockDetails((prevStocks) => prevStocks.filter((_, i) => i !== deleteIndex));
-      setDeletePopup(false);
-    }
-  };
+  // Create new watchlist
   const handleCreateWatchlist = async () => {
-    const token = Cookies.get("jwtToken");
-    if (!token) return alert("Unauthorized: No token provided");
-  
-    const newWatchlistTemp = { 
-      id: Date.now(), 
-      name: `My Watchlist ${watchlists.length + 1}` 
-    };
-  
-    setWatchlists(prev => [...prev, newWatchlistTemp]); // Temporary optimistic update
-  
+    const newWatchlistName = `My Watchlist ${watchlistState.list.length + 1}`;
+
     try {
+      const token = Cookies.get("jwtToken");
       const response = await fetch(`${API_BASE_URL}/Watchlist/CreateWatchList`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
         },
-        body: JSON.stringify({ name: newWatchlistTemp.name }),
+        body: JSON.stringify({ name: newWatchlistName }),
       });
-  
-      if (!response.ok) throw new Error("Failed to create watchlist");
-  
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
+
       const newWatchlist = await response.json();
-      console.log("New Watchlist from API:", newWatchlist);
-  
-      setWatchlists(prev => prev.map(w => 
-        w.id === newWatchlistTemp.id ? newWatchlist : w
-      ));
-  
-      setSelectedWatchlist(newWatchlist.watchlist_id); // Ensure selection updates
+
+      setWatchlistState(prev => ({
+        ...prev,
+        list: [...prev.list, newWatchlist],
+        selected: newWatchlist.watchlist_id
+      }));
     } catch (error) {
       alert(error.message || "Error creating watchlist");
-  
-      // Revert UI if API call fails
-      setWatchlists(prev => prev.filter(w => w.id !== newWatchlistTemp.id));
     }
   };
 
-  const toggleDropdown = (index) => setActiveDropdown(activeDropdown === index ? null : index);
+  // Delete watchlist
+  const handleDeleteWatchlist = async () => {
+    if (!watchlistState.selected) return;
 
+    try {
+      const token = Cookies.get("jwtToken");
+      const response = await fetch(`${API_BASE_URL}/Watchlist/deleteWatchlist?watchlist_id=${watchlistState.selected}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
+
+      setWatchlistState(prev => {
+        // Filter out the deleted watchlist
+        const updatedList = prev.list.filter(watchlist => watchlist.watchlist_id !== prev.selected);
+
+        // Select the next available watchlist dynamically
+        let newSelectedId = null;
+        if (updatedList.length > 0) {
+          // Find the index of the deleted watchlist in the original list
+          const deletedIndex = prev.list.findIndex(w => w.watchlist_id === prev.selected);
+          // If available, select the next watchlist in the list
+          // Otherwise select the previous one, or the first in the list as last resort
+          newSelectedId = updatedList[deletedIndex] ?
+            updatedList[deletedIndex].watchlist_id :
+            updatedList[Math.max(0, deletedIndex - 1)]?.watchlist_id ||
+            updatedList[0].watchlist_id;
+        }
+
+        return {
+          ...prev,
+          list: updatedList,
+          selected: newSelectedId,
+          stockDetails: newSelectedId ? prev.stockDetails : []
+        };
+      });
+
+      setUiState(prev => ({
+        ...prev,
+        deleteWatchlistPopup: false
+      }));
+    } catch (error) {
+      alert(error.message || "Failed to delete watchlist.");
+    }
+  };
+
+  // Rename watchlist
+  const handleRenameWatchlist = (watchlistId) => {
+    const watchlist = watchlistState.list.find(w => w.watchlist_id === watchlistId);
+
+    setUiState(prev => ({
+      ...prev,
+      renameIndex: watchlistId,
+      newWatchlistName: watchlist?.name || "",
+      renamePopup: true
+    }));
+  };
+
+  const handleRenameConfirm = async () => {
+    if (!uiState.newWatchlistName.trim()) return;
+
+    try {
+      const token = Cookies.get("jwtToken");
+      const response = await fetch(`${API_BASE_URL}/Watchlist/renameWatchlist`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          watchlist_id: uiState.renameIndex,
+          name: uiState.newWatchlistName
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
+
+      setWatchlistState(prev => ({
+        ...prev,
+        list: prev.list.map(w =>
+          w.watchlist_id === uiState.renameIndex
+            ? { ...w, name: uiState.newWatchlistName }
+            : w
+        )
+      }));
+
+      setUiState(prev => ({
+        ...prev,
+        renamePopup: false,
+        renameIndex: null
+      }));
+    } catch (error) {
+      console.error("Rename error:", error);
+      alert(error.message || "Failed to rename watchlist.");
+    }
+  };
+
+  // Delete stock from watchlist
+  const handleDeleteStock = (index) => {
+    setUiState(prev => ({
+      ...prev,
+      deleteIndex: index,
+      deletePopup: true
+    }));
+  };
+
+  // Confirm stock deletion
+  const confirmDeleteStock = async () => {
+    if (uiState.deleteIndex === null) return;
+
+    const stockToDelete = watchlistState.stockDetails[uiState.deleteIndex];
+
+    try {
+      const token = Cookies.get("jwtToken");
+      const response = await fetch(`${API_BASE_URL}/Watchlist/removeStockFromWatchlist`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          watchlist_id: watchlistState.selected,
+          asset_symbol: stockToDelete.asset_symbol
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || `Failed with status: ${response.status}`);
+      }
+
+      setWatchlistState(prev => ({
+        ...prev,
+        stockDetails: prev.stockDetails.filter((_, i) => i !== uiState.deleteIndex)
+      }));
+
+      setUiState(prev => ({
+        ...prev,
+        deletePopup: false,
+        deleteIndex: null
+      }));
+    } catch (error) {
+      alert(error.message || "Failed to delete stock.");
+    }
+  };
+
+  // Toggle dropdown menu
+  const toggleDropdown = (index) => {
+    setUiState(prev => ({
+      ...prev,
+      activeDropdown: prev.activeDropdown === index ? null : index
+    }));
+  };
+
+  // Get color for change value
+  const getChangeColor = (change) => {
+    return change >= 0 ? "green" : "red";
+  };
+
+  // Set watchlist selection
+  const selectWatchlist = (watchlistId) => {
+    setWatchlistState(prev => ({
+      ...prev,
+      selected: watchlistId
+    }));
+  };
+
+  // Effects
   useEffect(() => {
     fetchWatchlists();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    debounceSearch(stockName);
+    debounceSearch(stockInput.name);
     return () => debounceSearch.cancel();
-  }, [stockName]);
+  }, [stockInput.name, debounceSearch]);
 
   useEffect(() => {
     fetchWatchlistAssets();
-  }, [selectedWatchlist]);
+  }, [watchlistState.selected]);
 
+  // Close popups when clicking outside
+  const handleClickOutside = useCallback((event) => {
+    // Handle rename popup
+    if (uiState.renamePopup &&
+      renamePopupRef.current &&
+      !renamePopupRef.current.contains(event.target)) {
+      setUiState(prev => ({ ...prev, renamePopup: false }));
+    }
+
+    // Handle delete stock popup
+    if (uiState.deletePopup &&
+      deletePopupRef.current &&
+      !deletePopupRef.current.contains(event.target)) {
+      setUiState(prev => ({ ...prev, deletePopup: false }));
+    }
+
+    // Handle delete watchlist popup
+    if (uiState.deleteWatchlistPopup &&
+      deleteWatchlistPopupRef.current &&
+      !deleteWatchlistPopupRef.current.contains(event.target)) {
+      setUiState(prev => ({ ...prev, deleteWatchlistPopup: false }));
+    }
+
+    // Handle dropdown menus
+    if (uiState.activeDropdown !== null) {
+      const activeDropdownElement = dropdownRefs.current[uiState.activeDropdown];
+      if (activeDropdownElement && !activeDropdownElement.contains(event.target)) {
+        setUiState(prev => ({ ...prev, activeDropdown: null }));
+      }
+    }
+  }, [uiState.renamePopup, uiState.deletePopup, uiState.deleteWatchlistPopup, uiState.activeDropdown]);
+
+  useEffect(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [handleClickOutside]);
+
+  // UI Components
+  const RenamePopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-container" ref={renamePopupRef}>
+        <h3>Rename Watchlist</h3>
+        <input
+          type="text"
+          value={uiState.newWatchlistName}
+          onChange={(e) => setUiState(prev => ({ ...prev, newWatchlistName: e.target.value }))}
+        />
+        <div className="watchlistpopup-btn">
+          <button className="popup-btnconfirm" onClick={handleRenameConfirm}>Save</button>
+          <button onClick={() => setUiState(prev => ({ ...prev, renamePopup: false }))}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const DeleteStockPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-container" ref={deletePopupRef}>
+        <h3>Confirm Deletion</h3>
+        <p>Are you sure you want to delete this stock?</p>
+        <div className="watchlistpopup-btn">
+          <button className="popup-btnconfirm" onClick={confirmDeleteStock}>Confirm</button>
+          <button onClick={() => setUiState(prev => ({ ...prev, deletePopup: false }))}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const DeleteWatchlistPopup = () => (
+    <div className="popup-overlay">
+      <div className="popup-container" ref={deleteWatchlistPopupRef}>
+        <h3>Confirm Watchlist Deletion</h3>
+        <p>Are you sure you want to delete this watchlist? This action cannot be undone.</p>
+        <div className="watchlistpopup-btn">
+          <button className="popup-btnconfirm" onClick={handleDeleteWatchlist}>Confirm</button>
+          <button onClick={() => setUiState(prev => ({ ...prev, deleteWatchlistPopup: false }))}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div>
       <Navbar />
       <h2 className="newwmutual">Stock Watchlist</h2>
+
+      {/* Navigation tabs */}
       <div className="networth-tabs">
         <Link to="/stockwatchlist">
           <button
@@ -276,17 +517,18 @@ const StockWatchlist = () => {
           </button>
         </Link>
       </div>
+
       <div>
         <div className="stock-watchlist">
           {/* Watchlist Section */}
           <div className="watchlist-management">
-            {watchlists.map((watchlist, index) => (
-              <div className="watchlist-item" key={index}>
+            {watchlistState.list.map((watchlist, index) => (
+              <div className="watchlist-item" key={watchlist.watchlist_id}>
                 <input
                   type="radio"
                   name="watchlist"
-                  checked={selectedWatchlist === watchlist.watchlist_id}
-                  onChange={() => setSelectedWatchlist(watchlist.watchlist_id)}
+                  checked={watchlistState.selected === watchlist.watchlist_id}
+                  onChange={() => selectWatchlist(watchlist.watchlist_id)}
                   style={{
                     width: "14px",
                     height: "14px",
@@ -300,21 +542,25 @@ const StockWatchlist = () => {
                 >
                   ⋮
                 </button>
-                {activeDropdown === index && (
-                  <div className="menu-dropdownwatchlist">
+                {uiState.activeDropdown === index && (
+                  <div className="menu-dropdownwatchlist"
+                  ref={el => {
+                    // Dynamically add refs to the dropdown elements
+                    dropdownRefs.current[index] = el;
+                  }}
+                  >
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => handleRenameWatchlist(watchlists[index].watchlist_id)}
+                      onClick={() => handleRenameWatchlist(watchlist.watchlist_id)}
                     >
                       Rename
                     </button>
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => setDeleteWatchlistPopup(true)}
+                      onClick={() => setUiState(prev => ({ ...prev, deleteWatchlistPopup: true }))}
                     >
                       Delete
                     </button>
-
                   </div>
                 )}
               </div>
@@ -326,9 +572,11 @@ const StockWatchlist = () => {
               + Create Watchlist
             </button>
           </div>
+
           <h2 style={{ marginLeft: "20px", fontSize: "19px" }}>
             Add Watchlist
           </h2>
+
           {/* Input Section */}
           <div className="watchlist-header">
             <div className="scheme-exchange-cell">
@@ -338,30 +586,26 @@ const StockWatchlist = () => {
                   id="stockName"
                   type="text"
                   placeholder="Enter stock name..."
-                  value={stockName}
+                  value={stockInput.name}
                   onChange={handleStockNameChange}
                 />
 
-                {/* display input results  */}
-                <div>
-                {/* display input results */}
-{stockName && (
-  <div className={`search-resultswatchlistsector ${filterData.length > 0 ? "active" : ""}`}>
-    {filterData.length > 0 ? (
-      <ul>
-        {filterData.map((data) => (
-          <li key={data.id} onClick={() => handleSelectStock(data)}>
-            {data.company}
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p style={{ padding: "8px" }}>No result found</p>
-    )}
-  </div>
-)}
-
-                </div>
+                {/* Search results */}
+                {stockInput.name && (
+                  <div className={`search-resultswatchlistsector ${stockInput.filterResults.length > 0 ? "active" : ""}`}>
+                    {stockInput.filterResults.length > 0 ? (
+                      <ul>
+                        {stockInput.filterResults.map((data) => (
+                          <li key={data.id} onClick={() => handleSelectStock(data)}>
+                            {data.company}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p style={{ padding: "8px" }}>No result found</p>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="input-groupwatchlist">
@@ -375,7 +619,7 @@ const StockWatchlist = () => {
                     backgroundColor: "#f9f9f9",
                     border: "1px solid #ccc",
                     width: "50px",
-                  }} // Optional styling for non-editable input
+                  }}
                 />
               </div>
             </div>
@@ -385,11 +629,11 @@ const StockWatchlist = () => {
             </button>
           </div>
         </div>
-        {/* Content Container */}
 
+        {/* Content Container */}
         <div className="content-containerwatchlist">
+          {/* Top filters section */}
           <div className="top-sectionswatchlistsectorr">
-            {/* Filters Section */}
             <div className="filters-sectionwatchlist">
               <span className="filter-labelwatchlist">FILTER:</span>
               <button className="filter-buttonwatchlist">All</button>
@@ -397,7 +641,6 @@ const StockWatchlist = () => {
               <button className="filter-buttonwatchlist">Losers</button>
             </div>
 
-            {/* Group By Section */}
             <div className="group-by-sectionwatchlist">
               <label style={{ marginRight: "8px" }}>Group By:</label>
               <input
@@ -456,12 +699,12 @@ const StockWatchlist = () => {
                 </tr>
               </thead>
               <tbody>
-                {stockDetails.length === 0 ? (
+                {watchlistState.stockDetails.length === 0 ? (
                   <tr>
                     <td colSpan="8">No data found</td>
                   </tr>
                 ) : (
-                  stockDetails.map((stock, index) => (
+                  watchlistState.stockDetails.map((stock, index) => (
                     <tr key={index}>
                       <td>{stock.asset_symbol}</td>
                       <td>{stock.livePrice}</td>
@@ -475,7 +718,7 @@ const StockWatchlist = () => {
                       <td>
                         <button
                           className="delete-btnwatchlist"
-                          onClick={() => handleDeleteStock(index, stock.asset_symbol)}
+                          onClick={() => handleDeleteStock(index)}
                         >
                           <i className="fa fa-trash"></i>
                         </button>
@@ -487,53 +730,14 @@ const StockWatchlist = () => {
             </table>
           </div>
         </div>
-        {renamePopup && (
-        <div className="popup-overlay">
-          <div className="popup-container">
-            <h3>Rename Watchlist</h3>
-            <input
-              type="text"
-              value={newWatchlistName}
-              onChange={(e) => setNewWatchlistName(e.target.value)}
-            />
-            <div className="watchlistpopup-btn">
-              <button  className="popup-btnconfirm"onClick={handleRenameConfirm}>Save</button>
-              <button onClick={() => setRenamePopup(false)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
 
+        {/* Popups */}
+        {uiState.renamePopup && <RenamePopup />}
+        {uiState.deletePopup && <DeleteStockPopup />}
+        {uiState.deleteWatchlistPopup && <DeleteWatchlistPopup />}
 
-{deletePopup && (
-        <div className="popup-overlaywatchlist">
-          <div className="popup-containerwatchlist">
-            <h3>Confirm Deletion</h3>
-            <p>Are you sure you want to delete this stock?</p>
-            <div className="watchlistpopup-btn">
-              <button className="popup-btnconfirm" onClick={confirmDeleteStock}>Confirm</button>
-              <button onClick={() => setDeletePopup(false)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
-
-{deleteWatchlistPopup && (
-        <div className="popup-overlay">
-          <div className="popup-container">
-            <h3>Confirm Watchlist Deletion</h3>
-            <p>Are you sure you want to delete this watchlist? This action cannot be undone.</p>
-            <div className="watchlistpopup-btn">
-            <button className="popup-btnconfirm" onClick={() => handleDeleteWatchlist()}>Confirm</button>
-
-              <button onClick={() => setDeleteWatchlistPopup(false)}>Cancel</button>
-            </div>
-          </div>
-        </div>
-      )}
-        <FooterForAllPage/>
+        <FooterForAllPage />
       </div>
-  
     </div>
   );
 };

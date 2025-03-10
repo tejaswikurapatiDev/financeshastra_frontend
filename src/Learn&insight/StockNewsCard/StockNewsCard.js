@@ -3,6 +3,7 @@ import './StockNewsCard.css';
 import newsImage from '../../assest/img1.JPG'; // Adjust the path based on your folder structure
 import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import Navbar from '../../Navbar/Navbar';
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 
 
 
@@ -50,6 +51,7 @@ const StockNewsCard = () => {
   
   
   return (
+    <div>
     <div className="stocknewsss">
         <h2 className='stocknewsssheadone'>Stock News</h2>
      
@@ -96,6 +98,8 @@ const StockNewsCard = () => {
        its marketing partners in the near future.
       </p>
       <Navbar/>
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 };

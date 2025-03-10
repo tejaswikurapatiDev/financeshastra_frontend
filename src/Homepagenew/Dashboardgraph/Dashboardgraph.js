@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserProfileContext } from '../../Portfoilo/context/UserProfileContext';
 import { useNavigate } from 'react-router-dom';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
@@ -12,11 +13,11 @@ import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
 import { API_BASE_URL } from '../../config';
 import Cookies from "js-cookie";
-import { UserProfileProvider } from '../../Portfoilo/context/UserProfileContext';
 
 
 
-const Dashboardchartmain = () => {
+
+const Dashboardchartmain = ({ children }) => {
   const [timeRange, setTimeRange] = useState('1D');
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
@@ -28,54 +29,57 @@ const Dashboardchartmain = () => {
   const [myInvestment, setMyInvestment] = useState(0);
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
+  const [activeTab, setActiveTab] = useState("Stock Sector");
+
+  const { user } = useContext(UserProfileContext)
 
   const navigate = useNavigate();
 
   const fetchData = async () => {
-    try {
-      setLoading(true);
-      const token = Cookies.get("jwtToken");
-      if (!token) {
-        alert("Session expired, Please login again.");
+      try {
+        setLoading(true);
+        const token = Cookies.get("jwtToken");
+        if (!token) {
+          alert("Session expired, Please login again.");
+          setLoading(false);
+          navigate("/login")
+          return;
+        }
+  
+        const response = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+  
+        const data = await response.json();
+        console.log("API Data:", data);
+  
+        if (data.length > 0) {
+          setMyInvestment(data[0].total_investment || 0);
+          setLatestValue(data[0].latest_value || 0);
+          const change = ((data[0].latest_value - data[0].total_investment)/data[0].total_investment)*100 || 0
+          setPercentChange(change)
+        } else {
+          setError("No portfolio data found.");
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
         setLoading(false);
-        navigate("/login")
-        return;
       }
-
-      const response = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
-
-      const data = await response.json();
-      console.log("API Data:", data);
-
-      if (data.length > 0) {
-        setMyInvestment(data[0].total_investment || 0);
-        setLatestValue(data[0].latest_value || 0);
-        const change = ((data[0].latest_value - data[0].total_investment) / data[0].total_investment) * 100 || 0
-        setPercentChange(change)
-      } else {
-        setError("No portfolio data found.");
-      }
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Fetch data when the component mounts
-  useEffect(() => {
-    fetchData();
-  }, []);
+    };
+  
+    // Fetch data when the component mounts
+    useEffect(() => {
+      fetchData();
+    }, []);
 
   // Simulate financial data updates every 5 seconds
   useEffect(() => {
@@ -154,57 +158,58 @@ const Dashboardchartmain = () => {
   return (
     <div className='allheadd'>
       <div className='hompagetopdata'>
-        <div>
-          <h1 className='headernifty50000'>Welcome back, William</h1>
-          <p className='headerdashboardmain'>Track your finance and achieve your financial goals.</p>
-        </div>
-        <div className="homepagenewdata-card">
-          <div className='homepageamountdata'>
-            <div className="homepagenewdata-title">Total Investment<br />
-
-              <div className='homepagenewdata-amount' >{(myInvestment - 0).toLocaleString()}</div>
+   <div>
+      <h1 className='headernifty50000'>Welcome back, William</h1>
+       <p className='headerdashboardmain'>Track your finance and achieve your financial goals.</p>
+       </div>
+       <div className="homepagenewdata-card">
+       <div className='homepageamountdata'>
+            <div className="homepagenewdata-title">Total Investment<br/>
+          
+            <div className='homepagenewdata-amount' >{(myInvestment - 0).toLocaleString()}</div>
             </div>
             <div
-              className={`homepagenewdata-change ${isPositiveChange
-                  ? "homepagenewdata-positive"
-                  : "homepagenewdata-negative"
+                className={`homepagenewdata-change ${
+                    isPositiveChange
+                        ? "homepagenewdata-positive"
+                        : "homepagenewdata-negative"
                 }`}
             >
-              {isPositiveChange ? "▲" : "▼"} {percentChange}
+                {isPositiveChange ? "▲" : "▼"} {percentChange}
             </div>
-          </div>
+            </div>
         </div>
-      </div>
+        </div>
 
       <div className="dataquatallnifty">
-
+      
         <div className="portfoliomutual-containerrniftydashboard">
-
+         
           <div className="portfoliomutual-card">
             <div className='itidata'>
-              <div className='alldatagraphtop'>
-                <div>
-                  <h3 className="portfoliomutual-titleport">Portfolio Value</h3>
-                  <p className="portfoliomutual-value">₹4,05,924.60</p>
-                  <p className="portfoliomutual-profit">
-                    Your profit is <span>₹8,42,685.42</span>
-                  </p>
-                </div>
-                <div>
-                  <h3 className="portfoliomutual-titleport">Avg. Monthly Grow</h3>
-                  <p className="portfoliomutual-value">~4.32%</p>
-                  <p className="portfoliomutual-profitt">
-                    ~₹20,365.75
-                  </p>
-                </div>
-              </div>
-              <div className='bestprofitdata'>
-                <h3 className="portfoliomutual-titleport">Best Profit Stock</h3>
-                <h3 className="portfoliomutual-valuee">
-                  <img src={itiimg} alt="ITI Ltd." className="portfolio-logo" /> ITI Ltd.
-                </h3>
-              </div>
-            </div>
+            <div className='alldatagraphtop'>
+          <div>
+                        <h3 className="portfoliomutual-titleport">Portfolio Value</h3>
+                        <p className="portfoliomutual-value">₹4,05,924.60</p>
+                        <p className="portfoliomutual-profit">
+                            Your profit is <span>₹8,42,685.42</span>
+                        </p>
+                    </div>
+                    <div>
+                        <h3 className="portfoliomutual-titleport">Avg. Monthly Grow</h3>
+                        <p className="portfoliomutual-value">~4.32%</p>
+                        <p className="portfoliomutual-profitt">
+                        ~₹20,365.75
+                        </p>
+                    </div>
+                    </div>
+                    <div className='bestprofitdata'>
+                        <h3 className="portfoliomutual-titleport">Best Profit Stock</h3>
+                        <h3 className="portfoliomutual-valuee">
+    <img src={itiimg} alt="ITI Ltd." className="portfolio-logo" /> ITI Ltd.
+</h3>
+</div>
+                    </div>
             {/* Time Range Selector */}
             <div className="time-rangemutual-selectorrniftydashboard">
               {['1D', '5D', '1M', '6M', '1Y', '3Y', '5Y', 'Max'].map((range) => (
@@ -218,7 +223,7 @@ const Dashboardchartmain = () => {
                 </button>
               ))}
             </div>
-
+           
             {/* Line Chart */}
             <div className="chartmutual-containerrdashboard">
               <Line data={chartData} options={chartOptions} />
@@ -226,20 +231,20 @@ const Dashboardchartmain = () => {
           </div>
         </div>
         <div className="datadisstockdashhh">
-          <Sidebar />
-          <div className="main-content">
-            <UserProfileProvider>
-              <Navbar />
-            </UserProfileProvider>
-            <Watchlistdashboardmain />
-          </div>
-        </div>
+  <Sidebar/>
+  <div className="main-content">
+    <Navbar />
+    <Watchlistdashboardmain />
+  </div>
+</div>
 
       </div>
-      <DashboardMainPagetable />
+      <DashboardMainPagetable/>
       <div className="foooterpagesatt">
     <FooterForAllPage/>
   </div>
+    </div>
+   
     </div>
   );
 };

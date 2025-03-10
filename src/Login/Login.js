@@ -8,7 +8,7 @@ import logoimg from "../assest/finanlogo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@mui/material";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import logo from "./../assest/Logo design (1).png";
 import { GoogleLogin } from "@react-oauth/google";
 import Cookies from "js-cookie";
@@ -16,7 +16,7 @@ import Cookies from "js-cookie";
 import "./Login.css";
 import { height } from "@mui/system";
 import { API_BASE_URL } from "../config";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 const override = {
   display: "block",
   textAlign: "center",
@@ -81,7 +81,8 @@ function Login() {
     setIsLoading(true);
 
     try {
-      const url = `${API_BASE_URL}/users/signin`;
+      const url= "http://localhost:3000/users/signin"
+      //const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -95,14 +96,9 @@ function Login() {
         throw new Error(data.message || "Login Failed");
       }
 
-      const { jwtToken, deviceId } = data;
+      const { jwtToken } = data;
 
       Cookies.set("jwtToken", jwtToken, {
-        expires: 7,
-        sameSite: "Strict",
-      });
-
-      Cookies.set("deviceId", deviceId, {
         expires: 7,
         sameSite: "Strict",
       });
@@ -208,22 +204,20 @@ function Login() {
     console.log("Google Login Failed: ", error);
     alert("Google Sign-In failed. Please try again.");
   };
-
-  return (
-    <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
-      <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
-        <img
-          src={logoimg}
-          className={darkMode ? "logoforgtdarkmode" : "logoforgt"}
-        />
-      </div>
-      <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
-        <div className={darkMode ? "login-boxdarkmode" : "login-box"}>
-          <h2 className={darkMode ? "h2loginpagedarkmode" : "h2loginpage"}>
-            {isForgotPassword
-              ? "Enter your registered email to reset password."
-              : "Log In"}
-          </h2>
+ 
+  
+return (
+  <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
+    <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
+      <img src={logoimg} className={darkMode ? "logoforgtdarkmode" : "logoforgt"} />
+    </div>
+    <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
+      <div className={darkMode ? "login-boxdarkmode" : "login-box"}>
+        <h2 className={darkMode ? "h2loginpagedarkmode" : "h2loginpage"}>
+          {isForgotPassword
+            ? "Enter your registered email to reset password."
+            : "Log In"}
+        </h2>
 
           {isForgotPassword ? (
             isResetPasswordStep ? (
@@ -355,43 +349,29 @@ function Login() {
                 )}
               </div>
 
-              <div
-                className={
-                  darkMode ? "input-containerdarkmode" : "input-container"
-                }
-              >
-                <label>Password*</label>
-                <div className="password-field">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={
-                      darkMode
-                        ? passwordError
-                          ? "input-errordarkmode"
-                          : ""
-                        : passwordError
-                        ? "input-error"
-                        : ""
-                    }
-                  />
-                  <span
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                  ></span>
-                </div>
-                {passwordError && (
-                  <span
-                    className={
-                      darkMode ? "error-textdarkmode" : "error-textlogin"
-                    }
-                  >
-                    {passwordError}
-                  </span>
-                )}
+            <div className={darkMode ? "input-containerdarkmode" : "input-container"}>
+              <label>Password*</label>
+              <div className="password-field">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={darkMode
+                    ? passwordError ? "input-errordarkmode" : ""
+                    : passwordError ? "input-error" : ""}
+                />
+                <span
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                ></span>
               </div>
+              {passwordError && (
+                <span className={darkMode ? "error-textdarkmode" : "error-textlogin"}>
+                  {passwordError}
+                </span>
+              )}
+            </div>
 
               <div className="login-options">
                 <div className="checksigninall">
@@ -453,40 +433,28 @@ function Login() {
             </form>
           )}
 
-          <div className={darkMode ? "login-or-darkmode" : "login-or"}>
-            Or Sign Up With
-          </div>
-          <div className="social-login">
-            <GoogleLogin
-              variant="contained"
-              className="google-btn"
-              onSuccess={handleSuccess}
-              onError={handleFailure}
-              text="Sign in with Google"
-              width="150"
-              theme={`${darkMode ? "filled_blue" : "outline"}`}
-            />
-            <br />
-          </div>
-          <div className="registerContgl">
-            <p className="registerContglp">
-              By clicking “Continue with Google/LinkedIn” or “Create Account”,
-              you agree to Website’s
-              <a href="#" className="registerContglblue-text">
-                {" "}
-                Terms & Conditions
-              </a>
-              <a href="#" className="registerContglblack-text">
-                {" "}
-                and
-              </a>
-              <a href="#" className="registerContglblue-text">
-                {" "}
-                Privacy Policy
-              </a>
-              .
-            </p>
-          </div>
+        <div className={darkMode ? "login-or-darkmode" : "login-or"}>Or Sign Up With</div>
+        <div className="social-login">
+          <GoogleLogin
+            variant="contained"
+            className="google-btn"
+            onSuccess={handleSuccess}
+            onError={handleFailure}
+            text="Sign in with Google"
+            width="150"
+            theme={`${darkMode ?  "filled_blue" : "outline"}`}
+          />
+          <br />
+        </div>
+        <div className="registerContgl">
+          <p className="registerContglp">
+            By clicking “Continue with Google/LinkedIn” or “Create Account”,
+            you agree to Website’s
+            <a href="#" className="registerContglblue-text"> Terms & Conditions</a>
+            <a href="#" className="registerContglblack-text"> and</a>
+            <a href="#" className="registerContglblue-text"> Privacy Policy</a>.
+          </p>
+        </div>
 
           <div className="register-link">
             <p className="register-linkp">

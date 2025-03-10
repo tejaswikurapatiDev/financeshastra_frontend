@@ -13,7 +13,6 @@ import linkedinimg from "../assest/lin.png";
 import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
 import Cookies from "js-cookie";
-import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 
 const override = {
   display: "block",
@@ -153,7 +152,7 @@ function Register() {
   return (
     <div className="login-container">
       <div className="login-left">
-        <img src={logoimg} className="logoforgt" />
+        <img src={logoimg} onClick={() => navigate("/")} className="logoforgt" />
       </div>
       <div className="login-right">
         <div className="login-box">
@@ -199,10 +198,7 @@ function Register() {
                 <span
                   className="toggle-password"
                   onClick={() => setShowPassword(!showPassword)}
-                  style={{ cursor: "pointer", position: "absolute", right: "35px", top: "55%", transform: "translateY(-50%)" }}
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </span>
+                ></span>
               </div>
               {passwordError && (
                 <span className="error-text">{passwordError}</span>
@@ -237,7 +233,7 @@ function Register() {
             <p className="registerContglp">
               By clicking “Continue with Google/LinkedIn” or “Create Account”,
               you agree to Website’s
-              <a href="#" className="registerContglblue-text">
+              <a href="termsAndConditions" className="registerContglblue-text">
                 {" "}
                 Terms & Conditions
               </a>

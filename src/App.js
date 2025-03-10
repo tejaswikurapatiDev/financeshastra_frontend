@@ -269,6 +269,7 @@ import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongol
  
 import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
 import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
+import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 
 function App() {
   return (  
@@ -351,7 +352,14 @@ function App() {
             />
             <Route path="/stocksector" element={<PortfolioStocksector />} />
             <Route path="/stockmcap" element={<PortfolioStockmcap />} />
-            <Route path="/stockadd" element={<AddTransactionstock />} />
+            <Route 
+              path="/stockadd" 
+              element={
+                <PortfolioStockProvider>
+                  <AddTransactionstock />
+                </PortfolioStockProvider>
+              } 
+            />
             <Route path="/stockupdate" element={<UpdateTransaction />} />
             <Route path="/stockdelete" element={<Deletepopupstock />} />
             <Route path="/mutualsector" element={<Mutualsector />} />
@@ -640,7 +648,8 @@ function App() {
       <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
       <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
       <Route path="/contactUsnew" element={<ContactUsnew/>}/>
-      <Route path="/contactCards" element={<ContactCards/>}/>
+      <Route path="/contactCards" element={<ContactCards/>}/> 
+      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
       
 
 
