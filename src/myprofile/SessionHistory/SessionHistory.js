@@ -38,7 +38,14 @@ const SessionHistory = () => {
   };
 
   useEffect(() => {
-    getLogeinDevices();
+    const token = Cookies.get("jwtToken");
+    const deviceId = Cookies.get("deviceId");
+
+    if (!token || !deviceId) {
+      handleLogout();
+    } else {
+      getLogeinDevices();
+    }
   }, []);
 
   console.log(devices);
@@ -46,6 +53,15 @@ const SessionHistory = () => {
   //api call for end session
   const endDeviceSession = async (device_id) => {
     try {
+      //getting token form cookies
+      const token = Cookies.get("jwtToken");
+
+      if (!token) {
+        alert("Session expired. Please log in again.");
+        navigate("/login");
+        return;
+      }
+
       const response = await fetch(`${API_BASE_URL}/users/end-session`, {
         method: "POST",
         headers: {
@@ -61,26 +77,35 @@ const SessionHistory = () => {
 
       const data = await response.json();
 
-      // console.log(data);
       if (data?.success) {
         alert(data?.message);
-        navigate("/login");
+
+        //getting current device
+        const currentDeviceId = Cookies.get("deviceId");
+
+        if (device_id === currentDeviceId) {
+          Cookies.remove("jwtToken");
+          navigate("/login");
+        } else {
+          setDevices((prevDevices) =>
+            prevDevices.map((device) =>
+              device.device_id === device_id
+                ? { ...device, is_active: false, logout_time: data.logoutTime }
+                : device
+            )
+          );
+        }
       }
-      // update the state after ending device
-      setDevices((prevDevices) =>
-        prevDevices.map((device) =>
-          device.device_id === device_id
-            ? {
-                ...device,
-                is_active: false,
-                logout_time: new Date().toISOString(),
-              }
-            : device
-        )
-      );
     } catch (error) {
       console.error("Error ending session:", error);
     }
+  };
+
+  // Logout function
+  const handleLogout = () => {
+    Cookies.remove("jwtToken");
+    Cookies.remove("deviceId");
+    navigate("/login");
   };
 
   const formatDate = (isoString) => {
@@ -164,7 +189,7 @@ const SessionHistory = () => {
       </p>
       <div className="sessions-list">
         {devices &&
-          devices.slice(0, 3).map((session) => (
+          devices.map((session) => (
             <div key={session.device_id} className="session-card">
               <div className="session-details">
                 <img
@@ -194,12 +219,13 @@ const SessionHistory = () => {
                 </p>
 
                 <button
-                  className="end-session-button"
-                  onClick={() => {
-                    endDeviceSession(session.device_id);
-                  }}
+                  className={`end-session-button ${
+                    !session.is_active ? "disabled-button" : ""
+                  }`}
+                  onClick={() => endDeviceSession(session.device_id)}
+                  disabled={!session.is_active}
                 >
-                  {session.is_active ? "End session" : "Session is Expire"}
+                  {session.is_active ? "End session" : "Session Expired"}
                 </button>
               </div>
             </div>

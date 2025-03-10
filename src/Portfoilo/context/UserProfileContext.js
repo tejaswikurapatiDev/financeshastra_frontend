@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 import { API_BASE_URL } from "../../config";
-import Cookies from 'js-cookie'
 
 export const UserProfileContext = createContext();
 

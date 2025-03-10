@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
@@ -6,14 +6,13 @@ import logoimg from "../assest/finanlogo.svg";
 import { Button } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
-
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import googleimg from "../assest/googleicon.svg";
 import linkedinimg from "../assest/lin.png";
 import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
 import Cookies from "js-cookie";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; 
 
 const override = {
   display: "block",
@@ -31,6 +30,8 @@ function Register() {
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+
+  const {darkMode} = useContext(DarkModeContext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -195,18 +196,9 @@ function Register() {
                 />
 
                 <span
-                     className="toggle-password"
-                     onClick={() => setShowPassword(!showPassword)}
-                     style={{
-                       cursor: "pointer",
-                       position: "absolute",
-                       right: "28px",
-                       top: "50%",
-                       transform: "translateY(-50%)",
-                     }}
-                   >
-                     {showPassword ? <FaEye size={20}/> : <FaEyeSlash size={20} />}
-                   </span>
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                ></span>
               </div>
               {passwordError && (
                 <span className="error-text">{passwordError}</span>
@@ -225,7 +217,7 @@ function Register() {
             />
           </form>
           <div className="login-or">Or Login With</div>
-          <div className="sociall-login">
+          <div className="social-login">
             <GoogleLogin
               variant="contained"
               className="google-btn"
@@ -233,27 +225,9 @@ function Register() {
               onError={handleFailure}
               text="Sign in with Google"
               width="150"
-              theme="outline"
+              theme={`${darkMode ? "filled_blue" : "outline"}`}
             />
-
             <br />
-
-            <Button
-              variant="contained"
-              className="linkedin-btn"
-              startIcon={
-                <img
-                  src={linkedinimg}
-                  alt="LinkedIn Icon"
-                  className="btn-icon-small"
-                />
-              }
-              component="a"
-              href="https://www.linkedin.com/feed/"
-              sx={{ fontSize: "14px" }} // Decrease font size
-            >
-              Sign in with LinkedIn
-            </Button>
           </div>
           <div className="registerContgl">
             <p className="registerContglp">

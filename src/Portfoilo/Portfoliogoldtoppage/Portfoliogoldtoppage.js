@@ -2,7 +2,6 @@ import React from "react";
 import "./Portfoliogoldtoppage.css"; // Import the external CSS file
 import { Link } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
-
 const Portfoliogoldtop = () => {
   return (
      <div className="networth-stocks-dashboard">
@@ -66,7 +65,6 @@ const Portfoliogoldtop = () => {
     </div>
     </div>
     <Navbar/>
-  
     </div>
   
   );
