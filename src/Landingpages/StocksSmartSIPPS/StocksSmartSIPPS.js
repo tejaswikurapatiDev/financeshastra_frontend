@@ -11,12 +11,6 @@ import React, {
 
 
 function StocksSmartSIPPS() {
-<<<<<<< HEAD
-=======
-   const navigate = useNavigate();
-    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-   
->>>>>>> 45d4f8f5702efbdec2bd4868c896e80d1df4b98c
   return (
     <div className={darkMode ? "smartsip-darkcontainer" : "smartsip-container"}>
       <h1 className={darkMode ? "smartsip-darktitle" :"smartsip-title"}>Stocks SmartSIP</h1>

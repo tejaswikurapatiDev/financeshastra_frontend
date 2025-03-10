@@ -269,7 +269,7 @@ import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongol
  
 import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
 import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
-import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
+
 
 function App() {
   return (  
