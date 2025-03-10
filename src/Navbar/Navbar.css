@@ -2,6 +2,10 @@
 .portfolio-dropdown {
   position: relative; /* Makes the dropdown position relative to this element */
 }
+.butn{
+  background-color: transparent;
+  border: none;
+}
 a span {
   text-decoration: none; /* This will remove the underline from the span inside the link */
 }
