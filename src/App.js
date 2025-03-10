@@ -120,7 +120,7 @@ import Stockindexall from "./Homepagenew/Stockindexallpage/Stockindexallpage";
 import Calenderchartmain from "./Homepagenew/Stockcalendergraph/Stockcalendergraph";
 import Homestockanalyst from "./Homepagenew/Homestockanalyst/Homestockanalyst";
 import Stockanalystall from "./Homepagenew/Homeanalystall/Homeanalystall";
-import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
+
 import BestStockIncomeStatement from "./Beststockspages/BestStockIncomeStatement/BestStockIncomeStatement";
 import Highstockvaluation from "./Highgrowthpages/Highstockvaluation/Highstockvaluation";
 import HighStockIncomeStatement from "./Highgrowthpages/highgrowthStockIncomeStatement/highgrowthStockIncomeStatement";
@@ -272,6 +272,7 @@ import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
 import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
+import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
 
 function App() {
   return (  

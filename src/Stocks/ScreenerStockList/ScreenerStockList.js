@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect, useRef } from "react";
 import { screenerStockListData } from "../screenerStockListData";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 
@@ -39,6 +39,7 @@ const ScreenerStockList = () => {
        index: false,
        sector: false,
      });
+    
 const toggleDropdown = (key) => {
   setDropdowns((prev) => {
     // Create a new object where all dropdowns are closed except the one being toggled
@@ -49,7 +50,7 @@ const toggleDropdown = (key) => {
     return updatedDropdowns;
   });
 };
-
+// Close dropdown when clicking outside
 
   const [filteredData, setFilteredData] = useState(screenerStockListData); 
 
@@ -1015,7 +1016,7 @@ const perfOptions = [
       <h1 className="screener-header">Stocks Screener</h1>
       <div className="screener-filters">
         {/* Filter for each parameter */}
-        <div  className ="indexscreenerbuttonstockcontainar"style={{ position: "relative" }}>
+        <div className="indexscreenerbuttonstockcontainar" style={{ position: "relative" }} >
   {/* Dropdown Button */}
   <button className="indexscreenerbuttonstock"
     onClick={() => toggleDropdown('index')}
