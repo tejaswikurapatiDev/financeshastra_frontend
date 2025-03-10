@@ -81,8 +81,8 @@ function Login() {
     setIsLoading(true);
 
     try {
-      const url= "http://localhost:3000/users/signin"
-      //const url = `${API_BASE_URL}/users/signin`;
+      //const url= "http://localhost:3000/users/signin"
+      const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -103,7 +103,7 @@ function Login() {
           expires: 7,
           sameSite: "Strict",
         });
-        Cookies.set('email')
+        Cookies.set('email', email)
         localStorage.setItem("token", jwtToken)
         localStorage.setItem("user", JSON.stringify({email, password}))
     
