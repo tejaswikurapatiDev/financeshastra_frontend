@@ -38,7 +38,6 @@ const SettingsDashboard = () => {
  const saveChanges = () => {
    setNotifications(tempNotifications); // Save changes to the main state
    alert("Changes saved successfully!");
-   
 
  };
 
