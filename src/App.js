@@ -190,7 +190,7 @@ import HouseGoalPlanner from "./Goalplannerpages/HouseGoalPlanner/HouseGoalPlann
  
  
 import Accountsipallpage from "./Account/Accountsipallpage";
-import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
+
  
  
 import Landingnavbar from "./Landingpages/Landingnavbar/Landingnavbar";
@@ -269,7 +269,9 @@ import AddTransactiongold from "./Portfoilo/Addtransactiongold/Addtransactiongol
  
 import ContactUsnew from "./Contactusssnewlall/ContactUsnew/ContactUsnew";
 import ContactCards from "./Contactusssnewlall/ContactCards/ContactCards";
-
+import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
+import DashboardLayout from "./DashboardLayout/DashboardLayout";
+import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 
 function App() {
   return (  
@@ -543,7 +545,7 @@ function App() {
             <Route path="/revCagrallpages" element={<RevCagrallpages />} />
             <Route path="/fundTable" element={<FundTable />} />
             <Route path="/elssTable" element={<ElssTable />} />
-            <Route path="*" element={<Errorpage />} />
+            <Route path="/errorpage" element={<Errorpage />} />
             <Route path="/overviewPortfolioManager" element={< OverviewPortfolioManagergold />} />
             <Route path="/stocksThemes" element={< StocksThemes />} />
             <Route path="/cargoalPlanner" element={< CargoalPlanner />} />
@@ -650,7 +652,9 @@ function App() {
       <Route path="/contactUsnew" element={<ContactUsnew/>}/>
       <Route path="/contactCards" element={<ContactCards/>}/> 
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
-      
+      <Route path="/dashboardall" element={< Dashboardall/>}/>
+     
+    
 
 
 

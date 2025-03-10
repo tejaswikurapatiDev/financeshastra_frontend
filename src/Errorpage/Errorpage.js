@@ -24,6 +24,7 @@ const Errorpage = () => {
               Go to homepage
             </button>
           </div>
+          <Navbar/>
         </div>
         <div className="foooterpagesatt">
         <FooterForAllPage />
