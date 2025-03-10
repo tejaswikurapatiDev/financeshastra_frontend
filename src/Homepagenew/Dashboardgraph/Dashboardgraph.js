@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { UserProfileContext } from '../../Portfoilo/context/UserProfileContext';
-import { useNavigate } from 'react-router-dom';
-import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
-import itiimg from '../../../src/assest/iti.png';
-import './Dashboardgraph.css'
-import Sidebar from '../../Sidebar/Sidebar'
-import Navbar from '../../Navbar/Navbar';
-import Watchlistdashboardmain from '../Watchlistdashboardmain/Watchlistdashboardmain';
-import DashboardMainPagetable from '../DashboardMainPagetable/DashboardMainPagetable';
-import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
-import FooterForhomeAllPage from '../../Footerhomeeepage/Footerhomeeepage';
-import { API_BASE_URL } from '../../config';
+import React, { useState, useEffect, useContext } from "react";
+import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
+import { useNavigate } from "react-router-dom";
+import { Line } from "react-chartjs-2";
+import "chart.js/auto";
+import itiimg from "../../../src/assest/iti.png";
+import "./Dashboardgraph.css";
+import Sidebar from "../../Sidebar/Sidebar";
+import Navbar from "../../Navbar/Navbar";
+import Watchlistdashboardmain from "../Watchlistdashboardmain/Watchlistdashboardmain";
+import DashboardMainPagetable from "../DashboardMainPagetable/DashboardMainPagetable";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import FooterForhomeAllPage from "../../Footerhomeeepage/Footerhomeeepage";
+import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
 import Dashboardstockindex from '../Stockindex/Stockindex';
 import Stockcalender from '../Stockcalender/Stockcalender';
@@ -21,7 +21,7 @@ import Homestockanalyst from '../Homestockanalyst/Homestockanalyst';
 
 
 const Dashboardchartmain = ({ children }) => {
-  const [timeRange, setTimeRange] = useState('1D');
+  const [timeRange, setTimeRange] = useState("1D");
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
     percentage: "+0.85%",
@@ -34,7 +34,7 @@ const Dashboardchartmain = ({ children }) => {
   const [percentChange, setPercentChange] = useState(0);
   const [activeTab, setActiveTab] = useState("Stock Sector");
 
-  const { user } = useContext(UserProfileContext)
+  const { user } = useContext(UserProfileContext);
 
   const navigate = useNavigate();
 
@@ -55,34 +55,38 @@ const Dashboardchartmain = ({ children }) => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-        });
-  
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
         }
-  
-        const data = await response.json();
-        console.log("API Data:", data);
-  
-        if (data.length > 0) {
-          setMyInvestment(data[0].total_investment || 0);
-          setLatestValue(data[0].latest_value || 0);
-          const change = ((data[0].latest_value - data[0].total_investment)/data[0].total_investment)*100 || 0
-          setPercentChange(change)
-        } else {
-          setError("No portfolio data found.");
-        }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
       }
-    };
-  
-    // Fetch data when the component mounts
-    useEffect(() => {
-      fetchData();
-    }, []);
+
+      const data = await response.json();
+      console.log("API Data:", data);
+
+      if (data.length > 0) {
+        setMyInvestment(data[0].total_investment || 0);
+        setLatestValue(data[0].latest_value || 0);
+        const change =
+          ((data[0].latest_value - data[0].total_investment) /
+            data[0].total_investment) *
+            100 || 0;
+        setPercentChange(change);
+      } else {
+        setError("No portfolio data found.");
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch data when the component mounts
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   // Simulate financial data updates every 5 seconds
   useEffect(() => {
@@ -108,29 +112,28 @@ const Dashboardchartmain = ({ children }) => {
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []); // Dependency array ensures this effect runs once on mount
 
-
   // Chart data for different time ranges
   const chartDataByRange = {
-    '1D': [3000, 6000, 2000, 12000, 4000, 10000],
-    '5D': [3000, 6000, 9000, 0, 12000, 15000],
-    '1M': [3500, 6000, 3, 9000, 12000, 15000],
-    '6M': [6000, 0, 3000, 9000, 12000, 15000],
-    '1Y': [6000, 3000, 0, 9000, 15000, 12000],
-    '3Y': [6000, 9000, 0, 3000, 12000, 15000],
-    '5Y': [9000, 0, 3000, 6000, 15000, 12000,],
-    'Max': [15000, 703, 3000, 6000, 9000, 12000],
+    "1D": [3000, 6000, 2000, 12000, 4000, 10000],
+    "5D": [3000, 6000, 9000, 0, 12000, 15000],
+    "1M": [3500, 6000, 3, 9000, 12000, 15000],
+    "6M": [6000, 0, 3000, 9000, 12000, 15000],
+    "1Y": [6000, 3000, 0, 9000, 15000, 12000],
+    "3Y": [6000, 9000, 0, 3000, 12000, 15000],
+    "5Y": [9000, 0, 3000, 6000, 15000, 12000],
+    Max: [15000, 703, 3000, 6000, 9000, 12000],
   };
 
   const chartData = {
-    labels: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00'],
+    labels: ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00"],
     datasets: [
       {
-        label: 'Portfolio Value',
+        label: "Portfolio Value",
         data: chartDataByRange[timeRange] || [],
         fill: true,
-        backgroundColor: 'rgba(34, 197, 94, 0.2)',
-        borderColor: '#22c55e',
-        pointBackgroundColor: '#22c55e',
+        backgroundColor: "rgba(34, 197, 94, 0.2)",
+        borderColor: "#22c55e",
+        pointBackgroundColor: "#22c55e",
         tension: 0.4,
       },
     ],
@@ -147,7 +150,6 @@ const Dashboardchartmain = ({ children }) => {
         ticks: {
           stepSize: 3000, // Set the interval for ticks
           callback: (value) => `${value}`,
-
         },
       },
     },
