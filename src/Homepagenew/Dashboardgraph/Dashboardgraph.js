@@ -163,7 +163,7 @@ const Dashboardchartmain = ({ children }) => {
       <div className='allheadd'>
         <div className='hompagetopdata'>
           <div>
-            <h1 className='headernifty50000'>Welcome back, William</h1>
+            <h1 className='headernifty50000'>Welcome back, {user}</h1>
             <p className='headerdashboardmain'>Track your finance and achieve your financial goals.</p>
           </div>
           <div className="homepagenewdata-card">
@@ -193,9 +193,9 @@ const Dashboardchartmain = ({ children }) => {
                 <div className='alldatagraphtop'>
                   <div>
                     <h3 className="portfoliomutual-titleport">Portfolio Value</h3>
-                    <p className="portfoliomutual-value">₹4,05,924.60</p>
+                    <p className="portfoliomutual-value">₹{(latestValue - 0).toLocaleString()}</p>
                     <p className="portfoliomutual-profit">
-                      Your profit is <span>₹8,42,685.42</span>
+                      Your profit is <span>₹{((latestValue-myInvestment) - 0).toLocaleString()}</span>
                     </p>
                   </div>
                   <div>
@@ -257,13 +257,13 @@ const Dashboardchartmain = ({ children }) => {
         </button>
         <button
           className={`DashboardMainPagetable-tab ${activeTab === "Stock Calendar" ? "active" : ""}`}
-          onClick={() => setActiveTab("Stock Calendar")} // ✅ Fixed Issue
+          onClick={() => setActiveTab("Stock Calendar")} 
         >
           Stock Calendar
         </button>
         <button
           className={`DashboardMainPagetable-tab ${activeTab === "Stock Analyst" ? "active" : ""}`}
-          onClick={() => setActiveTab("Stock Analyst")} // ✅ Fixed Here
+          onClick={() => setActiveTab("Stock Analyst")} 
         >
           Stock Analyst
         </button>
