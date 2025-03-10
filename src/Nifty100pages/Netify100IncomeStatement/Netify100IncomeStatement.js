@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect,useMemo } from "react";
 import { screenerStockincomeData } from "../../Stocks/Stockincomedata";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
@@ -6,6 +6,7 @@ import { IoLockClosedOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 
 
@@ -14,6 +15,7 @@ const Netify100IncomeStatement = () => {
    const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
    const navigate = useNavigate();
    const [activeTab, setActiveTab] = useState("Income Statement");
+   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
      epsDilGrowth: [], // Initialize as an empty array
      pe: [],           // Initialize as an empty array
@@ -24,36 +26,49 @@ const Netify100IncomeStatement = () => {
      sector: "All",
      change: "All",
    });
- 
-   const [dropdowns, setDropdowns] = useState({
-         divYield: false,
-         price: false,
-         change: false, 
-         eps: false,
-         roe: false,
-         pe: false,
-         marketcap: false,
-         performance: false,
-         peg: false,
-         revenue: false,
-         index: false,
-         sector: false,
-       });
- 
- const toggleDropdown = (key) => {
-   setDropdowns((prev) => {
-     // Create a new object where all dropdowns are closed except the one being toggled
-     const updatedDropdowns = Object.keys(prev).reduce((acc, currKey) => {
-       acc[currKey] = currKey === key ? !prev[currKey] : false;
-       return acc;
-     }, {});
-     return updatedDropdowns;
-   });
- };
- 
- 
+   
+   const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
    const [filteredData, setFilteredData] = useState(screenerStockincomeData); 
  
+   const toggleDivYieldDropdown = () => {
+     setDivYieldDropdownVisible(!isDivYieldDropdownVisible);
+    
+   };
+   const [isPriceDropdownVisible, setPriceDropdownVisible] = useState(false);
+  const togglePriceDropdown = () => {
+    setPriceDropdownVisible(!isPriceDropdownVisible);
+   
+  };
+  const [ischangeDropdownVisible, setchangeDropdownVisible] = useState(false);
+  const togglechangeDropdown = () => {
+    setchangeDropdownVisible(!ischangeDropdownVisible);
+   
+  };
+  const [isPerfDropdownVisible, setPerfDropdownVisible] = useState(false);
+
+// Define the togglePerfDropdown function
+const togglePerfDropdown = () => {
+  setPerfDropdownVisible(prevVisible => !prevVisible);
+};
+   const [isEPSDropdownVisible, setEPSDropdownVisible] = useState(false);
+ 
+   const [isROEDropdownVisible, setROEDropdownVisible] = useState(false);
+   const toggleROEDropdown = () => {
+     setROEDropdownVisible(!isROEDropdownVisible);
+    
+   };
+   
+ 
+   
+   const toggleEPSDropdown = () => {
+     setEPSDropdownVisible(!isEPSDropdownVisible);
+   };
+   const [isPEDropdownVisible, setPEDropdownVisible] = useState(false);
+  
+   const togglePEDropdown = () => {
+     setPEDropdownVisible(!isPEDropdownVisible);
+   };
+   const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] = useState(false);
    const [marketCapFilters, setMarketCapFilters] = useState([]);
  
    const handleMarketCapChange = (value) => {
@@ -900,7 +915,20 @@ const perfOptions = [
     setStocks(filteredStocks);
     document.getElementById("stocks-table")?.scrollIntoView({ behavior: "smooth" });
   };
-  
+  const [dropdowns, setDropdowns] = useState({
+    divYield: false,
+    price: false,
+    change: false, 
+    eps: false,
+    roe: false,
+    pe: false,
+    marketcap: false,
+    performance: false,
+    peg: false,
+    revenue: false,
+    index: false,
+    sector: false,
+  });
    const handleperfApply = () => {
      // Filter stocks based on the selected performance range
      const filteredStocks = screenerStockincomeData.filter((stock) => {
@@ -1022,7 +1050,52 @@ const perfOptions = [
    const handleNavigate = () => {
      navigate('/pricehalf'); // Navigate to the desired route
    };
+   const recordsPerPage = 10;
+   const totalPages = Math.ceil(stocks.length / recordsPerPage);
+ 
+   //  Ensure currentData updates correctly
+   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
+   const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+   const currentData = useMemo(() => {
+     return stocks.slice(indexOfFirstItem, indexOfLastItem);
+   }, [currentPage, stocks]);
+ 
+   const handlePageChange = (pageNumber) => {
+     if (pageNumber > 0 && pageNumber <= totalPages) {
+       setCurrentPage(pageNumber);
+     }
+   };
+ 
+   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+   useEffect(() => {
+     console.log("Current Page Updated:", currentPage);
+   }, [currentPage]);
+ 
+   //  Pagination Range Calculation
+   const { startPage, endPage } = useMemo(() => {
+     const maxVisiblePages = 5;
+     let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+     let end = Math.min(totalPages, start + maxVisiblePages - 1);
+ 
+     if (end - start + 1 < maxVisiblePages) {
+       start = Math.max(1, end - maxVisiblePages + 1);
+     }
+ 
+     return { startPage: start, endPage: end };
+   }, [currentPage, totalPages]);
+  
+   const toggleDropdown = (key) => {
+  setDropdowns((prev) => {
+    // Create a new object where all dropdowns are closed except the one being toggled
+    const updatedDropdowns = Object.keys(prev).reduce((acc, currKey) => {
+      acc[currKey] = currKey === key ? !prev[currKey] : false;
+      return acc;
+    }, {});
+    return updatedDropdowns;
+  });
+};
   return (
+    <div>
     <div className="screener-container">
       <h1 className="screener-header">List of Nifty 100 company</h1>
     <div className="screener-filters">
@@ -2087,7 +2160,7 @@ const perfOptions = [
 
 
           <tbody>
-  {stocks.map((stock, index) => (
+  {currentData.map((stock, index) => (
     <tr key={index} className="screener-row">
       <td className="symbol-cell">
       <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
@@ -2120,9 +2193,51 @@ const perfOptions = [
   
      
       </div>
-<Navbar/>
-    </div>
-  );
+       {/* Pagination Section */}
+   <div className="pagination-container">
+        <div className="pagination-info">
+          {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
+        </div>
+
+        <div className="pagination-slider">
+          <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
+
+          {startPage > 1 && (
+            <>
+              <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
+              {startPage > 2 && <span>...</span>}
+            </>
+          )}
+
+          {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+            <button
+              key={startPage + i}
+              className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
+              onClick={() => handlePageChange(startPage + i)}
+            >
+              {startPage + i}
+            </button>
+          ))}
+
+          {endPage < totalPages && (
+            <>
+              {endPage < totalPages - 1 && <span>...</span>}
+              <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
+            </>
+          )}
+
+          <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+        </div>
+      </div>
+      <Navbar/>
+
+</div>
+ <div className="foooterpagesaupdate">
+ <FooterForAllPage/>
+ </div>
+
+ </div>
+);
 };
 
 export default Netify100IncomeStatement;

@@ -116,10 +116,10 @@ import ProfilePage from "./myprofile/ProfilePage/ProfilePage";
  
 import SettingsDashboard from "./sidebardash/SettingDashPanel/SettingDashPanel";
 import Dashboardchartmain from './Homepagenew/Dashboardgraph/Dashboardgraph';
-import Stockindexall from "./Homepagenew/Stockindexallpage/Stockindexallpage";
-import Calenderchartmain from "./Homepagenew/Stockcalendergraph/Stockcalendergraph";
+
+
 import Homestockanalyst from "./Homepagenew/Homestockanalyst/Homestockanalyst";
-import Stockanalystall from "./Homepagenew/Homeanalystall/Homeanalystall";
+
 
 import BestStockIncomeStatement from "./Beststockspages/BestStockIncomeStatement/BestStockIncomeStatement";
 import Highstockvaluation from "./Highgrowthpages/Highstockvaluation/Highstockvaluation";
@@ -273,6 +273,7 @@ import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
+
 
 function App() {
   return (  
@@ -464,11 +465,11 @@ function App() {
                 </PortfolioDashboardProvider>
               }
             />
-            <Route path="/stockindexall" element={<Stockindexall />} />
-            <Route path="/calenderchartmain" element={<Calenderchartmain />} />
+          
+     
             <Route path="/homestockanalyst" element={<Homestockanalyst />} />
-            <Route path="/stockanalystall" element={<Stockanalystall />} />
-            <Route path="/bestStockvaluation" element={<BestStockvaluation />} />
+           
+            <Route path="/bestStockvaluation" element={<BestStockvaluation/>} />
             <Route path="/bestStockIncomeStatement" element={<BestStockIncomeStatement />} />
             <Route path="/highstockvaluation" element={<Highstockvaluation />} />
             <Route path="/highgrowthStockIncomeStatement" element={<HighStockIncomeStatement />} />

@@ -458,7 +458,7 @@ const Navbar = () => {
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <Link to="/portfolio-risk">
           Portfolio Risk Analysis
-          <p>Risk evaluation and insights</p>
+          <p>Risk evaluation and insights(coming soon)</p>
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>

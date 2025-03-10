@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { screenerStockvaluationData } from "../../Stocks/stockscreenervaluationdata";
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 
@@ -14,6 +14,7 @@ const BestStockvaluation = () => {
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
+  const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
       epsDilGrowth: [], // Initialize as an empty array
       pe: [],           // Initialize as an empty array
@@ -1021,7 +1022,39 @@ const BestStockvaluation = () => {
     const handleNavigate = () => {
       navigate('/pricehalf'); // Navigate to the desired route
     };
- 
+    const recordsPerPage = 10;
+       const totalPages = Math.ceil(stocks.length / recordsPerPage);
+     
+       //  Ensure currentData updates correctly
+       const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
+       const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+       const currentData = useMemo(() => {
+         return stocks.slice(indexOfFirstItem, indexOfLastItem);
+       }, [currentPage, stocks]);
+     
+       const handlePageChange = (pageNumber) => {
+         if (pageNumber > 0 && pageNumber <= totalPages) {
+           setCurrentPage(pageNumber);
+         }
+       };
+     
+       //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+       useEffect(() => {
+         console.log("Current Page Updated:", currentPage);
+       }, [currentPage]);
+     
+       //  Pagination Range Calculation
+       const { startPage, endPage } = useMemo(() => {
+         const maxVisiblePages = 5;
+         let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+         let end = Math.min(totalPages, start + maxVisiblePages - 1);
+     
+         if (end - start + 1 < maxVisiblePages) {
+           start = Math.max(1, end - maxVisiblePages + 1);
+         }
+     
+         return { startPage: start, endPage: end };
+       }, [currentPage, totalPages]);
   return (
    <div className="screener-container">
           <h1 className="screener-header">Best Stocks</h1>
@@ -1155,61 +1188,61 @@ const BestStockvaluation = () => {
           
            
 
-          {/* Checkbox List */}
-         
-     
-  {priceOptions.map((category) => (
-    <label  className="dropdown-market-cap-label" key={category.value}>
-      <input
-        type="checkbox"
-        checked={selectedprice.includes(category.value)} // Check by the category value
-        onChange={(e) => {
-          e.stopPropagation();
-          setSelectedprice((prev) =>
-            prev.includes(category.value)
-              ? prev.filter((item) => item !== category.value) // Remove category
-              : [...prev, category.value] // Add category
-          );
-        }}
-        style={{ width: "30%" }}
-      />
-      {category.label} {/* Correctly render the label */}
-    </label>
-  ))}
+                    {/* Checkbox List */}
 
 
-          {/* Buttons */}
-          <div className="dropdown-market-cap-actions">
-            <button
-              onClick={handleReset}
-                className="dropdown-market-cap-reset"
-            >
-              Reset
-            </button>
-            <button 
-              onClick={handlePriceApply}
-               className="dropdown-market-cap-apply"
-            >
-              Apply
-            </button>
-          </div>
-        </div>
-      )}
-</div>
-      {/* Display Filtered Data */}
-      <div>
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => (
-            <div key={item.id}>
-              <p>{item.name}</p>
+                    {priceOptions.map((category) => (
+                      <label className="dropdown-market-cap-label" key={category.value}>
+                        <input
+                          type="checkbox"
+                          checked={selectedprice.includes(category.value)} // Check by the category value
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            setSelectedprice((prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter((item) => item !== category.value) // Remove category
+                                : [...prev, category.value] // Add category
+                            );
+                          }}
+                          style={{ width: "30%" }}
+                        />
+                        {category.label} {/* Correctly render the label */}
+                      </label>
+                    ))}
+
+
+                    {/* Buttons */}
+                    <div className="dropdown-market-cap-actions">
+                      <button
+                        onClick={handleReset}
+                        className="dropdown-market-cap-reset"
+                      >
+                        Reset
+                      </button>
+                      <button
+                        onClick={handlePriceApply}
+                        className="dropdown-market-cap-apply"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+              {/* Display Filtered Data */}
+              <div>
+                {filteredData.length > 0 ? (
+                  filteredData.map((item) => (
+                    <div key={item.id}>
+                      <p>{item.name}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No data available for the selected index.</p>
+                )}
+              </div>
             </div>
-          ))
-        ) : (
-          <p>No data available for the selected index.</p>
-        )}
-      </div>
-         </div>
-    </div>
+          </div>
 
     <div className="market-cap-filter">
        <div className="dropdown-market-cap-wrapper">
@@ -1367,8 +1400,8 @@ const BestStockvaluation = () => {
                 </div>
            </div>
 
-       <div className="market-cap-filter">
-          <div className="dropdown-market-cap-wrapper">
+          <div className="market-cap-filter">
+            <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative"}}>
             {/* Dropdown Button */}
@@ -1714,27 +1747,27 @@ const BestStockvaluation = () => {
           
            
 
-          {/* Checkbox List */}
-         
-     
-  {perfOptions.map((category) => (
-    <label  className="dropdown-market-cap-label" key={category.value}>
-      <input
-        type="checkbox"
-        checked={selectedperf.includes(category.value)} // Check by the category value
-        onChange={(e) => {
-          e.stopPropagation();
-          setSelectedperf((prev) =>
-            prev.includes(category.value)
-              ? prev.filter((item) => item !== category.value) // Remove category
-              : [...prev, category.value] // Add category
-          );
-        }}
-        style={{ width: "30%" }}
-      />
-      {category.label} {/* Correctly render the label */}
-    </label>
-  ))}
+                    {/* Checkbox List */}
+
+
+                    {perfOptions.map((category) => (
+                      <label className="dropdown-market-cap-label" key={category.value}>
+                        <input
+                          type="checkbox"
+                          checked={selectedperf.includes(category.value)} // Check by the category value
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            setSelectedperf((prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter((item) => item !== category.value) // Remove category
+                                : [...prev, category.value] // Add category
+                            );
+                          }}
+                          style={{ width: "30%" }}
+                        />
+                        {category.label} {/* Correctly render the label */}
+                      </label>
+                    ))}
 
 
           {/* Buttons */}
@@ -1898,19 +1931,19 @@ const BestStockvaluation = () => {
                     <button
                       onClick={handleReset}
                         className="dropdown-market-cap-reset"
-                    >
-                      Reset
-                    </button>
-                    <button 
-                      onClick={handlePEGApply}
-                       className="dropdown-market-cap-apply"
-                    >
-                      Apply
-                    </button>
+                      >
+                        Reset
+                      </button>
+                      <button
+                        onClick={handlePEGApply}
+                        className="dropdown-market-cap-apply"
+                      >
+                        Apply
+                      </button>
+                    </div>
                   </div>
-                </div>
-              )}
-        </div>
+                )}
+              </div>
               {/* Display Filtered Data */}
               <div>
                 {filteredData.length > 0 ? (
@@ -2015,127 +2048,127 @@ const BestStockvaluation = () => {
           Overview
         </button>
 
-        <button
-          className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Valuation");
-            navigate('/bestStockvaluation'); // Navigate to the ScreenerStockvaluation page
-          }}
-        >
-          Valuation
-        </button>
+          <button
+            className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("Valuation");
+              navigate('/bestStockvaluation'); // Navigate to the ScreenerStockvaluation page
+            }}
+          >
+            Valuation
+          </button>
 
-        <button
-          className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Income Statement");
-            navigate('/bestStockIncomeStatement'); // Add a route for Income Statement if needed
-          }}
-        >
-          Income Statement
-        </button>
+          <button
+            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("Income Statement");
+              navigate('/bestStockIncomeStatement'); // Add a route for Income Statement if needed
+            }}
+          >
+            Income Statement
+          </button>
         </div>
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
-  <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%',marginTop:'10px' }}>
-    <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
-  <tr>
-    <th>Symbol</th>
-    <th>
-      Market Cap
-      <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      Market Cap %
-      <button className="screenerbtnlist" onClick={() => handleSort("marketCapPerf")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      P/E
-      <button className="screenerbtnlist" onClick={() => handleSort("pToE")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      P/S
-      <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      P/B
-      <button className="screenerbtnlist" onClick={() => handleSort("pToB")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      P/CF
-      <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      P/FCF
-      <button className="screenerbtnlist" onClick={() => handleSort("pToCF")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      Price
-      <button className="screenerbtnlist" onClick={() => handleSort("price")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      EV
-      <button className="screenerbtnlist" onClick={() => handleSort("ev")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      EV/Revenue
-      <button className="screenerbtnlist" onClick={() => handleSort("evSales")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      EV/EBIT
-      <button className="screenerbtnlist" onClick={() => handleSort("evEbit")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-    <th>
-      EV/EBITDA
-      <button className="screenerbtnlist" onClick={() => handleSort("evEbitda")}>
-        <PiCaretUpDownFill />
-      </button>
-    </th>
-  </tr>
-</thead>
+          <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%', marginTop: '10px' }}>
+            <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
+              <tr>
+                <th>Symbol</th>
+                <th>
+                  Market Cap
+                  <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  Market Cap %
+                  <button className="screenerbtnlist" onClick={() => handleSort("marketCapPerf")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  P/E
+                  <button className="screenerbtnlist" onClick={() => handleSort("pToE")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  P/S
+                  <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  P/B
+                  <button className="screenerbtnlist" onClick={() => handleSort("pToB")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  P/CF
+                  <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  P/FCF
+                  <button className="screenerbtnlist" onClick={() => handleSort("pToCF")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  Price
+                  <button className="screenerbtnlist" onClick={() => handleSort("price")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  EV
+                  <button className="screenerbtnlist" onClick={() => handleSort("ev")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  EV/Revenue
+                  <button className="screenerbtnlist" onClick={() => handleSort("evSales")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  EV/EBIT
+                  <button className="screenerbtnlist" onClick={() => handleSort("evEbit")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+                <th>
+                  EV/EBITDA
+                  <button className="screenerbtnlist" onClick={() => handleSort("evEbitda")}>
+                    <PiCaretUpDownFill />
+                  </button>
+                </th>
+              </tr>
+            </thead>
 
 
-          <tbody>
-  {stocks.map((stock, index) => (
-    <tr key={index} className="screener-row">
-       <td className="symbol-cell">
-      <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
+            <tbody>
+              {currentData.map((stock, index) => (
+                <tr key={index} className="screener-row">
+                  <td className="symbol-cell">
+                    <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
 
 
 
-      <a href={stock.url}>{stock.symbol}</a>
-      </td>
-      <td>{stock.marketCap}</td>
-     
-      <td
-        style={{
-          color: parseFloat(stock.marketCapPerf) > 0 ? "#24b676" : parseFloat(stock.marketCapPerf) < 0 ? "red" : "inherit",
-        }}
-      >
-        {stock.marketCapPerf}
-      </td>
-     
+                    <a href={stock.url}>{stock.symbol}</a>
+                  </td>
+                  <td>{stock.marketCap}</td>
+
+                  <td
+                    style={{
+                      color: parseFloat(stock.marketCapPerf) > 0 ? "#24b676" : parseFloat(stock.marketCapPerf) < 0 ? "red" : "inherit",
+                    }}
+                  >
+                    {stock.marketCapPerf}
+                  </td>
+
                   <td>{stock.pToE}</td>
                   <td>{stock.pToB}</td>
                   <td>{stock.peg}</td>
@@ -2146,8 +2179,8 @@ const BestStockvaluation = () => {
                   <td>{stock.evEbitda}</td>
                   <td>{stock.evSales}</td>
                   <td>{stock.evEbit}</td>
-                 
-                 
+
+
 
 
               </tr>

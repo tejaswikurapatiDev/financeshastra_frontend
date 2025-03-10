@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect,useMemo } from "react";
 import { screenerStockvaluationData } from "../../Stocks/stockscreenervaluationdata";
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 
@@ -6,12 +6,14 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 
 
 const Netify100valuation = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
+  const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
   const [filters, setFilters] = useState({
@@ -1021,8 +1023,41 @@ const Netify100valuation = () => {
     const handleNavigate = () => {
       navigate('/pricehalf'); // Navigate to the desired route
     };
- 
+    const recordsPerPage = 10;
+    const totalPages = Math.ceil(stocks.length / recordsPerPage);
+  
+    //  Ensure currentData updates correctly
+    const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
+    const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+    const currentData = useMemo(() => {
+      return stocks.slice(indexOfFirstItem, indexOfLastItem);
+    }, [currentPage, stocks]);
+  
+    const handlePageChange = (pageNumber) => {
+      if (pageNumber > 0 && pageNumber <= totalPages) {
+        setCurrentPage(pageNumber);
+      }
+    };
+  
+    //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+    useEffect(() => {
+      console.log("Current Page Updated:", currentPage);
+    }, [currentPage]);
+  
+    //  Pagination Range Calculation
+    const { startPage, endPage } = useMemo(() => {
+      const maxVisiblePages = 5;
+      let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let end = Math.min(totalPages, start + maxVisiblePages - 1);
+  
+      if (end - start + 1 < maxVisiblePages) {
+        start = Math.max(1, end - maxVisiblePages + 1);
+      }
+  
+      return { startPage: start, endPage: end };
+    }, [currentPage, totalPages]);
   return (
+    <div>
    <div className="screener-container">
           <h1 className="screener-header">List of Nifty 100 company</h1>
          <div className="screener-filters">
@@ -2117,7 +2152,7 @@ const Netify100valuation = () => {
 
 
           <tbody>
-  {stocks.map((stock, index) => (
+  {currentData.map((stock, index) => (
     <tr key={index} className="screener-row">
        <td className="symbol-cell">
       <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
@@ -2155,8 +2190,50 @@ const Netify100valuation = () => {
           </tbody>
         </table>
       </div>
+         {/* Pagination Section */}
+   <div className="pagination-container">
+        <div className="pagination-info">
+          {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
+        </div>
+
+        <div className="pagination-slider">
+          <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
+
+          {startPage > 1 && (
+            <>
+              <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
+              {startPage > 2 && <span>...</span>}
+            </>
+          )}
+
+          {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+            <button
+              key={startPage + i}
+              className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
+              onClick={() => handlePageChange(startPage + i)}
+            >
+              {startPage + i}
+            </button>
+          ))}
+
+          {endPage < totalPages && (
+            <>
+              {endPage < totalPages - 1 && <span>...</span>}
+              <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
+            </>
+          )}
+
+          <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+        </div>
+      </div>
 <Navbar/>
+
     </div>
+       <div className="foooterpagesaupdate">
+       <FooterForAllPage/>
+       </div>
+      
+       </div>
   );
 };
 
