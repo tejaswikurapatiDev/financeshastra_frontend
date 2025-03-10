@@ -10,6 +10,8 @@ import Navbar from "../../Navbar/Navbar";
 import Mutualportfoliodonut from "../Mutualportfoliodonut/Mutualportfoliodonut";
 import { PortfolioMutualsContext } from "../context/PortfolioMutualsContext";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
+import Cookies from 'js-cookie'
 
 const MutualAccountStock = () => {
   const location = useLocation();
@@ -300,7 +302,7 @@ const MutualAccountStock = () => {
 
         <Navbar />
       </div>
-      <FooterForAllPage/>
+      <FooterForAllPage />
     </div>
   );
 };

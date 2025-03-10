@@ -551,6 +551,8 @@ const EarningsInsightLearn = () => {
                                     selectsRange
                                     inline
                                     dateFormat="yyyy-MM-dd"
+                                     className="custom-date-picker"
+                                    calendarClassName="custom-calendar" 
                                     onClick={() => setCalendarOpen(false)}  // Close the calendar if clicked outside
                                 />
                             )}

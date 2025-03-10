@@ -77,12 +77,12 @@ const BillingDetailsPageannually = () => {
         <div className="billingSubscriptionPlan">
           <h4 className="billingSubscriptionPlanTitle">Elite</h4>
           <p>Empower your investment journey with the Elite Plan!</p>
-          <button className="billingSubscriptionPlanButton" onClick={() => navigate("/ElitePaymentPremiumForm")}>Explore</button>
+          <button className="billingSubscriptionPlanButton" onClick={() => navigate("/halfyearlySubscriptionPages")}>Explore</button>
         </div>
         <div className="billingSubscriptionPlan">
           <h4 className="billingSubscriptionPlanTitle">Premium</h4>
           <p>Invest smarter, invest confidently with the Premium Plan!</p>
-          <button className="billingSubscriptionPlanButton"onClick={() => navigate("/localpaymentpremiumForm")}>Explore</button>
+          <button className="billingSubscriptionPlanButton"onClick={() => navigate("/premiumSubscriptionPages")}>Explore</button>
         </div>
       </div>
     </div>

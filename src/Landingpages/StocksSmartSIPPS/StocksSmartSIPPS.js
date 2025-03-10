@@ -10,13 +10,11 @@ import React, {
 } from "react"
 
 
+import { useNavigate } from "react-router-dom";
 function StocksSmartSIPPS() {
-<<<<<<< HEAD
-=======
    const navigate = useNavigate();
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
    
->>>>>>> 45d4f8f5702efbdec2bd4868c896e80d1df4b98c
   return (
     <div className={darkMode ? "smartsip-darkcontainer" : "smartsip-container"}>
       <h1 className={darkMode ? "smartsip-darktitle" :"smartsip-title"}>Stocks SmartSIP</h1>
@@ -78,9 +76,9 @@ function StocksSmartSIPPS() {
           </ul>
         </div>
         <div className="smartsip-subscribe">
-          <h3>Subscribe Now!</h3>
+          <h3 >Subscribe Now!</h3>
           <p>Choose a plan that aligns with your investment goals!</p>
-          <button className="smartsip-button">Subscribe</button>
+          <button className="smartsip-button"onClick={() => navigate("/pricehalf")}>Subscribe</button>
         </div>
       </div>
       <Navbar/>
