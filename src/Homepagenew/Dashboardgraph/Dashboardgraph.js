@@ -42,12 +42,12 @@ const Dashboardchartmain = ({ children }) => {
       try {
         setLoading(true);
         const token = Cookies.get("jwtToken");
-        /*if (!token) {
+        if (!token) {
           alert("Session expired, Please login again.");
           setLoading(false);
           navigate("/login")
           return;
-        }*/
+        }
   
         const response = await fetch(`${API_BASE_URL}/myportfolio/allocationChart`, {
           method: "GET",
@@ -63,7 +63,6 @@ const Dashboardchartmain = ({ children }) => {
       }
 
       const data = await response.json();
-      console.log("API Data:", data);
 
       if (data.length > 0) {
         setMyInvestment(data[0].total_investment || 0);
