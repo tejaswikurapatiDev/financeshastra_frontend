@@ -63,7 +63,6 @@ const Dashboardchartmain = ({ children }) => {
       }
 
       const data = await response.json();
-      console.log("API Data:", data);
 
       if (data.length > 0) {
         setMyInvestment(data[0].total_investment || 0);

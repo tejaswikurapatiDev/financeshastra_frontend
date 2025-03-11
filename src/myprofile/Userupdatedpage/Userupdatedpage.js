@@ -17,13 +17,12 @@ const UserDetailsupdate = () => {
 
   // Initial state (can be overwritten by updated data passed through location.state)
   const [emaillocal, setEmail]= useState('')
-  console.log(emaillocal)
   const [profileImage, setProfileImage] = useState(williamImage);
   const [personalDetails, setPersonalDetails] = useState({
     
     firstName: "-",
     lastName: "-",
-    email: emaillocal,
+    email: userEmail,
     gender: "-",
     dob: "-",
     ageGroup: "25 - 35",

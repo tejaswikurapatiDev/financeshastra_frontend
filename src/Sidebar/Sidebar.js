@@ -29,7 +29,7 @@ const Sidebar = () => {
                 </a>
 
                 <a 
-    href="/stockwatchlist" 
+    href="/stockWatchlist" 
     className={`sidebar-item ${["/stockWatchlist", "/mutualWatchlist","/goldWatchlistall","/stockwatchlistsector","/stockwatchlistmcap"
         ,"/mutualwatchlistsector","/mutualwatchlisttype"
     ].includes(location.pathname) ? "active" : ""}`} 

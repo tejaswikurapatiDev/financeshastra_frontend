@@ -3,11 +3,11 @@ import './OrderTable.css'
 
 import Navbar from "../../Navbar/Navbar";
 import {useNavigate} from "react-router-dom";
+
 import { API_BASE_URL } from "../../config";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 /*const ordersData = [
-import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-const ordersData = [
+
   { id: "#7234531", order: "Elite ", date: "08-07-2024", amount: "₹2,000", status: "Completed" },
   { id: "#7234532", order: "Premium ", date: "08-06-2024", amount: "₹5,999", status: "Completed" },
   { id: "#7234533", order: "Premium ", date: "07-06-2024", amount: "₹5,999", status: "Pending" },
