@@ -118,10 +118,17 @@ const ReferMoreProfilePages = () => {
 
         if (response.status === 200) {
           alert(data.message);
-        }else{
+          setInputs([
+            {
+              firstName: "",
+              lastName: "",
+              mobileNumber: "",
+              email: "",
+            },
+          ]);
+        } else {
           alert(data.error);
         }
-
       } catch (error) {
         console.log(error);
       }
