@@ -202,6 +202,45 @@ const ReffeerralProfilePageSSS = () => {
             })
           )}
         </div>
+
+        <div className="reffeerralprofilepagesss-table">
+  {referralStats.referralCount === 0 ? (
+    // Show "No referrals yet." when count is 0
+    <p  className="referaaalll">
+      No referrals yet.
+    </p>
+  ) : (
+    // Show table only if referral count > 0
+    <table>
+      <thead>
+        <tr>
+          <th>Contact Details</th>
+          <th>Date Sent</th>
+          <th>Registration Status</th>
+          <th>Total Earnings (₹ & %)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {referrals.map((referral) => (
+          <tr key={referral.ref_id}>
+            <td>
+              {referral.name} <br />
+              {referral.email} <br />
+              {referral.phone}
+            </td>
+            <td>{referral.date_sent}</td>
+            <td>{referral.registration_status}</td>
+            <td>
+              {referral.earnings} ({referral.earnings_percentage}%)
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )}
+</div>
+
+
       </div>
       <Navbar />
 
