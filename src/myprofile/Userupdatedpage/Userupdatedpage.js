@@ -8,6 +8,7 @@ import './Userupdatedpage.css'
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
+import Cookies from 'js-cookie'
 
 const UserDetailsupdate = () => {
   const navigate = useNavigate();
@@ -60,11 +61,11 @@ const UserDetailsupdate = () => {
 
   // Update state when new data is passed from EditProfile
   useEffect(() => {
-    if (!localStorage.getItem("user")){
+    if (!Cookies.get("jwtToken")){
       setShowPopupforLogin(true)
     }else{
       const localStore= localStorage.getItem("user")
-      const localtoken= localStorage.getItem('token')
+      const localtoken= Cookies.get("jwtToken")
       console.log('token: ', localtoken)
       const parsed = (JSON.parse(localStore))
       console.log(parsed.email)
