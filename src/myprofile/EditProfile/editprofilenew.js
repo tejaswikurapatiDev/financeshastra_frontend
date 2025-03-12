@@ -7,12 +7,15 @@ import "./EditProfile.css";
 import { FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Cookies from 'js-cookie';
+import { API_BASE_URL } from "../../config";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const EditProfile = () => {
   const [personalDetails, setPersonalDetails] = useState({});
   const [professionalDetails, setProfessionalDetails] = useState({});
   const [investmentDetails, setInvestmentDetails] = useState({});
+  const [usernamelocal, setusernamelocal]= useState("")
   const location = useLocation();
 
   const [formData, setFormData] = useState({
@@ -59,7 +62,7 @@ const EditProfile = () => {
       income: "",
     });
   };
-  const profilePageSaveUpdate = () => {
+  const profilePageSaveUpdate = async () => {
     const requiredFields = [
       "firstName",
       "lastName",
@@ -82,10 +85,28 @@ const EditProfile = () => {
 
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length === 0) {
-      console.log("Form data saved:", formData);
-      setIsPopupVisible(true);
-    }
+    const localJWTTOken= Cookies.get('jwtToken')
+    
+      if (Object.keys(validationErrors).length === 0) {
+        const url=`${API_BASE_URL}/userdetails/adduser`
+        //const urllocal= 'http://localhost:3000/userdetails/adduser'
+    
+        const options={
+          method: 'PUT',
+          headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${localJWTTOken}`
+        },
+        body: JSON.stringify(formData)
+        }
+        const response= await fetch(url, options)
+    
+        console.log("form income", formData)
+        console.log(response)
+        setIsPopupVisible(true);
+      }
+
+    
 
   };
 
@@ -95,48 +116,47 @@ const EditProfile = () => {
       const { updatedData, section } = location.state;
       // Set initial formData based on the selected section
       if (section === "Personal") {
-        setFormData(updatedData.personal);
+      setFormData(updatedData.personal);
       } else if (section === "Professional") {
-        setFormData(updatedData.professional);
+      setFormData(updatedData.professional);
       } else if (section === "Investment") {
-        setFormData(updatedData.investment);
+      setFormData(updatedData.investment);
       }
     }
+    const userLocal= JSON.parse(localStorage.getItem('user'))
+    const localemail = userLocal.email
+    const usernamelocal= localemail.split('@')[0]
+    setusernamelocal(usernamelocal)
   }, [location.state]);
+
   const closePopup = () => {
-    setIsPopupVisible(false);
-    const updatedData = {
-      personal: {
-        firstName: formData.firstName,
-        lastName: formData.lastName,// Combine firstName and lastName
-        username: "williamRober23",                           // Static value for username
-        email: formData.email,
-        dob: formData.dob,
-        gender: formData.gender,
-        phoneNumber: formData.phoneNumber,
-        address: formData.address,
-        country: "India",
-        state: formData.state,
-        city: formData.city,
-        pincode: formData.pincode,
+  setIsPopupVisible(false);
+  const updatedData = {
+    personal: {
+      firstName:formData.firstName,
+      lastName:formData.lastName,// Combine firstName and lastName
+      username: usernamelocal,                           // Static value for username
+      email: formData.email, 
+      dob: formData.dob,
+      gender: formData.gender,
+      phoneNumber: formData.phoneNumber,
+      country: "India",
+      state: formData.state,
+      city:formData.city,
+      pincode: formData.pincode,
+    },
+  professional: {
+  occupation: formData.occupation,
+        industry: formData.industry
 
-
-
-
-      },
-      professional: {
-        occupation: formData.occupation,
-        industry: formData.industry,
-        income: formData.income
-        // More fields here
-      },
-      investment: {
-        householdSavings: "₹2,00,000",
-        // More fields here
-      }
-    };
-
-    navigate("/userDetailsupdate", { state: { updatedData } });
+  // More fields here
+  },
+  investment: {
+  householdSavings: "₹2,00,000",
+  // More fields here
+  }
+  };
+  navigate("/userDetailsupdate", { state: { updatedData } });
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -153,6 +173,35 @@ const EditProfile = () => {
       setErrors((prev) => ({ ...prev, email: "" }));
     }
   };
+
+  const validatepincode=(pincode)=>{
+    if (pincode.length < 6 || pincode.length > 6){
+    setErrors((prevErrors)=>({
+    ...prevErrors,
+    pincode: "Please enter valid pincode.",
+    }));
+    }else{
+    setErrors((prevErrors)=>({
+    ...prevErrors,
+    pincode: ""
+    }));
+    }}
+
+  const validatedob=(dob)=>{
+      const date= new Date()
+      const dobnew= new Date(dob)
+      if (dobnew > date){
+      setErrors((prevErrors)=>({
+      ...prevErrors,
+      dob: "Please enter valid Date of Birth.",
+      }));
+      }else{
+      setErrors((prevErrors)=>({
+      ...prevErrors,
+      dob: ""
+      }));
+      }
+    }
 
 
   const handleChange = (e) => {
@@ -371,7 +420,7 @@ const EditProfile = () => {
 
 
   const handleVerifiedPopupClose = () => setShowVerifiedPopup(false);
-
+  
 
 
   const SuccessModal = ({ onClose }) => {
@@ -438,6 +487,11 @@ const EditProfile = () => {
     const selectedState = e.target.value;
     setFormData((prev) => ({ ...prev, state: selectedState, city: "" }));
   };
+
+  const handleCountryChange=(e)=>{
+    const selectedCountry= e.target.value;
+    setFormData((prev)=> ({ ...prev, country: selectedCountry}));
+  }
 
   // Handle city change
   const handleCityChange = (e) => {
@@ -534,7 +588,7 @@ const EditProfile = () => {
               value={formData.dob}
               onChange={handleChange}
               className="profilepage-input"
-
+              onBlur={(e) => validatedob(e.target.value)}
             />
             {errors.dob && <span className="error-text">This field is required</span>}
           </div>
@@ -786,7 +840,7 @@ const EditProfile = () => {
           <select
             name="country"
             value={formData.country}
-            onChange={handleChange}
+            onChange={handleCountryChange}
             className="profilepage-select"
           >
             <option value="India">India</option>
@@ -841,6 +895,7 @@ const EditProfile = () => {
             name="pincode"
             value={formData.pincode}
             onChange={handleChange}
+            onBlur={(e) => validatepincode(e.target.value)}
             className={`profilepage-input ${errors.pincode ? "error" : ""}`}
             placeholder="E.g. 110254"
           />

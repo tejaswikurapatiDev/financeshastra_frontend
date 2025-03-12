@@ -150,7 +150,7 @@ import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 import OrderTable from "./myprofile/OrderTable/OrderTable";
 import Managealert from "./myprofile/Managealert/Managealert";
 import ContactFormmanagealert from "./myprofile/ContactFormmanagealert/ContactFormmanagealert";
-import EditProfile from "./myprofile/EditProfile/EditProfile";
+import EditProfile from "./myprofile/EditProfile/editprofilenew";
 import UserDetailsupdate from "./myprofile/Userupdatedpage/Userupdatedpage";
 import RiskAnalysisDashboard from "./myprofile/Riskanalysis/RiskAnalysisDashboard/RiskAnalysisDashboard";
 import HalfyearlySubscriptionPages from "./Subscription/halfyearlySubscriptionPages/halfyearlySubscriptionPages";

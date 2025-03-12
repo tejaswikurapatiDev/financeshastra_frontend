@@ -461,7 +461,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/stockwatchlist">
+        <Link to="/stockWatchlist">
           Watchlist
           <p>Monitor, assess, and improve</p>
         </Link>
