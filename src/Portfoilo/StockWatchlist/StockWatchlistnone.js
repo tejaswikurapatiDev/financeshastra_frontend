@@ -79,6 +79,7 @@ const StockWatchlist = ({children}) => {
           Authorization: `Bearer ${token}`
         }
       });
+      console.log(watchlistState.selected)
 
       if (!response.ok) {
         const errorText = await response.text();
