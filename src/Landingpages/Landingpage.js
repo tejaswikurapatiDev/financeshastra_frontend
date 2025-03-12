@@ -10,9 +10,12 @@ import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 import Landingnavbar from "./Landingnavbar/Landingnavbar";
 import PopupUnlockLandingPage from "./PopupUnlockLandingPage/PopupUnlockLandingPage";
 import Cookies from 'js-cookie';
+import Navbar from "../Navbar/Navbar";
 
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
+
+  const token = Cookies.get('jwtToken')
 
   useEffect(() => {
     if (!Cookies.get('jwtToken')){
@@ -27,7 +30,7 @@ const LandingPage = () => {
   
   return (
     <div>
-      {showPopup && <PopupUnlockLandingPage onClose={() => setShowPopup(false)} />}
+      {!token && showPopup && <PopupUnlockLandingPage onClose={() => setShowPopup(false)} />}
       <LandingPageUnlockInvest />
       <LandingPageOurService />
       <LandingPageHowToEarn />
@@ -35,7 +38,7 @@ const LandingPage = () => {
       <LandingPageSmartSIP />
       <LandingPagePremiumElite />
       <LandingAboutPage />
-      <Landingnavbar />
+      {!token ? <Landingnavbar /> : <Navbar/>}
       <FooterForAllPage />
     </div>
   );

@@ -2113,7 +2113,7 @@ Income Statement
 </button>
 </div>
 
-{/* Conditional Rendering */}
+        {/* Conditional Rendering */}
 
 <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
 

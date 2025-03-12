@@ -110,7 +110,7 @@ const Learncard = () => {
       </div>
       <Navbar/>
     </div>
-     <div className="foooterpagesatt">
+     <div className="foooterpagesaupdate">
      <FooterForAllPage />
    </div>
    </div>
