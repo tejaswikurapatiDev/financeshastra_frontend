@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from "react";
 import { Container,Typography } from '@mui/material';
 import { CandleStickChart } from './Candlestickchart/Candlestickchart';
 import KeyIndicators from './KeyIndicators/KeyIndicators';
@@ -21,6 +22,9 @@ import Stockpeer from '../Stockpeer/Stockpeer';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 function Overview() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
   return (
     <div>
     <Container 
@@ -150,6 +154,7 @@ function Overview() {
     <FooterForAllPage/>
     </div>
     </div>
+    
   );
 }
 

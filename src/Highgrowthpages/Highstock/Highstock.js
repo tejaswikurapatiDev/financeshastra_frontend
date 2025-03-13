@@ -1232,13 +1232,7 @@ const handlemcapApply = () => {
       </div>
 
       {/* Buttons */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "10px",
-        }}
-      >
+      <div className="resetapplybuttoncontainer">
         <button className="resetstockscreener"
           onClick={handleReset}
         
@@ -1757,13 +1751,7 @@ const handlemcapApply = () => {
     </label>
   ))}
 </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginTop: "10px",
-                }}
-              >
+<div className="resetapplybuttoncontainer">
                  <button className="resetstockscreener"
                   onClick={handleReset}
                   

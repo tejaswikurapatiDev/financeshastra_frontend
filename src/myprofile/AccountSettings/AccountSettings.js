@@ -267,4 +267,4 @@ const AccountSettings = () => {
   );
 }
 
-export default AccountSettings
+export default AccountSettings;

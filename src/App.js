@@ -146,7 +146,7 @@ import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/Reffe
 import FAQS from "./FAQS/FAQS";
  
 import SessionHistory from "./myprofile/SessionHistory/SessionHistory";
-import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
+
 import OrderTable from "./myprofile/OrderTable/OrderTable";
 import Managealert from "./myprofile/Managealert/Managealert";
 import ContactFormmanagealert from "./myprofile/ContactFormmanagealert/ContactFormmanagealert";
@@ -273,6 +273,7 @@ import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
+import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 
 
 function App() {
@@ -500,7 +501,7 @@ function App() {
 
 
             <Route path="/sessionHistory" element={<SessionHistory />} />
-            <Route path="/accountSettings" element={<AccountSettings />} />
+            <Route path="/accountSettings" element={<AccountSettings/>} />
             <Route path="/orderTable" element={<OrderTable />} />
             <Route path="/managealert" element={<Managealert />} />
 
