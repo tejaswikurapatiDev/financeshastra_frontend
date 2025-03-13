@@ -398,34 +398,41 @@ const MutualWatchlist = ({children}) => {
   // Close popups when clicking outside
   const handleClickOutside = useCallback((event) => {
     // Handle rename popup
-    if (uiState.renamePopup && 
-        renamePopupRef.current && 
-        !renamePopupRef.current.contains(event.target)) {
-      setUiState(prev => ({ ...prev, renamePopup: false }));
+    if (
+      renamePopupRef.current &&
+      !renamePopupRef.current.contains(event.target)
+    ) {
+      setUiState((prev) => ({ ...prev, renamePopup: false }));
     }
-    
+  
     // Handle delete stock popup
-    if (uiState.deletePopup && 
-        deletePopupRef.current && 
-        !deletePopupRef.current.contains(event.target)) {
-      setUiState(prev => ({ ...prev, deletePopup: false }));
+    if (
+      deletePopupRef.current &&
+      !deletePopupRef.current.contains(event.target)
+    ) {
+      setUiState((prev) => ({ ...prev, deletePopup: false }));
     }
-    
+  
     // Handle delete watchlist popup
-    if (uiState.deleteWatchlistPopup && 
-        deleteWatchlistPopupRef.current && 
-        !deleteWatchlistPopupRef.current.contains(event.target)) {
-      setUiState(prev => ({ ...prev, deleteWatchlistPopup: false }));
+    if (
+      deleteWatchlistPopupRef.current &&
+      !deleteWatchlistPopupRef.current.contains(event.target)
+    ) {
+      setUiState((prev) => ({ ...prev, deleteWatchlistPopup: false }));
     }
-    
+  
     // Handle dropdown menus
     if (uiState.activeDropdown !== null) {
-      const activeDropdownElement = dropdownRefs.current[uiState.activeDropdown];
-      if (activeDropdownElement && !activeDropdownElement.contains(event.target)) {
-        setUiState(prev => ({ ...prev, activeDropdown: null }));
+      const activeDropdownElement =
+        dropdownRefs.current[uiState.activeDropdown];
+      if (
+        activeDropdownElement &&
+        !activeDropdownElement.contains(event.target)
+      ) {
+        setUiState((prev) => ({ ...prev, activeDropdown: null }));
       }
     }
-  }, [uiState.renamePopup, uiState.deletePopup, uiState.deleteWatchlistPopup, uiState.activeDropdown]);
+  }, []);
 
   // Effects
   useEffect(() => {
@@ -450,22 +457,39 @@ const MutualWatchlist = ({children}) => {
   }, [handleClickOutside]);
 
   // UI Components
-  const RenamePopup = () => (
-    <div className="popup-overlay">
-      <div className="popup-container" ref={renamePopupRef}>
-        <h3>Rename Watchlist</h3>
-        <input
-          type="text"
-          value={uiState.newWatchlistName}
-          onChange={(e) => setUiState(prev => ({ ...prev, newWatchlistName: e.target.value }))}
-        />
-        <div className="watchlistpopup-btn">
-          <button className="popup-btnconfirm" onClick={handleRenameConfirm}>Save</button>
-          <button onClick={() => setUiState(prev => ({ ...prev, renamePopup: false }))}>Cancel</button>
+  const RenamePopup = () => {
+    const [localName, setLocalName] = useState(uiState.newWatchlistName);
+    
+    const handleSave = () => {
+      setUiState(prev => ({ ...prev, newWatchlistName: localName }));
+      handleRenameConfirm();
+    };
+    
+    return (
+      <div className="popup-overlay">
+        <div className="popup-container" ref={renamePopupRef}>
+          <h3>Rename Watchlist</h3>
+          <input
+            type="text"
+            value={localName}
+            onChange={(e) => setLocalName(e.target.value)}
+          />
+          <div className="watchlistpopup-btn">
+            <button className="popup-btnconfirm" onClick={handleSave}>
+              Save
+            </button>
+            <button
+              onClick={() =>
+                setUiState((prev) => ({ ...prev, renamePopup: false }))
+              }
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const DeleteStockPopup = () => (
     <div className="popup-overlay">
