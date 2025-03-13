@@ -18,9 +18,11 @@ import NewsList from '../NewsList/NewsList';
 import About from '../About/About';
 
 import Stockpeer from '../Stockpeer/Stockpeer';
+import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 function Overview() {
   return (
+    <div>
     <Container 
       sx={{
         maxWidth: '200%',
@@ -144,6 +146,10 @@ function Overview() {
         <About />
       </Element>
     </Container>
+    <div className="foooterpagesaupdate">
+    <FooterForAllPage/>
+    </div>
+    </div>
   );
 }
 
