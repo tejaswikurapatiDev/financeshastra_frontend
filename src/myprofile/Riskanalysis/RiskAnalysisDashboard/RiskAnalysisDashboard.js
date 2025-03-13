@@ -80,13 +80,15 @@ const RiskAnalysisDashboard = () => {
             <div className="subscribe-footerrmanagealerttt">
       <h2 className="headingmanagealert">Subscribe Now!</h2>
         <h3>Choose a plan that aligns with your investment goals!</h3>
-        <button className="footer-subscribe-buttonmanage">Subscribe</button>
+        <button className="footer-subscribe-buttonmanage" onClick={() => navigate("/pricehalf")}>
+            Subscribe
+        </button>
       </div>
         </div>
         <Navbar/>
-        <div className="foooterpagesattt">
-    <FooterForAllPage/>
-  </div>
+        <div className="foooterpagesaupdate">
+      <FooterForAllPage />
+      </div>
         </div>
     );
 };

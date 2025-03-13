@@ -4,6 +4,8 @@ import { API_BASE_URL } from "../../config";
 
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 
 const AccountSettings = () => {
   const [passwordData, setPasswordData] = useState({
@@ -95,7 +97,7 @@ const AccountSettings = () => {
     alert(`${platform} account removed.`);
   };
   return (
-
+<div>
     <div className="profilesettingpassword-container">
       <h1 className="profilepage-titlee">Password & Security</h1>
       <div className="profilepage-tabsss">
@@ -153,8 +155,8 @@ const AccountSettings = () => {
                 className={errors.currentPassword ? "error" : ""}
               />
               <span onClick={() => togglePasswordVisibility("currentPassword")}>
-
-              </span>
+              {showPasswords.currentPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+            </span>
             </div>
             {errors.currentPassword && <div className="error-message">{errors.currentPassword}</div>}
           </div>
@@ -172,8 +174,8 @@ const AccountSettings = () => {
                 className={errors.newPassword ? "error" : ""}
               />
               <span onClick={() => togglePasswordVisibility("newPassword")}>
-
-              </span>
+              {showPasswords.newPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+            </span>
             </div>
             {errors.newPassword && <div className="error-message">{errors.newPassword}</div>}
           </div>
@@ -191,8 +193,9 @@ const AccountSettings = () => {
                 className={errors.confirmPassword ? "error" : ""}
               />
               <span onClick={() => togglePasswordVisibility("confirmPassword")}>
-
-              </span>
+              {showPasswords.confirmPassword ? <FaEye size={20} /> : <FaEyeSlash size={20} />}
+            </span>
+             
             </div>
             {errors.confirmPassword && <div className="error-message">{errors.confirmPassword}</div>}
           </div>
@@ -257,7 +260,10 @@ const AccountSettings = () => {
 
       <Navbar />
     </div>
-
+    <div className="foooterpagesaupdate">
+      <FooterForAllPage/>
+      </div>
+    </div>
   );
 }
 

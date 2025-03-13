@@ -139,6 +139,7 @@ const ReferMoreProfilePages = () => {
     (input) => !input.errors || Object.keys(input.errors).length === 0
   );
   return (
+    <div>
     <div className="profilepageee-container">
       <h1 className="profilepage-title" style={{ fontFamily: "Calibri" }}>
         My Referrals
@@ -449,7 +450,11 @@ const ReferMoreProfilePages = () => {
       </div>
       <Navbar />
 
-      <FooterForAllPage />
+     
+    </div>
+    <div className="foooterpagesaupdate">
+      <FooterForAllPage/>
+      </div>
     </div>
   );
 };

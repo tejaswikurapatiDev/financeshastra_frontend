@@ -184,7 +184,9 @@ const OrderTable = () => {
           </div>
         )}
       </div>
+      <div className="foooterpagesaupdate">
       <FooterForAllPage />
+      </div>
     </div>
   );
 };
