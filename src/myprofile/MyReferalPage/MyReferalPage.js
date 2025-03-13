@@ -261,7 +261,7 @@ const MyReferalPage = () => {
               <button
                 className="why-financeshastrarefer-now-button"
                 onClick={() => {
-                  navigate("/WhyFinadvanceeducationnn");
+                  navigate("/referMoreProfilePages");
                   window.scrollTo(0, 0); // Scroll to top after navigation
                 }}
               >
@@ -301,7 +301,7 @@ const MyReferalPage = () => {
             <button
               className="refer-now-button"
               onClick={() => {
-                navigate("/WhyFinadvanceeducationnn");
+                navigate("/referMoreProfilePages");
                 window.scrollTo(0, 0); // Scroll to top after navigation
               }}
             >
