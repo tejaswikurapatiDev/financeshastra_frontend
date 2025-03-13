@@ -3,7 +3,7 @@ import "./OrderTable.css";
 
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from 'js-cookie'
 import { API_BASE_URL } from "../../config";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 /*const ordersData = [
@@ -25,7 +25,7 @@ const OrderTable = () => {
   const [ordersdatastate, setordersData] = useState([]);
   useEffect(() => {
     const fetOrders = async () => {
-      const localtoken = localStorage.getItem("token");
+      const localtoken = Cookies.get("jwtToken");
       if (!localtoken) {
         setislogin(false);
       }
