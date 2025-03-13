@@ -260,4 +260,4 @@ Remove
 );
 };}
 
-export default AccountSettings
+export default AccountSettings;
