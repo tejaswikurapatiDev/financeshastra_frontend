@@ -12,6 +12,7 @@ import Navbar from "../../Navbar/Navbar";
 const MyReferalPage = () => {
   const navigate = useNavigate();
   return (
+    <div>
     <div className="profilepageee-container">
       <h1 className="profilepage-title" style={{ fontFamily: "Calibri" }}>
         My Referrals
@@ -312,7 +313,11 @@ const MyReferalPage = () => {
       </div>
       <Navbar />
 
-      <FooterForAllPage />
+     
+    </div>
+    <div className="foooterpagesaupdate">
+      <FooterForAllPage/>
+      </div>
     </div>
   );
 };

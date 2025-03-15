@@ -150,10 +150,11 @@ function Overview() {
         <About />
       </Element>
     </Container>
-     <div className="foooterpagesaupdate">
-             <FooterForAllPage/>
-           </div>
-    </div> 
+    <div className="foooterpagesaupdate">
+    <FooterForAllPage/>
+    </div>
+    </div>
+    
   );
 }
 

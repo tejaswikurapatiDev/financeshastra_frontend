@@ -210,6 +210,7 @@ const Navbar = () => {
 
   // Close search results when clicking outside
   useEffect(() => {
+    
     const token = Cookies.get("jwtToken");
     if (!token) {
       alert("Session expired, Please login again.");
@@ -298,12 +299,11 @@ const Navbar = () => {
     };
   }, [debouncedSearch]);
 
-  const onLogout = () => {
-    Cookies.remove("jwtToken");
-    Cookies.remove("token");
-    localStorage.clear();
-    navigate("/");
-  };
+  const onLogout = ()=>{
+    Cookies.remove('jwtToken')
+    localStorage.clear()
+    navigate('/')
+  }
 
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
