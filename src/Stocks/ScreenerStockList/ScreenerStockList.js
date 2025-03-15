@@ -601,6 +601,10 @@ const ScreenerStockList = () => {
   const filteredmarketCapCategory = marketCapCategory.filter((marketCapCategory) =>
     marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  //useEffect(() => {
+    //setFilteredData(screenerStockListData);
+//}, [screenerStockListData]);
+
 
   const handleReset = () => {
     setSelectedSectors([]);  // Reset selected sectors
@@ -636,7 +640,9 @@ const ScreenerStockList = () => {
 
     }));
   };
-
+   //  Reset filtered data to original list
+   //setFilteredData(screenerStockListData);
+  //};
   const handleApply = () => {
     // Update the filters with the selected indexes and sectors
     setFilters((prevFilters) => ({
