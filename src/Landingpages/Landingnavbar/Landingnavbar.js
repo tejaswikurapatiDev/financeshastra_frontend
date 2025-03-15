@@ -357,7 +357,6 @@ const Landingnavbar = () => {
     [getDataFromStore]
   );
 
-<<<<<<< HEAD
   const onLogout= ()=>{
     localStorage.clear()
     
@@ -366,17 +365,7 @@ const Landingnavbar = () => {
     setIsLogedin(false)
     navigate('/login')
   }
-=======
-  const onLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
 
-    Cookies.remove("user");
-    Cookies.remove("jwtToken");
-    setIsLogedin(false);
-    navigate("/login");
-  };
->>>>>>> f80597509deca7b94fca1fb0f464f4ea2ed3646e
 
   // Get all data on component mount
   useEffect(() => {
