@@ -1119,6 +1119,7 @@ const handlemcapApply = () => {
    useEffect(() => {
      console.log("Current Page Updated:", currentPage);
    }, [currentPage]);
+   
  
 
   const handleCheckboxChange = (index, sector,marketCapCategory,pToE,epsDilGrowth,divYield,roe,peg,revenueGrowth,price,change,perf) => {
