@@ -61,6 +61,9 @@ const Navbar = () => {
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
 
+  const dropdownRef = useRef(null); // Reference for dropdown
+
+
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
 
@@ -71,18 +74,8 @@ const Navbar = () => {
       title: "Upcoming Quadrant Future Tek IPO analysis",
       date: "Yesterday 11:15 AM",
     },
-    {
-      id: 2,
-      img: notiimg2,
-      title: "Your number has been verified successfully.",
-      date: "04 Jan, 2025 11:45 AM",
-    },
-    {
-      id: 3,
-      img: notiimg3,
-      title: "Your email has been verified successfully.",
-      date: "04 Jan, 2025 12:30 PM",
-    },
+
+  
     {
       id: 4,
       img: notiimg4,
@@ -95,12 +88,7 @@ const Navbar = () => {
       title: "Lucas commented on sanathans IPO",
       date: "28 Nov, 2024 11:15 AM",
     },
-    {
-      id: 6,
-      img: notiimg6,
-      title: "You have new signing in android",
-      date: "12 Nov, 2024 09:28 AM",
-    },
+  
     {
       id: 7,
       img: notiimg7,
@@ -125,18 +113,8 @@ const Navbar = () => {
       title: "Upcoming IGI IPO",
       date: "25 Oct, 2024 08:48 AM",
     },
-    {
-      id: 11,
-      img: notiimg2,
-      title: "Your number has been verified successfully.",
-      date: "04 Jan, 2025 11:45 AM",
-    },
-    {
-      id: 12,
-      img: notiimg3,
-      title: "Your email has been verified successfully.",
-      date: "04 Jan, 2025 12:30 PM",
-    },
+    
+    
     {
       id: 13,
       img: notiimg4,
@@ -149,12 +127,7 @@ const Navbar = () => {
       title: "Lucas commented on sanathans IPO",
       date: "28 Nov, 2024 11:15 AM",
     },
-    {
-      id: 17,
-      img: notiimg6,
-      title: "You have new signing in android",
-      date: "12 Nov, 2024 09:28 AM",
-    },
+ 
   ];
 
   const displayedNotifications = showAll
@@ -171,6 +144,18 @@ const Navbar = () => {
   const learnDropdownRef = useRef(null);
   const searchResultsRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false); // Close dropdown if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   // Debounced search function that only filters existing data from Redux
   const debouncedSearch = useCallback(
     debounce((searchText) => {
@@ -766,7 +751,7 @@ const Navbar = () => {
           {searchInputText && (
             <div
               ref={searchResultsRef}
-              className={`search-results ${
+              className={`search-resultswatchlistsector ${
                 filterData.length > 0 ? "active" : ""
               }`}
             >
@@ -790,7 +775,7 @@ const Navbar = () => {
           Subscribe
         </h4>
         <div className="navbar-icons">
-          <div className="notificationall">
+          <div className="notificationall"ref={dropdownRef}>
             {/* Bell Icon */}
             <FaBell
               className={
@@ -801,7 +786,7 @@ const Navbar = () => {
 
             {/* Dropdown Content */}
             {isOpen && (
-              <div className="dropdown-content">
+              <div className="dropdown-contentnoti">
                 {displayedNotifications.map((notif) => (
                   <div key={notif.id} className="notification-card">
                     <div className="notification-header">

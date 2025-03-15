@@ -11,7 +11,7 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Sidebar from "../../Sidebar/Sidebar";
 
-const AddTransactionstock = () => {
+const AddTransactionstock = ({children}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -186,6 +186,7 @@ const AddTransactionstock = () => {
   };
 
   return (
+    <div>
     <div className="transaction-form">
       <h2 className="tranheaderform">Add Transaction</h2>
       <div className="tabsadd">
@@ -402,9 +403,18 @@ const AddTransactionstock = () => {
         </div>
       </div>
       <Navbar />
-      <FooterForAllPage />
-      <Sidebar />
+     
+     
     </div>
+    <div className="layout">
+    <Sidebar />
+    <div className="main-contentover">
+      <div className="contentover">{children}</div>
+      <FooterForAllPage />
+    </div>
+  </div>
+  </div>
+
   );
 };
 
