@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./OrderTable.css";
+import Cookies from 'js-cookie'
 
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 
 import { API_BASE_URL } from "../../config";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
 /*const ordersData = [
 
   { id: "#7234531", order: "Elite ", date: "08-07-2024", amount: "₹2,000", status: "Completed" },
@@ -20,12 +22,15 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
   { id: "#7234540", order: "Premium (half yearly)", date: "01-01-2024", amount: "₹5,999", status: "Cancel" },
 ];*/
 
+
+
 const OrderTable = () => {
+  const {token}= useContext(UserProfileContext)
   const [isLogin, setislogin] = useState(true);
   const [ordersdatastate, setordersData] = useState([]);
   useEffect(() => {
     const fetOrders = async () => {
-      const localtoken = localStorage.getItem("token");
+      const localtoken = Cookies.get("jwtToken");
       if (!localtoken) {
         setislogin(false);
       }
@@ -33,7 +38,7 @@ const OrderTable = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localtoken}`,
+          Authorization: `Bearer ${token}`,
         },
       };
       const url = `${API_BASE_URL}/orders`;

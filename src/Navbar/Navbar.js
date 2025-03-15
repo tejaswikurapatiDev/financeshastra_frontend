@@ -209,6 +209,7 @@ const Navbar = () => {
 
   // Close search results when clicking outside
   useEffect(() => {
+    
     const token = Cookies.get("jwtToken");
           if (!token) {
             alert("Session expired, Please login again.");
@@ -299,7 +300,6 @@ const Navbar = () => {
 
   const onLogout = ()=>{
     Cookies.remove('jwtToken')
-    Cookies.remove('token')
     localStorage.clear()
     navigate('/')
   }

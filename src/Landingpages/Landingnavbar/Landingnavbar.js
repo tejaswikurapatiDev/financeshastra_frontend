@@ -331,8 +331,7 @@ const Landingnavbar = () => {
   );
 
   const onLogout= ()=>{
-    localStorage.removeItem('user')
-    localStorage.removeItem("token")
+    localStorage.clear()
     
     Cookies.remove('user')
     Cookies.remove('jwtToken')

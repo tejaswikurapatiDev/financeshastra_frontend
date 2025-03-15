@@ -3,6 +3,7 @@
 import { screenerStockListData } from "../../Stocks/screenerStockListData";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useState, useEffect,useMemo } from "react";
+import {icons} from '../../Stocks/icons'
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
@@ -94,9 +95,38 @@ const toggleDropdown = (key) => {
        };
      
        //  Debugging Effect: Confirm re-rendering when `currentPage` updates
-       useEffect(() => {
-         console.log("Current Page Updated:", currentPage);
-       }, [currentPage]);
+       const API_BASE_URL= 'https://newbackend-repo.onrender.com'
+     useEffect(()=>{
+       const fetchfun= async ()=>{
+         const url= `${API_BASE_URL}/stocks/nifty100`
+         console.log('url:', url)
+         const response= await fetch(url)
+         if (response.ok=== true){
+           const data= await response.json()
+           const formattedData= data.map(each =>({
+             "id": each.ID,
+             "symbol": each.Symbol,
+             "price": each.Price,
+             "change": each.Change,
+             "volume": each.Volume,
+             "marketCap": each.Market_cap,
+             "pToE": each.P_E,
+             "eps": each.EPS_dil,
+             "epsDilGrowth": each.EPS_dil_growth_TTM_YoY,
+             "divYield": each.Div_yield,
+             "sector": each.Sector,
+             "url": '/stockhandle',
+             "icon": icons.find(eachIcon => eachIcon.name === (each.Symbol).toLowerCase()).icon
+           }))
+           //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
+           
+   
+           console.log(formattedData)
+           setStocks(formattedData)
+         }
+       }
+       fetchfun()
+     }, [])
      
        // Pagination Range Calculation
        const { startPage, endPage } = useMemo(() => {

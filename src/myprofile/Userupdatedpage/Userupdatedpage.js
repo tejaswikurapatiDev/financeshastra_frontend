@@ -8,15 +8,17 @@ import './Userupdatedpage.css'
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
+import Cookies from 'js-cookie'
 
 const UserDetailsupdate = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const {userEmail} = useContext(UserProfileContext)
+  const {token}= useContext(UserProfileContext)
 
   // Initial state (can be overwritten by updated data passed through location.state)
-  const [emaillocal, setEmail]= useState('')
+  //const [emaillocal, setEmail]= useState('')
   const [profileImage, setProfileImage] = useState(williamImage);
   const [personalDetails, setPersonalDetails] = useState({
     
@@ -60,18 +62,18 @@ const UserDetailsupdate = () => {
 
   // Update state when new data is passed from EditProfile
   useEffect(() => {
-    if (!localStorage.getItem("user")){
+    if (!Cookies.get("jwtToken")){
       setShowPopupforLogin(true)
     }else{
-      const localStore= localStorage.getItem("user")
-      const localtoken= localStorage.getItem('token')
-      console.log('token: ', localtoken)
-      const parsed = (JSON.parse(localStore))
-      console.log(parsed.email)
-      setEmail(parsed.email)
+      //const localStore= localStorage.getItem("user")
+      //const localtoken= localStorage.getItem('token')
+      //console.log('token: ', localtoken)
+      //const parsed = (JSON.parse(localStore))
+      //console.log(userEmail)
+      //setEmail(userEmail)
       setPersonalDetails((prevDetails) => ({
       ...prevDetails,
-      email: parsed.email,
+      email: userEmail,
     }));
 
     const fetchfunc= async ()=>{
@@ -81,9 +83,10 @@ const UserDetailsupdate = () => {
         method: "GET",
         headers: {
           "Content-Type": 'application/json',
-          "Authorization": `Bearer ${localtoken}`
+          "Authorization": `Bearer ${token}`
         }
       }
+      console.log('token from usersupdatedpage:', token)
       
       const response= await fetch(url, options)
       console.log(response)
@@ -95,7 +98,7 @@ const UserDetailsupdate = () => {
           personal: {
             firstName: data[0].first_name,
             lastName: data[0].last_name,
-            email: parsed.email,
+            email: userEmail,
             gender: data[0].gender,
             dob: formatedDate,
             ageGroup: data[0].age_group,
