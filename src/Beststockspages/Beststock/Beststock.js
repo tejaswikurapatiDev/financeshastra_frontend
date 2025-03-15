@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { icons } from "../../Stocks/icons";
 import { screenerStockListData } from "../../Stocks/screenerStockListData";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
+import { useState, useEffect,useMemo } from "react";
+import {icons} from '../../Stocks/icons'
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
@@ -102,7 +104,17 @@ const Beststock = () => {
         : [...prevFilters, value]
     );
   };
+  const handleMarketCapChange = (value) => {
+    setMarketCapFilters((prevFilters) =>
+      prevFilters.includes(value)
+        ? prevFilters.filter((filter) => filter !== value)
+        : [...prevFilters, value]
+    );
+  };
 
+  const resetMarketCapFilters = () => {
+    setMarketCapFilters([]);
+  };
   const resetMarketCapFilters = () => {
     setMarketCapFilters([]);
   };
@@ -134,7 +146,19 @@ const Beststock = () => {
 
   const handleFilterChange = (key, value) => {
     const newFilters = { ...filters };
+  const handleFilterChange = (key, value) => {
+    const newFilters = { ...filters };
 
+    if (key === "roe") {
+      const currentValues = newFilters[key];
+      if (currentValues.includes(value)) {
+        newFilters[key] = currentValues.filter((v) => v !== value);
+      } else {
+        newFilters[key] = [...currentValues, value];
+      }
+    } else {
+      newFilters[key] = value;
+    }
     if (key === "roe") {
       const currentValues = newFilters[key];
       if (currentValues.includes(value)) {
@@ -211,6 +235,12 @@ const Beststock = () => {
       //   (newFilters.change === "0" && parseFloat(stock.change) >= 0) ||
       //   (newFilters.change === "5" && parseFloat(stock.change) >= 5) ||
       //   (newFilters.change === "10" && parseFloat(stock.change) >= 10);
+      // const matchesChange =
+      //   newFilters.change === "All" ||
+      //   (newFilters.change === "-5" && parseFloat(stock.change) <= -5) ||
+      //   (newFilters.change === "0" && parseFloat(stock.change) >= 0) ||
+      //   (newFilters.change === "5" && parseFloat(stock.change) >= 5) ||
+      //   (newFilters.change === "10" && parseFloat(stock.change) >= 10);
 
       const matchesROE =
         newFilters.roe.length === 0 ||
@@ -279,7 +309,22 @@ const Beststock = () => {
           valA = parseFloat(valA.replace(/[₹,%]/g, ""));
         }
       }
+      // Clean strings that are numeric and convert to number for comparison
+      if (typeof valA === "string") {
+        if (key === "price" || key === "marketCap") {
+          valA = parseFloat(valA.replace(/[₹, T]/g, "")); // Remove ₹, T and convert to number
+        } else if (key !== "sector") {
+          valA = parseFloat(valA.replace(/[₹,%]/g, ""));
+        }
+      }
 
+      if (typeof valB === "string") {
+        if (key === "price" || key === "marketCap") {
+          valB = parseFloat(valB.replace(/[₹, T]/g, "")); // Remove ₹, T and convert to number
+        } else if (key !== "sector") {
+          valB = parseFloat(valB.replace(/[₹,%]/g, ""));
+        }
+      }
       if (typeof valB === "string") {
         if (key === "price" || key === "marketCap") {
           valB = parseFloat(valB.replace(/[₹, T]/g, "")); // Remove ₹, T and convert to number
@@ -295,6 +340,9 @@ const Beststock = () => {
           : valB.localeCompare(valA);
       }
 
+      // For other columns, compare numerically
+      return sortDirection ? valA - valB : valB - valA;
+    });
       // For other columns, compare numerically
       return sortDirection ? valA - valB : valB - valA;
     });
@@ -1215,6 +1263,11 @@ const Beststock = () => {
     );
   };
 
+  const filterStocksByChangeRange = () => {
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data
+      return stockChange >= changeRange.min && stockChange <= changeRange.max;
+    });
   const filterStocksByChangeRange = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
       const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data

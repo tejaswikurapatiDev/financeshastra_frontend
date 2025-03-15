@@ -71,9 +71,37 @@ const ScreenerStockList = () => {
   };
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+  const API_BASE_URL= 'https://newbackend-repo.onrender.com'
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
-  }, [currentPage]);
+    const fetchfun= async ()=>{
+            const url= `${API_BASE_URL}/stocks/compstock/1`
+            const response= await fetch(url)
+            if (response.ok=== true){
+              const data= await response.json()
+              const formattedData= data.map(each =>({
+                "id": each.ID,
+                "symbol": each.Symbol,
+                "price": each.Price,
+                "change": each.Change,
+                "volume": each.Volume,
+                "marketCap": each.Market_cap,
+                "pToE": each.P_E,
+                "eps": each.EPS_dil,
+                "epsDilGrowth": each.EPS_dil_growth_TTM_YoY,
+                "divYield": each.Div_yield,
+                "sector": each.Sector,
+                "url": '/stockhandle',
+                "icon": icons.find(eachIcon => eachIcon.name === (each.Symbol).toLowerCase()).icon
+              }))
+              //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
+              
+      
+              console.log(formattedData)
+              setStocks(formattedData)
+            }
+          }
+          fetchfun()
+  }, []);
 
   //  Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
@@ -589,6 +617,10 @@ const ScreenerStockList = () => {
     (marketCapCategory) =>
       marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
+  //useEffect(() => {
+    //setFilteredData(screenerStockListData);
+//}, [screenerStockListData]);
+
 
   const handleReset = () => {
     setSelectedSectors([]); // Reset selected sectors
@@ -623,7 +655,9 @@ const ScreenerStockList = () => {
       // Close PEG dropdown
     }));
   };
-
+   //  Reset filtered data to original list
+   //setFilteredData(screenerStockListData);
+  //};
   const handleApply = () => {
     // Update the filters with the selected indexes and sectors
     setFilters((prevFilters) => ({
