@@ -27,7 +27,7 @@ const PremiumUPIPage = () => {
   const [showPopupPyt, setShowPopupPyt] = useState(false);
   const [showPopupforLogin, setShowPopupforLogin]= useState(false)
 
-  const navigate= useNavigate()
+  const navigate = useNavigate()
   const onlogin = () => {
     navigate('/')
   }
@@ -35,14 +35,19 @@ const PremiumUPIPage = () => {
   const handleUPIVerifyAndProceed = (e) => {
     e.preventDefault(); // Prevent form submission
 
+
+
     const newErrors = {};
 
+    
     // UPI ID validation
     const upiIdRegex = /^[\w.-]+@[\w.-]+$/;
     if (!upiId || !upiIdRegex.test(upiId)) {
       newErrors.upiId = "Please enter a valid UPI ID.";
     }
+    
 
+    setErrors(newErrors);
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {

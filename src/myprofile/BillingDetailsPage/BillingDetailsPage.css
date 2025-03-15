@@ -188,14 +188,16 @@ margin-left: 130px; /* Ensure it aligns properly */
   flex: 1; /* Allow inputs to take equal width */
 }
 
+
 .billing-detailspages-expiry input {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   font-size: 14px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
 }
 
 .billing-detailspages-expiry input:focus,

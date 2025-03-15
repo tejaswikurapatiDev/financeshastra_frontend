@@ -520,6 +520,7 @@ const EditProfile = () => {
 
 
   return (
+    <div>
     <div className="profilepage-container">
       <h1 className="profilepage-titleeeditt">My profile</h1>
       <div className="pftab">
@@ -990,8 +991,10 @@ const EditProfile = () => {
       <Navbar />
 
     </div>
-
-
+    <div className="foooterpagesaupdate">
+     <FooterForAllPage/>
+      </div>
+    </div>
 
   );
 };

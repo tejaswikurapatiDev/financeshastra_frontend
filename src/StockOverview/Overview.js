@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect } from "react";
 import { Container,Typography } from '@mui/material';
 import { CandleStickChart } from './Candlestickchart/Candlestickchart';
 import KeyIndicators from './KeyIndicators/KeyIndicators';
@@ -18,9 +19,14 @@ import NewsList from '../NewsList/NewsList';
 import About from '../About/About';
 
 import Stockpeer from '../Stockpeer/Stockpeer';
+import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 function Overview() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top when component mounts
+  }, []);
   return (
+    <div>
     <Container 
       sx={{
         maxWidth: '200%',
@@ -36,7 +42,7 @@ function Overview() {
       {/* Graph Header */}
       <Graphheader />
 
-      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold',color:'black'}}>
+      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold',color:'#24b676'}}>
       Overview
     </Typography>
 
@@ -144,6 +150,11 @@ function Overview() {
         <About />
       </Element>
     </Container>
+    <div className="foooterpagesaupdate">
+    <FooterForAllPage/>
+    </div>
+    </div>
+    
   );
 }
 

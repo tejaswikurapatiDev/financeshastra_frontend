@@ -68,9 +68,13 @@ const AddTransactionstock = () => {
       }
 
       const results = stocksData.filter((item) => {
-        const company = item.company?.toLowerCase() || "";
+        const company = item.name?.toLowerCase() || "";
+        const symbol = item.symbol?.toLowerCase() || "";
 
-        return company.includes(searchText.toLowerCase());
+        return (
+          company.includes(searchText.toLowerCase()) ||
+          symbol.includes(searchText.toLowerCase())
+        );
       });
 
       setFilterData(results);
@@ -87,21 +91,21 @@ const AddTransactionstock = () => {
   // Handle input changes dynamically
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    
+
     // Only show dropdown when stock_name is being changed
     if (name === "stock_name") {
       setShowDropdown(true);
     }
-  
+
     let processedValue = value;
     if (name === "quantity" || name === "price") {
       processedValue = Number(value);
       if (processedValue < 0) return; // Prevent negative values
     }
-  
+
     setTransactionData((prev) => {
       const updatedTransaction = { ...prev, [name]: processedValue };
-  
+
       // Auto-calculate dependent fields
       if (name === "quantity" || name === "price") {
         const quantity = Number(updatedTransaction.quantity) || 0;
@@ -110,11 +114,10 @@ const AddTransactionstock = () => {
         updatedTransaction.net_amount = updatedTransaction.amount;
         updatedTransaction.total_charges = updatedTransaction.net_amount; // Modify if extra charges apply
       }
-  
+
       return updatedTransaction;
     });
   };
-
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -140,7 +143,7 @@ const AddTransactionstock = () => {
         alert("Authentication required. Please log in.");
         return;
       }
-  
+
       const response = await fetch(`${API_BASE_URL}/myportfolio/addStock`, {
         method: "POST",
         headers: {
@@ -149,18 +152,21 @@ const AddTransactionstock = () => {
         },
         body: JSON.stringify(transactionData),
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to add transaction");
       }
-  
+
       const result = await response.json();
       console.log("Transaction added successfully:", result);
-  
+
       // Update the context with the new transaction
-      setStocksTransactions(prevTransactions => [...prevTransactions, result.data]);
-  
+      setStocksTransactions((prevTransactions) => [
+        ...prevTransactions,
+        result.data,
+      ]);
+
       // Navigate after successful save
       navigate("/portfoliostockaccount", {
         state: { updatedTransaction: result.data },
@@ -183,9 +189,25 @@ const AddTransactionstock = () => {
     <div className="transaction-form">
       <h2 className="tranheaderform">Add Transaction</h2>
       <div className="tabsadd">
-        <button className="tabadd" style={{ background: "#24b676", color: "white" }} onClick={() => navigate("/stockadd")}>Stocks</button>
-        <button className="tabadd" onClick={() => navigate("/addTransactionmutual")}>Mutual Fund</button>
-        <button className="tabadd" onClick={() => navigate("/addTransactiongold")}>Gold</button>
+        <button
+          className="tabadd"
+          style={{ background: "#24b676", color: "white" }}
+          onClick={() => navigate("/stockadd")}
+        >
+          Stocks
+        </button>
+        <button
+          className="tabadd"
+          onClick={() => navigate("/addTransactionmutual")}
+        >
+          Mutual Fund
+        </button>
+        <button
+          className="tabadd"
+          onClick={() => navigate("/addTransactiongold")}
+        >
+          Gold
+        </button>
       </div>
       <div className="addcontainer">
         <form className="transaction-row-wrapper">
@@ -218,24 +240,24 @@ const AddTransactionstock = () => {
                 className="transaction-input"
                 onFocus={() => setShowDropdown(true)} // Show dropdown when input is focused
               />
-
               {/* Dropdown to display search results */}
-              {showDropdown && transactionData.stock_name && filterData.length > 0 && (
-                <div className="search-resultswatchlist">
-                  <ul>
-                    {filterData.map((data) => (
-                      <li
-                        key={data.id}
-                        onClick={() => handleStockSelect(data.company)} // Select stock
-                      >
-                        {data.company}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {showDropdown &&
+                transactionData.stock_name &&
+                filterData.length > 0 && (
+                  <div className="search-resultswatchlist">
+                    <ul>
+                      {filterData.map((data) => (
+                        <li
+                          key={data.id}
+                          onClick={() => handleStockSelect(data.company)} // Select stock
+                        >
+                          {data.name} {data.symbol}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
             </label>
-
 
             {/* Exchange */}
             <label>
@@ -369,7 +391,6 @@ const AddTransactionstock = () => {
           <button
             type="button"
             style={{
-
               background: "#24b676",
               color: "white",
             }}

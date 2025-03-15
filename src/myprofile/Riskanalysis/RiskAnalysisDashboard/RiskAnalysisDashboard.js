@@ -84,9 +84,9 @@ const RiskAnalysisDashboard = () => {
       </div>
         </div>
         <Navbar/>
-        <div className="foooterpagesattt">
-    <FooterForAllPage/>
-  </div>
+        <div className="foooterpagesaupdate">
+      <FooterForAllPage />
+      </div>
         </div>
     );
 };

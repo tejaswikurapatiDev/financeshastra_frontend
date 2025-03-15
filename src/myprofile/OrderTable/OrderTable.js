@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import Cookies from 'js-cookie'
 import { API_BASE_URL } from "../../config";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
@@ -189,7 +189,9 @@ const OrderTable = () => {
           </div>
         )}
       </div>
+      <div className="foooterpagesaupdate">
       <FooterForAllPage />
+      </div>
     </div>
   );
 };

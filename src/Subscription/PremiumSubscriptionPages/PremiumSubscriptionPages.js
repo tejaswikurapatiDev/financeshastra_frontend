@@ -11,7 +11,7 @@ import card1 from '../../assest/visa.png';
 import card2 from '../../assest/mastercard.png';
 import card3 from '../../assest/american express.png';
 import card4 from '../../assest/unionpay.png';
-import {  faShieldAlt,faCheckCircle, faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
+import { faShieldAlt, faCheckCircle, faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoCard } from "react-icons/io5";
 import DatePicker from "react-datepicker";
@@ -38,7 +38,20 @@ const PremiumSubscriptionPages = () => {
   const validateInputs = () => {
     let hasErrors = false;
     const newErrors = {};
+    
 
+    if (!cardNumber || cardNumber.length !== 16) {
+      newErrors.cardNumber = "Invalid card number";
+      hasErrors = true;
+    }
+    if (!expiryDate) {
+      newErrors.expiryDate = "Invalid expiry date";
+      hasErrors = true;
+    }
+    if (!cvc || cvc.length !== 3) {
+      newErrors.cvc = "Invalid CVC";
+      hasErrors = true;
+    }
     if (!cardNumber || cardNumber.length !== 16) {
       newErrors.cardNumber = "Invalid card number";
       hasErrors = true;
