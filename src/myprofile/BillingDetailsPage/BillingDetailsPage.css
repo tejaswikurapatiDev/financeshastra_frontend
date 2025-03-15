@@ -293,6 +293,16 @@ border: 1px solid red;
 .custom-datepicker-input {
 
  
+  border: none;
+ 
+  font-size: 16px;
+  cursor: pointer;
+  
+  background-color: #ffff;
+  
+}
+
+.custom-datepicker-input input {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 16px;
@@ -300,13 +310,6 @@ border: 1px solid red;
   width: 330px;
   background-color: #dfdfdf;
   margin-left: 50px;
-}
-
-.custom-datepicker-input input {
-  border: none;
-  outline: none;
-  width: 100%;
-  background: transparent;
 }
 
 .calendar-iconnns {
