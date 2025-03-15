@@ -109,10 +109,10 @@ const StockWatchlist = ({ children }) => {
         ...prev,
         filterResults: searchText
           ? getStockData.filter(
-            (item) =>
-              item.name?.toLowerCase().includes(searchText.toLowerCase()) ||
-              item.symbol?.toLowerCase().includes(searchText.toLowerCase())
-          )
+              (item) =>
+                item.name?.toLowerCase().includes(searchText.toLowerCase()) ||
+                item.symbol?.toLowerCase().includes(searchText.toLowerCase())
+            )
           : [],
       }));
     }, 300),
@@ -221,11 +221,11 @@ const StockWatchlist = ({ children }) => {
       }
 
       const newWatchlist = await response.json();
-
+      console.log("New Watchlist Response:",response ); // ✅ Debugging
       setWatchlistState((prev) => ({
         ...prev,
         list: [...prev.list, newWatchlist],
-        selected: newWatchlist.watchlist_id,
+        selected: newWatchlist.watchlist_id || prev.selected,
       }));
     } catch (error) {
       alert(error.message || "Error creating watchlist");
@@ -271,7 +271,7 @@ const StockWatchlist = ({ children }) => {
           newSelectedId = updatedList[deletedIndex]
             ? updatedList[deletedIndex].watchlist_id
             : updatedList[Math.max(0, deletedIndex - 1)]?.watchlist_id ||
-            updatedList[0]?.watchlist_id;
+              updatedList[0]?.watchlist_id;
         }
 
         return {
@@ -500,7 +500,7 @@ const StockWatchlist = ({ children }) => {
     const [localName, setLocalName] = useState(uiState.newWatchlistName);
 
     const handleSave = () => {
-      setUiState(prev => ({ ...prev, newWatchlistName: localName }));
+      setUiState((prev) => ({ ...prev, newWatchlistName: localName }));
       handleRenameConfirm();
     };
 
@@ -616,7 +616,7 @@ const StockWatchlist = ({ children }) => {
               <div className="watchlist-item" key={watchlist.watchlist_id}>
                 <input
                   type="radio"
-                  name="watchlist"
+                  name="name"
                   checked={watchlistState.selected === watchlist.watchlist_id}
                   onChange={() => selectWatchlist(watchlist.watchlist_id)}
                   style={{
@@ -644,7 +644,10 @@ const StockWatchlist = ({ children }) => {
                       className="menu-itemwatchlist"
                       onClick={() => {
                         handleRenameWatchlist(watchlist.watchlist_id);
-                        setUiState((prev) => ({ ...prev, activeDropdown: null }));
+                        setUiState((prev) => ({
+                          ...prev,
+                          activeDropdown: null,
+                        }));
                       }}
                     >
                       Rename
@@ -653,7 +656,10 @@ const StockWatchlist = ({ children }) => {
                       className="menu-itemwatchlist"
                       onClick={() => {
                         promptDeleteWatchlist(watchlist.watchlist_id);
-                        setUiState((prev) => ({ ...prev, activeDropdown: null }));
+                        setUiState((prev) => ({
+                          ...prev,
+                          activeDropdown: null,
+                        }));
                       }}
                     >
                       Delete
@@ -690,8 +696,9 @@ const StockWatchlist = ({ children }) => {
                 {/* Search results */}
                 {stockInput.name && (
                   <div
-                    className={`search-resultswatchlistsector ${stockInput.filterResults.length > 0 ? "active" : ""
-                      }`}
+                    className={`search-resultswatchlistsector ${
+                      stockInput.filterResults.length > 0 ? "active" : ""
+                    }`}
                   >
                     {stockInput.filterResults.length > 0 ? (
                       <ul>
