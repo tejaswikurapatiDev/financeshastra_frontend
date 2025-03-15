@@ -5,12 +5,13 @@
 .size-analysis-container {
   flex: 1; /* Both take equal space */
   max-width: 526px; /* Optional */
+  font-family: 'calibri';
 }
 
   
 .size-analysis-container {
   width: 100%; /* Make it take full space */
- 
+ font-family: 'calibri';
   height: 345px;
   background: white;
   padding: 20px;
@@ -50,12 +51,7 @@ margin-left: 270px;
   gap: 10px;
 
   }
-  .legend-itemprtana:nth-child(1) .legend-colorprtana {
-    width: 25px;  /* Increase dot size */
-    height: 12px; /* Increase dot size */
-    border-radius: 50%; /* Make sure it's a circle */
-    border: 2px solid #6DB8FD;
-  }
+
   .segment-title {
     font-size: 21px;
     font-weight: bold;
@@ -85,7 +81,7 @@ margin-left: 270px;
   .legend-listprtana {
     list-style: none;
     padding: 0;
-    margin-top: -39px;
+    margin-top: 39px;
   
    
   }

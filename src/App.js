@@ -159,7 +159,7 @@ import HalfyearlyUPIPage from "./Subscription/HalfyearlyupiProfilePage/Halfyearl
 import HalfyearlyScanPage from "./Subscription/HalfyearlyScanPage/HalfyearlyScanPage";
 import PremiumSubscriptionPages from "./Subscription/PremiumSubscriptionPages/PremiumSubscriptionPages";
 import PremiumPaypalProfilePage from "./Subscription/PremiumpaypalPages/PremiumpaypalPages";
-import PremiumUPIPage from "./Subscription/PremiumupiProfilePage/PremiumupiProfilePage";
+import PremiumUPIPage from "./Subscription/PremiumupiProfilePage/Premiumprofilepage";
 import PremiumScanPage from "./Subscription/PremiumScanPage/PremiumScanPage";
 import AnnuallySubscriptionPages from "./Subscription/AnnuallySubscriptionPages/AnnuallySubscriptionPages";
 import AnnuallyPaypalProfilePage from "./Subscription/AnnuallyPaypalProfilePage/AnnuallyPaypalProfilePage";

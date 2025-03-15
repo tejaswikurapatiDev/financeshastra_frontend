@@ -357,15 +357,15 @@ const Landingnavbar = () => {
     [getDataFromStore]
   );
 
-  const onLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+  const onLogout= ()=>{
+    localStorage.clear()
+    
+    Cookies.remove('user')
+    Cookies.remove('jwtToken')
+    setIsLogedin(false)
+    navigate('/login')
+  }
 
-    Cookies.remove("user");
-    Cookies.remove("jwtToken");
-    setIsLogedin(false);
-    navigate("/login");
-  };
 
   // Get all data on component mount
   useEffect(() => {
