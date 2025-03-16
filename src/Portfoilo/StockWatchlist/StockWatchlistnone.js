@@ -45,6 +45,7 @@ const StockWatchlist = ({ children }) => {
     deleteWatchlistPopup: false,
     watchlistToDelete: null,
   });
+
   // Fetch watchlists
   const fetchWatchlists = async () => {
     try {
@@ -221,7 +222,7 @@ const StockWatchlist = ({ children }) => {
       }
 
       const newWatchlist = await response.json();
-      console.log("New Watchlist Response:",response ); // ✅ Debugging
+      console.log("New Watchlist Response:", response); // ✅ Debugging
       // setWatchlistState((prev) => ({
       //   ...prev,
       //   list: [...prev.list, newWatchlist],
@@ -229,7 +230,10 @@ const StockWatchlist = ({ children }) => {
       // }));
       setWatchlistState((prev) => ({
         ...prev,
-        list: [...prev.list, { ...newWatchlist, name: newWatchlist.watchlistName }],
+        list: [
+          ...prev.list,
+          { ...newWatchlist, name: newWatchlist.watchlistName },
+        ],
         selected: newWatchlist.watchlistId || prev.selected,
       }));
     } catch (error) {
@@ -311,8 +315,8 @@ const StockWatchlist = ({ children }) => {
     }));
   };
 
-  const handleRenameConfirm = async () => {
-    if (!uiState.newWatchlistName.trim()) return;
+  const handleRenameConfirm = async (newName) => {
+    if (!newName.trim()) return;
 
     try {
       const token = Cookies.get("jwtToken");
@@ -326,7 +330,7 @@ const StockWatchlist = ({ children }) => {
           },
           body: JSON.stringify({
             watchlist_id: uiState.renameIndex,
-            name: uiState.newWatchlistName,
+            name: newName,
           }),
         }
       );
@@ -339,9 +343,7 @@ const StockWatchlist = ({ children }) => {
       setWatchlistState((prev) => ({
         ...prev,
         list: prev.list.map((w) =>
-          w.watchlist_id === uiState.renameIndex
-            ? { ...w, name: uiState.newWatchlistName }
-            : w
+          w.watchlist_id === uiState.renameIndex ? { ...w, name: newName } : w
         ),
       }));
 
@@ -503,18 +505,17 @@ const StockWatchlist = ({ children }) => {
   // UI Components
   const RenamePopup = () => {
     const [localName, setLocalName] = useState(uiState.newWatchlistName);
-
     const handleSave = () => {
-      setUiState((prev) => ({ ...prev, newWatchlistName: localName }));
-      handleRenameConfirm();
+      handleRenameConfirm(localName);
     };
-
+    console.log(uiState.newWatchlistName);
     return (
       <div className="popup-overlay">
         <div className="popup-container" ref={renamePopupRef}>
           <h3>Rename Watchlist</h3>
           <input
             type="text"
+            name="newWatchlistName"
             value={localName}
             onChange={(e) => setLocalName(e.target.value)}
           />
@@ -523,9 +524,10 @@ const StockWatchlist = ({ children }) => {
               Save
             </button>
             <button
-              onClick={() =>
-                setUiState((prev) => ({ ...prev, renamePopup: false }))
-              }
+              onClick={() => {
+                setLocalName(uiState.newWatchlistName);
+                setUiState((prev) => ({ ...prev, renamePopup: false }));
+              }}
             >
               Cancel
             </button>
