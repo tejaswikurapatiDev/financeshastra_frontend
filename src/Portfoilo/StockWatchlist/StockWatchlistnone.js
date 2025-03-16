@@ -86,7 +86,6 @@ const StockWatchlist = ({ children }) => {
           },
         }
       );
-      console.log(watchlistState.selected);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -222,7 +221,7 @@ const StockWatchlist = ({ children }) => {
       }
 
       const newWatchlist = await response.json();
-      console.log("New Watchlist Response:", response); // ✅ Debugging
+
       // setWatchlistState((prev) => ({
       //   ...prev,
       //   list: [...prev.list, newWatchlist],
@@ -303,13 +302,14 @@ const StockWatchlist = ({ children }) => {
 
   // Rename watchlist
   const handleRenameWatchlist = (watchlistId) => {
+    // filters the selected watchlist
     const watchlist = watchlistState.list.find(
       (w) => w.watchlist_id === watchlistId
     );
-
+    // update the ui state
     setUiState((prev) => ({
       ...prev,
-      renameIndex: watchlistId,
+      renameIndex: watchlist?.watchlist_id,
       newWatchlistName: watchlist?.name || "",
       renamePopup: true,
     }));
@@ -329,7 +329,7 @@ const StockWatchlist = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
-            watchlist_id: uiState.renameIndex,
+            watchlist_id: uiState?.renameIndex,
             name: newName,
           }),
         }
@@ -508,7 +508,7 @@ const StockWatchlist = ({ children }) => {
     const handleSave = () => {
       handleRenameConfirm(localName);
     };
-    console.log(uiState.newWatchlistName);
+
     return (
       <div className="popup-overlay">
         <div className="popup-container" ref={renamePopupRef}>
@@ -619,7 +619,8 @@ const StockWatchlist = ({ children }) => {
         <div className="stock-watchlist">
           {/* Watchlist Section */}
           <div className="watchlist-management">
-            {watchlistState.list.map((watchlist, index) => (
+            {console.log(watchlistState)}
+            {watchlistState.list.map((watchlist) => (
               <div className="watchlist-item" key={watchlist.watchlist_id}>
                 <input
                   type="radio"
@@ -635,22 +636,22 @@ const StockWatchlist = ({ children }) => {
                 <label className="watchlist-label">{watchlist.name}</label>
                 <button
                   className="menu-iconwatchlist"
-                  onClick={() => toggleDropdown(index)}
+                  onClick={() => toggleDropdown(watchlist?.watchlist_id)}
                 >
                   ⋮
                 </button>
-                {uiState.activeDropdown === index && (
+                {uiState.activeDropdown === watchlist?.watchlist_id && (
                   <div
                     className="menu-dropdownwatchlist"
                     ref={(el) => {
                       // Dynamically add refs to the dropdown elements
-                      dropdownRefs.current[index] = el;
+                      dropdownRefs.current[watchlist?.watchlist_id] = el;
                     }}
                   >
                     <button
                       className="menu-itemwatchlist"
                       onClick={() => {
-                        handleRenameWatchlist(watchlist.watchlist_id);
+                        handleRenameWatchlist(watchlist?.watchlist_id);
                         setUiState((prev) => ({
                           ...prev,
                           activeDropdown: null,
