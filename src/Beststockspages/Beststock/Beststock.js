@@ -3,7 +3,7 @@ import { icons } from "../../Stocks/icons";
 import { screenerStockListData } from "../../Stocks/screenerStockListData";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useState, useEffect, useMemo } from "react";
-
+import { API_BASE_URL } from "../../config";
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const Beststock = () => {
-  const [stocks, setStocks] = useState(screenerStockListData);
+  const [stocks, setStocks] = useState(screenerStockListData || []);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
@@ -26,7 +26,7 @@ const Beststock = () => {
     sector: "All",
     change: "All",
   });
-  const API_BASE_URL = "https://newbackend-repo.onrender.com";
+  
   useEffect(() => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/compstock/1`;
@@ -104,6 +104,21 @@ const Beststock = () => {
     );
   };
 
+  const [dropdowns, setDropdowns] = useState({
+    divYield: false,
+    price: false,
+    change: false,
+    eps: false,
+    roe: false,
+    pe: false,
+    marketcap: false,
+    performance: false,
+    peg: false,
+    revenue: false,
+    index: false,
+    sector: false,
+  });
+
   const resetMarketCapFilters = () => {
     setMarketCapFilters([]);
   };
@@ -179,13 +194,13 @@ const Beststock = () => {
       const filteredStocks = screenerStockListData.filter((stock) => {
         console.log(
           parseFloat(stock.price.replace(/₹|,/g, "")) <=
-            parseFloat(newFilters.price)
+          parseFloat(newFilters.price)
         );
         console.log(stock.price.replace(/₹|,/g, ""));
         const matchesPrice =
           newFilters.price === "All" ||
           parseFloat(stock.price.replace(/₹|,/g, "")) <=
-            parseFloat(newFilters.price);
+          parseFloat(newFilters.price);
 
         // const matchesMarketCap =
         // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -1260,89 +1275,154 @@ const Beststock = () => {
       const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data
       return stockChange >= changeRange.min && stockChange <= changeRange.max;
     });
-    const filterStocksByChangeRange = () => {
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockChange = parseFloat(stock.change); // Assuming 'change' is the field in the stock data
-        return stockChange >= changeRange.min && stockChange <= changeRange.max;
-      });
+  };
+  const handleNavigate = () => {
+    navigate("/unlockstockscreener"); // Navigate to the desired route
+  };
 
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-      console.log("Filtered by Change Range:", changeRange);
-    };
-    const handleNavigate = () => {
-      navigate("/unlockstockscreener"); // Navigate to the desired route
-    };
-    return (
-      <div className="screener-container">
-        <h1 className="screener-header">Best Stocks</h1>
-        <div className="screener-filters">
-          {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
+  return (
+    <div className="screener-container">
+      <h1 className="screener-header">Best Stocks</h1>
+      <div className="screener-filters">
+        {/* Filter for each parameter */}
+        <div
+          className="indexscreenerbuttonstockcontainar"
+          style={{ position: "relative" }}
+        >
+          {/* Dropdown Button */}
+          <button
+            className="indexscreenerbuttonstock"
+            onClick={toggleIndexDropdown}
           >
-            {/* Dropdown Button */}
-            <button
-              className="indexscreenerbuttonstock"
-              onClick={toggleIndexDropdown}
-            >
-              Index <RiArrowDropDownLine size={24} />
-            </button>
+            Index <RiArrowDropDownLine size={24} />
+          </button>
 
-            {/* Dropdown Menu */}
-            {isIndexDropdownVisible && (
-              <div className="stockindexscreeneropt">
-                {/* Search Box */}
-                <div className="searchboxindexscreener">
-                  <FaSearch style={{ marginRight: "4px", color: "#333" }} />
-                  <input
-                    type="text"
-                    placeholder="Search Index"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    style={{
-                      border: "none",
-                      outline: "none",
-                      flex: 1,
-                    }}
-                  />
+          {/* Dropdown Menu */}
+          {isIndexDropdownVisible && (
+            <div className="stockindexscreeneropt">
+              {/* Search Box */}
+              <div className="searchboxindexscreener">
+                <FaSearch style={{ marginRight: "4px", color: "#333" }} />
+                <input
+                  type="text"
+                  placeholder="Search Index"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    flex: 1,
+                  }}
+                />
+              </div>
+
+              {/* Checkbox List */}
+              <div
+                className="index-optionsstocks" // Added class name to the container of options
+              >
+                {filteredIndexes.map((index) => (
+                  <label
+                    key={index}
+                    className="index-optionscreener" // Added class name to each option
+                  >
+                    <input
+                      type="checkbox"
+                      checked={selectedIndexes.includes(index)}
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        handleCheckboxChange(index);
+                      }}
+                      style={{ width: "20%" }}
+                    />
+                    {index}
+                  </label>
+                ))}
+              </div>
+
+              <div className="resetapplybuttoncontainer">
+                <button className="resetstockscreener" onClick={handleReset}>
+                  Reset
+                </button>
+                <button className="applystockscreener" onClick={handleApply}>
+                  Apply
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* Display Filtered Data */}
+          <div>
+            {filteredData.length > 0 ? (
+              filteredData.map((item) => (
+                <div key={item.id}>
+                  <p>{item.name}</p>
                 </div>
+              ))
+            ) : (
+              <p>No data available for the selected index.</p>
+            )}
+          </div>
+        </div>
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={togglePriceDropdown}
+              >
+                Price <RiArrowDropDownLine size={24} />
+              </button>
 
-                {/* Checkbox List */}
-                <div
-                  className="index-optionsstocks" // Added class name to the container of options
-                >
-                  {filteredIndexes.map((index) => (
+              {/* Dropdown Menu */}
+              {isPriceDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {priceOptions.map((category) => (
                     <label
-                      key={index}
-                      className="index-optionscreener" // Added class name to each option
+                      className="dropdown-market-cap-label"
+                      key={category.value}
                     >
                       <input
                         type="checkbox"
-                        checked={selectedIndexes.includes(index)}
+                        checked={selectedprice.includes(category.value)} // Check by the category value
                         onChange={(e) => {
                           e.stopPropagation();
-                          handleCheckboxChange(index);
+                          setSelectedprice(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
                         }}
-                        style={{ width: "20%" }}
+                        style={{ width: "30%" }}
                       />
-                      {index}
+                      {category.label} {/* Correctly render the label */}
                     </label>
                   ))}
-                </div>
 
-                <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener" onClick={handleReset}>
-                    Reset
-                  </button>
-                  <button className="applystockscreener" onClick={handleApply}>
-                    Apply
-                  </button>
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handlePriceApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
                 </div>
-              </div>
-            )}
-
+              )}
+            </div>
             {/* Display Filtered Data */}
             <div>
               {filteredData.length > 0 ? (
@@ -1356,1058 +1436,982 @@ const Beststock = () => {
               )}
             </div>
           </div>
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={togglePriceDropdown}
-                >
-                  Price <RiArrowDropDownLine size={24} />
-                </button>
+        </div>
 
-                {/* Dropdown Menu */}
-                {isPriceDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={togglechangeDropdown}
+              >
+                Change% <RiArrowDropDownLine size={24} />
+              </button>
 
-                    {priceOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedprice.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedprice(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
+              {/* Dropdown Menu */}
+              {ischangeDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
 
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handlePriceApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={togglechangeDropdown}
-                >
-                  Change% <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {ischangeDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {changeOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedchange.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedchange(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleChangeApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={toggleMarketCapDropdown}
-                >
-                  Market Cap <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isMarketCapDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Search Box */}
-
-                    {/* Checkbox List */}
-
-                    {marketCapCategory.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedMcap.includes(category)} // Check if the category is selected
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedMcap(
-                              (prev) =>
-                                prev.includes(category)
-                                  ? prev.filter((item) => item !== category) // Remove category from selected
-                                  : [...prev, category] // Add category to selected
-                            );
-                          }}
-                          style={{ width: "40%" }}
-                        />
-                        {category}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handlemcapApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={togglePEDropdown}
-                >
-                  P/E <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isPEDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {peFilterOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedPe.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedPe(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handlePeApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={toggleEPSDropdown}
-                >
-                  EPS Dil Growth <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isEPSDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {epsDilGrowthOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedeps.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedeps(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleEPSApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={toggleDivYieldDropdown}
-                >
-                  Div Yield % <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isDivYieldDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {divYieldOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selecteddivyield.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelecteddivyield(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleDivYieldApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
-            <button
-              className="indexscreenerbuttonstock"
-              onClick={() => setIsOpen((prev) => !prev)}
-            >
-              Sectors <RiArrowDropDownLine size={24} />
-            </button>
-
-            {/* Dropdown Menu */}
-            {isOpen && (
-              <div className="stockindexscreeneropt">
-                <div className="searchboxindexscreener">
-                  <FaSearch style={{ marginRight: "4px", color: "#333" }} />
-                  <input
-                    type="text"
-                    placeholder="Search Sector"
-                    value={searchTerm}
-                    onChange={handleSearchChange}
-                    style={{
-                      border: "none",
-                      outline: "none",
-                      flex: 1,
-                    }}
-                  />
-                </div>
-                <div className="index-optionsstocks">
-                  {filteredSectors.map((sector, index) => (
-                    <label key={sector} className="index-optionscreener">
+                  {changeOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
                       <input
                         type="checkbox"
-                        checked={selectedSectors.includes(sector)} // Check if the sector is selected
+                        checked={selectedchange.includes(category.value)} // Check by the category value
                         onChange={(e) => {
                           e.stopPropagation();
-                          setSelectedSectors((prev) =>
-                            prev.includes(sector)
-                              ? prev.filter((s) => s !== sector)
-                              : [...prev, sector]
+                          setSelectedchange(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
                           );
                         }}
-                        style={{ width: "20%" }}
+                        style={{ width: "30%" }}
                       />
-                      {sector}
+                      {category.label} {/* Correctly render the label */}
                     </label>
                   ))}
-                </div>{" "}
-                <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener" onClick={handleReset}>
-                    Reset
-                  </button>
-                  <button
-                    className="applystockscreener"
-                    onClick={handlesectorApply}
-                  >
-                    Apply
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-          <div>
-            {filteredData.length > 0 ? (
-              filteredData.map((item) => (
-                <div key={item.id}>
-                  <p>{item.name}</p>
-                </div>
-              ))
-            ) : (
-              <p>No data available for the selected index.</p>
-            )}
-          </div>
 
-          {/* Performance Dropdown */}
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={togglePerfDropdown}
-                >
-                  Perf% <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isPerfDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {perfOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedperf.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedperf(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleperfApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          {/* Revenue Growth Dropdown */}
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={toggleRevenueGrowthDropdown}
-                >
-                  Revenue Growth <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isRevenueGrowthDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {revenueGrowthOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedrevenuegrowth.includes(
-                            category.value
-                          )} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedrevenuegrowth(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleRevenueGrowthApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-          {/* PEG Dropdown */}
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={togglePegDropdown}
-                >
-                  PEG <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isPegDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {pegOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedpeg.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedpeg(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handlePEGApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          <div className="market-cap-filter">
-            <div className="dropdown-market-cap-wrapper">
-              {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
-                {/* Dropdown Button */}
-                <button
-                  className="dropdown-market-cap-toggle"
-                  onClick={toggleROEDropdown}
-                >
-                  ROE <RiArrowDropDownLine size={24} />
-                </button>
-
-                {/* Dropdown Menu */}
-                {isROEDropdownVisible && (
-                  <div className="dropdown-market-cap-options">
-                    {/* Checkbox List */}
-
-                    {roeOptions.map((category) => (
-                      <label
-                        className="dropdown-market-cap-label"
-                        key={category.value}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={selectedroe.includes(category.value)} // Check by the category value
-                          onChange={(e) => {
-                            e.stopPropagation();
-                            setSelectedroe(
-                              (prev) =>
-                                prev.includes(category.value)
-                                  ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
-                                  : [...prev, category.value] // Add category
-                            );
-                          }}
-                          style={{ width: "30%" }}
-                        />
-                        {category.label} {/* Correctly render the label */}
-                      </label>
-                    ))}
-
-                    {/* Buttons */}
-                    <div className="dropdown-market-cap-actions">
-                      <button
-                        onClick={handleReset}
-                        className="dropdown-market-cap-reset"
-                      >
-                        Reset
-                      </button>
-                      <button
-                        onClick={handleROEApply}
-                        className="dropdown-market-cap-apply"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </div>
-              {/* Display Filtered Data */}
-              <div>
-                {filteredData.length > 0 ? (
-                  filteredData.map((item) => (
-                    <div key={item.id}>
-                      <p>{item.name}</p>
-                    </div>
-                  ))
-                ) : (
-                  <p>No data available for the selected index.</p>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Tabs */}
-        <div className="tab-container">
-          <button
-            className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
-            onClick={() => {
-              setActiveTab("Overview");
-              navigate("/beststock"); // Navigate to the StockScreenerList page
-            }}
-          >
-            Overview
-          </button>
-
-          <button
-            className={`tab-button ${
-              activeTab === "Valuation" ? "active" : ""
-            }`}
-            onClick={() => {
-              setActiveTab("Valuation");
-              navigate("/bestStockvaluation"); // Navigate to the ScreenerStockvaluation page
-            }}
-          >
-            Valuation
-          </button>
-
-          <button
-            className={`tab-button ${
-              activeTab === "Income Statement" ? "active" : ""
-            }`}
-            onClick={() => {
-              setActiveTab("Income Statement");
-              navigate("/bestStockIncomeStatement"); // Add a route for Income Statement if needed
-            }}
-          >
-            Income Statement
-          </button>
-        </div>
-
-        {/* Conditional Rendering */}
-
-        <div
-          className="screener-table-wrapper"
-          style={{ overflowY: "auto", height: "500px" }}
-        >
-          <table
-            className="screener-table"
-            style={{ borderCollapse: "collapse", width: "100%" }}
-          >
-            <thead
-              style={{
-                position: "sticky",
-                top: 0,
-                backgroundColor: "#f9f9f9",
-                zIndex: 10,
-                boxShadow: "0 4px 6px #24b676",
-              }}
-            >
-              <tr>
-                <th>Symbol</th>
-                <th>
-                  Price
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("price")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Change %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("change")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Volume
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("volume")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Market Cap
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("marketCap")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  P / E
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("pToE")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-
-                <th>
-                  EPS (₹)
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("eps")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS Gr %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("epsDilGrowth")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Div Yield %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("divYield")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Sectors
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("sector")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Analyst Rating
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("analystrating")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {stocks.map((stock, index) => (
-                <tr key={index} className="screener-row">
-                  <td className="symbol-cell">
-                    <img
-                      src={stock.icon}
-                      alt={`${stock.symbol} logo`}
-                      className="company-icon"
-                    />
-
-                    <a href={stock.url}>{stock.symbol}</a>
-                  </td>
-
-                  <td>{stock.price}</td>
-                  <td
-                    style={{
-                      color:
-                        parseFloat(stock.change) > 0
-                          ? "#24b676"
-                          : parseFloat(stock.change) < 0
-                          ? "red"
-                          : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.change) > 0
-                      ? `${stock.change}`
-                      : stock.change}
-                  </td>
-                  <td>{stock.volume}</td>
-                  <td>{stock.marketCap}</td>
-                  <td>{stock.pToE}</td>
-                  <td>{stock.eps}</td>
-                  <td
-                    style={{
-                      color:
-                        parseFloat(stock.epsDilGrowth) > 0
-                          ? "#24b676"
-                          : parseFloat(stock.epsDilGrowth) < 0
-                          ? "red"
-                          : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.epsDilGrowth) > 0
-                      ? `${stock.epsDilGrowth}`
-                      : stock.epsDilGrowth}
-                  </td>
-                  <td>{stock.divYield}</td>
-                  <td
-                    style={{
-                      color: "blue",
-                    }}
-                  >
-                    {stock.sector}
-                  </td>
-
-                  <td>
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
                     <button
-                      className="screener-unlock-btn"
-                      onClick={handleNavigate}
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
                     >
-                      <IoLockClosedOutline style={{ marginRight: "8px" }} />
-                      <span className="button-text">Unlock</span>
+                      Reset
                     </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                    <button
+                      onClick={handleChangeApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={toggleMarketCapDropdown}
+              >
+                Market Cap <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isMarketCapDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Search Box */}
+
+                  {/* Checkbox List */}
+
+                  {marketCapCategory.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedMcap.includes(category)} // Check if the category is selected
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedMcap(
+                            (prev) =>
+                              prev.includes(category)
+                                ? prev.filter((item) => item !== category) // Remove category from selected
+                                : [...prev, category] // Add category to selected
+                          );
+                        }}
+                        style={{ width: "40%" }}
+                      />
+                      {category}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handlemcapApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={togglePEDropdown}
+              >
+                P/E <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isPEDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {peFilterOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedPe.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedPe(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handlePeApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={toggleEPSDropdown}
+              >
+                EPS Dil Growth <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isEPSDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {epsDilGrowthOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedeps.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedeps(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleEPSApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={toggleDivYieldDropdown}
+              >
+                Div Yield % <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isDivYieldDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {divYieldOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selecteddivyield.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelecteddivyield(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleDivYieldApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        {/* Sector Dropdown */}
+        <div
+          className="indexscreenerbuttonstockcontainar"
+          style={{ position: "relative" }}
+        >
+          <button
+            className="indexscreenerbuttonstock"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            Sectors <RiArrowDropDownLine size={24} />
+          </button>
+
+          {/* Dropdown Menu */}
+          {isOpen && (
+            <div className="stockindexscreeneropt">
+              <div className="searchboxindexscreener">
+                <FaSearch style={{ marginRight: "4px", color: "#333" }} />
+                <input
+                  type="text"
+                  placeholder="Search Sector"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  style={{
+                    border: "none",
+                    outline: "none",
+                    flex: 1,
+                  }}
+                />
+              </div>
+              <div className="index-optionsstocks">
+                {filteredSectors.map((sector, index) => (
+                  <label key={sector} className="index-optionscreener">
+                    <input
+                      type="checkbox"
+                      checked={selectedSectors.includes(sector)} // Check if the sector is selected
+                      onChange={(e) => {
+                        e.stopPropagation();
+                        setSelectedSectors((prev) =>
+                          prev.includes(sector)
+                            ? prev.filter((s) => s !== sector)
+                            : [...prev, sector]
+                        );
+                      }}
+                      style={{ width: "20%" }}
+                    />
+                    {sector}
+                  </label>
+                ))}
+              </div>{" "}
+              <div className="resetapplybuttoncontainer">
+                <button className="resetstockscreener" onClick={handleReset}>
+                  Reset
+                </button>
+                <button
+                  className="applystockscreener"
+                  onClick={handlesectorApply}
+                >
+                  Apply
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+        <div>
+          {filteredData.length > 0 ? (
+            filteredData.map((item) => (
+              <div key={item.id}>
+                <p>{item.name}</p>
+              </div>
+            ))
+          ) : (
+            <p>No data available for the selected index.</p>
+          )}
         </div>
 
-        <Navbar />
-        <div className="foooterpagesatt">
-          <FooterForAllPage />
+        {/* Performance Dropdown */}
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={togglePerfDropdown}
+              >
+                Perf% <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isPerfDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {perfOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedperf.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedperf(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleperfApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        {/* Revenue Growth Dropdown */}
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={toggleRevenueGrowthDropdown}
+              >
+                Revenue Growth <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isRevenueGrowthDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {revenueGrowthOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedrevenuegrowth.includes(
+                          category.value
+                        )} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedrevenuegrowth(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleRevenueGrowthApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+        {/* PEG Dropdown */}
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={togglePegDropdown}
+              >
+                PEG <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isPegDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {pegOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedpeg.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedpeg(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handlePEGApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="market-cap-filter">
+          <div className="dropdown-market-cap-wrapper">
+            {/* Filter for each parameter */}
+            <div style={{ position: "relative" }}>
+              {/* Dropdown Button */}
+              <button
+                className="dropdown-market-cap-toggle"
+                onClick={toggleROEDropdown}
+              >
+                ROE <RiArrowDropDownLine size={24} />
+              </button>
+
+              {/* Dropdown Menu */}
+              {isROEDropdownVisible && (
+                <div className="dropdown-market-cap-options">
+                  {/* Checkbox List */}
+
+                  {roeOptions.map((category) => (
+                    <label
+                      className="dropdown-market-cap-label"
+                      key={category.value}
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedroe.includes(category.value)} // Check by the category value
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          setSelectedroe(
+                            (prev) =>
+                              prev.includes(category.value)
+                                ? prev.filter(
+                                  (item) => item !== category.value
+                                ) // Remove category
+                                : [...prev, category.value] // Add category
+                          );
+                        }}
+                        style={{ width: "30%" }}
+                      />
+                      {category.label} {/* Correctly render the label */}
+                    </label>
+                  ))}
+
+                  {/* Buttons */}
+                  <div className="dropdown-market-cap-actions">
+                    <button
+                      onClick={handleReset}
+                      className="dropdown-market-cap-reset"
+                    >
+                      Reset
+                    </button>
+                    <button
+                      onClick={handleROEApply}
+                      className="dropdown-market-cap-apply"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+            {/* Display Filtered Data */}
+            <div>
+              {filteredData.length > 0 ? (
+                filteredData.map((item) => (
+                  <div key={item.id}>
+                    <p>{item.name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No data available for the selected index.</p>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    );
-  };
+
+      {/* Tabs */}
+      <div className="tab-container">
+        <button
+          className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
+          onClick={() => {
+            setActiveTab("Overview");
+            navigate("/beststock"); // Navigate to the StockScreenerList page
+          }}
+        >
+          Overview
+        </button>
+
+        <button
+          className={`tab-button ${activeTab === "Valuation" ? "active" : ""
+            }`}
+          onClick={() => {
+            setActiveTab("Valuation");
+            navigate("/bestStockvaluation"); // Navigate to the ScreenerStockvaluation page
+          }}
+        >
+          Valuation
+        </button>
+
+        <button
+          className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
+            }`}
+          onClick={() => {
+            setActiveTab("Income Statement");
+            navigate("/bestStockIncomeStatement"); // Add a route for Income Statement if needed
+          }}
+        >
+          Income Statement
+        </button>
+      </div>
+
+      {/* Conditional Rendering */}
+
+      <div
+        className="screener-table-wrapper"
+        style={{ overflowY: "auto", height: "500px" }}
+      >
+        <table
+          className="screener-table"
+          style={{ borderCollapse: "collapse", width: "100%" }}
+        >
+          <thead
+            style={{
+              position: "sticky",
+              top: 0,
+              backgroundColor: "#f9f9f9",
+              zIndex: 10,
+              boxShadow: "0 4px 6px #24b676",
+            }}
+          >
+            <tr>
+              <th>Symbol</th>
+              <th>
+                Price
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("price")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Change %
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("change")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Volume
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("volume")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Market Cap
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("marketCap")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                P / E
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("pToE")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+
+              <th>
+                EPS (₹)
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("eps")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                EPS Gr %
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("epsDilGrowth")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Div Yield %
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("divYield")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Sectors
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("sector")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+              <th>
+                Analyst Rating
+                <button
+                  className="screenerbtnlist"
+                  onClick={() => handleSort("analystrating")}
+                >
+                  <PiCaretUpDownFill />
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {stocks.map((stock, index) => (
+              <tr key={index} className="screener-row">
+                <td className="symbol-cell">
+                  <img
+                    src={stock.icon}
+                    alt={`${stock.symbol} logo`}
+                    className="company-icon"
+                  />
+
+                  <a href={stock.url}>{stock.symbol}</a>
+                </td>
+
+                <td>{stock.price}</td>
+                <td
+                  style={{
+                    color:
+                      parseFloat(stock.change) > 0
+                        ? "#24b676"
+                        : parseFloat(stock.change) < 0
+                          ? "red"
+                          : "inherit",
+                  }}
+                >
+                  {parseFloat(stock.change) > 0
+                    ? `${stock.change}`
+                    : stock.change}
+                </td>
+                <td>{stock.volume}</td>
+                <td>{stock.marketCap}</td>
+                <td>{stock.pToE}</td>
+                <td>{stock.eps}</td>
+                <td
+                  style={{
+                    color:
+                      parseFloat(stock.epsDilGrowth) > 0
+                        ? "#24b676"
+                        : parseFloat(stock.epsDilGrowth) < 0
+                          ? "red"
+                          : "inherit",
+                  }}
+                >
+                  {parseFloat(stock.epsDilGrowth) > 0
+                    ? `${stock.epsDilGrowth}`
+                    : stock.epsDilGrowth}
+                </td>
+                <td>{stock.divYield}</td>
+                <td
+                  style={{
+                    color: "blue",
+                  }}
+                >
+                  {stock.sector}
+                </td>
+
+                <td>
+                  <button
+                    className="screener-unlock-btn"
+                    onClick={handleNavigate}
+                  >
+                    <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                    <span className="button-text">Unlock</span>
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <Navbar />
+      <div className="foooterpagesatt">
+        <FooterForAllPage />
+      </div>
+    </div>
+  );
 };
 
 export default Beststock;
