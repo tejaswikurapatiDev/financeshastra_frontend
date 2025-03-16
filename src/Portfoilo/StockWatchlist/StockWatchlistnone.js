@@ -222,10 +222,15 @@ const StockWatchlist = ({ children }) => {
 
       const newWatchlist = await response.json();
       console.log("New Watchlist Response:",response ); // ✅ Debugging
+      // setWatchlistState((prev) => ({
+      //   ...prev,
+      //   list: [...prev.list, newWatchlist],
+      //   selected: newWatchlist.watchlist_id || prev.selected,
+      // }));
       setWatchlistState((prev) => ({
         ...prev,
-        list: [...prev.list, newWatchlist],
-        selected: newWatchlist.watchlist_id || prev.selected,
+        list: [...prev.list, { ...newWatchlist, name: newWatchlist.watchlistName }],
+        selected: newWatchlist.watchlistId || prev.selected,
       }));
     } catch (error) {
       alert(error.message || "Error creating watchlist");
