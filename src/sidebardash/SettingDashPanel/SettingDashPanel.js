@@ -4,7 +4,7 @@ import "./SettingDashPanel.css";
 import Sidebar from "../../Sidebar/Sidebar";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import Cookies from 'js-cookie'
+
 
 
 

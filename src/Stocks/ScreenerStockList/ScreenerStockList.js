@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
 import { screenerStockListData } from "../screenerStockListData";
-import { icons } from '../icons'
+import { icons } from "../icons";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
@@ -20,8 +20,8 @@ const ScreenerStockList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
-    pe: [],           // Initialize as an empty array
-    roe: [],          // Initialize as an empty array
+    pe: [], // Initialize as an empty array
+    roe: [], // Initialize as an empty array
     price: "All",
     marketCap: "All",
     divYield: [],
@@ -29,29 +29,26 @@ const ScreenerStockList = () => {
     change: "All",
   });
 
-  const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
+  const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] =
+    useState(false);
   const [filteredData, setFilteredData] = useState(screenerStockListData);
 
   const toggleDivYieldDropdown = () => {
     setDivYieldDropdownVisible(!isDivYieldDropdownVisible);
-
   };
   const [isPriceDropdownVisible, setPriceDropdownVisible] = useState(false);
   const togglePriceDropdown = () => {
     setPriceDropdownVisible(!isPriceDropdownVisible);
-
   };
   const [ischangeDropdownVisible, setchangeDropdownVisible] = useState(false);
   const togglechangeDropdown = () => {
     setchangeDropdownVisible(!ischangeDropdownVisible);
-
   };
   const [isEPSDropdownVisible, setEPSDropdownVisible] = useState(false);
 
   const [isROEDropdownVisible, setROEDropdownVisible] = useState(false);
   const toggleROEDropdown = () => {
     setROEDropdownVisible(!isROEDropdownVisible);
-
   };
 
   const recordsPerPage = 10;
@@ -59,7 +56,10 @@ const ScreenerStockList = () => {
 
   //  Ensure currentData updates correctly
   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
-  const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+  const indexOfLastItem = Math.min(
+    indexOfFirstItem + recordsPerPage,
+    stocks.length
+  );
   const currentData = useMemo(() => {
     return stocks.slice(indexOfFirstItem, indexOfLastItem);
   }, [currentPage, stocks]);
@@ -71,9 +71,37 @@ const ScreenerStockList = () => {
   };
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+  const API_BASE_URL= 'https://newbackend-repo.onrender.com'
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
-  }, [currentPage]);
+    const fetchfun= async ()=>{
+            const url= `${API_BASE_URL}/stocks/compstock/1`
+            const response= await fetch(url)
+            if (response.ok=== true){
+              const data= await response.json()
+              const formattedData= data.map(each =>({
+                "id": each.ID,
+                "symbol": each.Symbol,
+                "price": each.Price,
+                "change": each.Change,
+                "volume": each.Volume,
+                "marketCap": each.Market_cap,
+                "pToE": each.P_E,
+                "eps": each.EPS_dil,
+                "epsDilGrowth": each.EPS_dil_growth_TTM_YoY,
+                "divYield": each.Div_yield,
+                "sector": each.Sector,
+                "url": '/stockhandle',
+                "icon": icons.find(eachIcon => eachIcon.name === (each.Symbol).toLowerCase()).icon
+              }))
+              //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
+              
+      
+              console.log(formattedData)
+              setStocks(formattedData)
+            }
+          }
+          fetchfun()
+  }, []);
 
   //  Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
@@ -88,7 +116,6 @@ const ScreenerStockList = () => {
     return { startPage: start, endPage: end };
   }, [currentPage, totalPages]);
 
-
   const toggleEPSDropdown = () => {
     setEPSDropdownVisible(!isEPSDropdownVisible);
   };
@@ -97,7 +124,8 @@ const ScreenerStockList = () => {
   const togglePEDropdown = () => {
     setPEDropdownVisible(!isPEDropdownVisible);
   };
-  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] = useState(false);
+  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] =
+    useState(false);
   const [marketCapFilters, setMarketCapFilters] = useState([]);
 
   const handleMarketCapChange = (value) => {
@@ -153,7 +181,6 @@ const ScreenerStockList = () => {
     }));
   };
 
-
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -190,11 +217,15 @@ const ScreenerStockList = () => {
   const applyFilters = (newFilters) => {
     console.log(newFilters, "newfilter");
     const filteredStocks = screenerStockListData.filter((stock) => {
-      console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
-      console.log(stock.price.replace(/₹|,/g, ""))
+      console.log(
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price)
+      );
+      console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
-        parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price);
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -208,7 +239,6 @@ const ScreenerStockList = () => {
       //   return false;
       // });
 
-
       const matchesDivYield =
         newFilters.divYield.length === 0 ||
         newFilters.divYield.some((divYieldValue) => {
@@ -216,7 +246,12 @@ const ScreenerStockList = () => {
           if (divYieldValue === "10-above" && stockDivYield >= 10) return true;
           if (divYieldValue === "5-above" && stockDivYield >= 5) return true;
           if (divYieldValue === "2-below" && stockDivYield <= 2) return true;
-          if (divYieldValue === "0-2" && stockDivYield > 0 && stockDivYield <= 2) return true;
+          if (
+            divYieldValue === "0-2" &&
+            stockDivYield > 0 &&
+            stockDivYield <= 2
+          )
+            return true;
           return false;
         });
 
@@ -237,7 +272,8 @@ const ScreenerStockList = () => {
           if (roeValue === "15" && parseFloat(stock.roe) >= 15) return true;
           if (roeValue === "0-above" && parseFloat(stock.roe) >= 0) return true;
           if (roeValue === "0-below" && parseFloat(stock.roe) < 0) return true;
-          if (roeValue === "15-below" && parseFloat(stock.roe) < 15) return true;
+          if (roeValue === "15-below" && parseFloat(stock.roe) < 15)
+            return true;
           return false;
         });
       const matchesEPSDilGrowth =
@@ -252,7 +288,6 @@ const ScreenerStockList = () => {
           if (epsValue === "-25-below" && stockEPS <= -25) return true;
           return false;
         });
-
 
       // PE filter
       const matchesPE =
@@ -308,7 +343,9 @@ const ScreenerStockList = () => {
 
       // For sector column, compare alphabetically
       if (key === "sector") {
-        return sortDirection ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        return sortDirection
+          ? valA.localeCompare(valB)
+          : valB.localeCompare(valA);
       }
 
       // For other columns, compare numerically
@@ -320,7 +357,10 @@ const ScreenerStockList = () => {
   };
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const [performanceRange, setPerformanceRange] = useState({ min: -30, max: 40 });
+  const [performanceRange, setPerformanceRange] = useState({
+    min: -30,
+    max: 40,
+  });
 
   const handlePerformanceRangeChange = (value) => {
     setPerformanceRange((prevRange) => ({
@@ -335,11 +375,9 @@ const ScreenerStockList = () => {
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
-
   const resetchangeRange = () => {
     setChangeRange({ min: -50, max: 100 });
   };
-
 
   const resetRange = () => {
     setPerformanceRange({ min: -30, max: 40 });
@@ -387,7 +425,6 @@ const ScreenerStockList = () => {
     "Textiles",
   ];
 
-
   const indexes = [
     "Nifty 50",
     "Nifty 500",
@@ -408,13 +445,19 @@ const ScreenerStockList = () => {
     "Nifty Auto",
     "Nifty CPSE",
   ];
-  const marketCapCategory = ["Large Cap", "Mid Cap", "Small Cap", "Micro Cap", "Other"];
+  const marketCapCategory = [
+    "Large Cap",
+    "Mid Cap",
+    "Small Cap",
+    "Micro Cap",
+    "Other",
+  ];
   const peFilterOptions = [
     { value: "0-above", label: "0 and above" },
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
 
   const epsDilGrowthOptions = [
@@ -570,8 +613,9 @@ const ScreenerStockList = () => {
   const filteredIndexes = indexes.filter((index) =>
     index.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const filteredmarketCapCategory = marketCapCategory.filter((marketCapCategory) =>
-    marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredmarketCapCategory = marketCapCategory.filter(
+    (marketCapCategory) =>
+      marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
   //useEffect(() => {
     //setFilteredData(screenerStockListData);
@@ -579,8 +623,8 @@ const ScreenerStockList = () => {
 
 
   const handleReset = () => {
-    setSelectedSectors([]);  // Reset selected sectors
-    setSearchTerm("");       // Reset search term
+    setSelectedSectors([]); // Reset selected sectors
+    setSearchTerm(""); // Reset search term
     setSelectedIndexes([]);
     setSelectedMcap([]);
     setSelectedPe([]);
@@ -609,7 +653,6 @@ const ScreenerStockList = () => {
       sector: false,
       performance: false,
       // Close PEG dropdown
-
     }));
   };
    //  Reset filtered data to original list
@@ -620,7 +663,6 @@ const ScreenerStockList = () => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       index: selectedIndexes,
-
     }));
     if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
     // Apply the filter based on the selected indexes and sectors
@@ -707,7 +749,6 @@ const ScreenerStockList = () => {
       }
     }, 100); // Small delay to ensure UI updates properly
   };
-
 
   const handlePeApply = () => {
     // Filter stocks based on the selected P/E range
@@ -858,7 +899,6 @@ const ScreenerStockList = () => {
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
 
-
     setDropdowns((prev) => ({
       ...prev,
       roe: false, // Close PEG dropdown
@@ -916,7 +956,6 @@ const ScreenerStockList = () => {
       }
     }, 100); // Small delay to ensure UI updates properly
   };
-
 
   const handleRevenueGrowthApply = () => {
     // Filter stocks based on the selected Revenue Growth range
@@ -1020,7 +1059,9 @@ const ScreenerStockList = () => {
     if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
     const filteredStocks = screenerStockListData.filter((stock) => {
       // Parse the change percentage, removing any symbols like `%` and converting it to a float
-      const stockChangePercentage = parseFloat(stock.change.replace(/%|₹|,/g, ""));
+      const stockChangePercentage = parseFloat(
+        stock.change.replace(/%|₹|,/g, "")
+      );
 
       return selectedchange.some((range) => {
         switch (range) {
@@ -1076,7 +1117,9 @@ const ScreenerStockList = () => {
     // Filter stocks based on the selected performance range
     const filteredStocks = screenerStockListData.filter((stock) => {
       // Safely parse the perf value, defaulting to 0 if undefined or invalid
-      const stockperf = stock.perf ? parseFloat(stock.perf.replace(/%|₹|,/g, "")) : 0;
+      const stockperf = stock.perf
+        ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
+        : 0;
 
       return selectedperf.some((range) => {
         switch (range) {
@@ -1128,68 +1171,90 @@ const ScreenerStockList = () => {
     }, 100); // Small delay to ensure UI updates properly
   };
 
-  const handleCheckboxChange = (index, sector, marketCapCategory, pToE, epsDilGrowth, divYield, roe, peg, revenueGrowth, price, change, perf) => {
+  const handleCheckboxChange = (
+    index,
+    sector,
+    marketCapCategory,
+    pToE,
+    epsDilGrowth,
+    divYield,
+    roe,
+    peg,
+    revenueGrowth,
+    price,
+    change,
+    perf
+  ) => {
     setSelectedIndexes((prev) =>
-      prev.includes(index)
-        ? prev.filter((s) => s !== index)
-        : [...prev, index]
+      prev.includes(index) ? prev.filter((s) => s !== index) : [...prev, index]
     );
-    setSelectedSectors((prev) =>
-      prev.includes(sector) // Check if the sector is already in the selected list
-        ? prev.filter((s) => s !== sector) // If so, remove it
-        : [...prev, sector] // Otherwise, add it
+    setSelectedSectors(
+      (prev) =>
+        prev.includes(sector) // Check if the sector is already in the selected list
+          ? prev.filter((s) => s !== sector) // If so, remove it
+          : [...prev, sector] // Otherwise, add it
     );
-    setSelectedMcap((prev) =>
-      prev.includes(marketCapCategory) // Check if the category is already selected
-        ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
-        : [...prev, marketCapCategory] // If it isn't, add it to the list
+    setSelectedMcap(
+      (prev) =>
+        prev.includes(marketCapCategory) // Check if the category is already selected
+          ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
+          : [...prev, marketCapCategory] // If it isn't, add it to the list
     );
-    setSelectedPe((prev) =>
-      prev.includes(pToE) // Check if the category is already selected
-        ? prev.filter((s) => s !== pToE) // If it is, remove it
-        : [...prev, pToE] // If it isn't, add it to the list
+    setSelectedPe(
+      (prev) =>
+        prev.includes(pToE) // Check if the category is already selected
+          ? prev.filter((s) => s !== pToE) // If it is, remove it
+          : [...prev, pToE] // If it isn't, add it to the list
     );
-    setSelectedeps((prev) =>
-      prev.includes(epsDilGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
-        : [...prev, epsDilGrowth] // If it isn't, add it to the list
+    setSelectedeps(
+      (prev) =>
+        prev.includes(epsDilGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
+          : [...prev, epsDilGrowth] // If it isn't, add it to the list
     );
-    setSelecteddivyield((prev) =>
-      prev.includes(divYield) // Check if the category is already selected
-        ? prev.filter((s) => s !== divYield) // If it is, remove it
-        : [...prev, divYield] // If it isn't, add it to the list
+    setSelecteddivyield(
+      (prev) =>
+        prev.includes(divYield) // Check if the category is already selected
+          ? prev.filter((s) => s !== divYield) // If it is, remove it
+          : [...prev, divYield] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(roe) // Check if the category is already selected
-        ? prev.filter((s) => s !== roe) // If it is, remove it
-        : [...prev, roe] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(roe) // Check if the category is already selected
+          ? prev.filter((s) => s !== roe) // If it is, remove it
+          : [...prev, roe] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(peg) // Check if the category is already selected
-        ? prev.filter((s) => s !== peg) // If it is, remove it
-        : [...prev, peg] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(peg) // Check if the category is already selected
+          ? prev.filter((s) => s !== peg) // If it is, remove it
+          : [...prev, peg] // If it isn't, add it to the list
     );
-    setSelectedrevenuegrowth((prev) =>
-      prev.includes(revenueGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
-        : [...prev, revenueGrowth] // If it isn't, add it to the list
+    setSelectedrevenuegrowth(
+      (prev) =>
+        prev.includes(revenueGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
+          : [...prev, revenueGrowth] // If it isn't, add it to the list
     );
-    setSelectedprice((prev) =>
-      prev.includes(price) // Check if the category is already selected
-        ? prev.filter((s) => s !== price) // If it is, remove it
-        : [...prev, price] // If it isn't, add it to the list
+    setSelectedprice(
+      (prev) =>
+        prev.includes(price) // Check if the category is already selected
+          ? prev.filter((s) => s !== price) // If it is, remove it
+          : [...prev, price] // If it isn't, add it to the list
     );
-    setSelectedchange((prev) =>
-      prev.includes(change) // Check if the category is already selected
-        ? prev.filter((s) => s !== change) // If it is, remove it
-        : [...prev, change] // If it isn't, add it to the list
+    setSelectedchange(
+      (prev) =>
+        prev.includes(change) // Check if the category is already selected
+          ? prev.filter((s) => s !== change) // If it is, remove it
+          : [...prev, change] // If it isn't, add it to the list
     );
-    setSelectedperf((prev) =>
-      prev.includes(perf) // Check if the category is already selected
-        ? prev.filter((s) => s !== perf) // If it is, remove it
-        : [...prev, perf] // If it isn't, add it to the list
+    setSelectedperf(
+      (prev) =>
+        prev.includes(perf) // Check if the category is already selected
+          ? prev.filter((s) => s !== perf) // If it is, remove it
+          : [...prev, perf] // If it isn't, add it to the list
     );
-  }
+  };
 
   const filterStocksByChangeRange = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
@@ -1202,7 +1267,7 @@ const ScreenerStockList = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/pricehalf'); // Navigate to the desired route
+    navigate("/pricehalf"); // Navigate to the desired route
   };
   return (
     <div>
@@ -1210,24 +1275,23 @@ const ScreenerStockList = () => {
         <h1 className="screener-header">Stocks Screener</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div className="indexscreenerbuttonstockcontainar" style={{ position: "relative" }} >
+          <div
+            className="indexscreenerbuttonstockcontainar"
+            style={{ position: "relative" }}
+          >
             {/* Dropdown Button */}
-            <button className="indexscreenerbuttonstock"
-              onClick={() => toggleDropdown('index')}
-
+            <button
+              className="indexscreenerbuttonstock"
+              onClick={() => toggleDropdown("index")}
             >
               Index <RiArrowDropDownLine size={24} />
             </button>
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-              <div className="stockindexscreeneropt"
-
-              >
+              <div className="stockindexscreeneropt">
                 {/* Search Box */}
-                <div className="searchboxindexscreener"
-
-                >
+                <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
                     type="text"
@@ -1245,13 +1309,11 @@ const ScreenerStockList = () => {
                 {/* Checkbox List */}
                 <div
                   className="index-optionsstocks" // Added class name to the container of options
-
                 >
                   {filteredIndexes.map((index) => (
                     <label
                       key={index}
                       className="index-optionscreener" // Added class name to each option
-
                     >
                       <input
                         type="checkbox"
@@ -1269,16 +1331,10 @@ const ScreenerStockList = () => {
 
                 {/* Buttons */}
                 <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener"
-                    onClick={handleReset}
-
-                  >
+                  <button className="resetstockscreener" onClick={handleReset}>
                     Reset
                   </button>
-                  <button className="applystockscreener"
-                    onClick={handleApply}
-
-                  >
+                  <button className="applystockscreener" onClick={handleApply}>
                     Apply
                   </button>
                 </div>
@@ -1297,19 +1353,15 @@ const ScreenerStockList = () => {
                 <p>No data available for the selected index.</p>
               )}
             </div>
-
-
-
-
           </div>
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('price')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("price")}
                 >
                   Price <RiArrowDropDownLine size={24} />
                 </button>
@@ -1319,7 +1371,10 @@ const ScreenerStockList = () => {
                   <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedprice.includes(category.value)}
@@ -1339,10 +1394,16 @@ const ScreenerStockList = () => {
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
-                      <button onClick={handleReset} className="dropdown-market-cap-reset">
+                      <button
+                        onClick={handleReset}
+                        className="dropdown-market-cap-reset"
+                      >
                         Reset
                       </button>
-                      <button onClick={handlePriceApply} className="dropdown-market-cap-apply">
+                      <button
+                        onClick={handlePriceApply}
+                        className="dropdown-market-cap-apply"
+                      >
                         Apply
                       </button>
                     </div>
@@ -1369,37 +1430,35 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('change')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("change")}
                 >
                   Change% <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {changeOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedchange.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedchange((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedchange(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1407,7 +1466,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1446,46 +1504,42 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('marketcap')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("marketcap")}
                 >
                   Market Cap <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
+                  <div className="dropdown-market-cap-options">
                     {/* Search Box */}
-
 
                     {/* Checkbox List */}
 
-
                     {marketCapCategory.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category} >
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedMcap.includes(category)} // Check if the category is selected
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedMcap((prev) =>
-                              prev.includes(category)
-                                ? prev.filter((item) => item !== category) // Remove category from selected
-                                : [...prev, category] // Add category to selected
+                            setSelectedMcap(
+                              (prev) =>
+                                prev.includes(category)
+                                  ? prev.filter((item) => item !== category) // Remove category from selected
+                                  : [...prev, category] // Add category to selected
                             );
-                          }} style={{ width: "40%" }}
-
+                          }}
+                          style={{ width: "40%" }}
                         />
                         {category}
                       </label>
                     ))}
-
-
-
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1524,37 +1578,35 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('pe')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("pe")}
                 >
                   P/E <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.pe && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {peFilterOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedPe.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedPe((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedPe(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1562,7 +1614,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1601,37 +1652,35 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('eps')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("eps")}
                 >
                   EPS Dil Growth <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.eps && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {epsDilGrowthOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedeps.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedeps((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedeps(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1639,7 +1688,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1678,8 +1726,9 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('divYield')}
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("divYield")}
                 >
                   Div Yield % <RiArrowDropDownLine size={24} />
                 </button>
@@ -1689,7 +1738,10 @@ const ScreenerStockList = () => {
                   <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selecteddivyield.includes(category.value)}
@@ -1709,10 +1761,16 @@ const ScreenerStockList = () => {
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
-                      <button onClick={handleReset} className="dropdown-market-cap-reset">
+                      <button
+                        onClick={handleReset}
+                        className="dropdown-market-cap-reset"
+                      >
                         Reset
                       </button>
-                      <button onClick={handleDivYieldApply} className="dropdown-market-cap-apply">
+                      <button
+                        onClick={handleDivYieldApply}
+                        className="dropdown-market-cap-apply"
+                      >
                         Apply
                       </button>
                     </div>
@@ -1734,24 +1792,21 @@ const ScreenerStockList = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div className="indexscreenerbuttonstockcontainar" style={{ position: "relative" }}>
-            <button className="indexscreenerbuttonstock"
-              onClick={() => toggleDropdown('sector')}
-
+          <div
+            className="indexscreenerbuttonstockcontainar"
+            style={{ position: "relative" }}
+          >
+            <button
+              className="indexscreenerbuttonstock"
+              onClick={() => toggleDropdown("sector")}
             >
               Sectors <RiArrowDropDownLine size={24} />
             </button>
 
-
-
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-              <div className="stockindexscreeneropt"
-
-              >
-                <div className="searchboxindexscreener"
-
-                >
+              <div className="stockindexscreeneropt">
+                <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
                     type="text"
@@ -1766,10 +1821,9 @@ const ScreenerStockList = () => {
                   />
                 </div>
 
-                <div
-                  className="index-optionsstocks" >
+                <div className="index-optionsstocks">
                   {filteredSectors.map((sector, index) => (
-                    <label key={sector} className="index-optionscreener" >
+                    <label key={sector} className="index-optionscreener">
                       <input
                         type="checkbox"
                         checked={selectedSectors.includes(sector)} // Check if the sector is selected
@@ -1788,16 +1842,12 @@ const ScreenerStockList = () => {
                   ))}
                 </div>
                 <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener"
-                    onClick={handleReset}
-
-                  >
+                  <button className="resetstockscreener" onClick={handleReset}>
                     Reset
                   </button>
-                  <button className="applystockscreener"
+                  <button
+                    className="applystockscreener"
                     onClick={handlesectorApply}
-
-
                   >
                     Apply
                   </button>
@@ -1817,45 +1867,41 @@ const ScreenerStockList = () => {
             )}
           </div>
 
-
-
           {/* Performance Dropdown */}
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('performance')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("performance")}
                 >
                   Perf% <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {perfOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedperf.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedperf((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedperf(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1863,7 +1909,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1903,37 +1948,37 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('revenue')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("revenue")}
                 >
                   Revenue Growth <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {revenueGrowthOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
-                          checked={selectedrevenuegrowth.includes(category.value)} // Check by the category value
+                          checked={selectedrevenuegrowth.includes(
+                            category.value
+                          )} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedrevenuegrowth((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedrevenuegrowth(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1941,7 +1986,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1981,37 +2025,35 @@ const ScreenerStockList = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('peg')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("peg")}
                 >
                   PEG <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {pegOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedpeg.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedpeg((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedpeg(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -2019,7 +2061,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -2054,43 +2095,40 @@ const ScreenerStockList = () => {
             </div>
           </div>
 
-
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('roe')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("roe")}
                 >
                   ROE <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
 
-
                     {roeOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedroe.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedroe((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedroe(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -2098,7 +2136,6 @@ const ScreenerStockList = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -2138,34 +2175,33 @@ const ScreenerStockList = () => {
         <div className="tab-container">
           <button
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
-
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/StockScreenerList'); // Navigate to the StockScreenerList page
+              navigate("/StockScreenerList"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
-
-
+            className={`tab-button ${
+              activeTab === "Valuation" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/ScreenerStockvaluation'); // Navigate to the ScreenerStockvaluation page
+              navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
-
-
+            className={`tab-button ${
+              activeTab === "Income Statement" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/IncomeStatement'); // Add a route for Income Statement if needed
+              navigate("/IncomeStatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement
@@ -2173,33 +2209,58 @@ const ScreenerStockList = () => {
         </div>
         {/* Conditional Rendering */}
 
-        <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
-
-          <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
-            <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
+        <div
+          className="screener-table-wrapper"
+          style={{ overflowY: "auto", height: "500px" }}
+        >
+          <table
+            className="screener-table"
+            style={{ borderCollapse: "collapse", width: "100%" }}
+          >
+            <thead
+              style={{
+                position: "sticky",
+                top: 0,
+                backgroundColor: "#f9f9f9",
+                zIndex: 10,
+                boxShadow: "0 4px 6px #24b676",
+              }}
+            >
               <tr>
                 <th>Symbol</th>
                 <th>
                   Price
-                  <button className="screenerbtnlist" onClick={() => handleSort("price")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("price")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Change %
-                  <button className="screenerbtnlist" onClick={() => handleSort("change")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("change")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Volume
-                  <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("volume")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Market Cap
-                  <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("marketCap")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
@@ -2215,31 +2276,46 @@ const ScreenerStockList = () => {
 
                 <th>
                   EPS (₹)
-                  <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("eps")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   EPS Gr %
-                  <button className="screenerbtnlist" onClick={() => handleSort("epsDilGrowth")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("epsDilGrowth")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Div Yield %
-                  <button className="screenerbtnlist" onClick={() => handleSort("divYield")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("divYield")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Sectors
-                  <button className="screenerbtnlist" onClick={() => handleSort("sector")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("sector")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
                 <th>
                   Analyst Rating
-                  <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
+                  <button
+                    className="screenerbtnlist"
+                    onClick={() => handleSort("analystrating")}
+                  >
                     <PiCaretUpDownFill />
                   </button>
                 </th>
@@ -2249,9 +2325,11 @@ const ScreenerStockList = () => {
               {currentData.map((stock, index) => (
                 <tr key={index} className="screener-row">
                   <td className="symbol-cell">
-                    <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-
-
+                    <img
+                      src={stock.icon}
+                      alt={`${stock.symbol} logo`}
+                      className="company-icon"
+                    />
 
                     <a href={stock.url}>{stock.symbol}</a>
                   </td>
@@ -2259,12 +2337,17 @@ const ScreenerStockList = () => {
                   <td>{stock.price}</td>
                   <td
                     style={{
-                      color: parseFloat(stock.change) > 0 ? "#24b676" : parseFloat(stock.change) < 0 ? "red" : "inherit",
+                      color:
+                        parseFloat(stock.change) > 0
+                          ? "#24b676"
+                          : parseFloat(stock.change) < 0
+                          ? "red"
+                          : "inherit",
                     }}
                   >
-                    {parseFloat(stock.change) > 0 ? `${stock.change}` : stock.change}
-
-
+                    {parseFloat(stock.change) > 0
+                      ? `${stock.change}`
+                      : stock.change}
                   </td>
                   <td>{stock.volume}</td>
                   <td>{stock.marketCap}</td>
@@ -2272,32 +2355,36 @@ const ScreenerStockList = () => {
                   <td>{stock.eps}</td>
                   <td
                     style={{
-                      color: parseFloat(stock.epsDilGrowth) > 0 ? "#24b676" : parseFloat(stock.epsDilGrowth) < 0 ? "red" : "inherit",
+                      color:
+                        parseFloat(stock.epsDilGrowth) > 0
+                          ? "#24b676"
+                          : parseFloat(stock.epsDilGrowth) < 0
+                          ? "red"
+                          : "inherit",
                     }}
                   >
-                    {parseFloat(stock.epsDilGrowth) > 0 ? `${stock.epsDilGrowth}` : stock.epsDilGrowth}
-
-
+                    {parseFloat(stock.epsDilGrowth) > 0
+                      ? `${stock.epsDilGrowth}`
+                      : stock.epsDilGrowth}
                   </td>
                   <td>{stock.divYield}</td>
                   <td
                     style={{
                       color: "blue",
-
                     }}
                   >
                     {stock.sector}
                   </td>
 
-
                   <td>
-                    <button className="screener-unlock-btn" onClick={handleNavigate}>
-                      <IoLockClosedOutline style={{ marginRight: '8px' }} />
+                    <button
+                      className="screener-unlock-btn"
+                      onClick={handleNavigate}
+                    >
+                      <IoLockClosedOutline style={{ marginRight: "8px" }} />
                       <span className="button-text">Unlock</span>
                     </button>
                   </td>
-
-
                 </tr>
               ))}
             </tbody>
@@ -2306,15 +2393,28 @@ const ScreenerStockList = () => {
         {/* Pagination Section */}
         <div className="pagination-container">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
           </div>
 
           <div className="pagination-slider">
-            <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
 
             {startPage > 1 && (
               <>
-                <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
                 {startPage > 2 && <span>...</span>}
               </>
             )}
@@ -2322,7 +2422,9 @@ const ScreenerStockList = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}
@@ -2332,15 +2434,25 @@ const ScreenerStockList = () => {
             {endPage < totalPages && (
               <>
                 {endPage < totalPages - 1 && <span>...</span>}
-                <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
               </>
             )}
 
-            <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
           </div>
         </div>
         <Navbar />
-
       </div>
       <div className="foooterpagesaupdate">
         <FooterForAllPage />
