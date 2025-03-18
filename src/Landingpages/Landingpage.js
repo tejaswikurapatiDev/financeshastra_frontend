@@ -38,7 +38,7 @@ const LandingPage = () => {
       <LandingPageSmartSIP />
       <LandingPagePremiumElite />
       <LandingAboutPage />
-      {!token ? <Landingnavbar /> : <Navbar/>}
+      <Landingnavbar />
       <FooterForAllPage />
     </div>
   );

@@ -252,6 +252,7 @@ import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsCo
 import { PortfolioDashboardProvider } from "./Portfoilo/context/PortfolioDashboardContext"
 import { DarkModeProvider } from "./Portfoilo/context/DarkModeContext";
 import {UserProfileProvider } from "./Portfoilo/context/UserProfileContext";
+import { SubscriptionProvider } from "./Portfoilo/context/SubscriptionContext";
 
 
 import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
@@ -281,6 +282,7 @@ function App() {
     <Provider store={store}>
       <DarkModeProvider>
         <UserProfileProvider>
+          
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/market" element={<Market />} />
@@ -512,7 +514,7 @@ function App() {
             <Route path="/halfyearlySubscriptionPages" element={<HalfyearlySubscriptionPages />} />
             <Route path="/halfyearlyPaypalProfilePage" element={< HalfyearlyPaypalProfilePage />} />
             <Route path="/halfyearlyUPIPage" element={<HalfyearlyUPIPage />} />
-            <Route path="/halfyearlyScanPage" element={<HalfyearlyScanPage />} />
+            <Route path="/halfyearlyScanPage" element={<HalfyearlyScanPage />} />bankSectorThemePagelock
             <Route path="/premiumSubscriptionPages" element={<PremiumSubscriptionPages />} />
             <Route path="/premiumPaypalProfilePage" element={<PremiumPaypalProfilePage />} />
             <Route path="/premiumUPIPage" element={< PremiumUPIPage />} />
@@ -536,7 +538,9 @@ function App() {
             <Route path="/banksectorstocktheme" element={<Banksectorstocktheme />} />
             <Route path="/stockThemesSectorPages" element={<StockThemesSectorPages />} />
             <Route path="/stockthemeunlocknavbar" element={<Stockthemeunlocknavbar />} />
-            <Route path="/bankSectorThemePagelock" element={<BankSectorThemePagelock />} />
+            
+              <Route path="/bankSectorThemePagelock" element={<SubscriptionProvider><BankSectorThemePagelock /></SubscriptionProvider>} />
+            
             <Route path="/stockThemesindustriesPages" element={< StockThemesindustriesPages />} />
             <Route path="/stockThemesindustrieslockPages" element={<StockThemesindustrieslockPages />} />
 
@@ -687,6 +691,7 @@ function App() {
 
 
           </Routes>
+          
         </UserProfileProvider>
       </DarkModeProvider>
     </Provider>
