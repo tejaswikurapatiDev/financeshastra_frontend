@@ -16,6 +16,8 @@ import "./Login.css";
 import { height } from "@mui/system";
 import { API_BASE_URL } from "../config";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
+import { requestNotificationPermission } from "../firebase/firebaseMessaging"; // Import FCM function
+
 const override = {
   display: "block",
   textAlign: "center",
@@ -82,15 +84,24 @@ function Login() {
 
     try {
       //const url= "http://localhost:3000/users/signin"
+      /*fcm integration start*/
+      const fcmToken = await requestNotificationPermission(); // Get FCM token
+      if (!fcmToken) {
+        console.warn("FCM token not available.");
+      }
+      /*fcm integration end*/
       const url = `${API_BASE_URL}/users/signin`;
+      console.log("🚀 ~ handleSubmit ~ url:", url)
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password,fcmToken }),
       };
 
       const response = await fetch(url, options);
+      console.log("🚀 ~ handleSubmit ~ response:", response)
       const data = await response.json();
+      console.log("🚀 ~ handleSubmit ~ data:", data)
 
       if (!response.ok) {
         throw new Error(data.message || "Login Failed");

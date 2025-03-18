@@ -34,7 +34,7 @@ import notiimg7 from "../assest/video.png";
 import notiimg8 from "../assest/ipoo.webp";
 import notiimg9 from "../assest/images.jpg";
 import notiimg10 from "../assest/portra.webp";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import logo from "../assest/Logo design (1).png";
 import Darkmodelogo from "../assest/navlogo.png";
 import { Link } from "react-router-dom";
@@ -42,11 +42,10 @@ import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
 
-
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-  const {user} = useContext(UserProfileContext)
-  
+  const { user } = useContext(UserProfileContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -61,106 +60,151 @@ const Navbar = () => {
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
-  
+
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
 
-  const notifications = [
-    {
-      id: 1,
-      img: notiimg1,
-      title: "Upcoming Quadrant Future Tek IPO analysis",
-      date: "Yesterday 11:15 AM",
-    },
-    {
-      id: 2,
-      img: notiimg2,
-      title: "Your number has been verified successfully.",
-      date: "04 Jan, 2025 11:45 AM",
-    },
-    {
-      id: 3,
-      img: notiimg3,
-      title: "Your email has been verified successfully.",
-      date: "04 Jan, 2025 12:30 PM",
-    },
-    {
-      id: 4,
-      img: notiimg4,
-      title: "Sara commented on blog",
-      date: "01 Jan, 2025 08:15 AM",
-    },
-    {
-      id: 5,
-      img: notiimg5,
-      title: "Lucas commented on sanathans IPO",
-      date: "28 Nov, 2024 11:15 AM",
-    },
-    {
-      id: 6,
-      img: notiimg6,
-      title: "You have new signing in android",
-      date: "12 Nov, 2024 09:28 AM",
-    },
-    {
-      id: 7,
-      img: notiimg7,
-      title: "New courses available",
-      date: "08 Nov, 2024 10:30 PM",
-    },
-    {
-      id: 8,
-      img: notiimg8,
-      title: "Upcoming Laxmi Dental IPO",
-      date: "05 Nov, 2024 09:03 AM",
-    },
-    {
-      id: 9,
-      img: notiimg9,
-      title: "Your profile picture updated successfully.",
-      date: "27 Oct, 2024 02:23 PM",
-    },
-    {
-      id: 10,
-      img: notiimg10,
-      title: "Upcoming IGI IPO",
-      date: "25 Oct, 2024 08:48 AM",
-    },
-    {
-      id: 11,
-      img: notiimg2,
-      title: "Your number has been verified successfully.",
-      date: "04 Jan, 2025 11:45 AM",
-    },
-    {
-      id: 12,
-      img: notiimg3,
-      title: "Your email has been verified successfully.",
-      date: "04 Jan, 2025 12:30 PM",
-    },
-    {
-      id: 13,
-      img: notiimg4,
-      title: "Sara commented on blog",
-      date: "01 Jan, 2025 08:15 AM",
-    },
-    {
-      id: 14,
-      img: notiimg5,
-      title: "Lucas commented on sanathans IPO",
-      date: "28 Nov, 2024 11:15 AM",
-    },
-    {
-      id: 17,
-      img: notiimg6,
-      title: "You have new signing in android",
-      date: "12 Nov, 2024 09:28 AM",
-    },
-  ];
-  
-  const displayedNotifications = showAll
-    ? notifications
-    : notifications.slice(0, 10);
+  const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+  /*start list notificaiton */
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/notifications`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setNotifications(data);
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /*end list notificaiton */
+
+  /*Start read notificaiton */
+  const markNotificationAsRead = async (id) => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/notifications?notificationId=${id}`, { method: "PATCH" }); // Replace with your API
+      
+      if (!response.ok) throw new Error("Failed to mark as read");
+     
+      setNotifications((prevNotifications) => {
+        return prevNotifications.data.map((notif) =>
+          	notif.id === id ? { ...notif, is_read: true } : notif
+      	);
+      })
+    } catch (error) {
+      console.error("Error marking notification as read:", error);
+    }
+  };
+
+  /*end read notificaiton */
+
+  // const notificationss = [
+  //   {
+  //     id: 1,
+  //     img: notiimg1,
+  //     title: "Upcoming Quadrant Future Tek IPO analysis",
+  //     date: "Yesterday 11:15 AM",
+  //   },
+  //   {
+  //     id: 2,
+  //     img: notiimg2,
+  //     title: "Your number has been verified successfully.",
+  //     date: "04 Jan, 2025 11:45 AM",
+  //   },
+  //   {
+  //     id: 3,
+  //     img: notiimg3,
+  //     title: "Your email has been verified successfully.",
+  //     date: "04 Jan, 2025 12:30 PM",
+  //   },
+  //   {
+  //     id: 4,
+  //     img: notiimg4,
+  //     title: "Sara commented on blog",
+  //     date: "01 Jan, 2025 08:15 AM",
+  //   },
+  //   {
+  //     id: 5,
+  //     img: notiimg5,
+  //     title: "Lucas commented on sanathans IPO",
+  //     date: "28 Nov, 2024 11:15 AM",
+  //   },
+  //   {
+  //     id: 6,
+  //     img: notiimg6,
+  //     title: "You have new signing in android",
+  //     date: "12 Nov, 2024 09:28 AM",
+  //   },
+  //   {
+  //     id: 7,
+  //     img: notiimg7,
+  //     title: "New courses available",
+  //     date: "08 Nov, 2024 10:30 PM",
+  //   },
+  //   {
+  //     id: 8,
+  //     img: notiimg8,
+  //     title: "Upcoming Laxmi Dental IPO",
+  //     date: "05 Nov, 2024 09:03 AM",
+  //   },
+  //   {
+  //     id: 9,
+  //     img: notiimg9,
+  //     title: "Your profile picture updated successfully.",
+  //     date: "27 Oct, 2024 02:23 PM",
+  //   },
+  //   {
+  //     id: 10,
+  //     img: notiimg10,
+  //     title: "Upcoming IGI IPO",
+  //     date: "25 Oct, 2024 08:48 AM",
+  //   },
+  //   {
+  //     id: 11,
+  //     img: notiimg2,
+  //     title: "Your number has been verified successfully.",
+  //     date: "04 Jan, 2025 11:45 AM",
+  //   },
+  //   {
+  //     id: 12,
+  //     img: notiimg3,
+  //     title: "Your email has been verified successfully.",
+  //     date: "04 Jan, 2025 12:30 PM",
+  //   },
+  //   {
+  //     id: 13,
+  //     img: notiimg4,
+  //     title: "Sara commented on blog",
+  //     date: "01 Jan, 2025 08:15 AM",
+  //   },
+  //   {
+  //     id: 14,
+  //     img: notiimg5,
+  //     title: "Lucas commented on sanathans IPO",
+  //     date: "28 Nov, 2024 11:15 AM",
+  //   },
+  //   {
+  //     id: 17,
+  //     img: notiimg6,
+  //     title: "You have new signing in android",
+  //     date: "12 Nov, 2024 09:28 AM",
+  //   },
+  // ];
+
+  const displayedNotifications = notifications.data;
+  // showAll
+  //   ? notifications.data
+  //   : notifications.data.slice(0, 10);
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
@@ -179,9 +223,9 @@ const Navbar = () => {
         setFilterData([]);
         return;
       }
-      
+
       const lowerSearchText = searchText.toLowerCase().trim();
-      
+
       // Filter data from Redux without additional API calls
       const results = searchData.filter((item) => {
         const company = (item.company || "").toLowerCase();
@@ -194,7 +238,7 @@ const Navbar = () => {
           sector.includes(lowerSearchText)
         );
       });
-      
+
       setFilterData(results);
     }, 300),
     [searchData] // Only depend on searchData from Redux
@@ -210,25 +254,25 @@ const Navbar = () => {
   // Close search results when clicking outside
   useEffect(() => {
     const token = Cookies.get("jwtToken");
-          if (!token) {
-            alert("Session expired, Please login again.");
-            navigate("/login")
-            return;
-          }
+    if (!token) {
+      alert("Session expired, Please login again.");
+      navigate("/login");
+      return;
+    }
     const handleClickOutside = (event) => {
       if (
-        searchResultsRef.current && 
+        searchResultsRef.current &&
         !searchResultsRef.current.contains(event.target) &&
-        !event.target.closest('.navbar-search')
+        !event.target.closest(".navbar-search")
       ) {
         setFilterData([]);
         setSearchInputText("");
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -297,12 +341,12 @@ const Navbar = () => {
     };
   }, [debouncedSearch]);
 
-  const onLogout = ()=>{
-    Cookies.remove('jwtToken')
-    Cookies.remove('token')
-    localStorage.clear()
-    navigate('/')
-  }
+  const onLogout = () => {
+    Cookies.remove("jwtToken");
+    Cookies.remove("token");
+    localStorage.clear();
+    navigate("/");
+  };
 
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
@@ -315,35 +359,41 @@ const Navbar = () => {
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
-  
+
   const toggleMutualFundsDropdown = () => {
     setMutualFundsDropdownOpen(!mutualFundsDropdownOpen);
   };
-  
+
   const toggleFooterMutualFundsDropdown = () => {
     setFooterMutualFundsDropdownOpen(!footerMutualFundsDropdownOpen);
   };
-  
+
   const togglePortfolioDropdown = () => {
     setPortfolioDropdownOpen(!portfolioDropdownOpen);
   };
-  
+
   const toggleFooterPortfolioDropdown = () => {
     setFooterPortfolioDropdownOpen(!footerPortfolioDropdownOpen);
   };
-  
+
   const togglelearnDropdown = () => {
     setLearnDropdownOpen(!learnDropdownOpen);
   };
 
-  
-
   const renderStockDropdown = () => (
     <div className={darkMode ? "stockmenudarkerrrrmode" : "stockmenu"}>
-      <div className={darkMode ? "stockmenu-columndarkerrrrmode" : "stockmenu-column"}>
+      <div
+        className={
+          darkMode ? "stockmenu-columndarkerrrrmode" : "stockmenu-column"
+        }
+      >
         <ul>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/StockScreenerList">
                 Stock Screener
                 <p>
@@ -354,7 +404,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/beststock">
                 Best Stock
                 <p>
@@ -365,7 +419,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/highgrowth">
                 High Growth Stocks
                 <p>
@@ -376,7 +434,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/nifty50pageall">
                 Nifty 50 Companies
                 <p>
@@ -391,7 +453,11 @@ const Navbar = () => {
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/nifty">
                 Nifty 100 Companies
                 <p>
@@ -402,7 +468,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/smallcap">
                 Small Cap
                 <p>
@@ -412,7 +482,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/midcap">
                 Mid Cap
                 <p>
@@ -422,7 +496,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/largecap">
                 Large Cap
                 <p>
@@ -432,12 +510,14 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/bankSectorThemePagelock">
-              Stock Themes
-                <p>
-                Research is key before buying any stock
-                </p>
+                Stock Themes
+                <p>Research is key before buying any stock</p>
               </Link>
             </div>
           </li>
@@ -468,9 +548,9 @@ const Navbar = () => {
       </div>
     </div>
   );
-  
+
   const renderlearnDropdown = () => (
-    <div className={darkMode ? "learn-menudarkerrrrmode" :"learn-menu"}>
+    <div className={darkMode ? "learn-menudarkerrrrmode" : "learn-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <Link to="/stockNewsComponent">
           Stock News
@@ -512,34 +592,48 @@ const Navbar = () => {
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <Link to="/userDetailsupdate">
-          <FaUser className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"} />
+          <FaUser
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
           My Profile
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <Link to="/help">
-          <FaCircleQuestion className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"} />
+          <FaCircleQuestion
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
           Help Center
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <button className="butn" onClick={onLogout} type="button"  >
-          <FaUserCircle className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"} />
+        <button className="butn" onClick={onLogout} type="button">
+          <FaUserCircle
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
           Logout
         </button>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <div onClick={toggleDarkMode} style={{cursor: 'pointer'}}>Dark Mode</div>
+        <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
+          Dark Mode
+        </div>
       </div>
     </div>
   );
 
   const renderMutualFundsDropdown = () => (
-    <div className={darkMode ? "mutualstockmenudarkerrrrmode" : "mutualstockmenu"}>
+    <div
+      className={darkMode ? "mutualstockmenudarkerrrrmode" : "mutualstockmenu"}
+    >
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/mutualfund">
                 Top Rated Funds
                 <p>Focus on risk management and long-term growth.</p>
@@ -547,7 +641,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/fundscreenerregular">
                 Fund Screener
                 <p>Efficient filter and compare investment options.</p>
@@ -555,13 +653,21 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/bestsmallcapregular">
                 Best Small Cap Fund
                 <p>Strong returns by investing in high-growth opportunities.</p>
               </Link>
             </div>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/market">Equity (ETFs)</Link>
             </div>
           </li>
@@ -570,7 +676,11 @@ const Navbar = () => {
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/bestgrowthregular">
                 Best Growth Fund
                 <p>Focus on high-potential growth.</p>
@@ -578,7 +688,11 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/flexregular">
                 Best Flex Cap Fund
                 <p>Invest in companies poised for future and today's growth.</p>
@@ -586,13 +700,21 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/etfregular">
                 Best ETF Fund
                 <p>Diverse and cost-effective investment strategy.</p>
               </Link>
             </div>
-            <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+            <div
+              className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+            >
               <Link to="/gold"> Gold (ETFs)</Link>
             </div>
           </li>
@@ -606,13 +728,18 @@ const Navbar = () => {
   return (
     <>
       <nav className={darkMode ? "navbardarkerrrrmode" : "navbar"}>
+        
         <div className="navbar-logo">
-          <img src={`${darkMode ? Darkmodelogo : logo}`} alt="FinanceShastra Logo" onClick={() => navigate("/")} 
-  className="logo-image"
-  style={{cursor:"pointer"}}   />
+          <img
+            src={`${darkMode ? Darkmodelogo : logo}`}
+            alt="FinanceShastra Logo"
+            onClick={() => navigate("/")}
+            className="logo-image"
+            style={{ cursor: "pointer" }}
+          />
         </div>
 
-        <ul className={darkMode ? "navbar-linksdarkerrrrmode" :"navbar-links"}>
+        <ul className={darkMode ? "navbar-linksdarkerrrrmode" : "navbar-links"}>
           <li>
             <Link to="/home">Home</Link>
           </li>
@@ -637,9 +764,7 @@ const Navbar = () => {
           >
             <Link to="#" onClick={toggleMutualFundsDropdown}>
               Mutual Funds
-              <FaChevronDown
-                className="chevron-icon"
-              />
+              <FaChevronDown className="chevron-icon" />
             </Link>
             {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
           </li>
@@ -652,9 +777,7 @@ const Navbar = () => {
           >
             <Link to="#" onClick={togglelearnDropdown}>
               Learn & Insights
-              <FaChevronDown
-                className="chevron-icon"
-              />
+              <FaChevronDown className="chevron-icon" />
             </Link>
             {learnDropdownOpen && renderlearnDropdown()}
           </li>
@@ -666,9 +789,7 @@ const Navbar = () => {
           >
             <Link to="#" onClick={togglePortfolioDropdown}>
               Portfolio Manager
-              <FaChevronDown
-                className="chevron-icon"
-              />
+              <FaChevronDown className="chevron-icon" />
             </Link>
             {portfolioDropdownOpen && renderPortfolioDropdown()}
           </li>
@@ -681,19 +802,24 @@ const Navbar = () => {
             value={searchInputText}
             onChange={handleSearchInputChange}
           />
-          <FaSearch className={darkMode ? "searchdarkerrrmodeicon" :"search-icon"} />
+          <FaSearch
+            className={darkMode ? "searchdarkerrrmodeicon" : "search-icon"}
+          />
 
           {/* Show results only when there is input */}
           {searchInputText && (
-            <div 
+            <div
               ref={searchResultsRef}
-              className={`search-results ${filterData.length > 0 ? "active" : ""}`}
+              className={`search-results ${
+                filterData.length > 0 ? "active" : ""
+              }`}
             >
               {filterData.length > 0 ? (
                 <ul>
                   {filterData.map((data, index) => (
                     <li key={data.id || index}>
-                      {data.company || ""} {data.Scheme_Name || ""} {data.sector || ""}
+                      {data.company || ""} {data.Scheme_Name || ""}{" "}
+                      {data.sector || ""}
                     </li>
                   ))}
                 </ul>
@@ -711,34 +837,60 @@ const Navbar = () => {
           <div className="notificationall">
             {/* Bell Icon */}
             <FaBell
-              className={darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"}
+              className={
+                darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+              }
               onClick={() => setIsOpen(!isOpen)}
             />
 
             {/* Dropdown Content */}
-            {isOpen && (
+            {isOpen && displayedNotifications?.length > 0 && (
               <div className="dropdown-content">
                 {displayedNotifications.map((notif) => (
-                  <div key={notif.id} className="notification-card">
+                  <div
+                    key={notif.id}
+                    onClick={() =>
+                      !notif.is_read && markNotificationAsRead(notif.id)
+                    }
+                    className={`notification-card ${
+                      notif.is_read ? "read" : "unread"
+                    }`}
+                    style={{
+                      backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
+                      color: notif.is_read ? "#757575" : "#000",
+                      cursor: notif.is_read ? "default" : "pointer",
+                    }}
+                  >
                     <div className="notification-header">
                       <div className="notificationall-header">
                         <div>
                           <img
-                            src={notif.img}
+                            src={notiimg2}
                             alt="Notification"
                             className="notification-img"
                           />
                         </div>
                       </div>
                       <div className="notification-details">
-                        <p className="notification-title">{notif.title}</p>
-                        <p className="notification-date">{notif.date}</p>
+                        <p
+                          className="notification-title"
+                          style={{
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {notif.message}
+                        </p>
+                        <p className="notification-date">{notif.created_at}</p>
                       </div>
-                      <LuDot className="dotnotifyicon" />
+                      {!notif.is_read && (
+                        <LuDot
+                          className="dotnotifyicon"
+                          style={{ color: "green" }}
+                        />
+                      )}
                     </div>
                   </div>
                 ))}
-
                 {/* View All Button */}
                 {!showAll && (
                   <button className="view-all" onClick={() => setShowAll(true)}>
@@ -748,12 +900,19 @@ const Navbar = () => {
               </div>
             )}
           </div>
+
           <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
             <li className="" ref={userDropdownRef}>
               <Link to="#" onClick={toggleUserDropdown}>
-                <FaUserCircle className={darkMode ? "iconuser-darkerrmodeicon": "iconuser-icon"} />
+                <FaUserCircle
+                  className={
+                    darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                  }
+                />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>{user}</span>
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                {user}
+              </span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
           </div>
