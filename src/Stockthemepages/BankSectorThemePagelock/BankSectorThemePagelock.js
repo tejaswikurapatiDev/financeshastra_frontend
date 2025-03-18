@@ -200,7 +200,7 @@ const BankSectorThemePagelock = () => {
           </th>
         </tr>
       </thead>
-      <tbody className={issubscribed ? "blurred" : ""}>
+      <tbody className={issubscribed ? "" : "blurred"}>
         {filteredBanks.map((bank, index) => (
           <tr key={index}>
             <td>

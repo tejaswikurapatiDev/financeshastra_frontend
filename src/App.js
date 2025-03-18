@@ -542,7 +542,7 @@ function App() {
               <Route path="/bankSectorThemePagelock" element={<SubscriptionProvider><BankSectorThemePagelock /></SubscriptionProvider>} />
             
             <Route path="/stockThemesindustriesPages" element={< StockThemesindustriesPages />} />
-            <Route path="/stockThemesindustrieslockPages" element={<StockThemesindustrieslockPages />} />
+            <Route path="/stockThemesindustrieslockPages" element={<SubscriptionProvider><StockThemesindustrieslockPages /></SubscriptionProvider>} />
 
             <Route path="/lumpsumallpage" element={<Lumpsumallpage />} />
             <Route path="/fdallpages" element={<Fdallpages />} />
