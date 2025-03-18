@@ -60,12 +60,13 @@ const Navbar = () => {
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const dropdownRef = useRef(null); // Reference for dropdown
 
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
-
+  //list and read notifications
   const [notifications, setNotifications] = useState([]);
-  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchNotifications();
   }, []);
@@ -92,119 +93,92 @@ const Navbar = () => {
   /*Start read notificaiton */
   const markNotificationAsRead = async (id) => {
     try {
-      const response = await fetch(`${API_BASE_URL}/notifications?notificationId=${id}`, { method: "PATCH" }); // Replace with your API
-      
+      const response = await fetch(
+        `${API_BASE_URL}/notifications?notificationId=${id}`,
+        { method: "PATCH" }
+      ); // Replace with your API
+
       if (!response.ok) throw new Error("Failed to mark as read");
-     
+
       setNotifications((prevNotifications) => {
         return prevNotifications.data.map((notif) =>
-          	notif.id === id ? { ...notif, is_read: true } : notif
-      	);
-      })
+          notif.id === id ? { ...notif, is_read: true } : notif
+        );
+      });
     } catch (error) {
       console.error("Error marking notification as read:", error);
     }
   };
-
-  /*end read notificaiton */
-
-  // const notificationss = [
-  //   {
-  //     id: 1,
-  //     img: notiimg1,
-  //     title: "Upcoming Quadrant Future Tek IPO analysis",
-  //     date: "Yesterday 11:15 AM",
-  //   },
-  //   {
-  //     id: 2,
-  //     img: notiimg2,
-  //     title: "Your number has been verified successfully.",
-  //     date: "04 Jan, 2025 11:45 AM",
-  //   },
-  //   {
-  //     id: 3,
-  //     img: notiimg3,
-  //     title: "Your email has been verified successfully.",
-  //     date: "04 Jan, 2025 12:30 PM",
-  //   },
-  //   {
-  //     id: 4,
-  //     img: notiimg4,
-  //     title: "Sara commented on blog",
-  //     date: "01 Jan, 2025 08:15 AM",
-  //   },
-  //   {
-  //     id: 5,
-  //     img: notiimg5,
-  //     title: "Lucas commented on sanathans IPO",
-  //     date: "28 Nov, 2024 11:15 AM",
-  //   },
-  //   {
-  //     id: 6,
-  //     img: notiimg6,
-  //     title: "You have new signing in android",
-  //     date: "12 Nov, 2024 09:28 AM",
-  //   },
-  //   {
-  //     id: 7,
-  //     img: notiimg7,
-  //     title: "New courses available",
-  //     date: "08 Nov, 2024 10:30 PM",
-  //   },
-  //   {
-  //     id: 8,
-  //     img: notiimg8,
-  //     title: "Upcoming Laxmi Dental IPO",
-  //     date: "05 Nov, 2024 09:03 AM",
-  //   },
-  //   {
-  //     id: 9,
-  //     img: notiimg9,
-  //     title: "Your profile picture updated successfully.",
-  //     date: "27 Oct, 2024 02:23 PM",
-  //   },
-  //   {
-  //     id: 10,
-  //     img: notiimg10,
-  //     title: "Upcoming IGI IPO",
-  //     date: "25 Oct, 2024 08:48 AM",
-  //   },
-  //   {
-  //     id: 11,
-  //     img: notiimg2,
-  //     title: "Your number has been verified successfully.",
-  //     date: "04 Jan, 2025 11:45 AM",
-  //   },
-  //   {
-  //     id: 12,
-  //     img: notiimg3,
-  //     title: "Your email has been verified successfully.",
-  //     date: "04 Jan, 2025 12:30 PM",
-  //   },
-  //   {
-  //     id: 13,
-  //     img: notiimg4,
-  //     title: "Sara commented on blog",
-  //     date: "01 Jan, 2025 08:15 AM",
-  //   },
-  //   {
-  //     id: 14,
-  //     img: notiimg5,
-  //     title: "Lucas commented on sanathans IPO",
-  //     date: "28 Nov, 2024 11:15 AM",
-  //   },
-  //   {
-  //     id: 17,
-  //     img: notiimg6,
-  //     title: "You have new signing in android",
-  //     date: "12 Nov, 2024 09:28 AM",
-  //   },
-  // ];
-
   const displayedNotifications = notifications.data;
-  // showAll
-  //   ? notifications.data
-  //   : notifications.data.slice(0, 10);
+
+  /*
+  const notifications = [
+    {
+      id: 1,
+      img: notiimg1,
+      title: "Upcoming Quadrant Future Tek IPO analysis",
+      date: "Yesterday 11:15 AM",
+    },
+ 
+ 
+    {
+      id: 4,
+      img: notiimg4,
+      title: "Sara commented on blog",
+      date: "01 Jan, 2025 08:15 AM",
+    },
+    {
+      id: 5,
+      img: notiimg5,
+      title: "Lucas commented on sanathans IPO",
+      date: "28 Nov, 2024 11:15 AM",
+    },
+ 
+    {
+      id: 7,
+      img: notiimg7,
+      title: "New courses available",
+      date: "08 Nov, 2024 10:30 PM",
+    },
+    {
+      id: 8,
+      img: notiimg8,
+      title: "Upcoming Laxmi Dental IPO",
+      date: "05 Nov, 2024 09:03 AM",
+    },
+    {
+      id: 9,
+      img: notiimg9,
+      title: "Your profile picture updated successfully.",
+      date: "27 Oct, 2024 02:23 PM",
+    },
+    {
+      id: 10,
+      img: notiimg10,
+      title: "Upcoming IGI IPO",
+      date: "25 Oct, 2024 08:48 AM",
+    },
+   
+   
+    {
+      id: 13,
+      img: notiimg4,
+      title: "Sara commented on blog",
+      date: "01 Jan, 2025 08:15 AM",
+    },
+    {
+      id: 14,
+      img: notiimg5,
+      title: "Lucas commented on sanathans IPO",
+      date: "28 Nov, 2024 11:15 AM",
+    },
+ 
+  ];
+ 
+  const displayedNotifications = showAll
+    ? notifications
+    : notifications.slice(0, 10);
+  */
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
@@ -216,6 +190,18 @@ const Navbar = () => {
   const learnDropdownRef = useRef(null);
   const searchResultsRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false); // Close dropdown if clicked outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   // Debounced search function that only filters existing data from Redux
   const debouncedSearch = useCallback(
     debounce((searchText) => {
@@ -231,11 +217,13 @@ const Navbar = () => {
         const company = (item.company || "").toLowerCase();
         const schemeName = (item.Scheme_Name || "").toLowerCase();
         const sector = (item.sector || "").toLowerCase();
+        const symbol = item.symbol ? item.symbol.toLowerCase() : "";
 
         return (
           company.includes(lowerSearchText) ||
           schemeName.includes(lowerSearchText) ||
-          sector.includes(lowerSearchText)
+          sector.includes(lowerSearchText) ||
+          symbol.includes(lowerSearchText)
         );
       });
 
@@ -343,7 +331,6 @@ const Navbar = () => {
 
   const onLogout = () => {
     Cookies.remove("jwtToken");
-    Cookies.remove("token");
     localStorage.clear();
     navigate("/");
   };
@@ -728,7 +715,6 @@ const Navbar = () => {
   return (
     <>
       <nav className={darkMode ? "navbardarkerrrrmode" : "navbar"}>
-        
         <div className="navbar-logo">
           <img
             src={`${darkMode ? Darkmodelogo : logo}`}
@@ -810,7 +796,7 @@ const Navbar = () => {
           {searchInputText && (
             <div
               ref={searchResultsRef}
-              className={`search-results ${
+              className={`search-resultswatchlistsector ${
                 filterData.length > 0 ? "active" : ""
               }`}
             >
@@ -818,8 +804,8 @@ const Navbar = () => {
                 <ul>
                   {filterData.map((data, index) => (
                     <li key={data.id || index}>
-                      {data.company || ""} {data.Scheme_Name || ""}{" "}
-                      {data.sector || ""}
+                      {data.name || ""} {data.Scheme_Name || ""}{" "}
+                      {data.sector || ""} {data.symbol || ""}
                     </li>
                   ))}
                 </ul>
@@ -834,7 +820,7 @@ const Navbar = () => {
           Subscribe
         </h4>
         <div className="navbar-icons">
-          <div className="notificationall">
+          <div className="notificationall" ref={dropdownRef}>
             {/* Bell Icon */}
             <FaBell
               className={
@@ -900,7 +886,6 @@ const Navbar = () => {
               </div>
             )}
           </div>
-
           <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
             <li className="" ref={userDropdownRef}>
               <Link to="#" onClick={toggleUserDropdown}>
