@@ -180,7 +180,7 @@ const Dashboardchartmain = ({ children }) => {
           </div>
         </div>
 
-        <div className="dataquatallnifty">
+        <div className="dataquatallniftydata">
 
           <div className="portfoliomutual-containerrniftydashboard">
 

@@ -5,7 +5,9 @@ import { CgProfile } from "react-icons/cg";
 import { MdDateRange } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import Navbar from "../../../Navbar/Navbar";
-import CommentSection from "../Comment/Comment";
+
+import CommentBox from "../Comment/Comment";
+import RichTextEditor from "../Comment/Comment";
 
 function Bloginvestment() {
   return (
@@ -73,7 +75,7 @@ function Bloginvestment() {
         <li>Enter bank information and complete the required form details.</li>
       </ul>
       <Navbar/>
-      <CommentSection/>
+      <RichTextEditor/>
     </div>
   );
 }

@@ -525,7 +525,7 @@ a span {
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
-  width: 450px;
+  width: 350px;
   max-height: 500px;
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -544,7 +544,7 @@ a span {
   margin-bottom: 10px;
   padding: 10px;
   transition: box-shadow 0.3s ease;
-  width: 420px;
+  width: 315px;
   overflow-x: hidden;
 }
 
@@ -738,7 +738,7 @@ a span {
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
-    width: 450px;
+    width: 400px;
     max-height: 500px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
