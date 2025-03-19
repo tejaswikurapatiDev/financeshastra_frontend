@@ -5,9 +5,11 @@ import React, {
   useCallback,
   useContext,
 } from "react";
+
+import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-
+import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext'
 import {
   FaBell,
   FaUserCircle,
@@ -45,7 +47,7 @@ import { API_BASE_URL } from "../config";
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-
+  const {issubscribed}= useContext(SubscriptionContext)
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -770,10 +772,15 @@ const Navbar = () => {
             </div>
           )}
         </div>
-
-        <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
+{issubscribed? <img 
+  className="subscribeimg" 
+  src={unlockstockthemeimg} 
+  alt="Subscribe" 
+  
+/> : <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
           Subscribe
-        </h4>
+        </h4>}
+        
         <div className="navbar-icons">
           <div className="notificationall"ref={dropdownRef}>
             {/* Bell Icon */}

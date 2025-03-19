@@ -1302,9 +1302,9 @@ const Beststock = () => {
                 <div
                   className="index-optionsstocks" // Added class name to the container of options
                 >
-                  {filteredIndexes.map((index) => (
+                  {filteredIndexes.map((index, idx) => (
                     <label
-                      key={index}
+                      key={`${index}-${idx}`}
                       className="index-optionscreener" // Added class name to each option
                     >
                       <input

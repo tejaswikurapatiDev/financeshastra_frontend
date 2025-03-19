@@ -280,6 +280,7 @@ import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 function App() {
   return (  
     <Provider store={store}>
+      <SubscriptionProvider>
       <DarkModeProvider>
         <UserProfileProvider>
           
@@ -533,7 +534,7 @@ function App() {
            
             <Route path="/" element={<LandingPage />} />
            
-            <Route path="/landingnavbar" element={<Landingnavbar />} />
+            <Route path="/landingnavbar" element={<SubscriptionProvider><Landingnavbar /></SubscriptionProvider>} />
             <Route path="/whyFinadvanceeducationnn" element={<WhyFinadvanceeducationnn />} />
             <Route path="/banksectorstocktheme" element={<Banksectorstocktheme />} />
             <Route path="/stockThemesSectorPages" element={<StockThemesSectorPages />} />
@@ -694,6 +695,7 @@ function App() {
           
         </UserProfileProvider>
       </DarkModeProvider>
+      </SubscriptionProvider>
     </Provider>
   );
 }

@@ -87,10 +87,11 @@ const AccountSettings = () => {
     if (!newErrors.currentPassword && !newErrors.newPassword && !newErrors.confirmPassword) {
       const url= `${API_BASE_URL}/users/changepass`
       //const localtoken= localStorage.getItem('token')
+      const CookieToken= Cookies.get('jwtToken')
       const options= {
         method: "PUT",
         headers: {
-          "Authorization": `Bearer ${token}`,
+          "Authorization": `Bearer ${CookieToken}`,
           "Content-Type": "application/json"
         },
         body: JSON.stringify(passwordData)
@@ -106,8 +107,7 @@ const AccountSettings = () => {
         })
       }
       if (response.status === 404){
-        newErrors.currentPassword = "Please enter correct password";
-        setErrors(newErrors)
+        setErrors(errors.currentPassword = "Please enter correct password")
       }
      
       }
@@ -228,17 +228,7 @@ const AccountSettings = () => {
             </div>
             {errors.confirmPassword && <div className="error-message">{errors.confirmPassword}</div>}
           </div>
-
-          {/* Password Rules */}
-          <div className="profilesettingpassword-password-rules">
-            <p>New password must contain:</p>
-            <ul>
-              <li>Between 8 and 12 characters</li>
-              <li>At least one uppercase character</li>
-              <li>At least one lowercase character</li>
-              <li>At least one number and special character</li>
-            </ul>
-          </div>
+          
           {/* Password Rules */}
           <div className="profilesettingpassword-password-rules">
             <p>New password must contain:</p>
