@@ -8,9 +8,11 @@ import Navbar from "../../../Navbar/Navbar";
 
 import CommentBox from "../Comment/Comment";
 import RichTextEditor from "../Comment/Comment";
+import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 
 function Bloginvestment() {
   return (
+    <div>
     <div className="investblog-container">
       {/* Title */}
       <h1 className="investblog-title">Top 30 Best-Performing Equity Mutual Funds in India</h1>
@@ -76,6 +78,10 @@ function Bloginvestment() {
       </ul>
       <Navbar/>
       <RichTextEditor/>
+    </div>
+    <div className="foooterpagesaupdate">
+     <FooterForAllPage />
+   </div>
     </div>
   );
 }

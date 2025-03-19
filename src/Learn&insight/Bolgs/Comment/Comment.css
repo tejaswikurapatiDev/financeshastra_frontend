@@ -3,7 +3,7 @@
   padding: 10px;
   border-radius: 8px;
   background-color: #f2f2f2;
-  width: 870px;
+  max-width:100%;
   margin: 0 auto;
   font-family: 'calibri';
   font-size: 15px;
@@ -53,7 +53,8 @@
   padding-top: 10px;
 }
 .comments-section h3{
- margin-left: 80px;
+ 
+ margin-right: auto;
 }
 .comment {
   display: flex;
@@ -62,7 +63,9 @@
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 10px;
-  margin-left: 80px;
+  margin: 0 auto;
+  margin-right: auto;
+  max-width: 100%;
 }
 
 .comment-avatar {
