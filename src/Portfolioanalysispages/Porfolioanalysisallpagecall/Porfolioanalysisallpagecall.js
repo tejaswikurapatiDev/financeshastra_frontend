@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import React from 'react'
 import Portfolioanalyticchart from '../Portfolioanalyticchart/Portfolioanalyticchart'
 import StockTracker from '../StockTracker/StockTracker'
@@ -10,8 +11,9 @@ import PortfolioAnalysisCorporatePage from '../PortfolioAnalysisCorporatePage/Po
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
-
+import { SubscriptionContext } from "../../Portfoilo/context/SubscriptionContext";
 function Porfolioanalysisallpagecall({children}) {
+  const {issubscribed}= useContext(SubscriptionContext)
   return (
     <div>
         <Portfolioanalyticchart/>
