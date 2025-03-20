@@ -9,7 +9,7 @@ import React, {
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext'
+import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext';
 import {
   FaBell,
   FaUserCircle,
@@ -64,6 +64,10 @@ const Navbar = () => {
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null); // Reference for dropdown
+
+  const [userName, setUsername]= useState('')
+  const [isLogedin, setIsLogedin]= useState(false)
+  const [isSubed, setisSubed]= useState(false)
 
 
   // Get search data from Redux store
@@ -204,6 +208,25 @@ const Navbar = () => {
       navigate("/login");
       return;
     }*/
+   const token = Cookies.get("jwtToken");
+   if (token) {
+    setIsLogedin(true)
+    setisSubed(false)
+   }else{
+    setIsLogedin(false)
+   }
+   if (issubscribed){
+    setisSubed(true)
+   }else{
+    setisSubed(false)
+   }
+   if (user){
+    setUsername(user)
+    setIsLogedin(true)
+   }else{
+    setIsLogedin(false)
+   }
+   
     const handleClickOutside = (event) => {
       if (
         searchResultsRef.current &&
@@ -772,24 +795,19 @@ const Navbar = () => {
             </div>
           )}
         </div>
-{issubscribed? <img 
-  className="subscribeimg" 
-  src={unlockstockthemeimg} 
-  alt="Subscribe" 
-  
-/> : <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
+{!issubscribed && <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
           Subscribe
         </h4>}
         
         <div className="navbar-icons">
           <div className="notificationall"ref={dropdownRef}>
             {/* Bell Icon */}
-            <FaBell
+            {isLogedin && <FaBell
               className={
                 darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
               }
               onClick={() => setIsOpen(!isOpen)}
-            />
+            />}
 
             {/* Dropdown Content */}
             {isOpen && (
@@ -824,21 +842,39 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-            <li className="" ref={userDropdownRef}>
-              <Link to="#" onClick={toggleUserDropdown}>
-                <FaUserCircle
-                  className={
-                    darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
-                  }
-                />
-              </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                {user}
-              </span>
-              {userDropdownOpen && renderUserDropdown()}
-            </li>
-          </div>
+          {isLogedin ? (
+                    <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+                    <li className="" ref={userDropdownRef}>
+                      <Link to="#" onClick={toggleUserDropdown}>
+                        <FaUserCircle
+                          className={
+                            darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                          }
+                        />
+                      </Link>
+                      <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                        {userName}
+                      </span>
+                      {userDropdownOpen && renderUserDropdown()}
+                    </li>
+                  </div>
+                  ) : (
+                    <div className="landingnavbar-icons">
+                      <button
+                        className="landingnavbar-buttonregister-button"
+                        onClick={() => navigate("/register")}
+                      >
+                        Register
+                      </button>
+                      <button
+                        className="landingnavbar-buttonlogin-button"
+                        onClick={() => navigate("/login")}
+                      >
+                        Log in
+                      </button>
+                    </div>
+                  )}
+          
         </div>
       </nav>
 
