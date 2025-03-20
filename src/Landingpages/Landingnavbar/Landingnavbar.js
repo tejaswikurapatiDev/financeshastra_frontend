@@ -521,6 +521,7 @@ const Landingnavbar = () => {
         </div>
         {isLogedin ? (
           <div className="landingnavbar-icons">
+            <VscBell className="landingnavbaricon bell-icon" />
             <button
               className="landingnavbar-buttonlogin-button"
               onClick={onLogout}
@@ -530,7 +531,7 @@ const Landingnavbar = () => {
           </div>
         ) : (
           <div className="landingnavbar-icons">
-            <VscBell className="landingnavbaricon bell-icon" />
+            
             <button
               className="landingnavbar-buttonregister-button"
               onClick={() => navigate("/register")}
