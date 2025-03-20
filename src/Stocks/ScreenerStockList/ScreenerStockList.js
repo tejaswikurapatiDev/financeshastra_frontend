@@ -1,6 +1,6 @@
 import React, { useState, useRef, useMemo, useEffect } from "react";
 import { screenerStockListData } from "../screenerStockListData";
-import { icons } from "../icons";
+import { API_BASE_URL } from "../../config";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
@@ -10,7 +10,7 @@ import "./ScreenerStockList.css";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import { API_BASE_URL } from "../../config";
+
 
 const ScreenerStockList = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
@@ -71,7 +71,6 @@ const ScreenerStockList = () => {
   };
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
-  const API_BASE_URL= 'https://newbackend-repo.onrender.com'
   useEffect(() => {
     const fetchfun= async ()=>{
             const url= `${API_BASE_URL}/stocks/compstock/1`
@@ -91,7 +90,7 @@ const ScreenerStockList = () => {
                 "divYield": each.Div_yield,
                 "sector": each.Sector,
                 "url": '/stockhandle',
-                "icon": icons.find(eachIcon => eachIcon.name === (each.Symbol).toLowerCase()).icon
+                "icon": each.icons 
               }))
               //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
               
@@ -1310,9 +1309,9 @@ const ScreenerStockList = () => {
                 <div
                   className="index-optionsstocks" // Added class name to the container of options
                 >
-                  {filteredIndexes.map((index) => (
+                  {filteredIndexes.map((index, idx) => (
                     <label
-                      key={index}
+                      key={`${index}-${idx}`}
                       className="index-optionscreener" // Added class name to each option
                     >
                       <input
