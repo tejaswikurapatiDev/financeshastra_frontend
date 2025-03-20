@@ -72,7 +72,6 @@ function Login() {
       hasError = true;
     } else if (!validatePassword(password)) {
       setPasswordError("Password must be at least 8 characters");
-      setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
 
@@ -94,9 +93,9 @@ function Login() {
       const response = await fetch(url, options);
       const data = await response.json();
 
-      if (!response.ok) {
+      /*if (!response.ok) {
         throw new Error(data.message || "Login Failed");
-      }
+      }*/
       const { jwtToken } = data;
 
       if (response.ok=== true){
@@ -109,6 +108,9 @@ function Login() {
     
   
         navigate("/home");
+      }
+      if (response.status ===  404){
+        setEmailError("Invalid email address");
       }
     } catch (error) {
       console.error("Error during login:", error);
