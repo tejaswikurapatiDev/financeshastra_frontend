@@ -198,12 +198,12 @@ const Navbar = () => {
   // Close search results when clicking outside
   useEffect(() => {
     
-    const token = Cookies.get("jwtToken");
+    /*const token = Cookies.get("jwtToken");
     if (!token) {
       alert("Session expired, Please login again.");
       navigate("/login");
       return;
-    }
+    }*/
     const handleClickOutside = (event) => {
       if (
         searchResultsRef.current &&
