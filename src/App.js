@@ -274,6 +274,7 @@ import DashboardLayout from "./DashboardLayout/DashboardLayout";
 import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
 import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
+import Billingavailableplan from "./myprofile/Billingavailableplan/Billingavailableplan";
 
 
 function App() {
@@ -656,6 +657,7 @@ function App() {
       <Route path="/contactCards" element={<ContactCards/>}/> 
       <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
       <Route path="/dashboardall" element={< Dashboardall/>}/>
+      <Route path="/billingavailableplan" element={<Billingavailableplan/>}/>
      
     
 
