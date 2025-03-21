@@ -9,7 +9,7 @@ import React, {
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext'
+import { SubscriptionContext } from "../Portfoilo/context/SubscriptionContext";
 import {
   FaBell,
   FaUserCircle,
@@ -45,9 +45,10 @@ import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
 
 const Navbar = () => {
+  const [username, setUsername] = useState("");
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-  const {issubscribed}= useContext(SubscriptionContext)
+  const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -69,6 +70,13 @@ const Navbar = () => {
   const searchData = useSelector((store) => store.searchData.searchData);
   //list and read notifications
   const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    // Fetch username from localStorage when the component mounts
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
   useEffect(() => {
     fetchNotifications();
   }, []);
@@ -237,7 +245,6 @@ const Navbar = () => {
 
   // Close search results when clicking outside
   useEffect(() => {
-    
     const token = Cookies.get("jwtToken");
     if (!token) {
       alert("Session expired, Please login again.");
@@ -812,15 +819,21 @@ const Navbar = () => {
             </div>
           )}
         </div>
-{issubscribed? <img 
-  className="subscribeimg" 
-  src={unlockstockthemeimg} 
-  alt="Subscribe" 
-  
-/> : <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
-          Subscribe
-        </h4>}
-        
+        {issubscribed ? (
+          <img
+            className="subscribeimg"
+            src={unlockstockthemeimg}
+            alt="Subscribe"
+          />
+        ) : (
+          <h4
+            className="subscritebutton"
+            onClick={() => navigate("/pricehalf")}
+          >
+            Subscribe
+          </h4>
+        )}
+
         <div className="navbar-icons">
           <div className="notificationall" ref={dropdownRef}>
             {/* Bell Icon */}
@@ -897,8 +910,11 @@ const Navbar = () => {
                   }
                 />
               </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+              {/* <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
                 {user}
+              </span> */}
+              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                {username || "Guest"} {/* Show username instantly */}
               </span>
               {userDropdownOpen && renderUserDropdown()}
             </li>
