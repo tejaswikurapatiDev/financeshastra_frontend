@@ -1,3 +1,4 @@
+/*Before implementation of settings code start */
 // import React, { useState } from "react";
 // import { useNavigate } from "react-router-dom"; // For navigation to the homepage
 // import "./SettingDashPanel.css";
@@ -170,7 +171,7 @@
 
 //   );
 // };
-
+/*Before implementation of settings code end */
 // export default SettingsDashboard;
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -315,7 +316,6 @@ const SettingsDashboard = () => {
             Cancel
           </button>
         </div>
-
         <Navbar />
         <Sidebar />
       </div>

@@ -18,6 +18,7 @@ import { API_BASE_URL } from "../config";
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 import { requestNotificationPermission } from "../firebase/firebaseMessaging"; // Import FCM function
 
+import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
 const override = {
   display: "block",
   textAlign: "center",
@@ -37,6 +38,7 @@ function Login() {
   const [newPassword, setNewPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [isLoading, setIsLoading] = useState(false);
+  const {userEmail}= useContext(UserProfileContext)
   const navigate = useNavigate();
 
   const validateEmail = (email) => {
@@ -114,8 +116,6 @@ function Login() {
           expires: 7,
           sameSite: "Strict",
         });
-        Cookies.set('email', email)
-        localStorage.setItem("token", jwtToken)
         localStorage.setItem("user", JSON.stringify({email, password}))
     
   
@@ -141,8 +141,7 @@ function Login() {
   const handleForgotPasswordEmailSubmit = (e) => {
     e.preventDefault();
     if (validateEmail(email)) {
-      const userRegistrationData = JSON.parse(localStorage.getItem(email));
-      if (userRegistrationData) {
+      if (userEmail) {
         setIsResetPasswordStep(true);
         setEmailError("");
       } else {
@@ -203,7 +202,6 @@ function Login() {
         });
   
         // Store user details in local storage for quick access
-        localStorage.setItem("user", JSON.stringify(data.user));
   
         console.log(data.message); // Log success message from backend
         navigate("/home");

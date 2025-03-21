@@ -145,7 +145,7 @@ import ReffeerralProfilePageSSS from "./myprofile/ReffeerralProfilePageSSS/Reffe
 import FAQS from "./FAQS/FAQS";
 
 import SessionHistory from "./myprofile/SessionHistory/SessionHistory";
-import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
+
 import OrderTable from "./myprofile/OrderTable/OrderTable";
 import Managealert from "./myprofile/Managealert/Managealert";
 import ContactFormmanagealert from "./myprofile/ContactFormmanagealert/ContactFormmanagealert";
@@ -158,7 +158,7 @@ import HalfyearlyUPIPage from "./Subscription/HalfyearlyupiProfilePage/Halfyearl
 import HalfyearlyScanPage from "./Subscription/HalfyearlyScanPage/HalfyearlyScanPage";
 import PremiumSubscriptionPages from "./Subscription/PremiumSubscriptionPages/PremiumSubscriptionPages";
 import PremiumPaypalProfilePage from "./Subscription/PremiumpaypalPages/PremiumpaypalPages";
-import PremiumUPIPage from "./Subscription/PremiumupiProfilePage/PremiumupiProfilePage";
+import PremiumUPIPage from "./Subscription/PremiumupiProfilePage/Premiumprofilepage";
 import PremiumScanPage from "./Subscription/PremiumScanPage/PremiumScanPage";
 import AnnuallySubscriptionPages from "./Subscription/AnnuallySubscriptionPages/AnnuallySubscriptionPages";
 import AnnuallyPaypalProfilePage from "./Subscription/AnnuallyPaypalProfilePage/AnnuallyPaypalProfilePage";
@@ -245,6 +245,7 @@ import { PortfolioMutualsProvider } from "./Portfoilo/context/PortfolioMutualsCo
 import { PortfolioDashboardProvider } from "./Portfoilo/context/PortfolioDashboardContext";
 import { DarkModeProvider } from "./Portfoilo/context/DarkModeContext";
 import { UserProfileProvider } from "./Portfoilo/context/UserProfileContext";
+import { SubscriptionProvider } from "./Portfoilo/context/SubscriptionContext";
 
 import Disclaimer from "./Footernavigatepages/Disclaimer/Disclaimer";
 
@@ -263,6 +264,8 @@ import StocksSmartSIPPS from "./Landingpages/StocksSmartSIPPS/StocksSmartSIPPS";
 import DashboardLayout from "./DashboardLayout/DashboardLayout";
 import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
+import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
+import Billingavailableplan from "./myprofile/Billingavailableplan/Billingavailableplan";
 
 function App() {
   useEffect(() => {
@@ -277,736 +280,908 @@ function App() {
   }, []);
   return (
     <Provider store={store}>
-      <DarkModeProvider>
-        <UserProfileProvider>
-          {/* Toast Notifications (Globally Accessible) */}
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar
-          />
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/market" element={<Market />} />
-            <Route path="/gold" element={<GoldETF />} />
-            <Route path="/stock" element={<Stocktable />} />
-            <Route path="/header" element={<Header />} />
-            <Route path="/profitloss" element={<ProfitLossTable />} />
-            <Route path="/balance-sheet" element={<BalanceSheet />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/stockhandle" element={<Overview />} />
-            <Route path="/nifty" element={<Netify100 />} />
-            <Route path="/smallcap" element={<Smallcap />} />
-            <Route path="/midcap" element={<Midcap />} />
-            <Route path="/largecap" element={<Largecap />} />
-            <Route path="/niftystock" element={<NiftyStocks />} />
-            <Route path="/highgrowth" element={<Highstock />} />
-            <Route path="/beststock" element={<Beststock />} />
-            <Route
-              path="/portfolio"
-              element={
-                <PortfolioDashboardProvider>
-                  <Portfolio />
-                </PortfolioDashboardProvider>
-              }
+      <SubscriptionProvider>
+        <DarkModeProvider>
+          <UserProfileProvider>
+            {/* Toast Notifications (Globally Accessible) */}
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar
             />
+            <Routes>
+              <Route path="/login" element={<Login />} />
+              <Route path="/market" element={<Market />} />
+              <Route path="/gold" element={<GoldETF />} />
+              <Route path="/stock" element={<Stocktable />} />
+              <Route path="/header" element={<Header />} />
+              <Route path="/profitloss" element={<ProfitLossTable />} />
+              <Route path="/balance-sheet" element={<BalanceSheet />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/stockhandle" element={<Overview />} />
+              <Route path="/nifty" element={<Netify100 />} />
+              <Route path="/smallcap" element={<Smallcap />} />
+              <Route path="/midcap" element={<Midcap />} />
+              <Route path="/largecap" element={<Largecap />} />
+              <Route path="/niftystock" element={<NiftyStocks />} />
+              <Route path="/highgrowth" element={<Highstock />} />
+              <Route path="/beststock" element={<Beststock />} />
+              <Route
+                path="/portfolio"
+                element={
+                  <PortfolioDashboardProvider>
+                    <Portfolio />
+                  </PortfolioDashboardProvider>
+                }
+              />
 
-            <Route
-              path="/portfoliostock"
-              element={
-                <PortfolioDashboardProvider>
-                  <NetWorthStocksDashboard />
-                </PortfolioDashboardProvider>
-              }
-            />
-            <Route path="/portfoliodonut" element={<Portfoliodonut />} />
-            <Route
-              path="/portfoliostockaccount"
-              element={
-                <PortfolioDashboardProvider>
+              <Route
+                path="/portfoliostock"
+                element={
+                  <PortfolioDashboardProvider>
+                    <NetWorthStocksDashboard />
+                  </PortfolioDashboardProvider>
+                }
+              />
+              <Route path="/portfoliodonut" element={<Portfoliodonut />} />
+              <Route
+                path="/portfoliostockaccount"
+                element={
+                  <PortfolioDashboardProvider>
+                    <PortfolioStockProvider>
+                      <PortfolioAccountStock />
+                    </PortfolioStockProvider>
+                  </PortfolioDashboardProvider>
+                }
+              />
+              <Route
+                path="/accountfund"
+                element={
                   <PortfolioStockProvider>
-                    <PortfolioAccountStock />
+                    <AccountStockfundamental />
                   </PortfolioStockProvider>
-                </PortfolioDashboardProvider>
-              }
-            />
-            <Route
-              path="/accountfund"
-              element={
-                <PortfolioStockProvider>
-                  <AccountStockfundamental />
-                </PortfolioStockProvider>
-              }
-            />
-            <Route
-              path="/accountalert"
-              element={
-                <PortfolioStockProvider>
-                  <AccountStockalert />
-                </PortfolioStockProvider>
-              }
-            />
-            <Route
-              path="/accountreturn"
-              element={
-                <PortfolioStockProvider>
-                  <AccountStockreturn />
-                </PortfolioStockProvider>
-              }
-            />
-            <Route
-              path="/overview"
-              element={
-                <PortfolioStockProvider>
-                  <OverviewPortfolioManager />
-                </PortfolioStockProvider>
-              }
-            />
-            <Route path="/stocksector" element={<PortfolioStocksector />} />
-            <Route path="/stockmcap" element={<PortfolioStockmcap />} />
-            <Route
-              path="/stockadd"
-              element={
-                <PortfolioStockProvider>
-                  <AddTransactionstock />
-                </PortfolioStockProvider>
-              }
-            />
-            <Route path="/stockupdate" element={<UpdateTransaction />} />
-            <Route path="/stockdelete" element={<Deletepopupstock />} />
-            <Route path="/mutualsector" element={<Mutualsector />} />
-            <Route path="/mutualnone" element={<Mutualnone />} />
-            <Route path="/mutualtype" element={<Mutualtypefund />} />
-            <Route
-              path="/mutualaccount"
-              element={
-                <PortfolioMutualsProvider>
-                  <MutualAccountStock />
-                </PortfolioMutualsProvider>
-              }
-            />
-            <Route
-              path="/mutualoverview"
-              element={
-                <PortfolioMutualsProvider>
-                  <OverviewMutual />
-                </PortfolioMutualsProvider>
-              }
-            />
-            <Route
-              path="/accountperformance"
-              element={<Accountmutualperformance />}
-            />
-            <Route path="/stockwatchlist" element={<StockWatchlist />} />
-            <Route
-              path="/stockwatchlistsector"
-              element={<StockWatchsectorlist />}
-            />
-            <Route
-              path="/stockwatchlistmcap"
-              element={<StockWatchsectormcap />}
-            />
-            <Route path="/stockwatchlistall" element={<StockWatchportall />} />
-            <Route path="/pricehalf" element={<SubscriptionPlans />} />
-            <Route path="/annualplan" element={<SubscriptionannualPlans />} />
-            <Route path="/mutualfund" element={<TopRatedFunds />} />
-            <Route path="/mutualfunddirect" element={<TopRatedFundsdirect />} />
-            <Route path="/goldWatchlistall" element={<GoldWatchportall />} />
-            <Route
-              path="/portfoliogoldtoppage"
-              element={<Portfoliogoldaccount />}
-            />
+                }
+              />
+              <Route
+                path="/accountalert"
+                element={
+                  <PortfolioStockProvider>
+                    <AccountStockalert />
+                  </PortfolioStockProvider>
+                }
+              />
+              <Route
+                path="/accountreturn"
+                element={
+                  <PortfolioStockProvider>
+                    <AccountStockreturn />
+                  </PortfolioStockProvider>
+                }
+              />
+              <Route
+                path="/overview"
+                element={
+                  <PortfolioStockProvider>
+                    <OverviewPortfolioManager />
+                  </PortfolioStockProvider>
+                }
+              />
+              <Route path="/stocksector" element={<PortfolioStocksector />} />
+              <Route path="/stockmcap" element={<PortfolioStockmcap />} />
+              <Route
+                path="/stockadd"
+                element={
+                  <PortfolioStockProvider>
+                    <AddTransactionstock />
+                  </PortfolioStockProvider>
+                }
+              />
+              <Route path="/stockupdate" element={<UpdateTransaction />} />
+              <Route path="/stockdelete" element={<Deletepopupstock />} />
+              <Route path="/mutualsector" element={<Mutualsector />} />
+              <Route path="/mutualnone" element={<Mutualnone />} />
+              <Route path="/mutualtype" element={<Mutualtypefund />} />
+              <Route
+                path="/mutualaccount"
+                element={
+                  <PortfolioMutualsProvider>
+                    <MutualAccountStock />
+                  </PortfolioMutualsProvider>
+                }
+              />
+              <Route
+                path="/mutualoverview"
+                element={
+                  <PortfolioMutualsProvider>
+                    <OverviewMutual />
+                  </PortfolioMutualsProvider>
+                }
+              />
+              <Route
+                path="/accountperformance"
+                element={<Accountmutualperformance />}
+              />
+              <Route path="/stockwatchlist" element={<StockWatchlist />} />
+              <Route
+                path="/stockwatchlistsector"
+                element={<StockWatchsectorlist />}
+              />
+              <Route
+                path="/stockwatchlistmcap"
+                element={<StockWatchsectormcap />}
+              />
+              <Route
+                path="/stockwatchlistall"
+                element={<StockWatchportall />}
+              />
+              <Route path="/pricehalf" element={<SubscriptionPlans />} />
+              <Route path="/annualplan" element={<SubscriptionannualPlans />} />
+              <Route path="/mutualfund" element={<TopRatedFunds />} />
+              <Route
+                path="/mutualfunddirect"
+                element={<TopRatedFundsdirect />}
+              />
+              <Route path="/goldWatchlistall" element={<GoldWatchportall />} />
+              <Route
+                path="/portfoliogoldtoppage"
+                element={<Portfoliogoldaccount />}
+              />
 
-            <Route path="/mutualwatchlist" element={<MutualWatchlist />} />
-            <Route
-              path="/mutualwatchlisttype"
-              element={<MutualWatchtypefundlist />}
-            />
-            <Route
-              path="/mutualwatchlistsector"
-              element={<MutualWatchsectorlist />}
-            />
-            <Route
-              path="/mutualwatchlistall"
-              element={<MutualWatchportall />}
-            />
+              <Route path="/mutualwatchlist" element={<MutualWatchlist />} />
+              <Route
+                path="/mutualwatchlisttype"
+                element={<MutualWatchtypefundlist />}
+              />
+              <Route
+                path="/mutualwatchlistsector"
+                element={<MutualWatchsectorlist />}
+              />
+              <Route
+                path="/mutualwatchlistall"
+                element={<MutualWatchportall />}
+              />
 
-            <Route path="/mutualfundgrowth" element={<Mutualfund />} />
-            <Route
-              path="/bestsmallcapregular"
-              element={<Bestsmallcapregular />}
-            />
-            <Route
-              path="/bestsmallcapdirect"
-              element={<Bestsmallcapdirect />}
-            />
-            <Route path="/sip" element={<MutualFundsSipCalculator />} />
-            <Route path="/risk" element={<RiskoMeter />} />
-            <Route path="/flexregular" element={<Flexregular />} />
-            <Route path="/flexdirect" element={<Flexdirect />} />
-            <Route
-              path="/fundscreenerregular"
-              element={<Fundscreenerregular />}
-            />
-            <Route
-              path="/fundscreenerdirect"
-              element={<Fundscreenerdirect />}
-            />
-            <Route path="/Bestgrowthregular" element={<Bestgrowthregular />} />
-            <Route path="/Bestgrowthdirect" element={<Bestgrowthdirect />} />
+              <Route path="/mutualfundgrowth" element={<Mutualfund />} />
+              <Route
+                path="/bestsmallcapregular"
+                element={<Bestsmallcapregular />}
+              />
+              <Route
+                path="/bestsmallcapdirect"
+                element={<Bestsmallcapdirect />}
+              />
+              <Route path="/sip" element={<MutualFundsSipCalculator />} />
+              <Route path="/risk" element={<RiskoMeter />} />
+              <Route path="/flexregular" element={<Flexregular />} />
+              <Route path="/flexdirect" element={<Flexdirect />} />
+              <Route
+                path="/fundscreenerregular"
+                element={<Fundscreenerregular />}
+              />
+              <Route
+                path="/fundscreenerdirect"
+                element={<Fundscreenerdirect />}
+              />
+              <Route
+                path="/Bestgrowthregular"
+                element={<Bestgrowthregular />}
+              />
+              <Route path="/Bestgrowthdirect" element={<Bestgrowthdirect />} />
 
-            <Route path="/etfregular" element={<Etfregular />} />
-            <Route path="/etfdirect" element={<Etfdirect />} />
-            <Route
-              path="/stockNewsComponent"
-              element={<StockNewsComponent />}
-            />
-            <Route path="/stockScreenerlist" element={<ScreenerStockList />} />
-            <Route
-              path="/ScreenerStockvaluation"
-              element={<ScreenerStockvaluation />}
-            />
-            <Route path="/IncomeStatement" element={<ScreenerStockincome />} />
+              <Route path="/etfregular" element={<Etfregular />} />
+              <Route path="/etfdirect" element={<Etfdirect />} />
+              <Route
+                path="/stockNewsComponent"
+                element={<StockNewsComponent />}
+              />
+              <Route
+                path="/stockScreenerlist"
+                element={<ScreenerStockList />}
+              />
+              <Route
+                path="/ScreenerStockvaluation"
+                element={<ScreenerStockvaluation />}
+              />
+              <Route
+                path="/IncomeStatement"
+                element={<ScreenerStockincome />}
+              />
 
-            <Route
-              path="/earningsInsightLearn"
-              element={<EarningsInsightLearn />}
-            />
-            <Route path="/blogsComponent" element={<BlogsComponent />} />
-            <Route path="/blogFilter" element={<BlogFilter />} />
-            <Route path="/bloginvestment/:id" element={<Bloginvestment />} />
-            <Route path="/blogpmscard/:id" element={<Blogpmscard />} />
-            <Route path="/learncard" element={<Learncard />} />
-            <Route
-              path="/learncardaftersignup"
-              element={<Learncardaftersignup />}
-            />
-            <Route
-              path="/learnCourseDetails"
-              element={<LearnCourseDetails />}
-            />
-            <Route
-              path="/stockNewsComponent"
-              element={<StockNewsComponent />}
-            />
-            <Route
-              path="/stocknewsAdanigroup/:id"
-              element={<StocknewsAdanigroup />}
-            />
-            <Route path="/stockNewsCard/:id" element={<StockNewsCard />} />
-            <Route
-              path="/modulecourseDetails"
-              element={<ModulecourseDetails />}
-            />
-            <Route path="/ipoComponent" element={<IpoComponent />} />
-            <Route path="/ipoDetails/:id" element={<IpoDetails />} />
-            <Route
-              path="/ipoDetailsubscribe"
-              element={<IpoDetailsubscribe />}
-            />
-            <Route
-              path="/unlockstockscreener"
-              element={<UnlockscreenerStockList />}
-            />
-            <Route
-              path="/nifty50screenerStockList"
-              element={<Nifty50screenerStockList />}
-            />
+              <Route
+                path="/earningsInsightLearn"
+                element={<EarningsInsightLearn />}
+              />
+              <Route path="/blogsComponent" element={<BlogsComponent />} />
+              <Route path="/blogFilter" element={<BlogFilter />} />
+              <Route path="/bloginvestment/:id" element={<Bloginvestment />} />
+              <Route path="/blogpmscard/:id" element={<Blogpmscard />} />
+              <Route path="/learncard" element={<Learncard />} />
+              <Route
+                path="/learncardaftersignup"
+                element={<Learncardaftersignup />}
+              />
+              <Route
+                path="/learnCourseDetails"
+                element={<LearnCourseDetails />}
+              />
+              <Route
+                path="/stockNewsComponent"
+                element={<StockNewsComponent />}
+              />
+              <Route
+                path="/stocknewsAdanigroup/:id"
+                element={<StocknewsAdanigroup />}
+              />
+              <Route path="/stockNewsCard/:id" element={<StockNewsCard />} />
+              <Route
+                path="/modulecourseDetails"
+                element={<ModulecourseDetails />}
+              />
+              <Route path="/ipoComponent" element={<IpoComponent />} />
+              <Route path="/ipoDetails/:id" element={<IpoDetails />} />
+              <Route
+                path="/ipoDetailsubscribe"
+                element={<IpoDetailsubscribe />}
+              />
+              <Route
+                path="/unlockstockscreener"
+                element={<UnlockscreenerStockList />}
+              />
+              <Route
+                path="/nifty50screenerStockList"
+                element={<Nifty50screenerStockList />}
+              />
 
-            <Route
-              path="/earninginsightheader"
-              element={<Earninginsightheader />}
-            />
-            <Route path="/quaterlygraphtop" element={<Quaterlygraphtop />} />
-            <Route
-              path="/earningsInsightLearn"
-              element={<EarningsInsightLearn />}
-            />
-            <Route path="/quaterelyOverview" element={<QuaterelyOverview />} />
-            <Route path="/quaterlynewsList" element={<QuaterlynewsList />} />
-            <Route
-              path="/qquarterlyEarningsReport"
-              element={<QuarterlyEarningdetailreport />}
-            />
-            <Route
-              path="/quarterlyEarningdetailincome"
-              element={<QuarterlyEarningdetailincome />}
-            />
-            <Route
-              path="/quarterlybalancesheet"
-              element={<Quarterlybalancesheet />}
-            />
-            <Route path="/quarterlyCashflow" element={<QuarterlyCashflow />} />
-            <Route path="/quarterlyratio" element={<Quarterlyratio />} />
-            <Route
-              path="/sectorWeightageTableniffty50"
-              element={<SectorWeightageTableniffty50 />}
-            />
-            <Route
-              path="/nifty50screenerStockunlockList"
-              element={<Nifty50screenerStockunlockList />}
-            />
-            <Route path="/nifty50pageall" element={<Nifty50all />} />
+              <Route
+                path="/earninginsightheader"
+                element={<Earninginsightheader />}
+              />
+              <Route path="/quaterlygraphtop" element={<Quaterlygraphtop />} />
+              <Route
+                path="/earningsInsightLearn"
+                element={<EarningsInsightLearn />}
+              />
+              <Route
+                path="/quaterelyOverview"
+                element={<QuaterelyOverview />}
+              />
+              <Route path="/quaterlynewsList" element={<QuaterlynewsList />} />
+              <Route
+                path="/qquarterlyEarningsReport"
+                element={<QuarterlyEarningdetailreport />}
+              />
+              <Route
+                path="/quarterlyEarningdetailincome"
+                element={<QuarterlyEarningdetailincome />}
+              />
+              <Route
+                path="/quarterlybalancesheet"
+                element={<Quarterlybalancesheet />}
+              />
+              <Route
+                path="/quarterlyCashflow"
+                element={<QuarterlyCashflow />}
+              />
+              <Route path="/quarterlyratio" element={<Quarterlyratio />} />
+              <Route
+                path="/sectorWeightageTableniffty50"
+                element={<SectorWeightageTableniffty50 />}
+              />
+              <Route
+                path="/nifty50screenerStockunlockList"
+                element={<Nifty50screenerStockunlockList />}
+              />
+              <Route path="/nifty50pageall" element={<Nifty50all />} />
 
-            <Route path="/footerForAllPage" element={<FooterForAllPage />} />
-            <Route path="/profilePage" element={<ProfilePage />} />
-            <Route path="/settingDashPanel" element={<SettingsDashboard />} />
-            <Route
-              path="/home"
-              element={
-                <PortfolioDashboardProvider>
-                  <Dashboardchartmain />
-                </PortfolioDashboardProvider>
-              }
-            />
+              <Route path="/footerForAllPage" element={<FooterForAllPage />} />
+              <Route path="/profilePage" element={<ProfilePage />} />
+              <Route path="/settingDashPanel" element={<SettingsDashboard />} />
+              <Route
+                path="/home"
+                element={
+                  <PortfolioDashboardProvider>
+                    <Dashboardchartmain />
+                  </PortfolioDashboardProvider>
+                }
+              />
 
-            <Route path="/homestockanalyst" element={<Homestockanalyst />} />
+              <Route path="/homestockanalyst" element={<Homestockanalyst />} />
 
-            <Route
-              path="/bestStockvaluation"
-              element={<BestStockvaluation />}
-            />
-            <Route
-              path="/bestStockIncomeStatement"
-              element={<BestStockIncomeStatement />}
-            />
-            <Route
-              path="/highstockvaluation"
-              element={<Highstockvaluation />}
-            />
-            <Route
-              path="/highgrowthStockIncomeStatement"
-              element={<HighStockIncomeStatement />}
-            />
-            <Route
-              path="/netify100valuation"
-              element={<Netify100valuation />}
-            />
-            <Route
-              path="/netify100IncomeStatement"
-              element={<Netify100IncomeStatement />}
-            />
-            <Route path="/smallcapvaluation" element={<Smallcapvaluation />} />
-            <Route
-              path="/smallcapIncomeStatement"
-              element={<SmallcapIncomeStatement />}
-            />
-            <Route path="/midcapvaluation" element={<Midcapvaluation />} />
-            <Route
-              path="/midcapIncomeStatement"
-              element={<MidcapIncomeStatement />}
-            />
-            <Route path="/largecapvaluation" element={<Largecapvaluation />} />
-            <Route
-              path="/largecapIncomeStatement"
-              element={<LargecapIncomeStatement />}
-            />
-            <Route
-              path="/billingSubscriptionPages"
-              element={<BillingSubscriptionPages />}
-            />
-            <Route
-              path="/billingDetailsPage"
-              element={<BillingDetailsPage />}
-            />
-            <Route path="/paypalProfilePage" element={<PaypalProfilePage />} />
-            <Route path="/uPIProfilePage" element={<UPIProfilePage />} />
+              <Route
+                path="/bestStockvaluation"
+                element={<BestStockvaluation />}
+              />
+              <Route
+                path="/bestStockIncomeStatement"
+                element={<BestStockIncomeStatement />}
+              />
+              <Route
+                path="/highstockvaluation"
+                element={<Highstockvaluation />}
+              />
+              <Route
+                path="/highgrowthStockIncomeStatement"
+                element={<HighStockIncomeStatement />}
+              />
+              <Route
+                path="/netify100valuation"
+                element={<Netify100valuation />}
+              />
+              <Route
+                path="/netify100IncomeStatement"
+                element={<Netify100IncomeStatement />}
+              />
+              <Route
+                path="/smallcapvaluation"
+                element={<Smallcapvaluation />}
+              />
+              <Route
+                path="/smallcapIncomeStatement"
+                element={<SmallcapIncomeStatement />}
+              />
+              <Route path="/midcapvaluation" element={<Midcapvaluation />} />
+              <Route
+                path="/midcapIncomeStatement"
+                element={<MidcapIncomeStatement />}
+              />
+              <Route
+                path="/largecapvaluation"
+                element={<Largecapvaluation />}
+              />
+              <Route
+                path="/largecapIncomeStatement"
+                element={<LargecapIncomeStatement />}
+              />
+              <Route
+                path="/billingSubscriptionPages"
+                element={<BillingSubscriptionPages />}
+              />
+              <Route
+                path="/billingDetailsPage"
+                element={<BillingDetailsPage />}
+              />
+              <Route
+                path="/paypalProfilePage"
+                element={<PaypalProfilePage />}
+              />
+              <Route path="/uPIProfilePage" element={<UPIProfilePage />} />
 
-            <Route
-              path="/scanPayProfilePage"
-              element={<ScanPayProfilePage />}
-            />
-            <Route
-              path="/billingDetailsPageannually"
-              element={<BillingDetailsPageannually />}
-            />
-            <Route path="/myReferalPage" element={<MyReferalPage />} />
-            <Route
-              path="/referMoreProfilePages"
-              element={<ReferMoreProfilePages />}
-            />
-            <Route
-              path="/earningCalculatorProfilePage"
-              element={<EarningCalculatorProfilePage />}
-            />
-            <Route
-              path="/reffeerralProfilePageSSS"
-              element={<ReffeerralProfilePageSSS />}
-            />
-            <Route path="/fAQS" element={<FAQS />} />
+              <Route
+                path="/scanPayProfilePage"
+                element={<ScanPayProfilePage />}
+              />
+              <Route
+                path="/billingDetailsPageannually"
+                element={<BillingDetailsPageannually />}
+              />
+              <Route path="/myReferalPage" element={<MyReferalPage />} />
+              <Route
+                path="/referMoreProfilePages"
+                element={<ReferMoreProfilePages />}
+              />
+              <Route
+                path="/earningCalculatorProfilePage"
+                element={<EarningCalculatorProfilePage />}
+              />
+              <Route
+                path="/reffeerralProfilePageSSS"
+                element={<ReffeerralProfilePageSSS />}
+              />
+              <Route path="/fAQS" element={<FAQS />} />
 
-            <Route path="/sessionHistory" element={<SessionHistory />} />
-            <Route path="/accountSettings" element={<AccountSettings />} />
-            <Route path="/orderTable" element={<OrderTable />} />
-            <Route path="/managealert" element={<Managealert />} />
+              <Route path="/sessionHistory" element={<SessionHistory />} />
+              <Route path="/accountSettings" element={<AccountSettings />} />
+              <Route path="/orderTable" element={<OrderTable />} />
+              <Route path="/managealert" element={<Managealert />} />
 
-            <Route
-              path="/contactFormmanagealert"
-              element={<ContactFormmanagealert />}
-            />
-            <Route path="/editProfile" element={<EditProfile />} />
-            <Route path="/userDetailsupdate" element={<UserDetailsupdate />} />
-            <Route
-              path="/riskAnalysisDashboard"
-              element={<RiskAnalysisDashboard />}
-            />
-            <Route
-              path="/halfyearlySubscriptionPages"
-              element={<HalfyearlySubscriptionPages />}
-            />
-            <Route
-              path="/halfyearlyPaypalProfilePage"
-              element={<HalfyearlyPaypalProfilePage />}
-            />
-            <Route path="/halfyearlyUPIPage" element={<HalfyearlyUPIPage />} />
-            <Route
-              path="/halfyearlyScanPage"
-              element={<HalfyearlyScanPage />}
-            />
-            <Route
-              path="/premiumSubscriptionPages"
-              element={<PremiumSubscriptionPages />}
-            />
-            <Route
-              path="/premiumPaypalProfilePage"
-              element={<PremiumPaypalProfilePage />}
-            />
-            <Route path="/premiumUPIPage" element={<PremiumUPIPage />} />
-            <Route path="/premiumScanPage" element={<PremiumScanPage />} />
-            <Route
-              path="/annuallySubscriptionPages"
-              element={<AnnuallySubscriptionPages />}
-            />
-            <Route
-              path="/annuallyPaypalProfilePage"
-              element={<AnnuallyPaypalProfilePage />}
-            />
-            <Route path="/annuallyUPIPage" element={<AnnuallyUPIPage />} />
-            <Route path="/annuallyScanPage" element={<AnnuallyScanPage />} />
-            <Route
-              path="/annuallyPremiumSubscriptionPages"
-              element={<AnnuallyPremiumSubscriptionPages />}
-            />
-            <Route
-              path="/annuallyPremiumPaypalProfilePage"
-              element={<AnnuallyPremiumPaypalProfilePage />}
-            />
-            <Route
-              path="/annuallyPremiumUPIPage"
-              element={<AnnuallyPremiumUPIPage />}
-            />
-            <Route
-              path="/annuallyPremiumScanPage"
-              element={<AnnuallyPremiumScanPage />}
-            />
-            <Route
-              path="/sipCalculatorAccountPages"
-              element={<Accountsipallpage />}
-            />
+              <Route
+                path="/contactFormmanagealert"
+                element={<ContactFormmanagealert />}
+              />
+              <Route path="/editProfile" element={<EditProfile />} />
+              <Route
+                path="/userDetailsupdate"
+                element={<UserDetailsupdate />}
+              />
+              <Route
+                path="/riskAnalysisDashboard"
+                element={<RiskAnalysisDashboard />}
+              />
+              <Route
+                path="/halfyearlySubscriptionPages"
+                element={<HalfyearlySubscriptionPages />}
+              />
+              <Route
+                path="/halfyearlyPaypalProfilePage"
+                element={<HalfyearlyPaypalProfilePage />}
+              />
+              <Route
+                path="/halfyearlyUPIPage"
+                element={<HalfyearlyUPIPage />}
+              />
+              <Route
+                path="/halfyearlyScanPage"
+                element={<HalfyearlyScanPage />}
+              />
+              <Route
+                path="/premiumSubscriptionPages"
+                element={<PremiumSubscriptionPages />}
+              />
+              <Route
+                path="/premiumPaypalProfilePage"
+                element={<PremiumPaypalProfilePage />}
+              />
+              <Route path="/premiumUPIPage" element={<PremiumUPIPage />} />
+              <Route path="/premiumScanPage" element={<PremiumScanPage />} />
+              <Route
+                path="/annuallySubscriptionPages"
+                element={<AnnuallySubscriptionPages />}
+              />
+              <Route
+                path="/annuallyPaypalProfilePage"
+                element={<AnnuallyPaypalProfilePage />}
+              />
+              <Route path="/annuallyUPIPage" element={<AnnuallyUPIPage />} />
+              <Route path="/annuallyScanPage" element={<AnnuallyScanPage />} />
+              <Route
+                path="/annuallyPremiumSubscriptionPages"
+                element={<AnnuallyPremiumSubscriptionPages />}
+              />
+              <Route
+                path="/annuallyPremiumPaypalProfilePage"
+                element={<AnnuallyPremiumPaypalProfilePage />}
+              />
+              <Route
+                path="/annuallyPremiumUPIPage"
+                element={<AnnuallyPremiumUPIPage />}
+              />
+              <Route
+                path="/annuallyPremiumScanPage"
+                element={<AnnuallyPremiumScanPage />}
+              />
+              <Route
+                path="/sipCalculatorAccountPages"
+                element={<Accountsipallpage />}
+              />
 
-            <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
 
-            <Route path="/" element={<LandingPage />} />
+              <Route path="/" element={<LandingPage />} />
 
-            <Route path="/landingnavbar" element={<Landingnavbar />} />
-            <Route
-              path="/whyFinadvanceeducationnn"
-              element={<WhyFinadvanceeducationnn />}
-            />
-            <Route
-              path="/banksectorstocktheme"
-              element={<Banksectorstocktheme />}
-            />
-            <Route
-              path="/stockThemesSectorPages"
-              element={<StockThemesSectorPages />}
-            />
-            <Route
-              path="/stockthemeunlocknavbar"
-              element={<Stockthemeunlocknavbar />}
-            />
-            <Route
-              path="/bankSectorThemePagelock"
-              element={<BankSectorThemePagelock />}
-            />
-            <Route
-              path="/stockThemesindustriesPages"
-              element={<StockThemesindustriesPages />}
-            />
-            <Route
-              path="/stockThemesindustrieslockPages"
-              element={<StockThemesindustrieslockPages />}
-            />
+              <Route path="/landingnavbar" element={<Landingnavbar />} />
+              <Route
+                path="/whyFinadvanceeducationnn"
+                element={<WhyFinadvanceeducationnn />}
+              />
+              <Route
+                path="/banksectorstocktheme"
+                element={<Banksectorstocktheme />}
+              />
+              <Route
+                path="/stockThemesSectorPages"
+                element={<StockThemesSectorPages />}
+              />
+              <Route
+                path="/stockthemeunlocknavbar"
+                element={<Stockthemeunlocknavbar />}
+              />
+              <Route
+                path="/bankSectorThemePagelock"
+                element={<BankSectorThemePagelock />}
+              />
+              <Route
+                path="/stockThemesindustriesPages"
+                element={<StockThemesindustriesPages />}
+              />
+              <Route
+                path="/stockThemesindustrieslockPages"
+                element={<StockThemesindustrieslockPages />}
+              />
 
-            <Route path="/lumpsumallpage" element={<Lumpsumallpage />} />
-            <Route path="/fdallpages" element={<Fdallpages />} />
-            <Route path="/rdallpages" element={<Rdallpages />} />
-            <Route path="/ppfallpages" element={<Ppfallpages />} />
-            <Route path="/cagrallpages" element={<Cagrallpages />} />
-            <Route path="/revCagrallpages" element={<RevCagrallpages />} />
-            <Route path="/fundTable" element={<FundTable />} />
-            <Route path="/elssTable" element={<ElssTable />} />
-            <Route path="/errorpage" element={<Errorpage />} />
-            <Route
-              path="/overviewPortfolioManager"
-              element={<OverviewPortfolioManagergold />}
-            />
-            <Route path="/stocksThemes" element={<StocksThemes />} />
-            <Route path="/cargoalPlanner" element={<CargoalPlanner />} />
-            <Route path="/goalPlanner" element={<GoalPlanner />} />
-            <Route
-              path="/investgoalcalculate"
-              element={<Investgoalcalculate />}
-            />
-            <Route
-              path="/goalplannersubscribe"
-              element={<Goalplannersubscribe />}
-            />
-            <Route
-              path="/goalplannerforallcalculator"
-              element={<Goalplannerforallcalculator />}
-            />
-            <Route path="/houseGoalPlanner" element={<HouseGoalPlanner />} />
+              <Route path="/lumpsumallpage" element={<Lumpsumallpage />} />
+              <Route path="/fdallpages" element={<Fdallpages />} />
+              <Route path="/rdallpages" element={<Rdallpages />} />
+              <Route path="/ppfallpages" element={<Ppfallpages />} />
+              <Route path="/cagrallpages" element={<Cagrallpages />} />
+              <Route path="/revCagrallpages" element={<RevCagrallpages />} />
+              <Route path="/fundTable" element={<FundTable />} />
+              <Route path="/elssTable" element={<ElssTable />} />
+              <Route path="/errorpage" element={<Errorpage />} />
+              <Route
+                path="/overviewPortfolioManager"
+                element={<OverviewPortfolioManagergold />}
+              />
+              <Route path="/stocksThemes" element={<StocksThemes />} />
+              <Route path="/cargoalPlanner" element={<CargoalPlanner />} />
+              <Route path="/goalPlanner" element={<GoalPlanner />} />
+              <Route
+                path="/investgoalcalculate"
+                element={<Investgoalcalculate />}
+              />
+              <Route
+                path="/goalplannersubscribe"
+                element={<Goalplannersubscribe />}
+              />
+              <Route
+                path="/goalplannerforallcalculator"
+                element={<Goalplannerforallcalculator />}
+              />
+              <Route path="/houseGoalPlanner" element={<HouseGoalPlanner />} />
 
-            <Route
-              path="/educationGoalPlanner"
-              element={<EducationGoalPlanner />}
-            />
-            <Route
-              path="/holidayGoalPlanner"
-              element={<HolidayGoalPlanner />}
-            />
-            <Route
-              path="/weddingGoalPlanner"
-              element={<WeddingGoalPlanner />}
-            />
-            <Route
-              path="/electronicGoalPlanner"
-              element={<ElectronicGoalPlanner />}
-            />
-            <Route path="/otherGoalPlanner" element={<OtherGoalPlanner />} />
-            <Route path="/portfolioCard" element={<PortfolioCard />} />
-            <Route
-              path="/portfolioAnalysisnew"
-              element={<PortfolioAnalysisnew />}
-            />
+              <Route
+                path="/educationGoalPlanner"
+                element={<EducationGoalPlanner />}
+              />
+              <Route
+                path="/holidayGoalPlanner"
+                element={<HolidayGoalPlanner />}
+              />
+              <Route
+                path="/weddingGoalPlanner"
+                element={<WeddingGoalPlanner />}
+              />
+              <Route
+                path="/electronicGoalPlanner"
+                element={<ElectronicGoalPlanner />}
+              />
+              <Route path="/otherGoalPlanner" element={<OtherGoalPlanner />} />
+              <Route path="/portfolioCard" element={<PortfolioCard />} />
+              <Route
+                path="/portfolioAnalysisnew"
+                element={<PortfolioAnalysisnew />}
+              />
 
-            <Route path="/portfolioMetrics" element={<PortfolioMetrics />} />
+              <Route path="/portfolioMetrics" element={<PortfolioMetrics />} />
 
-            <Route path="/segmentAnalysis" element={<SegmentAnalysis />} />
-            <Route path="/stockTrackerall" element={<StockTracker />} />
-            <Route path="/bestPerformers" element={<BestPerformers />} />
-            <Route
-              path="/portfolioanalyticchart"
-              element={<Portfolioanalyticchart />}
-            />
-            <Route path="/forgetpassword" element={<Forgetpassword />} />
-            <Route
-              path="/openemailforgotpass"
-              element={<Openemailforgotpass />}
-            />
+              <Route path="/segmentAnalysis" element={<SegmentAnalysis />} />
+              <Route path="/stockTrackerall" element={<StockTracker />} />
+              <Route path="/bestPerformers" element={<BestPerformers />} />
+              <Route
+                path="/portfolioanalyticchart"
+                element={<Portfolioanalyticchart />}
+              />
+              <Route path="/forgetpassword" element={<Forgetpassword />} />
+              <Route
+                path="/openemailforgotpass"
+                element={<Openemailforgotpass />}
+              />
 
-            <Route
-              path="/stockresearchpages"
-              element={<Stockresearchpages />}
-            />
+              <Route
+                path="/stockresearchpages"
+                element={<Stockresearchpages />}
+              />
 
-            <Route
-              path="/portfolioAnalysisCorporatePage"
-              element={<PortfolioAnalysisCorporatePage />}
-            />
-            <Route
-              path="/portfolioAnalysisdividentPage"
-              element={<PortfolioAnalysisdividentPage />}
-            />
-            <Route
-              path="/portfolioAnalysisbonusPage"
-              element={<PortfolioAnalysisbonusPage />}
-            />
-            <Route
-              path="/portfolioAnalysisSplitsPage"
-              element={<PortfolioAnalysissplitPage />}
-            />
-            <Route
-              path="/portfolioAnalysisRightsPage"
-              element={<PortfolioAnalysisrightissusePage />}
-            />
-            <Route
-              path="/portfolioAnalysisAgmPage"
-              element={<PortfolioAnalysisAGMPage />}
-            />
+              <Route
+                path="/portfolioAnalysisCorporatePage"
+                element={<PortfolioAnalysisCorporatePage />}
+              />
+              <Route
+                path="/portfolioAnalysisdividentPage"
+                element={<PortfolioAnalysisdividentPage />}
+              />
+              <Route
+                path="/portfolioAnalysisbonusPage"
+                element={<PortfolioAnalysisbonusPage />}
+              />
+              <Route
+                path="/portfolioAnalysisSplitsPage"
+                element={<PortfolioAnalysissplitPage />}
+              />
+              <Route
+                path="/portfolioAnalysisRightsPage"
+                element={<PortfolioAnalysisrightissusePage />}
+              />
+              <Route
+                path="/portfolioAnalysisAgmPage"
+                element={<PortfolioAnalysisAGMPage />}
+              />
 
-            <Route
-              path="/portfolioHoldingdetailPage"
-              element={<PortfolioHoldingdetailPage />}
-            />
-            <Route
-              path="/porfolioanalysisallpagecall"
-              element={<Porfolioanalysisallpagecall />}
-            />
-            <Route
-              path="/analysisResearchReportblur"
-              element={<AnalysisResearchReportblur />}
-            />
-            <Route
-              path="/portfolioanalysisdividendcall"
-              element={<Portfolioanalysisdividendcall />}
-            />
-            <Route
-              path="/portfoliobonuscall"
-              element={<Portfoliobonuscall />}
-            />
-            <Route
-              path="/portfoliosplitcall"
-              element={<Portfoliosplitcall />}
-            />
-            <Route
-              path="/portfolioanalysisrightscall"
-              element={<Portfolioanalysisrightscall />}
-            />
-            <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
-            <Route
-              path="/forgotresetpassword/:token"
-              element={<Forgotresetpassword />}
-            />
+              <Route
+                path="/portfolioHoldingdetailPage"
+                element={<PortfolioHoldingdetailPage />}
+              />
+              <Route
+                path="/porfolioanalysisallpagecall"
+                element={<Porfolioanalysisallpagecall />}
+              />
+              <Route
+                path="/analysisResearchReportblur"
+                element={<AnalysisResearchReportblur />}
+              />
+              <Route
+                path="/portfolioanalysisdividendcall"
+                element={<Portfolioanalysisdividendcall />}
+              />
+              <Route
+                path="/portfoliobonuscall"
+                element={<Portfoliobonuscall />}
+              />
+              <Route
+                path="/portfoliosplitcall"
+                element={<Portfoliosplitcall />}
+              />
+              <Route
+                path="/portfolioanalysisrightscall"
+                element={<Portfolioanalysisrightscall />}
+              />
+              <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
+              <Route
+                path="/forgotresetpassword/:token"
+                element={<Forgotresetpassword />}
+              />
 
-            <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
 
-            <Route path="/refundPolicy" element={<RefundPolicy />} />
-            <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/refundPolicy" element={<RefundPolicy />} />
+              <Route path="/whoWeAre" element={<WhoWeAre />} />
 
-            <Route
-              path="/termsAndConditions"
-              element={<TermsAndConditions />}
-            />
+              <Route
+                path="/termsAndConditions"
+                element={<TermsAndConditions />}
+              />
 
-            <Route
-              path="/educationGoalPlanner"
-              element={<EducationGoalPlanner />}
-            />
-            <Route
-              path="/holidayGoalPlanner"
-              element={<HolidayGoalPlanner />}
-            />
-            <Route
-              path="/weddingGoalPlanner"
-              element={<WeddingGoalPlanner />}
-            />
-            <Route
-              path="/electronicGoalPlanner"
-              element={<ElectronicGoalPlanner />}
-            />
-            <Route path="/otherGoalPlanner" element={<OtherGoalPlanner />} />
-            <Route path="/portfolioCard" element={<PortfolioCard />} />
-            <Route
-              path="/portfolioAnalysisnew"
-              element={<PortfolioAnalysisnew />}
-            />
+              <Route
+                path="/educationGoalPlanner"
+                element={<EducationGoalPlanner />}
+              />
+              <Route
+                path="/holidayGoalPlanner"
+                element={<HolidayGoalPlanner />}
+              />
+              <Route
+                path="/weddingGoalPlanner"
+                element={<WeddingGoalPlanner />}
+              />
+              <Route
+                path="/electronicGoalPlanner"
+                element={<ElectronicGoalPlanner />}
+              />
+              <Route path="/otherGoalPlanner" element={<OtherGoalPlanner />} />
+              <Route path="/portfolioCard" element={<PortfolioCard />} />
+              <Route
+                path="/portfolioAnalysisnew"
+                element={<PortfolioAnalysisnew />}
+              />
 
-            <Route path="/portfolioMetrics" element={<PortfolioMetrics />} />
+              <Route path="/portfolioMetrics" element={<PortfolioMetrics />} />
 
-            <Route path="/segmentAnalysis" element={<SegmentAnalysis />} />
-            <Route path="/stockTrackerall" element={<StockTracker />} />
-            <Route path="/bestPerformers" element={<BestPerformers />} />
-            <Route
-              path="/portfolioanalyticchart"
-              element={<Portfolioanalyticchart />}
-            />
-            <Route path="/forgetpassword" element={<Forgetpassword />} />
-            <Route
-              path="/openemailforgotpass"
-              element={<Openemailforgotpass />}
-            />
-            <Route
-              path="/stockresearchpages"
-              element={<Stockresearchpages />}
-            />
+              <Route path="/segmentAnalysis" element={<SegmentAnalysis />} />
+              <Route path="/stockTrackerall" element={<StockTracker />} />
+              <Route path="/bestPerformers" element={<BestPerformers />} />
+              <Route
+                path="/portfolioanalyticchart"
+                element={<Portfolioanalyticchart />}
+              />
+              <Route path="/forgetpassword" element={<Forgetpassword />} />
+              <Route
+                path="/openemailforgotpass"
+                element={<Openemailforgotpass />}
+              />
+              <Route
+                path="/stockresearchpages"
+                element={<Stockresearchpages />}
+              />
 
-            <Route
-              path="/portfolioAnalysisCorporatePage"
-              element={<PortfolioAnalysisCorporatePage />}
-            />
-            <Route
-              path="/portfolioAnalysisdividentPage"
-              element={<PortfolioAnalysisdividentPage />}
-            />
-            <Route
-              path="/portfolioAnalysisbonusPage"
-              element={<PortfolioAnalysisbonusPage />}
-            />
-            <Route
-              path="/portfolioAnalysisSplitsPage"
-              element={<PortfolioAnalysissplitPage />}
-            />
-            <Route
-              path="/portfolioAnalysisRightsPage"
-              element={<PortfolioAnalysisrightissusePage />}
-            />
-            <Route
-              path="/portfolioAnalysisAgmPage"
-              element={<PortfolioAnalysisAGMPage />}
-            />
+              <Route
+                path="/portfolioAnalysisCorporatePage"
+                element={<PortfolioAnalysisCorporatePage />}
+              />
+              <Route
+                path="/portfolioAnalysisdividentPage"
+                element={<PortfolioAnalysisdividentPage />}
+              />
+              <Route
+                path="/portfolioAnalysisbonusPage"
+                element={<PortfolioAnalysisbonusPage />}
+              />
+              <Route
+                path="/portfolioAnalysisSplitsPage"
+                element={<PortfolioAnalysissplitPage />}
+              />
+              <Route
+                path="/portfolioAnalysisRightsPage"
+                element={<PortfolioAnalysisrightissusePage />}
+              />
+              <Route
+                path="/portfolioAnalysisAgmPage"
+                element={<PortfolioAnalysisAGMPage />}
+              />
 
-            <Route
-              path="/portfolioHoldingdetailPage"
-              element={<PortfolioHoldingdetailPage />}
-            />
-            <Route
-              path="/porfolioanalysisallpagecall"
-              element={<Porfolioanalysisallpagecall />}
-            />
-            <Route
-              path="/analysisResearchReportblur"
-              element={<AnalysisResearchReportblur />}
-            />
-            <Route
-              path="/portfolioanalysisdividendcall"
-              element={<Portfolioanalysisdividendcall />}
-            />
-            <Route
-              path="/portfoliobonuscall"
-              element={<Portfoliobonuscall />}
-            />
-            <Route
-              path="/portfoliosplitcall"
-              element={<Portfoliosplitcall />}
-            />
-            <Route
-              path="/portfolioanalysisrightscall"
-              element={<Portfolioanalysisrightscall />}
-            />
-            <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
-            <Route
-              path="/forgotresetpassword/:token"
-              element={<Forgotresetpassword />}
-            />
+              <Route
+                path="/portfolioHoldingdetailPage"
+                element={<PortfolioHoldingdetailPage />}
+              />
+              <Route
+                path="/porfolioanalysisallpagecall"
+                element={<Porfolioanalysisallpagecall />}
+              />
+              <Route
+                path="/analysisResearchReportblur"
+                element={<AnalysisResearchReportblur />}
+              />
+              <Route
+                path="/portfolioanalysisdividendcall"
+                element={<Portfolioanalysisdividendcall />}
+              />
+              <Route
+                path="/portfoliobonuscall"
+                element={<Portfoliobonuscall />}
+              />
+              <Route
+                path="/portfoliosplitcall"
+                element={<Portfoliosplitcall />}
+              />
+              <Route
+                path="/portfolioanalysisrightscall"
+                element={<Portfolioanalysisrightscall />}
+              />
+              <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
+              <Route
+                path="/forgotresetpassword/:token"
+                element={<Forgotresetpassword />}
+              />
 
-            <Route path="/disclaimer" element={<Disclaimer />} />
+              <Route path="/disclaimer" element={<Disclaimer />} />
 
-            <Route path="/refundPolicy" element={<RefundPolicy />} />
+              <Route path="/refundPolicy" element={<RefundPolicy />} />
 
-            <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/whoWeAre" element={<WhoWeAre />} />
 
-            <Route
-              path="/termsAndConditions"
-              element={<TermsAndConditions />}
-            />
+              <Route
+                path="/termsAndConditions"
+                element={<TermsAndConditions />}
+              />
 
-            <Route
-              path="/addTransactionmutual"
-              element={<AddTransactionmutual />}
-            />
-            <Route
-              path="/addTransactiongold"
-              element={<AddTransactiongold />}
-            />
-            <Route path="/contactUsnew" element={<ContactUsnew />} />
-            <Route path="/contactCards" element={<ContactCards />} />
-            <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
-            <Route path="/dashboardall" element={<Dashboardall />} />
-          </Routes>
-        </UserProfileProvider>
-      </DarkModeProvider>
+              <Route
+                path="/addTransactionmutual"
+                element={<AddTransactionmutual />}
+              />
+              <Route
+                path="/addTransactiongold"
+                element={<AddTransactiongold />}
+              />
+              <Route path="/contactUsnew" element={<ContactUsnew />} />
+              <Route path="/contactCards" element={<ContactCards />} />
+              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/dashboardall" element={<Dashboardall />} />
+              <Route
+                path="/billingavailableplan"
+                element={<Billingavailableplan />}
+              />
+
+              <Route
+                path="/termsAndConditions"
+                element={<TermsAndConditions />}
+              />
+
+              <Route
+                path="/educationGoalPlanner"
+                element={<EducationGoalPlanner />}
+              />
+              <Route
+                path="/holidayGoalPlanner"
+                element={<HolidayGoalPlanner />}
+              />
+              <Route
+                path="/weddingGoalPlanner"
+                element={<WeddingGoalPlanner />}
+              />
+              <Route
+                path="/electronicGoalPlanner"
+                element={<ElectronicGoalPlanner />}
+              />
+              <Route path="/otherGoalPlanner" element={<OtherGoalPlanner />} />
+              <Route path="/portfolioCard" element={<PortfolioCard />} />
+              <Route
+                path="/portfolioAnalysisnew"
+                element={<PortfolioAnalysisnew />}
+              />
+
+              <Route path="/portfolioMetrics" element={<PortfolioMetrics />} />
+
+              <Route path="/segmentAnalysis" element={<SegmentAnalysis />} />
+              <Route path="/stockTrackerall" element={<StockTracker />} />
+              <Route path="/bestPerformers" element={<BestPerformers />} />
+              <Route
+                path="/portfolioanalyticchart"
+                element={<Portfolioanalyticchart />}
+              />
+              <Route path="/forgetpassword" element={<Forgetpassword />} />
+              <Route
+                path="/openemailforgotpass"
+                element={<Openemailforgotpass />}
+              />
+              <Route
+                path="/stockresearchpages"
+                element={<Stockresearchpages />}
+              />
+
+              <Route
+                path="/portfolioAnalysisCorporatePage"
+                element={<PortfolioAnalysisCorporatePage />}
+              />
+              <Route
+                path="/portfolioAnalysisdividentPage"
+                element={<PortfolioAnalysisdividentPage />}
+              />
+              <Route
+                path="/portfolioAnalysisbonusPage"
+                element={<PortfolioAnalysisbonusPage />}
+              />
+              <Route
+                path="/portfolioAnalysisSplitsPage"
+                element={<PortfolioAnalysissplitPage />}
+              />
+              <Route
+                path="/portfolioAnalysisRightsPage"
+                element={<PortfolioAnalysisrightissusePage />}
+              />
+              <Route
+                path="/portfolioAnalysisAgmPage"
+                element={<PortfolioAnalysisAGMPage />}
+              />
+
+              <Route
+                path="/portfolioHoldingdetailPage"
+                element={<PortfolioHoldingdetailPage />}
+              />
+              <Route
+                path="/porfolioanalysisallpagecall"
+                element={<Porfolioanalysisallpagecall />}
+              />
+              <Route
+                path="/analysisResearchReportblur"
+                element={<AnalysisResearchReportblur />}
+              />
+              <Route
+                path="/portfolioanalysisdividendcall"
+                element={<Portfolioanalysisdividendcall />}
+              />
+              <Route
+                path="/portfoliobonuscall"
+                element={<Portfoliobonuscall />}
+              />
+              <Route
+                path="/portfoliosplitcall"
+                element={<Portfoliosplitcall />}
+              />
+              <Route
+                path="/portfolioanalysisrightscall"
+                element={<Portfolioanalysisrightscall />}
+              />
+              <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
+              <Route
+                path="/forgotresetpassword/:token"
+                element={<Forgotresetpassword />}
+              />
+
+              <Route path="/disclaimer" element={<Disclaimer />} />
+
+              <Route path="/refundPolicy" element={<RefundPolicy />} />
+
+              <Route path="/whoWeAre" element={<WhoWeAre />} />
+
+              <Route
+                path="/termsAndConditions"
+                element={<TermsAndConditions />}
+              />
+
+              <Route
+                path="/addTransactionmutual"
+                element={<AddTransactionmutual />}
+              />
+              <Route
+                path="/addTransactiongold"
+                element={<AddTransactiongold />}
+              />
+              <Route path="/contactUsnew" element={<ContactUsnew />} />
+              <Route path="/contactCards" element={<ContactCards />} />
+              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/dashboardall" element={<Dashboardall />} />
+            </Routes>
+          </UserProfileProvider>
+        </DarkModeProvider>
+      </SubscriptionProvider>
     </Provider>
   );
 }

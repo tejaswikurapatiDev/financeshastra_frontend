@@ -5,9 +5,11 @@ import React, {
   useCallback,
   useContext,
 } from "react";
+
+import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-
+import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext'
 import {
   FaBell,
   FaUserCircle,
@@ -45,7 +47,7 @@ import { API_BASE_URL } from "../config";
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-
+  const {issubscribed}= useContext(SubscriptionContext)
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -118,9 +120,7 @@ const Navbar = () => {
       img: notiimg1,
       title: "Upcoming Quadrant Future Tek IPO analysis",
       date: "Yesterday 11:15 AM",
-    },
- 
- 
+    }, 
     {
       id: 4,
       img: notiimg4,
@@ -133,7 +133,6 @@ const Navbar = () => {
       title: "Lucas commented on sanathans IPO",
       date: "28 Nov, 2024 11:15 AM",
     },
- 
     {
       id: 7,
       img: notiimg7,
@@ -157,9 +156,7 @@ const Navbar = () => {
       img: notiimg10,
       title: "Upcoming IGI IPO",
       date: "25 Oct, 2024 08:48 AM",
-    },
-   
-   
+    },   
     {
       id: 13,
       img: notiimg4,
@@ -174,7 +171,6 @@ const Navbar = () => {
     },
  
   ];
- 
   const displayedNotifications = showAll
     ? notifications
     : notifications.slice(0, 10);
@@ -241,6 +237,7 @@ const Navbar = () => {
 
   // Close search results when clicking outside
   useEffect(() => {
+    
     const token = Cookies.get("jwtToken");
     if (!token) {
       alert("Session expired, Please login again.");
@@ -815,10 +812,15 @@ const Navbar = () => {
             </div>
           )}
         </div>
-
-        <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
+{issubscribed? <img 
+  className="subscribeimg" 
+  src={unlockstockthemeimg} 
+  alt="Subscribe" 
+  
+/> : <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
           Subscribe
-        </h4>
+        </h4>}
+        
         <div className="navbar-icons">
           <div className="notificationall" ref={dropdownRef}>
             {/* Bell Icon */}
