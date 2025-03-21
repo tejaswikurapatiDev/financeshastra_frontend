@@ -154,7 +154,7 @@ margin-left: 150px;
   }
   .tabsContainerblogggs{
     margin-right: auto;
-    margin-left: -600px
+    margin-left: -720px
   }
   .blogCard {
     border: 1px solid rgba(149, 149, 150, 0.659);
@@ -280,6 +280,7 @@ margin-left: 180px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
+
 }
 /* Tabs Section */
 .tabsContainerblogggs {
@@ -287,7 +288,7 @@ margin-left: 180px;
   justify-content: center;
   flex-wrap: wrap;
   margin: 20px 0;
-  margin-left: 15px;
+  margin-left: -73px;
 }
 
 }
@@ -306,7 +307,7 @@ margin-left: 180px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgb(92, 145, 167);
     cursor: pointer;
-    width: 300px;
+    width: 330px;
     height: 320px;
     margin-top: 30px;
   }
@@ -315,7 +316,7 @@ margin-left: 180px;
     margin-left: auto;
     margin-right: auto;
     max-width: 1006px;
-    margin-left: 120px;
+    margin-left: 5px;
   }
   .blogImage {
     width: 90%;
@@ -330,7 +331,7 @@ margin-left: 180px;
   color: #28a745;
   text-decoration: none;
   font-weight: bold;
-  margin-left: 70px;
+  margin-left: 100px;
 }
 .tabButtonblogggs {
   background-color: #f1f1f1;
@@ -350,7 +351,7 @@ font-size: 12px;
   justify-content: center;
   flex-wrap: nowrap;
   margin: 20px 0;
-  margin-left: 115px;
+  margin-left: 15px;
 
 }
 .checkAllBlogs {
@@ -361,81 +362,11 @@ font-size: 12px;
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 120px;
+  margin-left: 10px;
 }
 
 }
-@media (max-width: 767px)  {
-  .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
-    margin-left: 30px;
- 
 
-  }
-/* Tabs Section */
-.tabsContainerblogggs {
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  margin: 20px 0;
-  margin-left: 15px;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  white-space: nowrap; /* Prevents buttons from wrapping to the next line */
-  padding-bottom: 5px; /* Prevents scrollbar overlap */
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #ccc transparent; /* For Firefox */
-}
-
-/* Webkit (Chrome, Safari) scrollbar styling */
-.tabsContainerblogggs::-webkit-scrollbar {
-  height: 6px; /* Adjust scrollbar height */
-}
-
-.tabsContainerblogggs::-webkit-scrollbar-thumb {
-  background-color: #ccc; /* Scrollbar color */
-  border-radius: 10px;
-}
-
-.tabsContainerblogggs::-webkit-scrollbar-track {
-  background-color: #ccc;
-}
-
-  .blogsTitle {
-    font-size: 20px;
-    margin-top: 140px;
-  }
-  .blogsSubtitle, .blogsTagline {
-    font-size: 16px;
-  }
-  .blogsGrid {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    padding: 10px;
-  }
-  .blogCard {
-    width: 100%;
-  }
-  .blogsGrid {
-    grid-template-columns: repeat(1, 1fr);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1006px;
-    margin-left: 20px;
-  }
-  .blogCard {
-    border: 1px solid rgba(149, 149, 150, 0.659);
-    padding: 0;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgb(92, 145, 167);
-    cursor: pointer;
-    width: 350px;
-    height: 320px;
-    margin-top: 30px;
-  }
-}
-
-
-/* Base styles for mobile (480px) */
 @media (max-width: 480px) {
 /* Tabs container */
 .tabsContainer {
@@ -446,11 +377,15 @@ font-size: 12px;
   flex-direction: row;
   width: 100%; /* Full-width container */
   margin: 0 auto; /* Center align horizontally */
+ 
 }
 .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
   margin-left: 30px;
 
 
+}
+.blogsTitle{
+  margin-top: 70px;
 }
 .blogImage {
   width: 100%; /* Ensures it fits within parent */
@@ -462,10 +397,10 @@ font-size: 12px;
 }
 
 .blogCard {
-  width: 90%; /* Ensures it fits smaller screens */
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
+ width: 330px;
+
+ 
+  margin-left: -150px;
 }
 
 /* Tab buttons */
