@@ -459,9 +459,7 @@ html, body {
 }
 
 /* Ensure elements don’t exceed viewport width */
-* {
-  box-sizing: border-box;
-}
+
 
   .ipoDetails {
     width: 100%;
