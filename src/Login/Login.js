@@ -29,6 +29,7 @@ function Login() {
   const { darkMode } = useContext(DarkModeContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
@@ -117,7 +118,7 @@ function Login() {
 
         navigate("/home");
       }
-      if (response.status ===  404){
+      if (response.status === 404) {
         setEmailError("Invalid email address");
       }
     } catch (error) {
