@@ -259,7 +259,7 @@ html, body {
     .learncourse-details-container h1 {
         font-size: 18px;
         margin-top: 90px;
-        text-align: center;
+       margin-left: -50px;
     }
 
     .learncourse-summary {
