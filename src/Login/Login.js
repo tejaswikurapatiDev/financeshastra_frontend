@@ -72,7 +72,6 @@ function Login() {
       hasError = true;
     } else if (!validatePassword(password)) {
       setPasswordError("Password must be at least 8 characters");
-      setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
 
@@ -98,15 +97,11 @@ function Login() {
 
       const response = await fetch(url, options);
       const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Login Failed");
-      }
-      const { jwtToken, username } = data;
 
-      if (!username) {
-        console.error("Username not found in API response.");
-        return;
-      }
+      /*if (!response.ok) {
+        throw new Error(data.message || "Login Failed");
+      }*/
+      const { jwtToken } = data;
 
       if (response.ok === true) {
         alert("You are logedin seccessfully!");
@@ -121,6 +116,9 @@ function Login() {
         localStorage.setItem("username", username);
 
         navigate("/home");
+      }
+      if (response.status ===  404){
+        setEmailError("Invalid email address");
       }
     } catch (error) {
       console.error("Error during login:", error);
