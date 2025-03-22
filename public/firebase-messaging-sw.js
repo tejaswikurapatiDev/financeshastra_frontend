@@ -1,4 +1,7 @@
 // public/firebase-messaging-sw.js
+import dotenv from "dotenv";
+dotenv.config();
+
 importScripts(
   "https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"
 );
