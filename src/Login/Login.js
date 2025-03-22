@@ -84,12 +84,14 @@ function Login() {
 
     try {
       /*fcm integration start*/
-      const fcmToken = await requestNotificationPermission(); // Get FCM token
+      let fcmToken = await requestNotificationPermission(); // Get FCM token
       if (!fcmToken) {
+        fcmToken= null
         console.warn("FCM token not available.");
       }
       /*fcm integration end*/
       const url = `${API_BASE_URL}/users/signin`;
+      //const urllocal= 'http://localhost:3000/users/signin'
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -98,6 +100,7 @@ function Login() {
 
       const response = await fetch(url, options);
       const data = await response.json();
+      console.log("login data:", data)
 
       /*if (!response.ok) {
         throw new Error(data.message || "Login Failed");
@@ -110,11 +113,6 @@ function Login() {
           expires: 7,
           sameSite: "Strict",
         });
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ email, password, username })
-        );
-        localStorage.setItem("username", username);
 
         navigate("/home");
       }
