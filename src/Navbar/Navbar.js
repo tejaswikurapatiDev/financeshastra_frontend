@@ -76,12 +76,55 @@ const Navbar = () => {
   //list and read notifications
   const [notifications, setNotifications] = useState([]);
   useEffect(() => {
+    
+    /*const token = Cookies.get("jwtToken");
+    if (!token) {
+      alert("Session expired, Please login again.");
+      navigate("/login");
+      return;
+    }*/
+   const token = Cookies.get("jwtToken");
+  
+   if (token) {
+    setIsLogedin(true)
+    setisSubed(false)
+   }else{
+    setIsLogedin(false)
+   }
+   if (issubscribed){
+    setisSubed(true)
+   }else{
+    setisSubed(false)
+   }
+   if (user){
+    console.log("user:", user)
+    setUsername(user)
+    //setIsLogedin(true)
+   }
+   
+    const handleClickOutside = (event) => {
+      if (
+        searchResultsRef.current &&
+        !searchResultsRef.current.contains(event.target) &&
+        !event.target.closest(".navbar-search")
+      ) {
+        setFilterData([]);
+        setSearchInputText("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  /*useEffect(() => {
     // Fetch username from localStorage when the component mounts
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
-  }, []);
+  }, []);*/
   useEffect(() => {
     fetchNotifications();
   }, []);
@@ -249,49 +292,7 @@ const Navbar = () => {
   };
 
   // Close search results when clicking outside
-  useEffect(() => {
-    
-    /*const token = Cookies.get("jwtToken");
-    if (!token) {
-      alert("Session expired, Please login again.");
-      navigate("/login");
-      return;
-    }*/
-   const token = Cookies.get("jwtToken");
-   if (token) {
-    setIsLogedin(true)
-    setisSubed(false)
-   }else{
-    setIsLogedin(false)
-   }
-   if (issubscribed){
-    setisSubed(true)
-   }else{
-    setisSubed(false)
-   }
-   if (user){
-    setUsername(user)
-    setIsLogedin(true)
-   }else{
-    setIsLogedin(false)
-   }
-   
-    const handleClickOutside = (event) => {
-      if (
-        searchResultsRef.current &&
-        !searchResultsRef.current.contains(event.target) &&
-        !event.target.closest(".navbar-search")
-      ) {
-        setFilterData([]);
-        setSearchInputText("");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
