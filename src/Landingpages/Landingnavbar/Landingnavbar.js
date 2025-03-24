@@ -8,6 +8,7 @@ import React, {
 import {jwtDecode} from "jwt-decode";
 import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
 import { FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
+import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
 import { VscBell } from "react-icons/vsc";
 import { FaCircleQuestion } from "react-icons/fa6";
 import { PiHandCoins } from "react-icons/pi";
@@ -291,6 +292,10 @@ const Landingnavbar = () => {
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
   const [isLogedin, setIsLogedin] = useState(false);
+    const userDropdownRef = useRef(null);
+    const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+    const { user } = useContext(UserProfileContext);
 
   // Refs for handling click outside
   const dropdownRefs = {
@@ -304,7 +309,6 @@ const Landingnavbar = () => {
     learn: useRef(null),
   };
 
-  const { darkMode } = useContext(DarkModeContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -405,6 +409,12 @@ const Landingnavbar = () => {
   // Handle click outside to close dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (
+        userDropdownRef.current &&
+        !userDropdownRef.current.contains(event.target)
+      ) {
+        setUserDropdownOpen(false);
+      }
       Object.entries(dropdownRefs).forEach(([key, ref]) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setDropdowns((prev) => ({
@@ -420,6 +430,42 @@ const Landingnavbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const toggleUserDropdown = () => {
+    setUserDropdownOpen(!userDropdownOpen);
+  };
+   const renderUserDropdown = () => (
+      <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/userDetailsupdate">
+            <FaUser
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            My Profile
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/help">
+            <FaCircleQuestion
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            Help Center
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <button className="butn" onClick={onLogout} type="button">
+            <FaUserCircle
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            Logout
+          </button>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
+            Dark Mode
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <>
@@ -534,8 +580,28 @@ const Landingnavbar = () => {
             )}
           </div>
         </div>
-        {isLogedin ? (
-          <div className="landingnavbar-icons">
+        {isLogedin ? (<>
+          <VscBell
+                        className={
+                          darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+                        }
+                        />
+          <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+                              <li className="" ref={userDropdownRef}>
+                                <Link to="#" onClick={toggleUserDropdown}>
+                                  <FaUserCircle
+                                    className={
+                                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                                    }
+                                  />
+                                </Link>
+                                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                                  {user}
+                                </span>
+                                {userDropdownOpen && renderUserDropdown()}
+                              </li>
+                            </div></>
+          /*<div className="landingnavbar-icons">
             <VscBell className="landingnavbaricon bell-icon" />
             <button
               className="landingnavbar-buttonlogin-button"
@@ -543,7 +609,7 @@ const Landingnavbar = () => {
             >
               Log out
             </button>
-          </div>
+          </div>*/
         ) : (
           <div className="landingnavbar-icons">
             
