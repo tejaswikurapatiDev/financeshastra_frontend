@@ -9,7 +9,7 @@ import React, {
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext';
+import { SubscriptionContext } from "../Portfoilo/context/SubscriptionContext";
 import {
   FaBell,
   FaUserCircle,
@@ -45,7 +45,6 @@ import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
 
 const Navbar = () => {
-  
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
   const { issubscribed } = useContext(SubscriptionContext);
@@ -66,42 +65,40 @@ const Navbar = () => {
   const [loading, setLoading] = useState(true);
   const dropdownRef = useRef(null); // Reference for dropdown
 
-  const [userName, setUsername]= useState('')
-  const [isLogedin, setIsLogedin]= useState(false)
-  const [isSubed, setisSubed]= useState(false)
-
+  const [userName, setUsername] = useState("");
+  const [isLogedin, setIsLogedin] = useState(false);
+  const [isSubed, setisSubed] = useState(false);
 
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
   //list and read notifications
   const [notifications, setNotifications] = useState([]);
   useEffect(() => {
-    
     /*const token = Cookies.get("jwtToken");
     if (!token) {
       alert("Session expired, Please login again.");
       navigate("/login");
       return;
     }*/
-   const token = Cookies.get("jwtToken");
-  
-   if (token) {
-    setIsLogedin(true)
-    setisSubed(false)
-   }else{
-    setIsLogedin(false)
-   }
-   if (issubscribed){
-    setisSubed(true)
-   }else{
-    setisSubed(false)
-   }
-   if (user){
-    console.log("user:", user)
-    setUsername(user)
-    //setIsLogedin(true)
-   }
-   
+    const token = Cookies.get("jwtToken");
+
+    if (token) {
+      setIsLogedin(true);
+      setisSubed(false);
+    } else {
+      setIsLogedin(false);
+    }
+    if (issubscribed) {
+      setisSubed(true);
+    } else {
+      setisSubed(false);
+    }
+    if (user) {
+      console.log("user:", user);
+      setUsername(user);
+      //setIsLogedin(true)
+    }
+
     const handleClickOutside = (event) => {
       if (
         searchResultsRef.current &&
@@ -118,13 +115,14 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  /*useEffect(() => {
+  useEffect(() => {
     // Fetch username from localStorage when the component mounts
     const storedUsername = localStorage.getItem("username");
+    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername)
     if (storedUsername) {
       setUsername(storedUsername);
     }
-  }, []);*/
+  }, []);
   useEffect(() => {
     fetchNotifications();
   }, []);
@@ -292,7 +290,6 @@ const Navbar = () => {
   };
 
   // Close search results when clicking outside
-  
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -845,19 +842,26 @@ const Navbar = () => {
             </div>
           )}
         </div>
-{!issubscribed && <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
-          Subscribe
-        </h4>}
-        
+        {!issubscribed && (
+          <h4
+            className="subscritebutton"
+            onClick={() => navigate("/pricehalf")}
+          >
+            Subscribe
+          </h4>
+        )}
+
         <div className="navbar-icons">
           <div className="notificationall" ref={dropdownRef}>
             {/* Bell Icon */}
-            {isLogedin && <FaBell
-              className={
-                darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
-              }
-              onClick={() => setIsOpen(!isOpen)}
-            />}
+            {isLogedin && (
+              <FaBell
+                className={
+                  darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+                }
+                onClick={() => setIsOpen(!isOpen)}
+              />
+            )}
 
             {/* Dropdown Content */}
             {isOpen && displayedNotifications?.length > 0 && (
@@ -917,38 +921,39 @@ const Navbar = () => {
             )}
           </div>
           {isLogedin ? (
-                    <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-                    <li className="" ref={userDropdownRef}>
-                      <Link to="#" onClick={toggleUserDropdown}>
-                        <FaUserCircle
-                          className={
-                            darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
-                          }
-                        />
-                      </Link>
-                      <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                        {userName}
-                      </span>
-                      {userDropdownOpen && renderUserDropdown()}
-                    </li>
-                  </div>
-                  ) : (
-                    <div className="landingnavbar-icons">
-                      <button
-                        className="landingnavbar-buttonregister-button"
-                        onClick={() => navigate("/register")}
-                      >
-                        Register
-                      </button>
-                      <button
-                        className="landingnavbar-buttonlogin-button"
-                        onClick={() => navigate("/login")}
-                      >
-                        Log in
-                      </button>
-                    </div>
-                  )}
-          
+            <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+              <li className="" ref={userDropdownRef}>
+                <Link to="#" onClick={toggleUserDropdown}>
+                  <FaUserCircle
+                    className={
+                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                    }
+                  />
+                </Link>
+                <span
+                  className={darkMode ? "willamnamedarkmode" : "willamname"}
+                >
+                  {userName}
+                </span>
+                {userDropdownOpen && renderUserDropdown()}
+              </li>
+            </div>
+          ) : (
+            <div className="landingnavbar-icons">
+              <button
+                className="landingnavbar-buttonregister-button"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+              <button
+                className="landingnavbar-buttonlogin-button"
+                onClick={() => navigate("/login")}
+              >
+                Log in
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 
