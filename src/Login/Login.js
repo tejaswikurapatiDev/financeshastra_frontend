@@ -29,6 +29,7 @@ function Login() {
   const { darkMode } = useContext(DarkModeContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [isForgotPassword, setIsForgotPassword] = useState(false);
@@ -72,7 +73,6 @@ function Login() {
       hasError = true;
     } else if (!validatePassword(password)) {
       setPasswordError("Password must be at least 8 characters");
-      setPasswordError("Password must be at least 8 characters");
       hasError = true;
     }
 
@@ -84,12 +84,14 @@ function Login() {
 
     try {
       /*fcm integration start*/
-      const fcmToken = await requestNotificationPermission(); // Get FCM token
+      let fcmToken = await requestNotificationPermission(); // Get FCM token
       if (!fcmToken) {
+        fcmToken = null;
         console.warn("FCM token not available.");
       }
       /*fcm integration end*/
       const url = `${API_BASE_URL}/users/signin`;
+      //const urllocal= 'http://localhost:3000/users/signin'
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -97,30 +99,27 @@ function Login() {
       };
 
       const response = await fetch(url, options);
+      console.log("🚀 ~ handleSubmit ~ response:", response);
       const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.message || "Login Failed");
-      }
-      const { jwtToken, username } = data;
+      console.log("login data:", data);
 
-      if (!username) {
-        console.error("Username not found in API response.");
-        return;
-      }
+      /*if (!response.ok) {
+        throw new Error(data.message || "Login Failed");
+      }*/
+      const { jwtToken, username } = data;
 
       if (response.ok === true) {
         alert("You are logedin seccessfully!");
+        // ✅ Store in Local Storage
+        localStorage.setItem("username", username);
         Cookies.set("jwtToken", jwtToken, {
           expires: 7,
           sameSite: "Strict",
         });
-        localStorage.setItem(
-          "user",
-          JSON.stringify({ email, password, username })
-        );
-        localStorage.setItem("username", username);
-
         navigate("/home");
+      }
+      if (response.status === 404) {
+        setEmailError("Invalid email address");
       }
     } catch (error) {
       console.error("Error during login:", error);
