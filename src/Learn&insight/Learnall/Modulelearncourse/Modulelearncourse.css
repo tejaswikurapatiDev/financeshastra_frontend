@@ -393,3 +393,9 @@ margin-left: 50px;
       margin-left: 0;
   }
 }
+@media (max-width: 320px){
+  .modulelearncourse-instructor-bio {
+    font-size: 15px;
+    width: 250px;
+}
+}

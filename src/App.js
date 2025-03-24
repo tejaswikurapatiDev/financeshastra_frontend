@@ -266,6 +266,9 @@ import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
 import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 import Billingavailableplan from "./myprofile/Billingavailableplan/Billingavailableplan";
+import PrivacyPolicypage from "./Privacypolicypage/Privacypolicypage";
+import ProfileRiskReportInvestment from "./myprofile/Riskanalysis/InvestmentGuide/InvestmentGuide";
+import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboard/ProfileScreenRiskReportDashboard";
 
 function App() {
   useEffect(() => {
@@ -1178,6 +1181,9 @@ function App() {
               <Route path="/contactCards" element={<ContactCards />} />
               <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
+              <Route path="/privacyPolicypage" element={<PrivacyPolicypage/>} /> 
+              <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment/>} />
+              <Route path="/profileScreenRiskReport" element={<ProfileScreenRiskReport/>}/>
             </Routes>
           </UserProfileProvider>
         </DarkModeProvider>

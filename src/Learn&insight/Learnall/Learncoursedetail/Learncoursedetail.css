@@ -337,3 +337,17 @@ html, body {
     width: 100px;
 }
 }
+@media (max-width: 320px){
+    .courselearnparatwo {
+        font-size: 15px;
+        width: 250px;
+    }
+    .learncourse-skills-list {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: black;
+        width: 210px;
+        margin-top: -2px;
+    }
+
+}
