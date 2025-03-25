@@ -127,7 +127,7 @@
     padding-top: 0 !important; /* Ensures no padding at the top */
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 2500px) {
     .learncourse-details-container {
         font-family: 'calibri';
         margin-left: 530px;

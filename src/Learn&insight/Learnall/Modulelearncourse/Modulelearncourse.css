@@ -181,7 +181,7 @@ margin-left: 200px;
     color: black;
   }
   
-  @media (min-width: 1536px) {
+  @media (min-width: 2500px) {
 
     .modulelearncourse-container {
         font-family: 'calibri';

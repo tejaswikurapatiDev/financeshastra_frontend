@@ -73,8 +73,8 @@ body{
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     padding: 16px;
-    width: 125px;
-    max-width: 140px;
+    width: 100px;
+    max-width: 130px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     font-family: 'calibri';
@@ -325,7 +325,7 @@ body{
   @media(min-width:1536px){
     .pagination-containerrsector {
       display: flex;
-      gap: 1151px;
+      gap: 821px;
       align-items: center;
       margin: 20px 0;
       margin-left: 20px;
@@ -341,7 +341,7 @@ body{
       border: 1px solid #e0e0e0;
       border-radius: 8px;
       padding: 16px;
-      width: 200px;
+   
     
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
@@ -357,18 +357,10 @@ body{
         gap: 10px;
         margin-bottom: 230px;
    margin-left: 270px;
-        margin-top: -415px;
+        margin-top: -105px;
   }
   }
-  @media(max-width:1922px){
-    .DashboardMainPagetable-headerrindexx{
-      display: flex;
-          gap: 10px;
-          margin-bottom: 230px;
-     margin-left: 270px;
-          margin-top: -105px;
-    }
-  }
+
   @media (max-width: 1440px) {
     .DashboardMainPagetable-headerrindexx{
       display: flex;
@@ -398,7 +390,7 @@ body{
       padding: 10px; /* Reduced padding for smaller screens */
       font-family: 'calibri';
       background: white;
-      width: 100%; /* Full width for mobile screens */
+      width: 90%; /* Full width for mobile screens */
       margin-left: 0; /* No left margin for mobile */
       margin-top: -100px; /* Adjust alignment for smaller screens */
       box-sizing: border-box; /* Include padding in width calculation */
@@ -411,7 +403,7 @@ body{
       display: flex;
           gap: 10px;
           margin-bottom: 110px;
-          margin-left: 10px;
+          margin-left: 20px;
           margin-top: -40px;
     }
   

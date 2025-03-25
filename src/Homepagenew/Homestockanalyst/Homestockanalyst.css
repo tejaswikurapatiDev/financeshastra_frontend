@@ -119,9 +119,13 @@ margin-top: 290px;
 }
 @media(min-width:1536px){
 .pagination-containerreasearch {
- gap: 1200px;
+ gap: 810px;
 }
 }
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .pagination-containerreasearch {
+    gap: 680px;
+  }}
 @media (max-width: 768px) {
 
   .tabsnifty50-containerdash {

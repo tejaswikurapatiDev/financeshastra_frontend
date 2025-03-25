@@ -71,7 +71,7 @@
     border-top: 1px solid #eee; /* Add a subtle divider */
 }
 /* Responsive Design for 768px and Below */
-@media (min-width: 1536px) {
+@media (min-width:2000px) {
     .faq-container {
         max-width: 1536px;
        
