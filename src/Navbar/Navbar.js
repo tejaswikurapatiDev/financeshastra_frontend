@@ -9,7 +9,7 @@ import React, {
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-import {SubscriptionContext} from '../Portfoilo/context/SubscriptionContext'
+import { SubscriptionContext } from "../Portfoilo/context/SubscriptionContext";
 import {
   FaBell,
   FaUserCircle,
@@ -47,7 +47,7 @@ import { API_BASE_URL } from "../config";
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-  const {issubscribed}= useContext(SubscriptionContext)
+  const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -62,22 +62,119 @@ const Navbar = () => {
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
-
+  const [loading, setLoading] = useState(true);
   const dropdownRef = useRef(null); // Reference for dropdown
 
+  const [userName, setUsername] = useState("");
+  const [isLogedin, setIsLogedin] = useState(false);
+  const [isSubed, setisSubed] = useState(false);
 
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
+  //list and read notifications
+  const [notifications, setNotifications] = useState([]);
+  useEffect(() => {
+    /*const token = Cookies.get("jwtToken");
+    if (!token) {
+      alert("Session expired, Please login again.");
+      navigate("/login");
+      return;
+    }*/
+    const token = Cookies.get("jwtToken");
 
+    if (token) {
+      setIsLogedin(true);
+      setisSubed(false);
+    } else {
+      setIsLogedin(false);
+    }
+    if (issubscribed) {
+      setisSubed(true);
+    } else {
+      setisSubed(false);
+    }
+    if (user) {
+      console.log("user:", user);
+      setUsername(user);
+      //setIsLogedin(true)
+    }
+
+    const handleClickOutside = (event) => {
+      if (
+        searchResultsRef.current &&
+        !searchResultsRef.current.contains(event.target) &&
+        !event.target.closest(".navbar-search")
+      ) {
+        setFilterData([]);
+        setSearchInputText("");
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+  useEffect(() => {
+    // Fetch username from localStorage when the component mounts
+    const storedUsername = localStorage.getItem("username");
+    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername)
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
+  /*start list notificaiton */
+
+  const fetchNotifications = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/notifications`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setNotifications(data);
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  /*end list notificaiton */
+
+  /*Start read notificaiton */
+  const markNotificationAsRead = async (id) => {
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/notifications?notificationId=${id}`,
+        { method: "PATCH" }
+      ); // Replace with your API
+
+      if (!response.ok) throw new Error("Failed to mark as read");
+
+      setNotifications((prevNotifications) => {
+        return prevNotifications.data.map((notif) =>
+          notif.id === id ? { ...notif, is_read: true } : notif
+        );
+      });
+    } catch (error) {
+      console.error("Error marking notification as read:", error);
+    }
+  };
+  const displayedNotifications = notifications.data;
+
+  /*
   const notifications = [
     {
       id: 1,
       img: notiimg1,
       title: "Upcoming Quadrant Future Tek IPO analysis",
       date: "Yesterday 11:15 AM",
-    },
-
-  
+    }, 
     {
       id: 4,
       img: notiimg4,
@@ -90,7 +187,6 @@ const Navbar = () => {
       title: "Lucas commented on sanathans IPO",
       date: "28 Nov, 2024 11:15 AM",
     },
-  
     {
       id: 7,
       img: notiimg7,
@@ -114,9 +210,7 @@ const Navbar = () => {
       img: notiimg10,
       title: "Upcoming IGI IPO",
       date: "25 Oct, 2024 08:48 AM",
-    },
-    
-    
+    },   
     {
       id: 13,
       img: notiimg4,
@@ -131,10 +225,10 @@ const Navbar = () => {
     },
  
   ];
-
   const displayedNotifications = showAll
     ? notifications
     : notifications.slice(0, 10);
+  */
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
@@ -196,30 +290,6 @@ const Navbar = () => {
   };
 
   // Close search results when clicking outside
-  useEffect(() => {
-    
-    const token = Cookies.get("jwtToken");
-    if (!token) {
-      alert("Session expired, Please login again.");
-      navigate("/login");
-      return;
-    }
-    const handleClickOutside = (event) => {
-      if (
-        searchResultsRef.current &&
-        !searchResultsRef.current.contains(event.target) &&
-        !event.target.closest(".navbar-search")
-      ) {
-        setFilterData([]);
-        setSearchInputText("");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -286,11 +356,11 @@ const Navbar = () => {
     };
   }, [debouncedSearch]);
 
-  const onLogout = ()=>{
-    Cookies.remove('jwtToken')
-    localStorage.clear()
-    navigate('/')
-  }
+  const onLogout = () => {
+    Cookies.remove("jwtToken");
+    localStorage.clear();
+    navigate("/");
+  };
 
   const toggleStockDropdown = () => {
     setStockDropdownOpen(!stockDropdownOpen);
@@ -772,49 +842,75 @@ const Navbar = () => {
             </div>
           )}
         </div>
-{issubscribed? <img 
-  className="subscribeimg" 
-  src={unlockstockthemeimg} 
-  alt="Subscribe" 
-  
-/> : <h4 className="subscritebutton" onClick={() => navigate("/pricehalf")}>
-          Subscribe
-        </h4>}
-        
+        {!issubscribed && (
+          <h4
+            className="subscritebutton"
+            onClick={() => navigate("/pricehalf")}
+          >
+            Subscribe
+          </h4>
+        )}
+
         <div className="navbar-icons">
-          <div className="notificationall"ref={dropdownRef}>
+          <div className="notificationall" ref={dropdownRef}>
             {/* Bell Icon */}
-            <FaBell
-              className={
-                darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
-              }
-              onClick={() => setIsOpen(!isOpen)}
-            />
+            {isLogedin && (
+              <FaBell
+                className={
+                  darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+                }
+                onClick={() => setIsOpen(!isOpen)}
+              />
+            )}
 
             {/* Dropdown Content */}
-            {isOpen && (
-              <div className="dropdown-contentnoti">
+            {isOpen && displayedNotifications?.length > 0 && (
+              <div className="dropdown-content">
                 {displayedNotifications.map((notif) => (
-                  <div key={notif.id} className="notification-card">
+                  <div
+                    key={notif.id}
+                    onClick={() =>
+                      !notif.is_read && markNotificationAsRead(notif.id)
+                    }
+                    className={`notification-card ${
+                      notif.is_read ? "read" : "unread"
+                    }`}
+                    style={{
+                      backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
+                      color: notif.is_read ? "#757575" : "#000",
+                      cursor: notif.is_read ? "default" : "pointer",
+                    }}
+                  >
                     <div className="notification-header">
                       <div className="notificationall-header">
                         <div>
                           <img
-                            src={notif.img}
+                            src={notiimg2}
                             alt="Notification"
                             className="notification-img"
                           />
                         </div>
                       </div>
                       <div className="notification-details">
-                        <p className="notification-title">{notif.title}</p>
-                        <p className="notification-date">{notif.date}</p>
+                        <p
+                          className="notification-title"
+                          style={{
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {notif.message}
+                        </p>
+                        <p className="notification-date">{notif.created_at}</p>
                       </div>
-                      <LuDot className="dotnotifyicon" />
+                      {!notif.is_read && (
+                        <LuDot
+                          className="dotnotifyicon"
+                          style={{ color: "green" }}
+                        />
+                      )}
                     </div>
                   </div>
                 ))}
-
                 {/* View All Button */}
                 {!showAll && (
                   <button className="view-all" onClick={() => setShowAll(true)}>
@@ -824,21 +920,40 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-            <li className="" ref={userDropdownRef}>
-              <Link to="#" onClick={toggleUserDropdown}>
-                <FaUserCircle
-                  className={
-                    darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
-                  }
-                />
-              </Link>
-              <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                {user}
-              </span>
-              {userDropdownOpen && renderUserDropdown()}
-            </li>
-          </div>
+          {isLogedin ? (
+            <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+              <li className="" ref={userDropdownRef}>
+                <Link to="#" onClick={toggleUserDropdown}>
+                  <FaUserCircle
+                    className={
+                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                    }
+                  />
+                </Link>
+                <span
+                  className={darkMode ? "willamnamedarkmode" : "willamname"}
+                >
+                  {userName}
+                </span>
+                {userDropdownOpen && renderUserDropdown()}
+              </li>
+            </div>
+          ) : (
+            <div className="landingnavbar-icons">
+              <button
+                className="landingnavbar-buttonregister-button"
+                onClick={() => navigate("/register")}
+              >
+                Register
+              </button>
+              <button
+                className="landingnavbar-buttonlogin-button"
+                onClick={() => navigate("/login")}
+              >
+                Log in
+              </button>
+            </div>
+          )}
         </div>
       </nav>
 

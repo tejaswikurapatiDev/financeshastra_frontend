@@ -5,8 +5,15 @@ import React, {
   useCallback,
   useContext,
 } from "react";
+import {jwtDecode} from "jwt-decode";
+import {
+  FaBell,
+} from "react-icons/fa";
+import notiimg2 from "../../assest/mobile.png";
+import { LuDot } from "react-icons/lu";
 import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
 import { FaUserCircle, FaSearch, FaChevronDown, FaUser } from "react-icons/fa";
+import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
 import { VscBell } from "react-icons/vsc";
 import { FaCircleQuestion } from "react-icons/fa6";
 import { PiHandCoins } from "react-icons/pi";
@@ -290,6 +297,15 @@ const Landingnavbar = () => {
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
   const [isLogedin, setIsLogedin] = useState(false);
+    const userDropdownRef = useRef(null);
+    const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+    const { user } = useContext(UserProfileContext);
+    const dropdownRef = useRef(null); // Reference for dropdown
+     const [isOpen, setIsOpen] = useState(false);
+     const [notifications, setNotifications] = useState([]);
+     const [loading, setLoading] = useState(true);
+     const [showAll, setShowAll] = useState(false);
 
   // Refs for handling click outside
   const dropdownRefs = {
@@ -303,7 +319,6 @@ const Landingnavbar = () => {
     learn: useRef(null),
   };
 
-  const { darkMode } = useContext(DarkModeContext);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -358,15 +373,10 @@ const Landingnavbar = () => {
   );
 
   const onLogout= ()=>{
-    console.log('logout was clicked')
     localStorage.clear()
-    console.log('localstorage cleared')
     Cookies.remove('jwtToken', { path: '/' })
-    console.log('cookies cleared')
     setIsLogedin(false)
-    console.log("logedin false set")
     navigate('/login')
-    console.log("navigating to /login page")
 
     
   }
@@ -375,21 +385,85 @@ const Landingnavbar = () => {
   // Get all data on component mount
   useEffect(() => {
     const token = Cookies.get("jwtToken");
+    const isTokenExpired = (token) => {
+      if (!token) return true; // If no token, consider it expired
+    
+      try {
+        const { exp } = jwtDecode(token);
+        if (!exp) return true; // If no expiration time, consider expired
+    
+        return exp * 1000 < Date.now(); // Compare expiry time with current time
+      } catch (error) {
+        return true; // If token is invalid, consider it expired
+      }
+    };
     if (token) {
-      setIsLogedin(true);
+      if (isTokenExpired(token)){
+        onLogout()
+        setIsLogedin(false);
+      }else{
+        setIsLogedin(true);
+      }
+      
+      //setIsLogedin(true);
     }
     getAllData();
   }, []);
+  const displayedNotifications = notifications.data;
 
   // Apply debounced search when input changes
   useEffect(() => {
+    fetchNotifications();
     debounceSearch(searchInputText);
     return () => debounceSearch.cancel();
   }, [searchInputText, debounceSearch]);
+  const fetchNotifications = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/notifications`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await response.json();
+        setNotifications(data);
+      } catch (error) {
+        console.error("Error fetching notifications:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    const markNotificationAsRead = async (id) => {
+        try {
+          const response = await fetch(
+            `${API_BASE_URL}/notifications?notificationId=${id}`,
+            { method: "PATCH" }
+          ); // Replace with your API
+    
+          if (!response.ok) throw new Error("Failed to mark as read");
+    
+          setNotifications((prevNotifications) => {
+            return prevNotifications.data.map((notif) =>
+              notif.id === id ? { ...notif, is_read: true } : notif
+            );
+          });
+        } catch (error) {
+          console.error("Error marking notification as read:", error);
+        }
+      };
 
   // Handle click outside to close dropdowns
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false); // Close dropdown if clicked outside
+      }
+      if (
+        userDropdownRef.current &&
+        !userDropdownRef.current.contains(event.target)
+      ) {
+        setUserDropdownOpen(false);
+      }
       Object.entries(dropdownRefs).forEach(([key, ref]) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setDropdowns((prev) => ({
@@ -405,6 +479,42 @@ const Landingnavbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const toggleUserDropdown = () => {
+    setUserDropdownOpen(!userDropdownOpen);
+  };
+   const renderUserDropdown = () => (
+      <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/userDetailsupdate">
+            <FaUser
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            My Profile
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/help">
+            <FaCircleQuestion
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            Help Center
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <button className="butn" onClick={onLogout} type="button">
+            <FaUserCircle
+              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+            />
+            Logout
+          </button>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
+            Dark Mode
+          </div>
+        </div>
+      </div>
+    );
 
   return (
     <>
@@ -519,18 +629,96 @@ const Landingnavbar = () => {
             )}
           </div>
         </div>
-        {isLogedin ? (
-          <div className="landingnavbar-icons">
+        {isLogedin ? (<>
+          <FaBell
+                          className={
+                            darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+                          }
+                          onClick={() => setIsOpen(!isOpen)}
+                          
+                        />
+                        {isOpen && displayedNotifications?.length > 0 && (
+                                      <div className="dropdown-content">
+                                        {displayedNotifications.map((notif) => (
+                                          <div
+                                            key={notif.id}
+                                            onClick={() =>
+                                              !notif.is_read && markNotificationAsRead(notif.id)
+                                            }
+                                            className={`notification-card ${
+                                              notif.is_read ? "read" : "unread"
+                                            }`}
+                                            style={{
+                                              backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
+                                              color: notif.is_read ? "#757575" : "#000",
+                                              cursor: notif.is_read ? "default" : "pointer",
+                                            }}
+                                          >
+                                            <div className="notification-header">
+                                              <div className="notificationall-header">
+                                                <div>
+                                                  <img
+                                                    src={notiimg2}
+                                                    alt="Notification"
+                                                    className="notification-img"
+                                                  />
+                                                </div>
+                                              </div>
+                                              <div className="notification-details">
+                                                <p
+                                                  className="notification-title"
+                                                  style={{
+                                                    fontWeight: "bold",
+                                                  }}
+                                                >
+                                                  {notif.message}
+                                                </p>
+                                                <p className="notification-date">{notif.created_at}</p>
+                                              </div>
+                                              {!notif.is_read && (
+                                                <LuDot
+                                                  className="dotnotifyicon"
+                                                  style={{ color: "green" }}
+                                                />
+                                              )}
+                                            </div>
+                                          </div>
+                                        ))}
+                                        {/* View All Button */}
+                                        {!showAll && (
+                                          <button className="view-all" onClick={() => setShowAll(true)}>
+                                            View all notifications
+                                          </button>
+                                        )}
+                                      </div>
+                                    )}
+          <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+                              <li className="" ref={userDropdownRef}>
+                                <Link to="#" onClick={toggleUserDropdown}>
+                                  <FaUserCircle
+                                    className={
+                                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                                    }
+                                  />
+                                </Link>
+                                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+                                  {user}
+                                </span>
+                                {userDropdownOpen && renderUserDropdown()}
+                              </li>
+                            </div></>
+          /*<div className="landingnavbar-icons">
+            <VscBell className="landingnavbaricon bell-icon" />
             <button
               className="landingnavbar-buttonlogin-button"
               onClick={onLogout}
             >
               Log out
             </button>
-          </div>
+          </div>*/
         ) : (
           <div className="landingnavbar-icons">
-            <VscBell className="landingnavbaricon bell-icon" />
+            
             <button
               className="landingnavbar-buttonregister-button"
               onClick={() => navigate("/register")}

@@ -1146,9 +1146,10 @@
 }
 .pagination-stockcontainer {
   display: flex;
-  justify-content: space-between;
+gap: 1020px;
   align-items: center;
   margin-top: 20px;
+
  
 }
 
@@ -2105,6 +2106,16 @@
     /* Optional: change the color when hovering over the thumb */
   }
 }
+@media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+  .pagination-stockcontainer {
+    display: flex;
+  gap: 1000px;
+    align-items: center;
+    margin-top: 20px;
+  
+   
+  }
+}
 /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .screener-filters {
@@ -2161,5 +2172,13 @@
   padding: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+}
+.pagination-stockcontainer {
+  display: flex;
+gap: 620px;
+  align-items: center;
+  margin-top: 20px;
+
+ 
 }
 }

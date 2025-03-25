@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaRegSquare, FaRegCheckSquare } from 'react-icons/fa'; // Import the icon
 import './RiskProfileForm.css';
 import {useNavigate} from "react-router-dom";
@@ -7,6 +7,27 @@ import Cookies from 'js-cookie'
 
 
 const RiskProfileForm = () => {
+      const [riskProfile, setRiskProfile]= useState({})
+
+    const fetchRiskProfile= async ()=>{
+      const url= `${API_BASE_URL}/riskanalysis`
+      const token= Cookies.get('jwtToken')
+      const response= await fetch(url, {
+        method: "GET",
+        headers: {
+          "Authorization": `Bearer ${token}`,
+        }
+      })
+      if (response.ok=== true){
+        const data= await response.json()
+        console.log(data)
+      }
+      
+    }
+
+    useEffect(()=>{
+      fetchRiskProfile()
+    })
       const [formData, setFormData] = useState({});
 
       const questions = [
@@ -163,7 +184,10 @@ const RiskProfileForm = () => {
       ];
       const navigate = useNavigate();
       const handleSubmit = async (e) => {
+           
             e.preventDefault(); // Prevent the default form submission behavior
+            navigate("/profileRiskReportInvestment");
+            window.scrollTo(0, 0); // Correct syntax
 
             const filteredData = Object.keys(formData)
             .filter((key) => keysToKeep.includes(key))
@@ -199,6 +223,8 @@ const RiskProfileForm = () => {
             console.log("response:", response)
             if (response.ok){
                   alert('Form Submitted successfully');
+                  navigate("/profileRiskReportInvestment");
+                  window.scrollTo(0, 0); // Correct syntax
             }
             
 
@@ -214,9 +240,12 @@ const RiskProfileForm = () => {
             const url= `${API_BASE_URL}/riskanalysis/updaterisk`
             const putresponse= await fetch(url, options)
             console.log("putresponse:", putresponse)
-            if (putresponse.ok){
-                  alert('Form Submitted successfully');
-            }
+            if (putresponse.ok) {
+                  alert("Form Submitted successfully");
+                  navigate("/profileRiskReportInvestment");
+                  window.scrollTo(0, 0); 
+              }
+              
             
             }
 
@@ -309,7 +338,7 @@ const RiskProfileForm = () => {
       </div>
       ))}
       </div>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
+      <button type="submit" className='riskProfileFormAll' onClick={handleSubmit}>Submit</button>
       </form>
       );
 };
