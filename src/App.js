@@ -266,6 +266,8 @@ import Dashboardall from "./Homepagenew/Dashboardall/Dashboardall";
 import BestStockvaluation from "./Beststockspages/Beststockvaluation/Beststockvaluation";
 import AccountSettings from "./myprofile/AccountSettings/AccountSettings";
 import Billingavailableplan from "./myprofile/Billingavailableplan/Billingavailableplan";
+import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistory";
+
 import PrivacyPolicypage from "./Privacypolicypage/Privacypolicypage";
 import ProfileRiskReportInvestment from "./myprofile/Riskanalysis/InvestmentGuide/InvestmentGuide";
 import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboard/ProfileScreenRiskReportDashboard";
@@ -1024,6 +1026,57 @@ function App() {
                 element={<Forgotresetpassword />}
               />
 
+ 
+      <Route path="/disclaimer" element={<Disclaimer/>}/>
+     
+      <Route path="/refundPolicy" element={<RefundPolicy/>}/>
+  
+      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+  
+      <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
+   
+      <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
+      <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
+      <Route path="/contactUsnew" element={<ContactUsnew/>}/>
+      <Route path="/contactCards" element={<ContactCards/>}/> 
+      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/dashboardall" element={< Dashboardall/>}/>
+      <Route path="/billingavailableplan" element={<Billingavailableplan/>}/>
+      <Route path="/billingInfoHistory" element={<BillingInfoHistory/>}/>
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </Routes>
+          
+        </UserProfileProvider>
+      </DarkModeProvider>
               <Route path="/disclaimer" element={<Disclaimer />} />
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
