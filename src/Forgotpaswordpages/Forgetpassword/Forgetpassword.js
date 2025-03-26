@@ -83,17 +83,11 @@ function Forgetpassword() {
 
       if (response.ok) {
         alert("Password reset link sent to your email!");
-<<<<<<< HEAD
         navigate("/openemailforgotpass")
       } else if(response.status === 404) {
         console.log('response:', response)
         setEmailError("Please enter correct email")
         //alert(data.message || "Something went wrong");
-=======
-        navigate("/openemailforgotpass");
-      } else {
-        alert(data.message || "Something went wrong");
->>>>>>> 7b457aa933331a23ced5e2a73846f0f050793017
       }
     } catch (error) {
       console.error("Error:", error);
