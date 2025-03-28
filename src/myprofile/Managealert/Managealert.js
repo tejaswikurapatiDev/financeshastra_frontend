@@ -109,7 +109,7 @@ const Managealert = () => {
         You may unsubscribe from any Email/SMS alerts' category by clicking on
         the <br />
         respective links below. If you have any query, feel free to{" "}
-        <a href="/contactFormmanagealert" className="contact-link">
+        <a href="/contactUsnew" className="contact-link">
           contact us
         </a>
         .

@@ -235,7 +235,16 @@ const AccountSettings = () => {
           </div>
           
           {/* Password Rules */}
-        
+           {/* Password Rules */}
+           <div className="profilesettingpassword-password-rules">
+            <p>New password must contain:</p>
+            <ul>
+              <li>Between 8 and 12 characters</li>
+              <li>At least one uppercase character</li>
+              <li>At least one lowercase character</li>
+              <li>At least one number and special character</li>
+            </ul>
+          </div>
 
           {/* Buttons */}
           <div className="profilesettingpassword-button-group">

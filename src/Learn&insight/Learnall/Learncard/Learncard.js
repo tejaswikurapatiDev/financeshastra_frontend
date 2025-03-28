@@ -101,7 +101,7 @@ const Learncard = () => {
 
                 <button
                   className="learnsignup-button"
-                  onClick={() => navigate('/learncardaftersignup')}
+                  onClick={() => navigate('/learnCourseDetails')}
                 >
                   {token ? "Start Learning" : "Signup Now"}
                 </button>

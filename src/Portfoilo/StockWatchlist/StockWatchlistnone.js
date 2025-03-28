@@ -765,7 +765,7 @@ const StockWatchlist = ({ children }) => {
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/stockwatchlistall")}
+                onClick={() => navigate("/stockwatchlist")}
                 defaultChecked
                 style={{
                   width: "14px",
