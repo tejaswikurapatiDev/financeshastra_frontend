@@ -885,7 +885,7 @@ const Navbar = () => {
 
             {/* Dropdown Content */}
             {isOpen && displayedNotifications?.length > 0 && (
-              <div className="dropdown-content">
+              <div className="dropdown-contentnoti">
                 {displayedNotifications.map((notif) => (
                   <div
                     key={notif.id}

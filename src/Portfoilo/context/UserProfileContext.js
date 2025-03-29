@@ -18,6 +18,7 @@ export const UserProfileProvider = ({ children }) => {
       const token = Cookies.get("jwtToken");
       setToken(token)
       
+      
       if (!token) throw new Error("No token found");
 
       const response = await fetch(`${API_BASE_URL}/users/`, {
@@ -29,7 +30,6 @@ export const UserProfileProvider = ({ children }) => {
       });
 
       if (!response.ok) throw new Error("Failed to fetch user");
-      console.log("user context response:", response)
       const data = await response.json();
       console.log("user context data: ", data)
       setEmail(data[0]?.email)
