@@ -793,7 +793,7 @@ margin-top: 20px;
     .create-watchlist {
     
    
-      padding: 10px;
+ 
    
       cursor: pointer;
       width: 50%;
@@ -809,8 +809,11 @@ margin-top: 20px;
       margin: 10px 0;
       gap: 340px;
     }
-
+ .newwmutual{
+  font-size: 15px;
+  margin-left: 15px;
   }
+}
  
   @media (max-width: 320px) { 
     .top-sectionswatchlistsectorr {

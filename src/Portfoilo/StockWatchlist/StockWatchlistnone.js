@@ -684,7 +684,7 @@ const StockWatchlist = ({ children }) => {
             </button>
           </div>
 
-          <h2 style={{ marginLeft: "20px", fontSize: "19px" }}>
+          <h2 className="allh2">
             Add Watchlist
           </h2>
 
