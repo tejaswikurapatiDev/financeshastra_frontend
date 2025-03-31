@@ -47,6 +47,7 @@ import { API_BASE_URL } from "../config";
 const Navbar = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
+  const {userEmail}= useContext(UserProfileContext);
   const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -95,6 +96,7 @@ const Navbar = () => {
     }
     if (user) {
       console.log("user:", user);
+      console.log('email: ', userEmail)
       setUsername(user);
       //setIsLogedin(true)
     }
@@ -842,7 +844,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        {!issubscribed && (
+        {!isSubed && (
           <h4
             className="subscritebutton"
             onClick={() => navigate("/pricehalf")}

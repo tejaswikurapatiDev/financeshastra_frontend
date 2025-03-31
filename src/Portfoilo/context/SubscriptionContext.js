@@ -9,7 +9,6 @@ export const SubscriptionProvider = ({ children }) => {
 
   useEffect(() => {
     const CookieToken = Cookies.get("jwtToken");
-    console.log("🚀 ~ useEffect ~ CookieToken:", CookieToken);
     if (CookieToken) {
       const fetchdata = async () => {
         const options = {
@@ -25,8 +24,10 @@ export const SubscriptionProvider = ({ children }) => {
           const data = await response.json(); // Convert response to JSON
           if (data.length === 0) {
             setisSubed(false);
+            console.log("issubed in context:", false)
           } else {
             setisSubed(true);
+            console.log("issubed in context:", true)
           }
         } catch (error) {
           console.error("Error fetching user payment details:", error);

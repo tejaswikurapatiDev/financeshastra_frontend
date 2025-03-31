@@ -121,6 +121,12 @@ function Login() {
       if (response.status === 404) {
         setEmailError("Invalid email address");
       }
+      if (response.status === 400){
+        setPasswordError("Incorrect Password, please try again")
+      }
+      if (response.status === 429){
+         alert("Too many attempts, please try again later.")
+      }
     } catch (error) {
       console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password");
