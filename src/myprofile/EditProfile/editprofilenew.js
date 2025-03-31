@@ -18,7 +18,49 @@ import {
   getIdToken,
   onAuthStateChanged,
   signInAnonymously,
+  RecaptchaVerifier,
 } from "firebase/auth";
+
+const VerificationPopup = ({
+  type,
+  value,
+  otp,
+  setOtp,
+  isOtpValid,
+  onSubmit,
+  onClose,
+}) => {
+  return (
+    <div className="verification-popup">
+      <div className="popup-header">
+        <h3>
+          {type === "email" ? "Email Verification" : "Mobile Verification"}
+        </h3>
+        <FaTimes className="close-icon" onClick={onClose} />
+      </div>
+      <p>
+        Enter the confirmation code sent to your {type}:{" "}
+        <strong>{value}</strong>.
+      </p>
+      <input
+        type="text"
+        value={otp}
+        onChange={(e) => setOtp(e.target.value)}
+        className={`otp-input ${isOtpValid === false ? "error-border" : ""}`}
+        placeholder="Enter OTP"
+      />
+      {isOtpValid === false && <p className="error-text">Invalid OTP</p>}
+      <button
+        className="submit-btn"
+        style={{ backgroundColor: otp.length === 6 ? "#24b676" : "gray" }}
+        onClick={onSubmit}
+        disabled={otp.length !== 6}
+      >
+        Submit
+      </button>
+    </div>
+  );
+};
 
 const EditProfile = () => {
   const { userEmail } = useContext(UserProfileContext);
@@ -48,6 +90,7 @@ const EditProfile = () => {
   });
 
   const [errors, setErrors] = useState({}); // For validation errors
+  const [otpStep, setOtpStep] = useState(false); // Define otpStep and setOtpStep
 
   const navigate = useNavigate();
 
@@ -95,15 +138,15 @@ const EditProfile = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      const url = `${API_BASE_URL}/userdetails/adduser`;
+      const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
 
       const options = {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // Token for authentication
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // Sending form data
       };
 
       try {
@@ -258,7 +301,6 @@ const EditProfile = () => {
   };
 
   const [showPopup, setShowPopup] = useState(false);
-  const [otpStep, setOtpStep] = useState(false);
   const [otp, setOtp] = useState("");
   const [showPopupp, setShowPopupp] = useState(false);
   const [verificationId, setVerificationId] = useState(null);
@@ -271,53 +313,131 @@ const EditProfile = () => {
   const [showEmailSuccessPopup, setShowEmailSuccessPopup] = useState(false);
 
   const [isOtpValid, setIsOtpValid] = useState(null);
+  const [verificationType, setVerificationType] = useState(null); // "email" or "mobile"
+  const [verificationValue, setVerificationValue] = useState(""); // Email or phone number
 
   const handleEmailPopupClose = () => {
     setShowEmailSuccessPopup(false);
   };
-  const handleEmailVerifyClick = () => {
-    if (!formData.email || errors.email) {
-      return; // Don't show popup if email is invalid
+
+  const handleVerificationClick = async (type) => {
+    console.log("🚀 ~ handleVerificationClick triggered ~ type:", type); // Debug log
+
+    if (type === "email" && (!formData.email || errors.email)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        email: "Please enter a valid email.",
+      }));
+      console.error("Email verification failed: Invalid email."); // Debug log
+      return;
     }
-    setShowVerificationPopup(true);
+
+    if (type === "mobile" && (!formData.phoneNumber || errors.phoneNumber)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: "Please enter a valid phone number.",
+      }));
+      console.error("Mobile verification failed: Invalid phone number."); // Debug log
+      return;
+    }
+
+    setVerificationType(type);
+    setVerificationValue(
+      type === "email" ? formData.email : `+91${formData.phoneNumber}`
+    );
+    setShowVerificationPopup(true); // Open the popup
+
+    try {
+      if (type === "email") {
+        console.log("Sending OTP to email...");
+        // Call the API to send OTP to the email
+        const response = await fetch(`${API_BASE_URL}/otp/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: formData.email }),
+        });
+
+        if (response.ok) {
+          console.log("OTP sent to email successfully.");
+        } else {
+          console.error("Failed to send OTP to email.");
+        }
+      } else if (type === "mobile") {
+        console.log("Sending OTP to mobile...");
+        // Call the API to send OTP to the mobile number
+        const response = await fetch(`${API_BASE_URL}/otp/send`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ phoneNumber: `+91${formData.phoneNumber}` }),
+        });
+
+        if (response.ok) {
+          console.log("OTP sent to mobile successfully.");
+        } else {
+          console.error("Failed to send OTP to mobile.");
+        }
+      }
+    } catch (error) {
+      console.error("Error sending OTP:", error);
+    }
   };
 
-  const handleOtpSubmit = () => {
+  const handleOtpSubmit = async () => {
     if (otp.length !== 6) {
       setIsOtpValid(false);
       return;
     }
 
-    const credential = PhoneAuthProvider.credential(verificationId, otp);
+    try {
+      if (verificationType === "email") {
+        console.log("Verifying email OTP...");
+        // Call the API to verify the email OTP
+        const response = await fetch(`${API_BASE_URL}/otp/verify`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: formData.email, otp }),
+        });
 
-    auth
-      .signInWithCredential(credential)
-      .then(() => {
-        console.log("Phone number verified successfully.");
-        setIsOtpValid(true);
-        setShowVerificationPopup(false);
-        setShowPopupp(true); // Show success popup
-        setIsVerified(true); // Mark phone number as verified
-      })
-      .catch((error) => {
-        console.error("Error verifying OTP:", error);
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          otp: "Invalid OTP. Please try again.",
-        }));
-      });
-  };
+        if (response.ok) {
+          console.log("Email OTP verified successfully.");
+          setIsEmailVerified(true);
+          setShowVerificationPopup(false);
+        } else {
+          console.error("Failed to verify email OTP.");
+          setIsOtpValid(false);
+        }
+      } else if (verificationType === "mobile") {
+        console.log("Verifying mobile OTP...");
+        // Call the API to verify the mobile OTP
+        const response = await fetch(`${API_BASE_URL}/otp/verify`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            phoneNumber: `+91${formData.phoneNumber}`,
+            otp,
+          }),
+        });
 
-  // Regex for phone number validation
-  const phoneRegex = /^[0-9]{10}$/;
-
-  const validatePhoneNumber = (value) => {
-    const phoneRegex = /^[0-9]{10}$/;
-    if (!phoneRegex.test(value)) {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        phoneNumber: "Please enter a valid 10-digit phone number.",
-      }));
+        if (response.ok) {
+          console.log("Mobile OTP verified successfully.");
+          setIsVerified(true);
+          setShowVerificationPopup(false);
+        } else {
+          console.error("Failed to verify mobile OTP.");
+          setIsOtpValid(false);
+        }
+      }
+    } catch (error) {
+      console.error("Error verifying OTP:", error);
+      setIsOtpValid(false);
     }
   };
 
@@ -350,7 +470,7 @@ const EditProfile = () => {
     const phoneRegex = /^[6-9]\d{9}$/; // Ensure this regex matches valid 10-digit Indian phone numbers
     if (phoneRegex.test(formData.phoneNumber)) {
       console.log("Phone number is valid. Proceeding to send OTP...");
-      sendOtp(); // Directly call sendOtp without initializing Recaptcha
+      sendOtp(); // Call sendOtp function
     } else {
       console.error("Invalid phone number.");
       setErrors((prevErrors) => ({
@@ -371,35 +491,47 @@ const EditProfile = () => {
     }
   };
 
-  const sendOtp = async () => {
-    console.log("Attempting to send OTP... formData:", formData);
-
-    if (!auth.currentUser) {
-      console.log("No user is currently signed in. Signing in anonymously...");
-      await signInUser(); // Sign in the user
+  const initializeRecaptcha = () => {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            console.log("Recaptcha verified:", response);
+          },
+        },
+        auth
+      );
     }
+  };
 
-    if (!auth.currentUser) {
-      console.error("Failed to sign in anonymously. Cannot proceed.");
+  const sendOtp = async () => {
+    console.log("Attempting to send OTP...");
+
+    if (!formData.phoneNumber) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: "Phone number is required.",
+      }));
       return;
     }
 
-    try {
-      const idToken = await getIdToken(auth.currentUser);
-      console.log("ID Token retrieved:", idToken);
+    const phoneNumber = `+91${formData.phoneNumber}`; // Format phone number with country code
 
+    try {
       const response = await fetch(`${API_BASE_URL}/users/verifyMobile`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ idToken }),
+        body: JSON.stringify({ phoneNumber }), // Send phone number to the backend
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log("OTP sent successfully", data);
-        setOtpStep(true); // Show OTP section
+        console.log("OTP sent successfully:", data);
+        setOtpStep(true); // Show OTP input section
       } else {
         console.error("Failed to send OTP:", response.statusText);
         setErrors((prevErrors) => ({
@@ -412,6 +544,21 @@ const EditProfile = () => {
       setErrors((prevErrors) => ({
         ...prevErrors,
         phoneNumber: "Failed to send OTP. Please try again.",
+      }));
+    }
+  };
+
+  const validatePhoneNumber = (value) => {
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!phoneRegex.test(value)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: "Please enter a valid 10-digit phone number.",
+      }));
+    } else {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phoneNumber: "",
       }));
     }
   };
@@ -766,85 +913,18 @@ const EditProfile = () => {
                   {isEmailVerified ? (
                     <span style={{ color: "#24b676" }}>Verified</span>
                   ) : (
-                    <>
-                      <div className="emailedit">
-                        <button
-                          onClick={toggleModal}
-                          className="profilepage-editemail-btn"
-                        >
-                          <FaRegEdit />
-                        </button>
-                      </div>
-                      <button
-                        className="profilepage-verifyemail-btn"
-                        onClick={handleEmailVerifyClick}
-                      >
-                        Verify
-                      </button>
-                    </>
+                    <button
+                      className="profilepage-verify-btn"
+                      onClick={() => handleVerificationClick("email")}
+                    >
+                      Verify
+                    </button>
                   )}
                 </div>
                 {errors.email && (
                   <span className="error-text">{errors.email}</span>
                 )}
               </div>
-
-              {/* Modal for Editing Email */}
-              {/* Verification Popup */}
-              {showVerificationPopup && (
-                <div className="verification-popupemailll">
-                  <div className="popup-header">
-                    <h3>Account Verification</h3>
-                    <FaTimes
-                      className="close-icon"
-                      onClick={() => setShowVerificationPopup(false)}
-                    />
-                  </div>
-                  <p>Enter the confirmation code from the email.</p>
-                  <input
-                    type="text"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                    className="otp-inputemailll"
-                  />
-                  {isOtpValid === false && (
-                    <p className="error-text">Invalid OTP</p>
-                  )}
-                  <button
-                    className="submit-btnemailll"
-                    style={{
-                      backgroundColor: otp.length === 6 ? "#24b676" : "gray",
-                    }}
-                    onClick={handleOtpSubmit}
-                    disabled={otp.length !== 6}
-                  >
-                    Submit
-                  </button>
-                </div>
-              )}
-
-              {/* Email Verification Success Popup */}
-              {/* Email Verification Success Popup */}
-              {showEmailSuccessPopup && (
-                <div className="email-success-popup-overlay">
-                  <div className="email-success-popup">
-                    <button
-                      className="email-success-popup-close"
-                      onClick={handleEmailPopupClose}
-                    >
-                      &times;
-                    </button>
-                    <div className="email-success-popup-content">
-                      <div className="email-success-popup-icon">✔</div>
-                      <h3>Email Verified Successfully!</h3>
-                      <p>
-                        You have successfully verified your email using OTP sent
-                        on <strong>{maskEmail(formData.email)}</strong>.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             <div className="profile-roww">
@@ -866,122 +946,20 @@ const EditProfile = () => {
                     />
                     {isVerified ? (
                       <span style={{ color: "#24b676" }}>Verified</span>
-                    ) : null}
-                  </div>
-
-                  {/* Conditionally render buttons based on isVerified */}
-
-                  {!isVerified && (
-                    <div className="editalliconnn">
+                    ) : (
                       <button
-                        type="button"
-                        className="profile-verify-btn"
-                        onClick={handleSmsIconClick}
-                        style={{
-                          cursor: "pointer", // Ensure the cursor is a pointer
-                          zIndex: 10, // Ensure the button is above other elements
-                        }}
+                        className="profilepage-verify-btn"
+                        onClick={() => handleVerificationClick("mobile")}
                       >
-                        Verifyyyyy
+                        Verify
                       </button>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
                 {errors.phoneNumber && (
                   <span className="error-text">{errors.phoneNumber}</span>
                 )}
               </div>
-
-              {showPopup && (
-                <div className="popup-overlay">
-                  <div className="popup-content">
-                    <button className="close-icon" onClick={handlePopupClose}>
-                      <RxCross2 />
-                    </button>
-                    <h3 className="accountverification">
-                      Account Verification
-                    </h3>
-                    <p className="popupparagraph">
-                      Provide your phone number to receive a verification code.
-                      <br />
-                      It will only be used for account verification purposes.
-                    </p>
-                    {!otpStep && (
-                      <div className="popup-input">
-                        <span>+91</span>
-                        <input
-                          type="tel"
-                          placeholder="Enter phone number"
-                          value={formData.phoneNumber}
-                          onChange={handlemobileChange}
-                        />
-                        <button
-                          className="sms-icon-button"
-                          onClick={handleSmsIconClick}
-                        >
-                          <AiOutlineMessage />
-                        </button>
-                      </div>
-                    )}
-
-                    {otpStep && (
-                      <div className="otp-section">
-                        <h3 className="otpverification">Verification Code</h3>
-                        <div className="otp-input-container">
-                          <input
-                            type="text"
-                            maxLength="4"
-                            placeholder="Enter OTP"
-                            value={otp}
-                            onChange={(e) => {
-                              setOtp(e.target.value);
-                              setErrors((prevErrors) => ({
-                                ...prevErrors,
-                                otp: "",
-                              }));
-                            }}
-                            className={`otp-input ${
-                              errors.otp ? "error-border" : ""
-                            }`}
-                          />
-                          <button onClick={handleOtpSubmit}>Submit</button>
-                        </div>
-                        {errors.otp && (
-                          <span className="error-text">{errors.otp}</span>
-                        )}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {showPopupp && (
-                <div style={popupStyles.overlay}>
-                  <div style={popupStyles.popup}>
-                    <button
-                      style={popupStyles.close}
-                      onClick={handlePopupClosee}
-                    >
-                      &times;
-                    </button>
-                    <div style={popupStyles.content}>
-                      <div style={popupStyles.icon}>✔</div>
-                      <h3>Mobile number verified successfully!</h3>
-                      <p>
-                        You have successfully verified your mobile number using
-                        OTP sent on{" "}
-                        <strong>
-                          91********
-                          {formData.phoneNumber
-                            ? formData.phoneNumber.slice(-2)
-                            : "XX"}
-                        </strong>
-                        .
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
         </div>
@@ -1181,6 +1159,18 @@ const EditProfile = () => {
         <FooterForAllPage />
       </div>
       <div id="recaptcha-container"></div>
+      {showVerificationPopup && (
+        <VerificationPopup
+          type={verificationType}
+          value={verificationValue}
+          otp={otp}
+          setOtp={setOtp}
+          isOtpValid={isOtpValid}
+          onSubmit={handleOtpSubmit}
+          onClose={() => setShowVerificationPopup(false)}
+        />
+      )}
+      VerificationPopup && console.log("Rendering VerificationPopup...")
     </div>
   );
 };

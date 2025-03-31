@@ -513,7 +513,17 @@
   text-align: center;
 }
 
-
+.verification-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure it appears above other elements */
+  background-color: white; /* Ensure it's visible */
+  border: 2px solid #24b676; /* Add a border for debugging */
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
 /* Mobile view - 768px */
 @media (max-width: 768px) {

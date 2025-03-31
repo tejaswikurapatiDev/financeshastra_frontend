@@ -90,15 +90,15 @@ const EditProfile = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      const url = `${API_BASE_URL}/userdetails/adduser`;
+      const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
 
       const options = {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Ensure `token` is available in context
+          Authorization: `Bearer ${token}`, // Token for authentication
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formData), // Sending form data
       };
 
       try {
@@ -282,27 +282,17 @@ const EditProfile = () => {
       }));
       return;
     }
-    setShowPopup(true);
+    console.log("Opening popup for phone verification...");
+    setShowPopup(true); // Open the popup
   };
 
-
   const handlePopupClose = () => {
-    setShowPopup(false);
+    console.log("Closing popup..."); // Debug log
+    setShowPopup(false); // Close the popup
     setOtpStep(false); // Reset OTP step
   };
 
 
-
-  const handleSmsIconClick = () => {
-    if (phoneRegex.test(formData.phoneNumber)) {
-      setOtpStep(true); // Show OTP section
-    } else {
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        phoneNumber: "Please enter a valid 10-digit phone number before proceeding.",
-      }));
-    }
-  };
   const handleOtpSubmitemail = () => {
     if (otp !== "1234") {
       setErrors((prevErrors) => ({
@@ -712,7 +702,7 @@ const EditProfile = () => {
                     <button
                       type="button"
                       className="profile-verify-btn"
-                      onClick={handleSmsIconClick}
+                      onClick={handlePopupOpen}
                     >
                       Verify
                     </button>
