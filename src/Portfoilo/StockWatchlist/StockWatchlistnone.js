@@ -684,7 +684,7 @@ const StockWatchlist = ({ children }) => {
             </button>
           </div>
 
-          <h2 style={{ marginLeft: "20px", fontSize: "19px" }}>
+          <h2 className="allh2">
             Add Watchlist
           </h2>
 
@@ -765,7 +765,7 @@ const StockWatchlist = ({ children }) => {
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/stockwatchlistall")}
+                onClick={() => navigate("/stockwatchlist")}
                 defaultChecked
                 style={{
                   width: "14px",

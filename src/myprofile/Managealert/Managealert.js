@@ -32,18 +32,21 @@ const Managealert = () => {
     },
   ];
   const handleSubscribe = (item) => {
-    setSubscribedItems((prevState) => ({
-      ...prevState,
-      [item]: !prevState[item], // Toggle the subscription state
-    }));
-
-    // Set a timeout for handling notifications (e.g., hide notification after 4 seconds)
-    setTimeout(() => {
-      // Optional: You can clear the notification after 4 seconds
-      handleNotificationClose(item);
-    }, 6000);
+    setSubscribedItems((prevState) => {
+      const newState = { ...prevState, [item]: !prevState[item] };
+      
+      // Notification ke liye state update karna
+      setActiveNotification(item);
+  
+      // Set a timeout for hiding notification
+      setTimeout(() => {
+        setActiveNotification(null); // Sirf notification hide hoga, subscription state change nahi hogi
+      }, 6000);
+  
+      return newState;
+    });
   };
-
+  
   const handleNotificationClose = (item) => {
     setSubscribedItems((prevState) => {
       const newState = { ...prevState };
@@ -111,7 +114,7 @@ const Managealert = () => {
         You may unsubscribe from any Email/SMS alerts' category by clicking on
         the <br />
         respective links below. If you have any query, feel free to{" "}
-        <a href="/contactFormmanagealert" className="contact-link">
+        <a href="/contactUsnew" className="contact-link">
           contact us
         </a>
         .

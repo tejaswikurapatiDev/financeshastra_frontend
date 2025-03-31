@@ -60,6 +60,8 @@ const Navbar = () => {
   const [filterData, setFilterData] = useState([]);
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] =
     useState(false);
+    const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] =
+    useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
@@ -234,6 +236,8 @@ const Navbar = () => {
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
+   const footerLearnDropdownRef = useRef(null);
+   const footerportfolioDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
@@ -312,6 +316,18 @@ const Navbar = () => {
         !footerMutualFundsDropdownRef.current.contains(event.target)
       ) {
         setFooterMutualFundsDropdownOpen(false);
+      }
+      if (
+        footerportfolioDropdownRef.current &&
+        !footerportfolioDropdownRef.current.contains(event.target)
+      ) {
+        setFooterPortfolioDropdownOpen(false);
+      }
+      if (
+        footerLearnDropdownRef.current &&
+        !footerLearnDropdownRef.current.contains(event.target)
+      ) {
+        setFooterLearnDropdownOpen(false);
       }
       if (
         footerStockDropdownRef.current &&
@@ -395,6 +411,10 @@ const Navbar = () => {
   const togglelearnDropdown = () => {
     setLearnDropdownOpen(!learnDropdownOpen);
   };
+  const toggleFooterlearnDropdown = () => {
+   setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
+  };
+
 
   const renderStockDropdown = () => (
     <div className={darkMode ? "stockmenudarkerrrrmode" : "stockmenu"}>
@@ -867,7 +887,7 @@ const Navbar = () => {
 
             {/* Dropdown Content */}
             {isOpen && displayedNotifications?.length > 0 && (
-              <div className="dropdown-content">
+              <div className="dropdown-contentnoti">
                 {displayedNotifications.map((notif) => (
                   <div
                     key={notif.id}
@@ -986,7 +1006,7 @@ const Navbar = () => {
           </a>
           {footerStockDropdownOpen && renderStockDropdown()}
         </li>
-        <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
+        <li className="portfolio-dropdown" ref={footerportfolioDropdownRef}>
           <a
             href="#"
             onClick={toggleFooterPortfolioDropdown}
@@ -1018,13 +1038,19 @@ const Navbar = () => {
           </a>
           {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
         </li>
-        <li>
-          <a href="/learn" className="footer-link">
+        <li className="learn-dropdown" ref={footerLearnDropdownRef}>
+          <a
+            href="#"
+            onClick={toggleFooterlearnDropdown}
+            className="footer-link"
+          >
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />
               </i>
               <span>Learn</span>
+              <FaChevronDown className="chevron-icon" />
+              {footerLearnDropdownOpen && renderlearnDropdown()}
             </div>
           </a>
         </li>
