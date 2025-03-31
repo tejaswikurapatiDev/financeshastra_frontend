@@ -8,6 +8,7 @@ import { FaTimes } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config"; // Ensure API_BASE_URL is imported
 
 const EditProfile = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -65,13 +66,13 @@ const EditProfile = () => {
       income: "",
     });
   };
-  const profilePageSaveUpdate = () => {
+
+  const profilePageSaveUpdate = async () => {
     const requiredFields = [
       "firstName",
       "lastName",
       "dob",
       "email",
-      "address",
       "address",
       "phoneNumber",
       "state",
@@ -89,12 +90,30 @@ const EditProfile = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Form data saved:", formData);
-      setIsPopupVisible(true);
+      const url = `${API_BASE_URL}/userdetails/adduser`;
+
+      const options = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // Ensure `token` is available in context
+        },
+        body: JSON.stringify(formData),
+      };
+
+      try {
+        const response = await fetch(url, options);
+        console.log("Form data sent to API:", formData);
+        if (response.ok) {
+          setIsPopupVisible(true);
+        } else {
+          console.error("Failed to save user details:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error saving user details:", error);
+      }
     }
-
   };
-
 
   useEffect(() => {
     if (location.state && location.state.updatedData) {
