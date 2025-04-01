@@ -5,11 +5,6 @@ import isSubedReducer from './Slices/SubscriptionSlice'
 export const store = configureStore({
   reducer: {
     searchData: searchSearchDataReducer,
+    subscription: isSubedReducer
   },
 });
-
-export const subssore = configureStore({
-  reducer : {
-    subscription: isSubedReducer
-  }
-})
