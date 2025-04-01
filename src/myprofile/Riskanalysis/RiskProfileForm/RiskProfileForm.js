@@ -221,7 +221,11 @@ const RiskProfileForm = () => {
             const url= `${API_BASE_URL}/riskanalysis/qanda`
             const response= await fetch(url, options)
             console.log("response:", response)
-            if (response.ok){
+            
+            if (response.status === 400){
+                  alert('Please answer all fields')
+                  
+            }else if (response.ok){
                   alert('Form Submitted successfully');
                   navigate("/profileRiskReportInvestment");
                   window.scrollTo(0, 0); // Correct syntax
@@ -240,11 +244,14 @@ const RiskProfileForm = () => {
             const url= `${API_BASE_URL}/riskanalysis/updaterisk`
             const putresponse= await fetch(url, options)
             console.log("putresponse:", putresponse)
-            if (putresponse.ok) {
-                  alert("Form Submitted successfully");
+            if (putresponse.status === 400){
+                  alert('Please answer all fields')
+                  
+            }else if (putresponse.ok){
+                  alert('Form Submitted successfully');
                   navigate("/profileRiskReportInvestment");
-                  window.scrollTo(0, 0); 
-              }
+                  window.scrollTo(0, 0); // Correct syntax
+            }
               
             
             }

@@ -95,7 +95,7 @@ const UserDetailsupdate = () => {
       }
       
       const response= await fetch(url, options)
-      console.log(response)
+      console.log("response from userupdate:", response)
       if (response.ok=== true){
         const data= await response.json()
         const formatedDate= formatDate(data[0].dob)

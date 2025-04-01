@@ -72,11 +72,15 @@ const EditProfile = () => {
       "dob",
       "email",
       "address",
-      "address",
+      "gender",
+      "occupation",
+      "country",
       "phoneNumber",
       "state",
       "city",
       "pincode",
+      "income",
+      "industry"
     ];
     let validationErrors = {};
 
