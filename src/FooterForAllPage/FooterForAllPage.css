@@ -11,6 +11,7 @@
 .foooterpagesaupdate{
   margin-left: -10px;
 
+
 }
   
 .FooterForAllPage-top-section {
@@ -164,9 +165,7 @@
 
 /* Extra Large Screens (1536px and above) */
 @media (min-width: 1536px) {
-  .FooterForAllPage-footer {
-    width: 1536px;
-  }
+ 
 }
 
 /* Large Desktops (1280px - 1535px) */
