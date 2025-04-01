@@ -436,12 +436,12 @@ margin-left: 240px;
           margin-left: -10px;
       }
     
-    .profilepage-tabsorderusers{
-     overflow-x: scroll; /* Stack tabs vertically */
-      border-bottom: none; /* Remove unnecessary border */
-      margin-left: 10px;
-      margin-bottom: 15px; /* Adjust spacing */
-      width: 470px;
+      .profilepage-tabsorderusers {
+        overflow-x: scroll;
+        border-bottom: none;
+        margin-left: 10px;
+        margin-bottom: 15px;
+        width: 730px;
     }
     .profilepage-tabbbactive{
       display: flex;
@@ -550,5 +550,18 @@ margin-left: -10px;
     border-radius: 8px;
     width: 300px;
   }
+
+}
+
+ /* Medium Desktops (1024px - 1279px) */
+ @media (min-width: 1024px) and (max-width: 1279px) {
+  .profilepage-tabsorderusers {
+    text-align: center;
+    margin-left: 100px;
+}
+
+.profilepage-title {
+  margin-left: 100px;
+}
 
 }
