@@ -37,7 +37,8 @@ const VerificationPopup = ({
         <FaTimes className="close-icon" onClick={onClose} />
       </div>
       <p>
-        Enter the confirmation code sent to your {type}: <strong>{value}</strong>.
+        Enter the confirmation code sent to your {type}:{" "}
+        <strong>{value}</strong>.
       </p>
       <input
         type="text"
@@ -88,6 +89,7 @@ const EditProfile = () => {
 
   const [errors, setErrors] = useState({}); // For validation errors
   const [otpStep, setOtpStep] = useState(false); // Define otpStep and setOtpStep
+  const [isMobileVerified, setIsMobileVerified] = useState(false); // Track mobile verification status
 
   const navigate = useNavigate();
 
@@ -137,6 +139,14 @@ const EditProfile = () => {
     if (Object.keys(validationErrors).length === 0) {
       const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
 
+      // Retrieve the token from cookies
+      const token = Cookies.get("jwtToken");
+      if (!token) {
+        console.error("Token is missing. Ensure the user is logged in.");
+        alert("Authentication token is missing. Please log in again.");
+        return;
+      }
+
       const options = {
         method: "PUT",
         headers: {
@@ -148,14 +158,23 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
+        console.log("🚀 ~ profilePageSaveUpdate ~ API Response:", response);
+
         if (response.ok) {
+          console.log("User details updated successfully.");
           setIsPopupVisible(true);
         } else {
-          console.error("Failed to save user details:", response.statusText);
+          console.error(
+            "Failed to save user details. Status:",
+            response.status,
+            "Message:",
+            response.statusText
+          );
+          alert("Failed to save user details. Please try again.");
         }
       } catch (error) {
         console.error("Error saving user details:", error);
+        alert("An error occurred while saving user details. Please try again.");
       }
     }
   };
@@ -187,6 +206,42 @@ const EditProfile = () => {
     });
 
     return () => unsubscribe(); // Cleanup the listener
+  }, []);
+
+  useEffect(() => {
+    // Fetch user details and check if mobile is verified
+    const fetchUserDetails = async () => {
+      try {
+        const token = Cookies.get("jwtToken");
+        if (!token) {
+          console.error("Token is missing. Ensure the user is logged in.");
+          return;
+        }
+
+        const response = await fetch(`${API_BASE_URL}/userdetails`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("User details fetched:", data);
+          setIsMobileVerified(data.isMobileVerified === 1); // Update mobile verification status
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            phoneNumber: data.phone_number || prevFormData.phoneNumber, // Retain existing value if phone_number is missing
+          }));
+        } else {
+          console.error("Failed to fetch user details:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
   }, []);
 
   const closePopup = () => {
@@ -946,12 +1001,11 @@ const EditProfile = () => {
                     onBlur={(e) => validatePhoneNumber(e.target.value)}
                     placeholder="Enter 10-digit phone number"
                     className="profile-phone-input"
-                    disabled={isVerified} // Disable if verified
+                    disabled={isMobileVerified} // Disable if verified
                   />
-                  {isVerified ? (
+                  {isMobileVerified ? (
                     <button className="profile-verify-btn verified">
                       <span>Verified</span>
-                      <FaRegEdit className="change-icon" />
                     </button>
                   ) : (
                     <button
