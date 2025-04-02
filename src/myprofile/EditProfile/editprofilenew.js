@@ -33,9 +33,7 @@ const VerificationPopup = ({
   return (
     <div className="verification-popup">
       <div className="popup-header">
-        <h3>
-          {type === "email" ? "Email Verification" : "Mobile Verification"}
-        </h3>
+        <h3>Account Verification</h3>
         <FaTimes className="close-icon" onClick={onClose} />
       </div>
       <p>
@@ -91,6 +89,7 @@ const EditProfile = () => {
 
   const [errors, setErrors] = useState({}); // For validation errors
   const [otpStep, setOtpStep] = useState(false); // Define otpStep and setOtpStep
+  const [isMobileVerified, setIsMobileVerified] = useState(false); // Track mobile verification status
 
   const navigate = useNavigate();
 
@@ -140,6 +139,14 @@ const EditProfile = () => {
     if (Object.keys(validationErrors).length === 0) {
       const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
 
+      // Retrieve the token from cookies
+      const token = Cookies.get("jwtToken");
+      if (!token) {
+        console.error("Token is missing. Ensure the user is logged in.");
+        alert("Authentication token is missing. Please log in again.");
+        return;
+      }
+
       const options = {
         method: "PUT",
         headers: {
@@ -151,14 +158,23 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
+        console.log("🚀 ~ profilePageSaveUpdate ~ API Response:", response);
+
         if (response.ok) {
+          console.log("User details updated successfully.");
           setIsPopupVisible(true);
         } else {
-          console.error("Failed to save user details:", response.statusText);
+          console.error(
+            "Failed to save user details. Status:",
+            response.status,
+            "Message:",
+            response.statusText
+          );
+          alert("Failed to save user details. Please try again.");
         }
       } catch (error) {
         console.error("Error saving user details:", error);
+        alert("An error occurred while saving user details. Please try again.");
       }
     }
   };
@@ -190,6 +206,42 @@ const EditProfile = () => {
     });
 
     return () => unsubscribe(); // Cleanup the listener
+  }, []);
+
+  useEffect(() => {
+    // Fetch user details and check if mobile is verified
+    const fetchUserDetails = async () => {
+      try {
+        const token = Cookies.get("jwtToken");
+        if (!token) {
+          console.error("Token is missing. Ensure the user is logged in.");
+          return;
+        }
+
+        const response = await fetch(`${API_BASE_URL}/userdetails`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          console.log("User details fetched:", data);
+          setIsMobileVerified(data.isMobileVerified === 1); // Update mobile verification status
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            phoneNumber: data.phone_number || prevFormData.phoneNumber, // Retain existing value if phone_number is missing
+          }));
+        } else {
+          console.error("Failed to fetch user details:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
   }, []);
 
   const closePopup = () => {
@@ -414,6 +466,10 @@ const EditProfile = () => {
         }
       } else if (verificationType === "mobile") {
         console.log("Verifying mobile OTP...");
+        console.log(
+          "🚀 ~ handleOtpSubmit ~ phoneNumber:",
+          formData.phoneNumber
+        ); // Debug log
         // Call the API to verify the mobile OTP
         const response = await fetch(`${API_BASE_URL}/otp/verify`, {
           method: "POST",
@@ -421,7 +477,7 @@ const EditProfile = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            phoneNumber: `+91${formData.phoneNumber}`,
+            phoneNumber: `${formData.phoneNumber}`, // Ensure phoneNumber is included
             otp,
           }),
         });
@@ -430,9 +486,13 @@ const EditProfile = () => {
           console.log("Mobile OTP verified successfully.");
           setIsVerified(true);
           setShowVerificationPopup(false);
+          alert("Mobile OTP verified successfully.");
         } else {
           console.error("Failed to verify mobile OTP.");
           setIsOtpValid(false);
+          if (response.status === 404) {
+            alert("User not found!");
+          }
         }
       }
     } catch (error) {
@@ -933,28 +993,28 @@ const EditProfile = () => {
               >
                 <label className="phonenulabel">Phone Number*</label>
                 <div className="profile-phone-container">
-                  <div>
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handlemobileChange}
-                      onBlur={(e) => validatePhoneNumber(e.target.value)}
-                      placeholder="Enter 10-digit phone number"
-                      className="profile-phone-input"
-                      disabled={isVerified} // Disable if verified
-                    />
-                    {isVerified ? (
-                      <span style={{ color: "#24b676" }}>Verified</span>
-                    ) : (
-                      <button
-                        className="profilepage-verify-btn"
-                        onClick={() => handleVerificationClick("mobile")}
-                      >
-                        Verify
-                      </button>
-                    )}
-                  </div>
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handlemobileChange}
+                    onBlur={(e) => validatePhoneNumber(e.target.value)}
+                    placeholder="Enter 10-digit phone number"
+                    className="profile-phone-input"
+                    disabled={isMobileVerified} // Disable if verified
+                  />
+                  {isMobileVerified ? (
+                    <button className="profile-verify-btn verified">
+                      <span>Verified</span>
+                    </button>
+                  ) : (
+                    <button
+                      className="profilepage-verify-btn"
+                      onClick={() => handleVerificationClick("mobile")}
+                    >
+                      Verify
+                    </button>
+                  )}
                 </div>
                 {errors.phoneNumber && (
                   <span className="error-text">{errors.phoneNumber}</span>

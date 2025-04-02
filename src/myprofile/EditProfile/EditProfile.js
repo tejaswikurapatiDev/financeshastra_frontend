@@ -91,6 +91,8 @@ const EditProfile = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
+      const token = Cookies.get("jwtToken");
+      console.log("🚀 ~ profilePageSaveUpdate ~ token:", token)
 
       const options = {
         method: "PUT",
@@ -103,7 +105,6 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
         if (response.ok) {
           setIsPopupVisible(true);
         } else {
