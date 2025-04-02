@@ -202,5 +202,8 @@
       width: 40%;
       padding: 12px;
     }
+    .billingSubscriptionPlanButton {
+      margin-top: 25px;
+  }
   }
   
