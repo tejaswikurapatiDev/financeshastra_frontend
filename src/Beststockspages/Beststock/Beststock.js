@@ -94,7 +94,6 @@ const Beststock = () => {
   useEffect(() => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/nifty100`;
-      console.log("url:", url);
       const response = await fetch(url);
       if (response.ok === true) {
         const data = await response.json();
@@ -120,7 +119,7 @@ const Beststock = () => {
     };
     fetchfun();
   }, []);
-  console.log(stocks)
+  console.log(stocks[0].icon)
 
   // Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
@@ -2325,7 +2324,7 @@ const Beststock = () => {
                       alt={`${stock.symbol} logo`}
                       className="company-icon"
                     />
-
+                      {console.log(stock.icon)}
                     <a href={stock.url}>{stock.symbol}</a>
                   </td>
 

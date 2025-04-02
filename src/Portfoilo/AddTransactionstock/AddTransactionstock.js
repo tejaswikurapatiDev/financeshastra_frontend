@@ -16,6 +16,7 @@ const AddTransactionstock = ({children}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const stocksData = useSelector((store) => store?.searchData?.searchData);
+  
 
   const { setStocksTransactions } = useContext(PortfolioStocksContext);
 
@@ -35,7 +36,7 @@ const AddTransactionstock = ({children}) => {
 
       getAllData();
     }
-  }, [dispatch, stocksData]);
+  }, [dispatch]);
 
   // Access the transaction to be edited, if passed via state
   const transaction = location.state?.transaction;
