@@ -225,13 +225,20 @@ const EditProfile = () => {
           },
         });
 
+        console.log("🚀 ~ fetchUserDetails ~ response:", response);
         if (response.ok) {
           const data = await response.json();
-          console.log("User details fetched:", data);
-          setIsMobileVerified(data.isMobileVerified === 1); // Update mobile verification status
+          console.log("User details fetched:", data); // Debugging: Log the entire response
+
+          // Check if isMobileVerified exists in the response
+          setIsMobileVerified(
+            data[0].isMobileVerified === 1 || data[0].isMobileVerified === true
+          );
+
+          // Update formData with phone number if it exists
           setFormData((prevFormData) => ({
             ...prevFormData,
-            phoneNumber: data.phone_number || prevFormData.phoneNumber, // Retain existing value if phone_number is missing
+            phoneNumber: data.phone_number || prevFormData.phoneNumber,
           }));
         } else {
           console.error("Failed to fetch user details:", response.statusText);
