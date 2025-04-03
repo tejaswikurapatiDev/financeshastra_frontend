@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../config.js";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage.js";
+import AccountBar from "../AccountBar.js";
 
 const SessionHistory = () => {
   const navigate = useNavigate();
@@ -101,61 +102,7 @@ const SessionHistory = () => {
     <div>
     <div className="session-history">
       <h1 className="profilepage-titlesession">My Account</h1>
-      <div className="profilepage-tabsorderuserss">
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/userDetailsupdate")}
-        >
-          My Account
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
-        >
-          Orders
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/billingSubscriptionPages")}
-        >
-          Billing & Subscription
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/riskAnalysisDashboard")}
-        >
-          Risk Profile Report
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/managealert")}
-        >
-          Manage Alert
-        </span>
-
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/accountSettings")}
-        >
-          Password & Security
-        </span>
-        <span
-          className="profilepage-tabb"
-          style={{
-            borderBottom: "2px solid #24b676",
-            fontWeight: "bold",
-            color: "#24b676",
-          }}
-        >
-          Active Devices
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/myReferalPage")}
-        >
-          My referrals
-        </span>
-      </div>
+      <AccountBar/>
 
       <h2>Session History</h2>
       <p>

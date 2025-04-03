@@ -102,7 +102,7 @@ function Register() {
         alert(data.message);
         navigate("/");
       }else if(response.status === 400){
-        setEmailError("User already Exists, Please Login")
+        setEmailError("*User already Exists, Please Login.")
       }
        else {
         alert(data.message);

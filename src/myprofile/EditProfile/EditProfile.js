@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config"; // Ensure API_BASE_URL is imported
+import { API_BASE_URL } from "../../config"; // Ensure API_BASE_URL is imported
 
 const EditProfile = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -66,6 +67,8 @@ const EditProfile = () => {
       income: "",
     });
   };
+
+  const profilePageSaveUpdate = async () => {
 
   const profilePageSaveUpdate = async () => {
     const requiredFields = [
@@ -290,9 +293,13 @@ const EditProfile = () => {
     }
     console.log("Opening popup for phone verification...");
     setShowPopup(true); // Open the popup
+    console.log("Opening popup for phone verification...");
+    setShowPopup(true); // Open the popup
   };
 
   const handlePopupClose = () => {
+    console.log("Closing popup..."); // Debug log
+    setShowPopup(false); // Close the popup
     console.log("Closing popup..."); // Debug log
     setShowPopup(false); // Close the popup
     setOtpStep(false); // Reset OTP step
@@ -708,6 +715,7 @@ const EditProfile = () => {
                     <button
                       type="button"
                       className="profile-verify-btn"
+                      onClick={handlePopupOpen}
                       onClick={handlePopupOpen}
                     >
                       Verify
