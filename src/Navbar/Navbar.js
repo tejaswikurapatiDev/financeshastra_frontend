@@ -97,8 +97,6 @@ const Navbar = () => {
       setisSubed(false);
     }
     if (user) {
-      console.log("user:", user);
-      console.log('email: ', userEmail)
       setUsername(user);
       //setIsLogedin(true)
     }
@@ -122,7 +120,6 @@ const Navbar = () => {
   useEffect(() => {
     // Fetch username from localStorage when the component mounts
     const storedUsername = localStorage.getItem("username");
-    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername)
     if (storedUsername) {
       setUsername(storedUsername);
     }

@@ -99,9 +99,7 @@ function Login() {
       };
 
       const response = await fetch(url, options);
-      console.log("🚀 ~ handleSubmit ~ response:", response);
       const data = await response.json();
-      console.log("login data:", data);
 
       /*if (!response.ok) {
         throw new Error(data.message || "Login Failed");
@@ -182,7 +180,6 @@ function Login() {
   };
 
   const handleSuccess = async (response) => {
-    console.log("Google Login Success:", response);
     const token = response.credential; // Extract token from Google response
 
     if (!token) {
@@ -198,7 +195,6 @@ function Login() {
       });
 
       const data = await res.json();
-      console.log("Backend Response:", data);
 
       if (res.ok) {
         // Store JWT token in cookies
@@ -210,7 +206,6 @@ function Login() {
 
         // Store user details in local storage for quick access
 
-        console.log(data.message); // Log success message from backend
         navigate("/home");
       } else {
         console.error("Authentication failed:", data.error);
@@ -399,28 +394,26 @@ function Login() {
                         : ""
                     }
                     // Ensure space for the icon
-                  />{
-                    password && <span
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{
-                      cursor: "pointer",
-                      position: "absolute",
-                      right: "28px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    {
-                    showPassword ? (
-                      <FaEyeSlash size={20} />
-                      
-                    ) : (
-                      <FaEye size={20} />
-                    )}
-                  </span>
-                  }
-                  
+                  />
+                  {password && (
+                    <span
+                      className="toggle-password"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        right: "28px",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                      }}
+                    >
+                      {showPassword ? (
+                        <FaEyeSlash size={20} />
+                      ) : (
+                        <FaEye size={20} />
+                      )}
+                    </span>
+                  )}
                 </div>
                 {passwordError && (
                   <span

@@ -1,5 +1,5 @@
-// src/firebase/firebaseConfig.js
 import { initializeApp } from "firebase/app";
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,4 +11,16 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Set session persistence to maintain the user's session across reloads
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Session persistence set to browserLocalPersistence.");
+  })
+  .catch((error) => {
+    console.error("Error setting session persistence:", error);
+  });
+
+export { auth };
 export default app;

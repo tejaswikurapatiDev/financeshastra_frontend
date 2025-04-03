@@ -186,7 +186,7 @@ const RiskProfileForm = () => {
       const handleSubmit = async (e) => {
            
             e.preventDefault(); // Prevent the default form submission behavior
-            navigate("/profileRiskReportInvestment");
+            //navigate("/profileRiskReportInvestment");
             window.scrollTo(0, 0); // Correct syntax
 
             const filteredData = Object.keys(formData)
@@ -223,11 +223,11 @@ const RiskProfileForm = () => {
             console.log("response:", response)
             
             if (response.status === 400){
-                  alert('Please answer all fields')
+                  return alert('Please answer all fields')
                   
-            }else if (response.ok){
+            }else if (response.status === 200){
                   alert('Form Submitted successfully');
-                  navigate("/profileRiskReportInvestment");
+                  //navigate("/profileRiskReportInvestment");
                   window.scrollTo(0, 0); // Correct syntax
             }
             
@@ -245,11 +245,11 @@ const RiskProfileForm = () => {
             const putresponse= await fetch(url, options)
             console.log("putresponse:", putresponse)
             if (putresponse.status === 400){
-                  alert('Please answer all fields')
+                  return alert('Please answer all fields')
                   
-            }else if (putresponse.ok){
+            }else if (putresponse.status=== 200){
                   alert('Form Submitted successfully');
-                  navigate("/profileRiskReportInvestment");
+                  //navigate("/profileRiskReportInvestment");
                   window.scrollTo(0, 0); // Correct syntax
             }
               
