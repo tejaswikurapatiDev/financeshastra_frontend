@@ -12,6 +12,43 @@ const Billingavailableplan = () => {
     const navigate = useNavigate();
     return (
         <div>
+             <div className="profilepagee-container">
+
+<h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
+    My Billing & Subscription
+</h1>
+<div className="profilepage-tabsorderusers" >
+    <span className="profilepage-tabb" onClick={() => navigate("/userDetailsupdate")}
+    >My Account</span>
+    <span
+        className="profilepage-tabb"
+        onClick={() => navigate("/orderTable")}
+    >
+        Orders
+    </span>
+    <span className="profilepage-tabb" style={{
+        borderBottom: "2px solid #24b676",
+        fontWeight: "bold",
+        color: "#24b676",
+    }} onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
+    <span className="profilepage-tabb" onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+    <span
+        className="profilepage-tabb"
+        onClick={() => navigate("/managealert")}
+    >
+        Manage Alert
+    </span>
+
+    <span
+        className="profilepage-tabb"
+        onClick={() => navigate("/accountSettings")}
+    >
+        Password & Security
+    </span>
+    <span className="profilepage-tabb" onClick={() => navigate('/sessionHistory')}>Active Devices</span>
+    <span className="profilepage-tabb" onClick={() => navigate('/myReferalPage')}>My referrals</span>
+</div>
+
             <div className="">
 
                
@@ -132,9 +169,12 @@ const Billingavailableplan = () => {
                 
 
             </div>
-            
+            <Navbar/>
         </div>
-
+         <div className="foooterpagesaupdate">
+                        <FooterForAllPage/>
+                    </div>
+</div>
     );
 };
 

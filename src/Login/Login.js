@@ -399,28 +399,26 @@ function Login() {
                         : ""
                     }
                     // Ensure space for the icon
-                  />{
-                    password && <span
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{
-                      cursor: "pointer",
-                      position: "absolute",
-                      right: "28px",
-                      top: "50%",
-                      transform: "translateY(-50%)",
-                    }}
-                  >
-                    {
-                    showPassword ? (
-                      <FaEyeSlash size={20} />
-                      
-                    ) : (
-                      <FaEye size={20} />
-                    )}
-                  </span>
-                  }
-                  
+                  />
+                  {password && (
+                    <span
+                      className="toggle-password"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{
+                        cursor: "pointer",
+                        position: "absolute",
+                        right: "28px",
+                        top: "50%",
+                        transform: "translateY(-50%)",
+                      }}
+                    >
+                      {showPassword ? (
+                        <FaEyeSlash size={20} />
+                      ) : (
+                        <FaEye size={20} />
+                      )}
+                    </span>
+                  )}
                 </div>
                 {passwordError && (
                   <span

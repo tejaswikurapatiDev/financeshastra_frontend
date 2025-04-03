@@ -43,11 +43,13 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
+import useSubscriptionStatus from "./Hooks/useSubscriptionStatus";
 
 const Navbar = () => {
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-  const {userEmail}= useContext(UserProfileContext);
+  const { userEmail } = useContext(UserProfileContext);
   const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -60,8 +62,7 @@ const Navbar = () => {
   const [filterData, setFilterData] = useState([]);
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] =
     useState(false);
-    const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] =
-    useState(false);
+  const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] = useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
@@ -98,7 +99,7 @@ const Navbar = () => {
     }
     if (user) {
       console.log("user:", user);
-      console.log('email: ', userEmail)
+      console.log("email: ", userEmail);
       setUsername(user);
       //setIsLogedin(true)
     }
@@ -122,7 +123,7 @@ const Navbar = () => {
   useEffect(() => {
     // Fetch username from localStorage when the component mounts
     const storedUsername = localStorage.getItem("username");
-    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername)
+    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername);
     if (storedUsername) {
       setUsername(storedUsername);
     }
@@ -236,8 +237,8 @@ const Navbar = () => {
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
-   const footerLearnDropdownRef = useRef(null);
-   const footerportfolioDropdownRef = useRef(null);
+  const footerLearnDropdownRef = useRef(null);
+  const footerportfolioDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
@@ -412,9 +413,8 @@ const Navbar = () => {
     setLearnDropdownOpen(!learnDropdownOpen);
   };
   const toggleFooterlearnDropdown = () => {
-   setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
+    setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
   };
-
 
   const renderStockDropdown = () => (
     <div className={darkMode ? "stockmenudarkerrrrmode" : "stockmenu"}>
@@ -864,7 +864,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        {!isSubed && (
+        {!isLoading && !isSubscribed && (
           <h4
             className="subscritebutton"
             onClick={() => navigate("/pricehalf")}

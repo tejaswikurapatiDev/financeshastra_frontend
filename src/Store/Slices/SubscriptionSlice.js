@@ -6,11 +6,11 @@ const SubscriptioSlic = createSlice({
         subscription: false,
     },
     reducers: {
-      setisSubed: (state, action) => {
-        state.subscription = true;
+      setSubscriptionStatus: (state, action) => {
+        state.subscription = action.payload;
       },
     },
   });
   
-  export const { setisSubed } = SubscriptioSlic.actions;
+  export const { setSubscriptionStatus } = SubscriptioSlic.actions;
   export default SubscriptioSlic.reducer;
