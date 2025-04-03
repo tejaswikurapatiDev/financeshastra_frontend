@@ -8,6 +8,13 @@ import { API_BASE_URL } from "../../config.js";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage.js";
 import AccountBar from "../AccountBar.js";
 
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
 const SessionHistory = () => {
   const navigate = useNavigate();
   const [devices, setDevices] = useState([]);
@@ -96,7 +103,17 @@ const SessionHistory = () => {
     });
   };
 
-  if (loading) return <h1>Loading..</h1>;
+  if (loading) {
+    return (
+  <div className='loader-cont'><ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={loading}
+        speedMultiplier={1}
+        color="green"
+      /></div>)
+    }
 
   return (
     <div>

@@ -182,21 +182,6 @@ const BillingInfoHistory = () => {
     navigate(`/invoicePage?plan=${encodeURIComponent(plan.name)}&purchasedate=${encodeURIComponent(plan.purchasedate)}&amount=${encodeURIComponent(plan.amount)}`);
   };
  
-  const [billingInfo, setBillingInfo] = useState({
-    name: "Deepak Shinde",
-    address: "House no. 6, Mantri Lavendula, Mulshi Rd, Beside Barbacco, Pranjali Patil Nagar, Bavdhan.",
-    city: "Pune",
-    state: "Maharashtra",
-    country: "India",
-  });
-
-  const handleNavigation = () => {
-    navigate("/editProfile", { state: { billingInfo } });
-  const handleViewInvoice = (plan) => {
-    window.scrollTo(0, 0); 
-    navigate(`/invoicePage?plan=${encodeURIComponent(plan.name)}&purchasedate=${encodeURIComponent(plan.purchasedate)}&amount=${encodeURIComponent(plan.amount)}`);
-  };
- 
   
 
   return (
@@ -251,56 +236,6 @@ const BillingInfoHistory = () => {
 </div>
 </div>
 
-      <div className="billinginfohistory-history">
-        <h2 className="billinginfohistory-historyh2">Billing History</h2>
-        <div className="billinginfohistory-history-scroll">
-        <table className="billinginfohistory-historytable">
-        <thead>
-          <tr>
-            <th>Plan Name</th>
-            <th>Amount</th>
-            <th>Purchase Date</th>
-            <th>End Date</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            { name: "Premium plan - Half yearly", amount: "₹5,999/-", purchase: "18-10-2024", end: "18-04-2025", status: "Processing", statusClass: "processing" },
-            { name: "Elite plan - Annually", amount: "₹2,999/-", purchase: "01-10-2023", end: "01-10-2024", status: "Success", statusClass: "success" },
-            { name: "Elite plan - Half yearly", amount: "₹2,000/-", purchase: "15-02-2023", end: "15-08-2023", status: "Success", statusClass: "success" },
-            { name: "Premium plan - Annually", amount: "₹7,999/-", purchase: "10-02-2022", end: "10-02-2023", status: "Success", statusClass: "success" },
-            { name: "Elite plan - Half yearly", amount: "₹2,000/-", purchase: "20-07-2021", end: "20-01-2023", status: "Success", statusClass: "success" },
-          ].map((plan, index) => (
-            <tr key={index}>
-              <td>{plan.name}</td>
-              <td>{plan.amount}</td>
-              <td>{plan.purchase}</td>
-              <td>{plan.end}</td>
-              <td className={`billinginfohistory-${plan.statusClass}`}>
-                <span className={`status-icon ${plan.statusClass}`}>●</span> {plan.status}
-              </td>
-              <td>
-                <button className="billinginfohistory-download" onClick={() => handleDownload(plan.name)}>
-                  <HiOutlineDownload />
-                </button>
-                <button className="billinginfohistory-view" onClick={() => handleViewInvoice(plan)}>
-      <MdOutlineRemoveRedEye />
-    </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      </div>
-      </div>
-    </div>
-    <Navbar/>
-    </div>
-    <div className="foooterpagesaupdate">
-                <FooterForAllPage/>
-            </div>
 <div className="billinginfohistory-history">
 <h2 className="billinginfohistory-historyh2">Billing History</h2>
 <div className="billinginfohistory-history-scroll">
