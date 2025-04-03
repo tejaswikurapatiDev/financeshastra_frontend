@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config"; // Ensure API_BASE_URL is imported
+import { API_BASE_URL } from "../../config"; // Ensure API_BASE_URL is imported
 
 const EditProfile = () => {
   const [personalDetails, setPersonalDetails] = useState({});
@@ -68,16 +69,23 @@ const EditProfile = () => {
   };
 
   const profilePageSaveUpdate = async () => {
+
+  const profilePageSaveUpdate = async () => {
     const requiredFields = [
       "firstName",
       "lastName",
       "dob",
       "email",
       "address",
+      "gender",
+      "occupation",
+      "country",
       "phoneNumber",
       "state",
       "city",
       "pincode",
+      "income",
+      "industry"
     ];
     let validationErrors = {};
 
@@ -91,6 +99,8 @@ const EditProfile = () => {
 
     if (Object.keys(validationErrors).length === 0) {
       const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
+      const token = Cookies.get("jwtToken");
+      console.log("🚀 ~ profilePageSaveUpdate ~ token:", token)
 
       const options = {
         method: "PUT",
@@ -103,7 +113,6 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
         if (response.ok) {
           setIsPopupVisible(true);
         } else {
@@ -284,9 +293,13 @@ const EditProfile = () => {
     }
     console.log("Opening popup for phone verification...");
     setShowPopup(true); // Open the popup
+    console.log("Opening popup for phone verification...");
+    setShowPopup(true); // Open the popup
   };
 
   const handlePopupClose = () => {
+    console.log("Closing popup..."); // Debug log
+    setShowPopup(false); // Close the popup
     console.log("Closing popup..."); // Debug log
     setShowPopup(false); // Close the popup
     setOtpStep(false); // Reset OTP step
@@ -702,6 +715,7 @@ const EditProfile = () => {
                     <button
                       type="button"
                       className="profile-verify-btn"
+                      onClick={handlePopupOpen}
                       onClick={handlePopupOpen}
                     >
                       Verify

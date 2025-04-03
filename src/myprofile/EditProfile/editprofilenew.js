@@ -33,11 +33,14 @@ const VerificationPopup = ({
   return (
     <div className="verification-popup">
       <div className="popup-header">
-        <h3>Account Verification</h3>
+        <h3>
+          {type === "email" ? "Email Verification" : "Mobile Verification"}
+        </h3>
         <FaTimes className="close-icon" onClick={onClose} />
       </div>
       <p>
-        Enter the confirmation code sent to your {type}: <strong>{value}</strong>.
+        Enter the confirmation code sent to your {type}:{" "}
+        <strong>{value}</strong>.
       </p>
       <input
         type="text"
@@ -411,10 +414,6 @@ const EditProfile = () => {
         }
       } else if (verificationType === "mobile") {
         console.log("Verifying mobile OTP...");
-        console.log(
-          "🚀 ~ handleOtpSubmit ~ phoneNumber:",
-          formData.phoneNumber
-        ); // Debug log
         // Call the API to verify the mobile OTP
         const response = await fetch(`${API_BASE_URL}/otp/verify`, {
           method: "POST",
@@ -422,7 +421,7 @@ const EditProfile = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            phoneNumber: `${formData.phoneNumber}`, // Ensure phoneNumber is included
+            phoneNumber: `+91${formData.phoneNumber}`,
             otp,
           }),
         });
@@ -431,13 +430,9 @@ const EditProfile = () => {
           console.log("Mobile OTP verified successfully.");
           setIsVerified(true);
           setShowVerificationPopup(false);
-          alert("Mobile OTP verified successfully.");
         } else {
           console.error("Failed to verify mobile OTP.");
           setIsOtpValid(false);
-          if (response.status === 404) {
-            alert("User not found!");
-          }
         }
       }
     } catch (error) {
@@ -938,29 +933,28 @@ const EditProfile = () => {
               >
                 <label className="phonenulabel">Phone Number*</label>
                 <div className="profile-phone-container">
-                  <input
-                    type="tel"
-                    name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handlemobileChange}
-                    onBlur={(e) => validatePhoneNumber(e.target.value)}
-                    placeholder="Enter 10-digit phone number"
-                    className="profile-phone-input"
-                    disabled={isVerified} // Disable if verified
-                  />
-                  {isVerified ? (
-                    <button className="profile-verify-btn verified">
-                      <span>Verified</span>
-                      <FaRegEdit className="change-icon" />
-                    </button>
-                  ) : (
-                    <button
-                      className="profilepage-verify-btn"
-                      onClick={() => handleVerificationClick("mobile")}
-                    >
-                      Verify
-                    </button>
-                  )}
+                  <div>
+                    <input
+                      type="tel"
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
+                      onChange={handlemobileChange}
+                      onBlur={(e) => validatePhoneNumber(e.target.value)}
+                      placeholder="Enter 10-digit phone number"
+                      className="profile-phone-input"
+                      disabled={isVerified} // Disable if verified
+                    />
+                    {isVerified ? (
+                      <span style={{ color: "#24b676" }}>Verified</span>
+                    ) : (
+                      <button
+                        className="profilepage-verify-btn"
+                        onClick={() => handleVerificationClick("mobile")}
+                      >
+                        Verify
+                      </button>
+                    )}
+                  </div>
                 </div>
                 {errors.phoneNumber && (
                   <span className="error-text">{errors.phoneNumber}</span>
