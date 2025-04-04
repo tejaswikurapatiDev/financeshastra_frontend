@@ -19,7 +19,7 @@ function Portfolio() {
   } = useContext(PortfolioDashboardContext) || {};
 
   return (
-    <div>
+    <div className="portfolioCont">
     <div className="networth-stocks-dashboard">
       {/* Header Section */}
       <h2 className="newwmutualmanagement">Portfolio Management Dashboard</h2>

@@ -50,6 +50,7 @@
       justify-content: space-between;
       padding: 10px 20px; /* Reduce padding */
       flex-wrap: wrap;
+      width: 100%;
     }
     
     .FooterForAllPage-logo-social {
