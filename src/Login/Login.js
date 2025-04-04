@@ -106,12 +106,13 @@ function Login() {
       /*if (!response.ok) {
         throw new Error(data.message || "Login Failed");
       }*/
-      const { jwtToken, username } = data;
+      const { jwtToken, username, deviceId } = data;
 
       if (response.ok === true) {
         alert("You are logedin seccessfully!");
         // ✅ Store in Local Storage
         localStorage.setItem("username", username);
+        localStorage.setItem("deviceId",deviceId);
         Cookies.set("jwtToken", jwtToken, {
           expires: 7,
           sameSite: "Strict",
