@@ -91,6 +91,7 @@ const EditProfile = () => {
 
   const [errors, setErrors] = useState({}); // For validation errors
   const [otpStep, setOtpStep] = useState(false); // Define otpStep and setOtpStep
+  const [isMobileVerified, setIsMobileVerified] = useState(false); // Add this state
 
   const navigate = useNavigate();
 
