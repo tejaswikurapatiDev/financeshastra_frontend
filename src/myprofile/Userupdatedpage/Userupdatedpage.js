@@ -36,7 +36,6 @@ const UserDetailsupdate = () => {
     email: "",
     gender: "-",
     dob: "-",
-    ageGroup: "25 - 35",
     country: "India",
    
     state: "-",
@@ -116,8 +115,7 @@ const UserDetailsupdate = () => {
             email: email,
             gender: data[0].gender,
             dob: formatedDate,
-            ageGroup: data[0].age_group,
-            country: data[0].country,
+            country: "India",
             state: data[0].state,
             city: data[0].city,
             address: data[0].address,
