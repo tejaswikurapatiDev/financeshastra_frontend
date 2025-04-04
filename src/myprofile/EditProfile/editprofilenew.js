@@ -90,6 +90,7 @@ const EditProfile = () => {
 
   const [errors, setErrors] = useState({}); // For validation errors
   const [otpStep, setOtpStep] = useState(false); // Define otpStep and setOtpStep
+  const [isMobileVerified, setIsMobileVerified] = useState(false); // Add this state
 
   const navigate = useNavigate();
 
@@ -196,6 +197,49 @@ const EditProfile = () => {
     });
 
     return () => unsubscribe(); // Cleanup the listener
+  }, []);
+
+  useEffect(() => {
+    // Fetch user details and check if mobile is verified
+    const fetchUserDetails = async () => {
+      try {
+        const token = Cookies.get("jwtToken");
+        if (!token) {
+          console.error("Token is missing. Ensure the user is logged in.");
+          return;
+        }
+
+        const response = await fetch(`${API_BASE_URL}/userdetails`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        console.log("🚀 ~ fetchUserDetails ~ response:", response);
+        if (response.ok) {
+          const data = await response.json();
+          console.log("User details fetched:", data); // Debugging: Log the entire response
+
+          // Check if isMobileVerified exists in the response
+          setIsMobileVerified(
+            data[0].isMobileVerified === 1 || data[0].isMobileVerified === true
+          );
+
+          // Update formData with phone number if it exists
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            phoneNumber: data.phone_number || prevFormData.phoneNumber,
+          }));
+        } else {
+          console.error("Failed to fetch user details:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching user details:", error);
+      }
+    };
+
+    fetchUserDetails();
   }, []);
 
   const closePopup = () => {
