@@ -16,13 +16,14 @@
   /* Popup container */
   .popupunlocklandingpage {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     text-align: center;
     width: 500px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     font-family: 'calibri';
+    height: 60%;
   }
   
   /* Close button */
@@ -58,8 +59,7 @@
   
   /* Image */
   .popupunlocklandingpage-image {
-    width: 170px;
-    margin: 15px 0;
+    width: 140px;
     font-family: 'calibri';
   }
   
@@ -72,7 +72,7 @@
     -webkit-text-fill-color: transparent;
     margin-bottom: 10px;
     font-family: 'calibri';
-    margin-top: -10px;
+    margin-top: -5px;
   }
   
   /* List styling */
@@ -89,13 +89,13 @@
   /* Checkbox style */
   .popupunlocklandingpage-checkbox {
     display: inline-block;
-    width: 15px;
-    height: 15px;
+    width: 13px;
+    height: 13px;
     background: linear-gradient(90deg, #24b676, #238486);
     color: white; /* White checkmark */
     text-align: center;
     line-height: 20px;
-    font-size: 16px;
+    font-size: 10px;
     font-weight: bold;
     border-radius: 3px;
     margin-right: 10px;
@@ -123,14 +123,14 @@
   /* Buttons */
   .popupunlocklandingpage-buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 10px;
     font-family: 'calibri';
   }
   
   .popupunlocklandingpageregister,
   .popupunlocklandingpagelogin {
-    padding: 10px 20px;
+    padding: 8px 5px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -179,22 +179,20 @@
   .popupunlocklandingpage {
       width: 420px;
       margin-bottom: 40px;
+      height: 65%;
   }
   .popupunlocklandingpage-title {
     font-size: 18px;
   }
-  .popupunlocklandingpage-image {
-    width: 150px;
-    
-}
+  
 .popupunlocklandingpage-subtitle {
-  font-size: 15px;
+  font-size: 13px;
 }
 .popupunlocklandingpage-list {
   font-size: 12px;
 }
 .popupunlocklandingpageregister {
-  width: 28%;
+  width: 20%;
   font-size: 11px;
 }
 .popupunlocklandingpagelogin  {
@@ -213,6 +211,7 @@
   }
   .popupunlocklandingpage-buttons {
       flex-direction: row;
+      justify-content: space-between;
   }
   .popupunlocklandingpageregister,
   .popupunlocklandingpagelogin {
@@ -229,10 +228,10 @@
     margin-bottom: 40px;
 }
   .popupunlocklandingpage-title {
-      font-size: 17px;
+      font-size: 15px;
   }
   .popupunlocklandingpage-subtitle {
-      font-size: 14px;
+      font-size: 13px;
   }
   .popupunlocklandingpage-footer {
     font-size: 14px;
@@ -242,7 +241,7 @@
     font-size: 11px;
   }
   .popupunlocklandingpage-image {
-    width: 140px;
+    width: 110px;
    
 }
 
@@ -267,6 +266,6 @@
       font-size: 10px;
   }
   .popupunlocklandingpage-image {
-      width: 120px;
+      width: 110px;
   }
 }
