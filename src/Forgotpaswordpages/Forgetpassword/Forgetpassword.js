@@ -31,7 +31,7 @@ function Forgetpassword() {
       return;
     }
 
-    setEmailError(""); 
+    setEmailError("");
     setIsLoading(true);
 
     try {
@@ -51,7 +51,7 @@ function Forgetpassword() {
 
       if (response.ok) {
         alert("Password reset link sent to your email!");
-        navigate("/openemailforgotpass");
+        navigate("/openemailforgotpass", { state: { email } });
       } else if (response.status === 404) {
         setEmailError("Email not found. Please enter a correct email.");
       } else {
