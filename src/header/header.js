@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './header.css';
-import { Link as ScrollLink } from 'react-scroll';  // For scroll navigation
-
+import { Link as ScrollLink } from 'react-scroll'; // For scroll navigation
 import { Divider } from '@mui/material';
 
-function Graphheader() {
+function Graphheader({ stockName }) {
   const [change, setChange] = useState(0); // For storing dynamic change value in rupees
   const [lastUpdated, setLastUpdated] = useState('');
   const [currentPrice, setCurrentPrice] = useState(300); // Example initial stock price, replace with actual price
@@ -43,10 +42,11 @@ function Graphheader() {
     <div className="graphcontainer">
       <div className="graphheader">
         <div className="title-container">
-          <h1 className="telephone">HCL TECHNOLOGIES LTD </h1>
+          {/* Dynamically display the stock name */}
+          <h1 className="telephone">{stockName || "Default Stock Name"}</h1>
         </div>
         <div className="graph-price-update">
-        <span  style={{fontSize:"20px"}}className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+          <span style={{ fontSize: "20px" }} className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
             ₹{parseFloat(currentPrice).toLocaleString()} {/* Format the price with ₹ symbol */}
           </span>
           <span className="graphupdate">Last updated: {lastUpdated}</span>
@@ -59,8 +59,7 @@ function Graphheader() {
       </div>
 
       {/* Navigation Links */}
-     
-        <nav className="graphnavbar">
+      <nav className="graphnavbar">
         <Divider />
         <ScrollLink to="overview" smooth={true} duration={500} offset={-320}>
           Overview
@@ -102,7 +101,6 @@ function Graphheader() {
           About
         </ScrollLink>
 
-        
         {/* Optional: For routing to other pages */}
         <Divider />
       </nav>

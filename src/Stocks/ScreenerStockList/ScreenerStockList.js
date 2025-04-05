@@ -92,9 +92,6 @@ const ScreenerStockList = () => {
           url: "/stockhandle",
           icon: each.icons,
         }));
-        //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
-
-        console.log(formattedData);
         setStocks(formattedData);
       }
     };
@@ -163,7 +160,6 @@ const ScreenerStockList = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -213,8 +209,6 @@ const ScreenerStockList = () => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
-
     // Apply filters to the currently filtered stocks
     const updatedFilteredStocks = filteredStocks.filter((stock) => {
       const matchesPrice =
@@ -350,7 +344,6 @@ const ScreenerStockList = () => {
   };
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -1245,7 +1238,6 @@ const ScreenerStockList = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
     navigate("/pricehalf"); // Navigate to the desired route
@@ -2302,14 +2294,19 @@ const ScreenerStockList = () => {
             <tbody>
               {currentData.map((stock, index) => (
                 <tr key={index} className="screener-row">
-                  <td className="symbol-cell">
+                  <td
+                    className="symbol-cell"
+                    onClick={() => {
+                      navigate(stock.url, { state: { stock } });
+                    }}
+                  >
                     <img
                       src={stock.icon}
                       alt={`${stock.symbol} logo`}
                       className="company-icon"
                     />
 
-                    <a href={stock.url}>{stock.symbol}</a>
+                    <a href={"javascript:void(0)"}>{stock.symbol}</a>
                   </td>
 
                   <td>{stock.price}</td>
