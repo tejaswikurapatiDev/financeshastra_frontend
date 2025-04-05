@@ -65,7 +65,6 @@ const SessionHistory = () => {
         alert(data?.message);
       }
 
-      console.log(deviceId, existingDevice);
       if (deviceId === Number(existingDevice)) {
         localStorage.removeItem("deviceId");
         Cookies.remove("jwtToken");
