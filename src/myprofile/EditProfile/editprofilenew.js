@@ -64,7 +64,6 @@ const VerificationPopup = ({
 
 const EditProfile = () => {
   const { userEmail } = useContext(UserProfileContext);
-  const { token } = useContext(UserProfileContext);
   const [personalDetails, setPersonalDetails] = useState({});
   const [professionalDetails, setProfessionalDetails] = useState({});
   const [investmentDetails, setInvestmentDetails] = useState({});
@@ -79,7 +78,7 @@ const EditProfile = () => {
     email: personalDetails.email,
     phoneNumber: personalDetails.phoneNumber,
     address: personalDetails.address,
-    country: personalDetails.country,
+    country: "India",
     address: personalDetails.address,
     state: personalDetails.state,
     city: personalDetails.city,
@@ -96,7 +95,6 @@ const EditProfile = () => {
   const navigate = useNavigate();
 
   const profilePageCancel = () => {
-    console.log("Form data cleared");
     setFormData({
       firstName: "",
       lastName: "",
@@ -127,8 +125,13 @@ const EditProfile = () => {
       "state",
       "city",
       "pincode",
+      "occupation",
+      "income",
+      "industry",
     ];
     let validationErrors = {};
+
+    const CookieToken= Cookies.get('jwtToken')
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
@@ -145,7 +148,7 @@ const EditProfile = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // Token for authentication
+          Authorization: `Bearer ${CookieToken}`, // Token for authentication
         },
         body: JSON.stringify(formData), // Sending form data
       };
@@ -154,6 +157,9 @@ const EditProfile = () => {
         const response = await fetch(url, options);
         console.log("Form data sent to API:", formData);
         if (response.ok) {
+          const username= formData.firstName + formData.lastName
+          localStorage.setItem("username", username)
+          console.log(username)
           setIsPopupVisible(true);
         } else {
           console.error("Failed to save user details:", response.statusText);
@@ -782,11 +788,13 @@ const EditProfile = () => {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
+    console.log(selectedState)
     setFormData((prev) => ({ ...prev, state: selectedState, city: "" }));
   };
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
+    console.log(selectedCountry)
     setFormData((prev) => ({ ...prev, country: selectedCountry }));
   };
 
@@ -1109,6 +1117,11 @@ const EditProfile = () => {
             )}
           </div>
           <div className="profilepage-field">
+          <div
+            className={`profilepage-field pincode-field ${
+              errors.occupation ? "error" : ""
+            }`}
+          >
             <label>Occupation</label>
             <select
               name="occupation"
@@ -1124,10 +1137,17 @@ const EditProfile = () => {
               <option value="Self-employed">Proffesional</option>
               <option value="Other">Other</option>
             </select>
+            {errors.occupation && (
+              <span className="error-text">This field is required</span>
+            )}
+            </div>
           </div>
         </div>
         <div className="profilepage-rowss">
-          <div className="profilepage-field">
+          <div className={`profilepage-field  ${
+              errors.income ? "error" : ""
+            }`}>
+          
             <label>Annual Income</label>
             <select
               name="income"
@@ -1142,8 +1162,14 @@ const EditProfile = () => {
               <option value="15L-20L">15 Lacs to 20 Lacs</option>
               <option value="20L+">More than 20 Lacs</option>
             </select>
+            {errors.income && (
+              <span className="error-text">This field is required</span>
+            )}
           </div>
           <div className="profilepage-field">
+          <div className={`profilepage-field  ${
+              errors.industry ? "error" : ""
+            }`}>
             <label>Industry</label>
             <select
               name="industry"
@@ -1174,6 +1200,10 @@ const EditProfile = () => {
               <option value="Travel and Tourism">Travel and Tourism</option>
               <option value="Others">Others</option>
             </select>
+            {errors.industry && (
+              <span className="error-text">This field is required</span>
+            )}
+          </div>
           </div>
         </div>
 

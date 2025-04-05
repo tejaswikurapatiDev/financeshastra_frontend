@@ -108,7 +108,7 @@ font-family: 'calibri';
   /* Adjust Header Font Size */
   h2, h3 {
     font-size: 17px; /* Slightly reduce font size */
-    margin-left: 20px; /* Adjust margin for better alignment */
+     /* Adjust margin for better alignment */
   }
 
   /* Adjust Column Width in Financial and Market Tables */

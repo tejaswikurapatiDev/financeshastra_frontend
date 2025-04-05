@@ -8,11 +8,7 @@
   font-family: 'calibri';
   margin-left: 0px;
 }
-.foooterpagesaupdate{
-  margin-left: -10px;
 
-
-}
   
 .FooterForAllPage-top-section {
   text-align: center;
@@ -171,7 +167,7 @@
 /* Large Desktops (1280px - 1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
   .FooterForAllPage-footer {
-    width: 1410px;
+    width: 1450px;
   }
 }
 
@@ -179,6 +175,7 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
   .FooterForAllPage-footer {
     width: 1000px;
+    margin-left: 0px;
   }
 }
 

@@ -33,6 +33,7 @@ const PortfolioAccountStock = () => {
   };
 
   const handleDeleteIconClick = (transaction) => {
+    console.log(transaction)
     setTransactionToDelete(transaction);
     setShowPopup(true);
   };
@@ -42,7 +43,7 @@ const PortfolioAccountStock = () => {
     const token = Cookies.get("jwtToken")
 
     try {
-      await fetch(`${API_BASE_URL}/myportfolio/transactions/${transactionToDelete.id}`, {
+      await fetch(`${API_BASE_URL}/myportfolio/DeletestockTransactions/${transactionToDelete.stock_name}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

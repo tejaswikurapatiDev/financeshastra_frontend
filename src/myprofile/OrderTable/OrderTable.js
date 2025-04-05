@@ -57,7 +57,6 @@ const OrderTable = () => {
       const response = await fetch(url, options);
       if (response.ok === true) {
         const data = await response.json();
-        console.log("orders Data: ", data);
         if (data.length !== 0) {
           const formattedordersData = data.map((e) => ({
             id: e.order_id,
@@ -66,7 +65,6 @@ const OrderTable = () => {
             amount: e.Amount,
             status: e.Status,
           }));
-          console.log("formattedordersData:", formattedordersData);
           setordersData(formattedordersData);
         }
       }

@@ -18,7 +18,7 @@ const initialTransactionState = {
   nav: "",
   date: "",
   quantity: 0,
-  dividend: "Invest",
+  dividend: 0,
   amount: 0,
   notes: "",
   showSIP: false,

@@ -69,7 +69,6 @@ const ScreenerStockList = () => {
       setCurrentPage(pageNumber);
     }
   };
-
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
     const fetchfun = async () => {
