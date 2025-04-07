@@ -23,7 +23,7 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     position: relative;
     font-family: 'calibri';
-    height: 60%;
+    height: 65%;
   }
   
   /* Close button */
@@ -41,7 +41,7 @@
   
   /* Title */
   .popupunlocklandingpage-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
   
     background: linear-gradient(90deg, #24b676, #238486);
