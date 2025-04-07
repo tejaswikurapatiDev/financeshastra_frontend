@@ -44,6 +44,7 @@ import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
 import useSubscriptionStatus from "./Hooks/useSubscriptionStatus";
+import useSearch from "./Hooks/useSearch";
 
 const Navbar = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
@@ -72,6 +73,8 @@ const Navbar = () => {
   const [userName, setUsername] = useState("");
   const [isLogedin, setIsLogedin] = useState(false);
   const [isSubed, setisSubed] = useState(false);
+  //calling useSearch Hook
+  useSearch();
 
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
