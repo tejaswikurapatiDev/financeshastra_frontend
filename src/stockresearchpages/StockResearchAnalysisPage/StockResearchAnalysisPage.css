@@ -12,6 +12,12 @@
   gap: 800px;
   margin-top: -30px;
 }
+.containerforunblur{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 .stockresearchanalysispage-container {

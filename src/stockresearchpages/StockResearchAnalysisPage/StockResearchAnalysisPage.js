@@ -24,10 +24,16 @@ import maruti from "../../assest/maruti.png";
 import ultratech from "../../assest/ultracemco.png";
 import ntpc from "../../assest/ntpc.png";
 import Sidebar from '../../Sidebar/Sidebar';
+import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
+import { API_BASE_URL } from '../../config';
+
+import lockimg from '../../assest/lock.png'
+import { useNavigate } from 'react-router-dom';
 
 const StockResearchAnalysisPage = () => {
 
-
+  const navigate= useNavigate()
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const stockResearchData = [
     { date: "22-01-2025", symbol: "Reliance Industries Ltd", price: "₹1,272.15", change: "-0.09%", marketCap: "₹17.23T", target: "₹489.00", action: "Book Profits", rating: "Buy", profitBooked: "+18.73%", image: reliance, pdfLink: "View"  },
     { date: "09-01-2025", symbol: "Tata Consultancy Services Ltd", price: "₹4,442.80", change: "-0.69%", marketCap: "₹16.19T", target: "₹1,150.00", action: "Book Profits", rating: "Buy", profitBooked: "+10.98%", image: tcs , pdfLink: "View"  },
@@ -173,6 +179,8 @@ const StockResearchAnalysisPage = () => {
           </select>
         </div>
       </div>
+      <div className='containerforunblur'>
+      <div className={!isLoading && !isSubscribed && "blurred-content"}>
       <table className="stockresearchanalysispage-table">
         <thead>
           <tr>
@@ -251,6 +259,16 @@ const StockResearchAnalysisPage = () => {
           ))}
         </tbody>
       </table>
+      </div>
+      {!isLoading && !isSubscribed && 
+            <div className="overlaylocksub">
+               <img src={lockimg} alt="Lock" className="lock-iconanalysi" />
+       
+               <button className="subscribe-btnblurone" onClick={() => navigate("/pricehalf")}>Subscribe Now</button>
+             
+             </div>
+             }
+             </div>
 
       {/* Pagination Section */}
       <div className="pagination-containeranalystreaserch">
