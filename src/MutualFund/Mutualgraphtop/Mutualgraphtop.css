@@ -3,7 +3,7 @@
     font-family: 'calibri';
     padding: 20px;
     color: #333;
-    max-width: 750px; /* Set a maximum width */
+    max-width: 650px; /* Set a maximum width */
     margin: 0 auto; /* Center the container */
 /* Add left margin to prevent overlap with sidebar */
    
@@ -32,7 +32,7 @@
     display: flex;
     gap: 5px;
     margin-bottom: 20px;
-    margin-left: 540px;
+    margin-left: 450px;
     
 }
 
@@ -113,6 +113,7 @@ margin-top: 150px;
     font-size: 1.4rem;
     font-weight: bold;
     color:#24b676; /* Default green color for positive values */
+    font-family: 'calibri';
   }
   
   /* Percentage Styling */
@@ -142,12 +143,55 @@ margin-top: 150px;
     color: #666;
     font-family: 'calibri';
   }
+  @media (min-width: 2500px) {
+    .mutualcandletop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+       margin-left: 430px;
+    margin-top: 150px;
+        border-radius: 8px;
+        width: 1680px;
+        margin-bottom: 40px;
+     
+       
+      }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .portfoliomutual-container {
+        font-family: 'calibri';
+        padding: 20px;
+        color: #333;
+        max-width: 500px; /* Set a maximum width */
+        margin: 0 auto; /* Center the container */
+    /* Add left margin to prevent overlap with sidebar */
+       margin-left: 10px;
+        margin-top: 10px;
+    
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column-reverse; /* Reverse the container's content */
+    
+        height: 450px;
+    }
+    .time-rangemutual-selector {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 20px;
+        margin-left: 280px;
+        
+    }
+    
+  }
 /* Adjustments for 768px screens */
 @media (max-width: 768px) {
     .portfoliomutual-container {
-        margin-left: 0;
+        margin-left: 30px;
         padding: 15px;
-       
+       width: 655px;
     }
 
     .portfoliomutual-welcome {
@@ -166,29 +210,32 @@ margin-top: 150px;
 
     .portfoliomutual-title {
         font-size: 16px;
-        margin-bottom: 50px;
+        margin-bottom: 10px;
+        margin-top: -120px;
     }
 
     .time-rangemutual-selector {
         justify-content: center;
         gap: 8px;
-        margin-left: 0;
+        margin-left: 500px;
     }
 
     .time-rangemutual-button {
-        padding: 8px 12px;
+        padding: 5px 10px;
         font-size: 13px;
     }
 
     .chartmutual-container {
-        height: 250px;
+        height: 350px;
+        width: 640px;
     }
 
     .mutualcandletop {
-        flex-direction: column; /* Stack elements vertically */
+      margin-left: 40px;
         align-items: center;
         width: 100%; /* Take full width */
         margin-top: 20px;
+      
     }
 
     .mutualcandletop__left, 
@@ -199,6 +246,7 @@ margin-top: 150px;
     .mutualcandletop__right {
         margin-top: 20px;
          text-align: left;
+         margin-right: -170px;
      }
  
     .mutualcandletop__title {
@@ -211,9 +259,38 @@ margin-top: 150px;
         margin-top: 20px;
         text-align: left;
     }
+    .mutualcandletop__price {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color:#24b676; /* Default green color for positive values */
+        font-family: 'calibri';
+        margin-top: 80px;
+      
+      }
 }
 
 @media (max-width: 480px) {
+    .portfoliomutual-container {
+        width: auto;
+        max-width: 280px; /* or less, like 270px */
+        margin: 0 auto; /* center it */
+        padding: 20px; /* optional: adjust padding for smaller screens */
+        margin-left: 30px;
+    }
+
+    .chartmutual-container {
+        width: 100%;
+        max-width: 330px;
+        height: 320px; /* reduce height if needed */
+        margin: 0 auto;
+    }
+
+    .time-rangemutual-selector {
+        justify-content: center;
+        gap: 8px;
+        margin-left: 0px;
+    }
     .mutualcandletop {
         flex-direction: column;
         align-items: center;
@@ -239,15 +316,35 @@ margin-top: 150px;
     }
 
     .mutualcandletop__right {
-       margin-top: 20px;
+       margin-top: -60px;
         text-align: left;
+        margin-left: -175px;
+        margin-bottom: -20px;
     }
 
     .mutualcandletop__price {
-        font-size: 1.2rem;
+        font-size: 15px;
     }
 
     .mutualcandletop__percentage {
         font-size: 0.8rem;
     }
 }
+
+
+@media (max-width: 320px) {
+    .portfoliomutual-container {
+        width: auto;
+        max-width: 250px; /* or less, like 270px */
+        margin: 0 auto; /* center it */
+        padding: 20px; /* optional: adjust padding for smaller screens */
+        margin-left: 10px;
+    }
+    .chartmutual-container {
+        width: 100%;
+        max-width: 300px;
+        height: 320px; /* reduce height if needed */
+        margin: 0 auto;
+    }
+}
+

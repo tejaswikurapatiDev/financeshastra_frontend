@@ -216,7 +216,7 @@
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-    margin-left:300px;
+    margin-left:270px;
   }
   
   .refermoreprofilepages-submit-button:hover {
@@ -269,13 +269,136 @@
 .refermoreprofilepages-floating-input.error input {
   border: 1px solid red;
 }
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .refermoreprofilepages-content {
+    display: flex
+;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 1350px;
+    margin-left: -5px;
+
+}
+  .refermoreprofilepages-left {
+    display: flex
+  ;
+  margin-left: -360px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+  .refermoreprofilepages-submit-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #24b676;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 270px;
+  }
+  .refermoreprofilepagess-email-template {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 103%;
+    align-items: center;
+    margin-left: -3px;
+    
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+
+  .refermoreprofilepages-content {
+    display: flex
+;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 950px;
+    margin-left: -5px;
+
+}
+.refermoreprofilepagess-email-template {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  background-color: #F5F4FA;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #DBD7F1;
+  width: 103%;
+  align-items: center;
+  margin-left: -3px;
+  
+}
+.refermoreprofilepages-left {
+  display: flex
+;
+margin-left: -340px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+}
+
+.refermoreprofilepages-floating-input input {
+  width: 120px;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 14px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.2s;
+}
+.refermoreprofilepages-right h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #333;
+}
+.refermoreprofilepages-submit-button {
+  display: block;
+  margin: 20px auto;
+  background-color: #24b676;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 250px;
+}
+}
 /* For tablets (768px and below) */
 @media (max-width: 768px) {
   .refermoreprofilepages-content {
-      flex-direction: column;
+
       width: 100%;
   }
 
+  .refermoreprofilepages-floating-input input {
+    width: 290px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.2s;
+  }
   
   .refermoreprofilepages-right {
     width: 69%;
@@ -335,20 +458,32 @@
 @media (max-width: 480px) {
   .refermoreprofilepages-content {
     padding: 10px;
-    width: 109%;
+    width: 103%;
+    margin-left: -10px;
+    
+}
+ .refermoreprofilepagess-email-template{
+margin-left: -10px;
+width: 99%;
 }
 
+.refermoreprofilepagess-email-content{
+  font-size: 14px;
+}
 .refermoreprofilepages-share h3 {
   font-size: 14px;
 }
   .refermoreprofilepages-share ul li {
       font-size: 20px;
   }
-
+  .refermoreprofilepages-left {
+    /* width: 50%; */
+    margin-left: 0px;
+}
  
 
   .refermoreprofilepages-floating-input input {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     padding-left: 20px; /* Extra padding for icons */
     font-size: 14px;
@@ -359,19 +494,21 @@
   }
 
   .refermoreprofilepages-submit-button {
-      font-size: 14px;
+      font-size: 12px;
       padding: 8px 15px;
+      margin-left: -70px;
   }
   .refermoreprofilepagess-email-templateh3 {
     color: #333;
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
     margin-bottom: -10px;
     margin-top: 50px;
+    margin-left: -5px;
 }
 .refermoreprofilepages-right h2 {
   font-size: 13px;
-  margin-left: 0px;
+  margin-left: -130px;
 }
 .refermoreprofilepages-or {
   font-size: 20px;
@@ -385,7 +522,9 @@
   justify-content: center;
   margin-right: 50px;
 }
+
 .refermoreprofilepages-right {
-  width: 80%;
+  width: 110%;
+  margin-left: -30px;
 }
 }

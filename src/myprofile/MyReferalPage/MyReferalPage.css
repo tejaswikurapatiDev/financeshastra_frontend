@@ -458,6 +458,7 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
     margin: 15px 0;
     text-align: left;
     margin-left: 400px;
+    font-size: 15px;
   }
   
   .referral-criteria-content h3 {
@@ -492,6 +493,90 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   .refer-now-button:hover {
     background-color: #45a049;
   }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .myreferalpagesss-why-refer-text {
+      flex: 1 1;
+      color: #333;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-left: 30px;
+  }
+  .myreferalpagesss-why-refer-content {
+    display: flex;
+margin-left: 320px;
+margin-right:-100px ;
+gap: 10px;
+  }
+  .myreferalpagesss-partner-benefitstext-section {
+    flex: 2 1;
+    color: #333;
+    font-size: 15px;
+    line-height: 1.6;
+}
+.myreferalpagesss-partner-benefitstext-sectionh3 {
+  color: #333;
+  font-size: 15px;
+  font-weight: normal;
+}
+.myreferalpagesss-partner-benefitscontent {
+  display: flex
+;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 150px;
+  gap: 2px;
+}
+.myreferalpagesss-partner-benefitsrefer-button {
+  display: flex
+;
+  align-items: center;
+  gap: 8px;
+  background-color: #24b676;
+  color: white;
+  padding: 7px 7px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-left: 320px;
+  margin-bottom: 10px;
+}
+.how-to-refer-text {
+  flex: 1 1;
+  color: #333;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-left: 200px;
+}
+.how-to-refer-content {
+  display: flex
+;
+  align-items: center;
+  gap: 20px;
+  margin-top: -1px;
+  margin-right: -100px;
+}
+.why-financeshastra-content {
+  display: flex
+;
+  align-items: center;
+  max-width: 1100px;
+  gap: 0px;
+}
+.why-financeshastra-text p {
+  font-size: 15px;
+  color: #333;
+  margin: 10px 0 20px;
+}
+.why-financeshastrarefer-now-button{
+  font-size: 15px;
+  margin-left: 310px;
+}
+.referral-criteria-content ul{
+  font-size: 15px;
+}
+  }
 /* Tablet View - Screen Size 768px and below */
 @media (max-width: 768px) {
   .myreferalpagesss {
@@ -522,12 +607,15 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
 
   .myreferalpagesss-why-refer-text {
       margin-left: 0;
-      font-size: 14px; /* Reduce text size */
+      font-size: 15px; /* Reduce text size */
   }
 
+  .myreferalpagesss-why-referh2{
+    margin-left: -30px;
+  }
   .myreferalpagesss-illustration {
-    max-width: 200%;
-    margin-left: 130px;
+    max-width: 120%;
+    margin-left: 150px;
 }
   /* Partner Benefits Section */
   .myreferalpagesss-partner-benefits {
@@ -551,8 +639,17 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   }
 
   .myreferalpagesss-partner-benefitsrefer-button {
-      margin-left: 0;
+      margin-left: 20px;
       align-self: center;
+  }
+  .how-to-refer-header{
+    font-size: 22px;
+  }
+  .why-financeshastra-header{
+    font-size: 22px;
+  }
+  .why-financeshastra-text p{
+    font-size: 15px;
   }
   .how-to-refer-section {
     padding: 5px 20px;
@@ -560,9 +657,9 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
     border-radius: 10px;
     box-shadow: 0 4px 6px #DBD7F1;
     margin-bottom: 30px;
-    width: 93%;
+    width: 97%;
     max-width: 1900px;
-    margin-left: -10px;
+    margin-left: -15px;
     display: flex
 ;
     flex-direction: column;
@@ -590,11 +687,13 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   .referral-criteria-content ul {
       margin-left: 0;
       padding-left: 20px;
+      font-size: 14px;
   }
 
   .refer-now-button {
       margin-left: 0;
       align-self: center;
+      margin-left: 10px;
   }
   .why-financeshastrarefer-now-button {
     display: flex
@@ -617,9 +716,9 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
     border-radius: 10px;
     box-shadow: 0 4px 6px #DBD7F1;
     margin-bottom: 30px;
-    width: 93%;
+    width: 97%;
     max-width: 1900px;
-    margin-left: -10px;
+    margin-left: -15px;
     display: flex
   ;
     flex-direction: column;
@@ -638,7 +737,7 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   }
   .referral-criteria-content p {
     margin: 20px 0;
-    font-size: 1rem;
+    font-size: 14px;
     color: black;
     margin-left: 10px;
   }
@@ -656,13 +755,43 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   .myreferalpagesss {
       padding: 5px;
   }
-
+  .myreferalpagesss-buttons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
   
-
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: -10px;
+  }
+  
+  
+  /* Optional button styles */
+  .myreferalpagesss-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+  .myreferalpagesss-partner-benefits h2{
+    font-size: 16px;
+  }
+  .myreferalpagesss-illustration {
+    max-width: 150%;
+    margin-left: 150px;
+}
+  .myreferalpagesss-why-referh2{
+    font-size: 16px;
+  }
   .myreferalpagesss-benefits-link {
       font-size: 12px;
   }
-
+.myreferalpagesss-partner-benefitstext-sectionh3{
+font-size: 13px;
+}
   .myreferalpagesss-why-refer {
     width: 100%;
     padding: 5px;
@@ -675,7 +804,8 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   }
 
   .myreferalpagesss-why-refer-text {
-    font-size: 14px;
+    font-size: 13px;
+    margin-left: 12px;
 }
 
   .myreferalpagesss-partner-benefits {
@@ -688,37 +818,55 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
   }
 
   .myreferalpagesss-partner-benefitstext-section {
-      font-size: 14px;
+      font-size: 12px;
+      margin-left: 0px;
+      width: 300px;
   }
   .how-to-refer-text ul {
     list-style-type: disc;
     padding-left: 200px;
-    font-size: 14px;
+    font-size: 12px;
 }
   .myreferalpagesss-partner-benefitsrefer-button {
-      padding: 8px 15px;
-      font-size: 14px;
+      padding: 8px 10px;
+      font-size: 12px;
   }
-
+  .how-to-refer-header{
+    font-size: 16px;
+    margin-left: 150px;
+    margin-bottom: -1px;
+  }
   .how-to-refer-content {
       flex-direction: column;
   }
 
   .how-to-refer-text {
       font-size: 12px;
+   width: 550px;
+   
   }
 
   .how-to-refer-image img {
       max-width: 100%;
+
+      margin-left: 140px;
   }
 
+  .why-financeshastra-content {
+    display: flex
+;
+gap: 0px;
+    align-items: center;
+    max-width: 350px;
+  }
   .referral-criteria-content ul {
       padding-left: 10px;
+      font-size: 12px;
   }
 
   .refer-now-button {
-      padding: 8px 15px;
-      font-size: 14px;
+      padding: 8px 10px;
+      font-size: 12px;
   }
   .how-to-refer-section {
     padding: 5px 20px;
@@ -742,15 +890,18 @@ flex-direction: column;
   gap: 8px;
 }
 .myreferalpagesss-header-row h1 {
-  font-size: 18px;
+  font-size: 13px;
   width: 300px;
 }
 .why-financeshastra-text p {
-  font-size: 14px;
+  font-size: 12px;
   color: #333;
   margin: 10px 0 20px;
-  width: 90%;
+ 
   margin-left: 20px;
+}
+.why-financeshastra-header{
+  font-size: 16px;
 }
 .why-financeshastrarefer-now-button {
   display: flex
@@ -759,13 +910,13 @@ flex-direction: column;
   gap: 8px;
   background-color: #24b676;
   color: white;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 10px 10px;
+  font-size: 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 .referral-criteria-section {
@@ -784,18 +935,18 @@ flex-direction: column;
   margin-top: 20px;
 }
 .referral-criteria-content h2 {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 10px;
   margin-left: 10px;
 }
 .referral-criteria-content h3 {
-  font-size: 16px;
+  font-size: 14px;
   margin: 20px 0 10px;
   margin-left: 10px;
 }
 .referral-criteria-content p {
   margin: 20px 0;
-  font-size: 1rem;
+  font-size: 12px;
   color: black;
   margin-left: 10px;
 }
@@ -804,5 +955,24 @@ flex-direction: column;
   padding-left: 200px;
   font-size: 14px;
   margin-left: 120px;
+}
+}
+
+@media (max-width: 320px) {
+  .how-to-refer-text {
+      font-size: 12px;
+      width: 500px;
+  }
+  .how-to-refer-section {
+    margin-left: -8px;
+    width: 88%;
+  }
+  .how-to-refer-content{
+margin-left: -150px;
+  }
+  .how-to-refer-header {
+    font-size: 16px;
+     margin-left: -15px;
+    margin-bottom: -1px;
 }
 }

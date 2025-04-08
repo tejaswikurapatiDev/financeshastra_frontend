@@ -952,11 +952,10 @@ const Navbar = () => {
                     }
                   />
                 </Link>
-                <span
-                  className={darkMode ? "willamnamedarkmode" : "willamname"}
-                >
-                  {userName}
-                </span>
+                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
+  {userName.split(" ")[0]}
+</span>
+
                 {userDropdownOpen && renderUserDropdown()}
               </li>
             </div>

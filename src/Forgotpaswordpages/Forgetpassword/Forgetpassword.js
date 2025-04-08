@@ -149,7 +149,7 @@ function Forgetpassword() {
           src={logoimg}
           className="logoforgt"
           onClick={() => {
-            navigate("/login");
+            navigate("/");
           }}
         />
       </div>

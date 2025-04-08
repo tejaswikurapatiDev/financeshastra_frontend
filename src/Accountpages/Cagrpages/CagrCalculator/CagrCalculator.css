@@ -213,13 +213,7 @@ height: 45px;
   font-size: 14px;
 }
 
-input[type="number"] {
-  padding-left: 30px; /* Add space to accommodate the prefix */
-  height: 35px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
+
 
   }
 
@@ -331,12 +325,6 @@ height: 45px;
   font-size: 14px;
 }
 
-input[type="number"] {
-  padding-left: 30px; /* Add space to accommodate the prefix */
-  height: 35px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
+
 
   }

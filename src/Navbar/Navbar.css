@@ -652,10 +652,19 @@ a span {
   .stockmenu {
     margin-top: 30px !important;
     width: 900% !important;
-    height: 150vh; /* Full height on mobile */
+    height: 190vh; /* Full height on mobile */
     gap: 10px;
-    transform: translateY(-50%);
+    transform: translateY(-80%);
     margin-left: -100px;
+   
+    
+  }
+  .chevron-icon {
+    margin-left: -4px;
+    font-size: 12px;
+    
+   
+   
   }
   .mutualstockmenu{
     width: 900% !important;
@@ -683,7 +692,7 @@ a span {
   .dropdown-menu {
     min-width: 140px; /* Slightly reduce width */
     padding: 10px 0; /* Adjust padding */
-    margin-top: -275px;
+    margin-top: -266px;
     margin-left: -100px;
   }
 
@@ -833,6 +842,12 @@ a span {
     width: 150px; /* Reduce logo size */
   }
 
+  .navbar-search input {
+    width: 160px; /* Reduce input width */
+    font-size: 12px;
+    margin-left: -100px;
+    display: block;
+  }
   /* Adjust navbar logo size */
   .navbar-logo {
     font-size: 16px; /* Smaller font size */
@@ -863,7 +878,7 @@ a span {
   .dropdown-menu {
     min-width: 140px; /* Slightly reduce width */
     padding: 10px 0; /* Adjust padding */
-    margin-top: -275px;
+    margin-top: -205px;
     margin-left: -100px;
   }
   /* Dropdown menu adjustments */
@@ -894,6 +909,9 @@ a span {
     top: 35px; /* Position below the button */
   }
 
+  .footer-item {
+   font-size: 14px;
+  }
   .mutualfunds-dropdown .dropdown-item {
     font-size: 12px; /* Even smaller font for smaller screens */
     padding: 6px; /* Adjust padding */
@@ -929,6 +947,16 @@ a span {
   
   .icon.bell-icon:hover {
     color: #24b676;
+  }
+  .stockmenu::before {
+    content: ""; /* Empty content for the line */
+    position: absolute;
+    height: 85%; /* Adjust line height */
+    width: 1px; /* Thickness of the line */
+    background: #ddd; /* Line color */
+    top: 1.5%; /* Center vertically */
+    left: 50%; /* Place in the middle of the menu */
+    transform: translateX(-50%);
   }
   
   .dropdown-contentnoti {
@@ -1000,7 +1028,12 @@ a span {
     color: #777;
     margin: 0;
   }
-  
+  .footer-nav a{
+    font-size: 12px;
+  }
+.dropdown-item p {
+  display: none;
+}
   .view-all {
     display: block;
     width: 100%;
@@ -1398,7 +1431,7 @@ a span {
 .footer-nav a {
   text-decoration: none;
   color: #24b676;
-  font-size: 1rem;
+  font-size: 13px;
   font-family: 'calibri';
 }
 
@@ -1408,7 +1441,7 @@ a span {
  
 }
 .footer-nav a:hover {
-  color: #24b676;
+  color: #6ee9b4;
 }
 .navbar-linksdarkerrrrmode > li > a{
   color: #24b676;
@@ -1621,20 +1654,20 @@ a span {
   .stockmenu {
     
     width: 530%;
-    height: 150vh; /* Full height on mobile */
+   
     gap: 10px;
     transform: translateY(-50%);
   }
   .mutualstockmenu{
     width: 600%;
-    height: 110vh; /* Full height on mobile */
+    height: 130vh; /* Full height on mobile */
     gap: 10px;
     transform: translateY(-50%);
   }
   .learn-menu {
     min-width: 180px;
     padding: 10px 0;
-    margin-top: -465px;
+    margin-top: -447px;
     margin-left: -50px;
 }
   /* Styling for the divider line */
@@ -1645,9 +1678,9 @@ a span {
   
   /* Chevron Icon */
   .chevron-icon {
-    margin-left: 5px;
-    color: black;
-    font-size: 14px;
+    margin-left: -4px;
+   
+    font-size: 11px;
     transition: transform 0.3s ease;
   }
 
@@ -1698,7 +1731,7 @@ a span {
     font-size: 24px;
     cursor: pointer;
     color: #333;
-    margin-left: 400px;
+    margin-left: 10px;
   }
   
   .icon.bell-icon:hover {
@@ -1796,6 +1829,9 @@ a span {
 
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
+  .subscritebutton{
+    display: block;
+  }
   /* Adjust logo size for very small screens */
   .logo-image {
     width: 110px !important; /* Further reduce logo size */
@@ -1827,28 +1863,44 @@ a span {
     font-size: 10px; /* Further reduce font size */
     margin-top: 8px; /* Adjust spacing */
     box-shadow: 0 1px 3px red; /* Subtle shadow */
+    display: block;
+    margin-left: 20px;
   }
 
   /* Stock dropdown menu adjustments */
   .stockmenu {
     width: 600% !important;
-    height: 362vh;
+    height: 202vh;
+    position: absolute;
     left: 40px;
+   bottom: 30%;
     transform: translateY(-25%);
     gap: 4px;
+  
+   
+}
+.mutualstockmenu::before {
+  content: "";
+  position: absolute;
+  height: 85%;
+  width: 1px;
+  background: #ddd;
+  top: 1.5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .mutualstockmenu {
   width: 200px !important;
-  height: 130vh;
+  height: 100vh;
   gap: 8px;
-  transform: translateY(-45%);
+  transform: translateY(-43%);
   left: 0px;
 }
 .learn-menu {
   min-width: 180px;
   padding: 10px 0;
-  margin-top: -465px;
+  margin-top: -288px;
   margin-left: -140px;
 }
   /* Dropdown menu adjustments */
@@ -1888,7 +1940,7 @@ a span {
 
   .footer-icon {
     margin-right: 6px;
-    font-size: 20px;
+    font-size: 15px;
   }
 
   /* Notification section */
@@ -1897,7 +1949,8 @@ a span {
   }
 
   .icon.bell-icon {
-    font-size: 22px;
+    font-size: 18px;
+    margin-left: 10px;
   }
 
   .dropdown-content {
@@ -1934,10 +1987,12 @@ a span {
   }
   span.willamname {
     font-size: 9px !important;
-    width: 30px;
+    width: 10px;
 
    
   }
+
+
 }
 
 /* Standard Desktop Screens (1280px - 1440px) */
@@ -2020,4 +2075,183 @@ a span {
     font-size: 14px !important;
     margin-right: 5px !important;
   }
+}
+
+
+/* Additional styles for 480px and below */
+@media (max-width: 480px) {
+  .subscritebutton{
+    display: block;
+  }
+  /* Adjust logo size for very small screens */
+  .logo-image {
+    width: 110px !important; /* Further reduce logo size */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 10px !important; /* Smaller font size */
+  }
+
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+
+  /* Adjust navbar icons */
+  .navbar-icons {
+    font-size: 12px; /* Smaller icons */
+  }
+
+  .subscritebutton {
+    padding: 4px 10px; /* Further reduce padding */
+    font-size: 10px; /* Further reduce font size */
+    margin-top: 8px; /* Adjust spacing */
+    box-shadow: 0 1px 3px red; /* Subtle shadow */
+    display: block;
+    margin-left: 20px;
+  }
+
+  /* Stock dropdown menu adjustments */
+  .stockmenu {
+    width: 550% !important;
+    height: 212vh;
+    position: absolute;
+    left: 40px;
+   bottom: 30%;
+    transform: translateY(-25%);
+    gap: 4px;
+  
+   
+}
+.dropdown-item {
+  padding: 10px 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.mutualstockmenu::before {
+  content: "";
+  position: absolute;
+  height: 85%;
+  width: 1px;
+  background: #ddd;
+  top: 1.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mutualstockmenu {
+  width: 200px !important;
+  height: 90vh;
+  gap: 8px;
+  transform: translateY(-43%);
+  left: 0px;
+}
+.learn-menu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -288px;
+  margin-left: -140px;
+}
+  /* Dropdown menu adjustments */
+  .dropdown-menu li {
+    font-size: 10px; /* Smaller font size for dropdown */
+    padding: 6px 8px; /* Reduce padding */
+  }
+
+  /* Adjust button and icon sizes */
+  .dropdown-icon {
+    font-size: 16px; /* Smaller icon size */
+  }
+  .chevron-Portfolioicon{
+  font-size: 10px; /* Smaller chevron icon */
+}
+  .chevron-icon {
+    font-size: 10px; /* Smaller chevron icon */
+  }
+
+  /* Adjust footer nav layout */
+  .footer-nav {
+    font-size: 10px;
+    height: 68px;
+    margin-bottom: 0px;
+}
+
+  .footer-dropdown {
+    width: 90%; /* Adjust width for smaller screens */
+    left: 5%; /* Center horizontally */
+    top: 30px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 10px; /* Smaller font for smaller screens */
+    padding: 5px; /* Adjust padding */
+  }
+
+  .footer-icon {
+    margin-right: 6px;
+    font-size: 15px;
+  }
+
+  /* Notification section */
+  .notificationall {
+    font-family: 'calibri';
+  }
+
+  .icon.bell-icon {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: -5px;
+  }
+
+  .dropdown-content {
+    width: 300px;
+    max-height: 400px;
+    margin-left: 65px;
+    padding: 12px;
+  }
+
+  .notification-card {
+    width: 280px;
+  }
+
+  .notification-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dotnotifyicon {
+    font-size: 26px;
+  }
+
+  .notification-title {
+    font-size: 14px;
+  }
+
+  .notification-date {
+    font-size: 13px;
+  }
+
+  .view-all {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  span.willamname {
+    font-size: 10px !important;
+    width: 30px;
+
+   
+  }
+  .iconuser-icon {
+    margin-bottom: -5px;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+}
 }

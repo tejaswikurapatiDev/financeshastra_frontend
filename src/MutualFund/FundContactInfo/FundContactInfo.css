@@ -72,11 +72,40 @@
     text-align: right; /* Aligns the value to the right side */
     margin-right: 398px;
   }
+  @media (min-width: 2500px) {
+
+    .infoContainer {
+      font-family: 'calibri';
+      max-width: 830px;
+    
+      padding: 20px;
+      
+      border-radius: 8px;
+      margin-left: 40px;
+     margin-bottom: 100px;
+     
+     
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .infoContainer {
+      font-family: 'calibri';
+      max-width: 580px;
+    
+      padding: 20px;
+      
+      border-radius: 8px;
+      margin-left: 20px;
+     margin-bottom: 100px;
+     
+     
+    }
+  }
   /* Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .infoContainer {
-      max-width: 100%; /* Full width for smaller screens */
-      margin-left: 20px; /* Reduce margin for smaller devices */
+      max-width: 90%; /* Full width for smaller screens */
+      margin-left: 10px; /* Reduce margin for smaller devices */
       padding: 15px;
       margin-bottom: 50px; /* Adjust padding */
   }
@@ -115,13 +144,13 @@
 /* Adjustments for screens up to 480px */
 @media (max-width: 480px) {
   .infoContainer {
-      max-width: 100%; /* Use full width */
+      max-width: 85%; /* Use full width */
       margin-left: 10px; /* Reduce left margin */
       padding: 10px; /* Smaller padding */
   }
 
   .infoHeader {
-      font-size: 16px; /* Further reduce font size */
+      font-size: 14px; /* Further reduce font size */
   }
 
   .infoDetails {

@@ -367,7 +367,7 @@ body{
           gap: 10px;
           margin-bottom: 230px;
      margin-left: 270px;
-          margin-top: -145px;
+          margin-top: -399px;
     }
     .DashboardMainPagetable-container {
       padding: 20px;
@@ -778,7 +778,7 @@ display: none;
 ;
   gap: 1px;
   align-items: center;
-  margin-left: -5px;
+  margin-left: -25px;
 }
 .DashboardMainPagetable-sector {
   font-size: 11px;
@@ -872,7 +872,7 @@ padding: 10px;
   height: 25%; /* Adjust size as needed */
   border-radius: 50%;
   display: flex; /* Centers the icon within the circle */
-margin-left: 1px;
+margin-left: 15px;
 align-items: center;
 justify-content: center;
 padding: 10px;

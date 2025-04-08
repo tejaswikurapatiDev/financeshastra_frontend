@@ -235,8 +235,13 @@ margin-left: 790px;
     padding: 5px;
     overflow-x: auto; /* Enable horizontal scrolling */
     margin-bottom: 50px;
+    margin-left: 20px;
+    width: 330px;
+    overflow-x: auto;
   }
-
+.cagr-table{
+  width: 20%;
+}
   .financeheader {
     font-size: 16px; /* Smaller font size */
     margin-left: 15px;
@@ -256,7 +261,8 @@ margin-left: 790px;
 
   .financial-table th,
   .financial-table td {
-    padding: 6px; /* Reduce padding */
+    padding: 6px;
+    font-size: 12px; /* Reduce padding */
   }
 
   /* Adjust row backgrounds for smaller screens */

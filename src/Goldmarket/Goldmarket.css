@@ -48,7 +48,7 @@
 @media screen and (max-width: 768px) {
   .goldetf-title {
     font-size: 20px; /* Reduce title size for small devices */
-    margin-top: 10px;
+ 
   }
   .etf-tableegold {
     display: block;
