@@ -119,7 +119,6 @@ const Beststock = () => {
     };
     fetchfun();
   }, []);
-  console.log(stocks[0].icon)
 
   // Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
