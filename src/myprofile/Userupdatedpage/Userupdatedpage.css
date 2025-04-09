@@ -737,13 +737,13 @@ margin-left: -20px;
     padding: 20px;
     border-radius: 8px;
     width: 380px;
-    margin-top: -50px;
-    height: 385px;
+    margin-top: -25px;
+    height: 360px;
   }
   .investment-itemalluser input[name="stocks"]{
-    width: 50px;
+    width: 25px;
   }
   .investment-itemalluser input[name="mutualfund"] {
-    width: 50px;
+    width: 30px;
   }
 }

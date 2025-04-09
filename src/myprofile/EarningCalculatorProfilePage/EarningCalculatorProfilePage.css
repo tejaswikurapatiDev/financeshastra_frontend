@@ -165,6 +165,17 @@ margin-top: 20px;
   font-family: 'calibri';
 }
 
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .myreferalpagesss-header-row h1 {
+    font-size: 20px;
+    margin-left: -15px;
+  }
+  .earningcalculatorprofilepage-disclaimer {
+    font-size: 16px;
+    color: red;
+    margin-left: 400px;
+}
+}
 /* For tablets (768px and below) */
 @media (max-width: 768px) {
   .earningcalculatorprofilepage-content {
@@ -218,8 +229,8 @@ margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px #DBD7F1;
     border: 1px solid #cccccc;
-    width: 102%;
-    margin-left: -10px;
+    width: 100%;
+    margin-left: -5px;
 }
 }
 
@@ -279,7 +290,25 @@ margin-top: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px #DBD7F1;
     border: 1px solid #cccccc;
-    width: 102%;
-    margin-left: -10px;
+    width: 98%;
+    margin-left: -2px;
   }
+  .earningcalculatorprofilepage-disclaimer {
+    font-size: 10px;
+  }
+  .earningcalculatorprofilepage-row p {
+    flex: 1 1;
+    text-align: center;
+    margin: 0;
+    font-size: 12px;
+  }
+  .earningcalculatorprofilepage-slider-group p {
+    margin: 0 0 10px;
+    font-weight: 540;
+    font-size: 12px;
+}
+.earningcalculatorprofilepage-summaryh3 {
+  font-size: 13px;
+}
+
 }
