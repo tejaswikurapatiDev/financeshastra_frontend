@@ -169,7 +169,7 @@ margin-left: -100px;
 @media (max-width: 375px) {
   .etf-description {
     font-size: 11px !important; /* 480px से छोटा कर दिया और !important लगाया */
-  width: 300px;
+  width: 290px;
     margin-left: 5px;
   }
 }
@@ -190,7 +190,7 @@ margin-left: -100px;
 }
 .etf-description {
   font-size: 11px !important; /* 480px से छोटा कर दिया और !important लगाया */
-width: 300px;
+width: 290px;
   margin-left: 5px;
 }
 .etf-title {

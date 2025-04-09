@@ -1,5 +1,5 @@
 .settingsContainer {
-    width: 60%;
+    max-width: 60%;
     margin: auto;
     font-family:'calibri';
     
@@ -25,7 +25,7 @@
     margin: 20px auto; /* Center-align the panel */
     border-radius: 10px;
     width: 100%; /* Adjust the width here (e.g., 80% of the container) */
-    max-width: 800px; /* Optionally, set a maximum width */
+    max-width: 100%; /* Optionally, set a maximum width */
     margin-left: 1px;
   }
   
@@ -244,6 +244,63 @@
     background-color: #24b676;
   }
   
+  @media (min-width: 2200px) {
+    .notificationsPanel {
+      border: 1px solid #ddd;
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto; /* Center-align the panel */
+      border-radius: 10px;
+     
+     
+      margin-left: 1px;
+    }
+    .buttonsRow {
+      display: flex
+  ;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+      margin-right: -30px;
+  }
+  }
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .buttonsRow {
+      display: flex
+  ;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+      margin-right: -30px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .notificationsPanel {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto; /* Center-align the panel */
+    border-radius: 10px;
+   
+   
+    margin-left: 100px;
+  }
+  .settingsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 130px;
+    margin-left: 100px;
+  }
+  .buttonsRow {
+    display: flex
+;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    margin-right: -130px;
+}
+  
+}
 /* Mobile view at 768px */
 @media (max-width: 768px) {
   .settingsContainer {
@@ -251,8 +308,9 @@
   }
 
   .buttonsRow {
-    margin-right: 0;
+    margin-right: -300px;
     justify-content: center; /* Center the buttons */
+    margin-left: 100px;
   }
 
   .saveBtn, .cancelBtn, .suspendBtn, .noBtn {
@@ -263,6 +321,11 @@
   .notificationsPanel, .accountDeletePanel {
     padding: 15px; /* Reduce padding */
   }
+  .notificationsPanel{
+    max-width: 1000px;
+    width: 650px;
+    margin-left: -110px;
+  }
 
   .panelHeader {
     font-size: 16px; /* Adjust panel header font size */
@@ -270,6 +333,9 @@
 
   .optionRow span {
     font-size: 14px; /* Adjust option row font size */
+  }
+  .settingsTitle{
+    margin-left: -100px;
   }
 }
 
@@ -291,10 +357,16 @@
     margin-left: 100px;
     margin-right: -60px;
   }
+  .notificationsPanel{
+    max-width: 300px;
+  
+    margin-left: 30px;
+  }
+
 
   .saveBtn, .cancelBtn, .suspendBtn, .noBtn {
-    font-size: 17px; /* Adjust button font size */
-    padding: 7px 10px; /* Adjust button padding */
+    font-size: 12px; /* Adjust button font size */
+    padding: 7px 5px; /* Adjust button padding */
   }
 
   .notificationsPanel, .accountDeletePanel {
@@ -329,4 +401,18 @@
     overflow-x: hidden;
   }
   
+}
+@media (max-width: 375px) {
+  .notificationsPanel {
+      max-width: 100%; /* Full width karne ke liye */
+      margin-left: 10px; /* Aur adjust karne ke liye */
+  }
+}
+@media (max-width: 320px) {
+  .notificationsPanel{
+    max-width: 300px;
+  width: 230px;
+    margin-left: 30px;
+  }
+
 }

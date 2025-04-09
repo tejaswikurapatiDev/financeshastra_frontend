@@ -702,13 +702,16 @@
     
     /* Footer stays at the bottom */
     .footer {
-        width: 100%;
+        width: 50%;
         background-color: #f8f9fa;
         text-align: center;
         padding: 10px;
         box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
     }
-    
+    .oversidefooter{
+ 
+        margin-left: -0px;
+    }
 }
 
 @media (min-width: 1024px) and (max-width: 1279px)  {
@@ -730,6 +733,10 @@
 ;
         flex-direction: column-reverse;
         margin-left: 165px;
+    }
+    .oversidefooter{
+ width: 200px;
+        margin-left: -100px;
     }
     .chartmutual-containerrdashboard {
         height: 300px;
@@ -794,6 +801,14 @@
     body, html {
         overflow-x: hidden;
     }
+    
+.layout {
+    display: flex
+;
+    min-height: 50vh;
+    width: 137vw;
+    margin-left: -270px;
+}
     .allheadd{
 max-width: 90%;
     }
@@ -905,6 +920,34 @@ max-width: 90%;
         margin-left: 50px;
         margin-right: -90px;
     }
+    /* Content area next to sidebar */
+    .main-contentover {
+        flex: 1;
+        margin-left: 250px;
+        /* Same as sidebar width */
+        display: flex;
+        flex-direction: column;
+        min-height: 10vh;
+    }
+    
+    /* Ensure content takes full height */
+    .contentover {
+        flex: 1;
+        padding: 10px;
+     
+    }
+    
+    /* Footer stays at the bottom */
+    .footer {
+        width: 50%;
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
+       
+    }
+   
+    
 
 }
 
@@ -1090,3 +1133,9 @@ max-width: 90%;
 }
 }
  
+@media (max-width: 320px) {
+    .time-rangemutual-button {
+
+        font-size: 10px;
+    }
+}

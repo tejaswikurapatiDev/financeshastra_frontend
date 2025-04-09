@@ -249,18 +249,28 @@ const ReferMoreProfilePages = () => {
               <div className="refermoreprofilepages-share">
                 <h3>SHARE</h3>
                 <ul>
+                <li>
+  <a href="https://www.instagram.com/FinanceShastra" target="_blank" rel="noopener noreferrer">
+    <img src={insta} alt="Instagram" />
+  </a>
+</li>
+
                   <li>
-                    <img src={insta} alt="Instagram" />
-                  </li>
-                  <li>
+                  <a href="https://www.linkedin.com/company/FinanceShastra" target="_blank" rel="noopener noreferrer">
                     <img src={lin} alt="LinkedIn" />
+                    </a>
                   </li>
                   <li>
+                  <a href="https://twitter.com/FinanceShastra" target="_blank" rel="noopener noreferrer">
                     <img src={ximg} alt="X (Twitter)" />
+                    </a>
                   </li>
                   <li>
-                    <CiBookmark />
-                  </li>
+  <a href="/saved-items" title="Saved Items">
+    <CiBookmark  />
+  </a>
+</li>
+
                 </ul>
               </div>
             </div>
@@ -289,7 +299,7 @@ const ReferMoreProfilePages = () => {
                           : ""
                           }`}
                       >
-                        <label>First name*</label>
+                        <label>First name*</label><br/>
                         <input
                           type="text"
                           name="firstName"
@@ -311,7 +321,7 @@ const ReferMoreProfilePages = () => {
                           : ""
                           }`}
                       >
-                        <label>Last name*</label>
+                        <label>Last name*</label><br/>
                         <input
                           type="text"
                           name="lastName"
@@ -333,7 +343,7 @@ const ReferMoreProfilePages = () => {
                           : ""
                           }`}
                       >
-                        <label>Mobile number*</label>
+                        <label>Mobile number*</label><br/>
                         <input
                           type="text"
                           name="mobileNumber"
@@ -355,7 +365,7 @@ const ReferMoreProfilePages = () => {
                           : ""
                           }`}
                       >
-                        <label>Email id*</label>
+                        <label>Email id*</label><br/>
                         <input
                           type="email"
                           name="email"

@@ -104,12 +104,39 @@ background-color: #f9f9f9;
 .view-holdings-link:hover {
   text-decoration: underline;
 }
+@media (min-width: 2500px) {
+  .scheme-allocation-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 1300px;
+   
+    margin-left: 20px; /* Moves the container to the left */
+    font-family: 'calibri';
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+  }
+  
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .scheme-allocation-container {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 920px;
+    margin-left: 20px; /* Moves the container to the left */
+    font-family: 'calibri';
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+  }
+   
+}
 /* Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .scheme-allocation-container {
       padding: 15px; /* Reduce padding */
       margin-left: 10px; /* Adjust left margin */
-      max-width: 100%; /* Allow full width */
+      max-width: 92%; /* Allow full width */
   }
 
   .scheme-allocation-title {
@@ -122,6 +149,8 @@ background-color: #f9f9f9;
   .scheme-allocation-tabs {
       margin-left: 0; /* Center tabs */
       justify-content: center;
+      display: flex;
+      flex-direction: row;
   }
 
   .tab-button {
@@ -164,15 +193,15 @@ background-color: #f9f9f9;
 @media (max-width: 480px) {
   .scheme-allocation-container {
       padding: 10px; /* Further reduce padding */
-      margin-left: 0; /* Remove left margin */
-      max-width: 100%; /* Full width */
+      margin-left: 15px; /* Remove left margin */
+      max-width: 85%; /* Full width */
   }
 
   .scheme-allocation-title {
-      font-size: 18px; /* Smaller title size */
+      font-size: 15px; /* Smaller title size */
       margin-top: 30px; /* Reduce top margin */
       text-align: left; /* Keep centered */
-      margin-left: 0; /* No margin */
+      margin-left: 15px; /* No margin */
   }
 
   .scheme-allocation-tabs {

@@ -83,7 +83,9 @@ function Forgotresetpassword() {
   return (
     <div className="login-container">
       <div className="login-leftforgetreset">
-        <img src={resetlogoimg} className="logoforgt" alt="Reset Logo" />
+        <img src={resetlogoimg} className="logoforgt" alt="Reset Logo"   onClick={() => {
+            navigate("/");
+          }} />
       </div>
       <div className="login-right">
         <div className="login-boxforgetcontain">

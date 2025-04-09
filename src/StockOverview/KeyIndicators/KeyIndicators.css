@@ -30,7 +30,7 @@
   }
   @media (max-width: 768px) {
     .key-indicators-card {
-      max-width: 90%; /* Make the card take up more width */
+      max-width: 88%; /* Make the card take up more width */
       padding: 15px; /* Reduce padding for better fit */
       height: auto; /* Allow the height to adjust based on content */
     }
@@ -47,30 +47,42 @@
     }
   
     .indicator:nth-child(odd) {
-      background-color: #f1f1f1; /* Lighter background color for odd rows */
+      background-color:white; /* Lighter background color for odd rows */
     }
   }
   
   /* Mobile View for small devices (max-width: 480px) */
   @media (max-width: 480px) {
     .key-indicators-card {
-      max-width: 95%; /* Take up nearly the full width */
+      max-width: 78%; /* Take up nearly the full width */
       padding: 10px; /* Even smaller padding */
       height: auto; /* Allow height to adjust */
+      margin-left: 30px;
+      font-size: 12px;
     }
-  
-    .key {
-      font-size: 18px; /* Reduce font size further */
+   
+    .key-indicators-card .MuiTypography-root {
+      font-size: 12px !important;
     }
-  
     .indicator {
-      font-size: 12px; /* Reduce font size for small screens */
-      flex-direction: column; /* Stack the indicator items vertically */
-      align-items: flex-start; /* Align items to the left */
-      padding: 6px 0; /* Reduce padding for compactness */
+      flex-basis: 100% !important;
+      max-width: 100% !important;
+      font-size: 12px;
+    }
+    .key {
+      font-size: 16px; /* Reduce font size further */
     }
   
+    
     .indicator:nth-child(odd) {
-      background-color: #f1f1f1; /* Lighter background color for odd rows */
+      background-color:white; /* Lighter background color for odd rows */
+    }
+  }
+  @media (max-width: 320px) {
+    .key-indicators-card {
+      max-width: 82%; /* Take up nearly the full width */
+      padding: 10px; /* Even smaller padding */
+      height: auto; /* Allow height to adjust */
+      margin-left: 15px;
     }
   }

@@ -46,6 +46,38 @@ margin-top: 500px;
   fill: #000;
 
 }
+@media (min-width: 2500px) {
+  .riskometer {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    font-family: 'calibri';
+  
+  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   width: 1300px;
+   border-radius: 10px;
+   margin-left: 50px;
+   height: 500px;
+    
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .riskometer {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    font-family: 'calibri';
+  
+  
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+   width: 920px;
+   border-radius: 10px;
+   margin-left: 40px;
+   height: 500px;
+    
+  }
+}
 @media (max-width: 768px) {
   .riskometer {
     width: 90%; /* Full width for smaller screens */
@@ -60,14 +92,15 @@ margin-top: 500px;
   }
 
   .riskometer-title {
-    font-size: 20px; /* Smaller font for title */
+    font-size: 18px; /* Smaller font for title */
     text-align: left;
     margin-left: 30px;
     margin: 20px 0; /* Adjust spacing */
+    margin-left: 30px;
   }
 
   .riskometer text {
-    font-size: 12px; /* Adjust label size for smaller screens */
+    font-size: 15px; /* Adjust label size for smaller screens */
   }
 }
 
@@ -77,13 +110,13 @@ margin-top: 500px;
   }
 
   .riskometer-title {
-    font-size: 18px;
+    font-size: 15px;
     text-align: left;
     
   }
 
   .riskometer text {
-    font-size: 10px; 
+    font-size: 14px; 
     text-align: left;/* Further reduce label size */
   }
 }
