@@ -1,6 +1,6 @@
 
 import './Portfolioanysisstockresearcgblur.css'
-import React, { useState, useEffect, useContext, use } from 'react';
+import React, { useState, useEffect } from 'react';
 import lockimg from '../../assest/lock.png'
 import { useNavigate } from "react-router-dom"; 
 import { CiSearch } from 'react-icons/ci';

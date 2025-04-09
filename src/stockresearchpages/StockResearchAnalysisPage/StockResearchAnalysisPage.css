@@ -197,7 +197,7 @@ margin-left: 60px
   color: #333;
   position: absolute;
   margin-left: -30px;
-  top: 74.5%;
+  top: 50.5%;
   transform: translateY(-50%);
 }
 .stockresearchanalysispage-dropdown select {
@@ -224,6 +224,13 @@ margin-left: 60px
   @media (min-width: 1024px) and (max-width: 1279px)  {
     .stockresearchanalysispagecontainer{
 max-width: 1024px;
+    }
+    .stockresarch-search-icon {
+      color: #333;
+      position: absolute;
+      margin-left: -30px;
+      top: 50.5%;
+      transform: translateY(-50%);
     }
     .stockresearchanalysispage-container {
       padding: 20px;

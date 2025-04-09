@@ -71,8 +71,9 @@ function Forgetpassword() {
         <img
           src={logoimg}
           className="logoforgt"
-          onClick={() => navigate("/login")}
-          alt="Logo"
+          onClick={() => {
+            navigate("/");
+          }}
         />
       </div>
 
