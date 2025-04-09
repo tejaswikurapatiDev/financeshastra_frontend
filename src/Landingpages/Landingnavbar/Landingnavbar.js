@@ -6,6 +6,7 @@ import React, {
   useContext,
 } from "react";
 import {jwtDecode} from "jwt-decode";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import {
   FaBell,
 } from "react-icons/fa";
@@ -295,6 +296,7 @@ const Landingnavbar = () => {
     footerPortfolio: false,
     learn: false,
   });
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
   const [storedName, setUsername]= useState('')
 
@@ -639,6 +641,14 @@ const Landingnavbar = () => {
         </div>
         
         {isLogedin ? (<>
+          {!isLoading && !isSubscribed && (
+          <h4
+            className="subscritebutton"
+            onClick={() => navigate("/pricehalf")}
+          >
+            Subscribe
+          </h4>
+        )}
           <FaBell
                           className={
                             darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
