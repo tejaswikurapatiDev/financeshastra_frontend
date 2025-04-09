@@ -223,7 +223,6 @@ const UserDetailsupdate = () => {
   
 
   const handleSave = () => {
-    console.log(modalData)
     setInvestmentDetails({ ...modalData });
     setShowModal(false);
   };
