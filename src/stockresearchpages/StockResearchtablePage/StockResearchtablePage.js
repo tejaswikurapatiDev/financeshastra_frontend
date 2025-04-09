@@ -205,7 +205,8 @@ const StockResearchtablePage = () => {
             </tr>
           ))}
         </tbody>
-      </table></div>
+      </table>
+      </div>
     {!isLoading && !isSubscribed && 
                 <div className="overlaylocksub">
                    <img src={lockimg} alt="Lock" className="lock-iconanalysi" />
