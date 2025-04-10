@@ -1,49 +1,118 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./RatioTable.css";
-
+import { API_BASE_URL } from "../config";
 
 const RatioTable = () => {
-  const data = [
-    { label: "Debtor Days", values: [525, 762, 581, 490, 394, 536, 635, 705] },
-    { label: "Inventory Days", values: [110, 126, 114, 167, 196, 118, 261, 207] },
-    { label: "Days Payable", values: [1228, 1482, 1109, 1705, 1578, 855, 1242, 1222] },
-    { label: "Cash Conversion Cycle", values: [-594, -594, -414, -1049, -988, -202, -345, -309] },
-    { label: "Working Capital Days", values: [-73, -1, 64, 66, 49, 234, 340, 15] },
-    { label: "ROCE %", values: ["-", "14%", "7%", "9%", "5%", "8%", "-4%", "-8%"] },
-  ];
+  const [data, setData] = useState([]); // State to store transformed data
+  const [years, setYears] = useState([]); // State to store fiscal years
+  const [loading, setLoading] = useState(true); // State to track loading
+  const [error, setError] = useState(null); // State to track errors
 
-  const years = ["Mar 2017", "Mar 2018", "Mar 2019", "Mar 2020", "Mar 2021", "Mar 2022", "Mar 2023", "Mar 2024"];
+  // Fetch data from the API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${API_BASE_URL}/stockdetail/financialRatios`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+
+        // Transform the data to match the table structure
+        const transformedData = [
+          {
+            label: "Debtor Days",
+            values: result.map((item) => item.debtor_days),
+          },
+          {
+            label: "Inventory Days",
+            values: result.map((item) => item.inventory_days),
+          },
+          {
+            label: "Days Payable",
+            values: result.map((item) => item.days_payable),
+          },
+          {
+            label: "Cash Conversion Cycle",
+            values: result.map((item) => item.cash_conversion_cycle),
+          },
+          {
+            label: "Working Capital Days",
+            values: result.map((item) => item.working_capital_days),
+          },
+          {
+            label: "ROCE %",
+            values: result.map((item) => item.roce_percentage),
+          },
+        ];
+
+        const fiscalYears = result.map((item) => item.fiscal_year);
+
+        setData(transformedData);
+        setYears(fiscalYears);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Render loading or error states
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div>
-      <h2 className="ratioheader"style={{ marginRight: "520px" }}>Ratios</h2>
+      <h2 className="ratioheader" style={{ marginRight: "520px" }}>
+        Ratios
+      </h2>
       <p className="ratiopara">
-      Consolidated Figures in ₹ Crores / <a>View Standalone</a>
-    </p>
-    <div className="ratio-table">
-   
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            {years.map((year, index) => (
-              <th key={index}>{year}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, index) => (
-            <tr key={index}>
-              <td className={row.label === "Cash Conversion Cycle" ? "highlighted" : ""}>{row.label}</td>
-              {row.values.map((value, idx) => (
-                <td key={idx}>{value}</td>
+        Consolidated Figures in ₹ Crores / <a>View Standalone</a>
+      </p>
+      <div className="ratio-table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              {years.map((year, index) => (
+                <th key={index}>{year}</th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-     
-    </div>
+          </thead>
+          <tbody>
+            {data.map((row, index) => (
+              <tr key={index}>
+                <td
+                  className={
+                    row.label === "Cash Conversion Cycle" ? "highlighted" : ""
+                  }
+                >
+                  {row.label}
+                </td>
+                {row.values.map((value, idx) => (
+                  <td key={idx}>{value}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
