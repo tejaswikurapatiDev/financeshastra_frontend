@@ -42,6 +42,8 @@ const ScreenerStockincome = () => {
   const recordsPerPage = 10;
   const totalPages = Math.ceil(stocks.length / recordsPerPage);
 
+  
+
   //  Ensure currentData updates correctly
   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
   const indexOfLastItem = Math.min(

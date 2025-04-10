@@ -26,11 +26,19 @@
 .graph-cell {
   text-align: center;
 }
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .financial-table h2{
+    margin-right: 70%;
+    font-size: 18px;
+    font-family:'calibri' ;
+  }
+   
+}
 @media (max-width: 768px) {
   /* Financial table header adjustments */
   .financial-table h2 {
     margin-right: 60%; /* Adjust margin for better alignment */
-    font-size: 18px; /* Slightly smaller font size */
+    font-size: 16px; /* Slightly smaller font size */
     font-family: 'calibri';
   }
 
@@ -60,7 +68,7 @@
   /* Further adjustments for very small screens */
   .financial-table h2 {
     margin-right: 50%; /* Reduce margin */
-    font-size: 16px; /* Smaller font size */
+    font-size: 12px; /* Smaller font size */
   }
 
   .row-title-container {

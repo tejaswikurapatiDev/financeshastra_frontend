@@ -7,6 +7,7 @@ import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
 
 const ScreenerStockvaluation = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
@@ -39,6 +40,38 @@ const ScreenerStockvaluation = () => {
     index: false,
     sector: false,
   });
+
+  useEffect(() => {
+    const fetchfun = async () => {
+      const url = `${API_BASE_URL}/stocks/valuation`;
+      const response = await fetch(url);
+      if (response.ok === true) {
+        const data = await response.json();
+        console.log(data)
+        const formattedData = data.map((each) => ({
+          id: each.id,
+          symbol: each.Symbol,
+          price: each.Price,
+          marketCap: each.MarketCap,
+          pToE: each.PERatio,
+          pToB: each.PSRatio,
+          roe: each.ROE,
+          marketCapPerf: each.MarketCapPercentage,
+          peg: each.PBRatio,
+          pToS: each.PCFRatio,
+          pToCF: each.PFCFRatio,
+          ev: each.EnterpriseValue,
+          evEbitda: each.EVRevenue,
+          evSales: each.EVEBIT,
+          evEbit: each.EVEBITDA,
+          
+        }));
+        setStocks(formattedData);
+      }
+    };
+    fetchfun();
+  }, []);
+
 
   const recordsPerPage = 10;
   const totalPages = Math.ceil(stocks.length / recordsPerPage);
@@ -159,13 +192,13 @@ const ScreenerStockvaluation = () => {
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price)
+        parseFloat(newFilters.price)
       );
       console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price);
+        parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -1369,8 +1402,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1444,8 +1477,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1593,8 +1626,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1668,8 +1701,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1743,8 +1776,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1893,8 +1926,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1970,8 +2003,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2045,8 +2078,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2119,8 +2152,8 @@ const ScreenerStockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2176,9 +2209,8 @@ const ScreenerStockvaluation = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Valuation" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Valuation" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Valuation");
               navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
@@ -2188,9 +2220,8 @@ const ScreenerStockvaluation = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Income Statement" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Income Statement");
               navigate("/IncomeStatement"); // Add a route for Income Statement if needed
@@ -2358,8 +2389,8 @@ const ScreenerStockvaluation = () => {
                         parseFloat(stock.marketCapPerf) > 0
                           ? "#24b676"
                           : parseFloat(stock.marketCapPerf) < 0
-                          ? "red"
-                          : "inherit",
+                            ? "red"
+                            : "inherit",
                     }}
                   >
                     {stock.marketCapPerf}
@@ -2383,9 +2414,8 @@ const ScreenerStockvaluation = () => {
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
-              stocks.length
-            } records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length
+              } records`}
           </div>
 
           <div className="pagination-slider">
@@ -2412,9 +2442,8 @@ const ScreenerStockvaluation = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${
-                  currentPage === startPage + i ? "active-page" : ""
-                }`}
+                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""
+                  }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}

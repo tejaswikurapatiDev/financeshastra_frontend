@@ -9,7 +9,7 @@ import Cookies from 'js-cookie'
 const RiskProfileForm = () => {
       const [riskProfile, setRiskProfile]= useState({})
 
-    const fetchRiskProfile= async ()=>{
+    /*const fetchRiskProfile= async ()=>{
       const url= `${API_BASE_URL}/riskanalysis`
       const token= Cookies.get('jwtToken')
       const response= await fetch(url, {
@@ -27,7 +27,7 @@ const RiskProfileForm = () => {
 
     useEffect(()=>{
       fetchRiskProfile()
-    })
+    })*/
       const [formData, setFormData] = useState({});
 
       const questions = [

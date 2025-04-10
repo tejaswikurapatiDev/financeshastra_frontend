@@ -89,8 +89,6 @@ const UserDetailsupdate = () => {
       email: email,
     }));
 
-    
- 
     const fetchfunc= async ()=>{
       const url= `${API_BASE_URL}/userdetails`
       //const url= 'http://localhost:3000/userdetails'
@@ -103,11 +101,14 @@ const UserDetailsupdate = () => {
       }
       
       const response= await fetch(url, options)
-      if (response.ok=== true){
+      console.log(response)
+      
+       if (response.ok=== true){
         const decode= decodingtoken(cookietoken)
       const {email}= decode
         const data= await response.json()
         const formatedDate= formatDate(data[0].dob)
+        console.log(data)
         let dataupdated= {
           personal: {
             firstName: data[0].first_name,
@@ -136,6 +137,7 @@ const UserDetailsupdate = () => {
         setInvestmentDetails((prev) => ({ ...prev, ...dataupdated.investment }));
         setisLoading(false)
       }
+      setisLoading(false)
      
     }
     fetchfunc()
@@ -169,6 +171,8 @@ const UserDetailsupdate = () => {
     setModalData({ ...investmentDetails });
     setShowModal(true);
   };
+
+
   const handleNavigation = (section) => {
     // Pass the updated data to the EditProfile page for further editing
     navigate("/editProfile", {
@@ -262,7 +266,7 @@ const UserDetailsupdate = () => {
           </div>
           <div className="profileInfo">
             <h1 className="profileName"> {personalDetails.firstName} {personalDetails.lastName}</h1>
-            <p className="profileOccupation">{professionalDetails.occupation}</p>
+            <p className="profileOccupation">{professionalDetails.occupation === "undefined" ? "-": professionalDetails.occupation}</p>
           </div>
         </div>
    
@@ -277,11 +281,11 @@ const UserDetailsupdate = () => {
                     .replace(/([A-Z])/g, " $1")
                     .replace(/^./, (str) => str.toUpperCase())}:
                 </strong>
-                <span className="value">{value}</span>
+                <span className="value">{value === "undefined" ? "-": value}</span>
               </p>
             ))}
           </div>
-          <div className="editiconprofile" onClick={() => handleNavigation("Personal")}>
+          <div className="editiconprofile" onClick={() => handleNavigation("Personal", "Professional")}>
             <BiSolidEdit />
           </div>
         </div>
@@ -297,11 +301,11 @@ const UserDetailsupdate = () => {
                     .replace(/([A-Z])/g, " $1")
                     .replace(/^./, (str) => str.toUpperCase())}:
                 </strong>
-                <span className="value">{value}</span>
+                <span className="value">{value === "undefined" ?  "-": value}</span>
               </p>
             ))}
           </div>
-          <div className="editiconprofileee" onClick={() => handleNavigation("Professional")}>
+          <div className="editiconprofileee" onClick={() => handleNavigation("Personal", "Professional")}>
             <BiSolidEdit />
           </div>
         </div>

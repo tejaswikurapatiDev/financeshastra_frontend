@@ -1,260 +1,294 @@
 /* General Container */
 .refermoreprofilepages-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'calibri';
-    background-color: white;
-  }
-  
-  /* Content Wrapper */
-  .refermoreprofilepages-content {
-    display: flex;
-    align-items: center; /* Align children vertically */
-  
-    gap: 20px; /* Add space between sections */
-    padding: 20px;
-    border: 1px solid #cccccc;
-    background-color: #F5F4FA; /* Light background */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px #DBD7F1;
-    width: 1920px;
-  }
-  .profilepage-tabb{
-    font-family: 'calibri';
-  }
-  /* Left Section (Social Media) */
-  .refermoreprofilepages-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30%;
-   
-  }
-  
-  .refermoreprofilepages-share {
-    text-align: center;
-    margin-left: 350px;
-  }
-  
-  .refermoreprofilepages-share h3 {
-    font-size: 12px;
-    margin-bottom: 15px;
-  }
-  
-  .refermoreprofilepages-share ul {
-    list-style: none;
-    padding: 0;
-  
-    gap: 15px;
-    justify-content: center;
-  }
-  
-  .refermoreprofilepages-share ul li {
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .refermoreprofilepages-share ul li:hover {
-    transform: scale(1.2);
-  }
-  
-  .refermoreprofilepages-share li img {
-    width: 25px; /* Set the size of the image */
-    height: 25px; /* Keep it square */
-    cursor: pointer; /* Add a pointer cursor for interactivity */
-    transition: transform 0.2s; /* Add a smooth hover effect */
-  }
-  
-  .refermoreprofilepages-share li img:hover {
-    transform: scale(1.1); /* Slight zoom-in effect on hover */
-  }
-  
-  
-  .refermoreprofilepages-or {
-    font-size: 24px;
-    font-weight: bold;
-    color: #555;
-    text-align: center;
-    width: 50px; /* Adjust width for "OR" */
-    display: flex;
-    align-items: center; /* Vertically center text */
-    justify-content: center; /* Horizontally center text */
-    margin-right: 50px;
-  }
-  /* Right Section (Form) */
-  .refermoreprofilepages-right {
-    width: 70%;
-    padding-left: 20px;
-  }
-  
-  .refermoreprofilepages-right h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Input Group */
-  .refermoreprofilepages-input-group {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
-    align-items: flex-start;
-    margin-right: 250px;
-  }
-  
-  /* Floating Label Input */
-  .refermoreprofilepages-floating-input {
-    position: relative;
-    flex: 1;
-  }
-  
-  .refermoreprofilepages-label {
-  
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    font-size: 14px;
-    color: #333;
-    transition: 0.3s ease;
-    pointer-events: none;
-  }
-  
-  .refermoreprofilepages-label.filled {
-    top: -10px;
-    left: 10px;
-    font-size: 12px;
-    color: #0073e6;
-  }
-  
-  .refermoreprofilepages-floating-input input {
- 
-    padding: 10px;
-    padding-left: 20px; /* Extra padding for icons */
-    font-size: 14px;
-    border: 1px solid #333;
-    border-radius: 5px;
-    outline: none;
-    transition: border 0.2s;
-  }
-  
-  .refermoreprofilepages-floating-input input:focus {
-    border-color: black;
-  }
-  
-  .refermoreprofilepages-input-icon {
-    position: absolute;
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-    color: #0073e6;
-    font-size: 16px;
-    pointer-events: none;
-  }
-  
-  /* Button Group */
-  .refermoreprofilepages-button-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  
- 
-  .refermoreprofilepages-add-button {
-    color: #24b676;
-    border: none;
-    background: none; /* Ensures no background or border shadow is applied */
-    padding: 0; /* Removes extra space added by default styles */
-    cursor: pointer;
-    outline: none; /* Removes focus outline if needed */
-    font-size: 1.5rem; /* Increases the size of the icon or text */
-    width: 40px; /* Adjusts the width */
-    height: 40px; /* Adjusts the height */
-    display: flex; /* Ensures alignment for icons */
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-   
-  }
-  .refermoreprofilepages-remove-button{
-    color: red;
-    border: none;
-    background: none; /* Ensures no background or border shadow is applied */
-    padding: 0; /* Removes extra space added by default styles */
-    cursor: pointer;
-    outline: none; /* Removes focus outline if needed */
-    font-size: 1.5rem; /* Increases the size of the icon or text */
-    width: 40px; /* Adjusts the width */
-    height: 40px; /* Adjusts the height */
-    display: flex; /* Ensures alignment for icons */
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-  }
-  
-  .refermoreprofilepages-add-button:hover {
-    color: #24b676;
-  }
-  
-  .refermoreprofilepages-remove-button:hover {
-    color: #e60000;
-  }
-  .error-messagerefer{
-    color: red;
-  }
-  /* Submit Button */
-  .refermoreprofilepages-submit-button {
-    display: block;
-    margin: 20px auto;
-    background-color: #24b676;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-left:300px;
-  }
-  
-  .refermoreprofilepages-submit-button:hover {
-    background-color: #2da06e;
-  }
-  .refermoreprofilepagess-email-template {
-    margin-top: 30px;
-    padding: 20px;
-    border: 1px solid #cccccc;
-    background-color: #F5F4FA; /* Light background */
-    border-radius: 10px;
-    box-shadow: 0 4px 6px #DBD7F1;
-    width:100%;
-    align-items: center;
-  }
-  
-  .refermoreprofilepagess-email-templateh3 {
-    color: #333333;
-    font-size: 22px;
-    text-align: center;
-    /* margin-top: 10px; */
-    margin-bottom: -10px;
-    margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'calibri';
+  background-color: white;
 }
-  
-  .refermoreprofilepagess-email-content {
-    line-height: 1.6;
-    color: black;
-    font-size: 16px;
-  }
-  
-  .refermoreprofilepagess-email-content strong {
-    color: black;
-    font-weight: 500;
-  }
- 
+
+/* Content Wrapper */
+.refermoreprofilepages-content {
+  display: flex;
+  align-items: center;
+  /* Align children vertically */
+
+  gap: 20px;
+  /* Add space between sections */
+  padding: 20px;
+  border: 1px solid #cccccc;
+  background-color: #F5F4FA;
+  /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #DBD7F1;
+  width: 1920px;
+}
+
+.profilepage-tabb {
+  font-family: 'calibri';
+}
+
+/* Left Section (Social Media) */
+.refermoreprofilepages-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+
+}
+
+.refermoreprofilepages-share {
+  text-align: center;
+  margin-left: 350px;
+}
+
+.refermoreprofilepages-share h3 {
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.refermoreprofilepages-share ul {
+  list-style: none;
+  padding: 0;
+
+  gap: 15px;
+  justify-content: center;
+}
+
+.refermoreprofilepages-share ul li {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.refermoreprofilepages-share ul li:hover {
+  transform: scale(1.2);
+}
+
+.refermoreprofilepages-share li img {
+  width: 25px;
+  /* Set the size of the image */
+  height: 25px;
+  /* Keep it square */
+  cursor: pointer;
+  /* Add a pointer cursor for interactivity */
+  transition: transform 0.2s;
+  /* Add a smooth hover effect */
+}
+
+.refermoreprofilepages-share li img:hover {
+  transform: scale(1.1);
+  /* Slight zoom-in effect on hover */
+}
+
+
+.refermoreprofilepages-or {
+  font-size: 24px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  width: 50px;
+  /* Adjust width for "OR" */
+  display: flex;
+  align-items: center;
+  /* Vertically center text */
+  justify-content: center;
+  /* Horizontally center text */
+  margin-right: 50px;
+}
+
+/* Right Section (Form) */
+.refermoreprofilepages-right {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.refermoreprofilepages-right h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Group */
+.refermoreprofilepages-input-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+  margin-right: 250px;
+}
+
+/* Floating Label Input */
+.refermoreprofilepages-floating-input {
+  position: relative;
+  flex: 1;
+}
+
+.refermoreprofilepages-label {
+
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #333;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.refermoreprofilepages-label.filled {
+  top: -10px;
+  left: 10px;
+  font-size: 12px;
+  color: #0073e6;
+}
+
+.refermoreprofilepages-floating-input input {
+
+  padding: 10px;
+  padding-left: 20px;
+  /* Extra padding for icons */
+  font-size: 14px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.refermoreprofilepages-floating-input input:focus {
+  border-color: black;
+}
+
+.refermoreprofilepages-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #0073e6;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Button Group */
+.refermoreprofilepages-button-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+
+.refermoreprofilepages-add-button {
+  color: #24b676;
+  border: none;
+  background: none;
+  /* Ensures no background or border shadow is applied */
+  padding: 0;
+  /* Removes extra space added by default styles */
+  cursor: pointer;
+  outline: none;
+  /* Removes focus outline if needed */
+  font-size: 1.5rem;
+  /* Increases the size of the icon or text */
+  width: 40px;
+  /* Adjusts the width */
+  height: 40px;
+  /* Adjusts the height */
+  display: flex;
+  /* Ensures alignment for icons */
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+
+}
+
+.refermoreprofilepages-remove-button {
+  color: red;
+  border: none;
+  background: none;
+  /* Ensures no background or border shadow is applied */
+  padding: 0;
+  /* Removes extra space added by default styles */
+  cursor: pointer;
+  outline: none;
+  /* Removes focus outline if needed */
+  font-size: 1.5rem;
+  /* Increases the size of the icon or text */
+  width: 40px;
+  /* Adjusts the width */
+  height: 40px;
+  /* Adjusts the height */
+  display: flex;
+  /* Ensures alignment for icons */
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.refermoreprofilepages-add-button:hover {
+  color: #24b676;
+}
+
+.refermoreprofilepages-remove-button:hover {
+  color: #e60000;
+}
+
+.error-messagerefer {
+  color: red;
+}
+
+/* Submit Button */
+.refermoreprofilepages-submit-button {
+  display: block;
+  margin: 20px auto;
+  background-color: #24b676;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-left: 270px;
+}
+
+.refermoreprofilepages-submit-button:hover {
+  background-color: #2da06e;
+}
+
+.refermoreprofilepagess-email-template {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #cccccc;
+  background-color: #F5F4FA;
+  /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px #DBD7F1;
+  width: 100%;
+  align-items: center;
+}
+
+.refermoreprofilepagess-email-templateh3 {
+  color: #333333;
+  font-size: 22px;
+  text-align: center;
+  /* margin-top: 10px; */
+  margin-bottom: -10px;
+  margin-top: 50px;
+}
+
+.refermoreprofilepagess-email-content {
+  line-height: 1.6;
+  color: black;
+  font-size: 16px;
+}
+
+.refermoreprofilepagess-email-content strong {
+  color: black;
+  font-weight: 500;
+}
+
 .refermoreprofilepages-floating-input-error {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 .input-error {
@@ -266,91 +300,242 @@
   font-size: 12px;
   margin-top: 5px;
 }
+
 .refermoreprofilepages-floating-input.error input {
   border: 1px solid red;
 }
-/* For tablets (768px and below) */
-@media (max-width: 768px) {
+
+@media (min-width: 1280px) and (max-width: 1535px) {
   .refermoreprofilepages-content {
-      flex-direction: column;
-      width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 1350px;
+    margin-left: -5px;
+
   }
 
-  
-  .refermoreprofilepages-right {
-    width: 69%;
-}
-
-.refermoreprofilepages-left {
-  /* width: 50%; */
-  margin-left: -50px;
-}
-  .refermoreprofilepages-share {
-      margin-left: 0;
-  }
-
-  .refermoreprofilepages-input-group {
-      flex-direction: column;
-      margin-right: 0;
+  .refermoreprofilepages-left {
+    display: flex;
+    margin-left: -360px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
   }
 
   .refermoreprofilepages-submit-button {
-      margin-left: 0;
+    display: block;
+    margin: 20px auto;
+    background-color: #24b676;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 270px;
   }
 
   .refermoreprofilepagess-email-template {
-      width: 100%;
-      margin-left: 0;
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 103%;
+    align-items: center;
+    margin-left: -3px;
+
   }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .refermoreprofilepages-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 950px;
+    margin-left: -5px;
+
+  }
+
+  .refermoreprofilepagess-email-template {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    width: 103%;
+    align-items: center;
+    margin-left: -3px;
+
+  }
+
+  .refermoreprofilepages-left {
+    display: flex;
+    margin-left: -340px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+  }
+
+  .refermoreprofilepages-floating-input input {
+    width: 120px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.2s;
+  }
+
+  .refermoreprofilepages-right h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .refermoreprofilepages-submit-button {
+    display: block;
+    margin: 20px auto;
+    background-color: #24b676;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 250px;
+  }
+}
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .refermoreprofilepages-content {
+
+    width: 100%;
+  }
+
+  .refermoreprofilepages-floating-input input {
+    width: 290px;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.2s;
+  }
+
+  .refermoreprofilepages-right {
+    width: 69%;
+  }
+
+  .refermoreprofilepages-left {
+    /* width: 50%; */
+    margin-left: -50px;
+  }
+
+  .refermoreprofilepages-share {
+    margin-left: 0;
+  }
+
+  .refermoreprofilepages-input-group {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .refermoreprofilepages-submit-button {
+    margin-left: 0;
+  }
+
+  .refermoreprofilepagess-email-template {
+    width: 100%;
+    margin-left: 0;
+  }
+
   .refermoreprofilepages-right h2 {
     font-size: 14px;
     margin-left: 0px;
   }
+
   .refermoreprofilepages-or {
     font-size: 20px;
     font-weight: bold;
     color: #555;
     text-align: center;
     width: 50px;
-    display: flex
-  ;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 50px;
   }
+
   .refermoreprofilepages-share h3 {
     font-size: 14px;
     margin-left: -0px;
   }
+
   .refermoreprofilepagess-email-templateh3 {
     color: #333;
     font-size: 17px;
     text-align: center;
     margin-bottom: -10px;
     margin-top: 50px;
-}
+  }
 }
 
 /* For mobile phones (480px and below) */
 @media (max-width: 480px) {
   .refermoreprofilepages-content {
     padding: 10px;
-    width: 109%;
-}
+    width: 103%;
+    margin-left: -10px;
 
-.refermoreprofilepages-share h3 {
-  font-size: 14px;
-}
-  .refermoreprofilepages-share ul li {
-      font-size: 20px;
   }
 
- 
+  .refermoreprofilepagess-email-template {
+    margin-left: -10px;
+    width: 99%;
+  }
+
+  .refermoreprofilepagess-email-content {
+    font-size: 14px;
+  }
+
+  .refermoreprofilepages-share h3 {
+    font-size: 14px;
+  }
+
+  .refermoreprofilepages-share ul li {
+    font-size: 20px;
+  }
+
+  .refermoreprofilepages-left {
+    /* width: 50%; */
+    margin-left: 0px;
+  }
+
 
   .refermoreprofilepages-floating-input input {
-    width: 100%;
+    width: 70%;
     padding: 10px;
-    padding-left: 20px; /* Extra padding for icons */
+    padding-left: 20px;
+    /* Extra padding for icons */
     font-size: 14px;
     border: 1px solid #333;
     border-radius: 5px;
@@ -359,33 +544,39 @@
   }
 
   .refermoreprofilepages-submit-button {
-      font-size: 14px;
-      padding: 8px 15px;
+    font-size: 12px;
+    padding: 8px 15px;
+    margin-left: -70px;
   }
+
   .refermoreprofilepagess-email-templateh3 {
     color: #333;
-    font-size: 15px;
+    font-size: 13px;
     text-align: center;
     margin-bottom: -10px;
     margin-top: 50px;
-}
-.refermoreprofilepages-right h2 {
-  font-size: 13px;
-  margin-left: 0px;
-}
-.refermoreprofilepages-or {
-  font-size: 20px;
-  font-weight: bold;
-  color: #555;
-  text-align: center;
-  width: 50px;
-  display: flex
-;
-  align-items: center;
-  justify-content: center;
-  margin-right: 50px;
-}
-.refermoreprofilepages-right {
-  width: 80%;
-}
+    margin-left: -5px;
+  }
+
+  .refermoreprofilepages-right h2 {
+    font-size: 13px;
+    margin-left: -130px;
+  }
+
+  .refermoreprofilepages-or {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+  }
+
+  .refermoreprofilepages-right {
+    width: 110%;
+    margin-left: -30px;
+  }
 }
