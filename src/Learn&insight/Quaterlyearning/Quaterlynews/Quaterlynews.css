@@ -53,6 +53,45 @@
       white-space: nowrap;
     }
     
+
+
+
+    
+  @media (min-width: 1024px) and (max-width: 1279px) {
+
+    .news-item {
+      display: flex
+  ;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+      width: 98%;
+  }
+  .news-listt h2 {
+    font-size: 24px;
+    color: #24b676;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.css-1e1vz46-MuiContainer-root {
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 200%;
+    overflow-x: hidden;
+    padding: 0 16px;
+    margin-top: 250px;
+}
+      }
     /* Responsive Design for Smaller Screens */
     
     /* Responsive Design for Smaller Screens */
@@ -75,9 +114,17 @@
         flex-direction: column;
         align-items: flex-start;
         padding: 12px; /* Adjust padding for mobile */
+        width:99%;
       
       }
     
+
+.news-listt h2 {
+    font-size: 24px;
+    color: #24b676;
+    margin-left: 10px;
+    margin-top: -20px;
+}
       .news-item .news-date {
         margin-top: 5px; /* Add some margin to the date for better spacing */
       }

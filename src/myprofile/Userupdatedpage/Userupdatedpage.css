@@ -557,6 +557,16 @@ margin-left: -10px;
     margin-bottom: 15px;
     width: 100%; /* Adjust width to fit the container */
   }
+  .profilepage-tabsorderusers::-webkit-scrollbar {
+    height: 8px;
+    background: transparent; /* Makes the scrollbar track transparent */
+  }
+  
+  .profilepage-tabsorderusers::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Makes the thumb (scroll) transparent */
+    border-radius: 10px;
+  }
+  
   .modal-content {
     background: white;
     padding: 20px;

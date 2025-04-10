@@ -114,6 +114,7 @@ max-width: 1000px;
   background-color: #24b676;
   width: 1200px;
   margin-bottom: 100px;
+  margin-left: -90px;
 }
 
 .footer-subscribe-buttonmanage {
@@ -197,6 +198,9 @@ max-width: 1000px;
    
 
   }
+  .headerinvestrisk {
+    margin-top: -80px;
+}
   .subscribe-footerrmanagealerttt h1{
     margin-top: 35px;
     color: white;
@@ -210,8 +214,9 @@ max-width: 1000px;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
     background-color: #24b676;
-    width: 450px;
+    width: 700px;
     margin-bottom: 100px;
+    margin-left: 5px;
   }
   .riskreportprofile-factor h2{
     font-size: 15px;
@@ -222,7 +227,9 @@ max-width: 1000px;
     color: black;
     font-size: 24px;
     margin-bottom: 10px;
-  }
+    margin-top: -50px;
+    margin-left: 20px;
+}
   
   .riskheaderheader h2{
     font-size: 15px;
@@ -386,9 +393,11 @@ max-width: 1000px;
   
     .riskreportprofile-container h1 {
       color: black;
-      font-size: 24px;
+      font-size: 22px;
+      margin-top: 70px;
       margin-bottom: 10px;
-    }
+  }
+
   
     .riskheaderheader h2,
     .riskheaderheader h3,
@@ -515,7 +524,7 @@ max-width: 1000px;
       border-radius: 10px;
       box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
       background-color: #24b676;
-      width: calc(100% - 20px);
+      width: calc(90% - 20px);
       margin: 20px auto 100px;
     }
   }
@@ -523,4 +532,20 @@ max-width: 1000px;
     .profilepage-tabb {
         font-size: 15px;
     }
+    .profilepage-titlesession {
+      margin-top: 40px;
+      margin-left: 110px;
+  }
+  .subscribe-footerrmanagealerttt {
+    text-align: center;
+    margin-top: 40px;
+    border: 1px solid rgb(238, 236, 236);
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
+    background-color: #24b676;
+    width: 800px;
+    margin-bottom: 100px;
+    margin-left: 80px;
+  }
 }

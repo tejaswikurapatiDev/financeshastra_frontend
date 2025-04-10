@@ -3,7 +3,7 @@
     margin-left: -14%; 
     padding: 20px 20px;
     font-family: "calibri";
-    margin-top: 100px;
+    margin-top: 70px;
     border-radius: 0;
     position: fixed;
     top: 0;
@@ -104,8 +104,52 @@ color: #fff; /* Text color for active link */
 background-color: #22c55e; /* Green background for active link */
 font-weight: bold; /* Make it bold */
 }
+.graphprice {
+  margin-right: 140px;
+}
 
-
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .graph-price-update {
+    display: flex
+;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0;
+    margin-right: 500px;
+}
+.graphupdate {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+  /* margin-left: -10px; */
+  width: 200px;
+}
+.graphprice {
+  margin-right: 140px;
+}
+.graphheaderer h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 150px;
+  width: 200px;
+}
+.graphstock-infoo {
+  margin-left: 150px;
+}
+.graphcontainerer {
+  width: 150%;
+  margin-left: -14%;
+  padding: 20px 20px;
+  font-family: "calibri";
+  margin-top: 50px;
+  border-radius: 0;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+}
+}
 
 
 /* For screens 768px and below */
@@ -115,25 +159,61 @@ font-weight: bold; /* Make it bold */
   margin-left: 0;
   padding: 10px;
 }
+.graphheaderer h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  margin-left: 90px;
+}
 
+
+.graphcontainerer {
+    width: 150%;
+    margin-left: -14%;
+    padding: 20px 20px;
+    font-family: "calibri";
+    margin-top: 50px;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+}
+.graphheaderer {
+  display: flex
+;
+  gap: 70px;
+  align-items: center;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
 .graphheader h1 {
   font-size: 20px;
   margin-left: 0; 
 }
-
+.graphupdate {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+  /* margin-left: -10px; */
+  width: 200px;
+}
+.graphprice {
+  margin-right: 140px;
+}
 .graph-price-update {
   margin-right: 0;
 }
 
 .graphnavbar {
-
-  margin-left: 0px;
-  margin-right: 40px;
-  
+  margin-left: 70px;
+  margin-right: 50px;
+  font-size: 12px;
+  gap: 0px;
 }
 
 .graphnavbar span, .graphnavbar a {
-  font-size: 14px; 
+  font-size: 11px; 
 
    
 }
@@ -143,13 +223,14 @@ font-weight: bold; /* Make it bold */
 }
 
 .graphupdate {
-  font-size: 10px; 
+  font-size: 10px;
+  margin-left: 250px;
 }
 
 .graphstock-infoo {
-margin-left: 0px;
-   
+  margin-left: 80px;
 }
+
 
 .graphnse, .graphsector {
   font-size: 12px; 

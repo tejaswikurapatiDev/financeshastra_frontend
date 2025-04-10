@@ -875,7 +875,7 @@ body {
     display: flex;
     gap: 1px;
     align-items: center;
-    margin-left: -5px;
+    margin-left: -25px;
   }
 
   .DashboardMainPagetable-sector {
@@ -991,20 +991,16 @@ body {
 
   .sectortele-icon {
     background-color: rgb(85, 85, 236);
-    /* Teal for Telecommunication */
     width: 8%;
-    /* Adjust size as needed */
     height: 25%;
-    /* Adjust size as needed */
     border-radius: 50%;
-    display: flex;
-    /* Centers the icon within the circle */
-    margin-left: 1px;
+    display: flex
+;
+    margin-left: 18px;
     align-items: center;
     justify-content: center;
     padding: 10px;
-  }
-
+}
   .DashboardMainPagetable-change {
     margin-top: 15px;
     font-size: 12px;

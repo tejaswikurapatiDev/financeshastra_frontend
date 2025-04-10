@@ -75,12 +75,12 @@ const ProfileRiskReportInvestment = () => {
                         <h4>Know Your Risk Appetite</h4></div>
                     <div className="cardsriskstep2">
                         <div className="cardriskstep2">
-                            <h5>Your Risk-taking ability is <strong style={{ color: "red" }}>Medium</strong></h5>
-                            <p>
+                            <h5 className="profile-risk-reportparrra">Your Risk-taking ability is <strong style={{ color: "red" }}>Medium</strong></h5>
+                            <p className="profile-risk-reportparrra">
                                 Your age, income, financial responsibilities, etc., indicate
                                 that you can take medium risk to earn healthy long-term returns.
                             </p>
-                            <h6>
+                            <h6 className="profile-risk-reportparrra">
                                 Take medium risk to earn healthy long-term returns.
 
                             </h6>

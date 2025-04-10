@@ -59,6 +59,17 @@
 .earningheaderrpeer{
     margin-left: 20px;
 }
+
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+    .earnings-insight-learn-tablepeer {
+        width: 100%;
+        font-family: 'calibri';
+        border-collapse: collapse;
+    }
+      }
 @media (max-width: 768px) {
     .earnings-insight-learn-tablepeer {
         width: 100%;
@@ -81,11 +92,11 @@
     }
     .earningparaapeer{
         font-size: 15px;
-        margin-left: 20px;
+        margin-left: 30px;
     }
     .earningheaderrpeer{
-        margin-left: 20px;
-        font-size: 24px;
+        margin-left: 30px;
+        font-size: 22px;
         color: #24b676;
     }
 }

@@ -122,7 +122,7 @@ const SessionHistory = () => {
       <AccountBar/>
 
       <h2>Session History</h2>
-      <p>
+      <p className="sessioningp">
         Sessions track your account activity, including login times and devices.
         This helps you identify and prevent unauthorized access.
       </p>

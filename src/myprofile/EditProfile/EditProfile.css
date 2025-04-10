@@ -140,7 +140,29 @@
   margin-left: 10px;
 
 }
-
+.profilepage-verify-btn{
+  color: white;
+  background-color: #24b676;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 12px;
+ 
+}
+.profilepage-verify-btn:hover {
+  background-color: #62ab8b;
+}
+.profilepage-mobverify-btn{
+  color: white;
+  background-color: #24b676;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 12px;
+  
+}
 .profile-verify-btn:hover {
   background-color: #24b676;
   color: white;

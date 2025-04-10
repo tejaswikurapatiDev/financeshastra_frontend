@@ -328,3 +328,13 @@
         font-size: 13px;
       }
   }
+
+  /* Additional Tweaks for Extra Small Devices */
+@media (max-width: 480px) {
+  .descriptionnalert {
+    margin-bottom: 10px;
+    color: #24b676;
+    font-weight: bold;
+    font-size: 12px;
+}
+}

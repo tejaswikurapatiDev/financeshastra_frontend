@@ -63,7 +63,8 @@ function Earninginsightheader() {
         <ScrollLink
           to="overview"
           smooth={true}
-          duration={500}
+          duration={500} 
+          offset={-320}
           activeClass="active-link"
         >
           Overview
@@ -72,6 +73,7 @@ function Earninginsightheader() {
           to="financials"
           smooth={true}
           duration={500}
+          offset={-290}
           activeClass="active-link"
         >
           Financials
@@ -80,6 +82,7 @@ function Earninginsightheader() {
           to="income"
           smooth={true}
           duration={500}
+          offset={-290}
           activeClass="active-link"
         >
           Income Statement
@@ -88,6 +91,7 @@ function Earninginsightheader() {
           to="valuation"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Balance Sheet
@@ -96,6 +100,7 @@ function Earninginsightheader() {
           to="stockanalysis"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Cash Flow
@@ -104,6 +109,7 @@ function Earninginsightheader() {
           to="analysis-notes"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Ratios
@@ -112,6 +118,7 @@ function Earninginsightheader() {
           to="stockpeer"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Peers
@@ -120,6 +127,7 @@ function Earninginsightheader() {
           to="news"
           smooth={true}
           duration={500}
+          offset={-250}
           activeClass="active-link"
         >
           News
@@ -128,6 +136,7 @@ function Earninginsightheader() {
           to="about"
           smooth={true}
           duration={500}
+          offset={-250}
           activeClass="active-link"
         >
           About

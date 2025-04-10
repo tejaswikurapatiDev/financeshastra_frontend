@@ -11,12 +11,12 @@
   /* For tablet screens */
   @media (max-width: 768px) {
     .circleearning {
-      width: 100%;
-      margin-left: 20px;
+      width: 66%;
+      margin-left: 10px;
       margin-right: 20px;
       margin-top: 10px;
       height: auto;
-    }
+  }
     
     .circlechartheader {
       font-size: 16px; /* Smaller font size for header */

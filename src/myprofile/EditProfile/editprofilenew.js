@@ -1000,7 +1000,7 @@ const EditProfile = () => {
                       <span style={{ color: "#24b676" }}>Verified</span>
                     ) : (
                       <button
-                        className="profilepage-verify-btn"
+                        className="profilepage-mobverify-btn"
                         onClick={() => handleVerificationClick("mobile")}
                       >
                         Verify
