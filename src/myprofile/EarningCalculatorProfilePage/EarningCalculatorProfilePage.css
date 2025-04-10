@@ -176,6 +176,7 @@ margin-top: 20px;
     margin-left: 400px;
 }
 }
+
 /* For tablets (768px and below) */
 @media (max-width: 768px) {
   .earningcalculatorprofilepage-content {

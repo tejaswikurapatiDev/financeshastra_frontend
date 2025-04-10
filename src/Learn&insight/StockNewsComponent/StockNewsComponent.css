@@ -79,6 +79,7 @@
   }
   .stockNewsContainer {
     max-width: 1536px;
+    margin-left: 430px;
   }
 }
 
@@ -93,7 +94,7 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
   .stockNewsContainer {
     max-width: 1024px;
-    margin-left: 200px;
+    margin-left: 130px;
   }
 }
 
@@ -141,4 +142,27 @@
     font-size: 12px;
   }
 
+}
+@media (max-width: 320px) {
+  .newsDescription {
+    font-size: 12px;
+    margin-left: -150px;
+    margin-top: 70px;
+}
+.newsTitle {
+  font-size: 10px;
+}
+.stockNewsItem {
+  gap: 10px;
+  padding: 8px;
+  width: 260px;
+  margin-left: -19px;
+
+
+}
+.stockNewsTitle {
+  font-size: 18px;
+  margin-left: -10px;
+  margin-top: -30px;
+}
 }
