@@ -101,7 +101,9 @@ const UserDetailsupdate = () => {
       }
       
       const response= await fetch(url, options)
-      if (response.ok=== true){
+      console.log(response)
+      
+       if (response.ok=== true){
         const decode= decodingtoken(cookietoken)
       const {email}= decode
         const data= await response.json()
@@ -135,6 +137,7 @@ const UserDetailsupdate = () => {
         setInvestmentDetails((prev) => ({ ...prev, ...dataupdated.investment }));
         setisLoading(false)
       }
+      setisLoading(false)
      
     }
     fetchfunc()
