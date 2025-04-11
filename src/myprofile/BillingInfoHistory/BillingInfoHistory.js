@@ -195,6 +195,7 @@ const BillingInfoHistory = () => {
   
 
   return (
+    <div>
     <div className="outer-cont">{isLoading ? <div className='loader-cont'><ClipLoader
       cssOverride={override}
       size={35}
@@ -214,7 +215,7 @@ const BillingInfoHistory = () => {
 {isSubed? <div className="billinginfohistory-container"><div>
 <div className="billinginfohistory-row">
 <div className="billinginfohistory-plan billinginfohistory-wide">
-  <h2>Current Plan</h2>
+  <h2 className="currenth2">Current Plan</h2>
   <div className="billinginfohistorycard">
     <p className="billinginfohistorypara"><strong>Plan Type:</strong> {plan} {BillingCycle}</p>
     <p className="billinginfohistorypara"><strong>Plan Pricing:</strong> {price} billed {BillingCycle}</p>
@@ -230,7 +231,7 @@ const BillingInfoHistory = () => {
 </div>
 
 <div className="billinginfohistory-billing billinginfohistory-wide">
-<h2>Billing Information</h2>
+<h2 className="billlh2">Billing Information</h2>
 <div className="billinginfohistory-card">
 <p className="billinginfohistorypara"><strong>Name: </strong> {billingInfo.name}</p>
 <p className="billinginfohistorypara"><strong>Address: </strong> {billingInfo.address}</p>
@@ -293,11 +294,11 @@ const BillingInfoHistory = () => {
 
 <Navbar/>
 </div>
-<div className="foooterpagesaupdate">
-        <FooterForAllPage/>
-    </div>
+
     </>}
     
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 };

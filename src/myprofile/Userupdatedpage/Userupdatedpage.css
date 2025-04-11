@@ -551,12 +551,12 @@ margin-left: -10px;
   }
 
   .profilepage-tabsorderusers {
-    overflow-x: scroll; /* Prevent horizontal scrolling */
+    overflow-x: scroll;
     border-bottom: none;
     margin-left: 0;
     margin-bottom: 15px;
-    width: 100%; /* Adjust width to fit the container */
-  }
+    width: 100%;
+}
   .profilepage-tabsorderusers::-webkit-scrollbar {
     height: 8px;
     background: transparent; /* Makes the scrollbar track transparent */

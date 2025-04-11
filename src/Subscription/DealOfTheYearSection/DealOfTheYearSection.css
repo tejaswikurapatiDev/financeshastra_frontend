@@ -100,6 +100,25 @@
     background: linear-gradient(90deg, #047857, #10b981);
   }
   
+
+  @media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+
+    .deal-plan-description {
+      position: absolute;
+      margin-right: 85px;
+      background: linear-gradient(90deg, #24b676, #238486);
+      color: white;
+      font-weight: bold;
+      font-size: 19px;
+      padding: 10px 20px;
+      border-radius: 0 40px 0px 0;
+      transform-origin: top left;
+      margin-left: 50px;
+      text-align: center;
+  }
+
+  
+  }
   /* General Responsive Design */
 @media (max-width: 768px) {
   .deal-section-container {

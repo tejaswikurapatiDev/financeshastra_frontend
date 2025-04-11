@@ -398,6 +398,58 @@ margin-top: 10px;
   margin: 0; /* Remove default margin */
   padding: 0; /* Remove default padding */
 }
+
+
+@media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+
+  .subscriptionh2 {
+    margin-left: 70px;
+    color: #24b676;
+    font-weight: bold;
+}
+
+
+.plans-wrapper {
+  display: flex
+;
+  border: 2px solid #c2c0c0;
+  border-radius: 35px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: -220px;
+  box-shadow: 0 4px 8px #c2c0c0;
+  width: 160%;
+  max-width: 1500px;
+}
+.toggle-switch-container {
+  text-align: center;
+  margin-bottom: 20px;
+  border: 2px solid #e0f7f4;
+  border-radius: 30px;
+  padding: 5px;
+  width: 300px;
+  margin: 0 auto;
+  background-color: #e0f7f4;
+  margin-left: -10px;
+}
+.plan-card.permium-plan {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 35px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 91%;
+  box-shadow: 0 4px 8px #24b676;
+  height: 880px;
+  min-height: 500px;
+}
+.subscriptionh4 {
+  margin-left: 100px;
+  color: black;
+  font-size: 19px;
+  font-weight: bold;
+}
+}
   /* General styles for mobile view */
 @media (max-width: 768px) {
   .subscription-container {
