@@ -9,7 +9,7 @@
     top: 0;
     z-index: 1000;
     background-color: #fff;
-
+    
 } 
 
 .graphheaderer {
@@ -26,7 +26,7 @@
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-  margin-left: 300px;
+  margin-left: 310px;
 }
 
 
@@ -109,58 +109,112 @@ font-weight: bold; /* Make it bold */
 
 
 /* For screens 768px and below */
-@media (max-width: 768px) {
-.graphcontainer {
-  width: 100%; 
-  margin-left: 0;
-  padding: 10px;
-}
-
-.graphheader h1 {
-  font-size: 20px;
-  margin-left: 0; 
-}
-
-.graph-price-update {
-  margin-right: 0;
-}
-
-.graphnavbar {
-
-  margin-left: 0px;
-  margin-right: 40px;
+@media (min-width: 481px) and (max-width: 768px) {
+  .graphheader {
+    display: flex;
+    width: 90%;
+    padding: 12px;
+    margin: 0;
+    margin-top: 50px;
+    margin-left: 10px;
+    border: 5px solid black;
+    justify-content: space-between;
+  }
   
+  body {
+    padding-top: 70px; /* Adjust based on your header height */
+  }
+
+  .graphheaderer {
+    display: flex;
+    gap: 300px;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    margin-left: -300px;
+  }
+
+  .graphstock-infoo {
+    margin-left: 5px;
 }
 
-.graphnavbar span, .graphnavbar a {
-  font-size: 14px; 
-
-   
+  .graphcontainerer {
+    width: 90%;
+    margin-left: -15px;
+    padding: 20px 20px;
+    font-family: "calibri";
+    margin-top: 75px;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
 }
+  
+  .graphcontainer {
+    width: 20%; 
+    margin-left: 0px;
+    padding: 10px;
+    border-radius: 0;
+    margin-right: 100px;
+    border: 5px solid black;
+    margin-top: 75px;
+  }
+  
 
-.graphprice {
-  font-size: 20px; 
-}
+  .graphheader h1 {
+    font-size: 20px;
+    margin-left: 0; 
+  }
 
-.graphupdate {
-  font-size: 10px; 
-}
+  .graph-price-update {
+    margin-right: 0;
+  }
+  
 
-.graphstock-infoo {
-margin-left: 0px;
-   
-}
+  .graphnavbar {
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 0;
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    gap: 0;
+    width: 100%;
+    position: relative;
+  }
 
-.graphnse, .graphsector {
-  font-size: 12px; 
-  padding: 4px 8px; 
-}
+  .graphnavbar span, .graphnavbar a {
+    font-size: 14px;
+  }
 
-.title-container {
-  flex-direction: column; 
-  align-items: flex-start; 
-}
+  .graphprice {
+    font-size: 20px; 
+  }
 
+  .graphupdate {
+    font-size: 10px; 
+  }
+
+  .graphstock-info {
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    margin: 5px 0;
+    margin-right: 60px;
+  }
+
+  .graphnse, .graphsector {
+    font-size: 12px; 
+    padding: 4px 8px; 
+  }
+
+  .title-container {
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
 }
 
 
@@ -168,57 +222,89 @@ margin-left: 0px;
 /* For screens 768px and below */
 @media (max-width: 480px) {
   .graphcontainer {
-    width: 98%; 
-    margin-left: 0;
-  
-    
+    /* border: 1px solid #e0e0e0; */
+    width: 90%;
+    padding: 12px;
+    margin: 0;
+    margin-top: 50px;
+    margin-left: -10px;
   }
+
+  .graphheaderer {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
   
   .graphheader h1 {
-    font-size: 20px;
-    margin-left: 0; 
+    font-size: 16px;
+    margin: 0;
   }
-  
-  .graph-price-update {
-    margin-left: 60px;
+
+  .graphcontainerer {
+    width: 85%;
+    margin-left: -10px;
+    padding: 20px 20px;
+    font-family: "calibri";
+    margin-top: 58px;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    /* border: 5px solid black; */
 }
-  .graphnavbar {
   
+  .graphnavbar {
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 0;
+    padding-bottom: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    gap: 0;
+    width: 100%;
+    position: relative;
+  }
+
+  .title-container h1 {
+    flex-direction: row; 
+    align-items: flex-start; 
     margin-left: 0px;
-    margin-right: 40px;
-    
+    width: 200px;
+  }
+
+  .graphnavbar::-webkit-scrollbar {
+    display: none;
   }
   
   .graphnavbar span, .graphnavbar a {
-    font-size: 14px; 
-  
-     
+    font-size: 14px;
+    padding: 8px 12px;
+    flex-shrink: 0; 
   }
   
   .graphprice {
-    font-size: 20px; 
+    font-size: 22px;
   }
   
   .graphupdate {
-    font-size: 10px; 
+    font-size: 11px;
   }
   
   .graphstock-infoo {
-  margin-left: 0px;
-     
+    margin-left: 0px;
   }
   
   .graphnse, .graphsector {
-    font-size: 12px; 
-    padding: 4px 8px; 
+    font-size: 11px;
+    padding: 3px 6px;
   }
-  
-  .title-container {
-    flex-direction: column; 
-    align-items: flex-start; 
-  }
-  
-  }
+}
 
   
   

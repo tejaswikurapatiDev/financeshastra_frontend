@@ -547,12 +547,11 @@ body {
   }
 
   .DashboardMainPagetable-headerrindexx {
-    display: flex
-;
+    display: flex;
     gap: 10px;
     margin-bottom: 110px;
     margin-left: 60px;
-    margin-top: -140px;
+    margin-top: -500px;
 }
 
   .DashboardMainPagetable-header {
