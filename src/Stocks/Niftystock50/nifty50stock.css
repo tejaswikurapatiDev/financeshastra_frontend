@@ -110,7 +110,16 @@
     height: 400px;
     max-height: 500px;
     font-size: 14px;
+    height: 400px;
+    max-height: 500px;
+    font-size: 14px;
     overflow-x: auto;
+    overflow-y: hidden;
+    width: 89%;
+    margin-left: 40px;
+    scrollbar-color: #24b676 transparent;
+    scrollbar-width: thin;
+}
     overflow-y: hidden;
     width: 89%;
     margin-left: 40px;
@@ -168,10 +177,15 @@
   height: 400px;
   max-height: 500px;
   font-size: 14px;
+  height: 400px;
+  max-height: 500px;
+  font-size: 14px;
   overflow-x: auto;
   font-size: 12px;
   width: 100%;
   margin-left: -0px;
 }
 }
+
+
 
