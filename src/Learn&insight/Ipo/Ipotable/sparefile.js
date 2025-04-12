@@ -2,15 +2,16 @@ import React from "react";
 import "./Ipotable.css"; // Optional: Add styling as needed
 
 const Ipotable = (props) => {
-  const { financialData, keyratios, subscriptionstatus, ipoDetailsData } = props
-  console.log(ipoDetailsData)
-  /*const financialHistory = [
+  const { financialData } = props
+  console.log(financialData)
+
+  const financialHistory = [
     { year: "Revenue", annualgrowth: -3.6, FY24: "2,958", FY23: "3,329", FY22: "3,185" },
     { year: "EBIT", annualgrowth: -39.4, FY24: 182, FY23: 216, FY22: 495 },
     { year: "PAT", annualgrowth: -38.6, FY24: 134, FY23: 153, FY22: 355 },
     { year: "Net worth", annualgrowth: "_", FY24: "1,274", FY23: "1,140", FY22: 987 },
     { year: "Total debit", annualgrowth: "_", FY24: 380, FY23: 281, FY22: 378 },
-  ];*/
+  ];
 
   const keyRatios = [
     { label: "ROE (%)", fy24: 11.1, fy23: 3.329, fy22: 3.185, average: 23.1 },
@@ -39,20 +40,7 @@ const Ipotable = (props) => {
 
   const getValue = (field) => sortedData.map((row) => parseFloat(row[field]).toLocaleString("en-IN"));
 
-  const metrics = [
-    { label: "ROE (%)", key: "roe" },
-    { label: "ROCE (%)", key: "roce" },
-    { label: "EBIT margin (%)", key: "ebitMargin" },
-    { label: "Debt-to-equity", key: "debtToEquity" },
-  ];
 
-  const years = ["FY24", "FY23", "FY22"];
-
-  const calculateAverage = (key) => {
-    const values = keyratios.map((item) => parseFloat(item[key] || 0));
-    const avg = values.reduce((sum, val) => sum + val, 0) / values.length;
-    return avg.toFixed(2);
-  };
 
 
 
@@ -63,6 +51,7 @@ const Ipotable = (props) => {
       <section className="financialIPO-history">
         <h2>Financial History</h2>
         <div className="overflow-auto p-4">
+
           <table className="ipotable">
             <thead className="bg-gray-100">
               <tr>
@@ -119,37 +108,30 @@ const Ipotable = (props) => {
               </tr>
             </tbody>
           </table>
-
         </div>
       </section>
       <p className="ebitpara">EBIT is earnings before interest and taxes PAT is profit after tax</p>
 
       <section className="key-ratios">
         <h2>Key Ratios</h2>
-
         <table className="ipotable">
           <thead>
             <tr>
               <th>Ratio</th>
               <th>3Y Average</th>
-              {years.map((year) => (
-                <th key={year}>{year}</th>
-              ))}
+              <th>FY24</th>
+              <th>FY23</th>
+              <th>FY22</th>
             </tr>
           </thead>
           <tbody>
-            {metrics.map(({ label, key }) => (
-              <tr key={key}>
-                <td>{label}</td>
-                <td>{calculateAverage(key)}</td>
-                {years.map((year) => {
-                  const yearData = keyratios.find((item) => item.fiscalYear === year);
-                  return (
-                    <td key={year + key}>
-                      {yearData ? yearData[key] : "N/A"}
-                    </td>
-                  );
-                })}
+            {keyRatios.map((row) => (
+              <tr key={row.label}>
+                <td>{row.label}</td>
+                <td>{row.average}</td>
+                <td>{row.fy24}</td>
+                <td>{row.fy23}</td>
+                <td>{row.fy22}</td>
               </tr>
             ))}
           </tbody>
@@ -167,10 +149,10 @@ const Ipotable = (props) => {
             </tr>
           </thead>
           <tbody>
-            {subscriptionstatus.map((row) => (
+            {subscriptionStatus.map((row) => (
               <tr key={row.category}>
                 <td>{row.category}</td>
-                <td>{row.subscriptionTimes}</td>
+                <td>{row.times}</td>
               </tr>
             ))}
           </tbody>
