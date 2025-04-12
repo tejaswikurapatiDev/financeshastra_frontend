@@ -48,7 +48,7 @@
     width: 85% !important; /* Ensure it shrinks */
     max-width: 100% !important;
     margin: 0 auto; /* Center it */
-    display: block; /* Prevent auto-stretch */
+   
     margin-left: 50px;
     overflow-x: scroll;
     white-space: wrap;
@@ -93,7 +93,7 @@
   /* Styling for screens 480px and smaller */
   @media (max-width: 480px) {
     .stockresearchatable-title {
-        font-size: 20px;
+        font-size: 18px;
        margin-left: 20px;
         margin-bottom: 10px;
         text-align: left;

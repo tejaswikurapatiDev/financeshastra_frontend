@@ -117,6 +117,7 @@ const BankSectorThemePagelock = () => {
 
   
     return (
+      <div>
         <div className="banksectorthemepage">
             <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
@@ -252,6 +253,8 @@ const BankSectorThemePagelock = () => {
           </div>
         )}
     <Navbar/>
+    
+    </div>
     <FooterForAllPage/>
         </div>
     );

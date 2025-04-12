@@ -287,6 +287,7 @@
 }
 
 
+
 @media(min-width:1536px){
   
 
@@ -747,10 +748,7 @@
         /* Reverse the container's content */
     
     }
-    .oversidefooter{
- width: 200px;
-        margin-left: -100px;
-    }
+ 
     .chartmutual-containerrdashboard {
         height: 330px;
         width: 370px;
@@ -1140,6 +1138,12 @@ max-width: 90%;
     flex-direction: column;
     margin-left: 0px;
     gap: 15px;
+}
+
+.oversidefooter{
+    margin-left: 255px;
+    width: 76%;
+ 
 }
 }
  

@@ -329,7 +329,9 @@ const MutualWatchsectorlist= ({children}) => {
       <Sidebar />
       <div className="main-contentover">
         <div className="contentover">{children}</div>
-        <FooterForAllPage />
+        <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
       </div>
     </div>
     </div>

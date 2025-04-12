@@ -9,8 +9,9 @@ import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/Fundam
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import PortfolioAnalysisrightissusePage from '../PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage'
 import './Portfolioanalysisrightscall.css'
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
 
-function Portfolioanalysisrightscall() {
+function Portfolioanalysisrightscall({children}) {
   return (
     <div className='allpagecallanalysis'>
      
@@ -21,8 +22,17 @@ function Portfolioanalysisrightscall() {
         <PerformancePortfolioAnalysis/>
         <AnalysisResearchReportblur/>
         <PortfolioAnalysisnew/>
-        <Sidebar/>
+        
         <Navbar/>
+        <div className="layout">
+      <Sidebar/>
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
+      </div>
+    </div>
     </div>
   )
 }

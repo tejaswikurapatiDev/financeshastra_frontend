@@ -2,6 +2,7 @@
   font-family: 'calibri';
   padding: 20px;
   background-color: #ffff;
+  margin-left: 23px;
 }
 
 .banksectortitle {
@@ -178,16 +179,41 @@
   top: 32%;
   transform: translateY(-50%);
 }
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .banksectortable {
+    width: 93%;
+    margin-left: 30px;
+    overflow-x: auto;
+    display: block;
+
+  }
+  .banksectorthemepage {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: #ffff;
+    margin-left: 15px;
+}
+}
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .banksectortitle {
     font-size: 22px;
-    margin-left: 20px;
+    margin-left: 15px;
+    margin-top: 80px;
+
   }
+  .banksectorthemepage {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: #ffff;
+    margin-left: 5px;
+}
 
   .banksectorfilter {
     flex-direction: row;
     width: 100%;
+    margin-left: -10px;
   }
 
   .banksectorbtnactive {
@@ -195,7 +221,7 @@
   }
 
   .banksectorsearch {
-    width: 80%;
+    width: 30%;
     margin-left: 0px;
   }
 
@@ -217,7 +243,7 @@
   position: absolute;
   top: 43px;
   left: 10px;
-  width: calc(100% + 20px);
+  width: calc(97% + 20px);
   border-bottom: 2px solid #cecece;
 }
 }
@@ -235,10 +261,24 @@
 
   .banksectorbtnactive {
     margin-left: 10px;
+    font-size: 12px;
   }
+  .banksectorbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+.banksectorthemepage {
+  font-family: 'calibri';
+  padding: 20px;
+  background-color: #ffff;
+  margin-left: -5px;
+}
 
   .banksectorsearch {
-    width: 100%;
+    width: 50%;
     margin-left: 10px;
   }
 
@@ -260,7 +300,7 @@
   position: absolute;
   top: 43px;
   left: 10px;
-  width: calc(100% + 20px);
+  width: calc(95% + 20px);
   border-bottom: 2px solid #cecece;
 }
 }

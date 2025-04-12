@@ -9,8 +9,9 @@ import PortfolioAnalysisCorporatePage from '../PortfolioAnalysisCorporatePage/Po
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import PortfolioAnalysisdividentPage from '../PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage'
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
 
-function Portfolioanalysisdividendcall() {
+function Portfolioanalysisdividendcall({children}) {
   return (
     <div className='allpagecallanalysis'>
         <Portfolioanalyticchart/>
@@ -20,8 +21,17 @@ function Portfolioanalysisdividendcall() {
         <PerformancePortfolioAnalysis/>
         <AnalysisResearchReportblur/>
         <PortfolioAnalysisnew/>
-        <Sidebar/>
+       
         <Navbar/>
+        <div className="layout">
+      <Sidebar />
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
+      </div>
+    </div>
     </div>
   )
 }

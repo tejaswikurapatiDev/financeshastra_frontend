@@ -126,13 +126,13 @@ const AddTransactiongold = ({children}) => {
                 {transactions.map((transactionData, index) => (
                     <form key={index} className="transaction-row-wrapper">
                         <div className="transaction-row">
-                            <label>
-                                <p1 style={{ marginLeft: "49px" }}>Type</p1><br />
+                            <label className="alltype">
+                                <p1 >Type</p1><br />
                                 <select
                                     name="type"
                                     value={transactionData.type}
                                     onChange={(e) => handleInputChange(index, e)}
-                                    style={{ width: "80px", height: "30px", marginLeft: "50px" }}
+                                   
                                     className="transaction-input"
                                 >
                                     <option value="Buy">Buy</option>
@@ -140,14 +140,14 @@ const AddTransactiongold = ({children}) => {
                                 </select>
                             </label>
 
-                            <label>
-                                Gold Name
+                            <label className="alltype">
+                            <p1>Gold Name</p1>
                                 <input type="text" name="gold_name" value={transactionData.gold_name}
                                     onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
                             </label>
 
-                            <label>
-                                Date
+                            <label className="alltype">
+                            <p1>Date</p1>
                                 <input
                                     type="date"
                                     name="date"
@@ -157,36 +157,36 @@ const AddTransactiongold = ({children}) => {
                                 />
                             </label>
 
-                            <label>
-                                Quantity
+                            <label className="alltype">
+                            <p1>Quantity</p1>
                                 <input type="number" name="quantity" value={transactionData.quantity}
                                     onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
                             </label>
 
-                            <label>
-                                Price / Unit
+                            <label className="alltype">
+                            <p1>Price / Unit</p1>
                                 <input type="number" name="nav" value={transactionData.nav}
                                     onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
                                 <p style={{ fontSize: "12px", marginLeft: "5px", marginTop: "1px" }}>Unit : Gold - 10 gm.</p>
                             </label>
 
-                            <label>
-                                Amount
+                            <label className="alltype">
+                            <p1> Amount</p1>
                                 <input type="number" name="amount" value={transactionData.amount} readOnly className="transaction-input read-only" />
                             </label>
 
-                            <label>
-                                <p1 style={{ marginLeft: "50px" }}> Charges</p1><br />
+                            <label className="alltype">
+                                <p1 > Charges</p1><br />
                                 <input type="number" name="total_charges" value={transactionData.total_charges} readOnly className="transaction-inputcharge" />
                             </label>
 
-                            <label>
-                                <p1 style={{ marginLeft: "-45px" }}>Net Amount</p1><br />
+                            <label className="netamm">
+                                <p1>Net Amount</p1><br />
                                 <input type="number" name="net_amount" value={transactionData.net_amount} readOnly className="transaction-inputnet" />
                             </label>
 
-                            <label className="noteall">
-                                Notes<br />
+                            <label className="alltype">
+                                <p1>Notes</p1><br />
                                 <input type="text" name="notes" value={transactionData.notes} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
                             </label>
                             <div className="sip-link">
@@ -240,7 +240,9 @@ const AddTransactiongold = ({children}) => {
          <Sidebar />
          <div className="main-contentover">
            <div className="contentover">{children}</div>
-           <FooterForAllPage />
+           <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
          </div>
        </div>
        </div>

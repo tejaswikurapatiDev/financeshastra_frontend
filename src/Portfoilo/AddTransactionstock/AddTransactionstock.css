@@ -117,8 +117,14 @@ margin-left: 500px;
 }
 
 /* Add SIP Form Container Styling */
+.transaction-inputtttype{
+  margin-left: 50px;
+}
 
 
+.typelabele{
+ margin-left: 49px;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .transaction-row label {

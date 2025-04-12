@@ -218,16 +218,45 @@ margin-left: 10px;
     overflow-x: hidden;
   }
 
+  .refundpolicyy h1 {
+    font-size: 26px;
+    margin-left: 10px;
+    color: black;
+    margin-bottom: 10px;
+}
+.refundpolicyy-lastupdated {
+  margin-right: 660px;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 20px;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
   .refundpolicyy-image,
   .refundpolicyy-imagedarkmode {
     width: 900px;
     height: 450px;
+    margin-left: -10px;
   }
 
   .refundpolicyy-headerdarkmode,
   .refundpolicyy-sectiondarkmode {
     margin-left: 280px;
   }
+  .refundpolicyy {
+    font-family: 'Calibri';
+    width: 900px;
+    margin-left: 350px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 120px;
+    overflow-x: hidden; /* Hides horizontal scrolling */
+    max-width: 100%; /* Ensures it doesn't exceed the screen width */
+  }
+  
 }
 
 /* Large Desktops (1280px - 1535px) */
@@ -384,7 +413,7 @@ margin-left: 10px;
     font-size: 14px;
   }
   .refundpolicyy-lastupdated {
-    width: 60%;
+    width: 66%;
     
   }
   .refundpolicyy-section ul li {

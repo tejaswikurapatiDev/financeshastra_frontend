@@ -8,8 +8,9 @@ import AnalysisResearchReportblur from '../Portfolioanysisstockresearcgblur/Port
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import PortfolioAnalysisAGMPage from '../PortfolioAnalysisAGMPage/PortfolioAnalysisAGMPage'
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
 
-function PortfolioAGMcall(){
+function PortfolioAGMcall({children}){
   return (
     <div className='allpagecallanalysis'>
         <Portfolioanalyticchart/>
@@ -19,8 +20,17 @@ function PortfolioAGMcall(){
         <PerformancePortfolioAnalysis/>
         <AnalysisResearchReportblur/>
         <PortfolioAnalysisnew/>
-        <Sidebar/>
+
         <Navbar/>
+        <div className="layout">
+      <Sidebar/>
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
+      </div>
+    </div>
     </div>
   )
 }

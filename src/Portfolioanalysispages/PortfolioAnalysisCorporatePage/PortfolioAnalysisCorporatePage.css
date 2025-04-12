@@ -377,11 +377,12 @@ input:checked + .portfolianalysiscorporatepageslider:before {
  }
  
  .portfolianalysiscorporatepage-header h2 {
-   font-size: 22px;
+   font-size: 18px;
    background: linear-gradient(#24b676, #238486);
    -webkit-background-clip: text;
    -webkit-text-fill-color: transparent;
    font-weight: 600;
+   margin-left: -10px;
  }
  
  /* Toggle Container */
@@ -543,4 +544,18 @@ input:checked + .portfolianalysiscorporatepageslider:before {
     margin-left: 270px;
     padding: 18px;
 }
+}
+
+@media (max-width: 320px) {
+  .portfolianalysiscorporatepage-container {
+      font-family: 'calibri';
+      margin: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 78%;
+      margin-left: 10px;
+  }
 }

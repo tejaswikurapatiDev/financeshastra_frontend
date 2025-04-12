@@ -552,6 +552,7 @@ margin-top: 20px;
   }
   .content-containerwatchlist{
     width: 280px;
+    margin-bottom: 50px;
   }
 
 }
@@ -590,8 +591,9 @@ margin-top: 20px;
      margin-top: 50px;
       overflow-x: scroll/* Adjust container width */;
       width: -webkit-fill-available;
-      margin-bottom: 130px;
+      margin-bottom: 50px;
       width: 360px;
+     
       margin-left: 20px;
        
   }

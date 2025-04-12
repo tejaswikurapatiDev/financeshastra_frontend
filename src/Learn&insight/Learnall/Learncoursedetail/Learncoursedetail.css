@@ -251,8 +251,8 @@ html, body {
 @media screen and (max-width: 480px) {
     .learncourse-details-container {
         margin-left: 15px;
-        max-width: 93%;
-        height: 1400px;
+        max-width: 90%;
+        height: 1450px;
         margin-top: 40px;
     }
 
@@ -354,8 +354,12 @@ html, body {
     }
     .learncourse-description {
         font-size: 13px;
-        width: 200px;
+        width: 220px;
+        margin-left: -15px;
     }
+   .learncourse-contact-info{
+    margin-left: -16px;
+   }
     .learncourse-skills-list li {
         margin-bottom: 5px;
         font-size: 13px;

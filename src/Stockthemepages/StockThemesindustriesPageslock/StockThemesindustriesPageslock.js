@@ -76,6 +76,7 @@ export default function StockThemesindustrieslockPages() {
   const navigate = useNavigate();
 
   return (
+    <div>
     <div className={`banksectorthemepage ${issubscribed ? "" :"backdrop-blur" }`}>
       <h1 className="banksectortitle">Banks Sector Stocks</h1>
       <div className="banksectorfilter">
@@ -155,7 +156,7 @@ export default function StockThemesindustrieslockPages() {
               <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
             </div>
 
-            <ChevronRight className="StockThemesSectorPages-themes-icon" />
+            <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreenerList")}className="StockThemesSectorPages-themes-icon" />
 
             {/* Lock and Subscribe logic */}
             {!issubscribed && (
@@ -188,10 +189,11 @@ export default function StockThemesindustrieslockPages() {
       </div>
       
       <Navbar/>
-      <div className="StockThemesindustriesPagesfooter">
+     
+      </div>
+      <div >
         <FooterForAllPage />
       </div>
-      
     </div>
   );
 }  

@@ -152,46 +152,46 @@ const AddTransactionmutual = ({children}) => {
         {transactions.map((transactionData, index) => (
           <form key={index} className="transaction-row-wrapper">
             <div className="transaction-row">
-              <label>
-              <p1 style={{ marginLeft: "49px" }}>Type</p1>
-                <select name="type" value={transactionData.type} onChange={(e) => handleInputChange(index, e)} className="transaction-input"style={{ width: "80px", height: "30px", marginLeft: "50px"}}>
+              <label className="alltype">
+              <p1 >Type</p1>
+                <select name="type" value={transactionData.type} onChange={(e) => handleInputChange(index, e)} className="transaction-input">
                   <option value="Buy">Buy</option>
                   <option value="Sell">Sell</option>
                 </select>
               </label>
 
-              <label style={{ position: "relative" }}>
-                Scheme Name
+              <label className="alltype"style={{ position: "relative" }}>
+              <p1>Scheme Name</p1>
                 <input type="text" name="scheme_name" value={transactionData.scheme_name} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
               </label>
 
-              <label>
-                NAV Date
+              <label className="alltype">
+              <p1>NAV Date</p1>
                 <input type="date" name="date" value={transactionData.date} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
               </label>
 
-              <label>
-                NAV
+              <label className="alltype">
+              <p1>NAV</p1>
                 <input type="number" name="nav" value={transactionData.nav} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
               </label>
 
-              <label>
-                Amount
+              <label className="alltype">
+              <p1>Amount</p1>
                 <input type="number" name="amount" value={transactionData.amount} readOnly className="transaction-input read-only" />
               </label>
 
-              <label>
-                Quantity
+              <label className="alltype">
+                <p1>Quantity</p1>
                 <input type="number" name="quantity" value={transactionData.quantity} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
               </label>
 
-              <label>
-              <p1 style={{ marginLeft: "200px" }}>Dividend</p1>
+              <label className="alltype">
+              <p1 >Dividend</p1><br/>
                 <input type="text" name="dividend" value="Invest" readOnly    className="transaction-inputdividened" />
               </label>
 
-              <label>
-              <p1 style={{ marginLeft: "-48px" }}>Notes</p1>
+              <label className="noteallp">
+              <p1 >Notes</p1>
                 <br/>
                 <input type="text" name="notes" value={transactionData.notes} onChange={(e) => handleInputChange(index, e)} className="transaction-inputnote" />
               </label>
@@ -231,7 +231,9 @@ const AddTransactionmutual = ({children}) => {
     <Sidebar />
     <div className="main-contentover">
       <div className="contentover">{children}</div>
-      <FooterForAllPage />
+      <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
     </div>
   </div>
   </div>

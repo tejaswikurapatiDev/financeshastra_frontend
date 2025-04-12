@@ -156,9 +156,26 @@
     .footermobileviewpages-footer {
       display: none;
     }
+    @media (min-width: 1024px) and (max-width: 1279px)  {
+     
+      .FooterForAllPage-social-icons {
+        margin-left: -120px;
+        font-size: 18px;
+    }
+    .FooterForAllPage-logo-img {
+      max-width: 280px;
+      fill: blue;
+      margin-left: -20px;
+  }
+    }
     /* Mobile View - 768px */
     @media (max-width: 768px) {
       .FooterForAllPage-social-icons {
-        margin-left: -80px;
+        margin-left: -580px;
       }
+      .FooterForAllPage-logo-img {
+        max-width: 280px;
+        fill: blue;
+        margin-left: -120px;
+    }
   }
