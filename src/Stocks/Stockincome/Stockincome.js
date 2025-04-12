@@ -7,6 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
 
 const ScreenerStockincome = () => {
   const [stocks, setStocks] = useState(screenerStockincomeData);
@@ -42,7 +43,32 @@ const ScreenerStockincome = () => {
   const recordsPerPage = 10;
   const totalPages = Math.ceil(stocks.length / recordsPerPage);
 
-  
+  useEffect(() => {
+    const fetchfun = async () => {
+      const url = `${API_BASE_URL}/stocks/incomestatement`;
+      const response = await fetch(url);
+      if (response.ok === true) {
+        const data = await response.json();
+        const formattedData = data.map((each) => ({
+          id: each.id,
+          symbol: each.Symbol,
+          epsDilGrowth: each.EPSDilutedGrowth,
+          url: "/stockhandle",
+          revenue: each.Revenue,
+          revenueGrowth: each.RevenueGrowth,
+          grossProfit: each.GrossProfit,
+          operatingIncome: each.OperatingIncome,
+          netIncome: each.NetIncome,
+          ebitda: each.EBITDA,
+          epsDil: each.EPS_Diluted,
+        }));
+        setStocks(formattedData);
+        console.log(data)
+      }
+    };
+    fetchfun();
+  }, []);
+
 
   //  Ensure currentData updates correctly
   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
@@ -160,13 +186,13 @@ const ScreenerStockincome = () => {
     const filteredStocks = screenerStockincomeData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price)
+        parseFloat(newFilters.price)
       );
       console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price);
+        parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -1333,8 +1359,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1408,8 +1434,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1558,8 +1584,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1633,8 +1659,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1708,8 +1734,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1858,8 +1884,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1936,8 +1962,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2011,8 +2037,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2085,8 +2111,8 @@ const ScreenerStockincome = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2141,9 +2167,8 @@ const ScreenerStockincome = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Valuation" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Valuation" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Valuation");
               navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
@@ -2153,9 +2178,8 @@ const ScreenerStockincome = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Income Statement" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Income Statement");
               navigate("/IncomeStatement"); // Add a route for Income Statement if needed
@@ -2307,9 +2331,8 @@ const ScreenerStockincome = () => {
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
-              stocks.length
-            } records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length
+              } records`}
           </div>
 
           <div className="pagination-slider">
@@ -2336,9 +2359,8 @@ const ScreenerStockincome = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${
-                  currentPage === startPage + i ? "active-page" : ""
-                }`}
+                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""
+                  }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}
