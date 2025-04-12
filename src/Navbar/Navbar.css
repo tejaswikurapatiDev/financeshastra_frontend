@@ -607,6 +607,73 @@ a span {
   cursor: pointer;
 }
 
+  
+
+@media (max-width: 1024px) {
+  /* Adjust navbar layout */
+  .navbar {
+    padding: 8px 10px; /* Reduce padding slightly */
+  }
+
+  .navbar-links {
+    gap: 8px; /* Reduce spacing further */
+    font-size: 11px;
+    margin-left: -10px;
+  }
+
+  .navbar-links a {
+    font-size: 12px; /* Slightly smaller font */
+  }
+
+  .logo-image {
+    width: 160px; /* Reduce logo size more */
+  }
+
+  /* Adjust dropdown menu width */
+ 
+
+  /* Adjust notification dropdown */
+  .dropdown-contentnoti {
+    left: -280px;
+    width: 350px;
+  }
+
+  .notification-card {
+    width: 340px;
+  }
+
+  /* Adjust search bar */
+  .navbar-search input {
+    width: 160px; /* Reduce input width */
+    font-size: 12px;
+  }
+  .navbar-search input::placeholder {
+    font-size: 10px; /* Reduce placeholder font size */
+  }
+  .subscritebutton {
+    padding: 6px 12px;
+    font-size: 13px;
+    width: 45px;
+  }
+
+  /* Adjust icons */
+  .navbar-icons {
+    gap: 12px; /* Reduce icon spacing */
+  }
+
+  .chevron-icon {
+    margin-left: 4px;
+    color: #24b676;
+    font-size: 11px; /* Reduce icon size */
+    transition: transform 0.3s ease;
+  }
+  
+  span.willamname {
+    font-size: 14px !important;
+    margin-right: 5px !important;
+  }
+}
+
 /* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
@@ -965,14 +1032,14 @@ a span {
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
-    width: 350px;
+    width: 250px;
     max-height: 500px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     margin-top: 10px;
     padding: 15px;
-    margin-left: 85px;
+    margin-left: 65px;
   }
   
   .notification-card {
@@ -2010,72 +2077,6 @@ a span {
 }
  
  
-  
-
-@media (max-width: 1024px) {
-  /* Adjust navbar layout */
-  .navbar {
-    padding: 8px 10px; /* Reduce padding slightly */
-  }
-
-  .navbar-links {
-    gap: 8px; /* Reduce spacing further */
-    font-size: 11px;
-    margin-left: -10px;
-  }
-
-  .navbar-links a {
-    font-size: 12px; /* Slightly smaller font */
-  }
-
-  .logo-image {
-    width: 160px; /* Reduce logo size more */
-  }
-
-  /* Adjust dropdown menu width */
- 
-
-  /* Adjust notification dropdown */
-  .dropdown-contentnoti {
-    left: -220px;
-    width: 350px;
-  }
-
-  .notification-card {
-    width: 340px;
-  }
-
-  /* Adjust search bar */
-  .navbar-search input {
-    width: 160px; /* Reduce input width */
-    font-size: 12px;
-  }
-  .navbar-search input::placeholder {
-    font-size: 10px; /* Reduce placeholder font size */
-  }
-  .subscritebutton {
-    padding: 6px 12px;
-    font-size: 13px;
-    width: 45px;
-  }
-
-  /* Adjust icons */
-  .navbar-icons {
-    gap: 12px; /* Reduce icon spacing */
-  }
-
-  .chevron-icon {
-    margin-left: 4px;
-    color: #24b676;
-    font-size: 11px; /* Reduce icon size */
-    transition: transform 0.3s ease;
-  }
-  
-  span.willamname {
-    font-size: 14px !important;
-    margin-right: 5px !important;
-  }
-}
 
 
 /* Additional styles for 480px and below */
@@ -2218,7 +2219,7 @@ a span {
   }
 
   .notification-card {
-    width: 280px;
+    width: 230px;
   }
 
   .notification-img {
