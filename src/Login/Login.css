@@ -128,10 +128,12 @@ input[type="password"]::-webkit-textfield-decoration-container {
 
 
 .login-box {
-  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   width: 70%;
   max-width: 400px;
-  padding: 30px;
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -147,6 +149,7 @@ input[type="password"]::-webkit-textfield-decoration-container {
   font-weight: bold;
   font-size: 27px;
   text-align: left;
+  align-self: flex-start;
   margin-top: -10px;
   margin-left: 35px;
 }
@@ -178,12 +181,7 @@ input[type="password"]::-webkit-textfield-decoration-container {
   padding: 8px;
   font-size: 14px;
   border: 2px solid #898989;
-  width: 80%;
-  padding: 8px;
-  font-size: 14px;
-  border: 2px solid #898989;
   border-radius: 5px;
-  margin-left: 40px;
   margin-left: 40px;
 }
 
@@ -266,7 +264,7 @@ gap: 100px;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;
-  
+  align-self: center;
 }
 .sign-in-btn:hover {
   background-color: #24b676;
@@ -369,13 +367,6 @@ gap: 100px;
 }
 
 .password-field input {
-  width: 80%;
-  padding: 8px;
-  font-size: 14px;
-  border: 2px solid #898989;
-  border-radius: 5px;
-  margin-left: 40px;
-  width: 80%;
   padding: 8px;
   font-size: 14px;
   border: 2px solid #898989;
@@ -467,25 +458,24 @@ gap: 100px;
 /* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
   
   .login-left {
-    min-width: 100%;
-    height: 50vh;
+    min-width: 50%;
+    height: 100vh;
     padding-top: 20px;
   }
   
   .login-right {
-    min-width: 100%;
-    height: auto;
-    padding: 20px;
+    min-width: 50%;
   }
   
   .login-box {
-    width: 150%;
- 
+    width: 80%;
+
+    
     height: auto;
     padding: 20px;
   }
@@ -514,7 +504,7 @@ gap: 100px;
   }
   
   .input-container input {
-    width: 90%;
+    width: 80%;
     margin-left: 20px;
   }
   
@@ -543,7 +533,6 @@ gap: 100px;
 
 .login-containerdarkmode {
   display: flex;
-width: 120%;
   align-items: stretch; /* Ensures both sections stretch equally */
   overflow-x: hidden;
   overflow-y: hidden;
@@ -638,7 +627,6 @@ width: 120%;
 
 
 .login-boxdarkmode {
-  width: 70%;
   width: 70%;
   max-width: 400px;
   padding: 30px;

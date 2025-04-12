@@ -142,7 +142,7 @@ font-weight: bold;
     padding: 10px;
     gap: 5px;
     width: 92%;
-    margin-left: -0px;
+    margin-left: 5px;
     flex-direction: column;
 }
 

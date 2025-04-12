@@ -107,10 +107,16 @@
     padding: 5px 8px; /* Slightly reduce padding */
   }
   .screener-table-wrapper {
+    height: 400px;
+    max-height: 500px;
+    font-size: 14px;
     overflow-x: auto;
-    margin-bottom: 100px;
-  }
- 
+    overflow-y: hidden;
+    width: 89%;
+    margin-left: 40px;
+    scrollbar-color: #24b676 transparent;
+    scrollbar-width: thin;
+}
 
 }
 
@@ -159,9 +165,13 @@
 
 }
 .screener-table-wrapper {
+  height: 400px;
+  max-height: 500px;
+  font-size: 14px;
   overflow-x: auto;
   font-size: 12px;
   width: 100%;
   margin-left: -0px;
 }
 }
+

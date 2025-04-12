@@ -1,6 +1,6 @@
 
 import './Portfolioanysisstockresearcgblur.css'
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import lockimg from '../../assest/lock.png'
 import { useNavigate } from "react-router-dom"; 
 import { CiSearch } from 'react-icons/ci';
@@ -13,13 +13,21 @@ import bharti from "../../assest/bhartiartl.png";
 
 import { SubscriptionContext } from "../../Portfoilo/context/SubscriptionContext";
 import Sidebar from '../../Sidebar/Sidebar';
+import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
+import { API_BASE_URL } from '../../config';
 
 
 
 
 
 const AnalysisResearchReportblur = () => {
-  const {isSubscribed}= useContext(SubscriptionContext)
+  
+  
+  //const {isSubscribed}= useContext(SubscriptionContext)
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+
+  
+
     const stockResearchData = [
         { date: "22-01-2025", symbol: "Reliance Industries Ltd", price: "₹1,272.15", change: "-0.09%", marketCap: "₹17.23T", target: "₹489.00", action: "Book Profits", rating: "Buy", profitBooked: "+18.73%", image: reliance, pdfLink: "View"  },
         { date: "09-01-2025", symbol: "Tata Consultancy Services Ltd", price: "₹4,442.80", change: "-0.69%", marketCap: "₹16.19T", target: "₹1,150.00", action: "Book Profits", rating: "Buy", profitBooked: "+10.98%", image: tcs , pdfLink: "View"  },
@@ -135,7 +143,7 @@ const AnalysisResearchReportblur = () => {
     <div className="report-container">
      
       {/* Blurred Content //className="blurred-content"*/}
-      <div className={!isSubscribed & "blurred-content"}> 
+      <div className={!isLoading && !isSubscribed && "blurred-content"}> 
       <div className="stockresearchanalysispagecontainerblur">
               <div className="stockresearchanalysispage-containerforblur">
             
@@ -240,9 +248,17 @@ const AnalysisResearchReportblur = () => {
 </div>
 
       </div>
+      {!isLoading && !isSubscribed && 
+      <div className="overlaylocksub">
+         <img src={lockimg} alt="Lock" className="lock-iconanalysi" />
+ 
+         <button className="subscribe-btnblurone" onClick={() => navigate("/pricehalf")}>Subscribe Now</button>
+       
+       </div>
+       }
+     </div>
 
      
-    </div>
    
     </div>
   );

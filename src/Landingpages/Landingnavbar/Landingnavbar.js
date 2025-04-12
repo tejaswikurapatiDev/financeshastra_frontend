@@ -6,6 +6,7 @@ import React, {
   useContext,
 } from "react";
 import {jwtDecode} from "jwt-decode";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import {
   FaBell,
 } from "react-icons/fa";
@@ -295,6 +296,9 @@ const Landingnavbar = () => {
     footerPortfolio: false,
     learn: false,
   });
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+
+  const [storedName, setUsername]= useState('')
 
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
@@ -302,7 +306,6 @@ const Landingnavbar = () => {
     const userDropdownRef = useRef(null);
     const [userDropdownOpen, setUserDropdownOpen] = useState(false);
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const { user } = useContext(UserProfileContext);
     const dropdownRef = useRef(null); // Reference for dropdown
      const [isOpen, setIsOpen] = useState(false);
      const [notifications, setNotifications] = useState([]);
@@ -347,7 +350,6 @@ const Landingnavbar = () => {
   };
 
   // Debounced search function
-  console.log(getDataFromStore);
   const debounceSearch = useCallback(
     debounce((searchText) => {
       if (searchText) {
@@ -386,6 +388,10 @@ const Landingnavbar = () => {
 
   // Get all data on component mount
   useEffect(() => {
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired
@@ -419,6 +425,7 @@ const Landingnavbar = () => {
     debounceSearch(searchInputText);
     return () => debounceSearch.cancel();
   }, [searchInputText, debounceSearch]);
+
   const fetchNotifications = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/notifications`, {
@@ -481,6 +488,7 @@ const Landingnavbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
@@ -633,6 +641,14 @@ const Landingnavbar = () => {
         </div>
         
         {isLogedin ? (<>
+          {!isLoading && !isSubscribed && (
+          <h4
+            className="subscritebutton"
+            onClick={() => navigate("/pricehalf")}
+          >
+            Subscribe
+          </h4>
+        )}
           <FaBell
                           className={
                             darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
@@ -705,7 +721,7 @@ const Landingnavbar = () => {
                                   />
                                 </Link>
                                 <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                                  {user}
+                                  {storedName}
                                 </span>
                                 {userDropdownOpen && renderUserDropdown()}
                               </li>

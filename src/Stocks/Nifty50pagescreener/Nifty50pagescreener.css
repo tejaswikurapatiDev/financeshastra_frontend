@@ -49,6 +49,31 @@
     margin-top: 250px;
     font-family: 'calibri';
  }
+
+ /* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .dataquatallnifty {
+      margin-left: 100px;
+      gap: 20px;
+    }
+    .portfoliomutual-containerrnifty {
+        width: 530px;
+        height: 360px;
+        margin-left: -80px;
+        margin-top: 20px;
+    }
+    .chartmutual-containerrnifty {
+      width: 530px;
+      height: 320px;
+    }
+    .time-rangemutual-selectorrnifty {
+        margin-left: 210px;
+    }
+    .headernifty50 {
+        margin-left: 30px;
+    }
+  }
+  
  /* Mobile View for 768px */
 @media (max-width: 768px) {
     .dataquatallnifty {
@@ -56,18 +81,16 @@
         margin-left: 20px;
         gap: 20px;
     }
-
     .portfoliomutual-containerrnifty {
-        width: 90%;
-        margin-left: 0;
+        width: 85%;
+        margin-left: 40px;
         padding: 15px;
         font-size: 14px;
         height: 300px;
-       
     }
 
     .chartmutual-containerrnifty {
-        width: 430px;
+        width: 600px;
         height: 250px;
     }
 
@@ -96,16 +119,15 @@
     }
 
     .portfoliomutual-containerrnifty {
-        width: 90%;
-        margin-left: 0;
+        width: 80%;
+       
         padding: 15px;
         font-size: 14px;
         height: 290px;
-       
+        margin-left: 27px;
     }
-
     .chartmutual-containerrnifty {
-        width: 350px;
+        width: 330px !important;
         height: 250px;
     }
 
@@ -126,3 +148,21 @@
     }
 
 }
+
+@media (max-width: 320px) {
+    .portfoliomutual-containerrnifty {
+        width: 80%; 
+        padding: 10px; 
+        font-size: 12px; 
+        height: auto;
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+    .chartmutual-containerrnifty {
+        width: 100% !important; 
+        height: 250px;
+        max-width: 300px; 
+        margin-left: 10px;
+    }
+}
+

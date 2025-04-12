@@ -1,117 +1,7 @@
 /* Container */
 .cagr-calculator-container {
-    max-width: 500px;
-   margin-left: 150px;
-  margin-top: 50px;
-  height: auto;
-    border-radius: 8px;
-
-    font-family:'calibri';
-   
-    height: 300px;
-    font-family:'calibri';
-   
-  }
-  .allcagrcontainer{
-   height: auto;
-    max-width: 800px;
-   margin-left: 230px;
-    padding: 10px;
-margin-top: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid rgb(219, 216, 216);
-    font-family:'calibri';
-    background-color: #fff;
-    height: 300px;
-    font-family:'calibri';
-    margin-bottom: 70px;
-  }
-  
-  /* Input Fields */
-  .cagr-inputs {
-    margin-bottom: 10px;
-    
-  }
-  
-  .cagr-input-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-
-  
-  
-  
-  /* Duration Input */
-  .duration-input {
-    display: flex;
-    align-items: center;
-    width: 210px;
-  }
-  
-  .duration-input span {
-    margin-left: 8px;
-    font-size: 14px;
-  }
-  
-  /* Button */
-  .cagr-button {
-    width: 30%;
-    padding: 10px;
-    background-color: #24b676;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 150px;
-  }
-  
-  .cagr-button:hover {
-    background-color: #1f9b5a;
-  }
-  
-  /* Result */
-  .cagr-result {
-    text-align: center;
-    margin-top: 1px;
-  height: 45px;
-    border: 1px solid #24b676;
-    border-radius: 20px;
-    color: #24b676;
-    font-weight: bold;
-    font-size: 15px;
-    width: 30%;
-    margin-bottom: 30px;
-    margin-left: 150px;
-  }
-  
-  .cagr-result span {
-    font-size: 15px;
-  }
-  .input-wrapper {
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .prefix {
-    position: absolute;
-    left: 10px;
-    color: #555;
-    font-size: 14px;
-  }
-  
-
-  
-  
-  @media (max-width: 768px) {
-    /* Container */
-.cagr-calculator-container {
-  max-width: 700px;
- margin-left: 0px;
+  max-width: 500px;
+ margin-left: 150px;
 margin-top: 50px;
 height: auto;
   border-radius: 8px;
@@ -124,8 +14,8 @@ height: auto;
 }
 .allcagrcontainer{
  height: auto;
-  max-width: 1000px;
- margin-left: 0px;
+  max-width: 800px;
+ margin-left: 230px;
   padding: 10px;
 margin-top: 40px;
   border-radius: 8px;
@@ -135,7 +25,7 @@ margin-top: 40px;
   background-color: #fff;
   height: 300px;
   font-family:'calibri';
-  margin-bottom: 10px;
+  margin-bottom: 70px;
 }
 
 /* Input Fields */
@@ -149,6 +39,7 @@ margin-top: 40px;
   justify-content: space-between;
   margin-bottom: 15px;
 }
+
 
 
 
@@ -175,7 +66,7 @@ margin-top: 40px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 120px;
+  margin-left: 150px;
 }
 
 .cagr-button:hover {
@@ -194,7 +85,7 @@ height: 45px;
   font-size: 15px;
   width: 30%;
   margin-bottom: 30px;
-  margin-left: 120px;
+  margin-left: 150px;
 }
 
 .cagr-result span {
@@ -215,116 +106,211 @@ height: 45px;
 
 
 
-  }
 
-
-   
-  @media (max-width: 480px) {
-    /* Container */
+@media (max-width: 768px) {
+  /* Container */
 .cagr-calculator-container {
-  max-width: 700px;
- margin-left: 0px;
+max-width: 700px;
+margin-left: 0px;
 margin-top: 50px;
 height: auto;
-  border-radius: 8px;
+border-radius: 8px;
 
-  font-family:'calibri';
- 
-  height: 300px;
-  font-family:'calibri';
- 
+font-family:'calibri';
+
+height: 300px;
+font-family:'calibri';
+
 }
 .allcagrcontainer{
- height: auto;
- max-width: 90%;
- margin-left: 0px;
-  padding: 10px;
+height: auto;
+max-width: 1000px;
+margin-left: 0px;
+padding: 10px;
 margin-top: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 2px solid rgb(219, 216, 216);
-  font-family:'calibri';
-  background-color: #fff;
-  height: 300px;
-  font-family:'calibri';
-  margin-bottom: 10px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border: 2px solid rgb(219, 216, 216);
+font-family:'calibri';
+background-color: #fff;
+height: 300px;
+font-family:'calibri';
+margin-bottom: 10px;
 }
 
 /* Input Fields */
 .cagr-inputs {
-  margin-bottom: 10px;
-  
+margin-bottom: 10px;
+
 }
 
 .cagr-input-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
+display: flex;
+justify-content: space-between;
+margin-bottom: 15px;
 }
 
 
 
 /* Duration Input */
 .duration-input {
-  display: flex;
-  align-items: center;
-  width: 182px;
+display: flex;
+align-items: center;
+width: 210px;
 }
 
 .duration-input span {
-  margin-left: 8px;
-  font-size: 14px;
+margin-left: 8px;
+font-size: 14px;
 }
 
 /* Button */
 .cagr-button {
-  width: 40%;
-  padding: 10px;
-  background-color: #24b676;
-  color: #fff;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 100px;
+width: 30%;
+padding: 10px;
+background-color: #24b676;
+color: #fff;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-left: 120px;
 }
 
 .cagr-button:hover {
-  background-color: #1f9b5a;
+background-color: #1f9b5a;
 }
 
 /* Result */
 .cagr-result {
-  text-align: center;
-  margin-top: 1px;
+text-align: center;
+margin-top: 1px;
 height: 45px;
-  border: 1px solid #24b676;
-  border-radius: 20px;
-  color: #24b676;
-  font-weight: bold;
-  font-size: 15px;
-  width: 40%;
-  margin-bottom: 30px;
-  margin-left: 100px;
+border: 1px solid #24b676;
+border-radius: 20px;
+color: #24b676;
+font-weight: bold;
+font-size: 15px;
+width: 30%;
+margin-bottom: 30px;
+margin-left: 120px;
 }
 
 .cagr-result span {
-  font-size: 15px;
+font-size: 15px;
 }
 .input-wrapper {
-  display: flex;
-  align-items: center;
-  position: relative;
+display: flex;
+align-items: center;
+position: relative;
 }
 
 .prefix {
-  position: absolute;
-  left: 10px;
-  color: #555;
-  font-size: 14px;
+position: absolute;
+left: 10px;
+color: #555;
+font-size: 14px;
+}
+
+
+}
+
+
+ 
+@media (max-width: 480px) {
+  /* Container */
+.cagr-calculator-container {
+max-width: 700px;
+margin-left: 0px;
+margin-top: 50px;
+height: auto;
+border-radius: 8px;
+
+font-family:'calibri';
+
+height: 300px;
+font-family:'calibri';
+
+}
+.allcagrcontainer{
+height: auto;
+max-width: 90%;
+margin-left: 0px;
+padding: 10px;
+margin-top: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border: 2px solid rgb(219, 216, 216);
+font-family:'calibri';
+background-color: #fff;
+height: 300px;
+font-family:'calibri';
+margin-bottom: 10px;
+}
+
+/* Input Fields */
+.cagr-inputs {
+margin-bottom: 10px;
+
+}
+
+.cagr-input-row {
+display: flex;
+justify-content: space-between;
+margin-bottom: 15px;
 }
 
 
 
-  }
+/* Duration Input */
+.duration-input {
+display: flex;
+align-items: center;
+width: 182px;
+}
+
+.duration-input span {
+margin-left: 8px;
+font-size: 14px;
+}
+
+/* Button */
+.cagr-button {
+width: 40%;
+padding: 10px;
+background-color: #24b676;
+color: #fff;
+font-size: 16px;
+font-weight: bold;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-left: 100px;
+}
+
+.cagr-button:hover {
+background-color: #1f9b5a;
+}
+
+
+
+.cagr-result span {
+font-size: 15px;
+}
+.input-wrapper {
+display: flex;
+align-items: center;
+position: relative;
+}
+
+.prefix {
+position: absolute;
+left: 10px;
+color: #555;
+font-size: 14px;
+}
+
+
+
+}

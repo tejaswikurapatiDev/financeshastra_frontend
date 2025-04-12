@@ -11,6 +11,7 @@ import Sidebar from "../../Sidebar/Sidebar";
 import './Addtransactionmutual.css';
 import { CiCirclePlus } from "react-icons/ci";
 import AddSIPForm from "../AddSIPFormstock/AddSIPFormstock";
+import useSearch from "../../Navbar/Hooks/useSearch";
 
 const initialTransactionState = {
   type: "Buy",
@@ -18,7 +19,7 @@ const initialTransactionState = {
   nav: "",
   date: "",
   quantity: 0,
-  dividend: "Invest",
+  dividend: 0,
   amount: 0,
   notes: "",
   showSIP: false,
@@ -28,22 +29,9 @@ const AddTransactionmutual = ({children}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //fetch search data conditionally with using custom hook
+  useSearch();
   const stocksData = useSelector((store) => store?.searchData?.searchData);
-
-  useEffect(() => {
-    if (!stocksData || stocksData.length === 0) {
-      const fetchData = async () => {
-        try {
-          const response = await fetch(`${API_BASE_URL}/search/allInfo`);
-          const data = await response.json();
-          dispatch(setSearchData(data?.data || []));
-        } catch (error) {
-          console.error("Error fetching search data:", error);
-        }
-      };
-      fetchData();
-    }
-  }, [dispatch, stocksData]);
 
   const [transactions, setTransactions] = useState([initialTransactionState]);
   const [showDropdown, setShowDropdown] = useState(false);

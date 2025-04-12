@@ -43,7 +43,7 @@ const StockWatchlist = ({ children }) => {
     deletePopup: false,
     deleteIndex: null,
     deleteWatchlistPopup: false,
-    watchlistToDelete: null,
+    activeFilter: "All"
   });
 
   // Fetch watchlists
@@ -122,7 +122,7 @@ const StockWatchlist = ({ children }) => {
   // Handle stock selection from search results
   const handleSelectStock = (stock) => {
     setStockInput({
-      name: stock.company,
+      name: stock,
       selected: stock,
       filterResults: [],
     });
@@ -242,58 +242,51 @@ const StockWatchlist = ({ children }) => {
 
   // Delete watchlist
   const handleDeleteWatchlist = async () => {
-    if (!uiState.watchlistToDelete) return;
+    if (!uiState.deleteWatchlistId) return;
 
     try {
       const token = Cookies.get("jwtToken");
-      const response = await fetch(
-        `${API_BASE_URL}/Watchlist/deleteWatchlist?watchlist_id=${uiState.watchlistToDelete}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`${API_BASE_URL}/Watchlist/deleteWatchlist?watchlist_id=${uiState.deleteWatchlistId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`
         }
-      );
+      });
 
       if (!response.ok) {
         const errorText = await response.text();
         throw new Error(errorText || `Failed with status: ${response.status}`);
       }
 
-      setWatchlistState((prev) => {
+      setWatchlistState(prev => {
         // Filter out the deleted watchlist
-        const updatedList = prev.list.filter(
-          (watchlist) => watchlist.watchlist_id !== uiState.watchlistToDelete
-        );
+        const updatedList = prev.list.filter(watchlist => watchlist.watchlist_id !== uiState.deleteWatchlistId);
 
-        // Select the next available watchlist dynamically
-        let newSelectedId = null;
-        if (updatedList.length > 0) {
+        // If we're deleting the currently selected watchlist, select another one
+        let newSelectedId = prev.selected;
+        if (prev.selected === uiState.deleteWatchlistId) {
           // Find the index of the deleted watchlist in the original list
-          const deletedIndex = prev.list.findIndex(
-            (w) => w.watchlist_id === uiState.watchlistToDelete
-          );
+          const deletedIndex = prev.list.findIndex(w => w.watchlist_id === uiState.deleteWatchlistId);
           // If available, select the next watchlist in the list
           // Otherwise select the previous one, or the first in the list as last resort
-          newSelectedId = updatedList[deletedIndex]
-            ? updatedList[deletedIndex].watchlist_id
-            : updatedList[Math.max(0, deletedIndex - 1)]?.watchlist_id ||
-              updatedList[0]?.watchlist_id;
+          newSelectedId = updatedList[deletedIndex] ?
+            updatedList[deletedIndex].watchlist_id :
+            updatedList[Math.max(0, deletedIndex - 1)]?.watchlist_id ||
+            updatedList[0]?.watchlist_id;
         }
 
         return {
           ...prev,
           list: updatedList,
           selected: newSelectedId,
-          stockDetails: newSelectedId ? prev.stockDetails : [],
+          stockDetails: newSelectedId ? prev.stockDetails : []
         };
       });
 
-      setUiState((prev) => ({
+      setUiState(prev => ({
         ...prev,
         deleteWatchlistPopup: false,
-        watchlistToDelete: null,
+        deleteWatchlistId: null
       }));
     } catch (error) {
       alert(error.message || "Failed to delete watchlist.");
@@ -309,9 +302,10 @@ const StockWatchlist = ({ children }) => {
     // update the ui state
     setUiState((prev) => ({
       ...prev,
-      renameIndex: watchlist?.watchlist_id,
+      renameIndex: watchlistId,
       newWatchlistName: watchlist?.name || "",
       renamePopup: true,
+      activeDropdown: null
     }));
   };
 
@@ -558,29 +552,25 @@ const StockWatchlist = ({ children }) => {
     </div>
   );
 
-  const DeleteWatchlistPopup = () => (
-    <div className="popup-overlay">
-      <div className="popup-container" ref={deleteWatchlistPopupRef}>
-        <h3>Confirm Watchlist Deletion</h3>
-        <p>
-          Are you sure you want to delete this watchlist? This action cannot be
-          undone.
-        </p>
-        <div className="watchlistpopup-btn">
-          <button className="popup-btnconfirm" onClick={handleDeleteWatchlist}>
-            Confirm
-          </button>
-          <button
-            onClick={() =>
-              setUiState((prev) => ({ ...prev, deleteWatchlistPopup: false }))
-            }
-          >
-            Cancel
-          </button>
+  const DeleteWatchlistPopup = () => {
+    // Get the watchlist being deleted
+    const watchlistToDelete = watchlistState.list.find(
+      w => w.watchlist_id === uiState.deleteWatchlistId
+    );
+
+    return (
+      <div className="popup-overlay">
+        <div className="popup-container" ref={deleteWatchlistPopupRef}>
+          <h3>Confirm Watchlist Deletion</h3>
+          <p>Are you sure you want to delete "{watchlistToDelete?.name}"? This action cannot be undone.</p>
+          <div className="watchlistpopup-btn">
+            <button className="popup-btnconfirm" onClick={handleDeleteWatchlist}>Confirm</button>
+            <button onClick={() => setUiState(prev => ({ ...prev, deleteWatchlistPopup: false }))}>Cancel</button>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   return (
     <div>
@@ -619,8 +609,7 @@ const StockWatchlist = ({ children }) => {
         <div className="stock-watchlist">
           {/* Watchlist Section */}
           <div className="watchlist-management">
-            {console.log(watchlistState)}
-            {watchlistState.list.map((watchlist) => (
+            {watchlistState.list.map((watchlist, index) => (
               <div className="watchlist-item" key={watchlist.watchlist_id}>
                 <input
                   type="radio"
@@ -636,39 +625,36 @@ const StockWatchlist = ({ children }) => {
                 <label className="watchlist-label">{watchlist.name}</label>
                 <button
                   className="menu-iconwatchlist"
-                  onClick={() => toggleDropdown(watchlist?.watchlist_id)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleDropdown(index)
+                  }}
                 >
                   ⋮
                 </button>
-                {uiState.activeDropdown === watchlist?.watchlist_id && (
+                {uiState.activeDropdown === index && (
                   <div
                     className="menu-dropdownwatchlist"
                     ref={(el) => {
                       // Dynamically add refs to the dropdown elements
-                      dropdownRefs.current[watchlist?.watchlist_id] = el;
+                      dropdownRefs.current[index] = el;
                     }}
                   >
                     <button
                       className="menu-itemwatchlist"
                       onClick={() => {
-                        handleRenameWatchlist(watchlist?.watchlist_id);
-                        setUiState((prev) => ({
-                          ...prev,
-                          activeDropdown: null,
-                        }));
+                        handleRenameWatchlist(watchlist.watchlist_id);
                       }}
                     >
                       Rename
                     </button>
                     <button
                       className="menu-itemwatchlist"
-                      onClick={() => {
-                        promptDeleteWatchlist(watchlist.watchlist_id);
-                        setUiState((prev) => ({
-                          ...prev,
-                          activeDropdown: null,
-                        }));
-                      }}
+                      onClick={() => setUiState(prev => ({
+                        ...prev,
+                        deleteWatchlistPopup: true,
+                        deleteWatchlistId: watchlist.watchlist_id
+                      }))}
                     >
                       Delete
                     </button>
@@ -713,7 +699,7 @@ const StockWatchlist = ({ children }) => {
                         {stockInput.filterResults.map((data) => (
                           <li
                             key={data.id}
-                            onClick={() => handleSelectStock(data)}
+                            onClick={() => handleSelectStock(data.symbol)}
                           >
                             {data.name} {data.symbol}
                           </li>

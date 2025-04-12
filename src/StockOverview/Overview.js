@@ -1,5 +1,5 @@
-import React from 'react';
-import { useEffect } from "react";
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Container,Typography } from '@mui/material';
 import { CandleStickChart } from './Candlestickchart/Candlestickchart';
 import KeyIndicators from './KeyIndicators/KeyIndicators';
@@ -17,14 +17,18 @@ import CashFlowTable from '../CashFlowTable/CashFlowTable';
 import RatioTable from '../RatioTable/RatioTable';
 import NewsList from '../NewsList/NewsList';
 import About from '../About/About';
-
 import Stockpeer from '../Stockpeer/Stockpeer';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 
 function Overview() {
+  const location = useLocation();
+  const stockName = location?.state?.stock?.symbol;
   useEffect(() => {
+    // Set the document title to the selected stock's name
+    document.title = stockName || "Stock Details";
     window.scrollTo(0, 0); // Scroll to top when component mounts
-  }, []);
+  }, [stockName]);
+
   return (
     <div>
     <Container 
@@ -39,8 +43,8 @@ function Overview() {
       {/* Navbar with scroll links */}
       <Navbar />
 
-      {/* Graph Header */}
-      <Graphheader />
+      {/* Pass stockName as a prop to Graphheader */}
+      <Graphheader stockName={stockName} />
 
       <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold',color:'#24b676'}}>
       Overview

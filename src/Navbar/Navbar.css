@@ -523,7 +523,7 @@ a span {
 
 .dropdown-contentnoti {
   position: absolute;
- left: -240px;
+  left: 1040px;
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
@@ -532,7 +532,7 @@ a span {
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  margin-top: 10px;
+  margin-top: 23px;
   padding: 15px;
   overflow-x: hidden;
 }
@@ -634,7 +634,7 @@ a span {
 
   /* Adjust notification dropdown */
   .dropdown-contentnoti {
-    left: -280px;
+    left: 620px;
     width: 350px;
   }
 
@@ -815,12 +815,14 @@ a span {
   
   .dropdown-contentnoti {
     position: absolute;
-   
+
+    margin-left: -300px;
+  
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
     width: 400px;
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -1032,14 +1034,14 @@ a span {
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
-    width: 250px;
-    max-height: 500px;
+    width: 270px;
+    max-height: 400px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     margin-top: 10px;
     padding: 15px;
-    margin-left: 65px;
+    margin-left: -555px;
   }
   
   .notification-card {
@@ -2219,7 +2221,7 @@ a span {
   }
 
   .notification-card {
-    width: 230px;
+    width: 250px;
   }
 
   .notification-img {
@@ -2256,3 +2258,25 @@ a span {
     cursor: pointer;
 }
 }
+
+
+@media (max-width: 320px) {
+  .dropdown-contentnoti {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 230px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+    margin-left: -585px;
+}
+  .notification-card {
+    width: 200px;
+  }
+}
+

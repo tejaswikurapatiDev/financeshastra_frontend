@@ -271,6 +271,7 @@ import ProfileRiskReportInvestment from "./myprofile/Riskanalysis/InvestmentGuid
 import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboard/ProfileScreenRiskReportDashboard";
 import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistory";
 import IpoRecommendationsubscribe from "./Learn&insight/Ipo/IpoRecommendationsubscribe/IpoRecommendationsubscribe";
+import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
 
 
 function App() {
@@ -792,7 +793,7 @@ function App() {
               <Route path="/revCagrallpages" element={<RevCagrallpages />} />
               <Route path="/fundTable" element={<FundTable />} />
               <Route path="/elssTable" element={<ElssTable />} />
-              <Route path="/errorpage" element={<Errorpage />} />
+              <Route path="*" element={<Errorpage />} />
               <Route
                 path="/overviewPortfolioManager"
                 element={<OverviewPortfolioManagergold />}
@@ -1206,7 +1207,7 @@ function App() {
       <Route path="/billingavailableplan" element={<Billingavailableplan/>}/>
       <Route path="/billingInfoHistory" element={<BillingInfoHistory/>}/>
       <Route path="/ipoRecommendationsubscribe" element={<IpoRecommendationsubscribe/>}/>
-     
+      <Route path="/invoicePage" element={<InvoicePage/>}/>
     
 
 

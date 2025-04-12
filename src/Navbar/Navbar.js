@@ -43,11 +43,14 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../config";
+import useSubscriptionStatus from "./Hooks/useSubscriptionStatus";
+import useSearch from "./Hooks/useSearch";
 
 const Navbar = () => {
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-  const {userEmail}= useContext(UserProfileContext);
+  const { userEmail } = useContext(UserProfileContext);
   const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
@@ -60,8 +63,7 @@ const Navbar = () => {
   const [filterData, setFilterData] = useState([]);
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] =
     useState(false);
-    const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] =
-    useState(false);
+  const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] = useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
   const [learnDropdownOpen, setLearnDropdownOpen] = useState(false);
@@ -71,6 +73,8 @@ const Navbar = () => {
   const [userName, setUsername] = useState("");
   const [isLogedin, setIsLogedin] = useState(false);
   const [isSubed, setisSubed] = useState(false);
+  //calling useSearch Hook
+  useSearch();
 
   // Get search data from Redux store
   const searchData = useSelector((store) => store.searchData.searchData);
@@ -97,8 +101,6 @@ const Navbar = () => {
       setisSubed(false);
     }
     if (user) {
-      console.log("user:", user);
-      console.log('email: ', userEmail)
       setUsername(user);
       //setIsLogedin(true)
     }
@@ -122,7 +124,6 @@ const Navbar = () => {
   useEffect(() => {
     // Fetch username from localStorage when the component mounts
     const storedUsername = localStorage.getItem("username");
-    console.log("🚀 ~ useEffect ~ storedUsername:", storedUsername)
     if (storedUsername) {
       setUsername(storedUsername);
     }
@@ -236,8 +237,8 @@ const Navbar = () => {
 
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
-   const footerLearnDropdownRef = useRef(null);
-   const footerportfolioDropdownRef = useRef(null);
+  const footerLearnDropdownRef = useRef(null);
+  const footerportfolioDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
   const footerStockDropdownRef = useRef(null);
@@ -412,9 +413,8 @@ const Navbar = () => {
     setLearnDropdownOpen(!learnDropdownOpen);
   };
   const toggleFooterlearnDropdown = () => {
-   setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
+    setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
   };
-
 
   const renderStockDropdown = () => (
     <div className={darkMode ? "stockmenudarkerrrrmode" : "stockmenu"}>
@@ -763,22 +763,22 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={darkMode ? "navbardarkerrrrmode" : "navbar"}>
+      <nav className={darkMode ? "navbar-dark-mode" : "navbar"}>
         <div className="navbar-logo">
           <img
-            src={`${darkMode ? Darkmodelogo : logo}`}
+            src={darkMode ? Darkmodelogo : logo}
             alt="FinanceShastra Logo"
             onClick={() => navigate("/")}
             className="logo-image"
             style={{ cursor: "pointer" }}
           />
         </div>
-
-        <ul className={darkMode ? "navbar-linksdarkerrrrmode" : "navbar-links"}>
+  
+        <ul className={darkMode ? "navbar-links-dark-mode" : "navbar-links"}>
           <li>
             <Link to="/home">Home</Link>
           </li>
-
+  
           <li
             className="stock-dropdown"
             ref={stockDropdownRef}
@@ -803,7 +803,7 @@ const Navbar = () => {
             </Link>
             {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
           </li>
-
+  
           <li
             className="learn-dropdown"
             ref={learnDropdownRef}
@@ -829,8 +829,8 @@ const Navbar = () => {
             {portfolioDropdownOpen && renderPortfolioDropdown()}
           </li>
         </ul>
-
-        <div className={darkMode ? "navbar-search" : "navbar-search"}>
+  
+        <div className="navbar-search">
           <input
             type="text"
             placeholder="Search for Stocks, Mutual..."
@@ -838,16 +838,14 @@ const Navbar = () => {
             onChange={handleSearchInputChange}
           />
           <FaSearch
-            className={darkMode ? "searchdarkerrrmodeicon" : "search-icon"}
+            className={darkMode ? "search-dark-mode-icon" : "search-icon"}
           />
-
+  
           {/* Show results only when there is input */}
           {searchInputText && (
             <div
               ref={searchResultsRef}
-              className={`search-resultswatchlistsector ${
-                filterData.length > 0 ? "active" : ""
-              }`}
+              className={`search-results-watchlist-sector ${filterData.length > 0 ? "active" : ""}`}
             >
               {filterData.length > 0 ? (
                 <ul>
@@ -864,7 +862,7 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        {!isSubed && (
+        {!isLoading && !isSubscribed && (
           <h4
             className="subscritebutton"
             onClick={() => navigate("/pricehalf")}
@@ -874,7 +872,7 @@ const Navbar = () => {
         )}
 
         <div className="navbar-icons">
-          <div className="notificationall" ref={dropdownRef}>
+          <div className="notification-all" ref={dropdownRef}>
             {/* Bell Icon */}
             {isLogedin && (
               <FaBell
@@ -891,12 +889,8 @@ const Navbar = () => {
                 {displayedNotifications.map((notif) => (
                   <div
                     key={notif.id}
-                    onClick={() =>
-                      !notif.is_read && markNotificationAsRead(notif.id)
-                    }
-                    className={`notification-card ${
-                      notif.is_read ? "read" : "unread"
-                    }`}
+                    onClick={() => !notif.is_read && markNotificationAsRead(notif.id)}
+                    className={`notification-card ${notif.is_read ? "read" : "unread"}`}
                     style={{
                       backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
                       color: notif.is_read ? "#757575" : "#000",
@@ -904,7 +898,7 @@ const Navbar = () => {
                     }}
                   >
                     <div className="notification-header">
-                      <div className="notificationall-header">
+                      <div className="notification-all-header">
                         <div>
                           <img
                             src={notiimg2}
@@ -926,7 +920,7 @@ const Navbar = () => {
                       </div>
                       {!notif.is_read && (
                         <LuDot
-                          className="dotnotifyicon"
+                          className="dot-notify-icon"
                           style={{ color: "green" }}
                         />
                       )}
@@ -977,7 +971,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-
+  
       <ul className="footer-nav">
         <li>
           <a href="/home" className="footer-link">
@@ -1012,7 +1006,7 @@ const Navbar = () => {
             className="footer-link"
           >
             <div className="footer-item selected">
-              <i className="footerportfolio-icon">
+              <i className="footer-portfolio-icon">
                 <RiBriefcase4Line />
               </i>
               <span>Portfolio</span>

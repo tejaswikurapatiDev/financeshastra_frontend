@@ -78,7 +78,54 @@
     border-right: none; /* No right border for middle columns */
   }
   
+ /* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .screenertablenifty {
+      width: 70%; /* Reduce width further */
+      margin-left: 0; /* Adjust margin if necessary */
+  }
   
+  .screener-table-wrapper {
+    height: 500px;
+    max-height: 500px;
+    font-size: 14px;
+    overflow-x: scroll; /* Always show horizontal scrollbar */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    width: 96%;
+    margin-left: 20px;
+    scrollbar-color: #24b676 transparent; /* Scrollbar color */
+    scrollbar-width: thin; /* Makes scrollbar thinner */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.screener-table-wrapper::-webkit-scrollbar {
+    height: 8px; /* Scrollbar thickness */
+}
+
+.screener-table-wrapper::-webkit-scrollbar-track {
+    background: transparent; /* Track background */
+}
+
+.screener-table-wrapper::-webkit-scrollbar-thumb {
+    background-color: #24b676; /* Scroll thumb color */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Hide scrollbar buttons (arrows) */
+.screener-table-wrapper::-webkit-scrollbar-button {
+    display: none;
+}
+
+.screenerheadercontainer {
+  max-width: 1000px;
+}
+.screenerheaderexplorebtn {
+  margin-right: 0px;
+}
+.screenerheader {
+  margin-left: 20px;
+}
+}
   /* Mobile View for 768px */
 @media (max-width: 768px) {
   body {
@@ -96,23 +143,22 @@
     justify-content: space-between;
     align-items: center;
 }
-.screenerheader{
-  font-size: 18px;
-  margin-left: 15px;
+.screenerheader {
+  font-size: 16px;
+  margin-left: 40px;
   margin-top: 50px;
-
 }
   .screenerheaderexplorebtn {
       font-size: 14px;
       margin-right: 30px;
       margin-top: 30px;
   }
-
   .screenertablenifty {
-      width: 100%;
-      margin-left: 20px;
-  }
-
+    width: 100%; /* Table ko parent ke andar fit karne ke liye */
+    border-collapse: collapse;
+    margin-left: 0; /* Extra margin hatane ke liye */
+    font-family: 'calibri';
+}
   .screenertablenifty th,
   .screenertablenifty td {
       padding: 8px;
@@ -144,22 +190,22 @@
   
     align-items: center;
 }
-.screenerheader{
+.screenerheader {
   font-size: 12px;
-  margin-left: 15px;
+  margin-left: 25px;
   margin-top: 50px;
-
 }
 .screenerheaderexplorebtn {
   font-size: 12px;
-  margin-right: -70px;
+  margin-right: -50px;
   margin-top: 40px;
 }
-
-  .screenertablenifty {
-      width: 100%;
-      margin-left: 20px;
-  }
+.screenertablenifty {
+  width: 100%; /* Table ko parent container ke andar fit karne ke liye */
+  border-collapse: collapse;
+  margin-left: 0; /* Extra margin hatane ke liye */
+  font-family: 'calibri';
+}
 
   .screenertablenifty th,
   .screenertablenifty td {
@@ -178,5 +224,6 @@
       padding: 8px;
   }
 }
-  
+
+
   
