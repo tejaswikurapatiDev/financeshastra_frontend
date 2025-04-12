@@ -233,10 +233,10 @@ const BillingInfoHistory = () => {
 <div className="billinginfohistory-billing billinginfohistory-wide">
 <h2 className="billlh2">Billing Information</h2>
 <div className="billinginfohistory-card">
-<p className="billinginfohistorypara"><strong>Name: </strong> {billingInfo.name}</p>
-<p className="billinginfohistorypara"><strong>Address: </strong> {billingInfo.address}</p>
-<p className="billinginfohistorypara"><strong>City, State: </strong> {billingInfo.city}, {billingInfo.state}</p>
-<p className="billinginfohistorypara"><strong>Country: </strong> {billingInfo.country}</p>
+<p className="billinginfohistorypara"><strong>Name:   </strong> {billingInfo.name}</p>
+<p className="billinginfohistorypara"><strong>Address:   </strong> {billingInfo.address}</p>
+<p className="billinginfohistorypara"><strong>City, State:   </strong> {billingInfo.city}, {billingInfo.state}</p>
+<p className="billinginfohistorypara"><strong>Country:    </strong> {billingInfo.country}</p>
 <button 
   className="billinginfohistorybtn" 
   onClick={handleNavigation}
