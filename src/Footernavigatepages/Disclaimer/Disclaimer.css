@@ -391,7 +391,7 @@ margin-bottom: 100px;
         .disclaimer-image {
             display: block;
             width: 100%;
-            max-width: 330px;
+            max-width: 33%;
             height: auto;
             margin: 0 auto 50px;
             border-radius: 10px;
