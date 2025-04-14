@@ -1,0 +1,58 @@
+.circleearning {
+    width: 420px;
+    border: 1px solid rgb(228, 219, 219);
+    margin-left: 40px;
+    margin-top: 18px;
+    border-radius: 8px;
+    height: 280px;
+    box-shadow: 2px 2px 10px rgba(225, 222, 222, 0.956); /* Example shadow */
+  }
+  
+  /* For tablet screens */
+  @media (max-width: 768px) {
+    .circleearning {
+      width: 66%;
+      margin-left: 10px;
+      margin-right: 20px;
+      margin-top: 10px;
+      height: auto;
+  }
+    
+    .circlechartheader {
+      font-size: 16px; /* Smaller font size for header */
+    }
+    
+    .circledataearning {
+      margin-bottom: 100px;
+      margin-left: 70px;
+    }
+  
+    /* Adjust the size of the circle in mobile view */
+    .recharts-pie-sector {
+      /* Change the default size of the circle */
+      transform: scale(0.92); /* Shrinks the chart */
+    }
+  }
+  
+  /* For very small mobile devices */
+  @media (max-width: 480px) {
+    .circleearning {
+      width: 105%;
+      margin-left: -2px;
+      margin-right: 5px;
+    }
+  
+    .circledataearning {
+      margin-bottom: 80px;
+    }
+  .valueper{
+    font-size: 13px;
+  }
+    .circlechartheader {
+      font-size: 14px; /* Further reduce font size */
+    }
+    
+    .recharts-pie-sector {
+      transform: scale(0.8); /* Further shrink the chart */
+    }
+  }

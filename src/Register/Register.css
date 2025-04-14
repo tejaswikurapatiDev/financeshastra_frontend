@@ -1,0 +1,168 @@
+/* Global font application */
+
+.login-container body{
+    overflow-y: hidden;
+}
+.loader{
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+}
+
+
+.login-left h1 {
+    font-size: 2.5rem;
+    color: #24bc76;
+    margin-top: 100px;
+}
+
+.login-left p {
+    font-size: 1.5rem;
+    color: #0349a8;
+    font-weight: bolder;
+}
+
+
+
+
+
+
+
+
+.login-box form {
+    margin: 20px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+
+
+
+
+
+
+
+
+
+.input-error {
+    border: 1px solid red;
+}
+
+.error-text-registration {
+    color: red;
+    font-size: 11px;
+    margin-top: 5px;
+    margin-left: 40px;
+}
+
+
+
+
+/*.password-field {
+    position: relative;
+}*/
+
+
+
+
+.toggle-password:hover {
+    color: #555;
+}
+/*.password-field input {
+    width: 40%; /* or your preferred width 
+  }*/
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .login-container {
+        height: auto;
+    }
+
+    
+
+    .login-left h1 {
+        font-size: 1.8rem;
+        margin-top: 30px;
+    }
+
+    .login-left p {
+        font-size: 1.2rem;
+    }
+
+    .login-box {
+        /*width: 150%;
+        max-width: 350px;*/
+        padding: 20px;
+    }
+
+    .input-container label,
+    .input-container input {
+        font-size: 0.8rem;
+    }
+
+    .sign-in-btn {
+        width: 95%;
+        padding: 10px;
+        font-size: 1rem;
+        margin-right: 10px;
+
+    }
+
+    .google-login,
+    .linkedin-login {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .password-field {
+        display: block;
+    }
+    .password-field input {
+        padding-right: 2.5rem;
+        width: 70%;
+    }
+    .toggle-password{
+        right: 50px; 
+    }
+    .logo {
+        width: 150px;
+    }
+
+    .Google-btn {
+        width: 90%;
+        height: auto;
+    }
+    .login-right {
+        order: 1; /* Display login form first on mobile */
+      }
+
+.login-options {
+    display: flex;
+  gap: 90px;
+  }
+}
+@media (max-width: 480px) {
+    .password-field {
+        display: block;
+        width: 100%;
+      }
+   
+    .toggle-password{
+        right: 30px; 
+    }
+    .login-options {
+        display: flex;
+      gap: 30px;
+      }
+
+.login-right {
+margin-bottom: -20px;
+}
+/*.password-field input {
+    width: 93%; /* or a different width as needed 
+  }*/
+}

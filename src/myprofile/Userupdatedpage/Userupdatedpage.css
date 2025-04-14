@@ -1,0 +1,781 @@
+.allpersonall {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row; /* Aligns child elements vertically */
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 750px;
+  /*gap: 80px; /* Adds spacing between child elements */
+  
+  box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+}
+.allpersonal {
+  display: flex;
+  flex-direction: row; /* Aligns child elements vertically */
+  justify-content: space-between;
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 750px;
+  gap: 20px; /* Adds spacing between child elements */
+  
+  box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+}
+
+
+.userDetailss{
+  font-family: 'calibri';
+  margin-top: 90px;
+  font-family: 'calibri';
+  max-width:1200px ;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.outer-cont{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+.personalDetailAll,
+.professionalDetailAll,
+.investmentDetailAll {
+ margin-left: 70px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #24b676;
+  align-self: flex-start;
+  margin-left: 60px;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+  margin: 5px 0px;
+}
+
+.labelprofiledetail {
+  width: 150px; /* Set a fixed width for labels */
+  font-weight: bold;
+  color: #000000;
+}
+
+.value {
+  flex: 1; /* Allow the value to take the remaining space */
+  color: #000000;
+}
+
+.detailRow strong {
+  color: #000000;
+  font-size: 15px;
+}
+.editiconprofile{
+  color: #24b676;
+  margin-left: 300px;
+}
+.editiconprofilee{
+  color: #24b676;
+  margin-left: 350px;
+}
+.editiconprofileee{
+  color: #24b676;
+  margin-left:342px;
+}
+.profilepage-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-left: 10px;
+
+}
+
+/* Tabs */
+.profilepage-tabsorderusers {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  
+}
+
+
+
+.profilepage-tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.profilepage-tab.active {
+  border-bottom: 2px solid #24b676;
+  font-weight: bold;
+  color: #24b676;
+}
+.profilepage-tabsorderusers{
+text-align: center;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid  rgb(208, 206, 206);
+  height:150px;
+  padding: 20px;
+  width: 750px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206);
+  border-radius: 8px;
+}
+
+.profileImage {
+  width: 110px;
+  height: 90px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.userwilliamimg {
+  position: relative;
+  width: 170px;
+  height: 120px;
+  background: linear-gradient(90deg, #24b676, #238486);
+ border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.editIcon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.editIcon:hover {
+  background-color: #24b676;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.profileName {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profileOccupation {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: 900;
+}
+
+
+
+
+
+
+
+
+
+.investment-optionsalluser{
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Space between investment types */
+  flex-wrap: wrap;
+}
+
+
+.investment-item input {
+  width: 10px; /* Set width for consistency */
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.investment-itemalluser{
+  display: flex;
+  gap: 15px;
+}
+
+
+.investment-itemalluser input[name="stocks"]
+ {
+  width: 80px; /* Smaller width for % fields */
+}
+.investment-itemalluser input[name="mutualfund"] {
+  width: 80px;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-contentuserupdate{
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 480px;
+  margin-top: 100px;
+}
+
+
+
+.modal-body label {
+  display: block;
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: left;
+  color: #000000;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.investment-itemalluser span {
+  display: inline-block;
+  /* Adjust width as needed */
+  padding: 8px;
+
+  border-radius: 4px;
+  text-align: center;
+  font-size: 15px;
+  color: #090909;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.save-btnuserrr {
+  background: #24b676;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+.save-btnuserrr:hover{
+  background: #2cd98e;
+}
+.cancel-btnuserrrr{
+  background: white;
+  color: #24b676;
+  padding: 8px 15px;
+  border: 1px solid #24b676;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel-btnuserrrr:hover{
+  background:#24b676;
+  color: white;
+}
+
+
+
+.loginbtnpopupnot {
+  background: #24b676;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: center;
+  width: 45%;
+  margin-left: 10px;
+}
+
+.loginbtnpopupnot:hover {
+  background: #20a568;
+  
+}
+@media (min-width: 2500px) {
+  .userDetailss {
+    font-family: 'calibri';
+    margin-top: 90px;
+    font-family: 'calibri';
+    max-width: 1200px;
+    padding: 20px;
+    margin-left: 480px;
+}
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .profilepage-tabsorderusers {
+    text-align: center;
+    margin-left: 20px;
+
+}
+.profilepage-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-left: 28px;
+}
+.profileContainer {
+  display: flex
+;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid rgb(208, 206, 206);
+  height: 150px;
+  padding: 20px;
+  margin-left: 100px;
+  width: 750px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206);
+  border-radius: 8px;
+}
+.allpersonal {
+  display: flex
+;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 750px;
+  gap: 20px;
+  margin-left: 100px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206);
+}
+.sectionTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #24b676;
+  margin-left: 100px;
+}
+.allpersonall {
+  display: flex
+;
+  justify-content: space-between;
+  flex-direction: row;
+  border: 1px solid rgb(208, 206, 206);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 750px;
+  margin-left: 100px;
+  box-shadow: 0px 4px 8px rgb(208, 206, 206);
+}
+}
+@media (max-width: 768px) {
+  .userDetailss {
+      font-family: 'calibri';
+      margin-bottom: 130px;
+  
+      
+    }
+    .modal-contentuserupdate{
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 540px;
+      margin-top: -33px;
+      height: 360px;
+    }
+    
+    .investment-itemalluser span {
+      display: inline-block;
+      /* Adjust width as needed */
+      padding: 1px;
+    
+      border-radius: 4px;
+      text-align: center;
+      font-size: 15px;
+      color: #090909;
+    }
+    
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+    }
+    
+.modal-body label {
+  display: block;
+  font-weight: 500;
+  margin: 5px 0;
+  text-align: left;
+  color: #000000;
+}
+
+.modal-body input,
+.modal-body select {
+  width: 95%;
+  padding: 8px;
+  margin-bottom: 0px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+    .profilepage-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-left: 10px;
+    }
+    
+  
+    /* Tabs */
+    .profilepage-tabs {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+    
+    .profilepage-tab {
+      padding: 1px 10px;
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    .profileContainer {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: 1px solid  rgb(208, 206, 206);
+      height:150px;
+      padding: 20px;
+      margin-left: 10px;
+      width: 650px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206);
+      border-radius: 8px;
+    }
+    
+    .allpersonall {
+      display: flex;
+      flex-direction: row; /* Aligns child elements vertically */
+      border: 1px solid rgb(208, 206, 206);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-color: white;
+      width: 643px;
+      gap: 80px; /* Adds spacing between child elements */
+      margin-left: 12px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+    }
+    .profileImage {
+      width: 110px;
+      height: 90px;
+      border-radius: 50%;
+      margin: auto;
+    }
+    
+    .userwilliamimg {
+      position: relative;
+      width: 170px;
+      height: 120px;
+      background: linear-gradient(90deg, #24b676, #238486);
+     border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 8px;
+    }
+    
+    .allpersonal {
+      display: flex;
+      flex-direction: row; /* Aligns child elements vertically */
+      border: 1px solid rgb(208, 206, 206);
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background-color: white;
+      width: 650px;
+      gap: 0px; /* Adds spacing between child elements */
+      margin-left: 10px;
+      box-shadow: 0px 4px 8px rgb(208, 206, 206); /* Adds a subtle shadow effect */
+    }
+    .personalDetailAll,
+    .professionalDetailAll,
+    .investmentDetailAll {
+     margin-left: 7px;
+    }
+    .editiconprofilee{
+      color: #24b676;
+      margin-left: 170px;
+    }
+    .editiconprofileee{
+      color: #24b676;
+      margin-left: 10px;
+    }
+    .sectionTitle {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #24b676;
+      margin-left: 15px;
+    }
+    .profilepage-tabbbactive{
+      padding: 8px 5px;
+          font-size: 14px;
+          margin-left: -10px;
+      }
+
+
+    
+      .profilepage-tabsorderusers {
+        overflow-x: auto; /* Use 'auto' to show scrollbar only when needed */
+        border-bottom: none; /* Removes the bottom border */
+        margin-left: 10px;
+        margin-bottom: 15px;
+        scrollbar-color: rgb(201, 198, 198); /* Custom scrollbar color for Firefox */
+       
+    }
+    
+    /* Custom scrollbar for WebKit browsers like Chrome and Safari */
+    .profilepage-tabsorderusers::-webkit-scrollbar {
+        height: 4px; /* Adjust scrollbar thickness */
+    }
+    
+    .profilepage-tabsorderusers::-webkit-scrollbar-thumb {
+        background-color:  #24b676; /* Scrollbar thumb color */
+        border-radius: 10px;
+    }
+    
+    .profilepage-tabsorderusers::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    .profilepage-tabbbactive{
+      display: flex;
+      border-bottom: 1px solid #ccc;
+  
+    }
+}
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  .modal-contentuserupdate{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 370px;
+    margin-top: -20px;
+    height: 340px;
+  }
+  .investment-itemalluser input[name="stocks"]{
+    width: 50px;
+  }
+
+  .userDetailss {
+    font-family: 'calibri';
+    margin-top: 90px;
+    width: 90%; /* Use 100% width to fit the screen */
+    padding: 20px;
+    margin-bottom: -1px;
+  }
+.editiconprofile{
+  color: #24b676;
+margin-left: -20px;
+
+}
+  .allpersonall {
+    display: flex;
+    flex-direction:row; /* Align elements vertically to fit the screen */
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: calc(95% - 40px); /* Account for padding */
+    gap: 20px; /* Adjust gap for smaller screens */
+    margin-left: 0; /* Align to the left */
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: 80%;
+  }
+
+  .userDetails {
+    font-family: 'calibri';
+    margin-top: 120px;
+    width: 100%; /* Adjust to fit within the screen */
+  }
+
+  .allpersonal {
+    display: flex;
+    flex-direction:row; /* Align elements vertically for small screens */
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: calc(95% - 100px); /* Fit the container */
+    gap: -2px;
+    margin-left: 0;
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    width: 80%;
+  }
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid rgb(208, 206, 206);
+    height: 150px;
+    padding: 20px;
+    margin-left: 0;
+    width: calc(100% - 40px);
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+    border-radius: 8px;
+  }
+
+  .personalDetailAll,
+  .professionalDetailAll,
+  .investmentDetailAll {
+    margin-left: 0; /* Align to the left */
+  }
+
+  .editiconprofilee {
+    color: #24b676;
+    margin-left: auto; /* Use auto to align correctly */
+  }
+
+  .editiconprofileee {
+    color: #24b676;
+    margin-left: auto; /* Use auto for better alignment */
+  }
+
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #24b676;
+    margin-left: 15px;
+  }
+
+  .profilepage-tabsorderusers {
+    overflow-x: scroll;
+    border-bottom: none;
+    margin-left: 0;
+    margin-bottom: 15px;
+    width: 100%;
+}
+  .profilepage-tabsorderusers::-webkit-scrollbar {
+    height: 8px;
+    background: transparent; /* Makes the scrollbar track transparent */
+  }
+  
+  .profilepage-tabsorderusers::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Makes the thumb (scroll) transparent */
+    border-radius: 10px;
+  }
+  
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+  }
+  .profilepage-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-top: -30px;
+  }
+  .profileName {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .profileOccupation {
+    font-size: 15px;
+    color: #333;
+    margin: 0;
+    font-weight: 900;
+}
+.detailRow strong {
+  color: #000000;
+  font-size: 12px;
+}
+
+.labelprofiledetail {
+  width: 108px; /* Set a fixed width for labels */
+  font-weight: bold;
+  color: #000000;
+}
+
+
+}
+
+
+@media (max-width: 320px) {
+  body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  .modal-contentuserupdate{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 380px;
+    margin-top: -25px;
+    height: 360px;
+  }
+  .investment-itemalluser input[name="stocks"]{
+    width: 25px;
+  }
+  .investment-itemalluser input[name="mutualfund"] {
+    width: 30px;
+  }
+  .editiconprofile {
+    color: #24b676;
+    margin-left: -40px;
+}
+.value, .current-value {
+  font-size: 11px;
+  margin-left: -15px;
+}
+}

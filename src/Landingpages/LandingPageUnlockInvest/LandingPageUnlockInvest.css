@@ -1,0 +1,400 @@
+.landingpageunlockinvest-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  /* Full-screen height */
+  background: url('../../assest/landinginvestbackgroundimg.png') no-repeat center center;
+  background-size: cover;
+  /* Ensures full coverage of the background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Calibri';
+  width: 100%;
+  margin-top: 90px;
+  overflow-x: hidden;
+
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+
+
+/* Search results dropdown */
+.landingpageunlockinvest-searchbar div {
+  position: absolute;
+  width: 18%;
+  background: white;
+
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  margin-top: 5px;
+}
+
+.landingpageunlockinvest-searchbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.landingpageunlockinvest-searchbar li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background 0.3s ease-in-out;
+}
+
+.landingpageunlockinvest-searchbar li:hover {
+  background-color: #f5f5f5;
+}
+
+/* No results text */
+.landingpageunlockinvest-searchbar p {
+  padding: 10px;
+  color: #888;
+}
+
+
+
+
+
+
+.landingpageunlockinvest-background {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+
+}
+
+.landingpageunlockinvest-content {
+  flex: 1;
+  text-align: left;
+}
+
+.landingpageunlockinvestheadingsearchall {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  /* Adds space between elements */
+}
+
+.landingpageunlockinvest-heading {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333333;
+  background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landingpageunlockinvest-heading span {
+  background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.landingpageunlockinvest-searchbar {
+  margin-top: 20px;
+
+  align-items: center;
+}
+
+.landingpageunlockinvest-input {
+  width: 150%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.landingpageunlockinvest-button {
+
+  padding: 4px 10px;
+  background-color: #24b676;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+  margin-top: 90px;
+  height: 30px;
+  width: 140px;
+  font-weight: 600;
+
+
+}
+
+.landingpageunlockinvest-button:hover {
+  background-color: #1d9d5b;
+}
+
+.landingpageunlockinvest-illustration {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.landingpageunlockinvest-image {
+  width: 100%;
+  max-width: 500px;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+.landingpageunlockinvestdarkcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  /* Full-screen height */
+  background: url('../../assest/landinginvestbackgroundimg.png') no-repeat center center;
+  background-size: cover;
+  /* Ensures full coverage of the background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Calibri';
+  width: 102%;
+  margin-top: 70px;
+  margin-left: -10px;
+
+}
+
+
+.landingpageunlockinvestdarkinput {
+  width: 180%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-right: 50px;
+  margin-top: 20px;
+  background-color: #5D5D5D;
+  color: #FFFFFF;
+}
+
+.landingpageunlockinvestdarkinput::placeholder {
+  color: white;
+  opacity: 1;
+  /* Ensures full visibility in some browsers */
+}
+
+
+
+.landingpageunlockinvestdarkimage {
+  width: 100%;
+  max-width: 490px;
+  object-fit: cover;
+}
+
+/* Extra Large Screens (1536px and above) */
+@media (min-width: 1536px) {
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    height: 50vh;
+    overflow-x: hidden;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 600px;
+  }
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    height: 45vh;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 550px;
+  }
+  
+  .landingpageunlockinvest-button {
+    padding: 4px 10px;
+    background-color: #24b676;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 90px;
+    height: 30px;
+    width: 160px;
+    font-weight: 600;
+    margin-left: -36px;
+  }
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    height: 40vh;
+    overflow-x: hidden;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 500px;
+  }
+
+  .landingpageunlockinvest-input,
+  .landingpageunlockinvestdarkinput {
+    width: 150%;
+  }
+
+  .landingpageunlockinvest-button {
+    padding: 4px 10px;
+    background-color: #24b676;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-top: 90px;
+    height: 30px;
+    width: 160px;
+    font-weight: 600;
+    margin-left: -26px;
+  }
+  .landingpageunlockinvest-background {
+    width: 85%;
+    max-width: 1000px;
+    overflow-y: hidden; /* Ensure no vertical scrolling */
+}
+.landingpageunlockinvest-heading {
+  font-size: 24px; /* Adjust size for medium desktops */
+}
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    flex-direction: column;
+    height: auto;
+    overflow-x: hidden;
+  }
+
+  .landingpageunlockinvest-content {
+    text-align: center;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 400px;
+  }
+
+  .landingpageunlockinvest-input,
+  .landingpageunlockinvestdarkinput {
+    width: 120%;
+  }
+  .landingpageunlockinvest-button {
+    font-size: 10px;
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    overflow-x: hidden;
+  }
+
+  .landingpageunlockinvest-content {
+    text-align: center;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 300px;
+  }
+
+  .landingpageunlockinvest-input,
+  .landingpageunlockinvestdarkinput {
+    width: 100%;
+  }
+
+  .landingpageunlockinvest-button {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+  .landingpageunlockinvest-heading {
+    font-size: 22px;
+    width: 180%;
+  }
+
+  .landingpageunlockinvest-image,
+  .landingpageunlockinvestdarkimage {
+    max-width: 250px;
+    display: none;
+  }
+
+  .landingpageunlockinvest-input,
+  .landingpageunlockinvestdarkinput {
+    font-size: 8px;
+    padding: 8px;
+    width: 150%;
+    margin-top: -50px;
+    margin-left: 20px;
+  }
+
+  .landingpageunlockinvest-button {
+    font-size: 10px;
+    padding: 6px 8px;
+    display: block;
+    margin: 0 auto;
+    margin-left: 70px;
+    text-align: center;
+  }
+
+  .landingpageunlockinvest-container,
+  .landingpageunlockinvestdarkcontainer {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    overflow-x: hidden;
+  }
+
+  .landingpageunlockinvestheadingsearchall {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0px;
+  }
+}

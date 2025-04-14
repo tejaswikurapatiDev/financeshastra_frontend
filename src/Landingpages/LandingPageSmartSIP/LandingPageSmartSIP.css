@@ -1,0 +1,198 @@
+.landingpagesmartsip-container {
+  text-align: center;
+  background: url('../../assest/landingsmatrsipimg.png') no-repeat center center;
+  background-size: cover; /* Ensures full coverage of the background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #cecece;
+  padding: 40px 20px;
+  font-family: 'calibri';
+  width: 100%;
+  margin-left: -10px;
+}
+
+.landingpagesmartsip-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0349a8;
+  margin-bottom: 20px;
+}
+
+.landingpagesmartsip-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.landingpagesmartsip-card {
+  position: relative;
+  background: #fff;
+  border-radius: 15px;
+  padding: 1px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(110deg, #2b8048, #1e5da8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+.landingpagesmartsip-card-title {
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.landingpagesmartsip-card-description {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+ 
+  text-align: center;
+}
+
+.landingpagesmartsip-button {
+  background-color: #24b676;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+.landingpagesmartsip-button:hover {
+  background-color: #2b8048;
+}
+
+
+
+
+
+
+
+
+.landingpagesmartsipdarkcontainer {
+  text-align: center;
+  background:#292F42;
+  background-size: cover; /* Ensures full coverage of the background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #cecece;
+  padding: 40px 20px;
+  font-family: 'calibri';
+  width: 100%;
+  margin-left:-10px;
+}
+
+
+.landingpagesmartsipdarkcard {
+  position: relative;
+  background: #212639; /* Added background color */
+  border-radius: 15px;
+  padding: 1px;
+  width: 300px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#212639, #212639), 
+                    linear-gradient(110deg, #2b8048, #1e5da8);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+
+
+.landingpagesmartsip-carddarkdescription {
+  font-size: 14px;
+  color: #ffff;
+  font-weight: 500;
+  width: 90%;
+  text-align: center;
+}
+.landingpagesmartsip-darktitle{
+  color: #ffff;
+}
+/* Extra Large Screens (1536px and above) */
+@media (min-width: 1536px) {
+.landingpagesmartsip-cards {
+    gap: 30px;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+    width: 350px;
+}
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+.landingpagesmartsip-cards {
+    gap: 25px;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+    width: 320px;
+}
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+.landingpagesmartsip-cards {
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+    width: 300px;
+}
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+.landingpagesmartsip-cards {
+    flex-direction: column;
+    align-items: center;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+    width: 80%;
+}
+.landingpagesmartsip-title, .landingpagesmartsip-darktitle {
+    font-size: 22px;
+}
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+.landingpagesmartsip-cards {
+    flex-direction: column;
+    align-items: center;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+    width: 90%;
+}
+.landingpagesmartsip-title, .landingpagesmartsip-darktitle {
+    font-size: 20px;
+}
+.landingpagesmartsip-card-title {
+    font-size: 16px;
+}
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+.landingpagesmartsip-title, .landingpagesmartsip-darktitle {
+    font-size: 18px;
+}
+.landingpagesmartsip-card, .landingpagesmartsipdarkcard {
+  
+    width: 80%;
+    margin-left: -20px;
+}
+
+.landingpagesmartsip-card-description, .landingpagesmartsip-carddarkdescription {
+    font-size: 13px;
+}
+}

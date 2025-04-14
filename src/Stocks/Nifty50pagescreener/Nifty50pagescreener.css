@@ -1,0 +1,168 @@
+/* Container for the entire layout */
+.dataquatallnifty {
+    display: flex;
+   
+    margin-left: 170px;
+    gap: 30px;
+    font-family: 'calibri';
+ }
+ .portfoliomutual-containerrnifty {
+     font-family: 'calibri';
+     padding: 20px;
+     color: #333;
+   width:640px; /* Set a maximum width */
+   
+ /* Add left margin to prevent overlap with sidebar */
+     font-family: 'Calibri';
+     margin-top: 5px;
+ 
+     background-color: #f9f9f9;
+     border: 1px solid #ddd; /* Light grey border */
+     box-shadow: 0px 4px 6px rgba(183, 180, 180, 0.956); /* Soft shadow around the container */
+     border-radius: 5px;
+     display: flex;
+     flex-direction: column-reverse; /* Reverse the container's content */
+ 
+     height: 370px;
+     font-family: 'calibri';
+ }
+ .chartmutual-containerrnifty{
+     height: 330px;
+     width: 620px;
+     font-family: 'calibri';
+ }
+ 
+ .time-rangemutual-selectorrnifty {
+     display: flex;
+     gap: 5px;
+     margin-bottom: 20px;
+     margin-left: 320px;
+     
+ }
+ .allhead{
+    margin-top: 230px;
+    font-family: 'calibri';
+ }
+ .headernifty50{
+    margin-left: 170px;
+    font-size: 20px;
+    margin-top: 250px;
+    font-family: 'calibri';
+ }
+
+ /* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .dataquatallnifty {
+      margin-left: 100px;
+      gap: 20px;
+    }
+    .portfoliomutual-containerrnifty {
+        width: 530px;
+        height: 360px;
+        margin-left: -80px;
+        margin-top: 20px;
+    }
+    .chartmutual-containerrnifty {
+      width: 530px;
+      height: 320px;
+    }
+    .time-rangemutual-selectorrnifty {
+        margin-left: 210px;
+    }
+    .headernifty50 {
+        margin-left: 30px;
+    }
+  }
+  
+ /* Mobile View for 768px */
+@media (max-width: 768px) {
+    .dataquatallnifty {
+        flex-direction: column;
+        margin-left: 20px;
+        gap: 20px;
+    }
+    .portfoliomutual-containerrnifty {
+        width: 85%;
+        margin-left: 40px;
+        padding: 15px;
+        font-size: 14px;
+        height: 300px;
+    }
+
+    .chartmutual-containerrnifty {
+        width: 600px;
+        height: 250px;
+    }
+
+    .time-rangemutual-selectorrnifty {
+        margin-left: 0;
+        margin-bottom: 15px;
+    }
+
+    .headernifty50 {
+        margin-left: 20px;
+        font-size: 18px;
+        margin-top: 250px;
+    }
+
+    .allhead {
+        margin-top: 180px;
+    }
+}
+
+/* Mobile View for 480px */
+@media (max-width: 480px) {
+    .dataquatallnifty {
+        flex-direction: column;
+        margin-left: 20px;
+        gap: 20px;
+    }
+
+    .portfoliomutual-containerrnifty {
+        width: 80%;
+       
+        padding: 15px;
+        font-size: 14px;
+        height: 290px;
+        margin-left: 27px;
+    }
+    .chartmutual-containerrnifty {
+        width: 330px !important;
+        height: 250px;
+    }
+
+    .time-rangemutual-selectorrnifty {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        gap: 2px;
+    }
+
+    .headernifty50 {
+        margin-left: 20px;
+        font-size: 18px;
+        margin-top: 250px;
+    }
+
+    .allhead {
+        margin-top: 180px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .portfoliomutual-containerrnifty {
+        width: 80%; 
+        padding: 10px; 
+        font-size: 12px; 
+        height: auto;
+        margin-left: auto; 
+        margin-right: auto; 
+    }
+    .chartmutual-containerrnifty {
+        width: 100% !important; 
+        height: 250px;
+        max-width: 300px; 
+        margin-left: 10px;
+    }
+}
+

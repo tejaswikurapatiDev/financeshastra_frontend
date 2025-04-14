@@ -1,0 +1,413 @@
+.fund-table-container {
+    padding: 16px;
+    background: white;
+  
+    border-radius: 8px;
+    max-width: 1300px;
+margin-bottom: 60px;
+ font-family: 'calibri';
+ margin-top: 120px;
+ margin-left: 70px;
+  }
+ 
+  .fund-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    width: 1230px;
+margin-left: 20px;
+  }
+  .fund-table-header h2{
+    margin-left: 30px;
+  }
+  .pfunddatacal{
+   margin-left: 0px;
+    padding: 20px 10px;
+  }
+  .select-containerfuncalculator{
+margin-left: 850px;
+
+display: flex;
+gap: 5px;
+  }
+  .spanreturnfund{
+    margin-bottom: 5px;
+    width: 80px;
+  }
+  .spanreturnfunddiv{
+    margin-top: 5px;
+    color: black;
+  }
+  .select-box {
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .return-labels, .fund-decision-labels {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 12px;
+    color: gray;
+    margin-top: 5px;
+  }
+  
+  .fund-table {
+    width: 96%;
+    border-collapse: collapse;
+    border-radius: 8px; /* Apply rounded corners to the table */
+    overflow: hidden; /* Ensure no content overflows the rounded corners */
+    display: block; /* Allows the table to scroll */
+    max-height: 420px; /* Adjust the max height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-left: 20px;
+  }
+  
+  .fund-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    font-size: 15px;
+  }
+  .quefundcircle{
+ margin-bottom: -2px
+  }
+  
+  .fund-table th {
+    border-top: 3px solid #24b676; /* Green top border */
+    border-bottom: 3px solid #24b676; /* Green bottom border */
+    border-left: none; /* Removes the left border in th */
+    border-right: none; /* Removes the right border in th */
+    font-size: 16px;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Sticks the header to the top */
+    background-color: white; /* Ensure the header has a solid background */
+    z-index: 1; /* Makes sure the header stays on top */
+width: 200px;
+    text-align: center;
+    
+  }
+
+  .fund-table th {
+    border-left: none; /* Removes the left border in th */
+    border-right: none; /* Removes the right border in th */
+   
+  }
+  
+  .fund-table td {
+    border-left: none; /* Removes the left border in td */
+    border-right: none; /* Removes the right border in td */
+    color: black;
+    text-align: center;
+  }
+  .fund-table th:first-child
+ {
+    border-left: 3px solid #24b676; /* Green left border for the first column */
+   
+  }
+  
+  .fund-table th:last-child
+  {
+    border-right: 3px solid #24b676; /* Green right border for the last column */
+ 
+  }
+  
+ 
+
+  
+  .fund-table tr:nth-child(odd) td {
+    background-color: #f9f9f9; /* Light gray background for odd rows */
+  }
+  
+  .fund-table tr:nth-child(even) td {
+    background-color: #f4f4f4; /* White background for even rows */
+  }
+  
+  .fund-table td:first-child {
+    border-left: 2px solid #ddd; /* Vertical border for the first column */
+  }
+  
+ 
+  .fund-table td:last-child {
+    border-right: 2px solid #ddd; /* Vertical border for the last column */
+  } 
+  .pagination-containerfundtable{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 25px;
+    gap: 930px;
+  }
+  @media (max-width: 768px) {
+    .fund-table-container {
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      max-width: 100%; /* Use full width */
+      font-family: 'calibri';
+      margin-top: 120px;
+      margin-left: 0; /* Remove unnecessary negative margin */
+    }
+  
+    .fund-table-header {
+      display: flex;
+      flex-direction: column; /* Stack the elements vertically */
+      align-items: flex-start;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+      width: 100%; /* Use full width */
+      margin-left: 0; /* Remove unnecessary left margin */
+    }
+  
+    .fund-table-header h2 {
+      margin-left: 0; /* Center the heading */
+      text-align: center;
+    }
+  
+    .pfunddatacal {
+      margin-left: 0;
+      padding: 10px 0; /* Adjust padding for mobile */
+    }
+  
+    .select-containerfuncalculator {
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+      gap: 5px;
+      justify-content: center;
+    }
+  
+    .spanreturnfund {
+      margin-bottom: 5px;
+      width: 20%; /* Take full width on smaller screens */
+    }
+  
+    .spanreturnfunddiv {
+      margin-top: 5px;
+      color: black;
+    }
+  
+    .select-box {
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100%; /* Full width for the select box on mobile */
+    }
+  
+    .return-labels,
+    .fund-decision-labels {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap */
+      justify-content: center;
+      gap: 12px;
+      font-size: 12px;
+      color: gray;
+      margin-top: 5px;
+    }
+  
+    .fund-table {
+      width: 100%; /* Use full width for the table */
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      display: block;
+      max-height: 420px;
+      overflow-y: auto;
+      margin-left: 0; /* Remove unnecessary left margin */
+      overflow-x: auto;
+      margin-bottom: 130px;
+    }
+  
+    .fund-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      font-size: 14px; /* Slightly smaller text */
+    }
+  
+    .fund-table th {
+      border-top: 3px solid #24b676;
+      border-bottom: 3px solid #24b676;
+      font-size: 14px; /* Slightly smaller font size */
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 1;
+      text-align: center;
+      width: 100%; /* Ensure headers use full width */
+    }
+  
+    .fund-table td,
+    .fund-table th {
+      text-align: center; /* Center align text in both header and data cells */
+    }
+  
+    .fund-table th:first-child {
+      border-left: 3px solid #24b676;
+    }
+  
+    .fund-table th:last-child {
+      border-right: 3px solid #24b676;
+    }
+  
+    .fund-table tr:nth-child(odd) td {
+      background-color: #f9f9f9;
+    }
+  
+    .fund-table tr:nth-child(even) td {
+      background-color: #f4f4f4;
+    }
+  
+    .pagination-containerfundtable {
+      display: flex;
+     margin-top: -102px;
+      margin-left: 0;
+    margin-bottom: 100px;
+      gap: 115px; /* Reduce gap between pagination buttons */
+      align-items: center; /* Center align the pagination */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .fund-table-container {
+      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      max-width: 90%; /* Use full width */
+      font-family: 'calibri';
+      margin-top: 120px;
+      margin-left: 0; /* Remove unnecessary negative margin */
+      margin-bottom: 1px;
+    }
+  
+    .fund-table-header {
+      display: flex;
+      flex-direction: column; /* Stack the elements vertically */
+      align-items: flex-start;
+      padding-bottom: 5px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+      width: 100%; /* Use full width */
+      margin-left: 0; /* Remove unnecessary left margin */
+    }
+  
+    .fund-table-header h2 {
+      margin-left: 50px; /* Center the heading */
+      text-align: center;
+    }
+  
+    .pfunddatacal {
+      margin-left: 0;
+      padding: 10px 0; /* Adjust padding for mobile */
+    }
+  
+    .select-containerfuncalculator {
+      margin-left: 0;
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+      gap: 5px;
+      justify-content: center;
+    }
+  
+    .spanreturnfund {
+      margin-bottom: 5px;
+      width: 20%; /* Take full width on smaller screens */
+    }
+  
+    .spanreturnfunddiv {
+      margin-top: 5px;
+      color: black;
+    }
+    .select-box {
+      width: 80%; /* Decrease the width to fit better */
+      font-size: 12px; /* Decrease font size of the select box */
+    }
+  
+    .return-labels,
+    .fund-decision-labels {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap */
+      justify-content: center;
+      gap: 12px;
+      font-size: 12px;
+      color: gray;
+      margin-top: 5px;
+    }
+  
+    .fund-table {
+      width: 100%; /* Use full width for the table */
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      display: block;
+      max-height: 420px;
+      overflow-y: auto;
+      margin-left: 0; /* Remove unnecessary left margin */
+      overflow-x: auto;
+      margin-bottom: 130px;
+    }
+  
+    .fund-table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+      font-size: 14px; /* Slightly smaller text */
+    }
+  
+    .fund-table th {
+      border-top: 3px solid #24b676;
+      border-bottom: 3px solid #24b676;
+      font-size: 14px; /* Slightly smaller font size */
+      position: sticky;
+      top: 0;
+      background-color: white;
+      z-index: 1;
+      text-align: center;
+      width: 100%; /* Ensure headers use full width */
+    }
+  
+    .fund-table td,
+    .fund-table th {
+      text-align: center; /* Center align text in both header and data cells */
+    }
+  
+    .fund-table th:first-child {
+      border-left: 3px solid #24b676;
+    }
+  
+    .fund-table th:last-child {
+      border-right: 3px solid #24b676;
+    }
+  
+    .fund-table tr:nth-child(odd) td {
+      background-color: #f9f9f9;
+    }
+  
+    .fund-table tr:nth-child(even) td {
+      background-color: #f4f4f4;
+    }
+  
+    .pagination-containerfundtable {
+      display: flex;
+     margin-top: -102px;
+      margin-left: 0;
+    margin-bottom: 100px;
+      gap: 70px; /* Reduce gap between pagination buttons */
+      align-items: center; /* Center align the pagination */
+    }
+    .select-box option {
+      font-size: 12px; /* Decrease font size of options */
+    }
+  }
+  

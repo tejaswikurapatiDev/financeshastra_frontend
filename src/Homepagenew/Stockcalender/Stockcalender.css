@@ -1,0 +1,358 @@
+.clarificationstockcalender-link{
+  cursor: pointer;
+  color: #24b676;
+  }
+  .clarificationstockcalender-link:hover{
+  color: #24b676;
+  }
+  .DashboardMainPagetable-table-container {
+    overflow-x: auto;
+    margin: 20px;
+}
+.pagination-containercalender {
+  display: flex;
+  gap: 680px;
+  align-items: center;
+  margin: 20px 0;
+  margin-left: 23px;
+}
+.DashboardMainPagetable-tablee {
+    width: 89%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+.DashboardMainPagetable-tablee th,
+.DashboardMainPagetable-tablee td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.DashboardMainPagetable-tablee th {
+    background-color: #f2f2f2;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.DashboardMainPagetable-tablee td {
+ 
+  font-size: 15px;
+}
+.DashboardMainPagetable-tablee tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.DashboardMainPagetable-tablee tr:hover {
+    background-color: #ddd;
+}
+  .earnings-insight-learn-wrapperr{
+      font-family: 'calibri';
+      margin-right: 100px;
+  }
+  .DashboardMainPagetable-headercalculator {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      margin-left: 50px;
+      margin-top: 280px;
+    }
+    .earnings-insight-learn-tab-button {
+      cursor: pointer;
+      font-family: 'calibri';
+      font-size: 16px;
+    }
+    
+    .earnings-insight-learn-tab-button.active {
+       /* Green background for active tab */
+      color: #24b676;  /* White text for active tab */
+    }
+    
+  
+    .dateinsighttt {
+      display: flex;
+ /* Aligns label and icon in one line */
+      gap: 8px; /* Adds space between label and icon */
+      position: relative;
+      display: flex;
+    border: 1px solid rgb(212, 209, 209);
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+  ;
+    }
+    .calendar-icon {
+      display: flex;
+    
+      cursor: pointer;
+      position: relative; /* Prevents overlap */
+      z-index: 10; /* Ensures it stays on top */
+    }
+    .react-datepicker {
+      z-index: 1000 !important;
+    }
+  .earningquterlyrowalll {
+    display: flex;
+width: 950px;
+  
+    gap: 210px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f9f9f9; /* Light background for better contrast */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    height: 35px;
+    box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+  }
+
+
+
+  .DashboardMainPagetable-tablee {
+   
+    border-collapse: collapse;
+    margin-top: 30px;
+} 
+.DashboardMainPagetable-table-containerrrrr{
+width: 100%;
+}
+
+.DashboardMainPagetable-table-container {
+  overflow-x: auto;
+  margin: 20px;
+  width: 90%;
+}
+@media(min-width:2000px){
+  .pagination-containercalender {
+    display: flex;
+    gap: 1220px;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 23px;
+  }  
+}
+@media (min-width: 1280px) and (max-width: 1535px){
+  
+.DashboardMainPagetable-table-container {
+  overflow-x: auto;
+  margin: 20px;
+  width: 96%;
+}
+.pagination-containercalender {
+  display: flex;
+  gap: 710px;
+  align-items: center;
+  margin: 20px 0;
+  margin-left: 3px;
+}
+.DashboardMainPagetable-table-containerrrrr {
+  width: 96%;
+  margin-left: 25px;
+}
+.earningquterlyrowalll {
+  margin-left: 20px;
+}
+.DashboardMainPagetable-tablee {
+  margin-left: 20px;
+  width: 93%;
+}
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .DashboardMainPagetable-table-container {
+    overflow-x: auto;
+    margin: 20px;
+    width: 63%;
+    margin-left: 0px;
+}
+.DashboardMainPagetable-table-containerrrrr {
+  width: 94%;
+}
+.DashboardMainPagetable-tablee th,.DashboardMainPagetable-tablee td {
+  background-color: #f2f2f2;
+  cursor: pointer;
+  font-size: 12px;
+}
+.earningquterlyrowalll {
+  display: flex;
+width: 650px;
+font-size: 12px;
+  gap: 120px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 13px;
+  background-color: #f9f9f9; /* Light background for better contrast */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  height: 35px;
+  box-shadow: 0px 4px 6px rgba(176, 175, 175, 0.886); /* Subtle shadow for depth */
+}
+.earnings-insight-learn-tab-button {
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 12px;
+}
+.DashboardMainPagetable-tablee {
+  width: 60%;
+  border-collapse: collapse;
+  margin-top: 30px;
+}
+.pagination-containercalender {
+  display: flex;
+ gap: 350px;
+  align-items: center;
+ margin-left: 15px;
+
+}
+}
+    @media (max-width: 768px) {
+  
+  .dateinsighttt {
+    display: flex;
+    border: 1px solid rgb(212, 209, 209);
+    height: 40px;
+    margin-left: 45px;
+    align-self: left;
+   padding-right: 10px;
+    margin-right: 0px;
+    width: 140px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+    margin-top: -10px;
+  }
+  
+  .DashboardMainPagetable-table-container {
+
+    margin: 10px;
+}
+
+.DashboardMainPagetable-table-container {
+  overflow-x: hidden;
+  margin: 20px;
+  width: 125%;
+  margin-left: -0px;
+}
+    .DashboardMainPagetable-headerr{
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      margin-left: 0px;
+    }
+    .earningquterlyrowalll {
+      width: 70px;
+      border: none;
+      box-shadow: none;
+      background-color: white;
+      gap: 1px; /* Reduced gap for mobile */
+      margin-left: -12px;
+      margin-bottom: 0px;
+   
+  }
+  .DashboardMainPagetable-headercalculator {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-top: 120px;
+    width: 380px;
+  }
+  
+  .DashboardMainPagetable-tablee {
+   
+    border-collapse: collapse;
+    margin-top: 0px;
+ 
+} .DashboardMainPagetable-tablee th, .DashboardMainPagetable-tablee td{
+font-size: 12px;
+}
+.DashboardMainPagetable-table-containercalen {
+  width: 145%;
+  margin-left: 10px;
+}
+.pagination-containercalender {
+  display: flex;
+ gap: 100px;
+  align-items: center;
+ margin-left: 45px;
+
+
+}
+
+    }
+    
+    @media (max-width: 480px) {
+  
+      .dateinsighttt {
+        display: flex;
+        border: 1px solid rgb(212, 209, 209);
+        height: 40px;
+        margin-left: 220px;
+        width: 140px;
+        border-radius: 5px;
+        box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+      }
+      
+ 
+        .DashboardMainPagetable-headerr{
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+          margin-left: 0px;
+        }
+        .earningquterlyrowalll {
+          width: 70px;
+          border: none;
+          box-shadow: none;
+          background-color: white;
+          gap: 1px; /* Reduced gap for mobile */
+          margin-left: -210px;
+          margin-bottom: 0px;
+       
+      }
+      .DashboardMainPagetable-headercalculator {
+        display: flex
+    ;
+            gap: 2px;
+            margin-bottom: 0;
+            margin-left: -20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            max-width: 120%;
+            box-sizing: border-box;
+            scrollbar-width: thick;
+            margin-top: 120px;
+        }
+        .DashboardMainPagetable-headercalculator::-webkit-scrollbar-thumb {
+          background-color: #ccc; /* Customize scrollbar thumb color */
+          border-radius: 4px; /* Rounded corners for scrollbar thumb */
+        }
+        
+        .DashboardMainPagetable-headercalculator::-webkit-scrollbar-track {
+          background-color: #f9f9f9; /* Scrollbar track background color */
+        }
+        .DashboardMainPagetable-table-container {
+          overflow-x: auto;
+          width: 110%;
+          height: 300px;
+          margin-left: 25px;
+          overflow-y: hidden;
+          height: 520px;
+      }
+      .pagination-containercalender {
+        display: flex;
+      
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 20px;
+    
+      }
+      .DashboardMainPagetable-table-containercalen {
+        overflow-x: auto;
+        width: 155%;
+        height: 300px;
+        margin-left: 30px;
+        overflow-y: hidden;
+        height: 700px;
+    }
+      
+        }

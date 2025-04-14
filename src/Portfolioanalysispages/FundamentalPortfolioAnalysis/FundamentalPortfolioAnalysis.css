@@ -1,0 +1,12 @@
+.Portfoliodetails-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    vertical-align: middle;
+    border-radius: 50%; /* Makes it a circle */
+    display: inline-flex; /* Helps center the content */
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0; /* Optional: Background color */
+    border: 1px solid #ccc; /* Optional: Add a border */
+}

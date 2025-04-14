@@ -1,0 +1,498 @@
+.disclaimer {
+    font-family: 'Calibri';
+    width: 900px;
+  margin-left: 250px;
+    line-height: 1.6;
+  
+  
+  }
+  
+  .disclaimer-title {
+
+    font-size: 26px;
+    color: black;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    margin-left: 80px;
+  }
+  
+  .disclaimer-intro {
+    
+    margin-bottom: 10px;
+  }
+  .disclaimer-intro p{
+    
+font-size: 15px;
+color: black;
+  }
+  
+  .disclaimer-intro a{
+    
+   text-decoration: none;
+  }
+  
+  .disclaimer-image {
+ 
+    width: 650px;
+    height: 300px;
+   margin-left: 80px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  
+  .disclaimer-section {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-section h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: -5px;
+
+  }
+  
+  .disclaimer-section p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: black;
+  }
+  
+  .disclaimer-section ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 15px;
+    color: black;
+  }
+  
+  .disclaimer-section ul li {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-contact {
+
+    margin-top: 0px;
+    margin-bottom: 100px;
+  }
+  
+  .disclaimer-contact h3 {
+    font-size: 24px;
+    color:black;
+    margin-bottom: -5px;
+  }
+  .disclaimer-contact a {
+    text-decoration: none;
+  }
+  
+  .disclaimer-contact p{
+    margin-bottom: -10px;
+   font-size: 15px;
+   color: black;
+   
+  }
+
+
+
+
+
+
+
+  .disclaimerdarkmode {
+    font-family: 'Calibri';
+
+margin-left: -8px;
+    line-height: 1.6;
+    background-color: #292F42;
+    margin-right: -10px;
+  
+    
+  }
+  
+  .disclaimer-titledarkmode {
+
+    font-size: 26px;
+    color: white;
+    margin-top: 110px;
+    margin-bottom: -10px;
+    margin-left: 550px;
+  }
+  
+  .disclaimer-introdarkmode {
+    width: 800px;
+
+    
+    margin-left: 300px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .disclaimer-introdarkmode p{
+    
+font-size: 15px;
+color: white;
+  }
+  
+  .disclaimer-introdarkmode a{
+    
+   text-decoration: none;
+   color: #24b676;
+  }
+  
+  .disclaimer-imagedarkmode {
+ 
+    width: 650px;
+    height: 300px;
+   margin-left: 50px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+  }
+  
+  .disclaimer-sectiondarkmode {
+    margin-bottom: 0px;
+    width: 900px;
+    margin-left: 320px;
+  }
+  
+  .disclaimer-sectiondarkmode h2 {
+    font-size: 24px;
+    color:white;
+    margin-bottom: -5px;
+
+  }
+  
+  .disclaimer-sectiondarkmode p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: white;
+  }
+  
+  .disclaimer-sectiondarkmode ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 15px;
+    color: white;
+  }
+  
+  .disclaimer-sectiondarkmode ul li {
+    margin-bottom: 0px;
+  }
+  
+  .disclaimer-contactdarkmode {
+
+    margin-top: 0px;
+margin-bottom: 100px;
+    margin-left: 320px;
+  }
+  
+  .disclaimer-contactdarkmode h3 {
+    font-size: 24px;
+    color:white;
+    margin-bottom: -5px;
+  }
+  .disclaimer-contactdarkmode a {
+    text-decoration: none;
+  }
+  
+  .disclaimer-contactdarkmode p{
+    margin-bottom: -10px;
+   font-size: 15px;
+   color: white;
+   
+
+   
+  }
+  .foooterpagesatttdisclaimer{
+    width: 1450px;
+    margin-left: -230px;
+  }
+  /* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .disclaimer {
+    font-family: 'Calibri';
+    width: 900px;
+    margin-left: 50px;
+    line-height: 1.6;
+}
+.disclaimer-image {
+  width: 650px;
+  height: 300px;
+  margin-left: 130px;
+  display: block;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.disclaimer-title {
+  font-size: 26px;
+  color: black;
+  margin-top: 120px;
+  margin-bottom: 10px;
+  margin-left: 130px;
+}
+.disclaimer-intro p {
+  font-size: 15px;
+  color: black;
+  margin-left: 10px;
+}
+.disclaimer-section h2 {
+  font-size: 24px;
+  color: black;
+  margin-bottom: -5px;
+  margin-left: 10px;
+}
+.disclaimer-section p {
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: black;
+  margin-left: 10px;
+}
+.disclaimer-contact h3 {
+  font-size: 24px;
+  color: black;
+  margin-bottom: -5px;
+  margin-left: 10px;
+}
+.disclaimer-contact p {
+  margin-bottom: -10px;
+  font-size: 15px;
+  color: black;
+  margin-left: 10px;
+}
+
+}
+  @media (max-width: 768px) {
+    .disclaimer {
+        font-family: 'Calibri';
+        width: 900px;
+      margin-left: 0px;
+        line-height: 1.6;
+      }
+      
+      .disclaimer-title {
+    
+        font-size: 24px;
+        color: black;
+        margin-top: 120px;
+        margin-bottom: 10px;
+        margin-left: 60px;
+      }
+      
+      .disclaimer-intro {
+        
+        margin-bottom: 10px;
+      }
+      
+      .disclaimer-image {
+     
+        width: 650px;
+        height: auto;
+        margin-left: 50px;
+        display: block;
+        border-radius: 10px;
+        margin-bottom: 50px;
+    }
+      
+      .disclaimer-section {
+        margin-bottom: 0px;
+      }
+      
+      .disclaimer-section h2 {
+        font-size: 22px;
+        color: black;
+        margin-bottom: -5px;
+        margin-left: 50px;
+    
+      }
+      
+      .disclaimer-section p {
+        font-size: 15px;
+        margin-bottom: 0px;
+        color: black;
+        width: 650px;
+        margin-left: 50px;
+    }
+      .disclaimer-intro p {
+        width: 650px;
+        font-size: 15px;
+        color: black;
+        margin-left: 50px;
+    }
+      .disclaimer-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 15px;
+        color: black;
+      }
+      
+      .disclaimer-section ul li {
+        margin-bottom: 0px;
+        width: 400px;
+      }
+      
+      .disclaimer-contact {
+    
+        margin-top: 0px;
+        margin-bottom: 100px;
+      }
+      
+      .disclaimer-contact h3 {
+        font-size: 24px;
+        color:black;
+        margin-bottom: -5px;
+        font-size: 24px;
+        color: black;
+        margin-bottom: -5px;
+        margin-left: 50px;
+      }
+      
+      .disclaimer-contact p{
+        margin-bottom: -10px;
+       font-size: 15px;
+       color: black;
+       margin-left: 50px;
+      
+       
+      }
+      .foooterpagesatttdisclaimer{
+        width: 470px;
+        margin-left: -3px;
+      }
+  }
+  @media (max-width: 480px) {
+    .disclaimer {
+        font-family: 'Calibri';
+        width: 900px;
+      margin-left: 0px;
+        line-height: 1.6;
+      }
+      
+      .disclaimer-title {
+        font-size: 24px;
+        color: black;
+        margin-top: 120px;
+        margin-bottom: 10px;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .disclaimer-intro p {
+      width: 37%;
+      font-size: 14px;
+      color: black;
+      margin: 0 auto;
+      margin-left: 4%;
+  }
+      .disclaimer-intro {
+        
+        margin-bottom: 10px;
+      }
+    
+     
+        .disclaimer-image {
+            display: block;
+            width: 100%;
+            max-width: 33%;
+            height: auto;
+            margin: 0 auto 50px;
+            border-radius: 10px;
+            margin-left: 50px;
+         
+        }
+    
+      .disclaimer-section {
+        margin-bottom: 0px;
+      }
+      
+      .disclaimer-section h2 {
+        font-size: 22px;
+        color: black;
+        margin-bottom: -5px;
+        margin-left: 4%;
+    
+      }
+      
+      .disclaimer-section p {
+       
+        width: 37%;
+        font-size: 14px;
+        color: black;
+        margin: 0 auto;
+        margin-left: 4%;
+        margin-top: 10px;
+      }
+    
+      .disclaimer-section ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 15px;
+        color: black;
+      }
+      
+      .disclaimer-section ul li {
+        margin-bottom: 0px;
+        width: 200px;
+      }
+      
+      .disclaimer-contact {
+    
+        margin-top: 0px;
+        margin-bottom: 100px;
+      }
+      
+      .disclaimer-contact h3 {
+       
+          font-size: 22px;
+          color: black;
+          margin-bottom: -5px;
+          margin-left: 4%;
+      }
+      
+      .disclaimer-contact p{
+        width: 37%;
+        font-size: 14px;
+        color: black;
+        margin: 0 auto;
+        margin-left: 4%;
+        margin-top: 10px;
+       
+      }
+      .foooterpagesatttdisclaimer{
+        width: 370px;
+        margin-left: -3px;
+      }
+  }
+
+  
+@media (max-width: 320px) {
+  .disclaimer-intro p {
+    width: 32%;
+    margin-left: 2%;
+}
+.disclaimer-section p {
+  width: 32%;
+  margin-left: 2%;
+}
+.disclaimer-section h2 {
+  margin-left: 2%;
+}
+.disclaimer-contact h3 {
+  margin-left: 2%;
+}
+.disclaimer-contact p {
+  width: 32%;
+  margin-left: 2%;
+}
+.disclaimer-image {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  /* padding-left: 1%; */
+  padding-right: 15%;
+  margin-bottom: 50px;
+  display: block;
+  border-radius: 10px;
+  box-sizing: border-box;
+  
+}
+}
+  

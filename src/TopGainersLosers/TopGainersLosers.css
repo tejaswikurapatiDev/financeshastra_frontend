@@ -1,0 +1,163 @@
+.top-gainers-losers {
+  width: 200%;
+  max-width: 580px;
+  
+  font-family: 'Calibri';
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 57px;
+  display: flex;
+  flex-direction: column;
+  height: 432px;
+  margin-left: 40px;
+}
+
+.top-gainers-losers h2 {
+
+  color: #333;
+  text-align: left;
+font-size: 24px;
+margin-left: 10px;
+ 
+}
+
+/* Container for the tables */
+.table-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+   /* Remove padding to eliminate gaps */
+  gap: 0; /* Remove gap between tables */
+}
+
+/* Shared Table Styles */
+.table {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Make tables expand to fill container */
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0; /* Ensure no outer margin */
+}
+
+/* Header and Row styling */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal-width columns */
+  align-items: center;
+  text-align: center;
+  font-size:14px;
+ /* Remove padding for tighter fit */
+}
+
+/* Header specific styling */
+
+.headertopgainer{
+  font-weight: bold;
+  color: white;
+  padding: 10px 0; /* Add only vertical padding for the header text */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal-width columns */
+  align-items: center;
+  text-align: center;
+  font-size:14px;
+  background-color: #2ecc71;
+  justify-content: space-around;
+}
+.headertoploser{
+  font-weight: bold;
+  color: white;
+  padding: 10px 0; /* Add only vertical padding for the header text */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal-width columns */
+  align-items: center;
+  text-align: center;
+  font-size:14px;
+  background-color: #e74c3c;
+  justify-content: space-around; 
+}
+/* Row styling */
+.row {
+  border-top: 1px solid #ddd;
+  padding: 4px 0; /* Consistent row padding for alignment */
+  margin: 0;
+}
+
+
+.table.gainers .row span.positive {
+  color: #2ecc71;
+}
+
+
+.table.losers .row span.negative {
+  color: #e74c3c;
+}
+
+/* Last row styling */
+.table .row:last-child {
+  border-bottom: none;
+}
+/* Mobile View - 768px and below */
+@media (max-width: 768px) {
+  .top-gainers-losers {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    margin-top: 60px;
+  }
+
+  .top-gainers-losers h2 {
+    font-size: 20px;
+  }
+
+  .table-container {
+    gap: 10px; /* Add some space between tables for readability */
+  }
+
+  .header {
+    font-size: 12px; /* Smaller font size in headers */
+  }
+
+  .row {
+    font-size: 12px; /* Smaller font size for rows */
+  }
+
+  /* Gainers and Losers tables */
+  .table.gainers .header,
+  .table.losers .header {
+    font-size: 14px;
+   
+  }
+}
+
+/* Mobile View - 480px and below */
+@media (max-width: 480px) {
+  .top-gainers-losers {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    margin-top: 30px;
+  }
+
+  .top-gainers-losers h2 {
+    font-size: 18px;
+  }
+
+  .table-container {
+    gap: 8px; /* Slight space between tables */
+  }
+
+  .header {
+    font-size: 10px; /* Smaller font size in headers */
+  }
+
+  .row {
+    font-size: 10px; /* Smaller font size for rows */
+  }
+
+  /* Adjust spacing and layout for smaller screens */
+  .table {
+    flex-direction: column; /* Ensure tables stack in column direction */
+  }
+}

@@ -1,0 +1,419 @@
+.settingsContainer {
+    max-width: 60%;
+    margin: auto;
+    font-family:'calibri';
+    
+  }
+  
+  .settingsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 130px;
+  }
+  
+  .accountDeletePanel {
+    background: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+  }
+  
+  .notificationsPanel {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto; /* Center-align the panel */
+    border-radius: 10px;
+    width: 100%; /* Adjust the width here (e.g., 80% of the container) */
+    max-width: 100%; /* Optionally, set a maximum width */
+    margin-left: 1px;
+  }
+  
+  .panelHeader {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .notificationOptions {
+    display: flex;
+    flex-direction: column;
+  }
+/* Hide the default checkbox */
+.notificationOptions input[type="checkbox"] {
+    display: none;
+  }
+  
+  /* Style the label as a custom checkbox */
+  .notificationOptions input[type="checkbox"] + label {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #ddd;
+    border: 2px solid #24b676;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  /* Add white tick when checked */
+  .notificationOptions input[type="checkbox"]:checked + label {
+    background-color: #24b676; /* Green background when checked */
+  }
+  
+  .notificationOptions input[type="checkbox"]:checked + label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0; /* Creates a white tick */
+  }
+  
+  /* Optional: Style for the option row */
+  .optionRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .optionRow span {
+    flex: 2; /* Adjust this value to increase the space for the text */
+    font-size: 16px; /* Optional: increase the font size */
+    margin-right: 20px; /* Add spacing between text and checkbox */
+  }
+  
+  .optionRow input {
+    flex: 1; /* Adjust the checkbox position */
+  }
+  .buttonsRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    margin-right: 160px;
+  }
+  
+  .saveBtn, .cancelBtn, .suspendBtn, .noBtn {
+    padding: 10px 15px;
+    border: 1px solid #24b676;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .saveBtn {
+    background-color: #24b676;
+    color: white;
+  }
+  
+  .cancelBtn {
+    background-color: white;
+    color: #28a745;
+  }
+  
+  .suspendBtn {
+    background-color: #24b676;
+    color: white;
+  }
+  
+  .noBtn {
+    background-color: white;
+    border-color: #24b676;
+    color: #24b676;
+  }
+  
+  .deleteWarning {
+   font-size: 15px;
+    color: black;
+  }
+  
+  .deleteDetails {
+    font-size: 15px;
+    color: black;
+  }
+  .buttonsbtnRow{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    margin-right: 10px;
+  }
+  .popupOverlayaccountDeletePanel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popupContentaccountDeletePanel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popupContentaccountDeletePanelh3 {
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+  
+  .popupButtonsaccountDeletePanel {
+    display: flex;
+   gap: 40px;;
+  }
+  
+  .popupYesBtnaccountDeletePanel {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 70px;
+  }
+  
+  .popupNoBtnaccountDeletePanel {
+    background-color: white;
+    color: #24b676;
+    border: 1px solid #24b676;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+ /* Background blur effect */
+.popupOverlayBlur {
+  filter: blur(5px); /* Apply blur effect */
+  pointer-events: none; /* Prevent interaction */
+}
+
+/* Success popup styling */
+.popupOverlayaccountDeleted {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dimmed background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it stays above the blurred content */
+}
+
+.popupContentaccountDeleted {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Ensure it remains unblurred */
+}
+
+  
+  .successMessage {
+    font-size: 18px;
+    font-weight: bold;
+    color: #24b676; /* Green success color */
+    margin-bottom: 10px;
+  }
+  
+  .closePopupButton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .closePopupButton:hover {
+    background-color: #24b676;
+  }
+  
+  @media (min-width: 2200px) {
+    .notificationsPanel {
+      border: 1px solid #ddd;
+      background: #fff;
+      padding: 20px;
+      margin: 20px auto; /* Center-align the panel */
+      border-radius: 10px;
+     
+     
+      margin-left: 1px;
+    }
+    .buttonsRow {
+      display: flex
+  ;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+      margin-right: -30px;
+  }
+  }
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .buttonsRow {
+      display: flex
+  ;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 15px;
+      margin-right: -30px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .notificationsPanel {
+    border: 1px solid #ddd;
+    background: #fff;
+    padding: 20px;
+    margin: 20px auto; /* Center-align the panel */
+    border-radius: 10px;
+   
+   
+    margin-left: 100px;
+  }
+  .settingsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 130px;
+    margin-left: 100px;
+  }
+  .buttonsRow {
+    display: flex
+;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    margin-right: -130px;
+}
+  
+}
+/* Mobile view at 768px */
+@media (max-width: 768px) {
+  .settingsContainer {
+    width: 90%; /* Expand to full width on smaller screens */
+  }
+
+  .buttonsRow {
+    margin-right: -300px;
+    justify-content: center; /* Center the buttons */
+    margin-left: 100px;
+  }
+
+  .saveBtn, .cancelBtn, .suspendBtn, .noBtn {
+    font-size: 12px; /* Adjust button font size */
+    padding: 8px 12px; /* Adjust button padding */
+  }
+
+  .notificationsPanel, .accountDeletePanel {
+    padding: 15px; /* Reduce padding */
+  }
+  .notificationsPanel{
+    max-width: 1000px;
+    width: 650px;
+    margin-left: -110px;
+  }
+
+  .panelHeader {
+    font-size: 16px; /* Adjust panel header font size */
+  }
+
+  .optionRow span {
+    font-size: 14px; /* Adjust option row font size */
+  }
+  .settingsTitle{
+    margin-left: -100px;
+  }
+}
+
+/* Mobile view at 480px */
+@media (max-width: 480px) {
+  .settingsContainer {
+    width: 90%; /* Full width for very small screens */
+    margin-left: 1px;
+  }
+
+  .settingsTitle {
+    font-size: 20px; /* Adjust title font size */
+    margin-top: 100px; /* Adjust top margin */
+    margin-left: 40px;
+  }
+
+  .buttonsRow {
+    flex-direction: row; /* Stack buttons vertically */
+    gap: 5px; /* Reduce gap between buttons */
+    margin-left: 100px;
+    margin-right: -60px;
+  }
+  .notificationsPanel{
+    max-width: 300px;
+  
+    margin-left: 30px;
+  }
+
+
+  .saveBtn, .cancelBtn, .suspendBtn, .noBtn {
+    font-size: 12px; /* Adjust button font size */
+    padding: 7px 5px; /* Adjust button padding */
+  }
+
+  .notificationsPanel, .accountDeletePanel {
+    padding: 12px;
+   /* Reduce padding */
+  }
+
+  .panelHeader {
+    font-size: 14px; /* Adjust panel header font size */
+  }
+
+  .optionRow span {
+    font-size: 12px; /* Adjust option row font size */
+  }
+
+  .popupContentaccountDeletePanel {
+    width: 260px; /* Reduce popup width */
+  }
+  .buttonsbtnRow{
+    flex-direction: row; /* Stack buttons vertically */
+    gap: 5px; /* Reduce gap between buttons */
+    margin-left: 100px;
+    margin-bottom: 90px;
+    margin-right: -20px;
+   
+  }
+  .deleteWarning{
+    width: 360px;
+    
+  }
+  body {
+    overflow-x: hidden;
+  }
+  
+}
+@media (max-width: 375px) {
+  .notificationsPanel {
+      max-width: 100%; /* Full width karne ke liye */
+      margin-left: 10px; /* Aur adjust karne ke liye */
+  }
+}
+@media (max-width: 320px) {
+  .notificationsPanel{
+    max-width: 300px;
+  width: 230px;
+    margin-left: 30px;
+  }
+
+}

@@ -1,0 +1,223 @@
+.gainingg-stocks {
+  background:white; /* Light green */
+  padding: 10px;
+  border-radius: 5px;
+  height: 115px;
+  border: 1px solid black;
+  margin-left: 10px;
+
+}
+
+
+.losingg-stocks {
+  background: white; /* Light red */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+  margin-right: 10px;
+}
+.gainingg-and-losingg-stocks {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Adjust space between Gaining and Losing Stocks */
+}
+
+.gainingg-stocks,
+.losingg-stocks {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.gainingg-stocks h4,
+.losingg-stocks h4 {
+  margin: 0;
+  font-size: 17px;
+ margin-left: 12px;
+}
+
+.gainingg-stocks p,
+.losingg-stocks p {
+  font-size: 14px;
+  color: #070606;
+  margin-left: 12px;
+}
+.unnrealized-card {
+  border-radius: 8px;
+ padding-left: 60px;
+  width: 400px;
+  background: #fff;
+  height: auto; /* Allow cards to grow with content */
+  display: flex;
+  flex-direction: column;
+ 
+  border-top: none; /* Removes the top border */
+}
+.charrrt{
+  display: flex;
+  justify-content: center;
+ 
+}
+.holdhhh{
+  margin-left: 30px;
+}
+.unnrealized-card .charrrt canvas {
+  width: 130px !important; /* Set a fixed width */
+  height: 120px !important; /* Set a fixed height */
+ /* Prevent resizing beyond this height */
+  border-radius: 50%; /* Ensure the circular shape */
+  box-sizing: border-box; /* Maintain padding/border integrity */
+}
+.charrts canvas{
+  width: 130px !important; /* Set a fixed width */
+  height: 130px !important; /* Set a fixed height */
+ /* Prevent resizing beyond this height */
+  border-radius: 50%; /* Ensure the circular shape */
+  box-sizing: border-box; /* Maintain padding/border integrity */
+
+}
+.gainnn-card{
+  box-shadow: 0 3px 5px rgb(127, 171, 225);;
+  border: 1px solid rgb(127, 171, 225);
+  height: 410px;
+  
+}
+
+.networth-tabact{
+  background-color: #24b676;
+  color: white;
+ 
+  border: 1px solid #a79a9a;
+  border-radius: 2px;
+
+  cursor: pointer;
+  font-weight: bold;
+}
+.portrowgainloss{
+
+  border-top: 1px solid #ddd;
+  padding: 10px 0; /* Consistent row padding for alignment */
+  margin: 0;
+  display: grid;
+grid-template-columns: 1fr 1fr 1fr; /* 3 equal-width columns */
+align-items: center;
+text-align: center;
+    }
+/* Mobile view for 768px and below */
+@media (max-width: 768px) {
+  .gainingg-and-losingg-stocks {
+    flex-direction: column; /* Stack the gaining and losing stocks vertically */
+    gap: 10px; /* Reduce space between the elements */
+  }
+
+  .gainingg-stocks,
+  .losingg-stocks {
+   
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .unnrealized-card {
+    width: 100%; /* Make the card take full width */
+    padding-left: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .charrrt .charrts canvas {
+    width: 100px !important; /* Make the chart smaller for mobile */
+    height: 100px !important;
+  }
+
+  .gainnn-card {
+    height: auto; /* Allow the card to resize based on content */
+    width: 600px;
+  }
+
+  .portfolio-gain-loss {
+    margin-right: 0; /* Remove the right margin */
+  }
+
+  .networth-tabact {
+    padding: 8px 12px; /* Adjust padding for better touch interaction */
+  }
+}
+
+/* Mobile view for 480px and below */
+@media (max-width: 480px) {
+  .gainingg-and-losingg-stocks {
+    gap: 5px; /* Further reduce space between elements */
+  }
+  .portrowgainloss {
+     /* Single column layout */
+    gap: 8px; /* Reduce spacing */
+    text-align: left;
+  }
+  
+  .losingg-stocks {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 66%;
+    margin-bottom: 20px;
+}
+  .gainingg-stocks{
+    padding: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 68%;
+}
+  .unnrealized-card {
+    width: 100%; /* Take full width */
+    padding-left: 15px; /* Less padding on mobile */
+  }
+
+  .charrrt .charrts canvas {
+    width: 80px !important; /* Further reduce chart size */
+    height: 80px !important;
+  }
+
+  .gainnn-card {
+    height: auto;
+    box-shadow: 0 2px 3px rgb(127, 171, 225);
+    width: 100%;
+    margin-left: 0px;
+    margin-right: auto;
+    border-radius: 10px;
+}
+  .portfolio-gain-loss {
+    margin-right: 0;
+  }
+
+  .networth-tabact {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 6px 10px;
+  }
+  .holdhhh{
+    margin-left: 45px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 320px) {
+  .networth-tabact {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 4px 1px;
+    border-radius: 5px;
+  }
+  .networth-tab{
+    padding: 6px 5px;
+  }
+  .finance-investment-details-card {
+    width: 50%;
+    margin: 0 auto;
+    flex-wrap: wrap !important;
+    min-width: 269px;
+}
+.losingg-stocks {
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+}

@@ -1,0 +1,181 @@
+.reffeerralprofilepagesss-container {
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    border: 1px solid #cccccc;
+    background-color: #F5F4FA; /* Light background */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    font-family: 'calibri';
+  width: 70%;
+    /* Centering styles */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 70px;
+  }
+  
+  
+  .reffeerralprofilepagesss-table {
+    width: 100%;
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-left: 151px;
+    margin-bottom: 100px;
+  }
+  
+  .reffeerralprofilepagesss-table table {
+    width: 74%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reffeerralprofilepagesss-table thead {
+    background: rgb(229, 226, 226);
+    color: black;
+  }
+  
+
+  .reffeerralprofilepagesss-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+  }
+  
+  .reffeerralprofilepagesss-table th {
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+ 
+  
+  .reffeerralprofilepagesss-table td {
+    color: #333;
+  }
+  .reffeerralprofilepagesss-card {
+    text-align: center;
+    padding: 5px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px #DBD7F1;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    width: 150px;
+   
+  }
+  .referaaalll{
+font-weight: bold;
+     color: #888;
+     margin-left: 400px;
+  }
+  .reffeerralprofilepagesss-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .reffeerralprofilepagesss-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .reffeerralprofilepagesss-table {
+      width: 100%;
+      margin-top: 20px;
+      overflow-x: auto;
+      margin-left: 125px;
+      margin-bottom: 100px;
+  }
+  .reffeerralprofilepagesss-table th {
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+  }
+  /* For tablets (768px and below) */
+@media (max-width: 768px) {
+  .reffeerralprofilepagesss-container {
+     
+      width: 98%; /* Reduce width for better fit */
+      padding: 15px; /* Adjust padding */
+      margin-top: 50px; /* Reduce margin top */
+      margin-bottom: 50px; 
+      margin-left: -10px;/* Reduce margin bottom */
+  }
+
+  .reffeerralprofilepagesss-table {
+    width: 138%;
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-left:-140px;
+    margin-bottom: 100px;
+  
+}
+  .reffeerralprofilepagesss-card {
+      width: 70%; /* Expand cards to take full width */
+      margin-bottom: 10px; /* Add space between cards */
+  }
+
+  .reffeerralprofilepagesss-title {
+      font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .reffeerralprofilepagesss-value {
+      font-size: 16px; /* Adjust value font size */
+  }
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+  .reffeerralprofilepagesss-container {
+    padding: 10px;
+    gap: 5px;
+    width: 92%;
+    margin-left: 5px;
+    flex-direction: column;
+}
+
+.reffeerralprofilepagesss-table th {
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+}
+.reffeerralprofilepagesss-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+}
+.reffeerralprofilepagesss-table {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+  margin-left: 0px;
+  margin-bottom: 100px;
+}
+.reffeerralprofilepagesss-card {
+  padding: 10px;
+  width: 70%;
+}
+
+  .reffeerralprofilepagesss-title {
+      font-size: 12px; /* Further reduce font size */
+  }
+
+  .reffeerralprofilepagesss-value {
+      font-size: 14px; /* Further reduce value font size */
+  }
+}

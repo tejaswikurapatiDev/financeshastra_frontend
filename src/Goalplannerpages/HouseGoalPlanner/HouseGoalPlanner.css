@@ -1,0 +1,26 @@
+.goalplanner-imagehouse{
+    width: 97%;
+    height:400px;
+margin-left: 10px;
+    margin-top: -60px;
+  }
+.goalplanner-imagecarhousee{
+    width: 15%;
+    height:50px;
+    margin-left: 403px;
+}
+
+@media (max-width: 768px) {
+    .goalplanner-imagecarhousee{
+        width: 15%;
+        height:50px;
+        margin-left: 333px;
+    }
+  }
+  @media (max-width: 480px) {
+    .goalplanner-imagecarhousee{
+        width: 15%;
+        height:50px;
+        margin-left: 249px;
+    }
+  }

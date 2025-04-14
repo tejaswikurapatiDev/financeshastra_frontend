@@ -1,0 +1,166 @@
+/* General Styling for the News List */
+.news-listt {
+    margin-top: 50px;
+      max-width: 1070px;
+      font-family: 'calibri';
+    }
+    
+    .news-listt h2 {
+      font-size: 24px;
+     color: #24b676;
+    margin-left: 40px;
+    margin-top: 20px;
+    
+    }
+    
+    /* Styling for the News Items */
+    .news-list ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .news-item {
+      display: flex;
+      justify-content: space-between;
+     cursor: pointer;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+    }
+    
+    .news-item:hover {
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* News Title Styling */
+    .news-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      flex: 1;
+      margin-right: 10px;
+    }
+    
+    /* News Date Styling */
+    .news-date {
+      font-size: 14px;
+      color: #666;
+      white-space: nowrap;
+    }
+    
+
+
+
+    
+  @media (min-width: 1024px) and (max-width: 1279px) {
+
+    .news-item {
+      display: flex
+  ;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      background-color: #fff;
+      width: 98%;
+  }
+  .news-listt h2 {
+    font-size: 24px;
+    color: #24b676;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.css-1e1vz46-MuiContainer-root {
+    width: 100%;
+    margin-left: auto;
+    box-sizing: border-box;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 200%;
+    overflow-x: hidden;
+    padding: 0 16px;
+    margin-top: 250px;
+}
+      }
+    /* Responsive Design for Smaller Screens */
+    
+    /* Responsive Design for Smaller Screens */
+    @media (max-width: 768px) {
+      .news-listt {
+        padding: 10px; /* Add some padding to the container */
+        max-width: 100%; /* Ensure it takes up full width */
+      }
+    
+      .news-title {
+        font-size: 14px; /* Smaller font size for news titles */
+        margin-right: 5px;
+      }
+    
+      .news-date {
+        font-size: 12px; /* Smaller font size for the date */
+      }
+    
+      .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px; /* Adjust padding for mobile */
+        width:99%;
+      
+      }
+    
+
+.news-listt h2 {
+    font-size: 24px;
+    color: #24b676;
+    margin-left: 10px;
+    margin-top: -20px;
+}
+      .news-item .news-date {
+        margin-top: 5px; /* Add some margin to the date for better spacing */
+      }
+    }
+    
+    /* Further adjustments for smaller screens (480px and below) */
+    @media (max-width: 480px) {
+      .news-listt {
+        margin-top: 50px;
+         margin-left: -20px;
+          font-family: 'calibri';
+          max-width: 95%;
+        }
+      .news-title {
+        font-size: 12px; /* Smaller font size for titles */
+       
+      }
+    
+      .news-date {
+        font-size: 10px; /* Even smaller font size for dates */
+      }
+    
+      .news-item {
+        padding: 8px; /* Reduce padding further */
+        width: 300px;
+        margin-left: -15px;
+      }
+    
+      .news-item .news-date {
+        margin-top: 4px; /* Adjust spacing on very small screens */
+      }
+      .news-listt h2 {
+        font-size: 24px;
+       color: #24b676;
+      margin-left:30px;
+      margin-top: 20px;
+      
+      }
+    }

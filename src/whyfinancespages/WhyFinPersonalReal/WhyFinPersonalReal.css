@@ -1,0 +1,205 @@
+.whyfinpersonalreal-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+   
+    background-color: #ffff;
+   
+    font-family: 'calibri';
+    width: 60%;
+    margin-left: 310px;
+  }
+  
+  .whyfinrealmarket-card {
+    background: #f5f4fa; /* 16% transparency */
+    padding: 20px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Increased width */
+    height: 90%; /* Increased height */
+    min-height: 500px; /* Ensures a minimum height */
+    margin: 0 auto; /* Centers the card */
+}
+
+.whyfinpersonalreal-card {
+    background: #f5f4fa; /* 16% transparency */
+    padding: 20px;
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%; /* Increased width */
+    height: 90%; /* Increased height */
+    min-height: 500px; /* Ensures a minimum height */
+    margin: 0 auto; /* Centers the card */
+   
+}
+
+  .whyfinpersonalreal-title,
+  .whyfinrealmarket-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    
+  }
+  
+  .whyfinpersonalreal-text,
+  .whyfinrealmarket-text {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .whyfinpersonalreal-img-container,
+  .whyfinrealmarket-img-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .whyfinpersonalreal-img,
+  .whyfinrealmarket-img {
+    width: 70%;
+    border-radius: 8px;
+    margin-top: 40px;
+  }
+  .whyfinrealmarket-img{
+    margin-top: 40px;
+  }
+  body {
+    overflow-x: hidden;
+}
+
+ /* Extra Large Screens (1536px and above) */
+@media (min-width: 1536px) {
+  .whyfinpersonalreal-container {
+      width: 50%;
+      margin-left: 350px;
+  }
+  body {
+    overflow-x: hidden;
+}
+
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .whyfinpersonalreal-container {
+      width: 55%;
+      margin-left: 300px;
+  }
+  body {
+    overflow-x: hidden;
+}
+
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .whyfinpersonalreal-container {
+      width: 60%;
+      margin-left: 200px;
+  }
+  body {
+    overflow-x: hidden;
+}
+.whyfinpersonalreal-card {
+  background: #f5f4fa;
+  padding: 10px;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 90%;
+  min-height: 405px;
+  margin: 0 auto;
+}
+.whyfinpersonalreal-text, .whyfinrealmarket-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.whyfinpersonalreal-title, .whyfinrealmarket-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  margin-left: 10px;
+}
+.whyfinrealmarket-card {
+  background: #f5f4fa;
+  padding: 10px;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 90%;
+  min-height: 405px;
+  margin: 0 auto;
+}
+
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .whyfinpersonalreal-container {
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin-left: 80px;
+    margin-right: auto;
+}
+  .whyfinrealmarket-card,
+  .whyfinpersonalreal-card {
+      width: 90%;
+  }
+  
+  body {
+    overflow-x: hidden;
+}
+
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+  .whyfinpersonalreal-container {
+      flex-direction: column;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .whyfinrealmarket-card,
+  .whyfinpersonalreal-card {
+      width: 100%;
+  }
+  body {
+    overflow-x: hidden;
+}
+
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+  .whyfinpersonalreal-container {
+      width: 100%;
+  }
+  .whyfinrealmarket-card,
+  .whyfinpersonalreal-card {
+      width: 75%;
+      padding: 15px;
+      min-height: 100px;
+  }
+  .whyfinrealmarket-card{
+    margin-top: 20px;
+  }
+  .whyfinpersonalreal-title,
+  .whyfinrealmarket-title {
+      font-size: 18px;
+  }
+  body {
+    overflow-x: hidden;
+}
+
+}

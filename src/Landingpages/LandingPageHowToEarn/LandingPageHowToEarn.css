@@ -1,0 +1,244 @@
+.landingpagehowtoearn-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: #f5f4fa;
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'calibri';
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: -10px;
+
+}
+
+.landingpagehowtoearn-heading {
+    font-size: 24px;
+    color: #0349a8;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+.landingpagehowtoearn-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.landingpagehowtoearn-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 50%;
+}
+
+.landingpagehowtoearn-step {
+    background: linear-gradient(90deg, #24b676, #238486);
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 13px 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 10px #238486;
+    width: 60%;
+    margin-left: 200px;
+    cursor: pointer;
+}
+
+.landingpagehowtoearn-step:hover {
+    background: linear-gradient(90deg, #238486, #24b676);
+}
+
+.landingpagehowtoearn-image {
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.landingpagehowtoearn-image img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 200px;
+}
+
+
+
+
+
+
+
+
+
+.landingpagehowtoearndarkcontainer {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    background: #212639;
+    padding: 20px 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-family: 'calibri';
+    border: 2px solid #cecece;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-left: -15px;
+
+}
+
+.landingpagehowtoearndarkheading {
+    font-size: 24px;
+    color: #ffff;
+    font-weight: bold;
+    margin-bottom: 30px;
+    margin-top: 0px;
+}
+
+
+.landingpagehowtoearndarkstep {
+    background: linear-gradient(90deg, #24b676, #238486);
+    color: #212639;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 13px 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 10px #238486;
+    width: 60%;
+    margin-left: 200px;
+    cursor: pointer;
+}
+
+/* Extra Large Screens (1536px and above) */
+@media (min-width: 1536px) {
+    .landingpagehowtoearn-container,
+    .landingpagehowtoearndarkcontainer {
+        max-width: 1600px;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        width: 50%;
+        margin-left: 250px;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 55%;
+    }
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+    .landingpagehowtoearn-container, .landingpagehowtoearndarkcontainer {
+        max-width: 1500px;
+        margin-left: -10px;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        width: 55%;
+        margin-left: 180px;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 60%;
+    }
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .landingpagehowtoearn-container, .landingpagehowtoearndarkcontainer {
+        max-width: 1000px;
+        margin-left: -10px;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        width: 60%;
+        margin-left: 150px;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 65%;
+    }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .landingpagehowtoearn-container, .landingpagehowtoearndarkcontainer {
+        max-width: 100%;
+        padding: 15px;
+        margin-left: -10px;
+    }
+    .landingpagehowtoearn-content {
+        flex-direction: column;
+    }
+    .landingpagehowtoearn-steps {
+        width: 80%;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .landingpagehowtoearn-image {
+        width: 100%;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 55%;
+        margin-right: 0;
+        margin-top: 25px;
+    }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+    .landingpagehowtoearn-container, .landingpagehowtoearndarkcontainer {
+        max-width: 100%;
+        padding: 10px;
+        margin-left: -7px;
+    }
+    .landingpagehowtoearn-heading,
+    .landingpagehowtoearndarkheading {
+        font-size: 20px;
+    }
+    .landingpagehowtoearn-content {
+        flex-direction: column;
+    }
+    .landingpagehowtoearn-steps {
+        width: 100%;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 80%;
+    }
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+    .landingpagehowtoearn-container,
+    .landingpagehowtoearndarkcontainer {
+        padding: 5px;
+    }
+    .landingpagehowtoearn-heading,
+    .landingpagehowtoearndarkheading {
+        font-size: 18px;
+    }
+    .landingpagehowtoearn-step,
+    .landingpagehowtoearndarkstep {
+        font-size: 14px;
+        padding: 10px;
+    }
+    .landingpagehowtoearn-image img {
+        max-width: 90%;
+        display: none;
+    }
+}

@@ -1,0 +1,29 @@
+.subscribeimg {
+    width: 25px; /* Adjust size as needed */
+    height: auto; /* Maintains aspect ratio */
+    cursor: pointer; /* Indicates clickability */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .subscribeimg:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.8; /* Slight fade effect */
+  }
+  
+  .subscribeimg:active {
+    transform: scale(0.95); /* Click effect */
+  }
+  
+/* Tablet View (max-width: 768px) */
+@media (max-width: 768px) {
+    .subscribeimg {
+      width: 20px; /* Slightly smaller for tablets */
+    }
+  }
+  
+  /* Mobile View (max-width: 480px) */
+  @media (max-width: 480px) {
+    .subscribeimg {
+      width: 18px; /* Even smaller for mobile */
+    }
+  }

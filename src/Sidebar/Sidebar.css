@@ -1,0 +1,66 @@
+
+.sidebar {
+
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    font-family:'Calibri';
+
+
+}
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 110px;
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    transition: background 0.3s ease;
+}
+
+.sidebar-item .sideicon {
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.sidebar-item:hover {
+    background-color: #24b676;
+    color: white;
+}
+
+.sidebar-item.active { 
+    background-color: #24b676 !important; /* Active tab ka background green */
+    color: white !important; /* Active tab ka text white */
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Optional: make it narrower */
+        transform: translateX(-100%); /* Hide sidebar by default */
+        position: fixed;
+        z-index: 1000; /* Ensure it overlays other content */
+    }
+
+    /* Show sidebar when it's active (e.g., toggled open) */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    /* Full-width main content */
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}

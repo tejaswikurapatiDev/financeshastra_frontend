@@ -1,0 +1,90 @@
+/* Blurred effect when locked */
+.blurred {
+    filter: blur(5px);
+  }
+  
+  /* Locked overlay */
+  .subscribethemestocklocked-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(10px);
+    height: 33%;
+    margin-top: 220px;
+  
+  }
+  
+  .subscribethemestocklocked-lock-icon{
+    position: relative;
+  display: inline-block;
+  margin-top: 100px;
+  }
+  .subscribethemestocklocked-lock-icon img{
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition for hover effects */
+   
+  }
+  .subscribethemestock-button {
+    margin-top: 10px;
+    padding: 7px;
+    background: linear-gradient(90deg, #24b676, #238486); 
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+    transition: background-color 0.3s;
+    font-size: 14px;
+    font-family: 'calibri';
+    width: 200px;
+  }
+  
+  .subscribethemestock-button:hover {
+    background-color: #2c6b2f;
+  }
+  /* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .subscribethemestocklocked-overlay {
+      height: 40%;
+      margin-top: 210px;
+  }
+  .subscribethemestocklocked-lock-icon {
+      margin-top: 80px;
+  }
+  .subscribethemestocklocked-lock-icon img {
+      width: 40px;
+      height: 40px;
+  }
+  .subscribethemestock-button {
+      width: 180px;
+      font-size: 13px;
+      padding: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .subscribethemestocklocked-overlay {
+    height: 50%;
+    margin-top: 210px;
+}
+  .subscribethemestocklocked-lock-icon {
+      margin-top: 60px;
+  }
+  .subscribethemestocklocked-lock-icon img {
+      width: 35px;
+      height: 35px;
+  }
+  .subscribethemestock-button {
+      width: 160px;
+      font-size: 12px;
+      padding: 5px;
+  }
+}

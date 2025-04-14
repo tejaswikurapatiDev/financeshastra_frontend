@@ -1,0 +1,758 @@
+/* Portfolio Container */
+
+
+.portfolioanalysisallchart{
+    display: flex;
+    gap: 20px;
+    margin-left: 270px;
+    margin-top: 10px;
+    font-family: 'calibri';
+}
+.aallportfolio {
+    margin-top: 100px;
+    margin-left: 270px;
+    font-family: 'calibri';
+    border-bottom: 2px solid rgb(233, 228, 228);
+    box-shadow: 5px 5px 15px rgba(231, 228, 228, 0.799); /* Adds a subtle shadow */
+padding: 5px;
+}
+
+.aallportfolio h3{
+    font-size: 24px;
+}
+.aallportfolio p{
+    font-size: 15px;
+}
+.portfolio-cardanalysisssmainchart {
+    background: white;
+    border-radius: 16px;
+    border: 2px solid rgb(211, 201, 201);
+    box-shadow: 0px 4px 12px rgb(223, 221, 221);
+    padding: 10px;
+    width: 100%;
+    max-width: 460px;
+   font-family: 'calibri';
+ margin-top: 20px;
+
+}
+.mainchartanalysisss {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+   gap: 220px;
+    padding: 5px; /* Add spacing around the elements */
+   margin-top: -20px;
+   
+  }
+  
+  .fullscreenanalysis{
+    font-size: 30px;
+    margin-top: -30px;
+    cursor: pointer;
+  }
+/* Portfolio Header */
+.portfolio-header h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.portfolio-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -14px;
+}
+
+.portfolio-header p {
+    font-size: 15px;
+   
+}
+
+.profit {
+    color: #24b676;
+}
+
+.loss {
+    color: red;
+}
+
+/* Time Range Selector */
+.portfoliocardddanalysismainchart{
+    display: flex;
+ margin-top: 15px;
+   margin-bottom: 5px;
+    gap: 29px;
+    margin-left: 10px;
+}
+
+.time-range-buttonportfiliocard {
+    background: none;
+    border: 1px solid #24b676;
+    color: #24b476;
+padding: 4px 8px;
+    border-radius: 8px;
+    font-size:14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-range-buttonportfiliocard.active {
+    background: #24b676;
+    color: white;
+}
+
+
+/* Chart Container */
+.chart-containeranalysiss {
+    width: 100%;
+    height: 300px;
+}
+
+/* Portfolio Details */
+.portfolio-details {
+    display: flex;
+   gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.allinvestcahrtttmainchart {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+
+    padding: 5px 10px; 
+    justify-content: space-between;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    font-weight: bold
+  }
+  
+  .allinvestcahrtttmainchartport{
+    display: flex;
+    align-items: center;  /* Align items vertically */
+
+    padding: 5px 10px; 
+    justify-content: space-between;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -30px;
+  }
+.detail-boxxx {
+    border: 3px solid rgb(205, 199, 199);
+    background: white;
+  border-radius: 10px;
+    width: 100%;
+   margin-top: 20px;
+    box-shadow: 0px 4px 12px rgba(187, 184, 184, 0.963);
+
+   
+}
+
+.detail-boxxx p {
+    font-size: 15px;
+    color: black;
+}
+
+.detail-boxxx h4 {
+    font-size:15px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+.popup-overlayportmainchartanlysis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-contentportmainchartanlysis {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 600px;
+   margin-top: 100px;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(165, 163, 163, 0.1);
+    max-height: 580px;
+
+  }
+  
+  .close-btnportmainchartanlysis {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .portfolioanalysisallchart {
+        flex-direction: column;
+        margin-left: 200px;
+    }
+    .fullscreenanalysis {
+        margin-left: 270px;
+    }
+    .portfolio-cardanalysisssmainchart {
+        max-width: 710px;
+        margin-left: 60px;
+    }
+    .PortfolioHoldingPageContainer {
+        width: 90% !important;
+        margin-left: 40px;
+    }
+    .trackerportfolioanalysis {
+        width: 700px;
+        margin-left: 260px;
+    }
+    .stock-containertrackerport {
+        gap: 6px;
+        overflow-x: auto;
+        white-space: nowrap;
+        scrollbar-color: #24b676 #f1f1f1;
+        scrollbar-width: thin;
+    }
+    
+    .stock-containertrackerport::-webkit-scrollbar {
+        height: 8px; /* Adjust scrollbar height */
+    }
+    
+    .stock-containertrackerport::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Track background */
+        border-radius: 8px;
+    }
+    
+    .stock-containertrackerport::-webkit-scrollbar-thumb {
+        background: #24b676; /* Scrollbar color */
+        border-radius: 8px;
+    }
+    
+    .performance-containerstockanalysiss {
+      
+        max-width: 720px;
+    }
+    .performerallstockanalysis {
+        margin-left: 280px;
+        gap: 240px;
+        font-size: 16px;
+    }
+    .allsegmsize {
+        margin-left: 150px;
+        gap: 15px;
+        width: 90%;
+        flex-direction: row;
+    }
+    .chartdonutportfolioana {
+        flex-direction: column;
+    ;
+    }
+    .segment-card {
+        width: 35%;
+        padding: 18px;
+        margin-left: 120px;
+    }
+    .size-analysis-container {
+        width: 60%;
+        padding: 18px;
+        height: 520px;
+        margin-right: auto;
+    }
+    .speedometer-container {
+        width: 1120px;
+        height: 280px;
+        padding: 99px;
+        margin-left: 250px;
+    }
+    .speedometer-gauge text {
+        font-size: 10px !important;
+    }
+    .table-view-button {
+        width: 100px;
+        font-size: 15px;
+        margin-top: -50px;
+      
+    }
+    .speedometer-subtitle {
+        font-size: 15px;
+        margin-left: -80px;
+       
+    }
+    .speedoparaheadall {
+        display: flex
+    ;
+    width: 600px;
+        gap: 300px;
+        align-items: center;
+        padding: 0px 0;
+        margin-left: 10px;
+    }
+    .table-contentspeedometerr {
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        width: 480px;
+        text-align: center;
+        margin-left: 270px;
+        margin-top: 80px;
+    }
+    .speedometer-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: -1px;
+        margin-top: -70px;
+        margin-left: -50px;
+    }
+    
+}
+
+  @media screen and (max-width: 768px){
+/* Portfolio Container */
+
+
+.portfolioanalysisallchart{
+    display: flex;
+    gap: 20px;
+    margin-left: 0px;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.portfolio-cardanalysisssmainchart {
+    background: white;
+    border-radius: 16px;
+    border: 2px solid rgb(211, 201, 201);
+    box-shadow: 0px 4px 12px rgb(223, 221, 221);
+    padding: 10px;
+    width: 95%;
+    max-width: 690px;
+    font-family: 'calibri';
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.mainchartanalysisss {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+   gap: 220px;
+    padding: 5px; /* Add spacing around the elements */
+   margin-top: -20px;
+   
+  }
+  
+  .fullscreenanalysis{
+    font-size: 30px;
+    margin-top: -30px;
+    cursor: pointer;
+    margin-left: 240px;
+  }
+/* Portfolio Header */
+.portfolio-header h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.portfolio-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: -14px;
+}
+
+.portfolio-header p {
+    font-size: 15px;
+   
+}
+
+.profit {
+    color: #24b676;
+}
+
+.loss {
+    color: red;
+}
+
+/* Time Range Selector */
+.portfoliocardddanalysismainchart{
+    display: flex;
+ margin-top: 15px;
+   margin-bottom: 5px;
+    gap: 29px;
+    margin-left: 10px;
+}
+
+.time-range-buttonportfiliocard {
+    background: none;
+    border: 1px solid #24b676;
+    color: #24b476;
+padding: 4px 8px;
+    border-radius: 8px;
+    font-size:14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-range-buttonportfiliocard.active {
+    background: #24b676;
+    color: white;
+}
+
+
+/* Chart Container */
+.chart-containeranalysiss {
+    width: 100%;
+    height: 300px;
+}
+
+/* Portfolio Details */
+.portfolio-details {
+    display: flex;
+   gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.allinvestcahrtttmainchart {
+    display: flex;
+    align-items: center;  /* Align items vertically */
+
+    padding: 5px 10px; 
+    justify-content: space-between;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    font-weight: bold
+  }
+  
+  .allinvestcahrtttmainchartport{
+    display: flex;
+    align-items: center;  /* Align items vertically */
+
+    padding: 5px 10px; 
+    justify-content: space-between;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: -30px;
+  }
+.detail-boxxx {
+    border: 3px solid rgb(205, 199, 199);
+    background: white;
+  border-radius: 10px;
+    width: 100%;
+   margin-top: 20px;
+    box-shadow: 0px 4px 12px rgba(187, 184, 184, 0.963);
+
+   
+}
+
+.detail-boxxx p {
+    font-size: 15px;
+    color: black;
+}
+
+.detail-boxxx h4 {
+    font-size:15px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+.popup-overlayportmainchartanlysis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .popup-contentportmainchartanlysis {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+   margin-top: -18px;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(165, 163, 163, 0.1);
+    max-height: 520px;
+
+  }
+  
+  .close-btnportmainchartanlysis {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .aallportfolio {
+    margin-top: 100px;
+    margin-left: 0px;
+    font-family: 'calibri';
+    border-bottom: 2px solid rgb(233, 228, 228);
+    box-shadow: 5px 5px 15px rgba(231, 228, 228, 0.799); /* Adds a subtle shadow */
+padding: 5px;
+}
+
+.aallportfolio h3{
+    font-size: 24px;
+}
+.aallportfolio p{
+    font-size: 15px;
+}
+  }
+  
+ 
+
+  @media screen and (max-width: 480px){
+    /* Portfolio Container */
+    
+    
+    .portfolioanalysisallchart{
+        display: flex;
+        gap: 20px;
+        margin-left: 0px;
+        margin-top: 10px;
+        flex-direction: column;
+    }
+    
+    .portfolio-cardanalysisssmainchart {
+        background: white;
+        border-radius: 16px;
+        border: 2px solid rgb(211, 201, 201);
+        box-shadow: 0px 4px 12px rgb(223, 221, 221);
+        padding: 10px;
+        width:auto;
+        max-width: 85%;
+       font-family: 'calibri';
+     margin-top: 20px;
+    
+    }
+    .mainchartanalysisss {
+        display: flex;
+        align-items: center;  /* Align items vertically */
+       gap: 110px;
+        padding: 5px; /* Add spacing around the elements */
+       margin-top: -20px;
+       
+      }
+      
+      .fullscreenanalysis{
+        font-size: 30px;
+        margin-top: -30px;
+        cursor: pointer;
+      }
+    /* Portfolio Header */
+    .portfolio-header h3 {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    .portfolio-header h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: -14px;
+    }
+    
+    .portfolio-header p {
+        font-size: 15px;
+       
+    }
+    
+    .profit {
+        color: #24b676;
+    }
+    
+    .loss {
+        color: red;
+    }
+    
+    /* Time Range Selector */
+    .portfoliocardddanalysismainchart{
+        display: flex;
+     margin-top: 15px;
+       margin-bottom: 5px;
+        gap: 5px;
+        margin-left: 1px;
+    }
+    .PortfolioHoldingPageholdingCard {
+        display: flex
+    ;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        width: 700px;
+    }
+    
+    .time-range-buttonportfiliocard {
+        background: none;
+        border: 1px solid #24b676;
+        color: #24b476;
+    padding: 4px 8px;
+        border-radius: 8px;
+        font-size:10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .time-range-buttonportfiliocard.active {
+        background: #24b676;
+        color: white;
+    }
+    
+    
+    /* Chart Container */
+    .chart-containeranalysiss {
+        width: 100%;
+        height: 300px;
+    }
+    
+    /* Portfolio Details */
+    .portfolio-details {
+        display: flex;
+       gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+    .allinvestcahrtttmainchart {
+        display: flex;
+        align-items: center;  /* Align items vertically */
+    
+        padding: 5px 10px; 
+        justify-content: space-between;
+        border-radius: 8px; /* Rounded corners */
+        font-size: 16px;
+        font-weight: bold
+      }
+      
+      .allinvestcahrtttmainchartport{
+        display: flex;
+        align-items: center;  /* Align items vertically */
+    
+        padding: 5px 10px; 
+        justify-content: space-between;
+        border-radius: 8px; /* Rounded corners */
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: -30px;
+      }
+    .detail-boxxx {
+        border: 3px solid rgb(205, 199, 199);
+        background: white;
+      border-radius: 10px;
+        width: 100%;
+       margin-top: 20px;
+        box-shadow: 0px 4px 12px rgba(187, 184, 184, 0.963);
+    
+       
+    }
+    
+    .detail-boxxx p {
+        font-size: 15px;
+        color: black;
+    }
+    
+    .detail-boxxx h4 {
+        font-size:15px;
+        font-weight: bold;
+    }
+    
+    
+    .aallportfolio {
+        margin-top: 100px;
+        margin-left: 0px;
+        font-family: 'calibri';
+        border-bottom: 2px solid rgb(233, 228, 228);
+        box-shadow: 5px 5px 15px rgba(231, 228, 228, 0.799); /* Adds a subtle shadow */
+    padding: 5px;
+    }
+    
+    .aallportfolio h3{
+        font-size: 20px;
+        margin-top: -10px;
+    }
+    .aallportfolio p{
+        font-size: 12px;
+        margin-left: 7px;
+      
+    }
+    
+    
+    
+    
+    
+    
+    
+    .popup-overlayportmainchartanlysis {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      
+      .popup-contentportmainchartanlysis {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+       margin-top: 78px;
+        position: relative;
+        box-shadow: 0px 0px 10px rgba(165, 163, 163, 0.1);
+        height: 700px;
+    
+      }
+      
+      .close-btnportmainchartanlysis {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      }
+      
+    /* Additional adjustments for very small screens up to 375px */
+    @media screen and (max-width: 320px) {
+        .portfolio-cardanalysisssmainchart {
+          max-width: 80%;
+         
+        }
+      }

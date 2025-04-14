@@ -1,0 +1,2281 @@
+/* Parent Dropdown Styling */
+.portfolio-dropdown {
+  position: relative; /* Makes the dropdown position relative to this element */
+}
+.butn{
+  background-color: transparent;
+  border: none;
+}
+a span {
+  text-decoration: none; /* This will remove the underline from the span inside the link */
+}
+
+/* Style for the stock dropdown */
+.stock-dropdown {
+  position: relative; /* Necessary for positioning the dropdown */
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Position it below the link */
+  left: 0;
+  display: none; /* Hidden by default */
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 160px;
+  padding: 10px 0;
+  z-index: 10;
+ 
+  gap: 20px;
+}
+.mutualfunds-dropdown {
+ /* Necessary for positioning the dropdown */
+ position: relative;
+}
+.learn-dropdown{
+  position: relative;
+}
+.portfolio-dropdown{
+  position: relative;
+}
+
+/* Show the dropdown when hovering over the parent <li> or <ul> */
+.stock-dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+  display: block;
+}
+
+/* Option styling inside the dropdown */
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 5px;
+}
+
+
+
+/* Chevron icon styling */
+.chevron-icon {
+  margin-left: 5px;
+}
+.willamname{
+  margin-bottom: 50px;
+}
+/* Dropdown Menu Styling */
+
+.dropdown-item:hover a {
+  color: white; /* Green for the link */
+}
+
+/* Hover effect for the paragraph */
+.dropdown-item:hover p {
+  color: white; /* Match paragraph text color to link */
+}
+/* Show Dropdown on Hover or Focus */
+.portfolio-dropdown:hover .dropdown-menu,
+.portfolio-dropdown:focus-within .dropdown-menu {
+  display: block; /* Make dropdown visible */
+}
+
+/* Dropdown Items */
+.dropdown-item {
+  padding: 10px 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #24b676;
+  color: white;
+}
+.dropdown-item p:hover {
+  
+  color: white;
+}
+
+.dropdown-item a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.dropdown-item p {
+  font-size: 12px;
+  color: #777;
+  margin: 5px 0 0;
+  font-family: 'calibri';
+}
+
+/* Dropdown Items */
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Calibri', sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  
+}
+
+
+/* Stock dropdown menu */
+.stockmenu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%; /* Position it just below the menu */
+  /* Align it relative to the "Stocks" button */
+  transform: translateX(-50%); /* Center align */
+  z-index: 10;
+  padding: 25px;
+  width: 550px; /* Adjust dropdown width */
+  gap: 20px;
+}
+.mutualstockmenu{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%; /* Position it just below the menu */
+  /* Align it relative to the "Stocks" button */
+  transform: translateX(-50%); /* Center align */
+  z-index: 10;
+  padding: 25px;
+  width: 550px; /* Adjust dropdown width */
+  gap: 20px;
+}
+ 
+
+.stockmenu::before {
+  content: ""; /* Empty content for the line */
+  position: absolute;
+  height: 85%; /* Adjust line height */
+  width: 1px; /* Thickness of the line */
+  background: #ddd; /* Line color */
+  top: 7.5%; /* Center vertically */
+  left: 50%; /* Place in the middle of the menu */
+  transform: translateX(-50%);
+}
+/* Dropdown Columns */
+.stockmenu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stockmenu-column ul li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+
+
+/* Chevron Icon */
+.chevron-icon {
+  margin-left: 5px;
+  color: #24b676;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+ 
+}
+
+/* Logo styling */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  width: 220px; /* Increased logo width */
+  height: auto; /* Keeps aspect ratio */
+  margin-right: 8px;
+}
+
+/* Navigation links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  font-weight: bolder;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 17px;
+  font-family: 'calibri';
+}
+
+.navbar-links :hover {
+  color: black;
+}
+
+.navbar-search {
+  position: relative;
+  display: flex;
+  
+}
+.navbar-search input {
+ 
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+ 
+  box-sizing: border-box;  
+
+}
+
+/* Add bottom border only on focus */
+
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar-search div {
+  width:100%;
+  background: white;
+  position: absolute;
+  top: 100%; /* Ensures it appears just below input */
+  left: 0;
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+  max-height: 170px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.search-results ul li {
+  cursor: pointer; /* Makes the text clickable */
+  padding: 5px;
+  transition: background 0.2s ease-in-out;
+  list-style: none;
+}
+
+.search-results ul li:hover {
+  background: #f0f0f0; /* Light grey background on hover */
+}
+
+/* Icons section */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconuser-icon {
+  font-size: 18px;
+  color: black;
+  cursor: pointer;
+
+}
+.profile-section span {
+  text-decoration: none;
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-section span {
+  margin-left: 8px;
+  font-size: 16px;
+  color: #333333;
+}
+
+/* Dropdown menu for user profile */
+.dropdown-menu {
+  position: absolute; /* Position the dropdown below the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position it just below the icon */
+  background-color: white; /* Background color for dropdown */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 160px; /* Set a minimum width for the dropdown */
+}
+.user-menu{
+  position: absolute; /* Position the dropdown below the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 160px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
+.learn-menu{
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 210px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
+
+/* Dropdown items */
+.dropdown-menu li {
+  display: flex; /* Use flex to align icon and text */
+  align-items: center;
+  padding: 12px 16px; /* Increased spacing for dropdown items */
+  font-size: 16px; /* Increase font size for better readability */
+}
+.profile-section li{
+  list-style-type: none;
+}
+
+
+.dropdown-menu li:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+.dropdown-menu a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Link color */
+  display: block; /* Make the entire area clickable */
+}
+
+/* Icon in dropdown menu */
+.dropdown-icon {
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 25px; /* Adjust icon size */
+  color: #333; /* Icon color */
+}
+/* Footer styling for navbar links on mobile */
+.footer-nav {
+  display: none; /* Flex layout for horizontal arrangement */
+  justify-content: space-around; /* Even spacing around items */
+  position: fixed; /* Fix it to the bottom of the viewport */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Stretch from left */
+  width: 100%; /* Full width */
+  padding: 10px 0; /* Padding for comfortable touch area */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  z-index: 1000; /* Ensure it appears above other elements */
+  border-top: 1px solid #e0e0e0; /* Optional border for separation */
+  list-style: none; /* Remove default list styles */
+  font-family: 'calibri';
+ 
+}
+.footer-item {
+  display: flex;
+  flex-direction: column; /* Arrange icon and label vertically */
+  align-items: center; /* Center align items */
+  gap: 5px; /* Space between icon and label */
+  font-family: 'calibri';
+}
+.footer-item.selected {
+  color: #fff; /* Text color */
+  background-color: #24b676; /* Highlighted background */
+  padding: 5px 5px; /* Inner spacing */
+  border-radius: 50%; /* Circular appearance */
+  margin-bottom: 10px; /* Space below the selected item */
+  box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */
+  border: 5px solid #a9e8c2; /* Light color border */
+  display: flex; /* Align icon and text */
+  flex-direction: column; /* Stack icon and text */
+  align-items: center; /* Center alignment */
+  gap: 0; /* Remove any spacing between icon and text */
+  font-family: 'calibri';
+}
+
+
+
+.footer-nav a {
+  text-decoration: none;
+  color: #24b676;
+  font-size: 1rem;
+  font-family: 'calibri';
+}
+
+
+.footerportfolio-icon{
+  font-size: 20px; /* Icon size */
+ 
+}
+.footer-nav a:hover {
+  color: #24b676;
+}
+.navbar-links > li > a{
+  color: #24b676;
+}
+.navbar-links > li > a:hover {
+  color:  #1d9d5b; /* Change navbar link color on hover */
+}
+
+.dropdown-item a:hover {
+  color: white; /* Change dropdown link color on hover */
+}
+.subscritebutton {
+  display: inline-block; /* Makes it behave like a button */
+  padding: 10px 20px; /* Adds padding for clickability */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  color: white; /* Text color */
+  border: 1px solid ; /* Border styling */
+  border-radius: 5px; /* Rounded corners */
+  background: linear-gradient(90deg,#24b676,#24b676); /* Gradient background */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  text-align: center; /* Centers text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-top: 20px; /* Keeps margin for spacing */
+  box-shadow: 0 4px 6px red; /* Adds subtle shadow */
+}
+
+.subscritebutton:hover {
+  background: linear-gradient(90deg,  red,rgb(208, 11, 11)); /* Gradient background */
+  color: white; /* Ensures white text on hover */
+  border-color:  red; /* Matches border with gradient color */
+  box-shadow: 0 4px 6px  rgb(111, 5, 5); /* Adds hover shadow effect */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+.subscritebutton:active {
+  background: red; /* Darker green on click */
+  box-shadow: none; /* Removes shadow when clicked */
+  transform: translateY(0); /* Restores position */
+}
+.footer-dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 10px;
+  display: none; /* Hide by default */
+  font-family: 'calibri';
+}
+
+/* Display dropdown on toggle */
+.footer-dropdown.open {
+  display: block;
+  font-family: 'calibri';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.notificationall {
+  position: relative;
+  display: inline-block;
+  font-family: 'calibri';
+}
+
+.icon.bell-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.icon.bell-icon:hover {
+  color: #24b676;
+}
+
+.dropdown-contentnoti {
+  position: absolute;
+  left: 1040px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  width: 350px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 23px;
+  padding: 15px;
+  overflow-x: hidden;
+}
+
+.notification-card {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: box-shadow 0.3s ease;
+  width: 315px;
+  overflow-x: hidden;
+}
+
+.notification-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notification-header {
+  display: flex;
+
+}
+.notificationall-header{
+  display: flex;
+}
+
+.notification-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dotnotifyicon {
+  font-size: 30px;
+  color:#24b676;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.notification-details {
+  margin-top: 10px;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.notification-date {
+  font-size: 15px;
+  color: #777;
+  margin: 0;
+}
+
+.view-all {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  color: black;
+  text-decoration: underline; /* Adds underline to the text */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+  
+
+@media (max-width: 1024px) {
+  /* Adjust navbar layout */
+  .navbar {
+    padding: 8px 10px; /* Reduce padding slightly */
+  }
+
+  .navbar-links {
+    gap: 8px; /* Reduce spacing further */
+    font-size: 11px;
+    margin-left: -10px;
+  }
+
+  .navbar-links a {
+    font-size: 12px; /* Slightly smaller font */
+  }
+
+  .logo-image {
+    width: 160px; /* Reduce logo size more */
+  }
+
+  /* Adjust dropdown menu width */
+ 
+
+  /* Adjust notification dropdown */
+  .dropdown-contentnoti {
+    left: 620px;
+    width: 350px;
+  }
+
+  .notification-card {
+    width: 340px;
+  }
+
+  /* Adjust search bar */
+  .navbar-search input {
+    width: 160px; /* Reduce input width */
+    font-size: 12px;
+  }
+  .navbar-search input::placeholder {
+    font-size: 10px; /* Reduce placeholder font size */
+  }
+  .subscritebutton {
+    padding: 6px 12px;
+    font-size: 13px;
+    width: 45px;
+  }
+
+  /* Adjust icons */
+  .navbar-icons {
+    gap: 12px; /* Reduce icon spacing */
+  }
+
+  .chevron-icon {
+    margin-left: 4px;
+    color: #24b676;
+    font-size: 11px; /* Reduce icon size */
+    transition: transform 0.3s ease;
+  }
+  
+  span.willamname {
+    font-size: 14px !important;
+    margin-right: 5px !important;
+  }
+}
+
+/* For screens 480px and below */
+@media (max-width: 768px) {
+  /* Show navbar logo, and dropdown icon on mobile */
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+
+  /* Hide main navbar links in mobile view */
+  .navbar-links {
+    display: none;
+  }
+
+  .footer-nav {
+    display: flex;
+    height: 60px;
+   
+   
+  }
+
+  /* Hide search input on mobile */
+  .navbar-search {
+    display: none;
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 14px;
+  }
+  .subscritebutton {
+    padding: 8px 16px; /* Slightly reduce padding for smaller screens */
+    font-size: 14px; /* Reduce font size */
+    margin-top: 15px; /* Adjust margin spacing */
+    box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
+  }
+  /* Adjust logo size */
+  .logo-image {
+    width: 180px;
+  }
+
+  /* Stock dropdown menu */
+  .stockmenu {
+    margin-top: 30px !important;
+    width: 900% !important;
+    height: 190vh; /* Full height on mobile */
+    gap: 10px;
+    transform: translateY(-80%);
+    margin-left: -100px;
+   
+    
+  }
+  .chevron-icon {
+    margin-left: -4px;
+    font-size: 12px;
+    
+   
+   
+  }
+  .mutualstockmenu{
+    width: 900% !important;
+    height: 140vh; /* Full height on mobile */
+    margin-top: 30px;
+    gap: 10px;
+    transform: translateY(-50%);
+    margin-left: -200px;
+  }
+  /* Styling for the divider line */
+  .stockmenu::before {
+    content: ""; /* Empty content for the line */
+    background: #ddd; /* Line color */
+  }
+  
+  /* Chevron Icon */
+  .chevron-icon {
+    margin-left: 5px;
+    color: black;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Dropdown menu for user profile */
+  .dropdown-menu {
+    min-width: 140px; /* Slightly reduce width */
+    padding: 10px 0; /* Adjust padding */
+    margin-top: -266px;
+    margin-left: -100px;
+  }
+
+  .dropdown-menu li {
+    font-size: 14px; /* Reduce font size */
+    padding: 10px 12px; /* Adjust padding */
+  }
+
+  .dropdown-icon {
+    font-size: 20px; /* Adjust icon size */
+  }
+  .footer-dropdown {
+    width: 50%; /* Adjust width for tablet view */
+    height: auto; /* Adjust height dynamically */
+    left: 5%; /* Center horizontally */
+    top: 40px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 14px; /* Smaller font for mobile view */
+    padding: 8px; /* Adjust padding */
+  }
+  .footer-icon {
+    margin-right: 8px;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #24b676;
+  }
+  
+
+
+
+
+
+
+
+  
+  .notificationall {
+    position: relative;
+    display: inline-block;
+    font-family: 'calibri';
+  }
+  
+  .icon.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .icon.bell-icon:hover {
+    color: #24b676;
+  }
+  
+  .dropdown-contentnoti {
+    position: absolute;
+
+    margin-left: -300px;
+  
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+  }
+  
+  .notification-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header {
+    display: flex;
+  
+  }
+  .notificationall-header{
+    display: flex;
+  }
+  
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dotnotifyicon {
+    font-size: 30px;
+    color:#24b676;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  
+  .notification-details {
+    margin-top: 10px;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .notification-date {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+  }
+  
+  .view-all {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    color: black;
+    text-decoration: underline; /* Adds underline to the text */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+  
+ 
+  
+}
+
+
+/* Additional styles for 480px and below */
+@media (max-width: 480px) {
+  /* Adjust logo size for smaller screens */
+  .logo-image {
+    width: 150px; /* Reduce logo size */
+  }
+
+  .navbar-search input {
+    width: 160px; /* Reduce input width */
+    font-size: 12px;
+    margin-left: -100px;
+    display: block;
+  }
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    font-size: 16px; /* Smaller font size */
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 12px; /* Smaller font size */
+  }
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+  /* Adjust navbar icons */
+  .navbar-icons {
+    font-size: 14px; /* Smaller icons */
+  }
+  .subscritebutton {
+    padding: 6px 12px; /* Further reduce padding */
+    font-size: 12px; /* Further reduce font size */
+   
+    margin-top: 10px; /* Adjust spacing */
+    box-shadow: 0 2px 4px red; /* Subtle shadow for very small screens */
+  }
+  /* Stock dropdown menu adjustments */
+  
+  .dropdown-menu {
+    min-width: 140px; /* Slightly reduce width */
+    padding: 10px 0; /* Adjust padding */
+    margin-top: -205px;
+    margin-left: -100px;
+  }
+  /* Dropdown menu adjustments */
+  .dropdown-menu li {
+    font-size: 12px; /* Smaller font size for dropdown */
+    padding: 8px 10px; /* Reduce padding */
+  }
+
+  /* Adjust button and icon sizes */
+  .dropdown-icon {
+    font-size: 18px; /* Smaller icon size */
+  }
+
+  .chevron-icon {
+    font-size: 12px; /* Smaller chevron icon */
+  }
+
+  /* Adjust footer nav layout */
+  .footer-nav {
+    font-size: 12px;
+    margin-left: 0px;
+    height: 60px;
+}
+  .footer-dropdown {
+    width: 95%; /* Adjust width for smaller screens */
+    height: auto; /* Dynamic height based on content */
+    left: 2.5%; /* Center horizontally */
+    top: 35px; /* Position below the button */
+  }
+
+  .footer-item {
+   font-size: 14px;
+  }
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 12px; /* Even smaller font for smaller screens */
+    padding: 6px; /* Adjust padding */
+  }
+  .footer-icon {
+    margin-right: 8px;
+    font-size: 23px;
+    vertical-align: middle;
+    color: #24b676;
+  }
+  
+
+
+
+
+
+
+
+
+
+  
+  .notificationall {
+    position: relative;
+    display: inline-block;
+    font-family: 'calibri';
+  }
+  
+  .icon.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .icon.bell-icon:hover {
+    color: #24b676;
+  }
+  .stockmenu::before {
+    content: ""; /* Empty content for the line */
+    position: absolute;
+    height: 85%; /* Adjust line height */
+    width: 1px; /* Thickness of the line */
+    background: #ddd; /* Line color */
+    top: 1.5%; /* Center vertically */
+    left: 50%; /* Place in the middle of the menu */
+    transform: translateX(-50%);
+  }
+  
+  .dropdown-contentnoti {
+    position: absolute;
+
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 270px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+    margin-left: -555px;
+  }
+  
+  .notification-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+    width: 330px;
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header {
+    display: flex;
+  
+  }
+  .notificationall-header{
+    display: flex;
+  }
+  
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dotnotifyicon {
+    font-size: 30px;
+    color:#24b676;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  
+  .notification-details {
+    margin-top: 10px;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .notification-date {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+  }
+  .footer-nav a{
+    font-size: 12px;
+  }
+.dropdown-item p {
+  display: none;
+}
+  .view-all {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    color: black;
+    text-decoration: underline; /* Adds underline to the text */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+  
+ 
+  
+  
+}
+
+/*Dark mode CSS*/
+
+.searchdarkerrrmodeicon{
+  position: absolute;
+  left: 975px; /* Position on the left side inside input */
+  top: 52%;
+  transform: translateY(-50%);
+  color: #ffff;
+  font-size: 14px; /* Adjust icon size */
+}
+/* Dropdown menu hidden by default */
+.dropdown-menudarkerrmode {
+  position: absolute;
+  top: 100%; /* Position it below the link */
+  left: 0;
+  display: none; /* Hidden by default */
+  background-color:#292F42;
+  border: 1px solid #ddd;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 200px;
+  padding: 10px 0;
+  z-index: 10;
+ 
+  gap: 20px;
+}
+
+/* Show the dropdown when hovering over the parent <li> or <ul> */
+.stock-dropdown:hover .dropdown-menudarkerrmode,
+.dropdown-menudarkerrmode:hover {
+  display: block;
+}
+
+/* Option styling inside the dropdown */
+.dropdown-menudarkerrmode li {
+  padding: 10px;
+}
+
+.dropdown-menudarkerrmode li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 5px;
+}
+
+
+
+.dropdown-itemdarkerrmode a {
+  color: white;
+  text-decoration: none; /* Optional: Removes underline */
+}
+
+.dropdown-itemdarkerrmode a:hover {
+  color: #ccc; /* Optional: Light gray on hover */
+}
+
+
+/* Hover effect for the paragraph */
+.dropdown-itemdarkerrmode:hover p {
+  color: white; /* Match paragraph text color to link */
+}
+/* Show Dropdown on Hover or Focus */
+.portfolio-dropdown:hover .dropdown-menudarkerrmode,
+.portfolio-dropdown:focus-within .dropdown-menudarkerrmode {
+  display: block; /* Make dropdown visible */
+}
+
+/* Dropdown Items */
+.dropdown-itemdarkerrmode {
+  padding: 10px 15px;
+  text-align: left;
+  cursor: pointer;
+  color: #ffff;
+}
+.dropdown-itemdarkerrmode a {
+  color: #FFFFFF;
+}
+
+.dropdown-itemdarkerrmode:hover {
+  background-color: #24b676;
+  color: white;
+}
+.dropdown-itemdarkerrmode p:hover {
+  
+  color: white;
+}
+
+.dropdown-itemdarkerrmode a {
+  text-decoration: none;
+  color: #ffff;
+  font-size: 14px;
+}
+
+
+
+ .dropdown-itemdarkerrmode p {
+  font-size: 12px;
+  color: #ffff;
+  margin: 5px 0 0;
+  font-family: 'calibri';
+}
+
+/* Dropdown Items */
+
+
+.navbardarkerrrrmode {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #292F42;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Calibri', sans-serif;
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Align it to the top of the viewport */
+  left: 0; /* Align it to the left */
+  right: 0; /* Align it to the right */
+  z-index: 1000;
+}
+
+/* Stock dropdown menu */
+.stockmenudarkerrrrmode {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  background: #292F42;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%; /* Position it just below the menu */
+  /* Align it relative to the "Stocks" button */
+  transform: translateX(-50%); /* Center align */
+  z-index: 10;
+  padding: 25px;
+  width: 550px; /* Adjust dropdown width */
+  gap: 20px;
+}
+.mutualstockmenudarkerrrrmode{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  background: #292F42;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%; /* Position it just below the menu */
+  /* Align it relative to the "Stocks" button */
+  transform: translateX(-50%); /* Center align */
+  z-index: 10;
+  padding: 25px;
+  width: 550px; /* Adjust dropdown width */
+  gap: 20px;
+}
+ 
+
+.stockmenudarkerrrrmode::before {
+  content: ""; /* Empty content for the line */
+  position: absolute;
+  height: 85%; /* Adjust line height */
+  width: 1px; /* Thickness of the line */
+  background: #333; /* Line color */
+  top: 7.5%; /* Center vertically */
+  left: 50%; /* Place in the middle of the menu */
+  transform: translateX(-50%);
+}
+/* Dropdown Columns */
+.stockmenu-columndarkerrrrmode ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stockmenu-columndarkerrrrmode ul li {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #ffff;
+  transition: color 0.2s ease;
+}
+
+
+
+/* Chevron Icon */
+.chevron-icon {
+  margin-left: 5px;
+  color: #24b676;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+ 
+}
+
+/* Navigation links */
+.navbar-linksdarkerrrrmode {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  font-weight: bolder;
+}
+
+.navbar-linksdarkerrrrmode a {
+  text-decoration: none;
+  color: #ffff;
+  font-size: 17px;
+  font-family: 'calibri';
+}
+
+.navbar-linksdarkerrrrmode :hover {
+  color: black;
+}
+
+/* Search bar */
+.navbar-search {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-search input {
+  padding: 10px 2px 6px 30px; /* Add padding to make space for the icon */
+  border-radius: 6px;
+  border: 1px solid #333333;
+  font-size: 12px;
+  
+  height: 35px;
+}
+
+/* Search icon */
+.search-icon {
+  position: absolute;
+  left: 10px; /* Position on the left side inside input */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333333;
+  font-size: 14px; /* Adjust icon size */
+}
+
+/* Icons section */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.iconuser-darkerrmodeicon {
+  font-size: 18px;
+  color: #ffff;
+  cursor: pointer;
+
+}
+.profile-section span {
+  text-decoration: none;
+}
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-sectiondarkmode span {
+  margin-left: 8px;
+  font-size: 16px;
+  color: white;
+}
+
+/* Dropdown menu for user profile */
+.dropdown-menudarkerrmode {
+  position: absolute; /* Position the dropdown below the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position it just below the icon */
+  background-color: #292F42; /* Background color for dropdown */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 200px; /* Set a minimum width for the dropdown */
+}
+.user-menudarkerrmode{
+  position: absolute; /* Position the dropdown below the icon */
+  right: 0; /* Align to the right */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 160px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: #292F42;
+
+}
+.learn-menudarkerrrrmode{
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 210px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: #292F42;
+
+}
+
+/* Dropdown items */
+.dropdown-menudarkerrmode li {
+  display: flex; /* Use flex to align icon and text */
+  align-items: center;
+  padding: 12px 16px; /* Increased spacing for dropdown items */
+  font-size: 16px; /* Increase font size for better readability */
+}
+.profile-section li{
+  list-style-type: none;
+}
+
+
+.dropdown-menudarkerrmode li:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+.dropdown-menudarkerrmode a {
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Link color */
+  display: block; /* Make the entire area clickable */
+}
+
+/* Icon in dropdown menu */
+.dropdown-icondarkerrrmode {
+  margin-right: 8px; /* Space between icon and text */
+  font-size: 25px; /* Adjust icon size */
+  color: #ffff; /* Icon color */
+}
+/* Footer styling for navbar links on mobile */
+.footer-nav {
+  display: none; /* Flex layout for horizontal arrangement */
+  justify-content: space-around; /* Even spacing around items */
+  position: fixed; /* Fix it to the bottom of the viewport */
+  bottom: 0; /* Align to the bottom */
+  left: 0; /* Stretch from left */
+  width: 100%; /* Full width */
+  padding: 10px 0; /* Padding for comfortable touch area */
+  background-color: #fff; /* Background color */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  z-index: 1000; /* Ensure it appears above other elements */
+  border-top: 1px solid #e0e0e0; /* Optional border for separation */
+  list-style: none; /* Remove default list styles */
+  font-family: 'calibri';
+ 
+}
+.footer-item {
+  display: flex;
+  flex-direction: column; /* Arrange icon and label vertically */
+  align-items: center; /* Center align items */
+  gap: 5px; /* Space between icon and label */
+  font-family: 'calibri';
+}
+.footer-item.selected {
+  color: #fff; /* Text color */
+  background-color: #24b676; /* Highlighted background */
+  padding: 5px 5px; /* Inner spacing */
+  border-radius: 50%; /* Circular appearance */
+  margin-bottom: 10px; /* Space below the selected item */
+  box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */
+  border: 5px solid #a9e8c2; /* Light color border */
+  display: flex; /* Align icon and text */
+  flex-direction: column; /* Stack icon and text */
+  align-items: center; /* Center alignment */
+  gap: 0; /* Remove any spacing between icon and text */
+  font-family: 'calibri';
+}
+
+
+
+.footer-nav a {
+  text-decoration: none;
+  color: #24b676;
+  font-size: 13px;
+  font-family: 'calibri';
+}
+
+
+.footerportfolio-icon{
+  font-size: 20px; /* Icon size */
+ 
+}
+.footer-nav a:hover {
+  color: #6ee9b4;
+}
+.navbar-linksdarkerrrrmode > li > a{
+  color: #24b676;
+}
+.navbar-linksdarkerrrrmode > li > a:hover {
+  color:  #1d9d5b; /* Change navbar link color on hover */
+}
+
+.dropdown-item a:hover {
+  color: white; /* Change dropdown link color on hover */
+}
+.subscritebutton {
+  display: inline-block; /* Makes it behave like a button */
+  padding: 10px 20px; /* Adds padding for clickability */
+  font-size: 16px; /* Adjust font size */
+  font-weight: bold; /* Make text bold */
+  color: white; /* Text color */
+  border: 1px solid ; /* Border styling */
+  border-radius: 5px; /* Rounded corners */
+  background: linear-gradient(90deg,#24b676,#24b676); /* Gradient background */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  text-align: center; /* Centers text */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  margin-top: 20px; /* Keeps margin for spacing */
+  box-shadow: 0 4px 6px red; /* Adds subtle shadow */
+}
+
+.subscritebutton:hover {
+  background: linear-gradient(90deg,  red,rgb(208, 11, 11)); /* Gradient background */
+  color: white; /* Ensures white text on hover */
+  border-color:  red; /* Matches border with gradient color */
+  box-shadow: 0 4px 6px  rgb(111, 5, 5); /* Adds hover shadow effect */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+.subscritebutton:active {
+  background: red; /* Darker green on click */
+  box-shadow: none; /* Removes shadow when clicked */
+  transform: translateY(0); /* Restores position */
+}
+.footer-dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1000;
+  padding: 10px;
+  display: none; /* Hide by default */
+  font-family: 'calibri';
+}
+
+/* Display dropdown on toggle */
+.footer-dropdown.open {
+  display: block;
+  font-family: 'calibri';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.notificationall {
+  position: relative;
+  display: inline-block;
+  font-family: 'calibri';
+}
+
+.icon.bell-darkerrmodeicon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffff;
+}
+
+.icon.bell-darkerrmodeicon:hover {
+  color: #24b676;
+}
+
+.dropdown-content {
+  position: absolute;
+ left: -350px;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  width: 450px;
+  max-height: 500px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  margin-top: 10px;
+  padding: 15px;
+}
+
+.notification-card {
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: box-shadow 0.3s ease;
+}
+
+.notification-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notification-header {
+  display: flex;
+
+}
+.notificationall-header{
+  display: flex;
+}
+
+.notification-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dotnotifyicon {
+  font-size: 30px;
+  color:#24b676;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.notification-details {
+  margin-top: 10px;
+}
+
+.notification-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+}
+
+.notification-date {
+  font-size: 15px;
+  color: #777;
+  margin: 0;
+}
+
+.view-all {
+  display: block;
+  width: 100%;
+  padding: 8px 12px;
+  background-color: white;
+  color: black;
+  text-decoration: underline; /* Adds underline to the text */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.willamnamedarkmode{
+  margin-bottom: 50px;
+  color: white;
+}
+
+/* For screens 480px and below */
+@media (max-width: 768px) {
+  /* Show navbar logo, and dropdown icon on mobile */
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+
+  .footer-nav {
+    display: flex
+;
+    height: 70px;
+    margin-bottom: 0px;
+}
+
+  /* Hide search input on mobile */
+  .navbar-search {
+    display: none;
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 14px;
+  }
+  .subscritebutton {
+    padding: 8px 16px; /* Slightly reduce padding for smaller screens */
+    font-size: 14px; /* Reduce font size */
+    margin-top: 15px; /* Adjust margin spacing */
+    box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
+    margin-left: 320px;
+  }
+  /* Adjust logo size */
+  .logo-image {
+    width: 180px;
+  }
+
+  /* Stock dropdown menu */
+  .stockmenu {
+    
+    width: 530%;
+   
+    gap: 10px;
+    transform: translateY(-50%);
+  }
+  .mutualstockmenu{
+    width: 600%;
+    height: 130vh; /* Full height on mobile */
+    gap: 10px;
+    transform: translateY(-50%);
+  }
+  .learn-menu {
+    min-width: 180px;
+    padding: 10px 0;
+    margin-top: -447px;
+    margin-left: -50px;
+}
+  /* Styling for the divider line */
+  .stockmenu::before {
+    content: ""; /* Empty content for the line */
+    background: #ddd; /* Line color */
+  }
+  
+  /* Chevron Icon */
+  .chevron-icon {
+    margin-left: -4px;
+   
+    font-size: 11px;
+    transition: transform 0.3s ease;
+  }
+
+  /* Dropdown menu for user profile */
+  
+
+  .dropdown-menu li {
+    font-size: 14px; /* Reduce font size */
+    padding: 10px 12px; /* Adjust padding */
+  }
+
+  .dropdown-icon {
+    font-size: 20px; /* Adjust icon size */
+  }
+  .footer-dropdown {
+    width: 50%; /* Adjust width for tablet view */
+    height: auto; /* Adjust height dynamically */
+    left: 5%; /* Center horizontally */
+    top: 40px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 14px; /* Smaller font for mobile view */
+    padding: 8px; /* Adjust padding */
+  }
+  .footer-icon {
+    margin-right: 8px;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #24b676;
+  }
+  
+
+
+
+
+
+
+
+  
+  .notificationall {
+    position: relative;
+    display: inline-block;
+    font-family: 'calibri';
+  }
+  
+  .icon.bell-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+    margin-left: 10px;
+  }
+  
+  .icon.bell-icon:hover {
+    color: #24b676;
+  }
+  
+  .dropdown-content {
+    position: absolute;
+   
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 450px;
+    max-height: 500px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+  }
+  
+  .notification-card {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .notification-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header {
+    display: flex;
+  
+  }
+  .notificationall-header{
+    display: flex;
+  }
+  
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .dotnotifyicon {
+    font-size: 30px;
+    color:#24b676;
+    margin-left: auto;
+    margin-top: 10px;
+  }
+  
+  .notification-details {
+    margin-top: 10px;
+  }
+  
+  .notification-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+  
+  .notification-date {
+    font-size: 15px;
+    color: #777;
+    margin: 0;
+  }
+  
+  .view-all {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    color: black;
+    text-decoration: underline; /* Adds underline to the text */
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+  
+ 
+  
+}
+
+
+/* Additional styles for 480px and below */
+@media (max-width: 480px) {
+  .subscritebutton{
+    display: block;
+  }
+  /* Adjust logo size for very small screens */
+  .logo-image {
+    width: 110px !important; /* Further reduce logo size */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 10px !important; /* Smaller font size */
+  }
+
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+
+  /* Adjust navbar icons */
+  .navbar-icons {
+    font-size: 12px; /* Smaller icons */
+  }
+
+  .subscritebutton {
+    padding: 4px 10px; /* Further reduce padding */
+    font-size: 10px; /* Further reduce font size */
+    margin-top: 8px; /* Adjust spacing */
+    box-shadow: 0 1px 3px red; /* Subtle shadow */
+    display: block;
+    margin-left: 20px;
+  }
+
+  /* Stock dropdown menu adjustments */
+  .stockmenu {
+    width: 600% !important;
+    height: 202vh;
+    position: absolute;
+    left: 40px;
+   bottom: 30%;
+    transform: translateY(-25%);
+    gap: 4px;
+  
+   
+}
+.mutualstockmenu::before {
+  content: "";
+  position: absolute;
+  height: 85%;
+  width: 1px;
+  background: #ddd;
+  top: 1.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mutualstockmenu {
+  width: 200px !important;
+  height: 100vh;
+  gap: 8px;
+  transform: translateY(-43%);
+  left: 0px;
+}
+.learn-menu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -288px;
+  margin-left: -140px;
+}
+  /* Dropdown menu adjustments */
+  .dropdown-menu li {
+    font-size: 10px; /* Smaller font size for dropdown */
+    padding: 6px 8px; /* Reduce padding */
+  }
+
+  /* Adjust button and icon sizes */
+  .dropdown-icon {
+    font-size: 16px; /* Smaller icon size */
+  }
+  .chevron-Portfolioicon{
+  font-size: 10px; /* Smaller chevron icon */
+}
+  .chevron-icon {
+    font-size: 10px; /* Smaller chevron icon */
+  }
+
+  /* Adjust footer nav layout */
+  .footer-nav {
+    font-size: 10px;
+    height: 68px;
+    margin-bottom: 0px;
+}
+
+  .footer-dropdown {
+    width: 90%; /* Adjust width for smaller screens */
+    left: 5%; /* Center horizontally */
+    top: 30px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 10px; /* Smaller font for smaller screens */
+    padding: 5px; /* Adjust padding */
+  }
+
+  .footer-icon {
+    margin-right: 6px;
+    font-size: 15px;
+  }
+
+  /* Notification section */
+  .notificationall {
+    font-family: 'calibri';
+  }
+
+  .icon.bell-icon {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .dropdown-content {
+    width: 300px;
+    max-height: 400px;
+    margin-left: 65px;
+    padding: 12px;
+  }
+
+  .notification-card {
+    width: 280px;
+  }
+
+  .notification-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dotnotifyicon {
+    font-size: 26px;
+  }
+
+  .notification-title {
+    font-size: 14px;
+  }
+
+  .notification-date {
+    font-size: 13px;
+  }
+
+  .view-all {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  span.willamname {
+    font-size: 9px !important;
+    width: 10px;
+
+   
+  }
+
+
+}
+
+/* Standard Desktop Screens (1280px - 1440px) */
+@media (max-width: 1440px) {
+  .navbar-links {
+    gap: 30px;
+  }
+  .stockmenu,
+  .mutualstockmenu {
+    width: 500px;
+  }
+  .body {
+    overflow-x: hidden;
+  }
+}
+ 
+ 
+
+
+/* Additional styles for 480px and below */
+@media (max-width: 480px) {
+  .subscritebutton{
+    display: block;
+  }
+  /* Adjust logo size for very small screens */
+  .logo-image {
+    width: 110px !important; /* Further reduce logo size */
+  }
+
+  /* Adjust navbar logo size */
+  .navbar-logo {
+    font-size: 14px; /* Smaller font size */
+  }
+
+  /* Adjust profile section layout */
+  .profile-section span {
+    font-size: 10px !important; /* Smaller font size */
+  }
+
+  .navbar-logo,
+  .navbar-icons,
+  .profile-section {
+    display: flex;
+  }
+
+  /* Adjust navbar icons */
+  .navbar-icons {
+    font-size: 12px; /* Smaller icons */
+  }
+
+  .subscritebutton {
+    padding: 4px 10px; /* Further reduce padding */
+    font-size: 10px; /* Further reduce font size */
+    margin-top: 8px; /* Adjust spacing */
+    box-shadow: 0 1px 3px red; /* Subtle shadow */
+    display: block;
+    margin-left: 20px;
+  }
+
+  /* Stock dropdown menu adjustments */
+  .stockmenu {
+    width: 550% !important;
+    height: 212vh;
+    position: absolute;
+    left: 40px;
+   bottom: 30%;
+    transform: translateY(-25%);
+    gap: 4px;
+  
+   
+}
+.dropdown-item {
+  padding: 10px 10px;
+  text-align: left;
+  cursor: pointer;
+}
+.mutualstockmenu::before {
+  content: "";
+  position: absolute;
+  height: 85%;
+  width: 1px;
+  background: #ddd;
+  top: 1.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mutualstockmenu {
+  width: 200px !important;
+  height: 90vh;
+  gap: 8px;
+  transform: translateY(-43%);
+  left: 0px;
+}
+.learn-menu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -288px;
+  margin-left: -140px;
+}
+  /* Dropdown menu adjustments */
+  .dropdown-menu li {
+    font-size: 10px; /* Smaller font size for dropdown */
+    padding: 6px 8px; /* Reduce padding */
+  }
+
+  /* Adjust button and icon sizes */
+  .dropdown-icon {
+    font-size: 16px; /* Smaller icon size */
+  }
+  .chevron-Portfolioicon{
+  font-size: 10px; /* Smaller chevron icon */
+}
+  .chevron-icon {
+    font-size: 10px; /* Smaller chevron icon */
+  }
+
+  /* Adjust footer nav layout */
+  .footer-nav {
+    font-size: 10px;
+    height: 68px;
+    margin-bottom: 0px;
+}
+
+  .footer-dropdown {
+    width: 90%; /* Adjust width for smaller screens */
+    left: 5%; /* Center horizontally */
+    top: 30px; /* Position below the button */
+  }
+
+  .mutualfunds-dropdown .dropdown-item {
+    font-size: 10px; /* Smaller font for smaller screens */
+    padding: 5px; /* Adjust padding */
+  }
+
+  .footer-icon {
+    margin-right: 6px;
+    font-size: 15px;
+  }
+
+  /* Notification section */
+  .notificationall {
+    font-family: 'calibri';
+  }
+
+  .icon.bell-icon {
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: -5px;
+  }
+
+  .dropdown-content {
+    width: 300px;
+    max-height: 400px;
+    margin-left: 65px;
+    padding: 12px;
+  }
+
+  .notification-card {
+    width: 250px;
+  }
+
+  .notification-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dotnotifyicon {
+    font-size: 26px;
+  }
+
+  .notification-title {
+    font-size: 14px;
+  }
+
+  .notification-date {
+    font-size: 13px;
+  }
+
+  .view-all {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  span.willamname {
+    font-size: 10px !important;
+    width: 30px;
+
+   
+  }
+  .iconuser-icon {
+    margin-bottom: -5px;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+}
+}
+
+
+@media (max-width: 320px) {
+  .dropdown-contentnoti {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 230px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+    margin-left: -585px;
+}
+  .notification-card {
+    width: 200px;
+  }
+}

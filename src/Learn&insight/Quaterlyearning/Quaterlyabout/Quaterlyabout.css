@@ -1,0 +1,110 @@
+.sbi-info {
+    max-width: 1100px;
+   
+    padding: 20px;
+   margin-left: 10px;
+  
+    border-radius: 8px;
+    font-family: 'calibri';
+    margin-bottom: 100px;
+  }
+  
+ 
+  .sbi-info h2 {
+    color:#333;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  .sbi-info h1{
+    color: #24b676;
+    font-size: 26px;
+  }
+  
+  .sbi-info p {
+    color:black;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  
+  .sbi-info ul {
+    margin-left: 27px;
+    padding: 0;
+  }
+  
+  .sbi-info ul li {
+    margin-bottom: 8px;
+    color: #444;
+  }
+  
+  .sbi-info a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+  
+  .sbi-info a:hover {
+    text-decoration: underline;
+  }
+  
+  /* For tablets and smaller devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .sbi-info {
+    padding: 15px; /* Reduce padding for medium screens */
+    margin-left: 5px; /* Reduce left margin for smaller screens */
+    max-width: 100%; /* Ensure the container takes up full width */
+    margin-bottom: 90px;
+  }
+
+  .sbi-info h2 {
+    font-size: 20px; /* Smaller font size for heading */
+    margin-bottom: 8px; /* Reduce margin */
+  }
+
+  .sbi-info h1 {
+    font-size: 24px; /* Adjust size for heading */
+  }
+
+  .sbi-info p {
+    font-size: 14px; /* Smaller font size for paragraph */
+    margin-bottom: 12px; /* Reduce margin */
+  }
+
+  .sbi-info ul {
+    margin-left: 20px; /* Reduce left margin for better alignment */
+  }
+
+  .sbi-info ul li {
+    font-size: 14px; /* Smaller text for list items */
+  }
+}
+
+/* For smaller devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .sbi-info {
+    padding: 10px; /* Further reduce padding */
+    margin-left: 0; /* Remove left margin for very small screens */
+    max-width: 100%; /* Ensure the container takes up full width */
+  }
+
+  .sbi-info h2 {
+    font-size: 18px; /* Further reduce heading font size */
+    margin-bottom: 6px; /* Smaller bottom margin */
+  }
+
+  .sbi-info h1 {
+    font-size: 22px; /* Smaller font size for heading */
+  }
+
+  .sbi-info p {
+    font-size: 13px; /* Smaller font size for paragraph */
+    margin-bottom: 10px; /* Adjust bottom margin */
+  }
+
+  .sbi-info ul {
+    margin-left: 15px; /* Adjust left margin for better readability */
+  }
+
+  .sbi-info ul li {
+    font-size: 13px; /* Adjust list item font size */
+  }
+}

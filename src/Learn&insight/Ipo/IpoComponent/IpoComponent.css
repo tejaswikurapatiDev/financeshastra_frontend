@@ -1,0 +1,70 @@
+.datetimeipo {
+    display: flex;
+  
+    gap: 25px;
+    margin-top: 10px;
+  }
+  
+  .ipopara {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color:black;
+    margin: 0;
+  }
+  
+  .dateipo, .profileipo {
+    margin-right: 5px;
+    font-size: 16px;
+    color:black; /* Icon color (adjust as needed) */
+  }
+  
+  .dotipo {
+    margin-left: 5px;
+    font-size: 12px;
+    color:green; /* Dot icon color (adjust as needed) */
+  }
+  /* Responsive Styles */
+@media (max-width: 768px) {
+  .datetimeipo {
+    flex-direction: column; /* Ensure items are stacked vertically */
+    gap: 10px; /* Further reduce gap for mobile screens */
+    margin-top: 5px; /* Reduce top margin */
+  }
+
+  .ipopara {
+    font-size: 12px; /* Smaller font size for mobile screens */
+  }
+
+  .dateipo,
+  .profileipo {
+    font-size: 12px; /* Reduce icon size for mobile */
+  }
+
+  .dotipo {
+    font-size: 9px; /* Adjust dot size for compact view */
+    color: darkgreen; /* Optional: Darker green for better visibility */
+  }
+}
+
+@media (max-width: 480px) {
+  .datetimeipo {
+    flex-direction: column; /* Ensure items are stacked vertically */
+    gap: 10px; /* Further reduce gap for mobile screens */
+    margin-top: 5px; /* Reduce top margin */
+  }
+
+  .ipopara {
+    font-size: 12px; /* Smaller font size for mobile screens */
+  }
+
+  .dateipo,
+  .profileipo {
+    font-size: 12px; /* Reduce icon size for mobile */
+  }
+
+  .dotipo {
+    font-size: 9px; /* Adjust dot size for compact view */
+    color: darkgreen; /* Optional: Darker green for better visibility */
+  }
+}

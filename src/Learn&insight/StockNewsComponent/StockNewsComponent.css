@@ -1,0 +1,171 @@
+.stockNewsContainer {
+  font-family: 'calibri';
+  margin: 20px auto;
+  width: 75%;
+  max-width: 100%;
+  color: #333;
+  margin-top: 120px;
+  margin-bottom: 70px;
+  margin-left: 200px;
+}
+
+.stockNewsTitle {
+  font-size: 25px;
+  color: #000;
+  margin-left: 10px;
+}
+
+/* News List */
+.stockNewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Individual News Item */
+.stockNewsItem {
+  display: flex;
+  gap: 15px;
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stockNewsItem:hover {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0;
+}
+
+.newsThumbnail {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* News Content */
+.newsContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.newsTitle:hover {
+  color: #24b676;
+}
+
+.newsDescription {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ✅ Optimized Responsive Media Queries */
+
+/* Extra Large Screens (1536px and above) */
+@media (min-width: 2500px) {
+  .body {
+    overflow-x: hidden;
+  }
+  .stockNewsContainer {
+    max-width: 1536px;
+    margin-left: 430px;
+  }
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .stockNewsContainer {
+    max-width: 1280px;
+  }
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .stockNewsContainer {
+    max-width: 1024px;
+    margin-left: 130px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stockNewsContainer {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .stockNewsTitle {
+    margin-top: -30px;
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+  .stockNewsContainer {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
+
+
+@media (max-width: 480px) {
+  .stockNewsContainer {
+    margin-top: 100px; /* Adjust top margin for smaller devices */
+    padding: 0 10px; /* Adjust padding for very small screens */
+  }
+
+  .stockNewsTitle {
+    font-size: 18px; /* Reduce title size */
+  }
+
+  .stockNewsItem {
+    gap: 10px;
+    padding: 8px; /* Adjust padding */
+  }
+
+  .newsTitle {
+    font-size: 12px;
+  }
+
+  .newsDescription {
+    font-size: 12px;
+  }
+
+}
+@media (max-width: 320px) {
+  .newsDescription {
+    font-size: 12px;
+    margin-left: -150px;
+    margin-top: 70px;
+}
+.newsTitle {
+  font-size: 10px;
+}
+.stockNewsItem {
+  gap: 10px;
+  padding: 8px;
+  width: 260px;
+  margin-left: -19px;
+
+
+}
+.stockNewsTitle {
+  font-size: 18px;
+  margin-left: -10px;
+  margin-top: -30px;
+}
+}

@@ -1,0 +1,383 @@
+.sippcaloculatorrs-container {
+    width: 1000px;
+ 
+   
+   
+  
+    background-color: white;
+    font-family: 'calibri';
+    margin-top: 50px;
+  }
+  .alllsipcontainerss {
+    display: flex;
+    gap: 20px; /* Space between the child containers */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
+
+  .alllsip{
+    display: flex;
+    gap: 280px;
+ 
+  }
+  .alllsiprate{
+    display: flex;
+    gap: 220px;
+  }
+  .alllsipmonthly{
+    display: flex;
+    gap: 260px;
+  }
+
+  .sippcaloculatorrs-input {
+    margin-bottom: 20px;
+  }
+  
+  .sippcaloculatorrs-input label {
+    display: block;
+  
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .sippcaloculatorrs-slider-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .sippcaloculatorrs-slider {
+    flex: 1;
+    margin-right: 10px;
+
+  }
+  
+  .sippcaloculatorrs-textbox {
+    width: 110px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 4px rgb(185, 182, 182);
+   
+  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+.accountallmutualfundlist-container {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'calibri';
+
+  background-color: #f2f2f2; /* 0.95 for 5% transparency */
+
+}
+  .accountallmutualfundlist-chart {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 20px;
+    position: relative;
+    font-family: 'calibri';
+  }
+  
+  .accountallmutualfundlist-legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .accountallmutualfundlist-legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  .accountallmutualfundlist-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+  
+  .accountallmutualfundlist-dot.invested {
+    background-color: #003f8f;
+  }
+  
+  .accountallmutualfundlist-dot.returns {
+    background-color: #24b676;
+  }
+  
+  .accountallmutualfundlist-details {
+    display: flex;
+    flex-direction: column; /* Stack rows vertically */
+    gap: 15px; /* Add spacing between rows */
+    align-items: flex-start; /* Align all rows to the left */
+    padding: 10px; /* Add padding around the container */
+    box-sizing: border-box; /* Include padding in the width/height calculations */
+  }
+  
+  .accountallmutualfundlist-row {
+    display: flex;
+    justify-content: space-between; /* Distribute space between text and value */
+    width: 90%; /* Ensure each row takes full width */
+  }
+  
+  .accountallmutualfundlist-row p {
+    font-size: 15px; /* Set a readable font size for labels */
+    color: #555; /* Use a lighter color for labels */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .accountallmutualfundlist-row h2, .accountallmutualfundlist-row h3 {
+    font-size: 15px; /* Slightly larger size for numbers */
+    font-weight: bold; /* Highlight numbers */
+    color: #333; /* Darker color for emphasis */
+    margin: 0; /* Remove default margin */
+  }
+  
+  
+  
+  
+  
+ 
+  .accountallmutualfundlist-button {
+    width: 55%;
+    padding: 10px;
+    background-color: #24b676;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    margin-left: 70px;
+  }
+  
+  .accountallmutualfundlist-button:hover {
+    background-color: #1f9e5b;
+  }
+  /* For screens with width 768px or less */
+@media (max-width: 768px) {
+  .accountallmutualfundlist-container {
+    width: 90%; /* Full width minus some padding */
+    margin: 20px auto; /* Center the container */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .alllsipcontainerss {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the child containers */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: -20px;
+  }
+
+  .accountallmutualfundlist-chart {
+    width: 150px; /* Smaller chart for smaller screens */
+    height: 150px;
+  }
+
+  .accountallmutualfundlist-legend {
+    flex-wrap: wrap; /* Allow wrapping for smaller width */
+    gap: 10px;
+  }
+
+  .accountallmutualfundlist-button {
+    width: 70%; /* Expand button width */
+    margin-left:45px;
+ 
+   
+  }
+
+
+}
+
+/* For screens with width 480px or less */
+@media (max-width: 480px) {
+  .accountallmutualfundlist-container {
+    width: 87%;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+  .accountallmutualfundlist-chart {
+    width: 120px; /* Further reduce chart size */
+    height: 120px;
+  }
+
+  .accountallmutualfundlist-legend {
+    flex-direction: row; /* Stack legend items vertically */
+    align-items: center;
+    gap: 8px;
+  }
+
+  .accountallmutualfundlist-legend-item {
+    font-size: 10px; /* Smaller font size */
+  }
+
+  .accountallmutualfundlist-row {
+    flex-direction: row; /* Stack rows vertically */
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .accountallmutualfundlist-button {
+    width: 74%;
+    margin-left: 30px;
+    font-size: 12px;
+    margin-top: 13px;
+    /* margin-right: auto; */
+}
+.accountallmutualfundlist-details {
+  display: flex;
+  flex-direction: column; /* Stack rows vertically */
+  gap: 5px; /* Add spacing between rows */
+  align-items: flex-start; /* Align all rows to the left */
+  padding: 1px; /* Add padding around the container */
+  box-sizing: border-box; /* Include padding in the width/height calculations */
+}
+
+}
+  /* For screens with width 768px or less */
+@media (max-width: 768px) {
+  .sippcaloculatorrs-container {
+    width: 90%; /* Adjust width to fit smaller screens */
+    margin: 20px auto; /* Center container */
+    padding: 15px; /* Reduce padding */
+  }
+  .sippcaloculatorrs-slider-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 107%;
+ 
+}
+  .sippcaloculatorrs-input label {
+    font-size: 14px; /* Reduce label font size */
+  }
+
+  .sippcaloculatorrs-slider {
+    margin-right: 5px; /* Reduce spacing for smaller screens */
+   
+  }
+
+  .sippcaloculatorrs-textbox {
+    width: 70px; /* Reduce textbox width */
+    font-size: 14px; /* Smaller font size */
+  }
+  .alllsip{
+    display: flex;
+    gap: 160px;
+ 
+  }
+  .alllsiprate{
+    display: flex;
+    gap: 80px;
+  }
+  .alllsipmonthly{
+    display: flex;
+    gap: 100px;
+  }
+  .sippcaloculatorrs-textbox {
+    width: 100px;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 4px rgb(185, 182, 182);
+}
+}
+
+/* For screens with width 480px or less */
+@media (max-width: 480px) {
+  .sippcaloculatorrs-container {
+    width: 90%; /* Full width on very small screens */
+    margin: 10px auto; /* Adjust margins */
+    padding: 10px; /* Further reduce padding */
+  }
+
+  .sippcaloculatorrs-input label {
+    font-size: 12px; /* Smaller label font size */
+  }
+
+  .alllsip{
+    display: flex;
+    gap: 100px;
+ 
+  }
+  .alllsiprate{
+    display: flex;
+    gap: 30px;
+  }
+  .alllsipmonthly{
+    display: flex;
+    gap: 50px;
+  }
+  .sippcaloculatorrs-slider-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 95%;
+    background-color: none;
+}
+  .sippcaloculatorrs-slider {
+    margin-bottom: 10px; /* Add space between slider and textbox */
+    width: 100%; /* Make slider take full width */
+  }
+
+  .sippcaloculatorrs-textbox {
+    width: 50px; /* Further reduce textbox width */
+    font-size: 12px; /* Smaller font size */
+  }
+  .sippcaloculatorrs-textbox {
+    width: 100px;
+    padding: 7px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    background-color: #fff;
+    color: #333;
+    box-shadow: 0 2px 4px rgb(185, 182, 182);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

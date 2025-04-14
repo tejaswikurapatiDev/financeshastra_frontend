@@ -1,0 +1,440 @@
+.refundpolicyy {
+  font-family: 'Calibri';
+  width: 900px;
+  margin-left: 300px;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 120px;
+  overflow-x: hidden; /* Hides horizontal scrolling */
+  max-width: 100%; /* Ensures it doesn't exceed the screen width */
+}
+
+  
+  .refundpolicyy h1 {
+  font-size: 26px;
+  margin-left: 80px;
+    color:black;
+    margin-bottom: 10px;
+  }
+  
+  .refundpolicyy-lastupdated {
+ margin-right: 520px;
+    font-size: 14px;
+    color:black;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icons and text */
+  }
+  
+  .calenderrefundicon {
+    color:black ;
+    font-size: 16px;
+  }
+  
+  .dotrefund {
+    color: #24b676;
+    font-size: 26px;
+  }
+  
+  .refundpolicyy-header {
+
+    margin-bottom: 10px;
+  }
+  .refundpolicyy-header p{
+    font-size: 15px;
+    color: black;
+  }
+  
+  .refundpolicyy-image {
+margin-left: 60px;
+  width: 800px;
+  height: 400px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: -70px;
+  }
+  
+  .refundpolicyy-section h2 {
+    color: black;
+    font-size: 24px;
+    margin-top: 10px;
+    
+  }
+  
+  .refundpolicyy-section h3 {
+  color: black;
+    font-size: 18px;
+ 
+  }
+  
+  .refundpolicyy-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 15px;
+    color: black;
+  }
+  
+  .refundpolicyy-section ul li {
+margin-left: 10px;
+  }
+  
+  .refundpolicyy-section p ,.refundpolicyy-contact p{
+    font-size: 15px;
+    color: black;
+  }
+
+  .refundpolicyy-contact {
+ margin-bottom: 130px;
+  font-size: 15px;
+  color: black;
+    
+  }
+.foooterpagesatttrefund{
+  width: 1450px;
+  margin-left: -300px;
+}
+
+
+
+
+
+
+
+  .refundpolicyydarkmode {
+    font-family: 'Calibri';
+   
+margin-left: -10px;
+margin-right: -10px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 105px;
+    background-color: #292F42;
+  }
+  
+  .refundpolicyydarkmode h1 {
+  font-size: 26px;
+  margin-left: 350px;
+    color:white;
+    margin-bottom: 2px;
+  }
+  
+  .refundpolicyy-contactdarkmode a{
+    text-decoration: none;
+    color: #24b676;
+  }
+  .refundpolicyy-sectiondarkmode a{
+    text-decoration: none;
+    color: #24b676;
+  }
+  .refundpolicyy-lastupdateddarkmode {
+ margin-right: 560px;
+    font-size: 14px;
+    color:white;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icons and text */
+  }
+  
+  .calenderrefundicondarkmode {
+    color:white ;
+    font-size: 16px;
+  }
+  
+.refundpolicyy-sectiondarkmode{
+  margin-left: 250px;
+}
+  .refundpolicyy-headerdarkmode {
+    width: 900px;
+  
+   
+    margin-left: 240px;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .refundpolicyy-headerdarkmode p{
+    font-size: 15px;
+    color:white;
+  }
+  
+  .refundpolicyy-imagedarkmode {
+margin-left: 50px;
+  width: 800px;
+  height: 400px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: -70px;
+  }
+  
+  .refundpolicyy-sectiondarkmode h2 {
+    color: white;
+    font-size: 24px;
+    margin-top: 10px;
+    
+  }
+  
+  .refundpolicyy-sectiondarkmode h3 {
+  color: white;
+    font-size: 18px;
+ 
+  }
+  
+  .refundpolicyy-sectiondarkmode ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 15px;
+    color: white;
+  }
+  
+  .refundpolicyy-sectiondarkmode ul li {
+margin-left: 10px;
+  }
+  
+  .refundpolicyy-sectiondarkmode p ,.refundpolicyy-contactdarkmode p{
+    font-size: 15px;
+    color: white;
+  }
+
+  .refundpolicyy-contactdarkmode {
+ margin-bottom: 130px;
+  font-size: 15px;
+  color: white;
+  margin-left: 250px;
+    
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+  /* Extra Large Screens (1536px and above) */
+@media (min-width: 1536px) {
+  .refundpolicyy,
+  .refundpolicyydarkmode {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+  }
+
+  .refundpolicyy h1 {
+    font-size: 26px;
+    margin-left: 10px;
+    color: black;
+    margin-bottom: 10px;
+}
+.refundpolicyy-lastupdated {
+  margin-right: 660px;
+  font-size: 14px;
+  color: black;
+  margin-bottom: 20px;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 900px;
+    height: 450px;
+    margin-left: -10px;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 280px;
+  }
+  .refundpolicyy {
+    font-family: 'Calibri';
+    width: 900px;
+    margin-left: 350px;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 120px;
+    overflow-x: hidden; /* Hides horizontal scrolling */
+    max-width: 100%; /* Ensures it doesn't exceed the screen width */
+  }
+  
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .refundpolicyy,
+  .refundpolicyydarkmode {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 850px;
+    height: 400px;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 220px;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .refundpolicyy,
+  .refundpolicyydarkmode {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 750px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 150px;
+  }
+ 
+}
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .refundpolicyy,
+  .refundpolicyydarkmode {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 650px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 100px;
+  }
+  .refundpolicyy-lastupdated {
+    width: 35%;
+  }
+  .refundpolicyy h1 {
+    margin-left: 20px;
+    margin-top: -10px;
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+  .refundpolicyy,
+  .refundpolicyydarkmode {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+  }
+
+  .refundpolicyy h1,
+  .refundpolicyydarkmode h1 {
+    margin-left: 10px;
+    font-size: 22px;
+  }
+
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 20px;
+    width: auto;
+  }
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+  .refundpolicyy h1,
+  .refundpolicyydarkmode h1 {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-top: -20px;
+  }
+ 
+  .refundpolicyy-image,
+  .refundpolicyy-imagedarkmode {
+    width: 100%;
+    height: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .refundpolicyy-headerdarkmode,
+  .refundpolicyy-sectiondarkmode {
+    margin-left: 10px;
+    width: auto;
+  }
+
+  .refundpolicyy-section h2,
+  .refundpolicyy-sectiondarkmode h2 {
+    font-size: 20px;
+  }
+
+  .refundpolicyy-section h3,
+  .refundpolicyy-sectiondarkmode h3 {
+    font-size: 16px;
+  }
+
+  .refundpolicyy-contact,
+  .refundpolicyy-contactdarkmode {
+    margin-bottom: 80px;
+    font-size: 14px;
+  }
+  .refundpolicyy-lastupdated {
+    width: 66%;
+    
+  }
+  .refundpolicyy-section ul li {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.refundpolicyy-section p, .refundpolicyy-contact p {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.refundpolicyy-header p {
+  margin-top: 30px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.refundpolicyy-contact, .refundpolicyy-contactdarkmode {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+}

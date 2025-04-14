@@ -1,0 +1,141 @@
+/* General container styling */
+.profile-container {
+    font-family: 'calibri';
+   width: 1200px;
+    background-color:white;
+    margin-left: 150px;
+    margin-top: 110px;
+  }
+  
+  /* Banner section */
+  .profile-banner {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+
+  .profile-banner {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .banner-image {
+    width: 85%;
+    height: 300px;
+    border-radius: 8px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+   
+  }
+  
+  .profile-title {
+    font-size: 22px;
+    margin-left: -200px;
+   
+ 
+  }
+  
+  .profile-subtitle {
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-left: -70px;
+  }
+  
+  .profile-button {
+    background: linear-gradient(90deg, #24b676, #238486);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: -200px;
+  }
+  
+  .profile-button:hover {
+    background: linear-gradient(90deg, #238486, #24b676);
+  }
+  
+
+
+  
+  /* Plans section */
+  .profile-plans {
+    margin-top: 20px;
+  }
+  
+  .profile-current-plan {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 105px;
+  }
+  
+  /* Plan card */
+  .profile-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-plan-name {
+    font-weight: bold;
+  }
+  
+  /* Plan-specific classes */
+  .profile-plan.elite-plan {
+    background-color: white;
+    width: 970px;
+    margin-left: 105px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+  }
+  
+  .profile-plan.elite-plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .profile-plan.premium-plan {
+    background-color: white;
+    width: 970px;
+    margin-left: 105px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;/* Light cream for Premium Plan */
+  }
+  .profile-plan.premium-plan:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Upgrade button */
+  .profile-upgrade-button {
+    padding: 8px 10px;
+    background-color:#24b676;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 110px;
+  }
+  
+  .profile-upgrade-button:hover {
+    background-color: #1daa6d;
+  }
+  

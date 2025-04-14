@@ -1,0 +1,100 @@
+.transaction-inputcharge{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 60%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: 10px;
+}
+.transaction-inputnet{
+    padding: 8px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    width: 100%; /* Makes inputs take full width of their label container */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    margin-left: -50px;  
+}
+.netamm p1{
+margin-left: -43px;
+}
+.form-buttonsmoreadd button{
+    margin-left: 700px;
+    border: none;
+    color: #24b676;
+    background-color: white;
+    cursor: pointer;
+}
+
+.save-button button{
+    margin-left: 600px;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+    .form-buttonsmoreadd button {
+        margin-left: 550px;
+        border: none;
+        color: #24b676;
+        background-color: white;
+        cursor: pointer;
+    }
+    .transaction-inputcharge {
+        padding: 8px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        width: 70%;
+        box-sizing: border-box;
+         margin-left: 0px;
+    }
+    .transaction-inputnet {
+        padding: 8px;
+        border: 1px solid #333;
+        border-radius: 5px;
+        width: 70%;
+        box-sizing: border-box;
+        margin-left: 0px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sip-linkmutual {
+        display: flex
+    ;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 10px;
+        font-size: 15px;
+        margin-left: 490px;
+    }
+    .form-buttonsmoreadd button {
+        margin-left: 250px;
+        border: none;
+        color: #24b676;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-buttonsmoreadd button {
+        margin-left: 105px;
+        border: none;
+        color: #24b676;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 320px) {
+    .form-buttonsmoreadd button {
+        margin-left: 55px;
+        border: none;
+        color: #24b676;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
