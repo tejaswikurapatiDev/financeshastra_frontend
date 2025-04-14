@@ -770,4 +770,12 @@ margin-left: -20px;
   .investment-itemalluser input[name="mutualfund"] {
     width: 30px;
   }
+  .editiconprofile {
+    color: #24b676;
+    margin-left: -40px;
+}
+.value, .current-value {
+  font-size: 11px;
+  margin-left: -15px;
+}
 }
