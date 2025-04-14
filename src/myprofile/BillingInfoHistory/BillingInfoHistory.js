@@ -217,7 +217,7 @@ const BillingInfoHistory = () => {
           <>
             <div className="profilepagee-container">
               <h1
-                className="profilepage-titleorder"
+                className="profilepage-titlebiling"
                 style={{ fontFamily: "Calibri" }}
               >
                 My Billing & Subscription

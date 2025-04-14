@@ -9,17 +9,27 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const Billingavailableplan = () => {
   const [activepage, setactivepage] = useState("half");
 
-  const navigate = useNavigate();
-  return (
-    <div>
-      <div className="profilepagee-container">
-        <div className="">
-          <div className="billingSubscriptionContainer">
-            <h2 className="billingSubscriptionTitle">Available Plan</h2>
-            <div className="billingSubscriptionCard">
-              <h2 className="billing-detailspages-amount">
-                <span style={{ color: "black" }}>Rs 5,999</span> <br />
-              </h2>
+    const navigate = useNavigate();
+    return (
+        <div>
+             <div >
+
+
+
+
+            <div className="">
+
+               
+                
+
+                <div className="billingSubscriptionContainer">
+                    <h2 className="billingSubscriptionTitle">Available Plan</h2>
+                    <div className="billingSubscriptionCard">
+                        <h2 className="billing-detailspages-amount">
+                            <span style={{ color: "black" }}>Rs 5,999</span> <br />
+
+
+                        </h2>
 
               <p className="billing-detailspages-plan">
                 <strong style={{ color: "#888" }}>Plan </strong>
