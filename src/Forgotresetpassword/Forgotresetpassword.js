@@ -3,6 +3,7 @@ import "./Forgotresetpassword.css";
 import resetlogoimg from "../assest/finanlogo.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import { API_BASE_URL } from "../config";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Forgotresetpassword() {
   const [password, setPassword] = useState("");
@@ -10,6 +11,8 @@ function Forgotresetpassword() {
   const [passwordError, setPasswordError] = useState("");
   const [passwordMatchError, setPasswordMatchError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
   const { token } = useParams();
 
@@ -105,12 +108,20 @@ function Forgotresetpassword() {
             {/* New Password */}
             <div className="input-groupreset">
               <label>New Password*</label>
-              <input
-                type="password"
-                className={`input-field ${passwordError ? "error-border" : ""}`}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <div className="password-input-wrapper">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  className={`input-field ${passwordError ? "error-border" : ""}`}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <span
+                  className="eye-icon"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
               {submitted && passwordError && (
                 <p className="error-text">{passwordError}</p>
               )}
@@ -119,12 +130,20 @@ function Forgotresetpassword() {
             {/* Confirm Password */}
             <div className="input-groupreset">
               <label>Confirm New Password*</label>
-              <input
-                type="password"
-                className={`input-field ${passwordMatchError ? "error-border" : ""}`}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+              <div className="password-input-wrapper">
+                <input
+                  type={showConfirmPassword ? "text" : "password"}
+                  className={`input-field ${passwordMatchError ? "error-border" : ""}`}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <span
+                  className="eye-icon"
+                  onClick={() => setShowConfirmPassword((prev) => !prev)}
+                >
+                  {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
+                </span>
+              </div>
               {submitted && passwordMatchError && (
                 <p className="error-text">{passwordMatchError}</p>
               )}
