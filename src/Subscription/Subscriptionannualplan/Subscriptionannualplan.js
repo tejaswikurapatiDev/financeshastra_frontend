@@ -44,7 +44,7 @@ const SubscriptionPlans = () => {
 
                   <div className="ribbon-price">
                     <span className="price-value" >₹2,999</span>
-                    <span className="price-valuemonth"> / 6 Month</span>
+                    <span className="price-valuemonth"> / 12 Months</span>
                     <span className="ribbon-price-detailelite">   ₹8,999  / After 6 Month</span>
 
                     <div className="text-black">You save
@@ -125,7 +125,7 @@ const SubscriptionPlans = () => {
                     </p>
                     <div className="ribbon-price">
                       <span className="price-value">₹7,999</span>
-                      <span className="price-valuemonth"> / 6 Month</span>
+                      <span className="price-valuemonth"> / 12 Months</span>
                       <span className="ribbon-price-detail">₹19,999 / After 6 Month</span>
                       <div className="text-black">
                         You save

@@ -44,6 +44,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: space-between;
+      margin-left: -30px;
     }
     
     .questions-rowww h4{
@@ -121,7 +122,7 @@
       cursor: pointer;
       margin-top: 20px;
       transition: background-color 0.3s ease;
-      margin-left: 480px;
+      margin-left: 450px;
       margin-bottom: 10px;
     }
     
@@ -174,6 +175,57 @@
         
   }
     
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .riskProfileFormAll .questions-rowww {
+      display: flex
+  ;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-left: -90px;
+  }
+  .riskProfileFormAll button {
+    display: block;
+    width: 15%;
+    padding: 13px 15px;
+    background-color: #24b676;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    margin-left: 430px;
+    margin-bottom: 10px;
+  }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .riskProfileFormAll .questions-rowww {
+      display: flex
+    ;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+       margin-left: -20px;
+      width: 970px;
+    }
+    .riskProfileFormAll button {
+      display: block;
+      width: 15%;
+      padding: 13px 15px;
+      background-color: #24b676;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+      margin-left: 380px;
+      margin-bottom: 10px;
+    }
+  }
     /* Responsive design */
     @media (max-width: 768px) {
       .riskProfileFormAll {
@@ -220,8 +272,8 @@
           flex-wrap: wrap;
           gap: 20px;
           justify-content: space-between;
-          flex-direction: column;
-         
+         width: 700px;
+         margin-left: -10px;
         }
         
         .questions-rowww h4{
@@ -234,11 +286,11 @@
           border-radius: 58px;
           box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951); /* Adds a subtle shadow */
           border: 1px solid rgb(196, 193, 193);
-          flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+          flex: 1 1 calc(43.33% - 20px); /* 3 cards per row */
           box-sizing: border-box;
           width: 460px;
           transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
-          height: 350px;
+          height: 400px;
       }
       
       /* Adding hover effect for better user experience */
@@ -299,7 +351,7 @@
           cursor: pointer;
           margin-top: 20px;
           transition: background-color 0.3s ease;
-          margin-left: 160px;
+          margin-left: 285px;
           margin-bottom: 100px;
         }
         
@@ -385,5 +437,15 @@
       margin-left: 10%; /* Center align the button */
       margin-bottom: 50px; /* Add spacing below the button */
     }
+    .riskProfileFormAll .questions-rowww {
+      display: flex
+;
+flex-direction: column;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      width: 110%;
+      margin-left: -12px;
+  }
   }
   

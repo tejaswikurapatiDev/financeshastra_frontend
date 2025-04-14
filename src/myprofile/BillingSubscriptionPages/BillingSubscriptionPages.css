@@ -2,11 +2,20 @@
 .billingSubscriptionContainer {
     padding: 20px;
     font-family: 'calibri';
+    margin-left: -160px;
   }
   /*.activecont{
     background-color: ;
   }*/
   
+  .profilepage-titlebiling {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-left: 90px;
+    margin-top: 50px;
+}
   .billingSubscriptionTitle, .billingSubscriptionSubtitle {
     color: #333;
     margin-bottom: 10px;
@@ -96,15 +105,41 @@
   .billingSubscriptionPlanButton:hover {
     background: #218838;
   }
-  /* Medium Desktops (1024px - 1279px) */
+
+
+  @media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+
+  .profilepage-titlebiling {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-left: 262px;
+}
+  }
+  /*
+  
+  Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .billingSubscriptionPlans {
     width: 50%;
     margin-left: 230px;
   }
+  .profilepage-titlebiling {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-left: 90px;
+}
   .billingSubscriptionCard {
     margin-left: 120px;
   }
+  .billingSubscriptionContainer {
+    padding: 20px;
+    font-family: 'calibri';
+     margin-left: 0px; 
+}
   .billingSubscriptionTitle, .billingSubscriptionSubtitle {
     margin-left: 130px;
   }
@@ -113,7 +148,7 @@
   @media screen and (max-width: 768px) {
     .billingSubscriptionContainer {
       padding: 15px;
-      
+      margin-left: 0px;
      
     }
   
@@ -154,11 +189,19 @@
       width: 40%;
       padding: 12px;
     }
+    .profilepage-titlebiling {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      align-self: flex-start;
+      margin-left: 9px;
+  }
   }
   
   @media screen and (max-width: 480px) {
     .billingSubscriptionContainer {
       padding: 15px;
+      margin-left: 0px;
      
     }
   
@@ -171,7 +214,7 @@
   
     .billingSubscriptionCard {
       width: 93%;
-      margin-left: -10px;
+
       margin-right: auto;
       padding: 12px;
     }
@@ -202,5 +245,34 @@
     .billingSubscriptionPlanButton {
       margin-top: 25px;
   }
+  .profilepage-titlebiling {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-left: 15px;
+}
   }
   
+  @media screen and (max-width: 320px) {
+    .profilepage-titlebiling {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        align-self: flex-start;
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+    .billingSubscriptionContainer {
+      padding: 15px;
+      margin-left: -10px;
+
+  }
+  .billingSubscriptionButton {
+    width: 50%;
+    padding: 8px;
+}
+.billingSubscriptionPlans {
+margin-left: 10px;
+}
+}
