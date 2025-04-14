@@ -10,32 +10,17 @@ import { debounce } from "lodash";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Sidebar from "../../Sidebar/Sidebar";
+import useSearch from "../../Navbar/Hooks/useSearch";
 
 const AddTransactionstock = ({children}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  //fetch search data conditionally with using custom hook
+  useSearch();
   const stocksData = useSelector((store) => store?.searchData?.searchData);
 
   const { setStocksTransactions } = useContext(PortfolioStocksContext);
-
-  // **Fetch All Data**
-  useEffect(() => {
-    if (!stocksData || stocksData.length === 0) {
-      const getAllData = async () => {
-        try {
-          const response = await fetch(`${API_BASE_URL}/search/allInfo`);
-          const data = await response.json();
-          console.log("hii api called");
-          dispatch(setSearchData(data?.data || []));
-        } catch (error) {
-          console.error("Error fetching search data:", error);
-        }
-      };
-
-      getAllData();
-    }
-  }, [dispatch, stocksData]);
 
   // Access the transaction to be edited, if passed via state
   const transaction = location.state?.transaction;
@@ -214,14 +199,14 @@ const AddTransactionstock = ({children}) => {
         <form className="transaction-row-wrapper">
           <div className="transaction-row">
             {/* Transaction Type */}
-            <label>
-              <p1 style={{ marginLeft: "49px" }}>Type</p1>
+            <label  className="alltype">
+              <p1 >Type</p1>
               <br />
               <select
                 name="type"
                 value={transactionData.type}
                 onChange={handleInputChange}
-                style={{ width: "80px", height: "30px", marginLeft: "50px" }}
+               
                 className="transaction-input"
               >
                 <option value="Buy">Buy</option>
@@ -230,8 +215,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Stock Name */}
-            <label style={{ position: "relative" }}>
-              Stock Name
+            <label  className="alltype"style={{ position: "relative" }}>
+            <p1>Stock Name</p1>
               <br />
               <input
                 type="text"
@@ -261,8 +246,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Exchange */}
-            <label>
-              Exchange
+            <label  className="alltype">
+            <p1>Exchange</p1>
               <br />
               <input
                 type="text"
@@ -274,8 +259,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Date */}
-            <label>
-              Date
+            <label className="alltype">
+            <p1>Date</p1>
               <input
                 type="date"
                 name="date"
@@ -286,8 +271,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Quantity */}
-            <label>
-              Quantity
+            <label className="alltype">
+            <p1>Quantity</p1>
               <input
                 type="number"
                 name="quantity"
@@ -299,8 +284,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Price */}
-            <label>
-              Price / Stock
+            <label className="alltype">
+              <p1>Price / Stock</p1>
               <input
                 type="number"
                 name="price"
@@ -325,7 +310,7 @@ const AddTransactionstock = ({children}) => {
           >
             {/* Amount */}
             <label className="amountupdate">
-              <p1 style={{ marginLeft: "35px" }}>Amount</p1>
+              <p1 >Amount</p1>
               <input
                 type="number"
                 name="amount"
@@ -336,8 +321,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Net Amount */}
-            <label>
-              Net Amount
+            <label className="alltype">
+            <p1 >Net Amount</p1>
               <input
                 type="number"
                 name="net_amount"
@@ -348,8 +333,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Total Charges */}
-            <label>
-              Total Charges
+            <label className="alltype">
+            <p1 >Total Charges</p1>
               <input
                 type="number"
                 name="total_charges"
@@ -360,8 +345,8 @@ const AddTransactionstock = ({children}) => {
             </label>
 
             {/* Notes */}
-            <label>
-              Notes
+            <label className="alltype">
+            <p1 >Notes</p1>
               <input
                 type="text"
                 name="notes"
@@ -410,7 +395,9 @@ const AddTransactionstock = ({children}) => {
     <Sidebar />
     <div className="main-contentover">
       <div className="contentover">{children}</div>
-      <FooterForAllPage />
+      <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
     </div>
   </div>
   </div>

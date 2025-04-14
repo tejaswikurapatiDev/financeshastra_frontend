@@ -68,11 +68,11 @@ const ReffeerralProfilePageSSS = () => {
   return (
     <div>
     <div className="profilepageee-container">
-      <h1 className="profilepage-title" style={{ fontFamily: "Calibri" }}>
+      <h1 className="profilepage-titlemy" style={{ fontFamily: "Calibri" }}>
         My Referrals
       </h1>
 
-      <div className="profilepage-tabsorderusers">
+      <div className="profilepage-tabsorderusersmyre">
         <span
           className="profilepage-tabb"
           onClick={() => navigate("/userDetailsupdate")}

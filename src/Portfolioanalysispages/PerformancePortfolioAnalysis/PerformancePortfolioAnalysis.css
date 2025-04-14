@@ -123,6 +123,20 @@
     display: inline-block;
   
 }
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+.performanceportfolioanalysis-note {
+    font-size: 14px;
+    margin-top: 30px;
+    color: #333;
+    font-family: 'calibri';
+    margin-left: 50px;
+}
+
+}
+
 @media (max-width: 768px) {
     .react-datepicker {
         border-radius: 8px;

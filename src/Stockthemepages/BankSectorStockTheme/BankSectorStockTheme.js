@@ -90,6 +90,7 @@ const BankSectorThemePage = () => {
   };
  const navigate = useNavigate();
     return (
+      <div>
         <div className="banksectorthemepage">
             <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
@@ -203,7 +204,9 @@ const BankSectorThemePage = () => {
       </tbody>
     </table>
     <Stockthemeunlocknavbar/>
-    <div className="StockThemesindustriesPagesfooter">
+   
+        </div>
+        <div >
       <FooterForAllPage/>
       </div>
         </div>

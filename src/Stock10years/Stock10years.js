@@ -111,7 +111,7 @@ const Stockxray = () => {
   headers={['9 Years', '5 Years', '3 Years', '1 Year']} 
 
   className="cagr-table" 
-  style={{ width: '10%', margin: '0 auto' }} 
+  style={{ width: '10%' }} 
 />
 </div>
     <FinancialTable title="Key Financial Parameters" 

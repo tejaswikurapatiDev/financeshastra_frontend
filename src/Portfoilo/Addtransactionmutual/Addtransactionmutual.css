@@ -2,13 +2,14 @@
     padding: 8px;
     border: 1px solid #333;
     border-radius: 5px;
-    width: 20%; /* Makes inputs take full width of their label container */
+    width: 80%; /* Makes inputs take full width of their label container */
     box-sizing: border-box; /* Includes padding in width calculation */
-    margin-left: 200px;
+    margin-left: 10px;
 }
 .noteall{
     margin-left: -200px;
 }
+
 .transaction-inputnote{
     padding: 8px;
     border: 1px solid #333;
@@ -42,4 +43,26 @@
   
   .sip-linkmutual a:hover {
     text-decoration: underline;
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .transaction-inputdividened{
+      padding: 8px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      width: 70%; /* Makes inputs take full width of their label container */
+      box-sizing: border-box; /* Includes padding in width calculation */
+      margin-left: 0px;
+  }
+  .sip-linkmutual {
+    display: flex
+;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+    font-size: 15px;
+    margin-left: 460px;
+}
+  .noteallp p1{
+    margin-left: -45px;
+  }
   }

@@ -1694,6 +1694,7 @@ gap: 1020px;
   .screener-table th:first-child,
   .screener-table th:last-child {
     padding: 8px;
+    font-size: 12px;
   }
 
   .screener-row:nth-child(even) {
@@ -2054,6 +2055,7 @@ gap: 1020px;
     white-space: normal;
     text-align: left;
     width: 150px;
+    font-size: 12px;
 
   }
 

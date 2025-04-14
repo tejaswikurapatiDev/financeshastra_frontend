@@ -119,7 +119,6 @@ const Beststock = () => {
     };
     fetchfun();
   }, []);
-  console.log(stocks)
 
   // Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
@@ -2323,7 +2322,7 @@ const Beststock = () => {
                       alt={`${stock.symbol} logo`}
                       className="company-icon"
                     />
-
+                      {console.log(stock.icon)}
                     <a href={stock.url}>{stock.symbol}</a>
                   </td>
 

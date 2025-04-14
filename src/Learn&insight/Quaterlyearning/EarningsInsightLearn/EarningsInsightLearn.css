@@ -16,6 +16,7 @@
     color: black;
     font-size: 16px;
     margin-left: 40px;
+    margin-right: 30px;
 }
 
 .earnings-insight-learnh1 {
@@ -402,7 +403,7 @@
 
     .earnings-insight-learn-header h1 {
         font-size: 20px; /* Adjust font size for headers */
-        margin-left: 1px;
+        margin-left: 20px;
     }
 
     .earnings-insight-learn-tabs {
@@ -415,7 +416,7 @@
         display: block; /* Make table behave as a block element */
         margin-bottom: 100px;
         height: 400px;
-        margin-left: 1px;
+        margin-left: 20px;
     }
 
     .earnings-insight-learn-table th, 
@@ -515,7 +516,7 @@
     .earnings-insight-learnp {
         color: black;
         
-        margin-left: 1px;
+        margin-left: 20px;
     }
   
 }

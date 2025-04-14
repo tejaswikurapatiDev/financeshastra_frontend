@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "./Openemailforgotpass.css";
 import logoimg from "../../assest/finanlogo.svg";
 import inboximg from "../../assest/inbox.jpeg";
+import { useLocation } from "react-router-dom";
+import { API_BASE_URL } from "../../config";
+import Cookies from "js-cookie";
 
 function Openemailforgotpass() {
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -16,6 +18,8 @@ function Openemailforgotpass() {
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.email || "";
 
   const validateEmail = (email) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -31,6 +35,55 @@ function Openemailforgotpass() {
   const override = {
     display: "block",
     textAlign: "center",
+  };
+
+  const resendEmailLink = async (e) => {
+    e.preventDefault();
+    const trimmedEmail = email.trim();
+
+    // Validation
+    if (!trimmedEmail) {
+      setEmailError("Email is required");
+      return;
+    }
+
+    if (!validateEmail(trimmedEmail)) {
+      setEmailError("Enter a valid email address");
+      return;
+    }
+
+    setEmailError("");
+    setIsLoading(true);
+
+    try {
+      const url = `${API_BASE_URL}/users/forget-password`;
+      const token = Cookies.get("jwtToken");
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ email: trimmedEmail }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Password reset link sent to your email!");
+        navigate("/openemailforgotpass", { state: { email } });
+      } else if (response.status === 404) {
+        setEmailError("Email not found. Please enter a correct email.");
+      } else {
+        setEmailError(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred while sending the request.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -197,7 +250,10 @@ function Openemailforgotpass() {
   return (
     <div className="login-container">
       <div className="login-leftforget">
-        <img src={logoimg} className="logoforgt" />
+        <img src={logoimg} className="logoforgt" 
+          onClick={() => {
+            navigate("/");
+          }}/>
       </div>
       <div className="login-right">
         <div className="login-boxforget">
@@ -219,7 +275,10 @@ function Openemailforgotpass() {
 
           <p className="paragraphforgett">
             Didn’t received the email ?{" "}
-            <strong style={{ color: "#0349A8", cursor: "pointer" }}>
+            <strong
+              style={{ color: "#0349A8", cursor: "pointer" }}
+              onClick={resendEmailLink}
+            >
               Resend
             </strong>
           </p>

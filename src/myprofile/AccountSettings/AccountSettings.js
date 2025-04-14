@@ -9,7 +9,6 @@ import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
 import Cookies from 'js-cookie'
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import AccountBar from "../AccountBar";
 
 
 const AccountSettings = () => {
@@ -149,7 +148,28 @@ const AccountSettings = () => {
     <div>
     <div className="profilesettingpassword-container">
       <h1 className="profilepage-titlee">Password & Security</h1>
-      <AccountBar/>
+      <div className="profilepage-tabsss">
+        <span className="profilepage-tabb" onClick={() => navigate("/userDetailsupdate")}>My Account</span>
+        <span
+      className="profilepage-tabb"
+      onClick={() => navigate('/orderTable')}
+    >
+      Orders
+    </span>
+        <span className="profilepage-tabb"onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
+        <span className="profilepage-tabb"onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
+        <span className="profilepage-tabb"
+         onClick={() => navigate('/managealert')}>Manage Alert</span>
+
+<span className="profilepage-tabb"style={{
+  borderBottom: "2px solid #24b676",
+  fontWeight: "bold",
+  color: "#24b676",
+}}
+         onClick={() => navigate('/accountSettings')}>Password & Security</span>
+        <span className="profilepage-tabb"  onClick={() => navigate('/sessionHistory')} >Active Devices</span>
+        <span className="profilepage-tabb"onClick={() => navigate("/myReferalPage")}>My referrals</span>
+      </div>
          {/* Popup Notification */}
          <section className={`profilesettingpassword-content ${isPopupVisible ? "blur" : ""}`}>
     {/* Password Form and Linked Accounts */}

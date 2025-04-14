@@ -8,6 +8,7 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: -80px;
   }
   
   .sip-calculator-header {
@@ -89,11 +90,41 @@
     margin-bottom: 16px;
     color: #333;
   }
+  @media (min-width: 2500px) {
+    .sip-calculator-container {
+      width: 70%;
+      max-width: 700px;
+      margin: 0 auto;
+      font-family: 'calibri';
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-left: -290px;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .sip-calculator-container {
+      width: 50%;
+      max-width: 300px;
+      margin: 0 auto;
+      font-family: 'calibri';
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-right: 10px;
+   
+    } 
+  }
   /* Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .sip-calculator-container {
-      max-width: 95%; /* Allow it to use full width */
+      max-width: 88%; /* Allow it to use full width */
       padding: 15px; /* Reduce padding */
+      margin-left: 30px;
   }
 
   .sip-calculator-title {
@@ -122,7 +153,7 @@
 
   .sip-start-button {
       font-size: 14px; /* Adjust button font size */
-      width: 100%; /* Make button full width */
+      width: 20%; /* Make button full width */
   }
 }
 
@@ -130,7 +161,10 @@
 @media (max-width: 480px) {
   .sip-calculator-container {
       padding: 10px; /* Further reduce padding */
-      margin-right: 70px;
+     
+
+      width: 80%;
+      margin-left: 30px;
   }
 
   .sip-calculator-title {
@@ -140,6 +174,7 @@
   .sip-calculator-button {
       font-size: 12px; /* Smaller button text */
       padding: 6px 10px; /* Reduce button padding further */
+      
   }
 
   .sip-input-row {
@@ -158,9 +193,20 @@
   .sip-start-button {
       font-size: 12px; /* Smaller button font */
       padding: 10px; /* Adjust padding */
+      width: 30%;
   }
 
   .sip-start-button-container {
       margin-top: 15px; /* Reduce margin */
+  }
+}
+
+@media (max-width: 320px) {
+  .sip-calculator-container {
+      padding: 10px; /* Further reduce padding */
+     
+      max-width: 270px;
+      width: 100%;
+      margin-left: 10px;
   }
 }

@@ -152,13 +152,23 @@ margin-right: -40px;
 @media (min-width: 2500px) {
   .blogsGrid {
     grid-template-columns: repeat(3, 1fr);
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1706px;
+    margin-left: 450px;
+    max-width: 1906px;
+    gap: 50px;
   }
+  .checkAllBlogs {
+    background-color: #24b676;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 50px;
+}
   .tabsContainerblogggs{
     margin-right: auto;
-    margin-left: -720px
+    margin-left: 450px
   }
   .blogCard {
     border: 1px solid rgba(149, 149, 150, 0.659);
@@ -194,7 +204,15 @@ margin-right: -40px;
 }
 
  @media (min-width: 1280px) and (max-width: 1535px) {
-
+  .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
+    margin-left: 153px;
+}
+.readMoreblogs {
+  color: #28a745;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 110px;
+}
   .blogsGrid {
     margin-left: 120px;
     grid-template-columns: repeat(3, 1fr);
@@ -208,7 +226,7 @@ margin-right: -40px;
     font-size:15px;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 140px;
+    margin-left: 120px;
    justify-content: center;
   }
   .blogsContainer {
@@ -255,7 +273,7 @@ margin-right: -40px;
     max-width: 100%;
   }
   .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
-    margin-left: 210px;
+    margin-left: 50px;
     
 
   }
@@ -306,9 +324,16 @@ margin-right: -40px;
   background-color: #24b676;
 }
 /* Tabs Section */
-
-.checkAllBlogs {
-  margin-left: -30px;
+.tabsContainerblogggs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  margin-left: -150px;
+  margin-right: -80px;
+}
+.checkAllBlogs{
+margin-left: -20px;
 }
 }
 
@@ -411,7 +436,7 @@ font-size: 12px;
 .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
   margin-left: 30px;
 
-
+font-size:16px;
 }
 .blogsTitle{
   margin-top: 70px;
@@ -428,7 +453,7 @@ font-size: 12px;
 .blogCard {
  width:auto;
 
- max-width: 330px;
+ max-width: 20%;
   margin-left: -1180px;
 }
 
@@ -491,6 +516,7 @@ font-size: 12px;
   text-align: center;
 }
 }
+
 
 
 

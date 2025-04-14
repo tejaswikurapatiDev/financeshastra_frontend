@@ -188,7 +188,7 @@ margin-left: 100px;
     margin: 20px auto;
     padding: 20px;
   margin-top: 80px;
-  
+  margin-left: 60px;
     font-family: 'calibri';
   }
   .comment-box {
@@ -353,10 +353,10 @@ margin-left: 100px;
   }
   /* InvestBlog Meta */
   .investblog-meta {
-    font-size: 15px; /* Reduced font size for smaller screens */
+    font-size: 12px; /* Reduced font size for smaller screens */
     display: flex;
     justify-content: center; /* Center-align meta content */
-    gap: 5px; /* Add spacing between meta items */
+    gap: 1px; /* Add spacing between meta items */
   }
 
   /* Dotted separators */
@@ -387,10 +387,11 @@ margin-left: 100px;
    
   }
   .investblog-paragraph {
-    font-size: 13px;
+    font-size: 12px;
     max-width: 300px; /* Reduce width */
     width: 90%;
     line-height: 1.4;
+    margin-left: 30px;
   }
 
   /* Blog List */

@@ -37,7 +37,7 @@ const navigate = useNavigate();
             <span className="popupunlocklandingpage-checkbox"><FaCheck size={12} /></span> Educational resources to level up your financial IQ
           </li>
         </ul>
-        <p className="popupunlocklandingpage-footer">
+        <p className="popupunlocklandingpage-subtitle">
           Start your journey to <span>financial freedom today!</span>
         </p>
         <div className="popupunlocklandingpage-buttons">

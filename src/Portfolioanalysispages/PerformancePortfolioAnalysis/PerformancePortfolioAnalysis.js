@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import './PerformancePortfolioAnalysis.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; 
@@ -12,6 +12,7 @@ import adani from "../../assest/adaniimg.png";
 
 
 const PerformancePortfolioAnalysis = () => {
+    const datePickerRef = useRef(null);
     // Define performanceData FIRST before using it in useState
     const performanceData = [
         {
@@ -95,6 +96,24 @@ const PerformancePortfolioAnalysis = () => {
         setSorttDirection((prev) => !prev);
     };
 
+    // Outside click handler
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (datePickerRef.current && !datePickerRef.current.contains(event.target)) {
+        setShowDatePicker(false);
+      }
+    };
+
+    if (showDatePicker) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showDatePicker]);
+
+
     return (
         <div className="stockresearchanalysispagecontainer">
             <div className="performanceportfolioanalysis-header">
@@ -108,7 +127,7 @@ const PerformancePortfolioAnalysis = () => {
                 </button>
                  {/* Date Picker (Hidden until button is clicked) */}
                  {showDatePicker && (
-                       <div className="date-pickerperfcontainer">
+                       <div className="date-pickerperfcontainer" ref={datePickerRef}>
                     <DatePicker
                         selected={selectedDate}
                         onChange={(date) => {

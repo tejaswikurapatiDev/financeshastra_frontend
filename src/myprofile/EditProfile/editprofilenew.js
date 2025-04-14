@@ -125,9 +125,6 @@ const EditProfile = () => {
       "state",
       "city",
       "pincode",
-      "occupation",
-      "income",
-      "industry",
     ];
     let validationErrors = {};
 
@@ -187,7 +184,7 @@ const EditProfile = () => {
     setusernamelocal(usernamelocal);
   }, [location.state]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log("User is signed in:", user);
@@ -197,7 +194,7 @@ const EditProfile = () => {
     });
 
     return () => unsubscribe(); // Cleanup the listener
-  }, []);
+  }, []);*/
 
   useEffect(() => {
     // Fetch user details and check if mobile is verified
@@ -216,10 +213,10 @@ const EditProfile = () => {
           },
         });
 
-        console.log("🚀 ~ fetchUserDetails ~ response:", response);
+        //console.log("🚀 ~ fetchUserDetails ~ response:", response);
         if (response.ok) {
           const data = await response.json();
-          console.log("User details fetched:", data); // Debugging: Log the entire response
+          //console.log("User details fetched:", data); // Debugging: Log the entire response
 
           // Check if isMobileVerified exists in the response
           setIsMobileVerified(
@@ -724,6 +721,8 @@ const EditProfile = () => {
     setIsPopupVisible(true);
   };
 
+  const occupations= ["Student", "Government Employee", "Homemaker", "Retired", "Proffesional", "Other"]
+
   const stateCityMapping = {
     "Andhra Pradesh": [
       "Visakhapatnam",
@@ -1059,6 +1058,9 @@ const EditProfile = () => {
               value={formData.state}
               onChange={handleStateChange}
               className={`profilepage-select ${errors.state ? "error" : ""}`}
+
+              
+
             >
               <option value="">Select</option>
               {Object.keys(stateCityMapping).map((state) => (
@@ -1129,13 +1131,13 @@ const EditProfile = () => {
               onChange={handleChange}
               className="profilepageocc-select"
             >
+              
               <option value="">Select</option>
-              <option value="Student">Student</option>
-              <option value="Government Employee">Government Employee</option>
-              <option value="Homemaker">Homemaker</option>
-              <option value="Retired">Retired</option>
-              <option value="Self-employed">Proffesional</option>
-              <option value="Other">Other</option>
+              {(occupations).map((occup) => (
+                <option key={occup} value={occup}>
+                  {occup}
+                </option>
+              ))}
             </select>
             {errors.occupation && (
               <span className="error-text">This field is required</span>

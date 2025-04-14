@@ -157,6 +157,35 @@
     width: 100%;
   }
   
+  .time-filtertrackerport {
+    padding: 2px 5px;
+    border-radius: 6px;
+    background: #e0e0e0;
+    border: none;
+    cursor: pointer;
+  
+}
+.time-filter-containertrackerport {
+  display: flex
+;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  margin-right: 150px;
+}
+.stock-nametrackerport {
+  font-weight: bold;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.stock-changetrackerport {
+  font-weight: bold;
+  display: block;
+  font-size: 15px;
+  text-align: right;
+}
+v
   .stock-cardtrackerport {
       flex: 0 0 auto; /* Prevents shrinking */
       min-width: 160px; /* Adjust card width */
