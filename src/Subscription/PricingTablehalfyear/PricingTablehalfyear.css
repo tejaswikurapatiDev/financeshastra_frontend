@@ -22,13 +22,13 @@
   .plans-wrapper {
     display: flex;
     
-    border: 2px solid #c2c0c0; /* Adds a border */
+    border: none;
     border-radius: 35px; /* Adds rounded corners */
     padding: 20px; /* Optional: Adds some inner spacing */
     margin-top: 30px;
-    margin-left: -198px; /* Adds space on the left */
+    margin-left: -220px; /* Adds space on the left */
    
-    box-shadow: 0 4px 8px #c2c0c0;
+   
     width: 160%; /* Adjusts the width to a percentage of the parent container */
     
     max-width: 1500px; /* Ensures the width doesn't exceed a certain value */
@@ -39,7 +39,7 @@
   
   
   .plan-card {
-    width: 40%;
+    width: 47%;
     background-color: #fff;
     box-shadow: 0 4px 8px #c2c0c0;
     position: relative;
@@ -425,12 +425,12 @@ margin-top: 10px;
 .plans-wrapper {
   display: flex
 ;
-  border: 2px solid #c2c0c0;
+  border: none;
   border-radius: 35px;
   padding: 20px;
   margin-top: 30px;
   margin-left: -220px;
-  box-shadow: 0 4px 8px #c2c0c0;
+ 
   width: 160%;
   max-width: 1500px;
 
@@ -525,12 +525,12 @@ margin-top: 10px;
 .plans-wrapper {
   display: flex
 ;
-  border: 2px solid #c2c0c0;
+  border: none;
   border-radius: 35px;
   padding: 20px;
   margin-top: 30px;
   margin-left: -240px;
-  box-shadow: 0 4px 8px #c2c0c0;
+ 
   width: 194%;
   max-width: 1500px;
 }
