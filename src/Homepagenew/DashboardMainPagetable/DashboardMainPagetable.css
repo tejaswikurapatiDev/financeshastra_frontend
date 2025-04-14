@@ -466,7 +466,7 @@ body {
     gap: 10px;
     margin-bottom: 230px;
     margin-left: 290px;
-    margin-top: -200px;
+    margin-top: -650px;
   }
 
   .DashboardMainPagetable-cards {
@@ -552,7 +552,7 @@ body {
     margin-bottom: 110px;
     margin-left: 60px;
     margin-top: -500px;
-}
+  }
 
   .DashboardMainPagetable-header {
     display: flex;
@@ -624,25 +624,26 @@ body {
     color: white;
     /* Slightly darker shade on hover */
   }
+
   .DashboardMainPagetable-cards {
-    display: flex
-;
+    display: flex;
     width: 660px;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
     align-items: center;
     margin-left: 50px;
-}
+  }
 
 
-.DashboardMainPagetable-tableeee {
-  /* width: 60%; */
-  border-collapse: collapse;
-  margin-top: 30px;
-  overflow-x: auto;
-  /* margin-left: -50px; */
-}
+  .DashboardMainPagetable-tableeee {
+    /* width: 60%; */
+    border-collapse: collapse;
+    margin-top: 30px;
+    overflow-x: auto;
+    /* margin-left: -50px; */
+  }
+
   .DashboardMainPagetable-table th,
   .DashboardMainPagetable-table td {
     padding: 8px 12px;
@@ -672,7 +673,7 @@ body {
   .DashboardMainPagetable-card.custom-card-size {
     width: 300px;
     margin-left: 0px;
-}
+  }
 
   /* Sector Icons */
   .sector-icon,
@@ -764,13 +765,12 @@ body {
   }
 
   .pagination-containerrsector {
-    display: flex
-;
+    display: flex;
     gap: 210px;
     align-items: center;
     margin: 20px 0;
     margin-left: 40px;
-}
+  }
 
   .FooterForAllPage-footerrr {
     display: none;
