@@ -147,7 +147,7 @@ const BlogsComponent = () => {
       <div className="blogbutton">
   <Link to="/blogFilter">
     <button className="checkAllBlogs">
-      Check Out All Blogs
+      Explore more Blogs
     </button>
   </Link>
 </div>

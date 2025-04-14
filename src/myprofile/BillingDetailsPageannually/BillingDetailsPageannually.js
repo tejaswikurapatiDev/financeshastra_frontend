@@ -11,7 +11,7 @@ const BillingDetailsPageannually = () => {
   return (
     <div className="profilepagee-container">
     
-    <h1 className="profilepage-titlebiling" style={{ fontFamily: 'Calibri, sans-serif' }}>
+    <h1 className="profilepage-titlebiling" style={{ fontFamily: 'Calibri'}}>
   My Billing & Subscription
 </h1>
 <div className="profilepage-tabsorderuserss" >
