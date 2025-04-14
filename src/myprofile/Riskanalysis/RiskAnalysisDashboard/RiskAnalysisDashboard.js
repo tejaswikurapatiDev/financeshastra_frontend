@@ -57,11 +57,12 @@ const RiskAnalysisDashboard = () => {
                     /></div>
                   : 
                   <div>
+                    
         <div className="riskreportprofile-container">
-                    <h1 className="profilepage-titlesession">Risk Profile Report</h1>
+        <h1 className="profilepage-titlesession">Risk Profile Report</h1>   
       <AccountBar/>
       {datalenght === 0 ? <>
-            <h1>Risk Analysis Dashboard</h1>
+            <h3>Risk Analysis Dashboard</h3>
             <p>Your investment strategy and the returns you can expect are majorly dependent on your Risk Profile.</p>
 
 

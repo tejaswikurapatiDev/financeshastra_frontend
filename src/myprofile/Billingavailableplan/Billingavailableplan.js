@@ -12,7 +12,7 @@ const Billingavailableplan = () => {
     const navigate = useNavigate();
     return (
         <div>
-             <div className="profilepagee-container">
+             <div >
 
 
 
