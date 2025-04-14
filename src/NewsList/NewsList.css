@@ -57,6 +57,7 @@
 @media (max-width: 768px) {
   .news-list {
     padding: 15px; /* Reduce padding for smaller screens */
+    margin-left: 20px;
   }
 
   .news-list h2 {

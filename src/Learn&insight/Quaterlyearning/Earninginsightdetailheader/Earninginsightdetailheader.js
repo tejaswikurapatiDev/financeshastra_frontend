@@ -45,8 +45,11 @@ function Earninginsightheader() {
           <h1 className="telephone">State Bank Of India</h1>
         </div>
         <div className="graph-price-update">
-          <span style={{fontSize:"20px"}}className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+          <span style={{fontSize:"20px"}} className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
             ₹{parseFloat(currentPrice).toLocaleString()}
+          </span>
+          <span style={{fontSize:"20px"}} className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+            {change >= 0 ? `+₹${parseFloat(change).toLocaleString()}` : `-₹${Math.abs(parseFloat(change)).toLocaleString()}`}
           </span>
           <span className="graphupdate">Last updated: {lastUpdated}</span>
         </div>
