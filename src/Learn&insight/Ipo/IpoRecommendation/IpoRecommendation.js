@@ -2,8 +2,11 @@ import React, { useContext } from "react";
 import "./IpoRecommendation.css"; // Updated CSS file name
 import { useNavigate } from "react-router-dom";
 import { SubscriptionContext } from "../../../Portfoilo/context/SubscriptionContext";
+import { API_BASE_URL } from "../../../config";
+import useSubscriptionStatus from "../../../Navbar/Hooks/useSubscriptionStatus";
 
 const IpoRecommendation = () => {
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const {issubscribed}= useContext(SubscriptionContext)
   const navigate = useNavigate();
   const handleNavigate = () => {
@@ -13,7 +16,7 @@ const IpoRecommendation = () => {
     <div className="iporecommendation-container">
       <h2 className="iporecommendation-title">Recommendations</h2>
       <div className= "iporecommendation-box">
-        {!issubscribed && <div className="iporecommendation-overlay">
+        {!isLoading && !isSubscribed && <div className="iporecommendation-overlay">
           <div className="iporecommendation-lock-icon"
            onClick={handleNavigate} >
             <img
@@ -23,7 +26,7 @@ const IpoRecommendation = () => {
           </div>
         </div>}
         
-        <div className= {issubscribed ? "iporecommendation-content" : 'blurclass'}>
+        <div className= {isLoading && isSubscribed ? 'iporecommendation-content' : '3'}>
           Sanathan Textiles Ltd. is a prominent player in India’s textile industry, 
           recognized for its robust operational capabilities and an expansive product 
           portfolio catering to both domestic and international markets. While the 

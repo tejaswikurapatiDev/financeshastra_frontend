@@ -7,6 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
 
 
 
@@ -56,6 +57,32 @@ const MidcapIncomeStatement = () => {
               setCurrentPage(pageNumber);
             }
           };
+          useEffect(() => {
+                     const fetchfun = async () => {
+                       const url = `${API_BASE_URL}/stocks/midcapincome`;
+                       const response = await fetch(url);
+                       console.log(response)
+                       if (response.ok === true) {
+                         const data = await response.json();
+                         const formattedData = data.map((each) => ({
+                           id: each.id,
+                           symbol: each.Symbol,
+                           epsDilGrowth: each.EPSDilutedGrowth,
+                           url: "/stockhandle",
+                           revenue: each.Revenue,
+                           revenueGrowth: each.RevenueGrowth,
+                           grossProfit: each.GrossProfit,
+                           operatingIncome: each.OperatingIncome,
+                           netIncome: each.NetIncome,
+                           ebitda: each.EBITDA,
+                           epsDil: each.EPS_Diluted,
+                         }));
+                         setStocks(formattedData);
+                         console.log(data)
+                       }
+                     };
+                     fetchfun();
+                   }, []);
         
           //  Debugging Effect: Confirm re-rendering when `currentPage` updates
           useEffect(() => {

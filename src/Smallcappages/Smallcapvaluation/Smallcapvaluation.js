@@ -1,7 +1,7 @@
 import React, { useState,useMemo,useEffect } from "react";
 import { screenerStockvaluationData } from "../../Stocks/stockscreenervaluationdata";
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
-
+import { API_BASE_URL } from "../../config";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
@@ -41,6 +41,37 @@ const Smallcapvaluation= () => {
       index: false,
       sector: false,
     });
+
+    useEffect(() => {
+              const fetchfun = async () => {
+                const url = `${API_BASE_URL}/stocks/smallcapvaluation`;
+                const response = await fetch(url);
+                if (response.ok === true) {
+                  const data = await response.json();
+                  console.log(data)
+                  const formattedData = data.map((each) => ({
+                    id: each.id,
+                    symbol: each.Symbol,
+                    price: each.Price,
+                    marketCap: each.MarketCap,
+                    pToE: each.PERatio,
+                    pToB: each.PSRatio,
+                    roe: each.ROE,
+                    marketCapPerf: each.MarketCapPercentage,
+                    peg: each.PBRatio,
+                    pToS: each.PCFRatio,
+                    pToCF: each.PFCFRatio,
+                    ev: each.EnterpriseValue,
+                    evEbitda: each.EVRevenue,
+                    evSales: each.EVEBIT,
+                    evEbit: each.EVEBITDA,
+                    
+                  }));
+                  setStocks(formattedData);
+                }
+              };
+              fetchfun();
+            }, []);
   
 
     const recordsPerPage = 10;

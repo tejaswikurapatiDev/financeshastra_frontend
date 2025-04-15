@@ -29,6 +29,7 @@
   
   .iporecommendation-content {
     position: relative;
+    filter: none; 
     /* Adds a strong blur effect */
      /* Prevents interaction with blurred content */
   }
