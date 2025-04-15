@@ -138,43 +138,11 @@
 }
 
 @media (max-width: 768px) {
-    .react-datepicker {
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #ddd;
-        background: white;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 9999;
-        position: absolute;
-        height: 350px;
-        padding: 5px;
-        margin-top: 1000px;
-        margin-left: auto;
-        font-family: 'calibri';
-        left: 23%;
-        transform: translateX(-50%);
-        margin-bottom: 190px;
-    }
+
     
 }
 @media (max-width: 480px) {
-    .react-datepicker {
   
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #ddd;
-        background: white;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 9999; /* Ensure it stays on top */
-        position: absolute; /* Positions it properly */
-        
-        /* Margin Adjustments */
-        margin-top: 4770px;
-        margin-left: auto;
-        font-family: 'calibri';
-        left: 58%;
-        transform: translateX(-50%); /* Centers it horizontally */
-    }
     .performanceportfolioanalysis-date-picker {
         margin-top: 10px;
         border: 1px solid #ccc;
