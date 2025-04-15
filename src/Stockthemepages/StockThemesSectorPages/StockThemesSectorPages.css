@@ -155,12 +155,19 @@
     min-height: 10px;
     width: 900px;
 }
+.StockThemesSectorPages-themes-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 24px;
+  font-family: 'calibri';
+}
 }
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
   .StockThemesSectorPages-themes-container {
     padding: 16px;
-  }
+   
+}
 
   .StockThemesSectorPages-themes-title {
     font-size: 22px;
@@ -169,7 +176,7 @@
 
   .banksectorsearchstock,
   .StockThemesSectorPages-themes-search {
-    width: 80%;
+    width: 50%;
     font-size: 14px;
   }
 
@@ -213,7 +220,7 @@
 
   .banksectorsearchstock,
   .StockThemesSectorPages-themes-search {
-    width: 100%;
+    width: 50%;
     font-size: 14px;
     padding: 8px;
   }
@@ -237,8 +244,9 @@
 
     white-space: nowrap;
     padding-bottom: 10px;
-    width: 100%;
-    margin-left: -10px;
+    width: 99%;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .StockThemesSectorPages-themes-icon {
 
@@ -253,7 +261,13 @@
             margin-left: -40px;
 
         }
-
+        /*.StockThemesSectorPages-themes-details {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* 3 columns */
+          /*gap: 4px;
+          width: 100%;
+          margin-left: 0;
+        }*/
   .StockThemesSectorPages-themes-icon {
 
   }
