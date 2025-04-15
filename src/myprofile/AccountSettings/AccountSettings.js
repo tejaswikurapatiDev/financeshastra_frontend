@@ -149,7 +149,9 @@ const AccountSettings = () => {
     <div>
     <div className="profilesettingpassword-container">
       <h1 className="profilepage-titlee">Password & Security</h1>
-      <AccountBar/>
+      <div className="profilepage-tabsss">
+       <AccountBar/>
+      </div>
          {/* Popup Notification */}
          <section className={`profilesettingpassword-content ${isPopupVisible ? "blur" : ""}`}>
     {/* Password Form and Linked Accounts */}

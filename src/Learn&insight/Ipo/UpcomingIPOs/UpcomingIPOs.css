@@ -125,6 +125,23 @@
   .imgipoupcoming img{
     height: 300px;
   }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .upcomingipo-container {
+      display: flex
+  ;
+      background-color: white;
+      gap: 10px;
+      box-shadow: 0 2px 4px rgba(144, 142, 142, 0.723);
+      border: 2px solid rgb(255, 243, 243);
+      width: 840px;
+      height: 320px;
+      border-radius: 8px;
+      margin-left: 70px;
+      position: relative;
+      box-sizing: border-box;
+      font-family: 'calibri';
+  }
+  }
   /* Mobile View at 768px */
 @media (max-width: 768px) {
  

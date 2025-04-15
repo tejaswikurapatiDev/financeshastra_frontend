@@ -437,12 +437,14 @@ const StockWatchsectorlist = ({ children }) => {
         </div>
       </div>
       <div className="layout">
-        <Sidebar />
-        <div className="main-contentover">
-          <div className="contentover">{children}</div>
+      <Sidebar />
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <div className="oversidefooter">
           <FooterForAllPage />
-        </div>
+          </div>
       </div>
+    </div>
     </div>
   );
 };

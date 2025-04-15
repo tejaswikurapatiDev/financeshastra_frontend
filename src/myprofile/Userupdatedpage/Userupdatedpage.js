@@ -232,6 +232,7 @@ const UserDetailsupdate = () => {
 
 
   return (
+    <div>
     <div className="outer-cont">{isLoading? <div className='loader-cont'><ClipLoader
       cssOverride={override}
       size={35}
@@ -404,9 +405,7 @@ const UserDetailsupdate = () => {
         )}
         <Navbar />
       </div>
-      <div className="foooterpagesaupdate">
-      <FooterForAllPage/>
-    </div></>
+  </>
     }
       
   {showPopupforLogin && (
@@ -419,6 +418,10 @@ const UserDetailsupdate = () => {
           </div>
         </div>
       )}
+    </div>
+    <div className="foooterpagesaupdate">
+      <FooterForAllPage/>
+    </div>
     </div>
   );
 };

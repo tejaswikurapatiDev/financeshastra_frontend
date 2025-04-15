@@ -8,71 +8,19 @@ import referalimg4 from "../../assest/referalimg4.jpg";
 import { useNavigate } from "react-router-dom";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
+import AccountBar from "../AccountBar";
 
 const MyReferalPage = () => {
   const navigate = useNavigate();
   return (
     <div>
     <div className="profilepageee-container">
-      <h1 className="profilepage-title" style={{ fontFamily: "Calibri" }}>
+      <h1 className="profilepage-titlemy" style={{ fontFamily: "Calibri" }}>
         My Referrals
       </h1>
 
-      <div className="profilepage-tabsorderusers">
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/userDetailsupdate")}
-        >
-          My Account
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
-        >
-          Orders
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/billingSubscriptionPages")}
-        >
-          Billing & Subscription
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/riskAnalysisDashboard")}
-        >
-          Risk Profile Report
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/managealert")}
-        >
-          Manage Alert
-        </span>
-
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/accountSettings")}
-        >
-          Password & Security
-        </span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/sessionHistory")}
-        >
-          Active Devices
-        </span>
-        <span
-          className="profilepage-tabb"
-          style={{
-            borderBottom: "2px solid #24b676",
-            fontWeight: "bold",
-            color: "#24b676",
-          }}
-          onClick={() => navigate("/myReferalPage")}
-        >
-          My referrals
-        </span>
+      <div className="profilepage-tabsorderusersmyre">
+      <AccountBar/>
       </div>
 
       <div className="myreferalpagesss">

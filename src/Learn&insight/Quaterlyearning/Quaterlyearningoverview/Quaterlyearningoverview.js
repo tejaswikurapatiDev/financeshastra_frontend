@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container,Typography } from '@mui/material';
-
+import { useEffect } from "react";
 import Navbar from '../../../Navbar/Navbar';
 import './Quaterlyearningoverview.css'
 import { Link, Element } from 'react-scroll';
@@ -20,6 +20,9 @@ import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
 
 
 function QuaterelyOverview() {
+  useEffect(() => {
+      window.scrollTo(0, 0); // Scroll to top when component mounts
+    }, []);
   return (
     <div>
     <Container 
@@ -27,7 +30,7 @@ function QuaterelyOverview() {
         maxWidth: '200%',
         overflowX: 'hidden', // Prevent horizontal scrolling
         padding: '0 16px', 
-        marginTop:'300px'
+        marginTop:'200px'
         
       }}
     >

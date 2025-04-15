@@ -448,7 +448,7 @@ function App() {
                 element={<MutualWatchportall />}
               />
 
-              <Route path="/mutualfundgrowth" element={<Mutualfund />} />
+              <Route path="/mutualfundgrowth/:fundId" element={<Mutualfund />} />
               <Route
                 path="/bestsmallcapregular"
                 element={<Bestsmallcapregular />}

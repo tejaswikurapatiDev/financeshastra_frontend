@@ -9,13 +9,49 @@ import MtuFundDetails from './MtuFundDetails/MtuFundDetails';
 import FundContactInfo from './FundContactInfo/FundContactInfo';
 import RiskOMeter from './RiskoMutualDashboard/RiskoMutualDashboard';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
+import { API_BASE_URL } from '../config';
+import { useParams } from "react-router-dom";
 
 function Mutualfund() {
+
+  const { fundId } = useParams();
+
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
     percentage: "+0.85%",
     lastUpdated: "05 Dec, 2024",
   });
+  const [fundDetails, setFundDetails] = useState(null);
+
+
+  const getMutualFundDetails = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/mutualFunds/getMutualFundDetails/${fundId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch mutual fund details");
+      }
+  
+      const result = await response.json();
+      if (result.success && result.data) {
+        setFundDetails(result.data);
+      }
+    } catch (error) {
+      console.error("Error fetching mutual fund details:", error);
+    }
+  };
+  
+
+  useEffect(() => {
+    getMutualFundDetails();
+  }, [])
+
 
   // Example: Function to simulate data updates
   useEffect(() => {
@@ -37,7 +73,7 @@ function Mutualfund() {
         percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Correct interpolation using backticks
         lastUpdated: newLastUpdated,
       });
-      
+
     }, 5000); // Update every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
@@ -48,7 +84,7 @@ function Mutualfund() {
       <div className="mutualcandletop">
         {/* Left Section */}
         <div className="mutualcandletop__left">
-          <h2 className="mutualcandletop__title">ICICI Prudential Technology Fund Growth </h2>
+          <h2 className="mutualcandletop__title"> </h2>
           <div className="mutualcandletop__tags">
             <button className="mutualcandletop__tag">Mid Cap</button>
             <button className="mutualcandletop__tag">Very High</button>
@@ -58,11 +94,10 @@ function Mutualfund() {
         <div className="mutualcandletop__right">
           <h2 className="mutualcandletop__price">{financialData.price}</h2>
           <p
-            className={`mutualcandletop__percentage ${
-              parseFloat(financialData.percentage) >= 0
-                ? "mutualcandletop__percentage--positive"
-                : "mutualcandletop__percentage--negative"
-            }`}
+            className={`mutualcandletop__percentage ${parseFloat(financialData.percentage) >= 0
+              ? "mutualcandletop__percentage--positive"
+              : "mutualcandletop__percentage--negative"
+              }`}
           >
             {financialData.percentage}
           </p>
@@ -80,15 +115,15 @@ function Mutualfund() {
 
       <MutualkeyIndicators />
       <Mutualxray />
-      <MutualFundsSchemeAllocation/>
-      <MtuFundDetails/>
-      <RiskOMeter/>
-      <FundContactInfo/>
+      <MutualFundsSchemeAllocation />
+      <MtuFundDetails />
+      <RiskOMeter />
+      <FundContactInfo />
       <div className="foooterpagesaupdate">
         <FooterForAllPage />
       </div>
     </div>
-     
+
   );
 }
 

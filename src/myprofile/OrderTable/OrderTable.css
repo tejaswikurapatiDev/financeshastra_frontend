@@ -4,7 +4,7 @@
     background-color: white;
     border: 1px solid white;
     border-radius: 8px;
-  width: 900px;
+  width: 1000px;
     margin: auto;
     margin-top: 100px;
    
@@ -90,7 +90,7 @@
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 10px ;
     align-self: flex-start;
   }
   
@@ -116,6 +116,12 @@
   }
   
 
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .profilepage-titleorder {
+      margin-left: 28px;
+  }
+}
 /* Base Styles (already provided) */
 
 /* Mobile View Styles */
@@ -173,7 +179,7 @@
 
   .profilepage-titleorder {
     font-size: 18px;
-    margin-left: 0;
+    margin-left: 15px;
   }
   
   .profilepage-tabb {
@@ -229,9 +235,9 @@
     margin-right: 10px; /* Add spacing between tabs */
   }
   .tabs button {
-    padding: 8px 12px;
+    padding: 5px 10px;
     font-size: 12px;
-  }
+}
   
   .order-table th, .order-table td {
     padding: 8px;
@@ -248,4 +254,29 @@
     font-size: 14px;
     margin-left: -10px;
   }
+ 
  }
+
+
+
+
+ 
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .tabs {
+    display: flex
+;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+.order-table {
+  width: 80%;
+  margin-left: 100px;
+}
+}
+@media (max-width: 320px) {
+  .profilepage-titleorder {
+    font-size: 18px;
+    margin-left: 0;
+    margin-top: -20px;
+}
+}

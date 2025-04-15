@@ -140,6 +140,26 @@
 }
 /* Media Queries for Mobile Views */
 
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  
+
+.graphnavbar {
+    display: flex
+;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 130px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+}
+
+
+
 /* For screens 768px and below */
 @media (max-width: 768px) {
   .graphcontainer {
@@ -160,6 +180,7 @@
   .graphnavbar {
       margin-left: 0;
       justify-content: space-evenly; 
+      
   }
 
   .graphnavbar span, .graphnavbar a {

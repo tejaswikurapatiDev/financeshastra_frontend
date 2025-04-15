@@ -5,6 +5,29 @@
   font-family: 'calibri';
 }
 
+.profilepage-titlemy{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-left: 210px;
+  margin-top: 100px;
+
+}
+.profilepage-tabsorderusersmyre{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  margin-left: 200px;
+  
+}
+.profilepage-titlerefer{
+margin-left: 310px;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
 /* Header Section */
 .myreferalpagesss-header {
   text-align: center;
@@ -501,11 +524,25 @@ background: linear-gradient(90deg, #24b676, #238486); /* Gradient text */
     line-height: 1.6;
     margin-left: 30px;
 }
+.profilepage-tabsorderusersmyre {
+  text-align: center;
+  margin-left: 20px;
+  margin-left: 20px;
+}
 .myreferalpagesss-why-refer-content {
   display: flex;
 margin-left: 320px;
 margin-right:-100px ;
 gap: 10px;
+}
+.profilepage-titlemy{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-left: 30px;
+  margin-top: 100px;
+
 }
 .myreferalpagesss-partner-benefitstext-section {
   flex: 2 1;
@@ -579,12 +616,12 @@ font-size: 15px;
 }
 /* Tablet View - Screen Size 768px and below */
 @media (max-width: 768px) {
-.myreferalpagesss {
-    padding: 10px;
-}
-.myreferalpagesss-header-row h1 {
-  font-size: 18px;
-  width: 300px;
+  .myreferalpagesss {
+      padding: 10px;
+  }
+  .myreferalpagesss-header-row h1 {
+    font-size: 15px;
+  
 }
 /* Header Section */
 
@@ -622,6 +659,15 @@ font-size: 15px;
   width: 100%;
   margin-left: -15px;
   padding: 10px;
+}
+.profilepage-tabsorderusersmyre {
+  overflow-x: auto; /* Use 'auto' to show scrollbar only when needed */
+  border-bottom: 1px solid rgb(190, 185, 185); /* Removes the bottom border */
+  margin-left: 10px;
+  margin-bottom: 15px;
+  scrollbar-color: rgb(201, 198, 198); /* Custom scrollbar color for Firefox */
+  
+ 
 }
 
 .myreferalpagesss-partner-benefitscontent {
@@ -672,6 +718,10 @@ font-size: 15px;
  
 }
 
+.profilepage-titlemy{
+margin-left: 13px;
+font-size: 22px;
+}
 .how-to-refer-text {
     margin-left: -170px;
     font-size: 14px;
@@ -690,64 +740,67 @@ font-size: 15px;
     font-size: 14px;
 }
 
-.refer-now-button {
-    margin-left: 0;
-    align-self: center;
-    margin-left: 10px;
-}
-.why-financeshastrarefer-now-button {
-  display: flex
-;
-  align-items: center;
-  gap: 8px;
-  background-color: #24b676;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  margin-left: 10px;
-}
-.referral-criteria-section {
-  padding: 5px 20px;
-  background-color: #F5F4FA;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px #DBD7F1;
-  margin-bottom: 30px;
-  width: 97%;
-  max-width: 1900px;
-  margin-left: -15px;
-  display: flex
-;
-  flex-direction: column;
-  font-family: 'calibri';
-  margin-top: 20px;
-}
-.referral-criteria-content h2 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-.referral-criteria-content h3 {
-  font-size: 16px;
-  margin: 20px 0 10px;
-  margin-left: 10px;
-}
-.referral-criteria-content p {
-  margin: 20px 0;
-  font-size: 14px;
-  color: black;
-  margin-left: 10px;
-}
-.myreferalpagesss-header-row {
-  flex-direction: column;
-  
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  .refer-now-button {
+      margin-left: 0;
+      align-self: center;
+      margin-left: 10px;
   }
+  .why-financeshastrarefer-now-button {
+    display: flex
+  ;
+    align-items: center;
+    gap: 8px;
+    background-color: #24b676;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-left: 10px;
+  }
+  .referral-criteria-section {
+    padding: 5px 20px;
+    background-color: #F5F4FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #DBD7F1;
+    margin-bottom: 30px;
+    width: 97%;
+    max-width: 1900px;
+    margin-left: -15px;
+    display: flex
+  ;
+    flex-direction: column;
+    font-family: 'calibri';
+    margin-top: 20px;
+  }
+  .referral-criteria-content h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+  .referral-criteria-content h3 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    margin-left: 10px;
+  }
+  .referral-criteria-content p {
+    margin: 20px 0;
+    font-size: 14px;
+    color: black;
+    margin-left: 10px;
+  }
+  .myreferalpagesss-header-row {
+  
+    
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .myreferalpagesss-buttons{
+      margin-left: -10px;
+    }
 }
 
 /* Mobile View - Screen Size 480px and below */
@@ -765,7 +818,7 @@ font-size: 15px;
   -ms-overflow-style: none; /* IE and Edge */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  margin-left: -10px;
+  margin-left: -5px;
 }
 
 

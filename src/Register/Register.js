@@ -241,7 +241,8 @@ function Register() {
               color="green"
             />
           </form>
-          <div className="login-or">Or Login With</div>
+        
+          <div className="login-or">Or Login With</div>  <br/>
           <div className="sociall-login">
             <GoogleLogin
               variant="contained"
@@ -255,22 +256,7 @@ function Register() {
 
             <br />
 
-            <Button
-              variant="contained"
-              className="linkedin-btn"
-              startIcon={
-                <img
-                  src={linkedinimg}
-                  alt="LinkedIn Icon"
-                  className="btn-icon-small"
-                />
-              }
-              component="a"
-              href="https://www.linkedin.com/feed/"
-              sx={{ fontSize: "14px" }} // Decrease font size
-            >
-              Sign in with LinkedIn
-            </Button>
+       
           </div>
           <div className="registerContgl">
             <p className="registerContglp">

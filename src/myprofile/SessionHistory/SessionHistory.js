@@ -124,90 +124,37 @@ const SessionHistory = () => {
       <div className="session-history">
         <h1 className="profilepage-titlesession">My Account</h1>
         <div className="profilepage-tabsorderuserss">
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/userDetailsupdate")}
-          >
-            My Account
-          </span>
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/orderTable")}
-          >
-            Orders
-          </span>
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/billingSubscriptionPages")}
-          >
-            Billing & Subscription
-          </span>
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/riskAnalysisDashboard")}
-          >
-            Risk Profile Report
-          </span>
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/managealert")}
-          >
-            Manage Alert
-          </span>
-
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/accountSettings")}
-          >
-            Password & Security
-          </span>
-          <span
-            className="profilepage-tabb"
-            style={{
-              borderBottom: "2px solid #24b676",
-              fontWeight: "bold",
-              color: "#24b676",
-            }}
-          >
-            Active Devices
-          </span>
-          <span
-            className="profilepage-tabb"
-            onClick={() => navigate("/myReferalPage")}
-          >
-            My referrals
-          </span>
+        
+        <AccountBar/>
         </div>
 
-        <h2>Session History</h2>
-        <p>
-          Sessions track your account activity, including login times and
-          devices. This helps you identify and prevent unauthorized access.
-        </p>
-        <div className="sessions-list">
-          {devices &&
-            devices.slice(0, 3).map((session) => (
-              <div key={session.device_id} className="session-card">
-                <div className="session-details">
-                  <img
-                    src={systemimg}
-                    alt="Device Icon"
-                    className="device-icon"
-                  />
-                  <div className="session-text">
-                    <h3>{session.device_name}</h3>
-                    <p>
-                      {session.device_name} · {session.status}{" "}
-                      {formatDate(session.login_time)}{" "}
-                      <span style={{ color: "red" }}>
-                        {session.logout_time ? `Logout Time` : ""}
-                      </span>
-                      {session.logout_time
-                        ? formatDate(session.logout_time)
-                        : ""}
-                    </p>
-                  </div>
+      <h2>Session History</h2>
+      <p className="sessioningp">
+        Sessions track your account activity, including login times and devices.
+        This helps you identify and prevent unauthorized access.
+      </p>
+      <div className="sessions-list">
+        {devices &&
+          devices.slice(0, 3).map((session) => (
+            <div key={session.device_id} className="session-card">
+              <div className="session-details">
+                <img
+                  src={systemimg}
+                  alt="Device Icon"
+                  className="device-icon"
+                />
+                <div className="session-text">
+                  <h3>{session.device_name}</h3>
+                  <p>
+                    {session.device_name} · {session.status}{" "}
+                    {formatDate(session.login_time)}{" "}
+                    <span style={{ color: "red" }}>
+                      {session.logout_time ? `Logout Time` : ""}
+                    </span>
+                    {session.logout_time ? formatDate(session.logout_time) : ""}
+                  </p>
                 </div>
+              </div>
 
                 <div className="session-actions">
                   <p

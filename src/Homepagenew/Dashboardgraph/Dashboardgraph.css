@@ -286,6 +286,8 @@
     box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2);
 }
 
+
+
 @media(min-width:1536px){
   
 
@@ -734,10 +736,7 @@
         flex-direction: column-reverse;
         margin-left: 165px;
     }
-    .oversidefooter{
- width: 200px;
-        margin-left: -100px;
-    }
+ 
     .chartmutual-containerrdashboard {
         height: 300px;
         width: 355px;
@@ -1130,6 +1129,12 @@ max-width: 90%;
     flex-direction: column;
     margin-left: 0px;
     gap: 15px;
+}
+
+.oversidefooter{
+    margin-left: 265px;
+    width: 76%;
+ 
 }
 }
  

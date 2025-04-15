@@ -247,9 +247,7 @@ button.error {
     margin: 0;
   }
 
-  .profilepage-tabsss {
-    box-shadow: 4px 5px 5px rgb(243, 241, 241); /* No shadow on top */
-  }
+ 
   
   
   
@@ -269,7 +267,7 @@ button.error {
 
   .profilepage-tabsss {
     display: flex;
-    border-bottom: 1px solid #e7e3e3;
+
     margin-bottom: 20px;
     
   }
@@ -281,6 +279,42 @@ button.error {
     margin-left: 10px;
   }
  
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .profilepage-tabsss {
+      margin-left: -160px;
+      display: flex
+  ;
+   
+      margin-bottom: 20px;
+  }
+  .profilepage-titlee {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: -150px;
+}
+.profilesettingpassword-password-section, .profilesettingpassword-linked-accounts-section {
+  margin-bottom: 30px;
+  margin-left: -150px;
+}
+.profilesettingpassword-linked-accounts-section p{
+  font-size: 14px;
+}
+.profilesettingpassword-linked-account {
+  display: flex
+;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgb(234, 231, 231);
+  background-color: #fff;
+  width: 70%;
+  margin-bottom: 70px;
+}
+  }
   @media (max-width: 768px) {
 
     .profilesettingpassword-container {
@@ -296,11 +330,13 @@ button.error {
       overflow-x: scroll; /* Stack tabs vertically */
        border-bottom: none; /* Remove unnecessary border */
        margin-bottom: 15px; /* Adjust spacing */
-       width: 480px;
+       width: 750px;
      }
     .profilesettingpassword-password-section,
     .profilesettingpassword-linked-accounts-section {
       margin-bottom: 30px;
+      width:119%;
+      margin-left: 90px;
     }
     .profilesettingpassword-linked-accounts-section h2{
   font-size: 20px;
@@ -334,7 +370,7 @@ button.error {
       border: 1px solid #ccc;
       border-radius: 10px;
       margin-bottom: 20px;
-      width: 380px;
+      width: 475px;
     }
     .profilesettingpassword-password-rules p{
       font-size: 15px;
@@ -393,8 +429,8 @@ button.error {
       margin-bottom: 10px;
       box-shadow: 0 2px 4px rgb(234, 231, 231); /* Subtle shadow effect */
       background-color: #fff; /* White background */
-      width: 385px;
-      margin-bottom: 150px;
+      width: 515px;
+      margin-bottom: 80px;
       
     }
     
@@ -514,18 +550,18 @@ button.error {
     
     .profilepage-tabsss{
       display: flex;
-      border-bottom: 1px solid #ccc;
+     
       margin-bottom: 20px;
       margin-left: -20px;
     }
     .profilepage-titlee {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: bold;
       margin-bottom: 20px;
-      margin-left: -15px;
+      margin-left: -0px;
     }
     .profilesettingpassword-password-section h2{
-      margin-left: -10px;
+      margin-left: 0px;
     }
     .profilesettingpassword-linked-accounts-section h2{
       margin-left: -3px;
@@ -554,8 +590,11 @@ button.error {
       width: 90%; /* Use full width */
       padding: 10px;
       margin-bottom: 20px;
+      font-size: 12px;
     }
-  
+    .profilesettingpassword-password-rules p {
+      font-size: 12px;
+  }
     .profilesettingpassword-form-group input {
       width: 90%; /* Ensure inputs are responsive */
       padding: 10px;
@@ -563,35 +602,76 @@ button.error {
     }
   
     .profilesettingpassword-linked-account {
-      width: 90%; /* Adjust width to prevent overflow */
+      width: 89%; /* Adjust width to prevent overflow */
       margin-bottom: 90px;
+      font-size: 12px;
     }
-  
+    .profilesettingpassword-remove-button {
+      font-size: 12px;
+    }
+    .profiles-endsession-button {
+      background-color: #24b676;
+      color: white;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+  }
     .profilepage-tabsss {
       overflow-x: scroll; /* Prevent horizontal scroll for tabs */
   /* Stack tabs vertically if needed */
-  border-bottom: 1px solid #ccc;
+  
       margin-bottom: 15px;
-     width: 93%;
+     width: 96%;
       margin-left: -1px;
     }
       
+    .profilesettingpassword-password-section, .profilesettingpassword-linked-accounts-section {
+      margin-bottom: 30px;
+      width: 104%;
+      margin-left: 0px;
+      font-size: 13px;
+  }
    
+    .profilesettingpassword-form-group input{
+      font-size: 12px;
+    }
   
     .profilesettingpassword-password-section h2,
     .profilesettingpassword-linked-accounts-section h2 {
       margin-left: 0; /* Align headings properly */
+      font-size: 14px;
     }
   
     .profilesettingpassword-linked-accounts-section p {
-      font-size: 14px; /* Adjust text size for smaller screens */
+      font-size: 12px; /* Adjust text size for smaller screens */
       width: auto; /* Allow text to wrap naturally */
     }
     .profilepage-titlee {
-      font-size: 24px;
+      font-size: 15px;
       font-weight: bold;
-      margin-bottom: 20px;
-      margin-left: -10px;
+      margin-bottom: 10px;
+      margin-left: 5px;
+      margin-top: -15px;
+    }
+    .profilesettingpassword-button-group button[type="button"] {
+      font-size: 12px;
     }
   }
   
+  @media (max-width: 320px) {
+    .profilesettingpassword-password-section, .profilesettingpassword-linked-accounts-section {
+      margin-bottom: 30px;
+      width: 104%;
+      margin-left: -5px;
+      font-size: 13px;
+  }
+  .profilepage-tabsss {
+    overflow-x: scroll;
+
+    margin-bottom: 15px;
+    width: 96%;
+    margin-left: 0px;
+}
+  }

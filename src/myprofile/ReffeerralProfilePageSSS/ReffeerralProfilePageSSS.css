@@ -87,17 +87,41 @@ font-weight: bold;
     font-weight: bold;
     color: #333;
   }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .reffeerralprofilepagesss-table {
+      width: 100%;
+      margin-top: 20px;
+      overflow-x: auto;
+      margin-left: 125px;
+      margin-bottom: 100px;
+  }
+  .reffeerralprofilepagesss-table th {
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+  }
   /* For tablets (768px and below) */
 @media (max-width: 768px) {
   .reffeerralprofilepagesss-container {
-      flex-direction: column; /* Stack cards vertically */
+     
       width: 98%; /* Reduce width for better fit */
       padding: 15px; /* Adjust padding */
       margin-top: 50px; /* Reduce margin top */
-      margin-bottom: 100px; 
-      margin-left: -15px;/* Reduce margin bottom */
+      margin-bottom: 50px; 
+      margin-left: -10px;/* Reduce margin bottom */
   }
 
+  .reffeerralprofilepagesss-table {
+    width: 138%;
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-left:-140px;
+    margin-bottom: 100px;
+  
+}
   .reffeerralprofilepagesss-card {
       width: 70%; /* Expand cards to take full width */
       margin-bottom: 10px; /* Add space between cards */
@@ -117,10 +141,31 @@ font-weight: bold;
   .reffeerralprofilepagesss-container {
     padding: 10px;
     gap: 5px;
-    width: 97%;
-    margin-left: -10px;
+    width: 92%;
+    margin-left: 5px;
+    flex-direction: column;
 }
 
+.reffeerralprofilepagesss-table th {
+  font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+}
+.reffeerralprofilepagesss-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-size: 12px;
+}
+.reffeerralprofilepagesss-table {
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+  margin-left: 0px;
+  margin-bottom: 100px;
+}
 .reffeerralprofilepagesss-card {
   padding: 10px;
   width: 70%;

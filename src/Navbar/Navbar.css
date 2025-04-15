@@ -523,7 +523,7 @@ a span {
 
 .dropdown-contentnoti {
   position: absolute;
-  right: 0px;
+  left: 1040px;
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
@@ -532,7 +532,7 @@ a span {
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
-  margin-top: 10px;
+  margin-top: 23px;
   padding: 15px;
   overflow-x: hidden;
 }
@@ -605,6 +605,73 @@ a span {
   font-size: 14px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+  
+
+@media (max-width: 1024px) {
+  /* Adjust navbar layout */
+  .navbar {
+    padding: 8px 10px; /* Reduce padding slightly */
+  }
+
+  .navbar-links {
+    gap: 8px; /* Reduce spacing further */
+    font-size: 11px;
+    margin-left: -10px;
+  }
+
+  .navbar-links a {
+    font-size: 12px; /* Slightly smaller font */
+  }
+
+  .logo-image {
+    width: 160px; /* Reduce logo size more */
+  }
+
+  /* Adjust dropdown menu width */
+ 
+
+  /* Adjust notification dropdown */
+  .dropdown-contentnoti {
+    left: 620px;
+    width: 350px;
+  }
+
+  .notification-card {
+    width: 340px;
+  }
+
+  /* Adjust search bar */
+  .navbar-search input {
+    width: 160px; /* Reduce input width */
+    font-size: 12px;
+  }
+  .navbar-search input::placeholder {
+    font-size: 10px; /* Reduce placeholder font size */
+  }
+  .subscritebutton {
+    padding: 6px 12px;
+    font-size: 13px;
+    width: 45px;
+  }
+
+  /* Adjust icons */
+  .navbar-icons {
+    gap: 12px; /* Reduce icon spacing */
+  }
+
+  .chevron-icon {
+    margin-left: 4px;
+    color: #24b676;
+    font-size: 11px; /* Reduce icon size */
+    transition: transform 0.3s ease;
+  }
+  
+  span.willamname {
+    font-size: 14px !important;
+    margin-right: 5px !important;
+  }
 }
 
 /* For screens 480px and below */
@@ -748,12 +815,14 @@ a span {
   
   .dropdown-contentnoti {
     position: absolute;
-   
+
+    margin-left: -300px;
+  
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
     width: 400px;
-    max-height: 500px;
+    max-height: 400px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
@@ -965,14 +1034,14 @@ a span {
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
-    width: 350px;
-    max-height: 500px;
+    width: 270px;
+    max-height: 400px;
     overflow-y: auto;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     margin-top: 10px;
     padding: 15px;
-    margin-left: 85px;
+    margin-left: -555px;
   }
   
   .notification-card {
@@ -1613,6 +1682,38 @@ a span {
   color: white;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px) {
+.subscritebutton {
+  /* display: inline-block; */
+  padding: 10px 13px;
+   font-size: 12px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #24b676, #24b676);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px red;
+}
+.navbar-icons {
+  display: flex
+;
+  align-items: center;
+  gap: 2px;
+}
+.navbar-search input {
+  padding: 10px 2px 6px 30px;
+  border-radius: 6px;
+  border: 1px solid #333333;
+  font-size: 12px;
+  height: 35px;
+  width: 115px;
+}
+
+}
 /* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
@@ -2010,72 +2111,6 @@ a span {
 }
  
  
-  
-
-@media (max-width: 1024px) {
-  /* Adjust navbar layout */
-  .navbar {
-    padding: 8px 10px; /* Reduce padding slightly */
-  }
-
-  .navbar-links {
-    gap: 8px; /* Reduce spacing further */
-    font-size: 11px;
-    margin-left: -10px;
-  }
-
-  .navbar-links a {
-    font-size: 12px; /* Slightly smaller font */
-  }
-
-  .logo-image {
-    width: 160px; /* Reduce logo size more */
-  }
-
-  /* Adjust dropdown menu width */
- 
-
-  /* Adjust notification dropdown */
-  .dropdown-contentnoti {
-    left: -220px;
-    width: 350px;
-  }
-
-  .notification-card {
-    width: 340px;
-  }
-
-  /* Adjust search bar */
-  .navbar-search input {
-    width: 160px; /* Reduce input width */
-    font-size: 12px;
-  }
-  .navbar-search input::placeholder {
-    font-size: 10px; /* Reduce placeholder font size */
-  }
-  .subscritebutton {
-    padding: 6px 12px;
-    font-size: 13px;
-    width: 45px;
-  }
-
-  /* Adjust icons */
-  .navbar-icons {
-    gap: 12px; /* Reduce icon spacing */
-  }
-
-  .chevron-icon {
-    margin-left: 4px;
-    color: #24b676;
-    font-size: 11px; /* Reduce icon size */
-    transition: transform 0.3s ease;
-  }
-  
-  span.willamname {
-    font-size: 14px !important;
-    margin-right: 5px !important;
-  }
-}
 
 
 /* Additional styles for 480px and below */
@@ -2218,7 +2253,7 @@ a span {
   }
 
   .notification-card {
-    width: 280px;
+    width: 250px;
   }
 
   .notification-img {
@@ -2254,4 +2289,25 @@ a span {
     color: black;
     cursor: pointer;
 }
+}
+
+
+@media (max-width: 320px) {
+  .dropdown-contentnoti {
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    width: 230px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-top: 10px;
+    padding: 15px;
+    margin-left: -585px;
+}
+  .notification-card {
+    width: 200px;
+  }
 }

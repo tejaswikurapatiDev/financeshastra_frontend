@@ -264,32 +264,61 @@ padding: 4px 8px;
     ;
     }
     .segment-card {
-        width: 25%;
+        width: 35%;
         padding: 18px;
         margin-left: 120px;
     }
     .size-analysis-container {
-        width: 80%;
+        width: 60%;
         padding: 18px;
         height: 520px;
         margin-right: auto;
     }
     .speedometer-container {
-        max-width: 420px;
-        height: 380px;
-        padding: 8px;
-        margin-right: 82px;
+        width: 1120px;
+        height: 280px;
+        padding: 99px;
+        margin-left: 250px;
     }
     .speedometer-gauge text {
-        font-size: 6px !important;
+        font-size: 10px !important;
     }
     .table-view-button {
-        width: 50px;
-        font-size: 11px;
+        width: 100px;
+        font-size: 15px;
+        margin-top: -50px;
+      
     }
     .speedometer-subtitle {
-        font-size: 10px;
+        font-size: 15px;
+        margin-left: -80px;
        
+    }
+    .speedoparaheadall {
+        display: flex
+    ;
+    width: 600px;
+        gap: 300px;
+        align-items: center;
+        padding: 0px 0;
+        margin-left: 10px;
+    }
+    .table-contentspeedometerr {
+        background: white;
+        padding: 10px;
+        border-radius: 20px;
+        width: 480px;
+        text-align: center;
+        margin-left: 270px;
+        margin-top: 80px;
+    }
+    .speedometer-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: -1px;
+        margin-top: -70px;
+        margin-left: -50px;
     }
     
 }
@@ -500,7 +529,7 @@ padding: 5px;
 }
   }
   
-
+ 
 
   @media screen and (max-width: 480px){
     /* Portfolio Container */
@@ -521,7 +550,7 @@ padding: 5px;
         box-shadow: 0px 4px 12px rgb(223, 221, 221);
         padding: 10px;
         width:auto;
-        max-width: 365px;
+        max-width: 85%;
        font-family: 'calibri';
      margin-top: 20px;
     
@@ -570,8 +599,20 @@ padding: 5px;
         display: flex;
      margin-top: 15px;
        margin-bottom: 5px;
-        gap: 10px;
+        gap: 5px;
         margin-left: 1px;
+    }
+    .PortfolioHoldingPageholdingCard {
+        display: flex
+    ;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        margin-top: 10px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        width: 700px;
     }
     
     .time-range-buttonportfiliocard {
@@ -658,10 +699,13 @@ padding: 5px;
     }
     
     .aallportfolio h3{
-        font-size: 24px;
+        font-size: 20px;
+        margin-top: -10px;
     }
     .aallportfolio p{
-        font-size: 15px;
+        font-size: 12px;
+        margin-left: 7px;
+      
     }
     
     
@@ -705,3 +749,10 @@ padding: 5px;
       }
       }
       
+    /* Additional adjustments for very small screens up to 375px */
+    @media screen and (max-width: 320px) {
+        .portfolio-cardanalysisssmainchart {
+          max-width: 80%;
+         
+        }
+      }

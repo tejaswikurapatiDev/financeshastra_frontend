@@ -9,8 +9,9 @@ import AnalysisResearchReportblur from '../Portfolioanysisstockresearcgblur/Port
 import FundamentalPortfolioAnalysis from '../FundamentalPortfolioAnalysis/FundamentalPortfolioAnalysis'
 import PerformancePortfolioAnalysis from '../PerformancePortfolioAnalysis/PerformancePortfolioAnalysis'
 import PortfolioAnalysissplitPage from '../PortfolioAnalysissplitPage/PortfolioAnalysissplitPage'
+import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
 
-function Portfoliosplitcall(){
+function Portfoliosplitcall({children}){
   return (
     <div className='allpagecallanalysis'>
         <Portfolioanalyticchart/>
@@ -20,8 +21,17 @@ function Portfoliosplitcall(){
         <PerformancePortfolioAnalysis/>
         <AnalysisResearchReportblur/>
         <PortfolioAnalysisnew/>
-        <Sidebar/>
+       
         <Navbar/>
+        <div className="layout">
+      <Sidebar/>
+      <div className="main-contentover">
+        <div className="contentover">{children}</div>
+        <div className="oversidefooter">
+          <FooterForAllPage />
+          </div>
+      </div>
+    </div>
     </div>
   )
 }

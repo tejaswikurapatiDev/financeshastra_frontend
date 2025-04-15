@@ -104,6 +104,41 @@
   body {
     overflow-x: hidden;
 }
+.whyfinpersonalreal-card {
+  background: #f5f4fa;
+  padding: 10px;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 90%;
+  min-height: 405px;
+  margin: 0 auto;
+}
+.whyfinpersonalreal-text, .whyfinrealmarket-text {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+.whyfinpersonalreal-title, .whyfinrealmarket-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  margin-left: 10px;
+}
+.whyfinrealmarket-card {
+  background: #f5f4fa;
+  padding: 10px;
+  border: 2px solid #cecece;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  height: 90%;
+  min-height: 405px;
+  margin: 0 auto;
+}
 
 }
 
@@ -154,7 +189,7 @@
   .whyfinpersonalreal-card {
       width: 75%;
       padding: 15px;
-     
+      min-height: 100px;
   }
   .whyfinrealmarket-card{
     margin-top: 20px;

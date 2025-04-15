@@ -102,6 +102,8 @@
   font-weight: bold;
   margin-bottom: 20px;
   align-self: flex-start;
+  margin-left: 10px;
+
 }
 
 /* Tabs */
@@ -350,6 +352,7 @@ text-align: center;
   .profilepage-tabsorderusers {
     text-align: center;
     margin-left: 20px;
+
 }
 .profilepage-title {
   font-size: 22px;
@@ -418,8 +421,8 @@ text-align: center;
       padding: 20px;
       border-radius: 8px;
       width: 540px;
-      margin-top: -20px;
-      height: 350px;
+      margin-top: -33px;
+      height: 360px;
     }
     
     .investment-itemalluser span {
@@ -569,6 +572,7 @@ text-align: center;
         margin-left: 10px;
         margin-bottom: 15px;
         scrollbar-color: rgb(201, 198, 198); /* Custom scrollbar color for Firefox */
+       
     }
     
     /* Custom scrollbar for WebKit browsers like Chrome and Safari */
@@ -631,7 +635,7 @@ margin-left: -20px;
     gap: 20px; /* Adjust gap for smaller screens */
     margin-left: 0; /* Align to the left */
     box-shadow: 0px 4px 8px rgb(208, 206, 206);
-    width: auto;
+    width: 80%;
   }
 
   .userDetails {
@@ -648,11 +652,11 @@ margin-left: -20px;
     border-radius: 8px;
     margin-bottom: 20px;
     background-color: white;
-    width: calc(95% - 40px); /* Fit the container */
+    width: calc(95% - 100px); /* Fit the container */
     gap: -2px;
     margin-left: 0;
     box-shadow: 0px 4px 8px rgb(208, 206, 206);
-    width: auto;
+    width: 80%;
   }
 
   .profileContainer {
@@ -692,12 +696,22 @@ margin-left: -20px;
   }
 
   .profilepage-tabsorderusers {
-    overflow-x: scroll; /* Prevent horizontal scrolling */
+    overflow-x: scroll;
     border-bottom: none;
     margin-left: 0;
     margin-bottom: 15px;
-    width: 100%; /* Adjust width to fit the container */
+    width: 100%;
+}
+  .profilepage-tabsorderusers::-webkit-scrollbar {
+    height: 8px;
+    background: transparent; /* Makes the scrollbar track transparent */
   }
+  
+  .profilepage-tabsorderusers::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Makes the thumb (scroll) transparent */
+    border-radius: 10px;
+  }
+  
   .modal-content {
     background: white;
     padding: 20px;
@@ -747,13 +761,21 @@ margin-left: -20px;
     padding: 20px;
     border-radius: 8px;
     width: 380px;
-    margin-top: -50px;
-    height: 385px;
+    margin-top: -25px;
+    height: 360px;
   }
   .investment-itemalluser input[name="stocks"]{
-    width: 50px;
+    width: 25px;
   }
   .investment-itemalluser input[name="mutualfund"] {
-    width: 50px;
+    width: 30px;
   }
+  .editiconprofile {
+    color: #24b676;
+    margin-left: -40px;
+}
+.value, .current-value {
+  font-size: 11px;
+  margin-left: -15px;
+}
 }

@@ -141,12 +141,22 @@ font-family: 'calibri';
   font-weight: bold;
 }
 
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .earnings-report {
+    padding: 20px;
+    font-family: 'calibri';
+    margin-left: -10px;
+    width: 98%;
+}
+    }
 /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .earnings-report h2 {
-    margin-left: 20px; /* Adjust margin for smaller screens */
-    font-size: 1.25rem; /* Adjust font size */
-  }
+    margin-left: -500px;
+    font-size: 17px;
+}
 
   .earnings-report p {
     margin-left: 20px; /* Adjust margin for smaller screens */

@@ -1,168 +1,110 @@
 .screener-headerniftytab50{
-    margin-top: 240px;
+  margin-top: 240px;
 }
 .tabnifty50-button {
-    padding: 0.5rem 1rem;
-    margin: 0 0.5rem;
-    background: white; /* Default background */
-    color: #000; /* Default text color */
-    border: 1px solid #333;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background: white; /* Default background */
+  color: #000; /* Default text color */
+  border: 1px solid #333;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .tabnifty50-button.active {
-    background: #24b676; /* Active background color */
-    color: #fff; /* Active text color */
-    font-weight: bold;
-    border: 1px solid #24b676;
+  background: #24b676; /* Active background color */
+  color: #fff; /* Active text color */
+  font-weight: bold;
+  border: 1px solid #24b676;
 }
 .tabsnifty50-container {
-    display: flex;
-    margin-bottom: 1rem;
+  display: flex;
+  margin-bottom: 1rem;
 }
 /* Highlighted column style */
 .active-column {
-    /* Highlight color */
-    color: #24b676; /* Text color for contrast */
-   
-  }
-  .pagination-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-    font-family: 'calibri';
-  }
-  
-  .pagination-info {
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .pagination-slider {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .pagination-button {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  
-  .pagination-button:disabled {
-    background-color: #eee;
-    cursor: not-allowed;
-  }
-  
-  .active-page {
-    background-color: #24b676;
-    color: #fff;
-    border: 1px solid #24b676;
-  }
-  /* Mobile View for 768px */
+  /* Highlight color */
+  color: #24b676; /* Text color for contrast */
+ 
+}
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  font-family: 'calibri';
+}
+
+.pagination-info {
+  font-size: 14px;
+  color: #555;
+}
+
+.pagination-slider {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pagination-button {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.pagination-button:disabled {
+  background-color: #eee;
+  cursor: not-allowed;
+}
+
+.active-page {
+  background-color: #24b676;
+  color: #fff;
+  border: 1px solid #24b676;
+}
+/* Mobile View for 768px */
 @media (max-width: 768px) {
-  .screener-headerniftytab50 {
-    margin-top: 250px; /* Adjust header margin for tablets */
-  }
-
-  .tabsnifty50-container {
-    flex-direction: row; /* Set the direction to row */
-    gap: 6px; /* Maintain the gap between elements */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent wrapping of child elements */
-   
-  }
-
-  .tabnifty50-button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0; /* Add vertical margin for spacing */
-    font-size: 14px; /* Slightly reduce font size */
-   
-  }
-
-  .pagination-container {
-    flex-direction: row; /* Stack pagination vertically */
-    align-items: center; /* Center pagination elements */
-    margin: 10px 0; /* Adjust pagination margin */
-    margin-bottom: 130px;
-    margin-top: -70px;
-  }
-  
-  .pagination-info {
-    font-size: 12px; /* Reduce font size for pagination info */
-  }
-
-  .pagination-slider {
-    gap: 10px; /* Add more space between pagination elements */
-  }
-
-  .pagination-button {
-    padding: 5px 8px; /* Slightly reduce padding */
-  }
-  .screener-table-wrapper {
-    height: 400px;
-    max-height: 500px;
-    font-size: 14px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 89%;
-    margin-left: 40px;
-    scrollbar-color: #24b676 transparent;
-    scrollbar-width: thin;
+.screener-headerniftytab50 {
+  margin-top: 250px; /* Adjust header margin for tablets */
 }
 
+.tabsnifty50-container {
+  flex-direction: row; /* Set the direction to row */
+  gap: 6px; /* Maintain the gap between elements */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of child elements */
+ 
 }
 
-/* Mobile View for 480px */
-@media (max-width: 480px) {
-  .screener-headerniftytab50 {
-    margin-top: 250px;  /* Further adjust header margin for very small screens */
-  }
+.tabnifty50-button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0; /* Add vertical margin for spacing */
+  font-size: 14px; /* Slightly reduce font size */
+ 
+}
 
-  .tabsnifty50-container {
-    flex-direction: row; /* Set the direction to row */
-    gap: 6px; /* Maintain the gap between elements */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent wrapping of child elements */
-   
-  }
+.pagination-container {
+  flex-direction: row; /* Stack pagination vertically */
+  align-items: center; /* Center pagination elements */
+  margin: 10px 0; /* Adjust pagination margin */
+  margin-bottom: 130px;
+  margin-top: -70px;
+}
 
-  .tabnifty50-button {
-    padding: 0.5rem 1rem;
-    margin: 0.5rem 0;
-    font-size: 12px; /* Reduce font size further */
-  }
+.pagination-info {
+  font-size: 12px; /* Reduce font size for pagination info */
+}
 
-  .pagination-container {
-    flex-direction: row; /* Stack pagination vertically */
-    align-items: center; /* Center pagination elements */
-    margin: 10px 0; /* Adjust pagination margin */
-    margin-bottom: 120px;
-    margin-top: -70px;
-  }
+.pagination-slider {
+  gap: 10px; /* Add more space between pagination elements */
+}
 
-  .pagination-info {
-    font-size: 10px; /* Further reduce font size */
-  }
-
-  .pagination-slider {
-    gap: 8px; /* Adjust the gap between pagination elements */
-  }
-
-  .pagination-button {
-    padding: 4px 8px; /* Further reduce padding for compact screens */
-  }
-  .screenertablenifty td {
-    /* padding: 6px; */
-    width: 200px;
-
+.pagination-button {
+  padding: 5px 8px; /* Slightly reduce padding */
 }
 .screener-table-wrapper {
   height: 400px;
@@ -170,13 +112,70 @@
   font-size: 14px;
   overflow-x: auto;
   overflow-y: hidden;
-  width: calc(115% - 10px);
-  margin-left: 15px;
-  padding: 10px;
+  width: 89%;
+  margin-left: 40px;
   scrollbar-color: #24b676 transparent;
   scrollbar-width: thin;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
 }
 
+}
+
+/* Mobile View for 480px */
+@media (max-width: 480px) {
+.screener-headerniftytab50 {
+  margin-top: 250px;  /* Further adjust header margin for very small screens */
+}
+
+.tabsnifty50-container {
+  flex-direction: row; /* Set the direction to row */
+  gap: 6px; /* Maintain the gap between elements */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of child elements */
+ 
+}
+
+.tabnifty50-button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  font-size: 12px; /* Reduce font size further */
+}
+
+.pagination-container {
+  flex-direction: row; /* Stack pagination vertically */
+  align-items: center; /* Center pagination elements */
+  margin: 10px 0; /* Adjust pagination margin */
+  margin-bottom: 120px;
+  margin-top: -70px;
+}
+
+.pagination-info {
+  font-size: 10px; /* Further reduce font size */
+}
+
+.pagination-slider {
+  gap: 8px; /* Adjust the gap between pagination elements */
+}
+
+.pagination-button {
+  padding: 4px 8px; /* Further reduce padding for compact screens */
+}
+.screenertablenifty td {
+  /* padding: 6px; */
+  width: 200px;
+
+}
+.screener-table-wrapper {
+height: 400px;
+max-height: 500px;
+font-size: 14px;
+overflow-x: auto;
+overflow-y: hidden;
+width: calc(115% - 10px);
+margin-left: -10px;
+padding: 10px;
+scrollbar-color: #24b676 transparent;
+scrollbar-width: thin;
+white-space: nowrap;
+box-sizing: border-box;
+}
+}

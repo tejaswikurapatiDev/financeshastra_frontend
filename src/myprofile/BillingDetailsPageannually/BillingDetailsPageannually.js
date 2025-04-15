@@ -11,10 +11,10 @@ const BillingDetailsPageannually = () => {
   return (
     <div className="profilepagee-container">
     
-    <h1 className="profilepage-title" style={{ fontFamily: 'Calibri, sans-serif' }}>
+    <h1 className="profilepage-titlebiling" style={{ fontFamily: 'Calibri'}}>
   My Billing & Subscription
 </h1>
-<div className="profilepage-tabsorderusers" >
+<div className="profilepage-tabsorderuserss" >
         <span className="profilepage-tabb"onClick={() => navigate("/userDetailsupdate")}
        >My Account</span>
         <span

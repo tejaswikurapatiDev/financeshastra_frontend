@@ -20,56 +20,56 @@ export const PortfolioDashboardProvider = ({ children }) => {
 
     // Function to fetch data from the backend
     const fetchData = async () => {
-    try {
-        setLoading(true);
-        const token = Cookies.get("jwtToken");
-        if (!token) {
-        setError("No authentication token found.");
-        setLoading(false);
-        navigate("/login")
-        return;
+        try {
+            setLoading(true);
+            const token = Cookies.get("jwtToken");
+            if (!token) {
+                setError("No authentication token found.");
+                setLoading(false);
+                navigate("/login")
+                return;
+            }
+
+            const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to fetch data");
+            }
+
+            const data = await response.json();
+
+
+            if (data.length > 0) {
+                setMyInvestment(data[0].investment_cost || 0);
+                setLatestValue(data[0].latest_value || 0);
+                setUnRealizedGains(data[0].unrealized_gain || 0);
+                setRealizedGains(data[0].realized_gain || 0);
+                setCapitalGains(data[0].capital_gains || 0);
+            } else {
+                setError("No portfolio data found.");
+            }
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
         }
-
-        const response = await fetch(`${API_BASE_URL}/myportfolio/dashboard`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-        },
-        });
-
-        if (!response.ok) {
-        throw new Error("Failed to fetch data");
-        }
-
-        const data = await response.json();
-        
-
-        if (data.length > 0) {
-        setMyInvestment(data[0].investment_cost || 0);
-        setLatestValue(data[0].latest_value || 0);
-        setUnRealizedGains(data[0].unrealized_gain || 0);
-        setRealizedGains(data[0].realized_gain || 0);
-        setCapitalGains(data[0].capital_gains || 0);
-        } else {
-        setError("No portfolio data found.");
-        }
-    } catch (err) {
-        setError(err.message);
-    } finally {
-        setLoading(false);
-    }
     };
 
     // Fetch data when the component mounts
     useEffect(() => {
-    fetchData();
+        fetchData();
     }, []);
-  return (
-    <PortfolioDashboardContext.Provider value={{myInvestment, latestValue, unRealizedGains, realizedGains, capitalGains}}>
-        {children}
-    </PortfolioDashboardContext.Provider>
-  )
+    return (
+        <PortfolioDashboardContext.Provider value={{ myInvestment, latestValue, unRealizedGains, realizedGains, capitalGains }}>
+            {children}
+        </PortfolioDashboardContext.Provider>
+    )
 }
 
 

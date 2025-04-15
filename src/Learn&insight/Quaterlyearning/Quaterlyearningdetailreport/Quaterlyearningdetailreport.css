@@ -123,14 +123,22 @@ font-family: 'calibri';
     table-layout: fixed; /* Fix column widths to prevent stretching */
     /* Optional: Add a max-height if you want to control the height */
   }
+  .earnings-tablee {
+    width: 95%;
+    font-family: 'calibri';
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 10px;
+}
   .shareholding-historyy table{
-    width: 100%; /* Make the table fill the width of its container */
-    display: block; /* Make the table block-level to allow scrolling */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-    table-layout: fixed; /* Fix column widths to prevent stretching */
-    /* Optional: Add a max-height if you want to control the height */
-  }
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    table-layout: fixed;
+    margin-left: 10px;
+}
 
   /* Adjust table cell padding for smaller screens */
   .earnings-tablee th,

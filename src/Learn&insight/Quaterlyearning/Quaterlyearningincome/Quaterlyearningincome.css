@@ -59,6 +59,19 @@
 .earnings-tableeincome tr:nth-child(even) td {
     background-color: rgba(224, 238, 235, 0.59);
 }
+
+
+
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  .earnings-tableeincome {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+    }
 /* Mobile view adjustments for devices with max-width 480px */
 @media (max-width: 480px) {
   .earnings-tableeincome {

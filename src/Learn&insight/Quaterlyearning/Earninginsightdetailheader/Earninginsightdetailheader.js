@@ -45,8 +45,11 @@ function Earninginsightheader() {
           <h1 className="telephone">State Bank Of India</h1>
         </div>
         <div className="graph-price-update">
-          <span style={{fontSize:"20px"}}className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+          <span style={{fontSize:"20px"}} className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
             ₹{parseFloat(currentPrice).toLocaleString()}
+          </span>
+          <span style={{fontSize:"20px"}} className={`graphprice ${change >= 0 ? 'positive' : 'negative'}`}>
+            {change >= 0 ? `+₹${parseFloat(change).toLocaleString()}` : `-₹${Math.abs(parseFloat(change)).toLocaleString()}`}
           </span>
           <span className="graphupdate">Last updated: {lastUpdated}</span>
         </div>
@@ -63,7 +66,8 @@ function Earninginsightheader() {
         <ScrollLink
           to="overview"
           smooth={true}
-          duration={500}
+          duration={500} 
+          offset={-320}
           activeClass="active-link"
         >
           Overview
@@ -72,6 +76,7 @@ function Earninginsightheader() {
           to="financials"
           smooth={true}
           duration={500}
+          offset={-290}
           activeClass="active-link"
         >
           Financials
@@ -80,6 +85,7 @@ function Earninginsightheader() {
           to="income"
           smooth={true}
           duration={500}
+          offset={-290}
           activeClass="active-link"
         >
           Income Statement
@@ -88,6 +94,7 @@ function Earninginsightheader() {
           to="valuation"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Balance Sheet
@@ -96,6 +103,7 @@ function Earninginsightheader() {
           to="stockanalysis"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Cash Flow
@@ -104,6 +112,7 @@ function Earninginsightheader() {
           to="analysis-notes"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Ratios
@@ -112,6 +121,7 @@ function Earninginsightheader() {
           to="stockpeer"
           smooth={true}
           duration={500}
+          offset={-270}
           activeClass="active-link"
         >
           Peers
@@ -120,6 +130,7 @@ function Earninginsightheader() {
           to="news"
           smooth={true}
           duration={500}
+          offset={-250}
           activeClass="active-link"
         >
           News
@@ -128,6 +139,7 @@ function Earninginsightheader() {
           to="about"
           smooth={true}
           duration={500}
+          offset={-250}
           activeClass="active-link"
         >
           About

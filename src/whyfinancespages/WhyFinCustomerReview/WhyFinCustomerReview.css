@@ -119,8 +119,8 @@
   .testimonial-slider-wrapper {
     margin-bottom: -10px;
   }
+  
 }
-
 /* Mobile Devices (Below 768px) */
 @media (max-width: 767px) {
   .testimonial-card {

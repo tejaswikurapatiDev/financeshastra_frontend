@@ -324,7 +324,9 @@ const SettingsDashboard = ({children}) => {
         <Sidebar />
         <div className="main-contentover">
           <div className="contentover">{children}</div>
+          <div className="oversidefooter">
           <FooterForAllPage />
+          </div>
         </div>
       </div>
     </div>

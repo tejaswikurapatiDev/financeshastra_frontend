@@ -121,7 +121,7 @@ font-size: 15px;
   .imgwhoweare {
       width: 100%;
       height: auto;
-      margin-left: 0;
+      margin-left: -18px;
   }
   .whoweare-intro h1 {
       margin-left: 0;
@@ -136,7 +136,10 @@ font-size: 15px;
       padding: 15px;
   }
   .whoweare-intro h1 {
-      font-size: 22px;
+      font-size: 20px;
+      margin-left: -50px;
+      margin-top: 60px;
+      margin-bottom: -10px;
   }
   .whoweare-mission h2,
   .whoweare-vision h2,
@@ -144,10 +147,13 @@ font-size: 15px;
   .whoweare-approach h2,
   .whoweare-team h2,
   .whoweare-call-to-action h2 {
-      font-size: 20px;
+      font-size: 18px;
+      margin-left: 5px;
   }
   .whoweare-call-to-action h4 {
-      font-size: 20px;
+    font-size: 13px;
+    margin-left: 5px;
+    margin-bottom: 20px;
   }
   .whoweare-mission p, .whoweare-vision p,
     .whoweare-approach p, .whoweare-team p,
@@ -156,6 +162,7 @@ font-size: 15px;
         font-size: 12px; /* Slightly smaller font for readability */
         margin-left: auto; 
         margin-right: auto; /* Center the text block */
+        margin-left: 5px;
     }
   
 .whoweare-key-points li {
@@ -163,6 +170,8 @@ font-size: 15px;
   font-size: 12px; /* Slightly smaller font for readability */
   margin-left: auto; 
   margin-right: auto; /* Center the text block */
+  margin-left: 5px;
 }
+
 }
 

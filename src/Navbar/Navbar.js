@@ -551,7 +551,7 @@ const Navbar = () => {
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
             >
-              <Link to="/bankSectorThemePagelock">
+              <Link to="/stockThemesSectorPages">
                 Stock Themes
                 <p>Research is key before buying any stock</p>
               </Link>
