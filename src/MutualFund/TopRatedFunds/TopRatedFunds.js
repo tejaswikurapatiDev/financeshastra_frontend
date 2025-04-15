@@ -123,22 +123,22 @@ const TopRatedFunds = () => {
                 </tr>
               </thead>
               <tbody>
-                {currentData.map((fund) => (
-                  <tr key={fund.FundID} className="funds-table-row">
+                {currentData.map((fund, index) => (
+                  <tr key={index} className="funds-table-row">
                     <td>
-                      <Link to="/mutualfundgrowth" className="fund-name-link">
-                        {fund.FundName}
+                      <Link to={`/mutualfundgrowth/${fund.fund_id}`} className="fund-name-link">
+                        {fund.name}
                       </Link>
                     </td>
-                    <td>{fund.Rating}</td>
-                    <td>{fund.Riskometer}</td>
-                    <td>{fund.NAV_Regular ? `₹${fund.NAV_Regular}` : "N/A"}</td>
-                    <td>{`₹${fund.AUM} Cr`}</td>
-                    <td>{`₹${fund.SIPAmount}`}</td>
-                    <td>{`${fund.ExpenseRatio}%`}</td>
-                    <td>{fund.OneYearReturn ? `${fund.OneYearReturn}%` : "N/A"}</td>
-                    <td>{fund.ThreeYearReturn ? `${fund.ThreeYearReturn}%` : "N/A"}</td>
-                    <td>{fund.FiveYearReturn ? `${fund.FiveYearReturn}%` : "N/A"}</td>
+                    <td>{fund.rating}★</td>
+                    <td>{fund.riskometer}</td>
+                    <td>{fund.nav ? `₹${fund.nav}` : "N/A"}</td>
+                    <td>{`₹${fund.current_aum_cr} Cr`}</td>
+                    <td>{`₹${fund.min_sip}`}</td>
+                    <td>{`${fund.expense_ratio}%`}</td>
+                    <td>{fund.return_1_year ? `${fund.return_1_year}%` : "N/A"}</td>
+                    <td>{fund.return_3_years ? `${fund.return_3_years}%` : "N/A"}</td>
+                    <td>{fund.return_5_years ? `${fund.return_5_years}%` : "N/A"}</td>
                   </tr>
                 ))}
               </tbody>
