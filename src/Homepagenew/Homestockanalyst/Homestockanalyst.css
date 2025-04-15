@@ -199,7 +199,7 @@ margin-top: 290px;
     margin: 20px;
     width: 125%;
     margin-left: 0px;
-    margin-top: -10px;
+    margin-top: 30px;
     height: 400px;
     overflow-y: auto;
 }
@@ -256,7 +256,7 @@ margin-top: 290px;
       margin: 20px;
 
       margin-left: -1px;
-      margin-top: -10px;
+      margin-top: 30px;
       
   }
   .pagination-containeranalyst{
@@ -269,7 +269,7 @@ margin-top: 290px;
   .pagination-containerreasearch{
     display: flex;
     padding: 10px;
-    gap: 100px;
+    gap: 50px;
   }
   
   .tabsnifty50-containerdash {
@@ -289,4 +289,13 @@ margin-top: 290px;
       gap: 5px;
       margin-right: -70px;
   }
+}
+
+@media (max-width: 480px) {
+.pagination-containerreasearch{
+  display: flex;
+  padding: 10px;
+  gap: 0px;
+  margin-left: 10px;
+}
 }
