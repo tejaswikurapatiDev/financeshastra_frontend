@@ -123,6 +123,7 @@
   @media (min-width: 1280px) and (max-width: 1535px) {
     .stocknewsss {
       max-width: 1200px;
+      margin-top: 60px;
     }
   }
   
@@ -131,6 +132,7 @@
     .stocknewsss {
       max-width: 1024px;
       margin-left: 50px;
+      margin-top: 40px;
     }
     .stocknewsss-headline{
       font-size: 22px;
@@ -164,6 +166,7 @@
       max-width: 95%;
       padding: 15px;
       margin-left: -20px;
+      margin-top: -30px;
     }
     .stocknewsss-image {
       width: 80%;

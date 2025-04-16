@@ -204,9 +204,16 @@ margin-top: -5px;
   gap: 8px; /* Provides spacing between buttons */
  margin-right: -530px;
 }
-
+.funds-header {
+  margin-top: -80px;
 }
 
+}
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .funds-header {
+    margin-top: -100px;
+  }
+}
 
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .funds-table-header th {
@@ -229,6 +236,9 @@ margin-top: -5px;
 margin-top: -5px;
 
 }
+.funds-header {
+  margin-top: -100px;
+}
 }
 /* Responsive styles */
 @media screen and (max-width: 768px) {
@@ -240,7 +250,7 @@ margin-top: -5px;
   .funds-header {
       flex-direction: column;
       align-items: flex-start;
-      
+      margin-top: -100px;
   }
 
   .topfundbutton-container {
@@ -283,6 +293,7 @@ margin-top: -5px;
       flex-direction: column;
       align-items: flex-start;
       margin-bottom: 10px;
+      margin-top: -70px;
   }
 
   .funds-table-title {
