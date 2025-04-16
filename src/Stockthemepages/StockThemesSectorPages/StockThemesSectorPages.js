@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import { FiTrendingDown } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from "../../config";
 
 import "./StockThemesSectorPages.css";
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 const stockThemesData = [
   
   {
@@ -196,19 +202,48 @@ const stockThemesData = [
 ];
 
 export default function StockThemesSectorPages() {
+  const [isLoading, setisLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredData, setFilteredData] = useState(stockThemesData);
+  const [filteredData, setFilteredData] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    
+        const fetchfun = async () => {
+          const url = `${API_BASE_URL}/stocks/stockstheme`;
+          const response = await fetch(url);
+          const data= await response.json()
+          console.log(data)
+          const formatedData= data.map(e => ({
+              sector: e.Sector,
+              marketCap: e.M_cap,
+              M_cap_percentage: e.M_cap_percentage,
+              adv: e.adv,
+              decline: e.decline,
+              sectorPE: e.sector_PE,
+              earningsYOY: e.sector_earnings_yoy,
+              earningsYOYper: e.sector_earnings_yoy_per,
+              industries: e.Industries,
+              stocks: e.Stocks,
+          }))
+          setFilteredData(formatedData)
+          console.log(formatedData)
+        };
+        setisLoading(false)
+        fetchfun();
+  }, []);
+
+
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
 
     // Filter the sectors based on the search term
     if (value.trim() === "") {
-      setFilteredData(stockThemesData);  // Show all when input is empty
+      setFilteredData(filteredData);  // Show all when input is empty
     } else {
-      const filteredList = stockThemesData.filter((item) =>
+      const filteredList = filteredData.filter((item) =>
         item.sector.toLowerCase().includes(value.toLowerCase()) // Match by sector name
       );
       setFilteredData(filteredList);
@@ -216,6 +251,17 @@ export default function StockThemesSectorPages() {
   };
  
   return (
+    <>
+  {isLoading ? 
+    <div className='loader-cont'><ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={isLoading}
+        speedMultiplier={1}
+        color="green"
+      /></div> 
+    :
     <div className="StockThemesSectorPages-themes-container">
       <h1 className="StockThemesSectorPages-themes-title">Stocks Themes</h1>
       <p className="StockThemesSectorPages-themes-description">
@@ -266,20 +312,20 @@ export default function StockThemesSectorPages() {
             <p>
   <strong style={{ color: "#333",fontWeight:"normal" }}>M.Cap (₹ Cr.):</strong> <br />
   <span style={{ fontWeight: "bold", color: "#333" }}>
-    {item.marketCap.split(" ")[0]}
+    {item.marketCap}
   </span>{" "}
-  <span style={{ color: "#24b676",fontWeight: "bold" }}>{item.marketCap.match(/\(.*\)/)}</span>
+  <span style={{ color: "#24b676",fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
 </p>
 
 <p>
   <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
   <br />
   <span style={{ color: "#24b676", fontWeight: "bold" }}>
-    {item.advDecl.split(" | ")[0]}
+    {item.adv}
   </span>{" "}
   |{" "}
   <span style={{ color: "red", fontWeight: "bold" }}>
-    {item.advDecl.split(" | ")[1]}
+    {item.decline}
   </span>
 </p>
 
@@ -287,9 +333,9 @@ export default function StockThemesSectorPages() {
                 {item.sectorPE}</span></p>
               <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
               
-              {item.earningsYOY.split(" ")[0]}</span>{" "}
+              {item.earningsYOY}</span>{" "}
               <span style={{ color: "#24b676",fontWeight: "bold" }}>
-              {item.earningsYOY.match(/\(.*\)/)}</span>
+              {item.earningsYOYper}</span>
               </p>
               <p><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
 
@@ -312,5 +358,9 @@ export default function StockThemesSectorPages() {
       </div>
       
     </div>
+    
+    }
+    </>
+  
   );
 }

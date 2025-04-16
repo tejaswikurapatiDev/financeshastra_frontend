@@ -4,12 +4,12 @@ import RiskProfileForm from '../RiskProfileForm/RiskProfileForm';
 import {useNavigate} from "react-router-dom";
 import Navbar from '../../../Navbar/Navbar';
 import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
-import { SubscriptionContext } from '../../../Portfoilo/context/SubscriptionContext';
 import { API_BASE_URL } from '../../../config';
 import ProfileRiskReportInvestment from '../InvestmentGuide/InvestmentGuide';
 import Cookies from 'js-cookie'
 import ClipLoader from "react-spinners/ClipLoader";
 import AccountBar from '../../AccountBar';
+import useSubscriptionStatus from '../../../Navbar/Hooks/useSubscriptionStatus';
 const override = {
   display: "block",
   textAlign: "center",
@@ -17,9 +17,9 @@ const override = {
 
 const RiskAnalysisDashboard = () => {
     const navigate = useNavigate();
-    const {issubscribed}= useContext(SubscriptionContext)
+    const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
     const [datalenght, setlenght]= useState(0)
-    const [isLoading, setisLoading]= useState(false)
+    const [isLoadingg, setisLoading]= useState(false)
 
    const fetchRiskProfile= async ()=>{
     
@@ -47,11 +47,11 @@ const RiskAnalysisDashboard = () => {
   }, [])
 
     return (
-      <div>{isLoading ? <div className='loader-cont'><ClipLoader
+      <div>{isLoadingg ? <div className='loader-cont'><ClipLoader
                       cssOverride={override}
                       size={35}
                       data-testid="loader"
-                      loading={isLoading}
+                      loading={isLoadingg}
                       speedMultiplier={1}
                       color="green"
                     /></div>
@@ -98,7 +98,7 @@ const RiskAnalysisDashboard = () => {
             <RiskProfileForm/>
             </>: <ProfileRiskReportInvestment/>
       }
-            {!issubscribed && <div className="subscribe-footerrmanagealerttt">
+            {!isSubscribed && !isLoading && <div className="subscribe-footerrmanagealerttt">
       <h2 className="headingmanagealert">Subscribe Now!</h2>
         <h3>Choose a plan that aligns with your investment goals!</h3>
         <button 

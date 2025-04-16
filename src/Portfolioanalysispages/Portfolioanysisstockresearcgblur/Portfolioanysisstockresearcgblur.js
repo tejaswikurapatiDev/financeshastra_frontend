@@ -11,7 +11,6 @@ import reliance from "../../assest/reliance.png";
 import hdfc from "../../assest/hdfcbank.png";
 import bharti from "../../assest/bhartiartl.png";
 
-import { SubscriptionContext } from "../../Portfoilo/context/SubscriptionContext";
 import Sidebar from '../../Sidebar/Sidebar';
 import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 import { API_BASE_URL } from '../../config';
@@ -23,7 +22,6 @@ import { API_BASE_URL } from '../../config';
 const AnalysisResearchReportblur = () => {
   
   
-  //const {isSubscribed}= useContext(SubscriptionContext)
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
   

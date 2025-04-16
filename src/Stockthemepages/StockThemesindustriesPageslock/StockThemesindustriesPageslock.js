@@ -6,7 +6,8 @@ import './StockThemesindustriesPageslock.css';
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
 import Navbar from "../../Navbar/Navbar";
-import { SubscriptionContext } from "../../Portfoilo/context/SubscriptionContext";
+import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 
 const stockThemesindustriesData = [
   {
@@ -28,7 +29,7 @@ const stockThemesindustriesData = [
 ];
 
 export default function StockThemesindustrieslockPages() {
-  const {issubscribed}= useContext(SubscriptionContext)
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(stockThemesindustriesData);
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -77,7 +78,7 @@ export default function StockThemesindustrieslockPages() {
 
   return (
     <div>
-    <div className={`banksectorthemepage ${issubscribed ? "" :"backdrop-blur" }`}>
+    <div className={`banksectorthemepage ${!isSubscribed && !isLoading && "backdrop-blur" }`}>
       <h1 className="banksectortitle">Banks Sector Stocks</h1>
       <div className="banksectorfilter">
         <button
@@ -159,7 +160,7 @@ export default function StockThemesindustrieslockPages() {
             <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreenerList")}className="StockThemesSectorPages-themes-icon" />
 
             {/* Lock and Subscribe logic */}
-            {!issubscribed && (
+            {!isSubscribed && !isLoading && (
               <div className="subscribethemestocklocked-overlayyy">
                 <div
                   className="subscribethemestocklocked-lock-icon"
