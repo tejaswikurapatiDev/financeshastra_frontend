@@ -191,8 +191,17 @@ font-family: 'calibri';
   .shareholding-historyy th,
   .shareholding-historyy td {
     padding: 6px; /* Further reduce padding */
+    font-size: 12px;
   }
   .shareholding-historyy{
     width: 100%;
   }
+  .shareholding-historyy table{
+    width: 90%;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    table-layout: fixed;
+    margin-left: 10px;
+}
 }
