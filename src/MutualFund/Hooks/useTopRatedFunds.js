@@ -18,6 +18,8 @@ const useTopRatedFunds = () => {
 
       const data = await response.json();
 
+      console.log(data)
+
       setTopRatedFunds(data?.data || []);
     } catch (error) {
       setError(error.message);

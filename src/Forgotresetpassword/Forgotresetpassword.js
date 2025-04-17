@@ -41,6 +41,7 @@ function Forgotresetpassword() {
   };
 
   const handleSubmit = async (e) => {
+    console.log(password)
     e.preventDefault();
     setSubmitted(true);
 

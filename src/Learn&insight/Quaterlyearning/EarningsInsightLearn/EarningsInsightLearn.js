@@ -542,20 +542,23 @@ const EarningsInsightLearn = () => {
                                 <FaRegCalendarAlt />
                             </div>
                             </div>
-                            {calendarOpen && (
-                                <ReactDatePicker
-                                    selected={startDate}
-                                    onChange={handleDateChange}
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                    selectsRange
-                                    inline
-                                    dateFormat="yyyy-MM-dd"
-                                     className="custom-date-picker"
-                                    calendarClassName="custom-calendar" 
-                                    onClickOutside={() => setCalendarOpen(false)}  // Close the calendar if clicked outside
-                                />
-                            )}
+                            <div className="calendar-container">
+  {calendarOpen && (
+    <ReactDatePicker
+      selected={startDate}
+      onChange={handleDateChange}
+      startDate={startDate}
+      endDate={endDate}
+      selectsRange
+      inline
+      dateFormat="yyyy-MM-dd"
+      className="custom-date-picker"
+      calendarClassName="custom-calendar"
+      onClickOutside={() => setCalendarOpen(false)}
+    />
+  )}
+</div>
+
                         </div>
                      
                     

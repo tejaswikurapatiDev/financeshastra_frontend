@@ -13,7 +13,9 @@ const Disclaimer = () => {
    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div>
+        
     <div className={darkMode ? "disclaimerdarkmode" :"disclaimer"}>
+      
       <h1 className={darkMode ? "disclaimer-titledarkmode" :"disclaimer-title"}>FinanceShastra Disclaimer</h1>
       <div className={darkMode ? "disclaimer-introdarkmode" :"disclaimer-intro"}>
         <img src={disclaimerImage} alt="Disclaimer" className={darkMode ? "disclaimer-imagedarkmode" :"disclaimer-image"}/>
@@ -110,9 +112,10 @@ This Disclaimer constitutes the entire agreement between FinanceShastra and the 
         </p>
       </div>
      
-      <Navbar/>
- 
+   
+     
     </div>
+    <Navbar/>
     <div className={darkMode ? "foooterpagesattt" :"foooterpagesaupdate"}>
       <FooterForAllPage/>
       </div>
