@@ -187,7 +187,7 @@ font-weight: bold; /* Make it bold */
     margin-left: -15px;
     padding: 20px 20px;
     font-family: "calibri";
-    margin-top: 75px;
+    margin-top: 55px;
     border-radius: 0;
     position: fixed;
     top: 0;
@@ -202,7 +202,7 @@ font-weight: bold; /* Make it bold */
     border-radius: 0;
     margin-right: 100px;
     border: 5px solid black;
-    margin-top: 75px;
+    margin-top: 55px;
   }
   
 
@@ -276,7 +276,7 @@ font-weight: bold; /* Make it bold */
 
   .graphheaderer {
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
     padding-bottom: 15px;
     margin-bottom: 5px;
@@ -288,11 +288,11 @@ font-weight: bold; /* Make it bold */
   }
 
   .graphcontainerer {
-    width: 85%;
+    width: 88%;
     margin-left: -10px;
     padding: 20px 20px;
     font-family: "calibri";
-    margin-top: 58px;
+    margin-top: 38px;
     border-radius: 0;
     position: fixed;
     top: 0;
@@ -320,6 +320,7 @@ font-weight: bold; /* Make it bold */
     align-items: flex-start; 
     margin-left: 0px;
     width: 200px;
+    font-size: 18px;
   }
 
   .graphnavbar::-webkit-scrollbar {
@@ -338,10 +339,12 @@ font-weight: bold; /* Make it bold */
   
   .graphupdate {
     font-size: 11px;
+    margin-right: 100px;
   }
   
   .graphstock-infoo {
     margin-left: 0px;
+    margin-bottom: 10px;
   }
   
   .graphnse, .graphsector {
@@ -352,3 +355,32 @@ font-weight: bold; /* Make it bold */
 
   
   
+@media (max-width: 320px) {
+  .graphheaderer {
+      display: flex
+;
+      gap: 0px;
+      align-items: center;
+      padding-bottom: 15px;
+      margin-bottom: 5px;
+  }
+  .graphupdate {
+    font-size: 11px;
+    margin-right: 120px;
+}
+
+
+    .graphcontainerer {
+        width: 88%;
+        margin-left: -20px;
+        padding: 20px 20px;
+        font-family: "calibri";
+        margin-top: 38px;
+        border-radius: 0;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        background-color: #fff;
+        /* border: 5px solid black; */
+    }
+}

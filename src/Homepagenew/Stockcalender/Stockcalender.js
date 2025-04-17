@@ -245,6 +245,7 @@ const Stockcalender = () => {
   onChange={handleDateChange}
   startDate={startDate}
   endDate={endDate}
+  className="stockcalender"
   selectsRange
   inline
   dateFormat="yyyy-MM-dd"

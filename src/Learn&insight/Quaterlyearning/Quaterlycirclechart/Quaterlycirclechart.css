@@ -1,58 +1,139 @@
+.circlechart-wrapper {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(214, 211, 211);
+  box-shadow: 0 4px 12px rgb(223, 217, 217); /* clean soft shadow */
+  border-radius: 8px; /* optional for smoother edges */
+  background-color: #fff; /* optional for better contrast */
+  height: 240px;
+  margin-top: -10px;
+}
+
 .circleearning {
-    width: 420px;
-    border: 1px solid rgb(228, 219, 219);
-    margin-left: 40px;
-    margin-top: 18px;
-    border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.circlechartheader{
+
+}
+.circledataearning {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 70px;
+  align-items: flex-start; /* This aligns items to the left */
+  text-align: left;         /* Ensures text aligns left */
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Extra safety */
+}
+
+.legend-color-box {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 2px;
+}
+
+.valueper {
+  color: #333;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .circlechart-wrapper {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(214, 211, 211);
+    box-shadow: 0 4px 12px rgb(223, 217, 217); /* clean soft shadow */
+    border-radius: 8px; /* optional for smoother edges */
+    background-color: #fff; /* optional for better contrast */
     height: 280px;
-    box-shadow: 2px 2px 10px rgba(225, 222, 222, 0.956); /* Example shadow */
+    margin-top: -10px;
   }
   
-  /* For tablet screens */
-  @media (max-width: 768px) {
-    .circleearning {
-      width: 66%;
-      margin-left: 10px;
-      margin-right: 20px;
-      margin-top: 10px;
-      height: auto;
-  }
-    
-    .circlechartheader {
-      font-size: 16px; /* Smaller font size for header */
-    }
-    
-    .circledataearning {
-      margin-bottom: 100px;
-      margin-left: 70px;
-    }
-  
-    /* Adjust the size of the circle in mobile view */
-    .recharts-pie-sector {
-      /* Change the default size of the circle */
-      transform: scale(0.92); /* Shrinks the chart */
-    }
+  .circleearning {
+    display: flex;
+    flex-direction: row;
+
+   
+    flex-wrap: wrap;
+    gap: 0px;
   }
   
-  /* For very small mobile devices */
-  @media (max-width: 480px) {
-    .circleearning {
-      width: 105%;
-      margin-left: -2px;
-      margin-right: 5px;
-    }
+  .circlechartheader{
   
-    .circledataearning {
-      margin-bottom: 80px;
-    }
-  .valueper{
-    font-size: 13px;
   }
-    .circlechartheader {
-      font-size: 14px; /* Further reduce font size */
-    }
-    
-    .recharts-pie-sector {
-      transform: scale(0.8); /* Further shrink the chart */
-    }
+  .circledataearning {
+  
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 70px;
+    align-items: flex-start; /* This aligns items to the left */
+    text-align: left;         /* Ensures text aligns left */
   }
+  
+  .legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Extra safety */
+  }
+  
+  .legend-color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 2px;
+  }
+  
+  .valueper {
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+}
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .circlechart-wrapper {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(214, 211, 211);
+    box-shadow: 0 4px 12px rgb(223, 217, 217); /* clean soft shadow */
+    border-radius: 8px; /* optional for smoother edges */
+    background-color: #fff; /* optional for better contrast */
+    height: 370px;
+    margin-top: -10px;
+  }
+  .circleearning {
+    flex-direction: column;
+align-items: center;
+  }
+  .valueper {
+    font-size: 12px;
+  }
+
+  .circledataearning {
+    align-items: flex-start;
+    margin-top: 0px;
+    order: 1;
+  }
+}
+
+@media (max-width: 320px) {
+  .circleearning {
+    flex-direction: column;
+margin-left: -70px;
+  }
+}

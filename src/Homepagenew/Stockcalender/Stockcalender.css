@@ -379,3 +379,10 @@ font-size: 12px;
             margin-left: 77px;
           }
         }
+
+        @media (max-width: 320px) {
+          .stockcalender.react-datepicker {
+          z-index: 100 !important;
+          margin-left: -20px;
+      }
+      }

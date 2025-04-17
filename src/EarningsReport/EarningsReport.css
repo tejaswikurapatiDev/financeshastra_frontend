@@ -208,8 +208,10 @@ margin-bottom: 40px;
 /* Mobile View for Small Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .earnings-report h2 {
-   
-    font-size: 1rem; /* Smaller font size */
+   margin-left: -30px;
+   margin-right: 190px;
+    font-size: 18px; /* Smaller font size */
+    margin-top: 20px;
   }
 
   .earnings-report p {
@@ -248,5 +250,14 @@ margin-bottom: 40px;
     width: 6px; /* Smaller legend colors */
     height: 6px;
     margin-right: 3px;
+  }
+}
+
+@media (max-width: 320px) {
+  .earnings-report h2 {
+   margin-left: -0px;
+   margin-right: 190px;
+    font-size: 18px; /* Smaller font size */
+    margin-top: 20px;
   }
 }
