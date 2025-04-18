@@ -1419,7 +1419,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1493,7 +1493,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1567,7 +1567,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.pe && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-pe-options">
                     {/* Checkbox List */}
 
                     {peFilterOptions.map((category) => (
@@ -1641,7 +1641,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.eps && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-eps-options">
                     {/* Checkbox List */}
 
                     {epsDilGrowthOptions.map((category) => (
@@ -1715,7 +1715,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1785,7 +1785,7 @@ const ScreenerStockList = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-              <div className="stockindexscreeneropt">
+              <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1862,7 +1862,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1937,7 +1937,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -2014,7 +2014,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2089,7 +2089,7 @@ const ScreenerStockList = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (

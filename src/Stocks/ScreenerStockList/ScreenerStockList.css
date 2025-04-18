@@ -112,7 +112,18 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
-
+.stockindexscreenesectoropt {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 600%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 .indexscreenerbuttonstock {
   background-color: white;
   border: 1px solid #333;
@@ -922,7 +933,105 @@
   z-index: 1000;
   border: 1px solid #ccc;
 }
+.dropdown-change-options {
+  position: absolute;
+  top: 40px;
 
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-marketcap-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-pe-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-eps-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-div-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-perf-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-revgro-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-peg-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-roe-options {
+  position: absolute;
+  top: 40px;
+
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
 .dropdown-market-cap-label {
   display: flex;
   align-items: center;
@@ -1351,32 +1460,104 @@ gap: 1020px;
     margin-left: 5px;
   }
 
-  .dropdown-div-yield-options,
-  .dropdown-eps-options,
+  
   .dropdown-pe-options {
-    width: 100%;
+    width: 30%;
     max-width: 50%;
-    top: 125px;
+    top: 30%;
     position: fixed;
-  }
+    left: 350px;
+}
+.dropdown-eps-options {
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 450px;
+}
+.dropdown-div-options {
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 460px;
+}
 
+
+.dropdown-perf-options{
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 470px;
+}
+.dropdown-revgro-options{
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 470px; 
+}
+.dropdown-peg-options {
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 490px; 
+}
+.dropdown-roe-options {
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 500px; 
+}
+
+.stockindexscreenesectoropt {
+  position: fixed;
+  top: 30%;
+  left: 20%;
+  width: 70%;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 80%;
+  overflow-y: auto;
+}
   .dropdown-market-cap-options {
     width: 30%;
     max-width: 50%;
-    top: 180px;
+    top: 30%;
     position: fixed;
-    left: 230px;
+    left: 50px;
+}
 
-  }
 
-  .dropdown-change-options {
-    width: 100%;
-    max-width: 40%;
-    top: 180px;
-    position: fixed;
-
-  }
-
+.dropdown-change-options {
+  width: 60%;
+  max-width: 90%;
+  top: 30%;
+  position: fixed;
+  left: 100px;
+  display: grid
+;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 8px;
+}
+.dropdown-marketcap-options {
+  width: 30%;
+  max-width: 50%;
+  top: 30%;
+  position: fixed;
+  left: 250px;
+}
   /* Input fields inside dropdowns */
 
   .change-input {
@@ -1569,7 +1750,7 @@ gap: 1020px;
 
   .stockindexscreeneropt {
     position: fixed;
-    top: 25%;
+    top: 30%;
     left: 3%;
     width: 70%;
     padding: 15px;
@@ -1785,29 +1966,81 @@ gap: 1020px;
 
   /* Dropdown options */
 
-  .dropdown-div-yield-options,
-  .dropdown-eps-options,
   .dropdown-pe-options {
     width: 100%;
     max-width: 50%;
-    top: 125px;
+    top: 27%;
     position: fixed;
-  }
+    left: 150px;
+}
 
   .dropdown-market-cap-options {
     width: 40%;
     max-width: 50%;
-    top: 180px;
+    top: 27%;
     position: fixed;
-    margin-left: -100px;
+    margin-left: 0px;
 }
 
-  .dropdown-change-options {
-    width: 100%;
-    max-width: 50%;
-    top: 170px;
-    position: fixed;
-  }
+.dropdown-change-options {
+  width: 100%;
+  max-width: 70%;
+  top: 27%;
+  position: fixed;
+  right: 0px;
+}
+.dropdown-marketcap-options {
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 230px;
+}
+
+.dropdown-eps-options {
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 200px;
+}
+.dropdown-div-options {
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 220px;
+}
+
+
+.dropdown-perf-options{
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 170px;
+}
+.dropdown-revgro-options{
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left:190px; 
+}
+.dropdown-peg-options {
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 240px; 
+}
+.dropdown-roe-options {
+  width: 30%;
+  max-width: 50%;
+  top: 27%;
+  position: fixed;
+  left: 260px; 
+}
 
   /* Input fields inside dropdowns */
 
@@ -1998,10 +2231,23 @@ gap: 1020px;
     /* Take full width of screen */
     margin-bottom: 10px;
   }
+  .stockindexscreenesectoropt {
+    position: fixed;
+    top: 27%;
+   
+    width: 70%;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 80%;
+    overflow-y: auto;
+
+  }
 
   .stockindexscreeneropt {
     position: fixed;
-    top: 19%;
+    top: 27%;
     left: 3%;
     width: 70%;
     padding: 15px;
@@ -2180,5 +2426,126 @@ gap: 620px;
   margin-top: 20px;
 
  
+}
+.dropdown-change-options {
+  position: fixed;
+  top: 230px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-marketcap-options {
+  position: fixed;
+  top: 230px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-pe-options {
+  position: fixed;
+  top: 230px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-eps-options {
+  position: fixed;
+  top: 230px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-div-options {
+  position: fixed;
+  top: 230px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.stockindexscreenesectoropt {
+  position: fixed;
+  top: 230px;
+  left: 450px;
+  width: 50%;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+.dropdown-perf-options {
+  position: fixed;
+  top: 230px;
+  /* left: 70px; */
+  margin-left: -100px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-revgro-options {
+  position: fixed;
+  top: 230px;
+  margin-left: -250px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-roe-options {
+  position: fixed;
+  top: 230px;
+  margin-left: -450px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+.dropdown-peg-options {
+  position: fixed;
+  top: 230px;
+  margin-left: -400px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  width: 200px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+}
+}
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .dropdown-roe-options {
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+    border: 1px solid #ccc;
+    margin-left: -35px;
 }
 }
