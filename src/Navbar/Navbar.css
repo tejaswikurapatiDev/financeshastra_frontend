@@ -120,10 +120,10 @@ a span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
-  font-family: 'Calibri', sans-serif;
+  font-family: 'Calibri';
   position: fixed;
   top: 0;
   left: 0;
@@ -611,8 +611,15 @@ a span {
 
 @media (max-width: 1024px) {
   /* Adjust navbar layout */
+  .landingnavbar-icons {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    font-family: 'calibri';
+}
   .navbar {
-    padding: 8px 10px; /* Reduce padding slightly */
+    padding: 5px 10px; /* Reduce padding slightly */
   }
 
   .navbar-links {
@@ -1716,8 +1723,19 @@ a span {
   transition: transform 0.3s ease;
 
 }
+.landingnavbar-buttonregister-button {
+  background-color: transparent;
+  color: #24b676;
+  padding: 8px 10px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 15px;
+  font-weight: 600;
+}
 .navbar-links {
-  gap: 30px;
+  gap: 20px;
 }
 
 .navbar-search input {
@@ -1728,7 +1746,13 @@ a span {
   height: 35px;
   width: 115px;
 }
-
+.landingnavbar-icons {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    font-family: 'calibri';
+}
 }
 /* For screens 480px and below */
 @media (max-width: 768px) {
@@ -1760,7 +1784,7 @@ a span {
     font-size: 14px; /* Reduce font size */
     margin-top: 15px; /* Adjust margin spacing */
     box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
-    margin-left: 320px;
+    margin-left: 300px;
   }
   /* Adjust logo size */
   .logo-image {
@@ -1981,7 +2005,7 @@ a span {
     margin-top: 8px; /* Adjust spacing */
     box-shadow: 0 1px 3px red; /* Subtle shadow */
     display: block;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */
@@ -2115,7 +2139,7 @@ a span {
 /* Standard Desktop Screens (1280px - 1440px) */
 @media (max-width: 1440px) {
   .navbar-links {
-    gap: 30px;
+    gap: 20px;
   }
   .stockmenu,
   .mutualstockmenu {
@@ -2166,7 +2190,7 @@ a span {
     margin-top: 8px; /* Adjust spacing */
     box-shadow: 0 1px 3px red; /* Subtle shadow */
     display: block;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */

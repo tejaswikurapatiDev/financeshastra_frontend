@@ -274,4 +274,9 @@ margin-left: 10px;
       height: 280px;
       margin-left: -1px;
   }
+  .chartmutual-containerr canvas {
+    width: 250px !important;
+    height: 250px !important;
+}
+
 }
