@@ -131,7 +131,7 @@ font-size: 15px;
   .whoweare-intro h1 {
       margin-left: 0;
       text-align: center;
-      margin-top: -1px;
+      margin-top: 20px;
       margin-bottom: -10px;
   
   }
@@ -164,7 +164,7 @@ font-size: 15px;
   .whoweare-intro h1 {
       font-size: 20px;
       margin-left: -50px;
-      margin-top: 60px;
+      margin-top: 70px;
       margin-bottom: -1px;
   }
   .whoweare-mission h2,

@@ -183,6 +183,10 @@
       font-size: 13px; /* Smaller text for buttons */
       padding: 8px 14px; /* Adjust padding */
   }
+  .landingpageunlockinvest-button{
+    padding: 4px 1px;
+
+  }
 }
 
 /* Media Query for screens <= 480px (Mobile) */

@@ -340,7 +340,7 @@
     padding: 20px;
     font-family: 'Calibri';
     color: #333;
-    margin-top: 40px;
+    margin-top: 60px;
   }
   .ipodta {
     margin-left: 70px;
@@ -375,8 +375,7 @@
     overflow-x: hidden;
   }
   .datetimecardipo {
-    display: flex
-;
+    display: flex;
     gap: 20px;
     margin-bottom: 20px;
     margin-left: 20px;}
@@ -387,7 +386,7 @@
     padding: 20px;
     font-family: 'Calibri';
     color: #333;
-    margin-top: -30px;
+    margin-top: -10px;
   }
   .ipoImage {
     width: 440px;

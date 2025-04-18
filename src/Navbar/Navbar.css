@@ -240,7 +240,7 @@ a span {
   
 }
 .navbar-search input {
- 
+
   padding: 5px;
   border: 1px solid #333;
   border-radius: 5px;
@@ -249,7 +249,6 @@ a span {
 
 }
 
-/* Add bottom border only on focus */
 
 
 .search-icon {
@@ -263,16 +262,28 @@ a span {
   width:100%;
   background: white;
   position: absolute;
-  top: 100%; /* Ensures it appears just below input */
+  top: 103%; /* Ensures it appears just below input */
   left: 0;
-  border: 1px solid #ccc;
-
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+font-size: 14px;
   border-radius: 4px;
-  max-height: 170px;
+  max-height: 190px;
   overflow-y: auto;
   z-index: 10;
+  overflow-x: hidden;
+
 }
 
+.navbar-search  ul li {
+    cursor: pointer; /* Makes the text clickable */
+    padding: 5px;
+    transition: background 0.2s ease-in-out;
+    list-style: none;
+    margin-left: -15px;
+  }
+  .navbar-search  ul li:hover {
+    background: #f0f0f0; /* Light grey background on hover */
+  }
 .search-results ul li {
   cursor: pointer; /* Makes the text clickable */
   padding: 5px;
@@ -1739,11 +1750,11 @@ a span {
 }
 
 .navbar-search input {
-  padding: 10px 2px 6px 30px;
+  padding: 6px 2px 6px 30px;
   border-radius: 6px;
   border: 1px solid #333333;
   font-size: 12px;
-  height: 35px;
+  height: 30px;
   width: 115px;
 }
 .landingnavbar-icons {
