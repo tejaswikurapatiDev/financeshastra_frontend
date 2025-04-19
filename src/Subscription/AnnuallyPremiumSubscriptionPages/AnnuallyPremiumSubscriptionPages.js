@@ -22,6 +22,7 @@ import React, { useContext, useState } from "react";
  import { useNavigate } from "react-router-dom";
  import {API_BASE_URL} from "../../config"
 import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
+import './AnnuallyPremiumSubscriptionPages.css';
  
  registerLocale("en-GB", enGB);
  const AnnuallyPremiumSubscriptionPages = () => {
@@ -133,9 +134,10 @@ import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
  
  
      return (
-       <div className="profilepageee-container">
+      <div>
+       <div className="profilepageeeccontainer">
  
-       <h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
+       <h1 className="profilepagtitle" style={{ fontFamily: 'Calibri' }}>
        Premium Plan Subscription</h1>
  
  
@@ -327,7 +329,11 @@ import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
      </div>
          </div>
          <Navbar/>
-         <FooterForAllPage/>
+        
+         </div>
+         <div className="foooterpagesaupdate">
+      <FooterForAllPage />
+      </div>
          </div>
      );
  };

@@ -181,9 +181,9 @@
   }
 
   .upiprofilepage-icons {
-      justify-content: left;
-      margin-left: 0;
-  }
+    justify-content: left;
+    margin-left: 40px;
+}
 
   .upiprofilepage-icons img {
       width: 30px;
@@ -192,15 +192,15 @@
   }
 
   .upi-input {
-      width: 100%;
-      margin-left: 0;
-  }
+    width: 82%;
+    margin-left: 40px;
+}
 
-  .upiprofilepage-verify-button {
-    width: 60%;
-      margin-left: 80px;
-      margin-right: auto;
-  }
+.upiprofilepage-verify-button {
+  width: 60%;
+  margin-left: 130px;
+  margin-right: auto;
+}
 
   .upiprofilepage-form h2 {
       font-size: 16px;
@@ -241,15 +241,22 @@
   }
 
   .upi-input {
-      font-size: 14px;
-      padding: 10px;
-  }
+    font-size: 14px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: calc(100% - 20px); /* Optional: ensures total width fits including margins */
+    box-sizing: border-box; /* Makes sure padding stays inside the width */
+}
 
-  .upiprofilepage-verify-button {
-      font-size: 14px;
-      padding: 12px;
-  }
-
+.upiprofilepage-verify-button {
+  font-size: 14px;
+  padding: 12px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - 20px); /* Adjusts total width to account for margins */
+  box-sizing: border-box;   /* Keeps padding within the width */
+}
   .upiprofilepage-form h2 {
       font-size: 14px;
   }

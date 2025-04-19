@@ -54,7 +54,7 @@ const FooterForAllPage = () => {
   
   // Mapping object for Quick Links routes
   const quickLinksRoutes = {
-    "Plan & Pricing": "/pricehalf",
+    "Plan & Pricing": "/annualplan",
     "Talk to Us": "/talktous",
     "Disclaimer": "/disclaimer",
     "Refund Policy": "/refundpolicy",

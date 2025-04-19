@@ -125,7 +125,7 @@
       font-size: 20px;
       margin-right: 0;
       text-align: left;
-      margin-right: 300px;
+      margin-right: 530px;
   }
 }
 
@@ -150,15 +150,17 @@
   }
 
   .scanAndPayProfilePage-qr-code {
-      justify-content: left;
+      justify-content: center;
       margin-left: 0;
   }
 
   .scanAndPayProfilePage-qr-code img {
-      width: 100px;
-      height: 100px;
-      justify-content: left;
-  }
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    margin-left: 10px;  /* Adjust left margin */
+    margin-right: 10px; /* Adjust right margin */
+}
 
   .scanAndPayProfilePage-qr-sectionh2 {
       font-size: 16px;
@@ -171,7 +173,8 @@
   }
 
   .scanAndPayProfilePage-qr-sectionstong {
-      font-size: 18px;
-      margin-right: 0;
-  }
+    font-size: 18px;
+    margin-left: 5%;   /* Adjust left margin to 5% for balance */
+    margin-right: 5%;  /* Adjust right margin to 5% for balance */
+}
 }

@@ -1203,28 +1203,27 @@ const Smallcap = () => {
   };
   return (
     <div>
-      <div className="screener-container">
-        <h1 className="screener-header">List of Top Small Cap Companies</h1>
-        <div className="screener-filters">
+    <div className="screener-container">
+       <h1 className="screener-header">List of Top Small Cap Companies</h1>
+       <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div className="indexscreenerbuttonstockcontainar" style={{ position: "relative" }} >
+          <div
+            className="indexscreenerbuttonstockcontainar"
+            style={{ position: "relative" }}
+          >
             {/* Dropdown Button */}
-            <button className="indexscreenerbuttonstock"
-              onClick={() => toggleDropdown('index')}
-
+            <button
+              className="indexscreenerbuttonstock"
+              onClick={() => toggleDropdown("index")}
             >
               Index <RiArrowDropDownLine size={24} />
             </button>
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-              <div className="stockindexscreeneropt"
-
-              >
+                <div className="stockindexscreeneropt">
                 {/* Search Box */}
-                <div className="searchboxindexscreener"
-
-                >
+                <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
                     type="text"
@@ -1242,13 +1241,11 @@ const Smallcap = () => {
                 {/* Checkbox List */}
                 <div
                   className="index-optionsstocks" // Added class name to the container of options
-
                 >
                   {filteredIndexes.map((index, idx) => (
                     <label
                       key={`${index}-${idx}`}
                       className="index-optionscreener" // Added class name to each option
-
                     >
                       <input
                         type="checkbox"
@@ -1266,16 +1263,10 @@ const Smallcap = () => {
 
                 {/* Buttons */}
                 <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener"
-                    onClick={handleReset}
-
-                  >
+                  <button className="resetstockscreener" onClick={handleReset}>
                     Reset
                   </button>
-                  <button className="applystockscreener"
-                    onClick={handleApply}
-
-                  >
+                  <button className="applystockscreener" onClick={handleApply}>
                     Apply
                   </button>
                 </div>
@@ -1294,29 +1285,28 @@ const Smallcap = () => {
                 <p>No data available for the selected index.</p>
               )}
             </div>
-
-
-
-
           </div>
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('price')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("price")}
                 >
                   Price <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                  <div className="dropdown-market-cap-options">
+                 <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedprice.includes(category.value)}
@@ -1336,10 +1326,16 @@ const Smallcap = () => {
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
-                      <button onClick={handleReset} className="dropdown-market-cap-reset">
+                      <button
+                        onClick={handleReset}
+                        className="dropdown-market-cap-reset"
+                      >
                         Reset
                       </button>
-                      <button onClick={handlePriceApply} className="dropdown-market-cap-apply">
+                      <button
+                        onClick={handlePriceApply}
+                        className="dropdown-market-cap-apply"
+                      >
                         Apply
                       </button>
                     </div>
@@ -1366,37 +1362,35 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('change')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("change")}
                 >
                   Change% <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                   <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
-
                     {changeOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedchange.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedchange((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedchange(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1404,7 +1398,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1443,46 +1436,42 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('marketcap')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("marketcap")}
                 >
                   Market Cap <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
+                    <div className="dropdown-marketcap-options">
                     {/* Search Box */}
-
 
                     {/* Checkbox List */}
 
-
                     {marketCapCategory.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category} >
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedMcap.includes(category)} // Check if the category is selected
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedMcap((prev) =>
-                              prev.includes(category)
-                                ? prev.filter((item) => item !== category) // Remove category from selected
-                                : [...prev, category] // Add category to selected
+                            setSelectedMcap(
+                              (prev) =>
+                                prev.includes(category)
+                                  ? prev.filter((item) => item !== category) // Remove category from selected
+                                  : [...prev, category] // Add category to selected
                             );
-                          }} style={{ width: "40%" }}
-
+                          }}
+                          style={{ width: "40%" }}
                         />
                         {category}
                       </label>
                     ))}
-
-
-
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1521,37 +1510,35 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('pe')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("pe")}
                 >
                   P/E <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.pe && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-pe-options">
                     {/* Checkbox List */}
 
-
                     {peFilterOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedPe.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedPe((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedPe(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1559,7 +1546,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1598,37 +1584,35 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('eps')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("eps")}
                 >
                   EPS Dil Growth <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.eps && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                  <div className="dropdown-eps-options">
                     {/* Checkbox List */}
 
-
                     {epsDilGrowthOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedeps.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedeps((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedeps(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1636,7 +1620,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1675,18 +1658,22 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('divYield')}
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("divYield")}
                 >
                   Div Yield % <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                  <div className="dropdown-market-cap-options">
+                    <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selecteddivyield.includes(category.value)}
@@ -1706,10 +1693,16 @@ const Smallcap = () => {
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
-                      <button onClick={handleReset} className="dropdown-market-cap-reset">
+                      <button
+                        onClick={handleReset}
+                        className="dropdown-market-cap-reset"
+                      >
                         Reset
                       </button>
-                      <button onClick={handleDivYieldApply} className="dropdown-market-cap-apply">
+                      <button
+                        onClick={handleDivYieldApply}
+                        className="dropdown-market-cap-apply"
+                      >
                         Apply
                       </button>
                     </div>
@@ -1731,24 +1724,21 @@ const Smallcap = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div className="indexscreenerbuttonstockcontainar" style={{ position: "relative" }}>
-            <button className="indexscreenerbuttonstock"
-              onClick={() => toggleDropdown('sector')}
-
+          <div
+            className="indexscreenerbuttonstockcontainar"
+            style={{ position: "relative" }}
+          >
+            <button
+              className="indexscreenerbuttonstock"
+              onClick={() => toggleDropdown("sector")}
             >
               Sectors <RiArrowDropDownLine size={24} />
             </button>
 
-
-
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-              <div className="stockindexscreeneropt"
-
-              >
-                <div className="searchboxindexscreener"
-
-                >
+            <div className="stockindexscreenesectoropt">
+                <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
                     type="text"
@@ -1763,10 +1753,9 @@ const Smallcap = () => {
                   />
                 </div>
 
-                <div
-                  className="index-optionsstocks" >
+                <div className="index-optionsstocks">
                   {filteredSectors.map((sector, index) => (
-                    <label key={sector} className="index-optionscreener" >
+                    <label key={sector} className="index-optionscreener">
                       <input
                         type="checkbox"
                         checked={selectedSectors.includes(sector)} // Check if the sector is selected
@@ -1785,16 +1774,12 @@ const Smallcap = () => {
                   ))}
                 </div>
                 <div className="resetapplybuttoncontainer">
-                  <button className="resetstockscreener"
-                    onClick={handleReset}
-
-                  >
+                  <button className="resetstockscreener" onClick={handleReset}>
                     Reset
                   </button>
-                  <button className="applystockscreener"
+                  <button
+                    className="applystockscreener"
                     onClick={handlesectorApply}
-
-
                   >
                     Apply
                   </button>
@@ -1814,45 +1799,41 @@ const Smallcap = () => {
             )}
           </div>
 
-
-
           {/* Performance Dropdown */}
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('performance')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("performance")}
                 >
                   Perf% <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                   <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
-
                     {perfOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedperf.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedperf((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedperf(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1860,7 +1841,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1900,37 +1880,37 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('revenue')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("revenue")}
                 >
                   Revenue Growth <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
-
                     {revenueGrowthOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
-                          checked={selectedrevenuegrowth.includes(category.value)} // Check by the category value
+                          checked={selectedrevenuegrowth.includes(
+                            category.value
+                          )} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedrevenuegrowth((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedrevenuegrowth(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -1938,7 +1918,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -1978,37 +1957,35 @@ const Smallcap = () => {
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('peg')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("peg")}
                 >
                   PEG <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                   <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
-
                     {pegOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedpeg.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedpeg((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedpeg(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -2016,7 +1993,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
@@ -2051,43 +2027,40 @@ const Smallcap = () => {
             </div>
           </div>
 
-
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
               <div style={{ position: "relative" }}>
                 {/* Dropdown Button */}
-                <button className="dropdown-market-cap-toggle"
-                  onClick={() => toggleDropdown('roe')}
-
+                <button
+                  className="dropdown-market-cap-toggle"
+                  onClick={() => toggleDropdown("roe")}
                 >
                   ROE <RiArrowDropDownLine size={24} />
                 </button>
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                  <div className="dropdown-market-cap-options"
-
-                  >
-
-
-
-
-
+                   <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
-
                     {roeOptions.map((category) => (
-                      <label className="dropdown-market-cap-label" key={category.value}>
+                      <label
+                        className="dropdown-market-cap-label"
+                        key={category.value}
+                      >
                         <input
                           type="checkbox"
                           checked={selectedroe.includes(category.value)} // Check by the category value
                           onChange={(e) => {
                             e.stopPropagation();
-                            setSelectedroe((prev) =>
-                              prev.includes(category.value)
-                                ? prev.filter((item) => item !== category.value) // Remove category
-                                : [...prev, category.value] // Add category
+                            setSelectedroe(
+                              (prev) =>
+                                prev.includes(category.value)
+                                  ? prev.filter(
+                                      (item) => item !== category.value
+                                    ) // Remove category
+                                  : [...prev, category.value] // Add category
                             );
                           }}
                           style={{ width: "30%" }}
@@ -2095,7 +2068,6 @@ const Smallcap = () => {
                         {category.label} {/* Correctly render the label */}
                       </label>
                     ))}
-
 
                     {/* Buttons */}
                     <div className="dropdown-market-cap-actions">
