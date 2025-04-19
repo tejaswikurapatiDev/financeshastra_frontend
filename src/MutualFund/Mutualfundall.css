@@ -5,10 +5,34 @@
     font-family: 'calibri';
    
   }
-  
+  .mutualdetalheadd{
+    margin-top: 110px;
+    font-family: 'calibri';
+    font-size: 24px;
+    margin-bottom: -150px;
+    margin-left: 160px;
+  }
   .mutualfunddflex-container > * {
     flex: 1; /* Make both components take equal width */
     min-width: 400px; /* Optional: Set a minimum width for the components */
+  }
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .mutualdetalheadd{
+      margin-top: 110px;
+      font-family: 'calibri';
+      font-size: 24px;
+      margin-bottom: -150px;
+      margin-left: 120px;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .mutualdetalheadd{
+      margin-top: 110px;
+      font-family: 'calibri';
+      font-size: 24px;
+      margin-bottom: -150px;
+      margin-left: 15px;
+    }
   }
   /* Adjustments for 768px screens */
 @media (max-width: 768px) {
@@ -23,6 +47,13 @@
       width: 100%; /* Make each component take full width */
       min-width: unset; /* Remove minimum width to prevent overflow */
   }
+  .mutualdetalheadd{
+    margin-top: 30px;
+    font-family: 'calibri';
+    font-size: 24px;
+    margin-bottom: -90px;
+    margin-left: 35px;
+  }
 }
 
 /* Adjustments for 480px screens */
@@ -35,5 +66,12 @@
 
   .mutualfunddflex-container > * {
       width: 95%; /* Ensure components are full width */
+  }
+  .mutualdetalheadd{
+    margin-top: 70px;
+    font-family: 'calibri';
+    font-size: 20px;
+    margin-bottom: -90px;
+    margin-left: 35px;
   }
 }

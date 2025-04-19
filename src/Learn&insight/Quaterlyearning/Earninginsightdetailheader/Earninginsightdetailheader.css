@@ -165,14 +165,16 @@ font-weight: bold; /* Make it bold */
     margin: 0;
     margin-top: 50px;
     margin-left: 10px;
-    border: 5px solid black;
+
     justify-content: space-between;
   }
   
   body {
     padding-top: 70px; /* Adjust based on your header height */
   }
-
+.graphsector{
+margin-right: 500px;
+}
   .graphheaderer {
     display: flex;
     gap: 300px;
@@ -200,13 +202,13 @@ font-weight: bold; /* Make it bold */
 }
   
   .graphcontainer {
-    width: 20%; 
-    margin-left: 0px;
+
+    margin-left: -25px;
     padding: 10px;
     border-radius: 0;
     margin-right: 100px;
-    border: 5px solid black;
-    margin-top: 55px;
+   
+    margin-top: 45px;
   }
   
 
@@ -254,6 +256,7 @@ font-weight: bold; /* Make it bold */
     padding: 0;
     margin: 5px 0;
     margin-right: 60px;
+    margin-left: 20px;
   }
 
   .graphnse, .graphsector {
@@ -276,7 +279,7 @@ font-weight: bold; /* Make it bold */
     width: 90%;
     padding: 12px;
     margin: 0;
-    margin-top: 50px;
+    margin-top: 35px;
     margin-left: -10px;
   }
 

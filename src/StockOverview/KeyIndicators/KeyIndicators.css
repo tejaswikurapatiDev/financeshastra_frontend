@@ -28,6 +28,7 @@
   .indicator:nth-child(odd) {
     background-color: #f9f9f9;
   }
+ 
   @media (max-width: 768px) {
     .key-indicators-card {
       max-width: 88%; /* Make the card take up more width */

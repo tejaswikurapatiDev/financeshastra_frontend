@@ -89,7 +89,9 @@ function Mutualfund() {
 
   return (
     <div>
+       <h1 className='mutualdetalheadd'>ICICI Pru Technology Fund - Direct Growth</h1>
       <div className="mutualcandletop">
+       
         {/* Left Section */}
         <div className="mutualcandletop__left">
           <h2 className="mutualcandletop__title"> </h2>

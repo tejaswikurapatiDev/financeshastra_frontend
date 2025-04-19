@@ -16,7 +16,7 @@ const roeData = [
 
 const ROEChart = () => {
   return (
-    <div>
+    <div className='roe'>
       <h1>ROE (%)</h1>
       <ChartCard data={roeData} dataKey="roe" color="#4caf50" fillColor="rgba(76, 175, 80, 0.3)" />
     </div>
