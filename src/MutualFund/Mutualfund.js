@@ -9,13 +9,57 @@ import MtuFundDetails from './MtuFundDetails/MtuFundDetails';
 import FundContactInfo from './FundContactInfo/FundContactInfo';
 import RiskOMeter from './RiskoMutualDashboard/RiskoMutualDashboard';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
+import { API_BASE_URL } from '../config';
+import { useParams } from "react-router-dom";
 
 function Mutualfund() {
+
+  const { fundId } = useParams();
+
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
     percentage: "+0.85%",
     lastUpdated: "05 Dec, 2024",
   });
+  const [fundDetails, setFundDetails] = useState(null);
+  const [perfSummary, setPerfSummary] = useState(null)
+  const [cagrSummary, setCagrSummary] = useState(null)
+  const [peerCompare, setPeerCompare] = useState(null)
+
+
+  const getMutualFundDetails = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/mutualFunds/getMutualFundDetails/${fundId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch mutual fund details");
+      }
+
+      const result = await response.json();
+      console.log('Performance Summary',result.data)
+      if (result.success && result.data) {
+        setFundDetails(result.data.key_indicator[0]);
+        setPerfSummary(result.data.performance_summary);
+        setCagrSummary(result.data.cagr_summary)
+        setPeerCompare(result.data.peer_comparison)
+
+      }
+    } catch (error) {
+      console.error("Error fetching mutual fund details:", error);
+    }
+  };
+
+
+  useEffect(() => {
+    getMutualFundDetails();
+  }, [fundId])
+
 
   // Example: Function to simulate data updates
   useEffect(() => {
@@ -37,7 +81,7 @@ function Mutualfund() {
         percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Correct interpolation using backticks
         lastUpdated: newLastUpdated,
       });
-      
+
     }, 5000); // Update every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
@@ -45,27 +89,34 @@ function Mutualfund() {
 
   return (
     <div>
+       <h1 className='mutualdetalheadd'>ICICI Pru Technology Fund - Direct Growth</h1>
       <div className="mutualcandletop">
+       
         {/* Left Section */}
         <div className="mutualcandletop__left">
-          <h2 className="mutualcandletop__title">ICICI Prudential Technology Fund Growth </h2>
+          <h2 className="mutualcandletop__title"> </h2>
           <div className="mutualcandletop__tags">
             <button className="mutualcandletop__tag">Mid Cap</button>
-            <button className="mutualcandletop__tag">Very High</button>
+            {fundDetails && (
+              <button className="mutualcandletop__tag">{fundDetails.riskometer}</button>
+            )}
           </div>
         </div>
 
         <div className="mutualcandletop__right">
-          <h2 className="mutualcandletop__price">{financialData.price}</h2>
-          <p
-            className={`mutualcandletop__percentage ${
-              parseFloat(financialData.percentage) >= 0
+          {fundDetails && (
+            <h2 className="mutualcandletop__price">{fundDetails.nav}</h2>
+          )}
+          {fundDetails && (
+            <p
+              className={`mutualcandletop__percentage ${parseFloat(fundDetails.change_percent) >= 0
                 ? "mutualcandletop__percentage--positive"
                 : "mutualcandletop__percentage--negative"
-            }`}
-          >
-            {financialData.percentage}
-          </p>
+                }`}
+            >
+              {fundDetails.change_percent}
+            </p>
+          )}
           <p className="mutualcandletop__last-updated">
             Last updated: {financialData.lastUpdated}
           </p>
@@ -74,21 +125,21 @@ function Mutualfund() {
 
       {/* Flex container for the two components */}
       <div className="mutualfunddflex-container">
-        <Mutualgraphtop />
+        <Mutualgraphtop fundDetails={fundDetails} />
         <MutualFundsSipCalculator />
       </div>
 
-      <MutualkeyIndicators />
-      <Mutualxray />
-      <MutualFundsSchemeAllocation/>
-      <MtuFundDetails/>
-      <RiskOMeter/>
-      <FundContactInfo/>
+      <MutualkeyIndicators fundDetails={fundDetails} />
+      <Mutualxray perfSummary={perfSummary} cagrSummary={cagrSummary} peerCompare={peerCompare} />
+      <MutualFundsSchemeAllocation />
+      <MtuFundDetails />
+      <RiskOMeter />
+      <FundContactInfo />
       <div className="foooterpagesaupdate">
         <FooterForAllPage />
       </div>
     </div>
-     
+
   );
 }
 

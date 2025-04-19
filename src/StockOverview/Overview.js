@@ -19,6 +19,8 @@ import NewsList from '../NewsList/NewsList';
 import About from '../About/About';
 import Stockpeer from '../Stockpeer/Stockpeer';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
+import './Overview.css'
+
 
 function Overview() {
   const location = useLocation();
@@ -30,7 +32,7 @@ function Overview() {
   }, [stockName]);
 
   return (
-    <div>
+    <div className='allcontainheaddh'>
     <Container 
       sx={{
         maxWidth: '200%',
@@ -46,7 +48,7 @@ function Overview() {
       {/* Pass stockName as a prop to Graphheader */}
       <Graphheader stockName={stockName} />
 
-      <Typography variant="h2" gutterBottom sx={{ fontFamily: 'Calibri',fontSize:'26px',fontWeight:'bold',color:'#24b676'}}>
+      <Typography  className="overvierheardaa"variant="h2" gutterBottom >
       Overview
     </Typography>
 
@@ -154,9 +156,9 @@ function Overview() {
         <About />
       </Element>
     </Container>
-    <div className="foooterpagesaupdate">
+  
     <FooterForAllPage/>
-    </div>
+  
     </div>
     
   );

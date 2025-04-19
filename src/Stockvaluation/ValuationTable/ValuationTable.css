@@ -29,7 +29,7 @@
   /* Adjust container width */
   .valuationTableContainer {
     max-width: 100%; /* Full width on smaller screens */
-    margin-top: 440px; /* Adjust top margin */
+    margin-top: 40px; /* Adjust top margin */
     padding: 10px; /* Add padding for better spacing */
     margin-bottom: 50px;
   }
@@ -62,7 +62,7 @@
   /* Adjust container width */
   .valuationTableContainer {
     max-width: 100%; /* Full width on mobile */
-    margin-top: 500px; /* Reduce top margin */
+    margin-top: 40px; /* Reduce top margin */
     padding: 10px; /* Add padding */
   }
 

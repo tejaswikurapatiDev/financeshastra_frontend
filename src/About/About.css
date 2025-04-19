@@ -66,6 +66,7 @@
 @media (max-width: 768px) {
   .iti-limited-container {
     padding: 15px; /* Reduce padding for smaller screens */
+    margin-left: 20px;
   }
 
   .iti-limited-container h1 {
@@ -96,29 +97,44 @@
 /* Mobile View for Small Devices (max-width: 480px) */
 @media (max-width: 480px) {
   .iti-limited-container {
-    padding: 10px; /* Further reduce padding */
+    padding: 10px; 
+    margin-left: 20px;
+    padding-left: 20px;
   }
 
   .iti-limited-container h1 {
-    font-size: 1.1em; /* Further reduce heading font size */
+    font-size: 1.1em;
   }
 
   .iti-limited-container h2, .iti-limited-container h3 {
-    font-size: 14px; /* Further reduce h2 and h3 font size */
-    margin-top: 20px; /* Reduce top margin */
+    font-size: 14px; 
+    margin-top: 20px; 
   }
 
   .iti-limited-container p {
-    font-size: 13px; /* Further reduce paragraph font size */
+    font-size: 13px; 
   }
 
   .read-more-btn {
-    font-size: 13px; /* Further reduce button font size */
-    padding: 6px 12px; /* Adjust padding for smaller screens */
-    margin-top: 10px; /* Adjust margin for the button */
-    float: none; /* Ensure the button doesn't float */
+    font-size: 13px; 
+    padding: 6px 12px; 
+    margin-top: 10px; 
+    float: none; 
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-left: 200px;
   }
+}
+@media (max-width: 320px) {
+.read-more-btn {
+  font-size: 13px; 
+  padding: 6px 12px; 
+  margin-top: 10px; 
+  float: none; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-left: 140px;
+}
 }

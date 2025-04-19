@@ -216,6 +216,7 @@ margin-left: 10px;
     margin-left: auto;
     margin-right: auto;
     overflow-x: hidden;
+ 
   }
 
   .refundpolicyy h1 {
@@ -223,6 +224,7 @@ margin-left: 10px;
     margin-left: 10px;
     color: black;
     margin-bottom: 10px;
+    margin-top: 30px;
 }
 .refundpolicyy-lastupdated {
   margin-right: 660px;
@@ -252,7 +254,7 @@ margin-left: 10px;
     margin-left: 350px;
     color: #333;
     line-height: 1.6;
-    margin-top: 120px;
+    margin-top: 70px;
     overflow-x: hidden; /* Hides horizontal scrolling */
     max-width: 100%; /* Ensures it doesn't exceed the screen width */
   }
@@ -268,6 +270,7 @@ margin-left: 10px;
     margin-right: auto;
     overflow-x: hidden;
     max-width: 100%;
+    margin-top: 85px;
   }
 
 
@@ -293,6 +296,7 @@ margin-left: 10px;
     width: 85%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 70px;
   }
   html, body {
     overflow-x: hidden;
@@ -310,7 +314,9 @@ margin-left: 10px;
   .refundpolicyy-sectiondarkmode {
     margin-left: 150px;
   }
- 
+  .refundpolicyy h1{
+    margin-left: 65px;
+  }
 }
 
 /* Tablets (768px - 1023px) */
@@ -320,6 +326,7 @@ margin-left: 10px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: -10px;
   }
 
   .refundpolicyy-image,
@@ -339,7 +346,7 @@ margin-left: 10px;
   }
   .refundpolicyy h1 {
     margin-left: 20px;
-    margin-top: -10px;
+    margin-top: 20px;
   }
 }
 
@@ -351,6 +358,7 @@ margin-left: 10px;
     margin-left: 0;
     margin-right: 0;
     padding: 10px;
+    margin-top: 60px;
   }
 
   .refundpolicyy h1,
@@ -380,7 +388,7 @@ margin-left: 10px;
   .refundpolicyydarkmode h1 {
     font-size: 20px;
     margin-left: 5px;
-    margin-top: -20px;
+    margin-top: -0px;
   }
  
   .refundpolicyy-image,

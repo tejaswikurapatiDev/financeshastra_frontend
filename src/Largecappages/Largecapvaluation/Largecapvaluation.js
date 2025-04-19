@@ -7,6 +7,7 @@ import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
 
 
 
@@ -41,6 +42,38 @@ const Largecapvaluation= () => {
       index: false,
       sector: false,
     });
+
+    useEffect(() => {
+              const fetchfun = async () => {
+                const url = `${API_BASE_URL}/stocks/largecapValue`;
+                const response = await fetch(url);
+                if (response.ok === true) {
+                  const data = await response.json();
+                  console.log(data)
+                  const formattedData = data.map((each) => ({
+                    id: each.id,
+                    symbol: each.Symbol,
+                    price: each.Price,
+                    marketCap: each.MarketCap,
+                    pToE: each.PERatio,
+                    pToB: each.PSRatio,
+                    roe: each.ROE,
+                    marketCapPerf: each.MarketCapPercentage,
+                    peg: each.PBRatio,
+                    pToS: each.PCFRatio,
+                    pToCF: each.PFCFRatio,
+                    ev: each.EnterpriseValue,
+                    evEbitda: each.EVRevenue,
+                    evSales: each.EVEBIT,
+                    evEbit: each.EVEBITDA,
+                    
+                  }));
+                  setStocks(formattedData);
+                }
+              };
+              fetchfun();
+            }, []);
+      
   
 
     const recordsPerPage = 10;

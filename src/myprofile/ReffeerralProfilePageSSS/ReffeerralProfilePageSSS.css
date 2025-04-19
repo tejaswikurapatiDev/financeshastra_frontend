@@ -111,14 +111,14 @@ font-weight: bold;
       padding: 15px; /* Adjust padding */
       margin-top: 50px; /* Reduce margin top */
       margin-bottom: 50px; 
-      margin-left: -15px;/* Reduce margin bottom */
+      margin-left: -10px;/* Reduce margin bottom */
   }
 
   .reffeerralprofilepagesss-table {
     width: 138%;
     margin-top: 20px;
     overflow-x: auto;
-    margin-left:-143px;
+    margin-left:-140px;
     margin-bottom: 100px;
   
 }

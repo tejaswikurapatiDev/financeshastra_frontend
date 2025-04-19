@@ -120,10 +120,10 @@ a span {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 5px 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
-  font-family: 'Calibri', sans-serif;
+  font-family: 'Calibri';
   position: fixed;
   top: 0;
   left: 0;
@@ -240,7 +240,7 @@ a span {
   
 }
 .navbar-search input {
- 
+
   padding: 5px;
   border: 1px solid #333;
   border-radius: 5px;
@@ -249,7 +249,6 @@ a span {
 
 }
 
-/* Add bottom border only on focus */
 
 
 .search-icon {
@@ -263,16 +262,28 @@ a span {
   width:100%;
   background: white;
   position: absolute;
-  top: 100%; /* Ensures it appears just below input */
+  top: 103%; /* Ensures it appears just below input */
   left: 0;
-  border: 1px solid #ccc;
-
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+font-size: 14px;
   border-radius: 4px;
-  max-height: 170px;
+  max-height: 190px;
   overflow-y: auto;
   z-index: 10;
+  overflow-x: hidden;
+
 }
 
+.navbar-search  ul li {
+    cursor: pointer; /* Makes the text clickable */
+    padding: 5px;
+    transition: background 0.2s ease-in-out;
+    list-style: none;
+    margin-left: -15px;
+  }
+  .navbar-search  ul li:hover {
+    background: #f0f0f0; /* Light grey background on hover */
+  }
 .search-results ul li {
   cursor: pointer; /* Makes the text clickable */
   padding: 5px;
@@ -611,8 +622,15 @@ a span {
 
 @media (max-width: 1024px) {
   /* Adjust navbar layout */
+  .landingnavbar-icons {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    font-family: 'calibri';
+}
   .navbar {
-    padding: 8px 10px; /* Reduce padding slightly */
+    padding: 5px 10px; /* Reduce padding slightly */
   }
 
   .navbar-links {
@@ -1682,6 +1700,71 @@ a span {
   color: white;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px) {
+.subscritebutton {
+  /* display: inline-block; */
+  padding: 10px 13px;
+   font-size: 12px;
+  font-weight: bold;
+  color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #24b676, #24b676);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  box-shadow: 0 4px 6px red;
+}
+.navbar-icons {
+  display: flex
+;
+  align-items: center;
+  gap: 2px;
+}
+.icon.bell-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+.chevron-icon {
+  margin-left: 5px;
+  color: #24b676;
+   font-size: 10px; 
+  transition: transform 0.3s ease;
+
+}
+.landingnavbar-buttonregister-button {
+  background-color: transparent;
+  color: #24b676;
+  padding: 8px 10px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 15px;
+  font-weight: 600;
+}
+.navbar-links {
+  gap: 20px;
+}
+
+.navbar-search input {
+  padding: 6px 2px 6px 30px;
+  border-radius: 6px;
+  border: 1px solid #333333;
+  font-size: 12px;
+  height: 30px;
+  width: 115px;
+}
+.landingnavbar-icons {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    font-family: 'calibri';
+}
+}
 /* For screens 480px and below */
 @media (max-width: 768px) {
   /* Show navbar logo, and dropdown icon on mobile */
@@ -1712,7 +1795,7 @@ a span {
     font-size: 14px; /* Reduce font size */
     margin-top: 15px; /* Adjust margin spacing */
     box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
-    margin-left: 320px;
+    margin-left: 300px;
   }
   /* Adjust logo size */
   .logo-image {
@@ -1933,7 +2016,7 @@ a span {
     margin-top: 8px; /* Adjust spacing */
     box-shadow: 0 1px 3px red; /* Subtle shadow */
     display: block;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */
@@ -2067,7 +2150,7 @@ a span {
 /* Standard Desktop Screens (1280px - 1440px) */
 @media (max-width: 1440px) {
   .navbar-links {
-    gap: 30px;
+    gap: 20px;
   }
   .stockmenu,
   .mutualstockmenu {
@@ -2118,7 +2201,7 @@ a span {
     margin-top: 8px; /* Adjust spacing */
     box-shadow: 0 1px 3px red; /* Subtle shadow */
     display: block;
-    margin-left: 20px;
+    margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */

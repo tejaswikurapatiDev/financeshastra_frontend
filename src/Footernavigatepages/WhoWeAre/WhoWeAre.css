@@ -27,17 +27,18 @@ line-height: 1.6;
     margin-top: 30px;
   }
   .whoweare-intro h1{
-    margin-left: 340px;
+    margin-left: 460px;
     color: #24b676;
-    margin-top: 120px;
+    margin-top: 100px;
     font-size: 26px;
+    margin-bottom: 0px;
   }
-  .imgwhoweare{
+  .imgwhoweare {
     border-radius: 10px;
-    height: 250px;
-    width: 550px;
-    margin-left: 150px;
-  }
+    height: 350px;
+    width: 590px;
+    margin-left: 250px;
+}
   
   .whoweare-intro p{
  font-size: 15px;
@@ -70,6 +71,7 @@ font-size: 15px;
       margin-left: auto;
       margin-right: auto;
   }
+
 }
 
 /* Large Desktops (1280px - 1535px) */
@@ -79,6 +81,19 @@ font-size: 15px;
       margin-left: auto;
       margin-right: auto;
   }
+  .imgwhoweare {
+    border-radius: 10px;
+    height: 350px;
+    width: 590px;
+    margin-left: 150px;
+}
+.whoweare-intro h1{
+  margin-left: 360px;
+  color: #24b676;
+  margin-top: 100px;
+  font-size: 26px;
+  margin-bottom: 0px;
+}
 }
 
 /* Medium Desktops (1024px - 1279px) */
@@ -90,6 +105,14 @@ font-size: 15px;
   }
   .imgwhoweare {
       width: 500px;
+      margin-left: 190px;
+  }
+  .whoweare-intro h1{
+    margin-left: 350px;
+    color: #24b676;
+    margin-top: 100px;
+    font-size: 26px;
+    margin-bottom: 0px;
   }
 }
 
@@ -108,6 +131,9 @@ font-size: 15px;
   .whoweare-intro h1 {
       margin-left: 0;
       text-align: center;
+      margin-top: 20px;
+      margin-bottom: -10px;
+  
   }
 }
 
@@ -138,8 +164,8 @@ font-size: 15px;
   .whoweare-intro h1 {
       font-size: 20px;
       margin-left: -50px;
-      margin-top: 60px;
-      margin-bottom: -10px;
+      margin-top: 70px;
+      margin-bottom: -1px;
   }
   .whoweare-mission h2,
   .whoweare-vision h2,

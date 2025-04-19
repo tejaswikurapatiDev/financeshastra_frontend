@@ -90,7 +90,7 @@
       z-index: 10; /* Ensures it stays on top */
     }
     .react-datepicker {
-      z-index: 1000 !important;
+      z-index: 100 !important;
     }
   .earningquterlyrowalll {
     display: flex;
@@ -177,7 +177,7 @@ width: 100%;
   display: flex;
 width: 650px;
 font-size: 12px;
-  gap: 120px;
+  gap: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   padding: 13px;
@@ -211,7 +211,7 @@ font-size: 12px;
     display: flex;
     border: 1px solid rgb(212, 209, 209);
     height: 40px;
-    margin-left: 45px;
+    margin-left: -145px;
     align-self: left;
    padding-right: 10px;
     margin-right: 0px;
@@ -277,6 +277,10 @@ font-size: 12px;
 
 
 }
+.react-datepicker {
+  z-index: 100;
+  margin-left: -172px;
+}
 
     }
     
@@ -286,7 +290,7 @@ font-size: 12px;
         display: flex;
         border: 1px solid rgb(212, 209, 209);
         height: 40px;
-        margin-left: 220px;
+        margin-left: 70px;
         width: 140px;
         border-radius: 5px;
         box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
@@ -354,5 +358,31 @@ font-size: 12px;
         overflow-y: hidden;
         height: 700px;
     }
-      
+    .dateinsighttt {
+      display: flex;
+      border: 1px solid rgb(212, 209, 209);
+      height: 40px;
+      margin-left: 100px;
+      width: 140px;
+      border-radius: 5px;
+      box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+    }
+    .react-datepicker {
+      z-index: 100 !important;
+      margin-left: 70px;
+    }
+
         }
+        @media (max-width: 480px){
+          .react-datepicker {
+            z-index: 100 !important;
+            margin-left: 77px;
+          }
+        }
+
+        @media (max-width: 320px) {
+          .stockcalender.react-datepicker {
+          z-index: 100 !important;
+          margin-left: -20px;
+      }
+      }

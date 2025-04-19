@@ -16,7 +16,7 @@ const roceData = [
 ];
 const ROCEChart= () => {
     return (
-      <div>
+      <div className='roce'>
         <h1 >ROCE (%)</h1>
         <ChartCard data={roceData} dataKey="roce" color="#4caf50" fillColor="rgba(76, 175, 80, 0.3)" />
       </div>

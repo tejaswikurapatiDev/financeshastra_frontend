@@ -368,50 +368,6 @@ body {
 
 
 
-@media(min-width:1536px) {
-  .pagination-containerrsector {
-    display: flex;
-    gap: 821px;
-    align-items: center;
-    margin: 20px 0;
-    margin-left: 20px;
-  }
-
-  .DashboardMainPagetable-card.custom-card-size {
-    width: 145px;
-  }
-
-  .pagination-slider {
-    margin-right: -1000px;
-  }
-
-  .DashboardMainPagetable-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: 'calibri';
-  }
-
-  .DashboardMainPagetable-tableeee {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-  }
-
-  .DashboardMainPagetable-headerrindexx {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 230px;
-    margin-left: 300px;
-    margin-top: -135px;
-  }
-}
-
 @media(min-width:2000px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
@@ -460,13 +416,58 @@ body {
   }
 }
 
+@media(min-width:1536px) {
+  .pagination-containerrsector {
+    display: flex;
+    gap: 821px;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 20px;
+  }
+
+  .DashboardMainPagetable-card.custom-card-size {
+    width: 145px;
+  }
+
+  .pagination-slider {
+    margin-right: -1000px;
+  }
+
+  .DashboardMainPagetable-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'calibri';
+  }
+
+  .DashboardMainPagetable-tableeee {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+
+  .DashboardMainPagetable-headerrindexx {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 230px;
+    margin-left: 300px;
+    margin-top: -140px;
+  }
+}
+
+
 @media (min-width: 1280px) and (max-width: 1535px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
     gap: 10px;
     margin-bottom: 230px;
     margin-left: 290px;
-    margin-top: -200px;
+    margin-top: -0px;
   }
 
   .DashboardMainPagetable-cards {
@@ -494,7 +495,7 @@ body {
     gap: 10px;
     margin-bottom: 230px;
     margin-left: 270px;
-    margin-top: -50px;
+    margin-top: -0px;
   }
 
   .DashboardMainPagetable-cards {
@@ -552,7 +553,7 @@ body {
     gap: 10px;
     margin-bottom: 110px;
     margin-left: 60px;
-    margin-top: -140px;
+    margin-top: -70px;
 }
 
   .DashboardMainPagetable-header {
@@ -823,6 +824,7 @@ body {
     white-space: nowrap;
     /* Keep tabs in a single line */
     margin-bottom: 3px;
+    font-size: 10px;
   }
 
 

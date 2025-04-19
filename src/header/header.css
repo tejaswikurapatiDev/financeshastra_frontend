@@ -4,7 +4,7 @@
   margin-left: -26%; 
   padding: 16px;
   font-family: "calibri";
-  margin-top: 100px;
+  margin-top: 60px;
   border-radius: 0;
   position: fixed;
   top: 0;
@@ -24,6 +24,7 @@
   align-items: center;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 
@@ -32,6 +33,7 @@
   font-weight: bold;
   margin: 0;
   margin-left: 300px;
+  margin-top: 20px;
 }
 
 
@@ -141,20 +143,49 @@
 /* Media Queries for Mobile Views */
 
 
-
-@media (min-width: 1024px) and (max-width: 1279px) {
-  
-
-.graphnavbar {
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .graphheader {
     display: flex
 ;
-    flex-wrap: wrap;
-    gap: 5px;
-    padding-top: 5px;
-    margin-top: 5px;
-    margin-left: 130px;
-    cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease;
+    gap: 500px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  
+  .graphcontainer {
+    width: 150%; 
+    margin-left: -26%; 
+    padding: 16px;
+    font-family: "calibri";
+    margin-top: 40px;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+  }
+  .graphnavbar {
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin: 0;
+    padding-bottom: 5px;
+    display: flex
+;
+margin-left: 280px;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+    width: 63%;
+    position: relative;
+}
+.graphheader h1 {
+  font-size: 22px;
+margin-top: 30px;
 }
 }
 
@@ -180,6 +211,7 @@
   .graphnavbar {
       margin-left: 0;
       justify-content: space-evenly; 
+      
   }
 
   .graphnavbar span, .graphnavbar a {

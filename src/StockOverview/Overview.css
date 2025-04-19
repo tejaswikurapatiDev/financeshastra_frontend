@@ -1,0 +1,26 @@
+.overvierheardaa{
+    font-family: 'Calibri';
+    font-size:24px;
+    font-weight:bold;
+    color: #24b676;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .overvierheardaa{
+        margin-left: 33px;
+       
+    }
+    .allcontainheaddh{
+        margin-top: -90px;
+    }
+  }
+  
+@media (max-width: 480px) {
+    .overvierheardaa{
+        margin-left: 20px;
+        margin-bottom: -110px;
+       
+    }
+    .allcontainheaddh{
+        margin-top: -60px;
+    }
+}

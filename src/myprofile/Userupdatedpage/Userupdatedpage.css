@@ -352,7 +352,7 @@ text-align: center;
   .profilepage-tabsorderusers {
     text-align: center;
     margin-left: 20px;
-    margin-left: 0px;
+
 }
 .profilepage-title {
   font-size: 22px;
@@ -770,4 +770,12 @@ margin-left: -20px;
   .investment-itemalluser input[name="mutualfund"] {
     width: 30px;
   }
+  .editiconprofile {
+    color: #24b676;
+    margin-left: -40px;
+}
+.value, .current-value {
+  font-size: 11px;
+  margin-left: -1px;
+}
 }

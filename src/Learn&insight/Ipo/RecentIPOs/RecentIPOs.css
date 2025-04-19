@@ -54,6 +54,7 @@
 
   .recentipo ul li {
       font-size: 14px; /* Make list items smaller for better readability */
+      margin-bottom: -8px;
   }
 }
 

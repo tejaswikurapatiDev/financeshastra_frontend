@@ -26,54 +26,45 @@ const ShareholdingChart = () => {
 
   return (
     <div>
-      <h2 className='circlechartheader'>Shareholding</h2>
-      <div className="circleearning">
-        <PieChart width={400} height={250}>
-          <Pie
-            data={data}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius={90} // Default outer radius
-            innerRadius={60}
-            minAngle={15}
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color} />
-            ))}
-          </Pie>
-
-          {/* Tooltip for dynamic hover/touch display */}
-          <Tooltip content={<CustomTooltip />} />
-          {/* Custom Legend with Square Icons */}
-          <Legend
-            className='circledataearning'
-            layout="vertical"
-            align="left"
-            verticalAlign="middle"
-            iconSize={0}
-            formatter={(value, entry, index) => {
-              const { color } = entry;
-              const percentage = data[index].value.toFixed(2);
-              return (
-                <div style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-                  <div
-                    style={{
-                      width: '15px',
-                      height: '15px',
-                      backgroundColor: color,
-                      marginLeft: '5px',
-                    }}
-                  ></div>
-                  <span className='valueper'>{value} - {percentage}%</span>
-                </div>
-              );
-            }}
-          />
-        </PieChart>
+       <h2 className='circlechartheader'>Shareholding</h2>
+    <div className="circlechart-wrapper">
+   
+  
+    <div className="circleearning">
+      
+  
+      <div className="circledataearning">
+        {data.map((entry, index) => (
+          <div className="legend-item" key={index}>
+            <div
+              className="legend-color-box"
+              style={{ backgroundColor: entry.color }}
+            ></div>
+            <span className="valueper">{entry.name} - {entry.value.toFixed(2)}%</span>
+          </div>
+        ))}
       </div>
+      <PieChart width={250} height={250}>
+        <Pie
+          data={data}
+          dataKey="value"
+          nameKey="name"
+          cx="50%"
+          cy="50%"
+          outerRadius={90}
+          innerRadius={60}
+          minAngle={15}
+        >
+          {data.map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={entry.color} />
+          ))}
+        </Pie>
+        <Tooltip content={<CustomTooltip />} />
+      </PieChart>
     </div>
+  </div>
+  </div>
+  
   );
 };
 

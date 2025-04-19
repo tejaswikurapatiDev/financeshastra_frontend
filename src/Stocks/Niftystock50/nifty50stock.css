@@ -171,7 +171,7 @@ font-size: 14px;
 overflow-x: auto;
 overflow-y: hidden;
 width: calc(115% - 10px);
-margin-left: 15px;
+margin-left: -10px;
 padding: 10px;
 scrollbar-color: #24b676 transparent;
 scrollbar-width: thin;

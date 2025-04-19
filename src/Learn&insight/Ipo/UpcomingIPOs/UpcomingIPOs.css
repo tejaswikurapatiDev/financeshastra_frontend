@@ -179,13 +179,15 @@
       font-size: 14px; /* Smaller font size */
   }
 
-  .imgipoupcoming img {
-      height: 200px; /* Resize image for mobile view */
-  }
-  .imgipoupcoming img {
-    height: 150px;
-    justify-content: center;
-    margin-left: 150px;
+
+
+    .imgipoupcoming img {
+      height: 300px;
+      width: 400px;
+      justify-content: center;
+      margin-left: 130px;
+  margin-bottom: -70px;
+  margin-top: -0px;
 }
  
 }

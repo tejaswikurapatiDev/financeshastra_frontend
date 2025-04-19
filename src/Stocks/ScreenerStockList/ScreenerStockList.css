@@ -1627,8 +1627,8 @@ gap: 1020px;
   }
   .pagination-stockcontainer {
     margin-top: -90px;
-    flex-direction: column;
-    gap: 10px;
+ 
+    gap: 100px;
   }
   .screener-header {
     font-size: 1.4rem;
@@ -2183,4 +2183,16 @@ gap: 620px;
 
  
 }
+}
+
+@media screen and (max-width: 320px) {
+  .screener-container {
+    
+    margin-top: 50px;
+  }
+  .pagination-stockcontainer {
+    margin-top: -90px;
+ 
+    gap: 10px;
+  }
 }
