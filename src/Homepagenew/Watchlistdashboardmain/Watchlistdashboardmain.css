@@ -242,3 +242,17 @@
 
 
 }
+@media (max-width: 320px) {
+  .Watchlistdashboardmain-container {
+      width: 90%;
+      max-width: 100%;
+      background: #ffffff;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      font-family: 'Calibri';
+      height: 400px;
+      margin-left: 6px;
+  }
+}

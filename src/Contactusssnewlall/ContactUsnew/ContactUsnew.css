@@ -473,6 +473,7 @@
   .contactus-financeshastra {
     max-width: 95%;
     padding: 0 20px;
+    margin-top: -0px;
   }
 
   .contactus-financeshastra .contact-form input,
@@ -546,6 +547,7 @@
   .contactus-financeshastra {
     width: 100%;
     padding: 0 15px;
+    margin-top: 30px;
   }
 
   .contactus-financeshastra h1 {

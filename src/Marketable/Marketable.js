@@ -1,11 +1,41 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Marketdata from '../Marketdata';
+import { API_BASE_URL } from '../config';
 import './Marketable.css';
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Marketable = () => {
+  const [etfsData, setetfsData]= useState([])
+  const [isLoading, setisLoading] = useState(true)
+  useEffect(()=>{
+    const fetchEtfsData= async ()=>{
+      const response= await fetch(`${API_BASE_URL}/mutualFunds/etfs`)
+      if (response.ok=== true){
+        const data = await response.json()
+        console.log(data.data)
+        setetfsData(data.data)
+      }else{
+        console.log(response.error)
+      }
+      setisLoading(false)
+    }
+    fetchEtfsData()
+  }, [])
   return (
-    <div>
+    <div>{isLoading ? <div className='loader-cont'><ClipLoader
+      cssOverride={override}
+      size={35}
+      data-testid="loader"
+      loading={isLoading}
+      speedMultiplier={1}
+      color="green"
+    /></div> :
     <div className="etcontainerrr">
       <h1 className="etf-title">Equity Exchange Traded Funds</h1>
       <p className="etf-description">
@@ -29,7 +59,7 @@ mutual funds.
           </tr>
         </thead>
         <tbody>
-          {Marketdata.map((etf, index) => (
+          {etfsData.map((etf, index) => (
             <tr key={index}>
               <td>{etf.issuer}</td>
               <td className='marketname'>{etf.name}</td>
@@ -42,7 +72,7 @@ mutual funds.
       </table>
      
     </div>
-   
+   }
     </div>
   );
 };

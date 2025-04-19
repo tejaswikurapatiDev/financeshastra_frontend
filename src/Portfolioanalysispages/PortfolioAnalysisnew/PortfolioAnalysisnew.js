@@ -6,6 +6,7 @@ import tataimg from "../../assest/tataa.png";
 import towerimg from "../../assest/tower.png";
 import labimg from "../../assest/lab.png";
 import PortfolioanalysisfAQS from "../Portfolioanalysisfaq/Portfolioanalysisfaq";
+import { useNavigate } from "react-router-dom";
 
 const newsData = [
   {
@@ -61,6 +62,7 @@ const NewsCard = ({ title, time, image }) => (
 );
 
 const PortfolioAnalysisnew = () => {
+  const navigate=useNavigate()
   const [visibleNews, setVisibleNews] = useState(5);
   const showMore = () => setVisibleNews(newsData.length);
 
@@ -71,7 +73,7 @@ const PortfolioAnalysisnew = () => {
         <NewsCard key={index} {...news} />
       ))}
       {visibleNews < newsData.length && (
-        <div className="know-moreportfoilioanalytick"onClick={showMore}>
+        <div className="know-moreportfoilioanalytick"onClick={()=>{navigate('/stockNewsComponent')}}>
             
            Know more
         </div>

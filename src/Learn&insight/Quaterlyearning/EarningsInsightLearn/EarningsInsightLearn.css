@@ -237,6 +237,11 @@
         margin-bottom: 100px;
       
     }
+    .earnings-insight-learn-tabs {
+        display: flex
+    ;
+         gap: 1px;
+    }
     .earningquterlyrowall {
         display: flex;
   width: 600px;
@@ -357,35 +362,8 @@
         box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
         /* Adjust margin to position the date picker outside */
     }
-    .react-datepicker {
-        font-size: 0.7rem; /* Smaller font for small screens */
-        /* Ensure the datepicker fits well within the viewport */
-        padding: 0.5rem; /* Add some padding for better touch interaction */
-       
-        top: 40%; /* Place it directly below the triggering element */
-        left: 0; /* Align it to the left of the container */
-        z-index: 1000; /* Ensure it appears above other elements */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        width: 320px; /* Add a subtle shadow for better visibility */
-        justify-content: left;
-    }
 
-    .react-datepicker__header {
-        font-size: 0.8rem; /* Adjust header font size */
-        width: 320px;
-    }
-
-    .react-datepicker__day {
-        padding: 0.3rem; /* Decreased padding for more compact cells */
-        display: inline-block; /* Ensure days remain properly aligned */
-        width: 2rem; /* Optional: Adjust width for uniformity */
-        height: 2rem; /* Optional: Adjust height for uniformity */
-        line-height: 2rem; /* Center align text vertically */
-        text-align: center; /* Center align text horizontally */
-        margin: 0.1rem; /* Optional: Add slight spacing between days */
-        border-radius: 0.2rem; /* Optional: Slight rounding for better aesthetics */
-    }
-    
+ 
     
 }
 
@@ -410,6 +388,7 @@
         background-color: white;
     }
     
+  
     /* Individual header cell styling */
     .earnings-insight-learn-table th {
         position: sticky;
@@ -476,4 +455,6 @@
         margin-left: 1px; /* Adjusted margin for better alignment */
     }
 
+
+    
 }

@@ -368,50 +368,6 @@ body {
 
 
 
-@media(min-width:1536px) {
-  .pagination-containerrsector {
-    display: flex;
-    gap: 821px;
-    align-items: center;
-    margin: 20px 0;
-    margin-left: 20px;
-  }
-
-  .DashboardMainPagetable-card.custom-card-size {
-    width: 145px;
-  }
-
-  .pagination-slider {
-    margin-right: -1000px;
-  }
-
-  .DashboardMainPagetable-card {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-
-
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    font-family: 'calibri';
-  }
-
-  .DashboardMainPagetable-tableeee {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-  }
-
-  .DashboardMainPagetable-headerrindexx {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 230px;
-    margin-left: 300px;
-    margin-top: -135px;
-  }
-}
-
 @media(min-width:2000px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
@@ -460,13 +416,58 @@ body {
   }
 }
 
+@media(min-width:1536px) {
+  .pagination-containerrsector {
+    display: flex;
+    gap: 821px;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 20px;
+  }
+
+  .DashboardMainPagetable-card.custom-card-size {
+    width: 145px;
+  }
+
+  .pagination-slider {
+    margin-right: -1000px;
+  }
+
+  .DashboardMainPagetable-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'calibri';
+  }
+
+  .DashboardMainPagetable-tableeee {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+  }
+
+  .DashboardMainPagetable-headerrindexx {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 230px;
+    margin-left: 300px;
+    margin-top: -140px;
+  }
+}
+
+
 @media (min-width: 1280px) and (max-width: 1535px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
     gap: 10px;
     margin-bottom: 230px;
     margin-left: 290px;
-    margin-top: -650px;
+    margin-top: -0px;
   }
 
   .DashboardMainPagetable-cards {
@@ -494,7 +495,7 @@ body {
     gap: 10px;
     margin-bottom: 230px;
     margin-left: 270px;
-    margin-top: -50px;
+    margin-top: -0px;
   }
 
   .DashboardMainPagetable-cards {
@@ -547,12 +548,13 @@ body {
   }
 
   .DashboardMainPagetable-headerrindexx {
-    display: flex;
+    display: flex
+;
     gap: 10px;
     margin-bottom: 110px;
     margin-left: 60px;
-    margin-top: -500px;
-  }
+    margin-top: -70px;
+}
 
   .DashboardMainPagetable-header {
     display: flex;
@@ -624,26 +626,25 @@ body {
     color: white;
     /* Slightly darker shade on hover */
   }
-
   .DashboardMainPagetable-cards {
-    display: flex;
+    display: flex
+;
     width: 660px;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 20px;
     align-items: center;
     margin-left: 50px;
-  }
+}
 
 
-  .DashboardMainPagetable-tableeee {
-    /* width: 60%; */
-    border-collapse: collapse;
-    margin-top: 30px;
-    overflow-x: auto;
-    /* margin-left: -50px; */
-  }
-
+.DashboardMainPagetable-tableeee {
+  /* width: 60%; */
+  border-collapse: collapse;
+  margin-top: 30px;
+  overflow-x: auto;
+  /* margin-left: -50px; */
+}
   .DashboardMainPagetable-table th,
   .DashboardMainPagetable-table td {
     padding: 8px 12px;
@@ -673,7 +674,7 @@ body {
   .DashboardMainPagetable-card.custom-card-size {
     width: 300px;
     margin-left: 0px;
-  }
+}
 
   /* Sector Icons */
   .sector-icon,
@@ -765,12 +766,13 @@ body {
   }
 
   .pagination-containerrsector {
-    display: flex;
+    display: flex
+;
     gap: 210px;
     align-items: center;
     margin: 20px 0;
     margin-left: 40px;
-  }
+}
 
   .FooterForAllPage-footerrr {
     display: none;
@@ -822,6 +824,7 @@ body {
     white-space: nowrap;
     /* Keep tabs in a single line */
     margin-bottom: 3px;
+    font-size: 10px;
   }
 
 

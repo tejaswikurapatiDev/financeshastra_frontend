@@ -1,11 +1,38 @@
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import goldmarketData from '../Goldmarketdata';
 import './Goldmarket.css';
 import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
+import { API_BASE_URL } from '../config';
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Goldmarket = () => {
+  const [goldetfData, setgoldEtfsdata]= useState([])
+  const [isLoading, setIsLoading]= useState(true)
+  useEffect(()=>{
+    const fetchgoldEtfsData= async ()=>{
+      const response= await fetch(`${API_BASE_URL}/mutualFunds/goldetfs`)
+      const data= await response.json()
+      console.log(data.data)
+      setgoldEtfsdata(data.data)
+      setIsLoading(false)
+    }
+    fetchgoldEtfsData()
+  }, [])
   return (
+    <>{isLoading ? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
     <div className="etcontainerrr">
       <h1 className="goldetf-title">Gold Exchange Traded Funds</h1>
       <p className="etf-description">
@@ -29,7 +56,7 @@ const Goldmarket = () => {
           </tr>
         </thead>
         <tbody>
-          {goldmarketData.map((etf, index) => (
+          {goldetfData.map((etf, index) => (
             <tr key={index}>
               <td>{etf.issuer}</td>
               <td className='goldmarketname'>{etf.name}</td>
@@ -42,6 +69,8 @@ const Goldmarket = () => {
       </table>
       
     </div>
+}
+    </>
   );
 };
 
