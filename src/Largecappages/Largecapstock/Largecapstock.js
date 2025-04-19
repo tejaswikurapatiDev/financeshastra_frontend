@@ -1216,7 +1216,7 @@ const perfOptions = [
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-              <div className="stockindexscreeneropt">
+                <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1237,21 +1237,21 @@ const perfOptions = [
                 <div
                   className="index-optionsstocks" // Added class name to the container of options
                 >
-                  {filteredIndexes.map((eachindex) => (
+                  {filteredIndexes.map((index, idx) => (
                     <label
-                      key={eachindex.id}
+                      key={`${index}-${idx}`}
                       className="index-optionscreener" // Added class name to each option
                     >
                       <input
                         type="checkbox"
-                        checked={selectedIndexes.includes(eachindex.index)}
+                        checked={selectedIndexes.includes(index)}
                         onChange={(e) => {
                           e.stopPropagation();
-                          handleCheckboxChange(eachindex.index);
+                          handleCheckboxChange(index);
                         }}
                         style={{ width: "20%" }}
                       />
-                      {eachindex.index}
+                      {index}
                     </label>
                   ))}
                 </div>
@@ -1295,7 +1295,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                  <div className="dropdown-market-cap-options">
+                 <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1366,7 +1366,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                  <div className="dropdown-change-options">
+                   <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1440,7 +1440,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                  <div className="dropdown-marketcap-options">
+                    <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1662,7 +1662,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                  <div className="dropdown-div-options">
+                    <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1732,7 +1732,7 @@ const perfOptions = [
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-              <div className="stockindexscreenesectoropt">
+            <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1809,7 +1809,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                  <div className="dropdown-perf-options">
+                   <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1884,7 +1884,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                  <div className="dropdown-revgro-options">
+                <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -1961,7 +1961,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                  <div className="dropdown-peg-options">
+                   <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2036,7 +2036,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                  <div className="dropdown-roe-options">
+                   <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2097,7 +2097,6 @@ const perfOptions = [
             </div>
           </div>
         </div>
-
 
       {/* Tabs */}
       <div className="tab-container">
