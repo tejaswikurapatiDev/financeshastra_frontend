@@ -12,6 +12,15 @@
     font-weight: bold;
 }
 
+.screener-tablenifty-wrapper {
+  overflow-x: auto;
+  font-size: 15px;
+  font-family: 'calibri';
+  overflow-Y: auto;
+  height: 500px; 
+
+}
+
 .tabnifty50-button.active {
     background: #24b676; /* Active background color */
     color: #fff; /* Active text color */
@@ -106,7 +115,7 @@
   .pagination-button {
     padding: 5px 8px; /* Slightly reduce padding */
   }
-  .screener-table-wrapper {
+  .screener-tablenifty-wrapper{
     height: 400px;
     max-height: 500px;
     font-size: 14px;
@@ -117,7 +126,28 @@
     scrollbar-color: #24b676 transparent;
     scrollbar-width: thin;
 }
+.screener-tablenifty-wrapper {
+  overflow-x: auto;
+ 
+  white-space: nowrap; /* Prevent content from wrapping */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #24b676 #e0e0e0; /* Green scrollbar with light gray track */
+  margin-bottom: 100px;
+}
+/* Always show scrollbar for WebKit browsers (Chrome, Safari) */
+.screener-tablenifty-wrapper::-webkit-scrollbar {
+height: 8px; /* Scrollbar thickness */
+display: block; /* Forces scrollbar visibility */
+}
 
+.screener-tablenifty-wrapper::-webkit-scrollbar-thumb {
+background: #24b676; /* Green scrollbar */
+border-radius: 4px;
+}
+
+.screener-tablenifty-wrapper::-webkit-scrollbar-track {
+background: #24b676; /* Light gray track */
+}
 }
 
 /* Mobile View for 480px */
@@ -164,7 +194,28 @@
     width: 200px;
 
 }
-.screener-table-wrapper {
+.screener-tablenifty-wrapper {
+  overflow-x: auto;
+  white-space: nowrap; /* Prevent content from wrapping */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #24b676 ; /* Green scrollbar with light gray track */
+  margin-bottom: 100px;
+}
+/* Always show scrollbar for WebKit browsers (Chrome, Safari) */
+.screener-tablenifty-wrapper::-webkit-scrollbar {
+height: 8px; /* Scrollbar thickness */
+display: block; /* Forces scrollbar visibility */
+}
+
+.screener-tablenifty-wrapper::-webkit-scrollbar-thumb {
+background: #24b676; /* Green scrollbar */
+border-radius: 4px;
+}
+
+.screener-tablenifty-wrapper::-webkit-scrollbar-track {
+background: #24b676; /* Light gray track */
+}
+.screener-tablenifty-wrapper {
   height: 400px;
   max-height: 500px;
   font-size: 14px;
@@ -172,11 +223,13 @@
   overflow-y: hidden;
   width: calc(115% - 10px);
   margin-left: 15px;
+  margin-right: 15px;
   padding: 10px;
   scrollbar-color: #24b676 transparent;
   scrollbar-width: thin;
   white-space: nowrap;
   box-sizing: border-box;
 }
+
 }
 

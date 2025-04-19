@@ -29,8 +29,9 @@ const AnnuallyScanPage = () => {
       };
        
   return (
-    <div className="profilepageee-container">
-      <h1 className="profilepage-title" style={{ fontFamily: "Calibri" }}>
+    <div>
+    <div className="profilepageeeccontainer">
+    <h1 className="profilepagtitle"  style={{ fontFamily: "Calibri" }}>
       Elite Plan Subscription
       </h1>
 
@@ -172,8 +173,12 @@ const AnnuallyScanPage = () => {
           </div>
         </div>
         <Navbar/>
-        <FooterForAllPage/>
+       
       </div>
+      <div className="foooterpagesaupdate">
+      <FooterForAllPage />
+      </div>
+         </div>
    
   );
 };

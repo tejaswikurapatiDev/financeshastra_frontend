@@ -67,8 +67,9 @@ const AnnuallyPremiumPaypalProfilePage = () => {
     navigate("/annuallyPremiumScanPage");
   };
   return (
-    <div className="profilepageee-container">
-      <h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
+    <div>
+    <div className="profilepageeeccontainer">
+      <h1 className="profilepagtitle" style={{ fontFamily: 'Calibri' }}>
       Premium Plan Subscription
       </h1>
 
@@ -218,7 +219,10 @@ const AnnuallyPremiumPaypalProfilePage = () => {
         </div>
       </div>
       <Navbar />
+      </div>
+         <div className="foooterpagesaupdate">
       <FooterForAllPage />
+      </div>
     </div>
   );
 };

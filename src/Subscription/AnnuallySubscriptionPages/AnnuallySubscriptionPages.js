@@ -136,16 +136,17 @@ const AnnuallySubscriptionPages = () => {
 
 
   return (
-    <div className="profilepageee-container">
+    <div>
+    <div className="profilepageeeccontainer">
 
-    <h1 className="profilepage-title" style={{ fontFamily: 'Calibri' }}>
+    <h1 className="profilepagtitle"  style={{ fontFamily: 'Calibri' }}>
       Elite Plan Subscription</h1>
 
 
     <div className="billing-detailspages-container">
     <div className="billing-detailspages-card">
     <h2 className="billing-detailspages-amount">
-    <span style={{ color: "black" }}>Rs 2999</span> <br />
+    <span style={{ color: "black" }}>Rs 3999</span> <br />
     <span style={{ color: "#888" }}>Due Feb 02, 2024</span>
 
     </h2>
@@ -303,7 +304,7 @@ const AnnuallySubscriptionPages = () => {
     className="billing-detailspages-pay-button"
     onClick={handlePaymentBillingDetailsPage}
     >
-    Pay ₹2999
+    Pay ₹3999
     </button>
     </form>
     {/* Popup */}
@@ -330,8 +331,12 @@ const AnnuallySubscriptionPages = () => {
     </div>
     </div>
     <Navbar/>
-    <FooterForAllPage/>
     </div>
+         <div className="foooterpagesaupdate">
+      <FooterForAllPage />
+      </div>
+    </div>
+    
   );
 };
 

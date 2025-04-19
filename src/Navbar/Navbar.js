@@ -862,7 +862,7 @@ const Navbar = () => {
         {!isLoading && !isSubscribed && (
           <h4
             className="subscritebutton"
-            onClick={() => navigate("/pricehalf")}
+            onClick={() => navigate("/annualplan")}
           >
             Subscribe
           </h4>
