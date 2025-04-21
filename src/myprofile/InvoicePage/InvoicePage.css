@@ -128,7 +128,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-      bottom: -250px;
+      bottom: 0px;
       width: 120px; /* Adjust size as needed */
       margin-right: 400px;
     }
@@ -147,7 +147,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-      bottom: -270px;
+     
       width: 120px; /* Adjust size as needed */
       margin-right: 200px;
     }
@@ -165,7 +165,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-      bottom: -390px;
+     
       width: 120px; /* Adjust size as needed */
       margin-right: 80px;
     }
@@ -201,7 +201,7 @@
   .invoice-paid-image {
     position: absolute;
     right: 0;
-    bottom: -250px;
+  
     width: 120px; /* Adjust size as needed */
     margin-right: 30px;
   }
@@ -244,7 +244,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-      bottom: -250px;
+      
       width: 120px; /* Adjust size as needed */
       margin-right: 30px;
     }
