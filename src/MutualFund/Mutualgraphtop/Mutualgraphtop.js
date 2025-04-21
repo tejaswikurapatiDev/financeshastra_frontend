@@ -4,7 +4,7 @@ import 'chart.js/auto';
 import './Mutualgraphtop.css';
 
 
-const Mutualgraphtop = () => {
+const Mutualgraphtop = ({ fundDetails }) => {
     // State for selected time range and chart data
     const [timeRange, setTimeRange] = useState('1M');
     const [financialData, setFinancialData] = useState({
@@ -89,7 +89,9 @@ const Mutualgraphtop = () => {
       
             <div className="portfoliomutual-container">
                 <div className="portfoliomutual-card">
-                    <h3 className="portfoliomutual-title">ICICI Prudential Technology Fund Growth</h3>
+                    {fundDetails &&(
+                        <h3 className="portfoliomutual-title">{fundDetails.name}</h3>
+                    )}
 
                     {/* Time Range Selector */}
                     <div className="time-rangemutual-selector">

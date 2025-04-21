@@ -235,7 +235,7 @@ margin-right: -40px;
     margin: 0;
     padding: 0;
     max-width: 1280px;
-    margin-top: -40px;
+    margin-top: -20px;
   }
   .blogCard {
     border: 1px solid rgba(149, 149, 150, 0.659);
@@ -271,7 +271,7 @@ margin-right: -40px;
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .blogsContainer {
     font-family: 'Calibri';
-    margin-top: -50px;
+    margin-top: -30px;
     max-width: 100%;
   }
   .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
@@ -345,7 +345,7 @@ margin-left: -20px;
     margin: 0;
     padding: 0;
     max-width: 100%;
-    margin-top: -110px;
+    margin-top: -100px;
 }
   .blogsTitle, .blogsSubtitle, .blogsTagline, .blogsFeatures {
     margin-left: 30px;

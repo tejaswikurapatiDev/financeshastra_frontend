@@ -37,7 +37,8 @@
     .key-indicators-cardd {
       width: 92%; /* Full width for mobile */
       height: auto; /* Auto height for better fitting */
-      margin-left: 5px; /* Smaller margin */
+      margin-left: 10px; /* Smaller margin */
       margin-right: 5px; /* Smaller margin */
+      margin-bottom: -80px;
     }
   }

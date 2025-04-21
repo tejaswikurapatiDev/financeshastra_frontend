@@ -288,7 +288,7 @@
   .settingsTitle {
     font-size: 24px;
     font-weight: bold;
-    margin-top: 130px;
+    margin-top: 100px;
     margin-left: 100px;
   }
   .buttonsRow {
@@ -336,6 +336,7 @@
   }
   .settingsTitle{
     margin-left: -100px;
+    margin-top: 30px;
   }
 }
 
@@ -348,7 +349,7 @@
 
   .settingsTitle {
     font-size: 20px; /* Adjust title font size */
-    margin-top: 100px; /* Adjust top margin */
+    margin-top: 80px; /* Adjust top margin */
     margin-left: 40px;
   }
 

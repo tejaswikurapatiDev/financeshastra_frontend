@@ -107,7 +107,7 @@
     margin-top: 30px;
   }
   .stockNewsTitle {
-    margin-top: -30px;
+    margin-top: -0px;
   }
 }
 
@@ -126,7 +126,7 @@
 
 @media (max-width: 480px) {
   .stockNewsContainer {
-    margin-top: 60px; /* Adjust top margin for smaller devices */
+    margin-top: 80px; /* Adjust top margin for smaller devices */
     padding: 0 10px; /* Adjust padding for very small screens */
   }
 

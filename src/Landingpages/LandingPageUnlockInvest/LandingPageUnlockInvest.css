@@ -16,6 +16,11 @@
   overflow-x: hidden;
 
 }
+.landingpageunlockinvest-container,
+.landingpageunlockinvestdarkcontainer {
+  height: 40vh;
+  overflow-y: hidden;
+}
 
 body {
   overflow-x: hidden;
@@ -227,6 +232,7 @@ body {
   .landingpageunlockinvest-container,
   .landingpageunlockinvestdarkcontainer {
     height: 45vh;
+    overflow-y: hidden;
   }
 
   .landingpageunlockinvest-image,
@@ -301,6 +307,7 @@ body {
     flex-direction: column;
     height: auto;
     overflow-x: hidden;
+    margin-top: 20px
   }
 
   .landingpageunlockinvest-content {
@@ -314,11 +321,14 @@ body {
 
   .landingpageunlockinvest-input,
   .landingpageunlockinvestdarkinput {
-    width: 120%;
+   
   }
   .landingpageunlockinvest-button {
     font-size: 10px;
+    padding: 4px 1px;
+   
   }
+
 }
 
 /* Mobile Devices (Below 768px) */
