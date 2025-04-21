@@ -326,7 +326,7 @@ import './AnnuallyPremiumSubscriptionPages.css';
              <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
              <h2>Payment Successful!</h2>
              <p className="amount-paid">Amount Paid: ₹7999/-</p>
-             <p className="payment-plan">Plan: Elite (Monthly)</p>
+             <p className="payment-plan">Plan: Premium (Annually)</p>
            </div>
          </div>
        )}

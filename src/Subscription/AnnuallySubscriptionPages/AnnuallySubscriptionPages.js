@@ -122,7 +122,7 @@ const AnnuallySubscriptionPages = () => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate("/annuallySubscriptionPages"); // Navigate to /billingDetailsPage
+    navigate("/subscribe-Premium"); // Navigate to /billingDetailsPage
   };
 
   // Handle navigation on PayPal button click
@@ -324,8 +324,8 @@ const AnnuallySubscriptionPages = () => {
     <div className="payment-popup-content">
     <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
     <h2>Payment Successful!</h2>
-    <p className="amount-paid">Amount Paid: ₹2999/-</p>
-    <p className="payment-plan">Plan: Elite (Monthly)</p>
+    <p className="amount-paid">Amount Paid: ₹3999/-</p>
+    <p className="payment-plan">Plan: Elite (Annually)</p>
     </div>
     </div>
     )}
