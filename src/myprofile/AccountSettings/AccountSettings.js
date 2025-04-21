@@ -91,9 +91,11 @@ const AccountSettings = () => {
     }
   
     setErrors(newErrors); // Update errors for each field
+
   
     // If there are no errors, proceed
-    if (!errors.currentPassword || !errors.newPassword || !errors.confirmPassword) {
+    if (newErrors.currentPassword==="" && newErrors.newPassword=== "" && newErrors.confirmPassword=== "") {
+      console.log("newPasserror: ", newErrors.newPassword)
       
       console.log('sending url')
       const url= `${API_BASE_URL}/users/changepass`

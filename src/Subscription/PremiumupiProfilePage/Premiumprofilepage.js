@@ -9,6 +9,9 @@ import googlepay from "../../assest/google-pay-logo.png";
 import patym from "../../assest/patym.png";
 import upilogo from '../../assest/upilogo.png'
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import Cookies from 'js-cookie'
+import { API_BASE_URL } from "../../config";
 
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
@@ -20,31 +23,59 @@ const PremiumUPIPage = () => {
   const [showPopupGp, setShowPopupGp] = useState(false);
   const [showPopupPhonep, setShowPopupPhonep] = useState(false);
   const [showPopupPyt, setShowPopupPyt] = useState(false);
+  const [showPopupforLogin, setShowPopupforLogin] = useState(false)
 
   const handleUPIVerifyAndProceed = (e) => {
-    e.preventDefault(); // Prevent form submission
-
-    const newErrors = {};
-
-    // UPI ID validation
-    const upiIdRegex = /^[\w.-]+@[\w.-]+$/;
-    if (!upiId || !upiIdRegex.test(upiId)) {
-      newErrors.upiId = "Please enter a valid UPI ID.";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
-      // Proceed with UPI Payment verification without timer or redirection
-
-      console.log("Proceeding with UPI Payment...");
-      setShowPopup(true); // Show the popup
-      setTimeout(() => {
-        setShowPopup(false); // Automatically close the popup after 5 seconds
-        // Add your actual redirect or API call logic here if needed
-      }, 3000); // Popup duration set to 5 seconds
-    }
-  };
+      e.preventDefault(); // Prevent form submission
+  
+      const newErrors = {};
+  
+      // UPI ID validation
+      const upiIdRegex = /^[\w.-]+@[\w.-]+$/;
+      if (!upiId || !upiIdRegex.test(upiId)) {
+        newErrors.upiId = "Please enter a valid UPI ID.";
+      }
+  
+      setErrors(newErrors);
+  
+      if (Object.keys(newErrors).length === 0) {
+        // Proceed with UPI Payment verification without timer or redirection
+        const localuserDetails = (Cookies.get("jwtToken"))
+        if (!localuserDetails) {
+          setShowPopupforLogin(true)
+        } else {
+          const decodedToken = jwtDecode(localuserDetails);
+          const { email } = decodedToken;
+          setShowPopup(true); // Show the popup
+  
+          const userpaymentDetails = {
+            'email': email,
+            "planId": 1,
+            "billingCycle": "half year",
+            "paymentMethod": "upi",
+            'upiId': upiId,
+            'price': 2000
+          }
+          const localtoken = Cookies.get('jwtToken')
+          const url = `${API_BASE_URL}/userPayment/paymentDetails1`
+          const options = {
+            method: "post",
+            headers: {
+              'Content-Type': "application/json",
+              "Authorization": `Bearer ${localtoken}`
+            },
+            body: JSON.stringify(userpaymentDetails)
+          }
+          fetch(url, options)
+            .then(response => console.log(response))
+  
+          setTimeout(() => {
+            setShowPopup(false); // Automatically close the popup after 5 seconds
+            // Add your actual redirect or API call logic here if needed
+          }, 3000); // Popup duration set to 5 seconds
+        }
+      }
+    };
   const handleGPayClick = () => {
     setShowPopupGp(true);
     setTimeout(() => {
@@ -236,6 +267,16 @@ const PremiumUPIPage = () => {
           </form>
         </div>
       </div>
+      {showPopupforLogin && (
+        <div className="payment-popup">
+          <div className="payment-popup-content">
+            <h2>You Are not Logged in!</h2>
+            <p className="amount-paid">Please Login</p>
+            <button type="button" onClick={()=> navigate('/')}
+              className="loginbtn billing-detailspages-pay-button">Login</button>
+          </div>
+        </div>
+      )}
 
       {showPopup && (
         <div className="paypal-popup">
