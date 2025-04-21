@@ -62,7 +62,7 @@ const NewsCard = ({ title, time, image }) => (
 );
 
 const PortfolioAnalysisnew = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const [visibleNews, setVisibleNews] = useState(5);
   const showMore = () => setVisibleNews(newsData.length);
 
@@ -73,7 +73,7 @@ const PortfolioAnalysisnew = () => {
         <NewsCard key={index} {...news} />
       ))}
       {visibleNews < newsData.length && (
-        <div className="know-moreportfoilioanalytick"onClick={()=>{navigate('/stockNewsComponent')}}>
+        <div className="know-moreportfoilioanalytick"  onClick={() => navigate("/stockNewsComponent")}>
             
            Know more
         </div>

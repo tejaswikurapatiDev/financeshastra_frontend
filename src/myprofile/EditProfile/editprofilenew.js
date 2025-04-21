@@ -71,21 +71,20 @@ const EditProfile = () => {
   const location = useLocation();
 
   const [formData, setFormData] = useState({
-    firstName: personalDetails.firstName,
-    lastName: personalDetails.lastName,
-    dob: personalDetails.dob,
-    gender: personalDetails.gender,
-    email: personalDetails.email,
-    phoneNumber: personalDetails.phoneNumber,
-    address: personalDetails.address,
+    firstName: "",
+    lastName: "",
+    dob: "",
+    gender: "",
+    email: "",
+    phoneNumber: "",
+    address: "",
     country: "India",
-    address: personalDetails.address,
-    state: personalDetails.state,
-    city: personalDetails.city,
-    occupation: professionalDetails.occupation,
-    pincode: personalDetails.pincode,
-    industry: professionalDetails.industry,
-    income: professionalDetails.income,
+    state: "",
+    city: "",
+    occupation: "",
+    pincode: "",
+    industry: "",
+    income: "",
   });
 
   const [errors, setErrors] = useState({}); // For validation errors
@@ -128,7 +127,7 @@ const EditProfile = () => {
     ];
     let validationErrors = {};
 
-    const CookieToken= Cookies.get('jwtToken')
+    const CookieToken = Cookies.get("jwtToken");
 
     requiredFields.forEach((field) => {
       if (!formData[field]) {
@@ -154,9 +153,9 @@ const EditProfile = () => {
         const response = await fetch(url, options);
         console.log("Form data sent to API:", formData);
         if (response.ok) {
-          const username= formData.firstName + formData.lastName
-          localStorage.setItem("username", username)
-          console.log(username)
+          const username = formData.firstName + formData.lastName;
+          localStorage.setItem("username", username);
+          console.log(username);
           setIsPopupVisible(true);
         } else {
           console.error("Failed to save user details:", response.statusText);
@@ -213,9 +212,11 @@ const EditProfile = () => {
           },
         });
 
-        //console.log("🚀 ~ fetchUserDetails ~ response:", response);
+        // console.log("🚀 ~ fetchUserDetails ~ response:", response.json());
+
         if (response.ok) {
           const data = await response.json();
+          console.log(data);
           //console.log("User details fetched:", data); // Debugging: Log the entire response
 
           // Check if isMobileVerified exists in the response
@@ -223,11 +224,56 @@ const EditProfile = () => {
             data[0].isMobileVerified === 1 || data[0].isMobileVerified === true
           );
 
-          // Update formData with phone number if it exists
-          setFormData((prevFormData) => ({
-            ...prevFormData,
-            phoneNumber: data.phone_number || prevFormData.phoneNumber,
-          }));
+          // After setting isMobileVerified and state values
+          const user = data[0];
+
+          //format date to show
+          const formattedDOB = user.dob
+            ? new Date(user.dob).toISOString().split("T")[0]
+            : "";
+
+          // Set state
+          setIsMobileVerified(
+            user.isMobileVerified === 1 || user.isMobileVerified === true
+          );
+
+          setPersonalDetails({
+            firstName: user.first_name,
+            lastName: user.last_name,
+            dob: formattedDOB,
+            gender: user.gender,
+            email: user.email,
+            phoneNumber: user.phone_number,
+            address: user.address,
+            country: user.country,
+            state: user.state,
+            city: user.city,
+            pincode: user.pincode,
+          });
+
+          setProfessionalDetails({
+            occupation: user.occupation !== "undefined" ? user.occupation : "",
+            industry: user.industry !== "undefined" ? user.industry : "",
+            income: user.income !== "undefined" ? user.income : "",
+          });
+
+          // Set formData directly from response
+          setFormData({
+            firstName: user.first_name || "",
+            lastName: user.last_name || "",
+            dob: formattedDOB || "",
+            gender: user.gender || "",
+            email: user.email || "",
+            phoneNumber: user.phone_number || "",
+            address: user.address || "",
+            country: user.country || "India",
+            state: user.state || "",
+            city: user.city || "",
+            occupation: user.occupation !== "undefined" ? user.occupation : "",
+            pincode: user.pincode || "",
+            industry: user.industry !== "undefined" ? user.industry : "",
+            income: user.income !== "undefined" ? user.income : "",
+          });
         } else {
           console.error("Failed to fetch user details:", response.statusText);
         }
@@ -239,6 +285,7 @@ const EditProfile = () => {
     fetchUserDetails();
   }, []);
 
+  console.log(personalDetails, professionalDetails);
   const closePopup = () => {
     setIsPopupVisible(false);
     const updatedData = {
@@ -258,7 +305,6 @@ const EditProfile = () => {
       professional: {
         occupation: formData.occupation,
         industry: formData.industry,
-
         // More fields here
       },
       investment: {
@@ -721,7 +767,14 @@ const EditProfile = () => {
     setIsPopupVisible(true);
   };
 
-  const occupations= ["Student", "Government Employee", "Homemaker", "Retired", "Proffesional", "Other"]
+  const occupations = [
+    "Student",
+    "Government Employee",
+    "Homemaker",
+    "Retired",
+    "Proffesional",
+    "Other",
+  ];
 
   const stateCityMapping = {
     "Andhra Pradesh": [
@@ -787,13 +840,13 @@ const EditProfile = () => {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
-    console.log(selectedState)
+    console.log(selectedState);
     setFormData((prev) => ({ ...prev, state: selectedState, city: "" }));
   };
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
-    console.log(selectedCountry)
+    console.log(selectedCountry);
     setFormData((prev) => ({ ...prev, country: selectedCountry }));
   };
 
@@ -1058,9 +1111,6 @@ const EditProfile = () => {
               value={formData.state}
               onChange={handleStateChange}
               className={`profilepage-select ${errors.state ? "error" : ""}`}
-
-              
-
             >
               <option value="">Select</option>
               {Object.keys(stateCityMapping).map((state) => (
@@ -1119,37 +1169,33 @@ const EditProfile = () => {
             )}
           </div>
           <div className="profilepage-field">
-          <div
-            className={`profilepage-field pincode-field ${
-              errors.occupation ? "error" : ""
-            }`}
-          >
-            <label>Occupation</label>
-            <select
-              name="occupation"
-              value={formData.occupation}
-              onChange={handleChange}
-              className="profilepageocc-select"
+            <div
+              className={`profilepage-field pincode-field ${
+                errors.occupation ? "error" : ""
+              }`}
             >
-              
-              <option value="">Select</option>
-              {(occupations).map((occup) => (
-                <option key={occup} value={occup}>
-                  {occup}
-                </option>
-              ))}
-            </select>
-            {errors.occupation && (
-              <span className="error-text">This field is required</span>
-            )}
+              <label>Occupation</label>
+              <select
+                name="occupation"
+                value={formData.occupation}
+                onChange={handleChange}
+                className="profilepageocc-select"
+              >
+                <option value="">Select</option>
+                {occupations.map((occup) => (
+                  <option key={occup} value={occup}>
+                    {occup}
+                  </option>
+                ))}
+              </select>
+              {errors.occupation && (
+                <span className="error-text">This field is required</span>
+              )}
             </div>
           </div>
         </div>
         <div className="profilepage-rowss">
-          <div className={`profilepage-field  ${
-              errors.income ? "error" : ""
-            }`}>
-          
+          <div className={`profilepage-field  ${errors.income ? "error" : ""}`}>
             <label>Annual Income</label>
             <select
               name="income"
@@ -1169,43 +1215,43 @@ const EditProfile = () => {
             )}
           </div>
           <div className="profilepage-field">
-          <div className={`profilepage-field  ${
-              errors.industry ? "error" : ""
-            }`}>
-            <label>Industry</label>
-            <select
-              name="industry"
-              value={formData.industry}
-              onChange={handleChange}
-              onFocus={(e) => (e.target.style.marginBottom = "20px")}
-              onBlur={(e) => (e.target.style.marginBottom = "0px")} // Reset margin on blur
-              className="profilepageocc-select"
+            <div
+              className={`profilepage-field  ${errors.industry ? "error" : ""}`}
             >
-              <option value="">Select</option>
+              <label>Industry</label>
+              <select
+                name="industry"
+                value={formData.industry}
+                onChange={handleChange}
+                onFocus={(e) => (e.target.style.marginBottom = "20px")}
+                onBlur={(e) => (e.target.style.marginBottom = "0px")} // Reset margin on blur
+                className="profilepageocc-select"
+              >
+                <option value="">Select</option>
 
-              <option value="Banking and Financial Services">
-                Banking and Financial Services
-              </option>
+                <option value="Banking and Financial Services">
+                  Banking and Financial Services
+                </option>
 
-              <option value="Information Technology">
-                Information Technology
-              </option>
-              <option value="Media and Entertainment">
-                Media and Entertainment
-              </option>
-              <option value="Pharma and Healthcare">
-                Pharma and Healthcare
-              </option>
+                <option value="Information Technology">
+                  Information Technology
+                </option>
+                <option value="Media and Entertainment">
+                  Media and Entertainment
+                </option>
+                <option value="Pharma and Healthcare">
+                  Pharma and Healthcare
+                </option>
 
-              <option value="Real Estate">Real Estate</option>
+                <option value="Real Estate">Real Estate</option>
 
-              <option value="Travel and Tourism">Travel and Tourism</option>
-              <option value="Others">Others</option>
-            </select>
-            {errors.industry && (
-              <span className="error-text">This field is required</span>
-            )}
-          </div>
+                <option value="Travel and Tourism">Travel and Tourism</option>
+                <option value="Others">Others</option>
+              </select>
+              {errors.industry && (
+                <span className="error-text">This field is required</span>
+              )}
+            </div>
           </div>
         </div>
 

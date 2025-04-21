@@ -59,7 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-   margin-left: 70px;
+   margin-left: 160px;
 margin-top: 150px;
     border-radius: 8px;
     width: 1200px;
@@ -157,6 +157,24 @@ margin-top: 150px;
        
       }
   }
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .mutualcandletop {
+        display: flex;
+        justify-content: space-between;
+      
+        align-items: center;
+       margin-left: 120px;
+    margin-top: 150px;
+        border-radius: 8px;
+        width: 1200px;
+        margin-bottom: 40px;
+     
+       
+      }
+      .mutualcandletop__right {
+        margin-right: 20px;
+      }
+  }
   @media (min-width: 1024px) and (max-width: 1279px)  {
     .portfoliomutual-container {
         font-family: 'calibri';
@@ -184,6 +202,22 @@ margin-top: 150px;
         margin-left: 280px;
         
     }
+    .mutualcandletop {
+        display: flex;
+        justify-content: space-between;
+      
+        align-items: center;
+       margin-left: 10px;
+    margin-top: 150px;
+        border-radius: 8px;
+        width: 1200px;
+        margin-bottom: 40px;
+     
+       
+      }
+      .mutualcandletop__right {
+        margin-right: 230px;
+      }
     
   }
 /* Adjustments for 768px screens */
@@ -292,14 +326,14 @@ margin-top: 150px;
         margin-left: 0px;
     }
     .mutualcandletop {
-        flex-direction: column;
-        align-items: center;
+       
+       
         margin-top: 15px;
     }
 
     .mutualcandletop__left, 
     .mutualcandletop__right {
-        text-align: center;
+   
         width: 100%;
     }
 
@@ -312,13 +346,14 @@ margin-top: 150px;
     .mutualcandletop__tags {
        margin-top: 20px;
         text-align: left;
+        display: flex;
        
     }
 
     .mutualcandletop__right {
-       margin-top: -60px;
+     
         text-align: left;
-        margin-left: -175px;
+     margin-right: 50px;
         margin-bottom: -20px;
     }
 
@@ -328,6 +363,16 @@ margin-top: 150px;
 
     .mutualcandletop__percentage {
         font-size: 0.8rem;
+    }
+    .mutualcandletop__tag {
+        padding: 5px 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f7f7f7;
+        cursor: pointer;
+        font-size:12px;
+        transition: background-color 0.3s;
     }
 }
 

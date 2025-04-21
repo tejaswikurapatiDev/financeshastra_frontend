@@ -129,7 +129,28 @@
 
 
 
-  
+ 
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .landingnavbar-buttonregister-button {
+    background-color: transparent;
+    color: #24b676;
+    padding: 8px 10px;
+    border: 1px solid #24b676;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'calibri';
+    font-size: 15px;
+    font-weight: 600;
+}
+.landingnavbar-icons {
+  display: flex
+;
+  align-items: center;
+  gap: 5px;
+  font-family: 'calibri';
+}
+}
  /* Media Query for screens <= 768px (Tablets) */
 @media (max-width: 768px) {
   .landingnavbar-icons {
@@ -162,6 +183,10 @@
       font-size: 13px; /* Smaller text for buttons */
       padding: 8px 14px; /* Adjust padding */
   }
+  .landingpageunlockinvest-button{
+    padding: 4px 1px;
+
+  }
 }
 
 /* Media Query for screens <= 480px (Mobile) */
@@ -169,6 +194,7 @@
   .landingnavbar-icons {
       gap: 8px; /* Even smaller gap between icons */
       flex-direction: row; /* Stack icons vertically */
+      margin-left: -10px;
   }
 
   .landingnavbaricon {
@@ -180,8 +206,10 @@
   .landingnavbar-buttonregister-button,
   .landingnavbar-buttonlogin-button {
       font-size: 12px; /* Further reduce font size */
-      padding: 6px 12px; /* Adjust button padding */
+      padding: 6px 5px; /* Adjust button padding */
   }
+
+
 
   .landingnavbar-buttons {
       display: flex;

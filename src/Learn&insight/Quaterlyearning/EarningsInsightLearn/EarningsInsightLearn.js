@@ -553,7 +553,7 @@ const EarningsInsightLearn = () => {
       inline
       dateFormat="yyyy-MM-dd"
       className="custom-date-picker"
-      calendarClassName="custom-calendar"
+      calendarClassName="customdattcalendar"
       onClickOutside={() => setCalendarOpen(false)}
     />
   )}

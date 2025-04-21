@@ -154,8 +154,21 @@ margin-left: 790px;
   color: white;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px)  {
 
-
+.standalone-button {
+  padding: 8px 5px;
+  border: 2px solid #28a745;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: white;
+  color: #24b676;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 150px;
+  font-size: 10px;
+}
+}
 
 @media (max-width: 768px) {
   /* Financial table styling for mobile */
@@ -170,6 +183,7 @@ margin-left: 790px;
     font-size: 18px; /* Slightly smaller font size for the header */
     margin-right: 60%; /* Adjust margins for mobile */
     margin-left: 20px;
+    margin-top: 80px;
   }
 
   .financepara {
@@ -177,6 +191,8 @@ margin-left: 790px;
     margin-right: 50%;
     margin-left: 20px;
     color: #333;
+    margin-bottom: -70px;
+    
   }
 
   .financial-table table {

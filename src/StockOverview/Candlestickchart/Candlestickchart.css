@@ -116,7 +116,7 @@
     .candlestick-chart-container {
         margin: 5px;
         padding: 10px; /* Further reduced padding for small devices */
-        width: 320px; /* Full width for small screens */
+        width: 90%; /* Full width for small screens */
         height: 430px;
         margin-top: 120px;
     }

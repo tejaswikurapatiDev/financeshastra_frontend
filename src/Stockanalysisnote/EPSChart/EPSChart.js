@@ -22,7 +22,7 @@ const EPSChart = () => {
         
     <h1 className='headeranalysis'>EPS (₹)</h1>
     <ChartCard
-      
+      className="allepschat"
       data={epsData}
       dataKey="eps"
       color="#4caf50"

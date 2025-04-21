@@ -6,6 +6,7 @@
   
 }
 
+
 /* Header Section Styling */
 .earnings-insight-learn-header h1 {
     font-size: 24px;
@@ -244,7 +245,7 @@
     }
     .earningquterlyrowall {
         display: flex;
-  width: 600px;
+
         margin-left: 10px;
         gap: 10px;
         margin-bottom: 20px;
@@ -284,7 +285,7 @@
     
     .earnings-insight-learn-header h1 {
         font-size: 20px; /* Adjust font size for headers */
-        margin-top: 90px;
+        margin-top: -50px;
     }
 
     .earnings-insight-learn-tabs {
@@ -363,7 +364,11 @@
         /* Adjust margin to position the date picker outside */
     }
 
- 
+  
+    .customdattcalendar.react-datepicker {
+        z-index: 100 !important;
+        margin-left: -20px;
+    }
     
 }
 
@@ -387,7 +392,11 @@
         z-index: 20;
         background-color: white;
     }
-    
+    .earnings-insight-learn-header h1 {
+        font-size: 20px; /* Adjust font size for headers */
+        margin-top: 70px;
+    }
+
   
     /* Individual header cell styling */
     .earnings-insight-learn-table th {
@@ -454,7 +463,16 @@
         /* Reduced gap in dropdown for tablets and smaller devices */
         margin-left: 1px; /* Adjusted margin for better alignment */
     }
-
-
     
+    .customdattcalendar.react-datepicker {
+        z-index: 100 !important;
+        margin-left: -20px;
+    }
+    
+}
+@media (max-width: 320px) {
+    .custom-calendar.react-datepicker {
+    z-index: 100 !important;
+    margin-left: -20px;
+}
 }

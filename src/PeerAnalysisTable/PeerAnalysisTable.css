@@ -147,6 +147,14 @@
     margin-bottom: 5px;
   }
   
+.stockpeerheader {
+  margin-top: 300px;
+  align-items: left;
+  color: #24b676;
+  font-size: 20px;
+  margin-left: 0px;
+  font-family: 'calibri';
+}
   
   .peer-table-wrapper::-webkit-scrollbar {
     height: 4px; 

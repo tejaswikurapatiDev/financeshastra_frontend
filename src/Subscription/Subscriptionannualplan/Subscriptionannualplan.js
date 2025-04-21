@@ -26,11 +26,7 @@ const SubscriptionPlans = () => {
         <h1 className='subscriptionh2'>Choose a plan that aligns with trading goals !</h1>
         <h4 className='subscriptionh4'>It’s now or never—don’t miss your chance at the ultimate deal.</h4>
         <div className="pricing-containertoggle">
-          <div className="toggle-switch-container">
-            <button className="toggle-button " onClick={() => navigate("/pricehalf")} >Half yearly</button>
-
-            <button className="toggle-button active" onClick={() => navigate("/annualplan")}>Annually</button>
-          </div>
+        
           <div className="plans-wrapper">
             {/* Elite Plan */}
             <div className="plan-card elite-plan">
@@ -43,8 +39,8 @@ const SubscriptionPlans = () => {
 
 
                   <div className="ribbon-price">
-                    <span className="price-value" >₹2,999</span>
-                    <span className="price-valuemonth"> / 12 Months</span>
+                    <span className="price-value" >₹3,999</span>
+                    <span className="price-valuemonth"> / 6 Month</span>
                     <span className="ribbon-price-detailelite">   ₹8,999  / After 6 Month</span>
 
                     <div className="text-black">You save
@@ -102,7 +98,11 @@ const SubscriptionPlans = () => {
                       </li>
                     </ul>
                   </div>
-                  <button className="pay-now-btn" onClick={() => navigate("/annuallySubscriptionPages")}>
+                  <button className="pay-now-btn" 
+                     onClick={() => {
+                      navigate("/annuallySubscriptionPages"); 
+                      window.scrollTo(0, 0); // Scroll to top after navigation
+                    }}>
                     Subscribe
                   </button>
                 </div>
@@ -214,7 +214,11 @@ const SubscriptionPlans = () => {
 
                     <button
                       className="pay-now-btnfooter"
-                      onClick={() => navigate("/annuallyPremiumSubscriptionPages")}
+                    
+                      onClick={() => {
+                        navigate("/annuallyPremiumSubscriptionPages") 
+                        window.scrollTo(0, 0); // Scroll to top after navigation
+                      }}
                     >
                       Subscribe
                     </button>

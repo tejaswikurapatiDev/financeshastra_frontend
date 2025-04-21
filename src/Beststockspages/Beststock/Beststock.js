@@ -1283,7 +1283,7 @@ const Beststock = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-              <div className="stockindexscreeneropt">
+                <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1362,7 +1362,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                  <div className="dropdown-market-cap-options">
+                 <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1433,7 +1433,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                  <div className="dropdown-market-cap-options">
+                   <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1507,7 +1507,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                  <div className="dropdown-market-cap-options">
+                    <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1581,7 +1581,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.pe && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-pe-options">
                     {/* Checkbox List */}
 
                     {peFilterOptions.map((category) => (
@@ -1655,7 +1655,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.eps && (
-                  <div className="dropdown-market-cap-options">
+                  <div className="dropdown-eps-options">
                     {/* Checkbox List */}
 
                     {epsDilGrowthOptions.map((category) => (
@@ -1729,7 +1729,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                  <div className="dropdown-market-cap-options">
+                    <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1799,7 +1799,7 @@ const Beststock = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-              <div className="stockindexscreeneropt">
+            <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1876,7 +1876,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                  <div className="dropdown-market-cap-options">
+                   <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1951,7 +1951,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                  <div className="dropdown-market-cap-options">
+                <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -2028,7 +2028,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                  <div className="dropdown-market-cap-options">
+                   <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2103,7 +2103,7 @@ const Beststock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                  <div className="dropdown-market-cap-options">
+                   <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2165,7 +2165,7 @@ const Beststock = () => {
           </div>
         </div>
 
-        {/* Tabs */}
+        
         {/* Tabs */}
         <div className="tab-container">
           <button
