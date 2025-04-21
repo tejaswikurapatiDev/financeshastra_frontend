@@ -209,7 +209,7 @@ const Nifty50screenerStockdatatable = () => {
 
   {/* Conditional Rendering */}
   
-  <div className="screener-table-wrapper" >
+  <div className="screener-tablenifty-wrapper" >
   
   <table className="screenertablenifty" >
     <thead

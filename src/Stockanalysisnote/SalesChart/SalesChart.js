@@ -16,7 +16,7 @@ const salesData = [
 
 const SalesChart = () => {
   return (
-    <div>
+    <div className='salechart'>
         <h1 className='headeranalysis'>Sales (₹ Cr.)</h1>
     <ChartCard
       

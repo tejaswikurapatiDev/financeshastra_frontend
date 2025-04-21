@@ -6,7 +6,7 @@
   padding: 20px;
   background-color: white;
   margin-left: 100px;
-  margin-top: 70px;
+  margin-top: 0px;
 }
 
 
@@ -364,13 +364,16 @@ color: #333;
       flex-direction: column;
 
   }
-
+  .billing-detailspages-card-input-container {
+    position: relative;
+    width: 80%;
+}
   /* Payment options - First */
   .billing-detailspages-payment-options {
       justify-content: center;
-      flex-direction: column;
+      flex-direction: row;
       order: 1;
-    margin-left: 70px;
+      margin-left: -15px;
   }
   .payment-option-content {
     display: flex;
@@ -381,6 +384,7 @@ color: #333;
   
     
   }
+ 
   .custom-datepicker-input input {
     border: none;
     outline: none;
@@ -408,11 +412,11 @@ color: #333;
 
   /* Payment Section - Fifth */
   .billing-detailspages-payment {
-      width: 65%;
-      padding: 15px;
-      order: 5;
-      margin-bottom: 60px;
-  }
+    width: 78%;
+    padding: 15px;
+    order: 5;
+    margin-bottom: 60px;
+}
 
   /* Additional Styling for Inputs and Button */
   .billing-detailspages-card{
@@ -421,14 +425,10 @@ color: #333;
 
   .billing-detailspages-card-input {
       width: 100%;
-      margin-left: 0;
+      margin-left: 40px;
   }
 
-  .billing-detailspages-cvc-input {
-      width: 50%;
-      margin-left: auto;
-      margin-right: auto;
-  }
+  
 
   .billing-detailspages-pay-button {
       width: 60%;
@@ -436,20 +436,14 @@ color: #333;
       margin-right: auto;
   }
 
-  .custom-datepicker-input {
-      width: 90%;
-      margin-left: 1px;
-      margin-right: auto;
-  }
 
   .billing-detailspages-iconnn {
-      position: absolute;
-      top: 221%;
-      right: 252px;
-      transform: translateY(-50%);
-      color: #888;
-  }
-
+    position: absolute;
+    /* top: unset; */
+    right: 150px;
+    transform: translateY(-50%);
+    color: #888;
+}
   .billing-detailspages-card-icons {
     position: absolute;
     top: 50%;
@@ -460,40 +454,52 @@ color: #333;
   }
   
   .billing-detailspages-cvc-input {
-    width: 50%;
-    margin-left: 0px;
-  }
+    width: 79%;
+    margin-left: -15px;
+    margin-top: -10px;
+    padding: 10px;
+
+}
+.custom-datepicker-input input {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 250px;
+  background-color: #dfdfdf;
+  margin-left: 40px;
+  padding: 10px;
+  margin-top: -7px;
+}
   .profilepage-tittlle{
-    margin-left: 5px;
+    margin-left: 45px;
     font-size: 22px;
     color: #666;
   }
   .billing-detailspages-card-expiry{
-    flex-direction: column;
+    flex-direction: row;
   }
-  .billing-detailspages-expiry input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-
+  
 }
 
 @media screen and (max-width: 480px) {
   body, html {
     overflow-x: hidden; /* Disable horizontal scrolling */
   }
+  .billing-detailspages-card-input {
+    width: 100%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
 
   .billing-detailspages-container {
     margin: 0 auto;
     padding: 10px;
     width: 90%; /* Ensure container fits the viewport */
   }
-
+  .billing-detailspages-card-expiry {
+    flex-direction: column;
+}
   .billing-detailspages-card,
   .billing-detailspages-payment {
     width: 90%;
@@ -521,20 +527,56 @@ color: #333;
   }
 
   .custom-datepicker-input {
-    width: 100%;
-    margin: 0 auto;
-  }
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
-  .billing-detailspages-card-icons {
-    position: absolute;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 5px;
-  }
-  .billing-detailspages-cvc-input {
-    width: 65%;
-    margin-left: 0px;
-  }
+.custom-datepicker-input input {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    box-sizing: border-box; /* ensures padding doesn't exceed container */
+}
+.billing-detailspages-card-icons {
+  left: 70%;
+  right: 70%;
+  top: 45%;
+  gap: 5px;
+}
+  .billing-detailspages-card-icons img {
+    width: 20px;
+    height: 20px;
+}
+  
+.billing-detailspages-cvc-input {
+  width: 100%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+}
+
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .billing-detailspages-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 500px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    margin-left: 50px;
+}
+.billing-detailspages-payment {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 50px;
+}
 }

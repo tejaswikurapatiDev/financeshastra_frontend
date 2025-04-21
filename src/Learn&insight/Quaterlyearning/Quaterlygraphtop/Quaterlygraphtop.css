@@ -157,7 +157,7 @@
   }
 
   .overviewqutarely {
-    margin-top: 0px;
+    margin-top: -20px;
     color: #24b676;
     font-size: 24px;
   }
@@ -194,9 +194,10 @@
   }
 
   .overviewqutarely {
-    margin-top: 40px;
+    margin-top: 80px;
     color: #24b676;
     font-size: 24px;
+    margin-bottom: -10px;
   }
 
   .time-rangemutual-selectorr {
@@ -222,7 +223,7 @@
     color: #333;
     max-width: 590px;
     /* Set a maximum width */
-
+margin-bottom: -20px;
     /* Add left margin to prevent overlap with sidebar */
     font-family: 'Calibri';
     margin-top: 30px;
@@ -236,7 +237,7 @@
     display: flex;
     flex-direction: column-reverse;
     /* Reverse the container's content */
-
+margin-left: 10px;
     height: 300px;
   }
 
@@ -254,7 +255,7 @@
   }
 
   .chartmutual-containerr canvas {
-    width: 320px !important;
+    width: 30% !important;
     /* Set canvas width to 90% of the parent container */
     height: 280px !important;
     /* Set canvas height to 250px */
@@ -262,5 +263,20 @@
     font-size: 18px;
     color: black;
   }
+
+}
+@media (max-width: 320px) {
+  .earnings-container {
+      width: 80%;
+      align-items: flex-start;
+      margin-top: 30px;
+      padding: 15px;
+      height: 280px;
+      margin-left: -1px;
+  }
+  .chartmutual-containerr canvas {
+    width: 250px !important;
+    height: 250px !important;
+}
 
 }

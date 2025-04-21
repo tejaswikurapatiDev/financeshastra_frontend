@@ -26,21 +26,7 @@ const SubscriptionPlans = () => {
         <h1 className='subscriptionh2'>Choose a plan that aligns with trading goals !</h1>
         <h4 className='subscriptionh4'>It’s now or never—don’t miss your chance at the ultimate deal.</h4>
         <div className="pricing-containertoggle">
-          <div className="toggle-switch-container">
-            <button
-              className="toggle-button active"
-              onClick={() => navigate("/pricehalf")}  // Navigate to the Half yearly plan
-            >
-              Half yearly
-            </button>
-
-            <button
-              className="toggle-button"
-              onClick={() => navigate("/annualplan")}  // Navigate to the Annual plan
-            >
-              Annually
-            </button>
-          </div>
+        
 
           <div className="plans-wrapper">
             {/* Elite Plan */}

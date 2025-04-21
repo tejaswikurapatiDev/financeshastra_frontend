@@ -1,3 +1,8 @@
 .headeranalysis{
     padding-top: 50px;
 }
+@media (max-width: 480px) {
+    .headeranalysis{
+        padding-top: -0px;
+    }
+}

@@ -233,7 +233,7 @@ max-width: 1024px;
     border-radius: 10px;
     width: 81%;
   
-    margin-top: 120px;
+    margin-top: 100px;
   }
   .stockresearchanalysispage-dropdown {
     display: flex
@@ -276,7 +276,7 @@ color: white;
 border-radius: 10px;
 width: 81%;
 
-margin-top: 120px;
+margin-top: 40px;
 }
 .stockresearchanalysispage-search {
   width: 90%;

@@ -107,11 +107,9 @@ margin-top: 130px;
   }
   @media (max-width: 768px) {
     .termConditionPage {
-   
-        font-family: 'calibri';
-        margin-left: 0px;
-      }
-      
+      font-family: 'calibri';
+      margin-left: 70px;
+    }
       /* General Styling for Title and Date */
       .termConditionTitle {
         font-size: 24px;
@@ -150,20 +148,18 @@ margin-top: 130px;
       
       /* Styling for Image */
       .termConditionImage {
-        width: 55%;
+        width: 72%;
         margin-bottom: 20px;
         border-radius: 5px;
-      }
-      
+    }
       /* Intro Paragraph */
       .termConditionIntro {
         font-size: 15px;
         margin-bottom: 20px;
         line-height: 1.6;
-        width: 450px;
+        width: 600px;
         margin-left: 10px;
-      }
-      
+    }
       /* Container for Sections */
       .termConditionSections {
         display: flex; /* Flex layout for titles and paragraphs */
@@ -171,7 +167,7 @@ margin-top: 130px;
         gap: 20px; /* Space between columns */
         margin-top: 20px;
         margin-bottom: 100px;
-        width: 450px;
+        width: 600px;
       }
       
       /* Column for Titles */
@@ -179,7 +175,7 @@ margin-top: 130px;
         flex: 1; /* Occupies equal space */
         display: flex;
         flex-direction: column; /* Arranges titles vertically */
-        gap: 95px; /* Space between titles */
+        gap: 30px; /* Space between titles */
         background-color: #cbeadd;
        
       }
@@ -219,11 +215,10 @@ margin-top: 130px;
   }
   @media (max-width: 480px) {
     .termConditionPage {
-   
-        font-family: 'calibri';
-        margin-left: 0px;
-      }
-      
+      font-family: 'calibri';
+      margin-left: 0px;
+      width: 100%;
+  }
       /* General Styling for Title and Date */
       .termConditionTitle {
         font-size: 24px;
@@ -262,29 +257,30 @@ margin-top: 130px;
       
       /* Styling for Image */
       .termConditionImage {
-        width: 55%;
+        width: 90%;
         margin-bottom: 20px;
+        margin-left: 20px;
         border-radius: 5px;
-      }
+        margin-right: 20px;
+    }
       
       /* Intro Paragraph */
       .termConditionIntro {
         font-size: 15px;
         margin-bottom: 20px;
         line-height: 1.6;
-        width: 450px;
-        margin-left: 10px;
-      }
+        max-width: 90%;
+        margin: 0 auto;
+    }
       
       /* Container for Sections */
       .termConditionSections {
-        display: flex; /* Flex layout for titles and paragraphs */
-        flex-direction: row; /* Columns layout */
-        gap: 20px; /* Space between columns */
-        margin-top: 20px;
-        margin-bottom: 100px;
-        width: 450px;
-      }
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin: 20px auto 100px auto;
+        max-width: 90%;
+    }
       
       /* Column for Titles */
       .termConditionTitlesColumn {
@@ -317,15 +313,42 @@ margin-top: 130px;
       .termConditionText {
         font-size: 15px;
         color: black;
-        margin: 0;
+        margin: 0 auto;
         background-color: #ffffff;
         padding: 10px;
         line-height: 1.6;
-       
         border-radius: 5px;
-      }
-      
+        max-width: 90%;
+    }
       .termConditionText a{
         color: #0d64bb;
       }
   }
+
+    /* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .termConditionPage {
+    width: 850px;
+    font-family: 'calibri';
+    margin-left: 99px;
+}
+}
+@media (max-width: 320px) {
+  .termConditionSections {
+      flex-direction: row;
+      gap: 15px;
+      margin: 20px auto 80px auto;
+      max-width: 95%;
+  }
+  .termConditionText {
+    font-size: 15px;
+    color: black;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 10px;
+    line-height: 1.6;
+    border-radius: 5px;
+    max-width: 70%;
+    margin-left: 0px;
+}
+} 

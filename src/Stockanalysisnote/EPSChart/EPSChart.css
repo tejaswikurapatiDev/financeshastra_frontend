@@ -12,3 +12,9 @@
   margin-bottom: 20px;
   color: #333;
 }
+@media (max-width: 480px) {
+  .allepschat{
+    margin-left: -60px;
+    margin-right: 200px;
+  }
+}
