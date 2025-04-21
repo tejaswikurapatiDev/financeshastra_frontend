@@ -98,7 +98,11 @@ const SubscriptionPlans = () => {
                       </li>
                     </ul>
                   </div>
-                  <button className="pay-now-btn" onClick={() => navigate("/annuallySubscriptionPages")}>
+                  <button className="pay-now-btn" 
+                     onClick={() => {
+                      navigate("/annuallySubscriptionPages"); 
+                      window.scrollTo(0, 0); // Scroll to top after navigation
+                    }}>
                     Subscribe
                   </button>
                 </div>
@@ -210,7 +214,11 @@ const SubscriptionPlans = () => {
 
                     <button
                       className="pay-now-btnfooter"
-                      onClick={() => navigate("/annuallyPremiumSubscriptionPages")}
+                    
+                      onClick={() => {
+                        navigate("/annuallyPremiumSubscriptionPages") 
+                        window.scrollTo(0, 0); // Scroll to top after navigation
+                      }}
                     >
                       Subscribe
                     </button>
