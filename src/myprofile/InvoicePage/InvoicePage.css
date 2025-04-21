@@ -90,7 +90,7 @@
   .invoice-paid-image {
     position: absolute;
     right: 0;
-    bottom: -80px;
+    bottom: -180px;
     width: 120px; /* Adjust size as needed */
     margin-right: 400px;
   }
@@ -112,4 +112,148 @@
     border-radius: 50%;
     text-transform: uppercase;
   }
-  
+  @media (min-width: 1536px) {
+    .invoice-summary p {
+      display: flex
+  ;
+      gap: 565px;
+      margin-left: 20px;
+      color: #333;
+      margin: 8px 0;
+      padding-bottom: 8px;
+  }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .invoice-paid-image {
+      position: absolute;
+      right: 0;
+      bottom: -250px;
+      width: 120px; /* Adjust size as needed */
+      margin-right: 400px;
+    }
+    .invoice-summary p {
+      display: flex
+  ;
+      gap: 561px;
+      margin-left: 20px;
+      color: #333;
+      margin: 8px 0;
+      padding-bottom: 8px;
+  }
+    
+  }
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .invoice-paid-image {
+      position: absolute;
+      right: 0;
+      bottom: -270px;
+      width: 120px; /* Adjust size as needed */
+      margin-right: 200px;
+    }
+    .invoice-summary p {
+      display: flex
+  ;
+      gap: 565px;
+      margin-left: 20px;
+      color: #333;
+      margin: 8px 0;
+      padding-bottom: 8px;
+  }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .invoice-paid-image {
+      position: absolute;
+      right: 0;
+      bottom: -390px;
+      width: 120px; /* Adjust size as needed */
+      margin-right: 80px;
+    }
+    .invoice-summary p {
+      display: flex
+  ;
+      gap: 491px;
+      margin-left: 20px;
+      color: #333;
+      margin: 8px 0;
+      padding-bottom: 8px;
+  }
+  }
+ 
+  @media (max-width: 480px)  {
+    .invoice-container {
+      width:80%;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      height: 900px;
+      font-family: 'calibri';
+  }
+  .invoice-summary {
+    margin-top: 10px;
+    text-align: right;
+    position: relative;
+    margin-left:20px;
+    margin-right: auto;
+  }
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+    bottom: -250px;
+    width: 120px; /* Adjust size as needed */
+    margin-right: 30px;
+  }
+  .invoice-summary p {
+    display: flex
+;
+    gap: 189px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    font-size: 12px;
+}
+.invoice-table tr {
+
+  font-size: 12px;
+}
+.invoice-table td {
+
+  font-size: 12px;
+}
+.invoice-header h1{
+  font-size: 20px;
+}
+
+  }
+
+
+  @media (max-width: 320px) {
+    .invoice-summary p {
+        display: flex
+;
+        gap: 165px;
+        margin-left: 20px;
+        color: #333;
+        margin: 8px 0;
+        padding-bottom: 8px;
+        font-size: 12px;
+    }
+    .invoice-paid-image {
+      position: absolute;
+      right: 0;
+      bottom: -250px;
+      width: 120px; /* Adjust size as needed */
+      margin-right: 30px;
+    }
+    .invoice-table tr {
+
+      font-size: 12px;
+    }
+    .invoice-table td {
+    
+      font-size: 12px;
+    }
+}
