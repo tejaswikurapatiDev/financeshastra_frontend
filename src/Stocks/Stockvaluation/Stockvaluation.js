@@ -64,7 +64,6 @@ const ScreenerStockvaluation = () => {
           evEbitda: each.EVRevenue,
           evSales: each.EVEBIT,
           evEbit: each.EVEBITDA,
-          
         }));
         setStocks(formattedData);
       }

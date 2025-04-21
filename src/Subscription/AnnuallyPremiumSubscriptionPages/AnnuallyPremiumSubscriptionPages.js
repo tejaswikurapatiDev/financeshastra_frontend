@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
  import { FaPaypal } from 'react-icons/fa';
  import { MdOutlineQrCodeScanner } from "react-icons/md";
  import { MdPayment } from 'react-icons/md';
+ import { jwtDecode } from "jwt-decode";
  import card1 from '../../assest/visa.png';
  import card2 from '../../assest/mastercard.png';
  import Cookies from 'js-cookie'
@@ -63,15 +64,18 @@ import './AnnuallyPremiumSubscriptionPages.css';
    const handlePaymentBillingDetailsPage = async () => {
      if (validateInputs()) {
        // All fields are valid, show the popup
- 
-       if (!user){
+ const localuserDetails = (Cookies.get("jwtToken"))
+       if (!localuserDetails) {
          setShowPopupforLogin(true)
-       }else{
+         console.log(localuserDetails)
+       } else {
+         const decodedToken = jwtDecode(localuserDetails);
+         const { email } = decodedToken;
          const month= expiryDate.getMonth()+1
          const year= expiryDate.getFullYear()
          const expiryDateFormated= `${year}-0${month}-01`
          const userpaymentDetails= {
-           'email': userEmail,
+           'email': email,
            "planId": 2,
            "billingCycle": "yearly", 
            "paymentMethod": "card", 
