@@ -147,7 +147,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-     
+    bottom: -50px;
       width: 120px; /* Adjust size as needed */
       margin-right: 200px;
     }
@@ -165,7 +165,7 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-     
+     bottom: -320px;
       width: 120px; /* Adjust size as needed */
       margin-right: 80px;
     }
@@ -241,6 +241,13 @@
         padding-bottom: 8px;
         font-size: 12px;
     }
+    .invoice-summary {
+      margin-top: 10px;
+      text-align: right;
+      position: relative;
+      margin-left:0px;
+      margin-right: auto;
+    }
     .invoice-paid-image {
       position: absolute;
       right: 0;
@@ -256,4 +263,11 @@
     
       font-size: 12px;
     }
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+     margin-left: -10px;
+    }
+    
 }
