@@ -562,7 +562,8 @@ const EarningsInsightLearn = () => {
                         </div>
                      
                     
-                    </div>
+                    </div >
+                    <div className="allheaedrearnun">
                     <div className="earnings-insight-learn-dropdown">
                     <CustomDropdown
     value={selectedMcapOption}
@@ -577,6 +578,7 @@ const EarningsInsightLearn = () => {
                             onChange={handleFilterChange}
                             options={options}
                         />
+                    </div>
                     </div>
                 </div>
             </div>
