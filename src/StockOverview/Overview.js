@@ -48,9 +48,9 @@ function Overview() {
       {/* Pass stockName as a prop to Graphheader */}
       <Graphheader stockName={stockName} />
 
-      <Typography  className="overvierheardaa"variant="h2" gutterBottom >
+      <h1  className="overvierheardaa">
       Overview
-    </Typography>
+    </h1>
 
       {/* Navigation Links */}
       <nav>
