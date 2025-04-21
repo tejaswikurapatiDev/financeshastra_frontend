@@ -122,7 +122,7 @@ const AnnuallySubscriptionPages = () => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate("/annuallySubscriptionPages"); // Navigate to /billingDetailsPage
+    navigate("/subscribe-Premium"); // Navigate to /billingDetailsPage
   };
 
   // Handle navigation on PayPal button click
