@@ -159,7 +159,7 @@ const PremiumSubscriptionPages = () => {
   <div className="billing-detailspages-container">
   <div className="billing-detailspages-card">
   <h2 className="billing-detailspages-amount">
-  <span style={{ color: "black" }}>Rs 5999</span> <br />
+  <span style={{ color: "black" }}>Rs 7999</span> <br />
   <span style={{ color: "#888" }}>Due Feb 02, 2024</span>
 
   </h2>
@@ -317,7 +317,7 @@ const PremiumSubscriptionPages = () => {
   className="billing-detailspages-pay-button"
   onClick={handlePaymentBillingDetailsPage}
   >
-  Pay ₹5999
+  Pay ₹7999
   </button>
   </form>
   {/* Popup */}
@@ -336,7 +336,7 @@ const PremiumSubscriptionPages = () => {
   <div className="payment-popup-content">
   <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
   <h2>Payment Successful!</h2>
-  <p className="amount-paid">Amount Paid: ₹5999/-</p>
+  <p className="amount-paid">Amount Paid: ₹7999/-</p>
   <p className="payment-plan">Plan: Elite (Monthly)</p>
   </div>
   </div>

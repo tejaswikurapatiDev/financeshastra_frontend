@@ -79,7 +79,7 @@ const HalfyearlySubscriptionPages = () => {
           "paymentMethod": "card",
           "cardNum": cardNumber,
           "cardExpiryDate": expiryDateFormated,
-          "price": 2000
+          "price": 3999
         }
         const localtoken = Cookies.get('jwtToken')
         console.log(localtoken)
@@ -159,7 +159,7 @@ const HalfyearlySubscriptionPages = () => {
       <div className="billing-detailspages-container">
         <div className="billing-detailspages-card">
           <h2 className="billing-detailspages-amount">
-            <span style={{ color: "black" }}>Rs 2000</span> <br />
+            <span style={{ color: "black" }}>Rs 3999</span> <br />
             <span style={{ color: "#888" }}>Due Feb 02, 2024</span>
 
           </h2>
@@ -316,7 +316,7 @@ const HalfyearlySubscriptionPages = () => {
               className="billing-detailspages-pay-button"
               onClick={handlePaymentBillingDetailsPage}
             >
-              Pay ₹2000
+              Pay ₹3999
             </button>
           </form>
           {/* Popup */}
@@ -335,7 +335,7 @@ const HalfyearlySubscriptionPages = () => {
               <div className="payment-popup-content">
                 <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
                 <h2>Payment Successful!</h2>
-                <p className="amount-paid">Amount Paid: ₹2000/-</p>
+                <p className="amount-paid">Amount Paid: ₹3999/-</p>
                 <p className="payment-plan">Plan: Elite (Monthly)</p>
               </div>
             </div>
