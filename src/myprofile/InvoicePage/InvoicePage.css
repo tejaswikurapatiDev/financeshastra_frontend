@@ -147,10 +147,10 @@
     .invoice-paid-image {
       position: absolute;
       right: 0;
-    bottom: -50px;
-      width: 120px; /* Adjust size as needed */
+      bottom: -150px;
+      width: 120px;
       margin-right: 200px;
-    }
+  }
     .invoice-summary p {
       display: flex
   ;
