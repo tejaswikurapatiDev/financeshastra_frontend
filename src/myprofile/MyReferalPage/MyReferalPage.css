@@ -721,6 +721,7 @@ font-size: 15px;
 .profilepage-titlemy{
 margin-left: 13px;
 font-size: 22px;
+margin-top: 30px;
 }
 .how-to-refer-text {
     margin-left: -170px;
@@ -934,6 +935,11 @@ gap: 0px;
 ;
   flex-direction: column;
   font-family: 'calibri';
+}
+.profilepage-titlemy {
+  margin-left: 13px;
+  font-size: 22px;
+  margin-top: 70px;
 }
 .myreferalpagesss-header-row {
 flex-direction: column;

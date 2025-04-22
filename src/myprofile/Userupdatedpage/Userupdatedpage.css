@@ -463,6 +463,7 @@ text-align: center;
       font-weight: bold;
       margin-bottom: 20px;
       margin-left: 10px;
+      margin-top: -60px;
     }
     
   
@@ -581,8 +582,7 @@ text-align: center;
     }
     
     .profilepage-tabsorderusers::-webkit-scrollbar-thumb {
-        background-color:  #24b676; /* Scrollbar thumb color */
-        border-radius: 10px;
+      
     }
     
     .profilepage-tabsorderusers::-webkit-scrollbar-track {
