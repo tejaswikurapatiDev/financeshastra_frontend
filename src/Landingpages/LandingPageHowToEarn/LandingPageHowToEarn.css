@@ -24,18 +24,19 @@
 
 .landingpagehowtoearn-content {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-}
+    gap: 2rem; /* spacing between image and steps */
+  }
 
-.landingpagehowtoearn-steps {
+  .landingpagehowtoearn-steps {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 50%;
-}
-
+    gap: 1rem;
+    margin-left: -200px;
+  }
 .landingpagehowtoearn-step {
     background: linear-gradient(90deg, #24b676, #238486);
     color: white;
@@ -46,7 +47,7 @@
     text-align: left;
     box-shadow: 0 4px 10px #238486;
     width: 60%;
-    margin-left: 200px;
+    margin-left: 100px;
     cursor: pointer;
 }
 
@@ -55,19 +56,18 @@
 }
 
 .landingpagehowtoearn-image {
-    width: 45%;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-}
-
-.landingpagehowtoearn-image img {
-    max-width: 60%;
+  .landingpagehowtoearn-image img {
+    max-width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-right: 200px;
-}
+  }
+  
 
 
 
@@ -176,6 +176,7 @@
     }
     .landingpagehowtoearn-steps {
         width: 80%;
+        margin-left: 0px;
     }
     .landingpagehowtoearn-step,
     .landingpagehowtoearndarkstep {
@@ -208,7 +209,10 @@
         flex-direction: column;
     }
     .landingpagehowtoearn-steps {
-        width: 100%;
+        width: 80%;
+        margin-left: 0px;
+        margin-bottom: 20px;
+        margin-top: -40px;
     }
     .landingpagehowtoearn-step,
     .landingpagehowtoearndarkstep {
