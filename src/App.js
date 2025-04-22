@@ -721,7 +721,7 @@ function App() {
               <Route path="/premiumUPIPage" element={<PremiumUPIPage />} />
               <Route path="/premiumScanPage" element={<PremiumScanPage />} />
               <Route
-                path="/subscribe-Elite"
+                path="/annuallySubscriptionPages"
                 element={<AnnuallySubscriptionPages />}
               />
               <Route
@@ -731,7 +731,7 @@ function App() {
               <Route path="/annuallyUPIPage" element={<AnnuallyUPIPage />} />
               <Route path="/annuallyScanPage" element={<AnnuallyScanPage />} />
               <Route
-                path="/subscribe-Premium"
+                path="/annuallyPremiumSubscriptionPages"
                 element={<AnnuallyPremiumSubscriptionPages />}
               />
               <Route
