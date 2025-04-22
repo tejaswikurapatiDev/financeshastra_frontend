@@ -60,7 +60,18 @@ const LandingPageOurService = () => {
 
       {/* Educational Resources Section */}
       <div className={darkMode ? "landingpageourservicedarksection" :"landingpageourservice-section"}>
-     
+      <div className="landingpageourservice-images-overlapp">
+    <img
+      src={landingimg4}
+      alt="Stock List"
+      className="landingpageourservice-image-basee"
+    />
+    <img
+      src={landingimg5}
+      alt="Stock Research Graph"
+      className="landingpageourservice-image-overlayy"
+    />
+  </div>
         <div className="landingpageourservice-text">
           <h3 className={darkMode ? "landingpageourservicedarksubheadingg" :"landingpageourservice-subheadingg"}>
             Educational Resources
@@ -82,18 +93,7 @@ const LandingPageOurService = () => {
             </li>
           </ul>
         </div>
-        <div className="landingpageourservice-images-overlapp">
-    <img
-      src={landingimg4}
-      alt="Stock List"
-      className="landingpageourservice-image-basee"
-    />
-    <img
-      src={landingimg5}
-      alt="Stock Research Graph"
-      className="landingpageourservice-image-overlayy"
-    />
-  </div>
+       
       </div>
     </div>
   );

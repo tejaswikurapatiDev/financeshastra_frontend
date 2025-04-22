@@ -9,7 +9,16 @@ const tabs = [
   { id: "managealert", label: "Manage Alert", path: "/managealert" },
   { id: "accountSettings", label: "Password & Security", path: "/accountSettings" },
   { id: "sessionHistory", label: "Active Devices", path: "/sessionHistory" },
-  { id: "myReferalPage", label: "My referrals", path: "/myReferalPage" }
+  {
+    id: "myReferalPage",
+    label: "My Referrals",
+    paths: [
+      "/myReferalPage",
+      "/referMoreProfilePages",
+      "/earningCalculatorProfilePage",
+      "/reffeerralProfilePageSSS"
+    ]
+  }
 ];
 
 const AccountBar = () => {
@@ -18,22 +27,36 @@ const AccountBar = () => {
   const [activeTab, setActiveTab] = useState("");
 
   useEffect(() => {
-    const currentTab = tabs.find(tab => tab.path === location.pathname);
-    if (currentTab) setActiveTab(currentTab.id);
+    const currentTab = tabs.find(tab => {
+      if (tab.path) {
+        return tab.path === location.pathname;
+      } else if (tab.paths) {
+        return tab.paths.includes(location.pathname);
+      }
+      return false;
+    });
+
+    if (currentTab) {
+      setActiveTab(currentTab.id);
+    }
   }, [location.pathname]);
 
   return (
     <div className="profilepage-tabsorderusers">
-      {tabs.map(({ id, label, path }) => (
+      {tabs.map(({ id, label, path, paths }) => (
         <span
           key={id}
           className="profilepage-tabb"
           style={
             activeTab === id
-              ? { borderBottom: "2px solid #24b676", fontWeight: "bold", color: "#24b676" }
+              ? {
+                  borderBottom: "2px solid #24b676",
+                  fontWeight: "bold",
+                  color: "#24b676"
+                }
               : {}
           }
-          onClick={() => navigate(path)}
+          onClick={() => navigate(path || paths?.[0])} // fallback to first path if multiple
         >
           {label}
         </span>
@@ -43,3 +66,4 @@ const AccountBar = () => {
 };
 
 export default AccountBar;
+
