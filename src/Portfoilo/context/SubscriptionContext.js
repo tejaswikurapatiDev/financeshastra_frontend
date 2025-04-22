@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 export const SubscriptionContext = React.createContext();
 
 export const SubscriptionProvider = ({ children }) => {
+  
   const [issubscribed, setisSubed] = useState(false);
 
   useEffect(() => {

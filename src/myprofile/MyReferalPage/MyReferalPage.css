@@ -16,7 +16,7 @@
 }
 .profilepage-tabsorderusersmyre{
   display: flex;
-  border-bottom: 1px solid #ccc;
+
   margin-bottom: 20px;
   margin-left: 200px;
   
@@ -662,7 +662,7 @@ font-size: 15px;
 }
 .profilepage-tabsorderusersmyre {
   overflow-x: auto; /* Use 'auto' to show scrollbar only when needed */
-  border-bottom: 1px solid rgb(190, 185, 185); /* Removes the bottom border */
+  border-bottom: transparent; /* Removes the bottom border */
   margin-left: 10px;
   margin-bottom: 15px;
   scrollbar-color: rgb(201, 198, 198); /* Custom scrollbar color for Firefox */
@@ -719,8 +719,9 @@ font-size: 15px;
 }
 
 .profilepage-titlemy{
-margin-left: 13px;
-font-size: 22px;
+margin-left: 32px;
+font-size: 20px;
+margin-top: 30px;
 }
 .how-to-refer-text {
     margin-left: -170px;
@@ -934,6 +935,11 @@ gap: 0px;
 ;
   flex-direction: column;
   font-family: 'calibri';
+}
+.profilepage-titlemy {
+  margin-left: 13px;
+  font-size: 20px;
+  margin-top: 70px;
 }
 .myreferalpagesss-header-row {
 flex-direction: column;

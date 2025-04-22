@@ -9,7 +9,6 @@ import React, {
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
-import { SubscriptionContext } from "../Portfoilo/context/SubscriptionContext";
 import {
   FaBell,
   FaUserCircle,
@@ -50,8 +49,6 @@ const Navbar = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const { user } = useContext(UserProfileContext);
-  const { userEmail } = useContext(UserProfileContext);
-  const { issubscribed } = useContext(SubscriptionContext);
   const [isOpen, setIsOpen] = useState(false);
   const [showAll, setShowAll] = useState(false);
   const [stockDropdownOpen, setStockDropdownOpen] = useState(false);
@@ -95,11 +92,7 @@ const Navbar = () => {
     } else {
       setIsLogedin(false);
     }
-    if (issubscribed) {
-      setisSubed(true);
-    } else {
-      setisSubed(false);
-    }
+    
     if (user) {
       setUsername(user);
       //setIsLogedin(true)

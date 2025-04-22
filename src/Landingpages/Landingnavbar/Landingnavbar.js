@@ -124,6 +124,18 @@ const StockDropdownMenu = () => (
             </Link>
           </div>
         </li>
+        <li>
+                    <div
+                      className={
+                         "dropdown-item"
+                      }
+                    >
+                      <Link to="/stockThemesSectorPages">
+                        Stock Themes
+                        <p>Research is key before buying any stock</p>
+                      </Link>
+                    </div>
+                  </li>
       </ul>
     </div>
   </div>
@@ -721,7 +733,7 @@ const Landingnavbar = () => {
                                   />
                                 </Link>
                                 <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                                  {storedName}
+                                  {storedName.split(" ")[0]}
                                 </span>
                                 {userDropdownOpen && renderUserDropdown()}
                               </li>
@@ -821,14 +833,16 @@ const Landingnavbar = () => {
         </li>
 
         <li>
-          <Link to="/learn" className="footer-link">
+          <Link to="/#" onClick={() => toggleDropdown("learn")} className="footer-link">
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />
               </i>
               <span>Learn</span>
+              <FaChevronDown className="chevron-icon" />
             </div>
           </Link>
+          {dropdowns.learn && <LearnDropdownMenu />}
         </li>
       </ul>
     </>

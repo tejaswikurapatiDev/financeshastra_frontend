@@ -293,6 +293,16 @@ button.error {
     margin-bottom: 20px;
     margin-left: -150px;
 }
+.profilesettingpassword-password-field span {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  color: #666;
+  display: flex
+;
+  align-items: center;
+  margin-right: 450px;
+}
 .profilesettingpassword-password-section, .profilesettingpassword-linked-accounts-section {
   margin-bottom: 30px;
   margin-left: -150px;
@@ -354,6 +364,16 @@ button.error {
       margin-bottom: 5px;
      
     }
+    .profilesettingpassword-password-field span {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      color: #666;
+      display: flex
+  ;
+      align-items: center;
+      margin-right: 690px;
+  }
     
     .profilesettingpassword-form-group input {
       width: 40%;
@@ -559,6 +579,7 @@ button.error {
       font-weight: bold;
       margin-bottom: 20px;
       margin-left: -0px;
+      margin-top: -70px;
     }
     .profilesettingpassword-password-section h2{
       margin-left: 0px;
@@ -658,6 +679,16 @@ button.error {
     .profilesettingpassword-button-group button[type="button"] {
       font-size: 12px;
     }
+    .profilesettingpassword-password-field span {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+      color: #666;
+      display: flex
+    ;
+      align-items: center;
+      margin-right: 30px;
+    }
   }
   
   @media (max-width: 320px) {
@@ -674,4 +705,5 @@ button.error {
     width: 96%;
     margin-left: 0px;
 }
+
   }

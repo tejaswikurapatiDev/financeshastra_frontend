@@ -13,9 +13,10 @@ font-size: 14px;
 font-weight: bold;
 }
 .blogFilterTitle {
-  font-size: 2rem;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 20px;
+  margin-left: 10px;
 }
 
 /* Dropdown Filters */
@@ -29,6 +30,14 @@ font-weight: bold;
 .filterDropdown {
   display: flex;
   flex-direction: column;
+}
+.blogfdropdoenn{
+  padding:7px;
+  border-radius: 5px;
+  color: black;
+  border: 1px solid rgb(190, 188, 188);
+  box-shadow: 0 2px 5px rgb(212, 207, 207);
+  cursor: pointer;
 }
 
 .dropdownLabel {
@@ -527,6 +536,7 @@ font-weight: bold;
   color: black;
   width: 60px;
 }
+
 }
 
 /* Mobile View for 480px */
@@ -629,7 +639,7 @@ font-weight: bold;
   box-sizing: border-box; /* Ensures padding is included in the width */
 }
 .dropdownOptions {
-
+  z-index: 100;
   cursor: pointer;
   background-color: #f9f9f9;
   color: black;

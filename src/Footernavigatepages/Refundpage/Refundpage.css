@@ -217,6 +217,7 @@ margin-left: 10px;
     margin-right: auto;
     overflow-x: hidden;
  
+ 
   }
 
   .refundpolicyy h1 {
@@ -254,6 +255,7 @@ margin-left: 10px;
     margin-left: 350px;
     color: #333;
     line-height: 1.6;
+    margin-top: 70px;
     margin-top: 70px;
     overflow-x: hidden; /* Hides horizontal scrolling */
     max-width: 100%; /* Ensures it doesn't exceed the screen width */
@@ -317,6 +319,7 @@ margin-left: 10px;
   .refundpolicyy h1{
     margin-left: 65px;
   }
+  
 }
 
 /* Tablets (768px - 1023px) */

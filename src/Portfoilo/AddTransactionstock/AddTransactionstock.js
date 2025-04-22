@@ -235,7 +235,7 @@ const AddTransactionstock = ({children}) => {
                       {filterData.map((data) => (
                         <li
                           key={data.id}
-                          onClick={() => handleStockSelect(data.company)} // Select stock
+                          onClick={() => handleStockSelect(data.name)} // Select stock
                         >
                           {data.name} {data.symbol}
                         </li>

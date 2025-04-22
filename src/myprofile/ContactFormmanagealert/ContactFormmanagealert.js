@@ -7,10 +7,11 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
 import Navbar from "../../Navbar/Navbar";
 import { useNavigate } from 'react-router-dom';
-import { SubscriptionContext } from "../../Portfoilo/context/SubscriptionContext";
+import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 
 const ContactFormmanagealert = () => {
-  const {issubscribed}= useContext(SubscriptionContext)
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -228,7 +229,7 @@ const ContactFormmanagealert = () => {
           </div>
         </div>
       </div>
-      {!issubscribed &&
+      {!isSubscribed && !isLoading &&
       <div className="subscribe-footerrmanagealert">
         <h1 className="headingmanagealert">Subscribe Now!</h1>
         <h2>Choose a plan that aligns with your investment goals!</h2>

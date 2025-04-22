@@ -519,7 +519,7 @@ function App() {
                 path="/stocknewsAdanigroup/:id"
                 element={<StocknewsAdanigroup />}
               />
-              <Route path="/stockNewsCard/:id" element={<StockNewsCard />} />
+              <Route path="/stocknews/details" element={<StockNewsCard />} />
               <Route
                 path="/modulecourseDetails"
                 element={<ModulecourseDetails />}

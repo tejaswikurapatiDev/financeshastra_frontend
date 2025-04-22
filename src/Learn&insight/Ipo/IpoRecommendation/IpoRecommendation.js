@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import "./IpoRecommendation.css"; // Updated CSS file name
 import { useNavigate } from "react-router-dom";
-import { SubscriptionContext } from "../../../Portfoilo/context/SubscriptionContext";
 import { API_BASE_URL } from "../../../config";
 import useSubscriptionStatus from "../../../Navbar/Hooks/useSubscriptionStatus";
 
 const IpoRecommendation = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
-  const {issubscribed}= useContext(SubscriptionContext)
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate("/pricehalf"); // Navigate to "ipoDetailsubscribe"

@@ -159,32 +159,4 @@ font-family: 'calibri';
   td {
     padding: 10px; /* Reduce padding in table cells */
   }
-  .finanancialh3 {
-    margin-top: 40px;
-    align-items: left;
-    color: #24b676;
-    font-size: 20px;
-    margin-left: 10px;
-    font-family: 'calibri';
-}
-.finanancialh2 {
-  align-items: left;
-  color: black;
-  font-size: 20px;
-  margin-left: 10px;
-  font-family: 'calibri';
-}
-}
-@media (max-width: 320px) {
-  .financialanalysis {
-    width: 41%;
-    margin-left: -20px;
-    font-size: 14px;
-}
-.financialanalysis td{
-  font-size: 14px;
-}
-.financial-container {
- width: 86%;
-}
 }

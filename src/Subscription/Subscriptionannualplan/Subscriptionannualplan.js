@@ -40,20 +40,14 @@ const SubscriptionPlans = () => {
 
                   <div className="ribbon-price">
                     <span className="price-value" >₹3,999</span>
-                    <span className="price-valuemonth"> / 6 Month</span>
-                    <span className="ribbon-price-detailelite">   ₹8,999  / After 6 Month</span>
+                    <span className="price-valuemonth"> / 12 Month</span>
+                    <span className="ribbon-price-detailelite">   ₹8,999  / After 12 Month</span>
 
                     <div className="text-black">You save
                       <span className="text-highlight"> ₹6,000</span>
                       <span className="text-highlight"> (66%)</span>
                       <span className="text-blackyear"> a year</span>
                     </div>
-
-
-
-
-
-
 
                   </div>
                   <div class="plan-features">
@@ -100,7 +94,7 @@ const SubscriptionPlans = () => {
                   </div>
                   <button className="pay-now-btn" 
                      onClick={() => {
-                      navigate("/annuallySubscriptionPages"); 
+                      navigate("/subscribe-Elite"); 
                       window.scrollTo(0, 0); // Scroll to top after navigation
                     }}>
                     Subscribe
@@ -126,7 +120,7 @@ const SubscriptionPlans = () => {
                     <div className="ribbon-price">
                       <span className="price-value">₹7,999</span>
                       <span className="price-valuemonth"> / 12 Months</span>
-                      <span className="ribbon-price-detail">₹19,999 / After 6 Month</span>
+                      <span className="ribbon-price-detail">₹19,999 / After 12 Month</span>
                       <div className="text-black">
                         You save
                         <span className="text-highlight"> ₹12,000</span>
@@ -216,7 +210,7 @@ const SubscriptionPlans = () => {
                       className="pay-now-btnfooter"
                     
                       onClick={() => {
-                        navigate("/annuallyPremiumSubscriptionPages") 
+                        navigate("/subscribe-Premium") 
                         window.scrollTo(0, 0); // Scroll to top after navigation
                       }}
                     >
