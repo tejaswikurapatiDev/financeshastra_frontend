@@ -422,7 +422,7 @@ function App() {
                 element={<StockWatchportall />}
               />
               <Route path="/pricehalf" element={<SubscriptionPlans />} />
-              <Route path="/annualplan" element={<SubscriptionannualPlans />} />
+              <Route path="/subscription" element={<SubscriptionannualPlans />} />
               <Route path="/mutualfund" element={<TopRatedFunds />} />
               <Route
                 path="/mutualfunddirect"
@@ -721,7 +721,7 @@ function App() {
               <Route path="/premiumUPIPage" element={<PremiumUPIPage />} />
               <Route path="/premiumScanPage" element={<PremiumScanPage />} />
               <Route
-                path="/annuallySubscriptionPages"
+                path="/subscribe-Elite"
                 element={<AnnuallySubscriptionPages />}
               />
               <Route
@@ -731,7 +731,7 @@ function App() {
               <Route path="/annuallyUPIPage" element={<AnnuallyUPIPage />} />
               <Route path="/annuallyScanPage" element={<AnnuallyScanPage />} />
               <Route
-                path="/annuallyPremiumSubscriptionPages"
+                path="/subscribe-Premium"
                 element={<AnnuallyPremiumSubscriptionPages />}
               />
               <Route
