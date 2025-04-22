@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
@@ -22,7 +22,10 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from '../../config'
 import { jwtDecode } from "jwt-decode";
+import AnnuallyPaypalProfilePage from "../AnnuallyPaypalProfilePage/AnnuallyPaypalProfilePage";
 import Cookies from 'js-cookie'
+import AnnuallyScanPage from "../AnnuallyScanPage/AnnuallyScanPage";
+import AnnuallyUPIPage from "../AnnuallyUPIPage/AnnuallyUPIPage";
 
 registerLocale("en-GB", enGB);
 const AnnuallySubscriptionPages = () => {
@@ -32,6 +35,17 @@ const AnnuallySubscriptionPages = () => {
   const [errors, setErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [showLoginPopup, setShowPopupforLogin] = useState(false)
+  const [activepage, setActivePage] = useState('card')
+  const [userName, setUsername] = useState("");
+  
+    useEffect(() => {
+        // Fetch username from localStorage when the component mounts
+        const storedUsername = localStorage.getItem("username");
+        if (storedUsername) {
+          setUsername(storedUsername);
+        }
+      }, []);
+  
 
   const onlogin = () => {
     navigate('/login')
@@ -122,222 +136,230 @@ const AnnuallySubscriptionPages = () => {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate("/subscribe-Premium"); // Navigate to /billingDetailsPage
+    setActivePage('card')
+    navigate("/subscribe-Elite"); // Navigate to /billingDetailsPage
   };
 
   // Handle navigation on PayPal button click
   const handlePayPalClick = () => {
-    navigate("/annuallyPaypalProfilePage"); // Navigate to /PaypalProfilePage
+    setActivePage('paypal')// Navigate to /PaypalProfilePage
   };
   const handleupiClick = () => {
-    navigate("/annuallyUPIPage"); // Navigate to /PaypalProfilePage
+    setActivePage("upi")// Navigate to /PaypalProfilePage
   };
   const handleScanAndPayProfilePage = () => {
-    navigate("/annuallyScanPage");
+    setActivePage('scan')
   };
 
 
   return (
     <div>
-    <div className="profilepageeeccontainer">
+      <div className="profilepageeeccontainer">
 
-    <h1 className="profilepagtitle"  style={{ fontFamily: 'Calibri' }}>
-      Elite Plan Subscription</h1>
-
-
-    <div className="billing-detailspages-container">
-    <div className="billing-detailspages-card">
-    <h2 className="billing-detailspages-amount">
-    <span style={{ color: "black" }}>Rs 3999</span> <br />
-    <span style={{ color: "#888" }}>Due Feb 02, 2024</span>
-
-          </h2>
-
-          <p className="billing-detailspages-to"><strong style={{ color: "#888" }}>To </strong>  <span className="billing-detailspages-to-black">William</span></p>
-          <p className="billing-detailspages-plan">
-            <strong style={{ color: "#888" }}>Plan </strong>
-            <span style={{ color: "black" }}>Elite</span>
-            <span style={{ color: "#24b676" }}> (Annually)</span>
-          </p>
-
-          <div class="plan-features">
-            <h4 className='plan-featuresh4'>
-              <FontAwesomeIcon icon={faCircleCheck} />Features:
-            </h4>
-            <ul className="plan-featuresul">
-              <li className="plan-featuresli">
-                <span className='plan-featuresspan'> 50 Stock Recommendations</span>
-                <span className='plan-featuresp'> : Expert recommendations to build a focused and profitable portfolio.</span>
-              </li>
-              <li className="plan-featuresli">
-                <span>Stocks Screener </span>
-                <span className='plan-featuresp'> : Access essential tools to analyze and screen stocks effectively.</span>
-              </li>
-              <li className="plan-featuresli">
-                <span> Research Tool </span>
-                <span className='plan-featuresp'> : Utilize advanced resources for in-depth stock research.</span>
-              </li>
-              <li className="plan-featuresli">
-                <span>  Discover Top-rated Stocks</span>
-                <span className='plan-featuresp'> : Easily find the best-performing stocks.</span>
-              </li>
-            </ul>
-          </div>
-          <div class="plan-additional-benefits">
-            <h4 className='plan-featuresh4'> <FontAwesomeIcon icon={faCircleCheck} />Additional Benefits:</h4>
-            <ul className="plan-featuresul">
-              <li className="plan-featuresli">
-                <span className='plan-featuresspan'> Stock of the Month</span>
-                <span className='plan-featuresp'> : One carefully selected stock handpicked by our investment committee every month.</span>
-              </li>
-              <li className="plan-featuresli">
-                <span className='plan-featuresspan'>Research Reports </span>
-                <span className='plan-featuresp'> : Access the real-time research report on any stock.</span>
-              </li>
-              <li className="plan-featuresli">
-                <span className='plan-featuresspan'>Momentum Stocks </span>
-                <span className="plan-featuresp"> : Identify and capitalize on the best momentum stocks for any market phase.</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="billing-detailspages-payment">
-          <div className="billing-detailspages-payment-options">
-            <button className="billing-detailspages-method active" onClick={handleCardClick}>
-              <div className="payment-option-content">
-                <IoCard size={20} />
-                <span>Card</span>
-              </div>
-            </button>
-
-            <button className="billing-detailspages-method" onClick={handlePayPalClick}>
-              <div className="payment-option-content">
-                <FaPaypal size={20} />
-                <span>PayPal</span>
-              </div>
-            </button>
-            <button className="billing-detailspages-method" onClick={handleupiClick}>
-              <div className="payment-option-content">
-                <MdPayment size={20} />
-                <span>UPI</span>
-              </div>
-            </button>
-            <button className="billing-detailspages-method" onClick={handleScanAndPayProfilePage}>
-              <div className="payment-option-content">
-                <MdOutlineQrCodeScanner size={20} />
-                <span>Scan & Pay</span>
-              </div>
-            </button>
-          </div>
-          <h2 className="profilepage-tittlle">Card details</h2>
-          <form className="billing-detailspages-card-form">
-            <div
-              className={`billing-detailspages-card-input-container ${errors.cardNumber ? "error" : ""
-                }`}
-            >
-              <input
-                type="text"
-                placeholder="0000 0000 0000 0000"
-                className="billing-detailspages-card-input"
-                maxLength={16}
-                value={cardNumber}
-                onChange={(e) => {
-                  // Allow only numbers and ensure length does not exceed 16 digits
-                  const value = e.target.value.replace(/\D/g, "");
-                  if (value.length <= 16) {
-                    setCardNumber(value);
-                  }
-                }}
-              />
-
-              <div className="billing-detailspages-card-icons">
-                <img src={card1} alt="Visa" />
-                <img src={card2} alt="MasterCard" />
-                <img src={card3} alt="Amex" />
-                <img src={card4} alt="RuPay" />
-              </div>
-            </div>
-
-            <div className="billing-detailspages-card-expiry">
-              <div className={`billing-detailspages-expiry ${errors.expiryDate ? "error" : ""}`}>
-                <DatePicker
-                  selected={expiryDate}
-                  onChange={(date) => setExpiryDate(date)}
-                  dateFormat="MM/yyyy"
-                  showMonthYearPicker
-                  customInput={<CustomInput />}
-                />
-              </div>
+        <h1 className="profilepagtitle" style={{ fontFamily: 'Calibri' }}>
+          Elite Plan Subscription</h1>
 
 
+        <div className="billing-detailspages-container">
+          <div className="billing-detailspages-card">
+            <h2 className="billing-detailspages-amount">
+              <span style={{ color: "black" }}>Rs 3999</span> <br />
+              <span style={{ color: "#888" }}>Due Feb 02, 2024</span>
 
-              <div className={`billing-detailspages-cvc ${errors.cvc ? "error" : ""}`}>
-                <input
-                  type="text"
-                  placeholder="CVC"
-                  aria-label="CVC"
-                  className="billing-detailspages-cvc-input"
-                  maxLength={3}
-                  value={cvc}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
-                    if (value.length <= 3) {
-                      setCvc(value);
-                    }
-                  }}
-                />
-                <FontAwesomeIcon
-                  icon={faShieldAlt}
-                  className="billing-detailspages-iconnn"
-                />
-              </div>
+            </h2>
 
-
-            </div>
-
-            <p className="billing-detailspages-terms">
-              By providing your card information, you allow us to charge your card
-              for future payments in accordance with their terms.
+            <p className="billing-detailspages-to"><strong style={{ color: "#888" }}>To </strong>  <span className="billing-detailspages-to-black">{userName}</span></p>
+            <p className="billing-detailspages-plan">
+              <strong style={{ color: "#888" }}>Plan </strong>
+              <span style={{ color: "black" }}>Elite</span>
+              <span style={{ color: "#24b676" }}> (Annually)</span>
             </p>
 
-    <button
-    type="button"
-    className="billing-detailspages-pay-button"
-    onClick={handlePaymentBillingDetailsPage}
-    >
-    Pay ₹3999
-    </button>
-    </form>
-    {/* Popup */}
-          {showLoginPopup && (
-            <div className="payment-popup">
-              <div className="payment-popup-content">
-                <h2>You Are not Logged in!</h2>
-                <p className="amount-paid">Please Login</p>
-                <button type="button" onClick={onlogin}
-                  className="loginbtn billing-detailspages-pay-button">Login</button>
-              </div>
+            <div class="plan-features">
+              <h4 className='plan-featuresh4'>
+                <FontAwesomeIcon icon={faCircleCheck} />Features:
+              </h4>
+              <ul className="plan-featuresul">
+                <li className="plan-featuresli">
+                  <span className='plan-featuresspan'> 50 Stock Recommendations</span>
+                  <span className='plan-featuresp'> : Expert recommendations to build a focused and profitable portfolio.</span>
+                </li>
+                <li className="plan-featuresli">
+                  <span>Stocks Screener </span>
+                  <span className='plan-featuresp'> : Access essential tools to analyze and screen stocks effectively.</span>
+                </li>
+                <li className="plan-featuresli">
+                  <span> Research Tool </span>
+                  <span className='plan-featuresp'> : Utilize advanced resources for in-depth stock research.</span>
+                </li>
+                <li className="plan-featuresli">
+                  <span>  Discover Top-rated Stocks</span>
+                  <span className='plan-featuresp'> : Easily find the best-performing stocks.</span>
+                </li>
+              </ul>
             </div>
-          )}
-    {showPopup && (
-    <div className="payment-popup">
-    <div className="payment-popup-content">
-    <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
-    <h2>Payment Successful!</h2>
-    <p className="amount-paid">Amount Paid: ₹3999/-</p>
-    <p className="payment-plan">Plan: Elite (Annually)</p>
-    </div>
-    </div>
-    )}
-    </div>
-    </div>
-    <Navbar/>
-    </div>
-         <div className="foooterpagesaupdate">
-      <FooterForAllPage />
+            <div class="plan-additional-benefits">
+              <h4 className='plan-featuresh4'> <FontAwesomeIcon icon={faCircleCheck} />Additional Benefits:</h4>
+              <ul className="plan-featuresul">
+                <li className="plan-featuresli">
+                  <span className='plan-featuresspan'> Stock of the Month</span>
+                  <span className='plan-featuresp'> : One carefully selected stock handpicked by our investment committee every month.</span>
+                </li>
+                <li className="plan-featuresli">
+                  <span className='plan-featuresspan'>Research Reports </span>
+                  <span className='plan-featuresp'> : Access the real-time research report on any stock.</span>
+                </li>
+                <li className="plan-featuresli">
+                  <span className='plan-featuresspan'>Momentum Stocks </span>
+                  <span className="plan-featuresp"> : Identify and capitalize on the best momentum stocks for any market phase.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="billing-detailspages-payment">
+            <div className="billing-detailspages-payment-options">
+              <button className={activepage === "card" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handleCardClick}>
+                <div className="payment-option-content">
+                  <IoCard size={20} />
+                  <span>Card</span>
+                </div>
+              </button>
+
+              <button className={activepage === "paypal" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handlePayPalClick}>
+                <div className="payment-option-content">
+                  <FaPaypal size={20} />
+                  <span>PayPal</span>
+                </div>
+              </button>
+              <button className={activepage === "upi" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handleupiClick}>
+                <div className="payment-option-content">
+                  <MdPayment size={20} />
+                  <span>UPI</span>
+                </div>
+              </button>
+              <button className={activepage === "scan" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handleScanAndPayProfilePage}>
+                <div className="payment-option-content">
+                  <MdOutlineQrCodeScanner size={20} />
+                  <span>Scan & Pay</span>
+                </div>
+              </button>
+            </div>
+
+            {activepage === 'card' &&
+              <>
+                <h2 className="profilepage-tittlle">Card details</h2>
+                <form className="billing-detailspages-card-form">
+                  <div
+                    className={`billing-detailspages-card-input-container ${errors.cardNumber ? "error" : ""
+                      }`}
+                  >
+                    <input
+                      type="text"
+                      placeholder="0000 0000 0000 0000"
+                      className="billing-detailspages-card-input"
+                      maxLength={16}
+                      value={cardNumber}
+                      onChange={(e) => {
+                        // Allow only numbers and ensure length does not exceed 16 digits
+                        const value = e.target.value.replace(/\D/g, "");
+                        if (value.length <= 16) {
+                          setCardNumber(value);
+                        }
+                      }}
+                    />
+
+                    <div className="billing-detailspages-card-icons">
+                      <img src={card1} alt="Visa" />
+                      <img src={card2} alt="MasterCard" />
+                      <img src={card3} alt="Amex" />
+                      <img src={card4} alt="RuPay" />
+                    </div>
+                  </div>
+
+                  <div className="billing-detailspages-card-expiry">
+                    <div className={`billing-detailspages-expiry ${errors.expiryDate ? "error" : ""}`}>
+                      <DatePicker
+                        selected={expiryDate}
+                        onChange={(date) => setExpiryDate(date)}
+                        dateFormat="MM/yyyy"
+                        showMonthYearPicker
+                        customInput={<CustomInput />}
+                      />
+                    </div>
+
+
+
+                    <div className={`billing-detailspages-cvc ${errors.cvc ? "error" : ""}`}>
+                      <input
+                        type="text"
+                        placeholder="CVC"
+                        aria-label="CVC"
+                        className="billing-detailspages-cvc-input"
+                        maxLength={3}
+                        value={cvc}
+                        onChange={(e) => {
+                          const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
+                          if (value.length <= 3) {
+                            setCvc(value);
+                          }
+                        }}
+                      />
+                      <FontAwesomeIcon
+                        icon={faShieldAlt}
+                        className="billing-detailspages-iconnn"
+                      />
+                    </div>
+
+
+                  </div>
+
+                  <p className="billing-detailspages-terms">
+                    By providing your card information, you allow us to charge your card
+                    for future payments in accordance with their terms.
+                  </p>
+
+                  <button
+                    type="button"
+                    className="billing-detailspages-pay-button"
+                    onClick={handlePaymentBillingDetailsPage}
+                  >
+                    Pay ₹3999
+                  </button>
+                </form></>}
+            {activepage === 'paypal' && <AnnuallyPaypalProfilePage />}
+            {activepage === "upi" && <AnnuallyUPIPage />}
+            {activepage === "scan" && <AnnuallyScanPage />}
+
+            {/* Popup */}
+            {showLoginPopup && (
+              <div className="payment-popup">
+                <div className="payment-popup-content">
+                  <h2>You Are not Logged in!</h2>
+                  <p className="amount-paid">Please Login</p>
+                  <button type="button" onClick={onlogin}
+                    className="loginbtn billing-detailspages-pay-button">Login</button>
+                </div>
+              </div>
+            )}
+            {showPopup && (
+              <div className="payment-popup">
+                <div className="payment-popup-content">
+                  <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+                  <h2>Payment Successful!</h2>
+                  <p className="amount-paid">Amount Paid: ₹3999/-</p>
+                  <p className="payment-plan">Plan: Elite (Annually)</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        <Navbar />
+      </div>
+      <div className="foooterpagesaupdate">
+        <FooterForAllPage />
       </div>
     </div>
-    
+
   );
 };
 
