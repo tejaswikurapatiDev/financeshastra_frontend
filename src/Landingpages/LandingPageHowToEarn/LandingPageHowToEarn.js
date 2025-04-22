@@ -10,32 +10,33 @@ const LandingPageHowToEarn = () => {
    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   return (
     <div className={darkMode ? "landingpagehowtoearndarkcontainer" :"landingpagehowtoearn-container"}>
-      <h3 className={darkMode ? "landingpagehowtoearndarkheading" :"landingpagehowtoearn-heading"}>
-        How to Earn with FinanceShastra ?
-      </h3>
-      <div className="landingpagehowtoearn-content">
-        <div className="landingpagehowtoearn-steps">
-          <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
-            1. Invest Smartly with Expert Guidance
-          </div>
-          <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
-            2. Affiliate and Referral Program
-          </div>
-          <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
-            3. Learn and Profit
-          </div>
-          <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
-            4. Become a Partner or Collaborator
-          </div>
+    <h3 className={darkMode ? "landingpagehowtoearndarkheading" :"landingpagehowtoearn-heading"}>
+      How to Earn with FinanceShastra ?
+    </h3>
+    <div className="landingpagehowtoearn-content">
+      <div className="landingpagehowtoearn-image">
+        <img 
+          src={howtoearnimg}
+          alt="How to Earn" 
+        />
+      </div>
+      <div className="landingpagehowtoearn-steps">
+        <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
+          1. Invest Smartly with Expert Guidance
         </div>
-        <div className="landingpagehowtoearn-image">
-          <img 
-            src={howtoearnimg}
-            alt="How to Earn" 
-          />
+        <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
+          2. Affiliate and Referral Program
+        </div>
+        <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
+          3. Learn and Profit
+        </div>
+        <div className={darkMode ? "landingpagehowtoearndarkstep" :"landingpagehowtoearn-step"}>
+          4. Become a Partner or Collaborator
         </div>
       </div>
     </div>
+  </div>
+  
   );
 };
 

@@ -3,6 +3,7 @@ import "./EarningCalculatorProfilePage.css";
 import { useNavigate } from 'react-router-dom';
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import AccountBar from "../AccountBar";
 
 const EarningCalculatorProfilePage = () => {
   // State to manage the number of referrals for each plan
@@ -51,35 +52,7 @@ const EarningCalculatorProfilePage = () => {
     My Referrals</h1>
 
     <div className="profilepage-tabsorderusersmyre">
-        <span className="profilepage-tabb" onClick={() => navigate("/userDetailsupdate")}
-       >My Account</span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
-        >
-          Orders
-        </span>
-        <span className="profilepage-tabb"  onClick={() => navigate("/billingSubscriptionPages")}>Billing & Subscription</span>
-        <span className="profilepage-tabb"  onClick={() => navigate("/riskAnalysisDashboard")}>Risk Profile Report</span>
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/managealert")}
-        >
-          Manage Alert
-        </span>
-
-        <span
-          className="profilepage-tabb"
-          onClick={() => navigate("/accountSettings")}
-        >
-          Password & Security
-        </span>
-        <span className="profilepage-tabb"onClick={() => navigate('/sessionHistory')}>Active Devices</span>
-        <span className="profilepage-tabb"  style={{
-          borderBottom: "2px solid #24b676",
-          fontWeight: "bold",
-          color: "#24b676",
-        }} onClick={() => navigate("/myReferalPage")}>My referrals</span>
+       <AccountBar/>
       </div>
 
     <div className="myreferalpagesss">
