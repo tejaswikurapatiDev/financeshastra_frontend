@@ -1,43 +1,53 @@
 /* Parent Dropdown Styling */
 .portfolio-dropdown {
-  position: relative; /* Makes the dropdown position relative to this element */
+  position: relative;
+  /* Makes the dropdown position relative to this element */
 }
-.butn{
+
+.butn {
   background-color: transparent;
   border: none;
 }
+
 a span {
-  text-decoration: none; /* This will remove the underline from the span inside the link */
+  text-decoration: none;
+  /* This will remove the underline from the span inside the link */
 }
 
 /* Style for the stock dropdown */
 .stock-dropdown {
-  position: relative; /* Necessary for positioning the dropdown */
+  position: relative;
+  /* Necessary for positioning the dropdown */
 }
 
 /* Dropdown menu hidden by default */
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Position it below the link */
+  top: 100%;
+  /* Position it below the link */
   left: 0;
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   min-width: 160px;
   padding: 10px 0;
   z-index: 10;
- 
+
   gap: 20px;
 }
+
 .mutualfunds-dropdown {
- /* Necessary for positioning the dropdown */
- position: relative;
-}
-.learn-dropdown{
+  /* Necessary for positioning the dropdown */
   position: relative;
 }
-.portfolio-dropdown{
+
+.learn-dropdown {
+  position: relative;
+}
+
+.portfolio-dropdown {
   position: relative;
 }
 
@@ -65,23 +75,29 @@ a span {
 .chevron-icon {
   margin-left: 5px;
 }
-.willamname{
+
+.willamname {
   margin-bottom: 50px;
 }
+
 /* Dropdown Menu Styling */
 
 .dropdown-item:hover a {
-  color: white; /* Green for the link */
+  color: white;
+  /* Green for the link */
 }
 
 /* Hover effect for the paragraph */
 .dropdown-item:hover p {
-  color: white; /* Match paragraph text color to link */
+  color: white;
+  /* Match paragraph text color to link */
 }
+
 /* Show Dropdown on Hover or Focus */
 .portfolio-dropdown:hover .dropdown-menu,
 .portfolio-dropdown:focus-within .dropdown-menu {
-  display: block; /* Make dropdown visible */
+  display: block;
+  /* Make dropdown visible */
 }
 
 /* Dropdown Items */
@@ -95,8 +111,9 @@ a span {
   background-color: #24b676;
   color: white;
 }
+
 .dropdown-item p:hover {
-  
+
   color: white;
 }
 
@@ -129,55 +146,71 @@ a span {
   left: 0;
   right: 0;
   z-index: 1000;
-  
+
 }
 
 
 /* Stock dropdown menu */
 .stockmenu {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns */
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 100%; /* Position it just below the menu */
+  top: 100%;
+  /* Position it just below the menu */
   /* Align it relative to the "Stocks" button */
-  transform: translateX(-50%); /* Center align */
+  transform: translateX(-50%);
+  /* Center align */
   z-index: 10;
   padding: 25px;
-  width: 550px; /* Adjust dropdown width */
+  width: 550px;
+  /* Adjust dropdown width */
   gap: 20px;
 }
-.mutualstockmenu{
+
+.mutualstockmenu {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns */
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 100%; /* Position it just below the menu */
+  top: 100%;
+  /* Position it just below the menu */
   /* Align it relative to the "Stocks" button */
-  transform: translateX(-50%); /* Center align */
+  transform: translateX(-50%);
+  /* Center align */
   z-index: 10;
   padding: 25px;
-  width: 550px; /* Adjust dropdown width */
+  width: 550px;
+  /* Adjust dropdown width */
   gap: 20px;
 }
- 
+
 
 .stockmenu::before {
-  content: ""; /* Empty content for the line */
+  content: "";
+  /* Empty content for the line */
   position: absolute;
-  height: 85%; /* Adjust line height */
-  width: 1px; /* Thickness of the line */
-  background: #ddd; /* Line color */
-  top: 7.5%; /* Center vertically */
-  left: 50%; /* Place in the middle of the menu */
+  height: 85%;
+  /* Adjust line height */
+  width: 1px;
+  /* Thickness of the line */
+  background: #ddd;
+  /* Line color */
+  top: 7.5%;
+  /* Center vertically */
+  left: 50%;
+  /* Place in the middle of the menu */
   transform: translateX(-50%);
 }
+
 /* Dropdown Columns */
 .stockmenu-column ul {
   list-style: none;
@@ -200,7 +233,7 @@ a span {
   color: #24b676;
   font-size: 14px;
   transition: transform 0.3s ease;
- 
+
 }
 
 /* Logo styling */
@@ -210,8 +243,10 @@ a span {
 }
 
 .logo-image {
-  width: 220px; /* Increased logo width */
-  height: auto; /* Keeps aspect ratio */
+  width: 220px;
+  /* Increased logo width */
+  height: auto;
+  /* Keeps aspect ratio */
   margin-right: 8px;
 }
 
@@ -237,15 +272,16 @@ a span {
 .navbar-search {
   position: relative;
   display: flex;
-  
+
 }
+
 .navbar-search input {
 
   padding: 5px;
   border: 1px solid #333;
   border-radius: 5px;
- 
-  box-sizing: border-box;  
+
+  box-sizing: border-box;
 
 }
 
@@ -259,13 +295,14 @@ a span {
 }
 
 .navbar-search div {
-  width:100%;
+  width: 100%;
   background: white;
   position: absolute;
-  top: 103%; /* Ensures it appears just below input */
+  top: 103%;
+  /* Ensures it appears just below input */
   left: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-font-size: 14px;
+  font-size: 14px;
   border-radius: 4px;
   max-height: 190px;
   overflow-y: auto;
@@ -274,25 +311,31 @@ font-size: 14px;
 
 }
 
-.navbar-search  ul li {
-    cursor: pointer; /* Makes the text clickable */
-    padding: 5px;
-    transition: background 0.2s ease-in-out;
-    list-style: none;
-    margin-left: -15px;
-  }
-  .navbar-search  ul li:hover {
-    background: #f0f0f0; /* Light grey background on hover */
-  }
+.navbar-search ul li {
+  cursor: pointer;
+  /* Makes the text clickable */
+  padding: 5px;
+  transition: background 0.2s ease-in-out;
+  list-style: none;
+  margin-left: -15px;
+}
+
+.navbar-search ul li:hover {
+  background: #f0f0f0;
+  /* Light grey background on hover */
+}
+
 .search-results ul li {
-  cursor: pointer; /* Makes the text clickable */
+  cursor: pointer;
+  /* Makes the text clickable */
   padding: 5px;
   transition: background 0.2s ease-in-out;
   list-style: none;
 }
 
 .search-results ul li:hover {
-  background: #f0f0f0; /* Light grey background on hover */
+  background: #f0f0f0;
+  /* Light grey background on hover */
 }
 
 /* Icons section */
@@ -308,9 +351,11 @@ font-size: 14px;
   cursor: pointer;
 
 }
+
 .profile-section span {
   text-decoration: none;
 }
+
 .profile-section {
   display: flex;
   align-items: center;
@@ -324,43 +369,75 @@ font-size: 14px;
 
 /* Dropdown menu for user profile */
 .dropdown-menu {
-  position: absolute; /* Position the dropdown below the icon */
-  right: 0; /* Align to the right */
-  top: 100%; /* Position it just below the icon */
-  background-color: white; /* Background color for dropdown */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 160px; /* Set a minimum width for the dropdown */
+  position: absolute;
+  /* Position the dropdown below the icon */
+  right: 0;
+  /* Align to the right */
+  top: 100%;
+  /* Position it just below the icon */
+  background-color: white;
+  /* Background color for dropdown */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 160px;
+  /* Set a minimum width for the dropdown */
 }
-.user-menu{
-  position: absolute; /* Position the dropdown below the icon */
-  right: 0; /* Align to the right */
-  top: 100%; /* Position it just below the icon */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 160px; /* Set a minimum width for the dropdown */
+
+.user-menu {
+  position: absolute;
+  /* Position the dropdown below the icon */
+  right: 0;
+  /* Align to the right */
+  top: 100%;
+  /* Position it just below the icon */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 160px;
+  /* Set a minimum width for the dropdown */
   margin-right: 20px;
   background-color: white;
 
 }
-.learn-menu{
-  position: absolute; /* Position the dropdown below the icon */
-  top: 100%; /* Position it just below the icon */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 210px; /* Set a minimum width for the dropdown */
+
+.learn-menu {
+  position: absolute;
+  /* Position the dropdown below the icon */
+  top: 100%;
+  /* Position it just below the icon */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 210px;
+  /* Set a minimum width for the dropdown */
   margin-right: 20px;
   background-color: white;
 
@@ -368,68 +445,108 @@ font-size: 14px;
 
 /* Dropdown items */
 .dropdown-menu li {
-  display: flex; /* Use flex to align icon and text */
+  display: flex;
+  /* Use flex to align icon and text */
   align-items: center;
-  padding: 12px 16px; /* Increased spacing for dropdown items */
-  font-size: 16px; /* Increase font size for better readability */
+  padding: 12px 16px;
+  /* Increased spacing for dropdown items */
+  font-size: 16px;
+  /* Increase font size for better readability */
 }
-.profile-section li{
+
+.profile-section li {
   list-style-type: none;
 }
 
 
 .dropdown-menu li:hover {
-  background-color: #f0f0f0; /* Change background on hover */
+  background-color: #f0f0f0;
+  /* Change background on hover */
 }
 
 .dropdown-menu a {
-  text-decoration: none; /* Remove underline from links */
-  color: #333; /* Link color */
-  display: block; /* Make the entire area clickable */
+  text-decoration: none;
+  /* Remove underline from links */
+  color: #333;
+  /* Link color */
+  display: block;
+  /* Make the entire area clickable */
 }
 
 /* Icon in dropdown menu */
 .dropdown-icon {
-  margin-right: 8px; /* Space between icon and text */
-  font-size: 25px; /* Adjust icon size */
-  color: #333; /* Icon color */
+  margin-right: 8px;
+  /* Space between icon and text */
+  font-size: 25px;
+  /* Adjust icon size */
+  color: #333;
+  /* Icon color */
 }
+
 /* Footer styling for navbar links on mobile */
 .footer-nav {
-  display: none; /* Flex layout for horizontal arrangement */
-  justify-content: space-around; /* Even spacing around items */
-  position: fixed; /* Fix it to the bottom of the viewport */
-  bottom: 0; /* Align to the bottom */
-  left: 0; /* Stretch from left */
-  width: 100%; /* Full width */
-  padding: 10px 0; /* Padding for comfortable touch area */
-  background-color: #fff; /* Background color */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-  z-index: 1000; /* Ensure it appears above other elements */
-  border-top: 1px solid #e0e0e0; /* Optional border for separation */
-  list-style: none; /* Remove default list styles */
+  display: none;
+  /* Flex layout for horizontal arrangement */
+  justify-content: space-around;
+  /* Even spacing around items */
+  position: fixed;
+  /* Fix it to the bottom of the viewport */
+  bottom: 0;
+  /* Align to the bottom */
+  left: 0;
+  /* Stretch from left */
+  width: 100%;
+  /* Full width */
+  padding: 10px 0;
+  /* Padding for comfortable touch area */
+  background-color: #fff;
+  /* Background color */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for elevation */
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+  border-top: 1px solid #e0e0e0;
+  /* Optional border for separation */
+  list-style: none;
+  /* Remove default list styles */
   font-family: 'calibri';
- 
+
 }
+
 .footer-item {
   display: flex;
-  flex-direction: column; /* Arrange icon and label vertically */
-  align-items: center; /* Center align items */
-  gap: 5px; /* Space between icon and label */
+  flex-direction: column;
+  /* Arrange icon and label vertically */
+  align-items: center;
+  /* Center align items */
+  gap: 5px;
+  /* Space between icon and label */
   font-family: 'calibri';
 }
+
 .footer-item.selected {
-  color: #fff; /* Text color */
-  background-color: #24b676; /* Highlighted background */
-  padding: 5px 5px; /* Inner spacing */
-  border-radius: 50%; /* Circular appearance */
-  margin-bottom: 10px; /* Space below the selected item */
-  box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */
-  border: 5px solid #a9e8c2; /* Light color border */
-  display: flex; /* Align icon and text */
-  flex-direction: column; /* Stack icon and text */
-  align-items: center; /* Center alignment */
-  gap: 0; /* Remove any spacing between icon and text */
+  color: #fff;
+  /* Text color */
+  background-color: #24b676;
+  /* Highlighted background */
+  padding: 5px 5px;
+  /* Inner spacing */
+  border-radius: 50%;
+  /* Circular appearance */
+  margin-bottom: 10px;
+  /* Space below the selected item */
+  box-shadow: 0px 4px 6px #a9e8c2;
+  /* Add subtle shadow for depth */
+  border: 5px solid #a9e8c2;
+  /* Light color border */
+  display: flex;
+  /* Align icon and text */
+  flex-direction: column;
+  /* Stack icon and text */
+  align-items: center;
+  /* Center alignment */
+  gap: 0;
+  /* Remove any spacing between icon and text */
   font-family: 'calibri';
 }
 
@@ -443,51 +560,81 @@ font-size: 14px;
 }
 
 
-.footerportfolio-icon{
-  font-size: 20px; /* Icon size */
- 
+.footerportfolio-icon {
+  font-size: 20px;
+  /* Icon size */
+
 }
+
 .footer-nav a:hover {
   color: #24b676;
 }
-.navbar-links > li > a{
+
+.navbar-links>li>a {
   color: #24b676;
 }
-.navbar-links > li > a:hover {
-  color:  #1d9d5b; /* Change navbar link color on hover */
+
+.navbar-links>li>a:hover {
+  color: #1d9d5b;
+  /* Change navbar link color on hover */
 }
 
 .dropdown-item a:hover {
-  color: white; /* Change dropdown link color on hover */
+  color: white;
+  /* Change dropdown link color on hover */
 }
+
 .subscritebutton {
-  display: inline-block; /* Makes it behave like a button */
-  padding: 10px 20px; /* Adds padding for clickability */
-  font-size: 16px; /* Adjust font size */
-  font-weight: bold; /* Make text bold */
-  color: white; /* Text color */
-  border: 1px solid ; /* Border styling */
-  border-radius: 5px; /* Rounded corners */
-  background: linear-gradient(90deg,#24b676,#24b676); /* Gradient background */
-  cursor: pointer; /* Pointer cursor for interactivity */
-  text-align: center; /* Centers text */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  margin-top: 20px; /* Keeps margin for spacing */
-  box-shadow: 0 4px 6px red; /* Adds subtle shadow */
+  display: inline-block;
+  /* Makes it behave like a button */
+  padding: 10px 20px;
+  /* Adds padding for clickability */
+  font-size: 16px;
+  /* Adjust font size */
+  font-weight: bold;
+  /* Make text bold */
+  color: white;
+  /* Text color */
+  border: 1px solid;
+  /* Border styling */
+  border-radius: 5px;
+  /* Rounded corners */
+  background: linear-gradient(90deg, #24b676, #24b676);
+  /* Gradient background */
+  cursor: pointer;
+  /* Pointer cursor for interactivity */
+  text-align: center;
+  /* Centers text */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effects */
+  margin-top: 20px;
+  /* Keeps margin for spacing */
+  box-shadow: 0 4px 6px red;
+  /* Adds subtle shadow */
 }
 
 .subscritebutton:hover {
-  background: linear-gradient(90deg,  red,rgb(208, 11, 11)); /* Gradient background */
-  color: white; /* Ensures white text on hover */
-  border-color:  red; /* Matches border with gradient color */
-  box-shadow: 0 4px 6px  rgb(111, 5, 5); /* Adds hover shadow effect */
-  transform: translateY(-2px); /* Slight lift on hover */
+  background: linear-gradient(90deg, red, rgb(208, 11, 11));
+  /* Gradient background */
+  color: white;
+  /* Ensures white text on hover */
+  border-color: red;
+  /* Matches border with gradient color */
+  box-shadow: 0 4px 6px rgb(111, 5, 5);
+  /* Adds hover shadow effect */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
 }
+
 .subscritebutton:active {
-  background: red; /* Darker green on click */
-  box-shadow: none; /* Removes shadow when clicked */
-  transform: translateY(0); /* Restores position */
+  background: red;
+  /* Darker green on click */
+  box-shadow: none;
+  /* Removes shadow when clicked */
+  transform: translateY(0);
+  /* Restores position */
 }
+
 .footer-dropdown {
   position: absolute;
   background-color: #fff;
@@ -495,7 +642,8 @@ font-size: 14px;
   border-radius: 5px;
   z-index: 1000;
   padding: 10px;
-  display: none; /* Hide by default */
+  display: none;
+  /* Hide by default */
   font-family: 'calibri';
 }
 
@@ -569,7 +717,8 @@ font-size: 14px;
   display: flex;
 
 }
-.notificationall-header{
+
+.notificationall-header {
   display: flex;
 }
 
@@ -582,7 +731,7 @@ font-size: 14px;
 
 .dotnotifyicon {
   font-size: 30px;
-  color:#24b676;
+  color: #24b676;
   margin-left: auto;
   margin-top: 10px;
 }
@@ -609,7 +758,8 @@ font-size: 14px;
   padding: 8px 12px;
   background-color: white;
   color: black;
-  text-decoration: underline; /* Adds underline to the text */
+  text-decoration: underline;
+  /* Adds underline to the text */
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -618,37 +768,42 @@ font-size: 14px;
   cursor: pointer;
 }
 
-  
+
 
 @media (max-width: 1024px) {
+
   /* Adjust navbar layout */
   .landingnavbar-icons {
-    display: flex
-;
+    display: flex;
     align-items: center;
     gap: 5px;
     font-family: 'calibri';
-}
+  }
+
   .navbar {
-    padding: 5px 10px; /* Reduce padding slightly */
+    padding: 5px 10px;
+    /* Reduce padding slightly */
   }
 
   .navbar-links {
-    gap: 8px; /* Reduce spacing further */
+    gap: 8px;
+    /* Reduce spacing further */
     font-size: 11px;
     margin-left: -10px;
   }
 
   .navbar-links a {
-    font-size: 12px; /* Slightly smaller font */
+    font-size: 12px;
+    /* Slightly smaller font */
   }
 
   .logo-image {
-    width: 160px; /* Reduce logo size more */
+    width: 160px;
+    /* Reduce logo size more */
   }
 
   /* Adjust dropdown menu width */
- 
+
 
   /* Adjust notification dropdown */
   .dropdown-contentnoti {
@@ -662,12 +817,16 @@ font-size: 14px;
 
   /* Adjust search bar */
   .navbar-search input {
-    width: 160px; /* Reduce input width */
+    width: 160px;
+    /* Reduce input width */
     font-size: 12px;
   }
+
   .navbar-search input::placeholder {
-    font-size: 10px; /* Reduce placeholder font size */
+    font-size: 10px;
+    /* Reduce placeholder font size */
   }
+
   .subscritebutton {
     padding: 6px 12px;
     font-size: 13px;
@@ -676,16 +835,18 @@ font-size: 14px;
 
   /* Adjust icons */
   .navbar-icons {
-    gap: 12px; /* Reduce icon spacing */
+    gap: 12px;
+    /* Reduce icon spacing */
   }
 
   .chevron-icon {
     margin-left: 4px;
     color: #24b676;
-    font-size: 11px; /* Reduce icon size */
+    font-size: 11px;
+    /* Reduce icon size */
     transition: transform 0.3s ease;
   }
-  
+
   span.willamname {
     font-size: 14px !important;
     margin-right: 5px !important;
@@ -694,6 +855,7 @@ font-size: 14px;
 
 /* For screens 480px and below */
 @media (max-width: 768px) {
+
   /* Show navbar logo, and dropdown icon on mobile */
   .navbar-logo,
   .navbar-icons,
@@ -709,8 +871,8 @@ font-size: 14px;
   .footer-nav {
     display: flex;
     height: 60px;
-   
-   
+
+
   }
 
   /* Hide search input on mobile */
@@ -722,12 +884,18 @@ font-size: 14px;
   .profile-section span {
     font-size: 14px;
   }
+
   .subscritebutton {
-    padding: 8px 16px; /* Slightly reduce padding for smaller screens */
-    font-size: 14px; /* Reduce font size */
-    margin-top: 15px; /* Adjust margin spacing */
-    box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
+    padding: 8px 16px;
+    /* Slightly reduce padding for smaller screens */
+    font-size: 14px;
+    /* Reduce font size */
+    margin-top: 15px;
+    /* Adjust margin spacing */
+    box-shadow: 0 3px 5px red;
+    /* Slightly lighter shadow for smaller screens */
   }
+
   /* Adjust logo size */
   .logo-image {
     width: 180px;
@@ -737,34 +905,41 @@ font-size: 14px;
   .stockmenu {
     margin-top: 30px !important;
     width: 900% !important;
-    height: 190vh; /* Full height on mobile */
+    height: 190vh;
+    /* Full height on mobile */
     gap: 10px;
     transform: translateY(-80%);
     margin-left: -100px;
-   
-    
+
+
   }
+
   .chevron-icon {
     margin-left: -4px;
     font-size: 12px;
-    
-   
-   
+
+
+
   }
-  .mutualstockmenu{
+
+  .mutualstockmenu {
     width: 900% !important;
-    height: 140vh; /* Full height on mobile */
+    height: 140vh;
+    /* Full height on mobile */
     margin-top: 30px;
     gap: 10px;
     transform: translateY(-50%);
     margin-left: -200px;
   }
+
   /* Styling for the divider line */
   .stockmenu::before {
-    content: ""; /* Empty content for the line */
-    background: #ddd; /* Line color */
+    content: "";
+    /* Empty content for the line */
+    background: #ddd;
+    /* Line color */
   }
-  
+
   /* Chevron Icon */
   .chevron-icon {
     margin-left: 5px;
@@ -775,38 +950,50 @@ font-size: 14px;
 
   /* Dropdown menu for user profile */
   .dropdown-menu {
-    min-width: 140px; /* Slightly reduce width */
-    padding: 10px 0; /* Adjust padding */
+    min-width: 140px;
+    /* Slightly reduce width */
+    padding: 10px 0;
+    /* Adjust padding */
     margin-top: -266px;
     margin-left: -100px;
   }
 
   .dropdown-menu li {
-    font-size: 14px; /* Reduce font size */
-    padding: 10px 12px; /* Adjust padding */
+    font-size: 14px;
+    /* Reduce font size */
+    padding: 10px 12px;
+    /* Adjust padding */
   }
 
   .dropdown-icon {
-    font-size: 20px; /* Adjust icon size */
+    font-size: 20px;
+    /* Adjust icon size */
   }
+
   .footer-dropdown {
-    width: 50%; /* Adjust width for tablet view */
-    height: auto; /* Adjust height dynamically */
-    left: 5%; /* Center horizontally */
-    top: 40px; /* Position below the button */
+    width: 50%;
+    /* Adjust width for tablet view */
+    height: auto;
+    /* Adjust height dynamically */
+    left: 5%;
+    /* Center horizontally */
+    top: 40px;
+    /* Position below the button */
   }
 
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 14px; /* Smaller font for mobile view */
-    padding: 8px; /* Adjust padding */
+    font-size: 14px;
+    /* Smaller font for mobile view */
+    padding: 8px;
+    /* Adjust padding */
   }
+
   .footer-icon {
     margin-right: 8px;
     font-size: 25px;
     vertical-align: middle;
     color: #24b676;
   }
-  
 
 
 
@@ -814,28 +1001,29 @@ font-size: 14px;
 
 
 
-  
+
+
   .notificationall {
     position: relative;
     display: inline-block;
     font-family: 'calibri';
   }
-  
+
   .icon.bell-icon {
     font-size: 24px;
     cursor: pointer;
     color: #333;
   }
-  
+
   .icon.bell-icon:hover {
     color: #24b676;
   }
-  
+
   .dropdown-contentnoti {
     position: absolute;
 
     margin-left: -300px;
-  
+
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
@@ -847,7 +1035,7 @@ font-size: 14px;
     margin-top: 10px;
     padding: 15px;
   }
-  
+
   .notification-card {
     display: flex;
     flex-direction: column;
@@ -858,129 +1046,153 @@ font-size: 14px;
     padding: 10px;
     transition: box-shadow 0.3s ease;
   }
-  
+
   .notification-card:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   .notification-header {
     display: flex;
-  
+
   }
-  .notificationall-header{
+
+  .notificationall-header {
     display: flex;
   }
-  
+
   .notification-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .dotnotifyicon {
     font-size: 30px;
-    color:#24b676;
+    color: #24b676;
     margin-left: auto;
     margin-top: 10px;
   }
-  
+
   .notification-details {
     margin-top: 10px;
   }
-  
+
   .notification-title {
     font-size: 16px;
     font-weight: bold;
     margin: 0 0 5px 0;
   }
-  
+
   .notification-date {
     font-size: 15px;
     color: #777;
     margin: 0;
   }
-  
+
   .view-all {
     display: block;
     width: 100%;
     padding: 8px 12px;
     background-color: white;
     color: black;
-    text-decoration: underline; /* Adds underline to the text */
+    text-decoration: underline;
+    /* Adds underline to the text */
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
     cursor: pointer;
-}
+  }
 
-  
- 
-  
+
+
+
 }
 
 
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
+
   /* Adjust logo size for smaller screens */
   .logo-image {
-    width: 150px; /* Reduce logo size */
+    width: 150px;
+    /* Reduce logo size */
   }
 
   .navbar-search input {
-    width: 160px; /* Reduce input width */
+    width: 160px;
+    /* Reduce input width */
     font-size: 12px;
     margin-left: -100px;
     display: block;
   }
+
   /* Adjust navbar logo size */
   .navbar-logo {
-    font-size: 16px; /* Smaller font size */
+    font-size: 16px;
+    /* Smaller font size */
   }
 
   /* Adjust profile section layout */
   .profile-section span {
-    font-size: 12px; /* Smaller font size */
+    font-size: 12px;
+    /* Smaller font size */
   }
+
   .navbar-logo,
   .navbar-icons,
   .profile-section {
     display: flex;
   }
+
   /* Adjust navbar icons */
   .navbar-icons {
-    font-size: 14px; /* Smaller icons */
+    font-size: 14px;
+    /* Smaller icons */
   }
+
   .subscritebutton {
-    padding: 6px 12px; /* Further reduce padding */
-    font-size: 12px; /* Further reduce font size */
-   
-    margin-top: 10px; /* Adjust spacing */
-    box-shadow: 0 2px 4px red; /* Subtle shadow for very small screens */
+    padding: 6px 12px;
+    /* Further reduce padding */
+    font-size: 12px;
+    /* Further reduce font size */
+
+    margin-top: 10px;
+    /* Adjust spacing */
+    box-shadow: 0 2px 4px red;
+    /* Subtle shadow for very small screens */
   }
+
   /* Stock dropdown menu adjustments */
-  
+
   .dropdown-menu {
-    min-width: 140px; /* Slightly reduce width */
-    padding: 10px 0; /* Adjust padding */
+    min-width: 140px;
+    /* Slightly reduce width */
+    padding: 10px 0;
+    /* Adjust padding */
     margin-top: -205px;
     margin-left: -100px;
   }
+
   /* Dropdown menu adjustments */
   .dropdown-menu li {
-    font-size: 12px; /* Smaller font size for dropdown */
-    padding: 8px 10px; /* Reduce padding */
+    font-size: 12px;
+    /* Smaller font size for dropdown */
+    padding: 8px 10px;
+    /* Reduce padding */
   }
 
   /* Adjust button and icon sizes */
   .dropdown-icon {
-    font-size: 18px; /* Smaller icon size */
+    font-size: 18px;
+    /* Smaller icon size */
   }
 
   .chevron-icon {
-    font-size: 12px; /* Smaller chevron icon */
+    font-size: 12px;
+    /* Smaller chevron icon */
   }
 
   /* Adjust footer nav layout */
@@ -988,28 +1200,36 @@ font-size: 14px;
     font-size: 12px;
     margin-left: 0px;
     height: 60px;
-}
+  }
+
   .footer-dropdown {
-    width: 95%; /* Adjust width for smaller screens */
-    height: auto; /* Dynamic height based on content */
-    left: 2.5%; /* Center horizontally */
-    top: 35px; /* Position below the button */
+    width: 95%;
+    /* Adjust width for smaller screens */
+    height: auto;
+    /* Dynamic height based on content */
+    left: 2.5%;
+    /* Center horizontally */
+    top: 35px;
+    /* Position below the button */
   }
 
   .footer-item {
-   font-size: 14px;
+    font-size: 14px;
   }
+
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 12px; /* Even smaller font for smaller screens */
-    padding: 6px; /* Adjust padding */
+    font-size: 12px;
+    /* Even smaller font for smaller screens */
+    padding: 6px;
+    /* Adjust padding */
   }
+
   .footer-icon {
     margin-right: 8px;
     font-size: 23px;
     vertical-align: middle;
     color: #24b676;
   }
-  
 
 
 
@@ -1019,33 +1239,41 @@ font-size: 14px;
 
 
 
-  
+
+
   .notificationall {
     position: relative;
     display: inline-block;
     font-family: 'calibri';
   }
-  
+
   .icon.bell-icon {
     font-size: 24px;
     cursor: pointer;
     color: #333;
   }
-  
+
   .icon.bell-icon:hover {
     color: #24b676;
   }
+
   .stockmenu::before {
-    content: ""; /* Empty content for the line */
+    content: "";
+    /* Empty content for the line */
     position: absolute;
-    height: 85%; /* Adjust line height */
-    width: 1px; /* Thickness of the line */
-    background: #ddd; /* Line color */
-    top: 1.5%; /* Center vertically */
-    left: 50%; /* Place in the middle of the menu */
+    height: 85%;
+    /* Adjust line height */
+    width: 1px;
+    /* Thickness of the line */
+    background: #ddd;
+    /* Line color */
+    top: 1.5%;
+    /* Center vertically */
+    left: 50%;
+    /* Place in the middle of the menu */
     transform: translateX(-50%);
   }
-  
+
   .dropdown-contentnoti {
     position: absolute;
 
@@ -1061,7 +1289,7 @@ font-size: 14px;
     padding: 15px;
     margin-left: -555px;
   }
-  
+
   .notification-card {
     display: flex;
     flex-direction: column;
@@ -1073,98 +1301,108 @@ font-size: 14px;
     transition: box-shadow 0.3s ease;
     width: 330px;
   }
-  
+
   .notification-card:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   .notification-header {
     display: flex;
-  
+
   }
-  .notificationall-header{
+
+  .notificationall-header {
     display: flex;
   }
-  
+
   .notification-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .dotnotifyicon {
     font-size: 30px;
-    color:#24b676;
+    color: #24b676;
     margin-left: auto;
     margin-top: 10px;
   }
-  
+
   .notification-details {
     margin-top: 10px;
   }
-  
+
   .notification-title {
     font-size: 16px;
     font-weight: bold;
     margin: 0 0 5px 0;
   }
-  
+
   .notification-date {
     font-size: 15px;
     color: #777;
     margin: 0;
   }
-  .footer-nav a{
+
+  .footer-nav a {
     font-size: 12px;
   }
-.dropdown-item p {
-  display: none;
-}
+
+  .dropdown-item p {
+    display: none;
+  }
+
   .view-all {
     display: block;
     width: 100%;
     padding: 8px 12px;
     background-color: white;
     color: black;
-    text-decoration: underline; /* Adds underline to the text */
+    text-decoration: underline;
+    /* Adds underline to the text */
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
     cursor: pointer;
-}
+  }
 
-  
- 
-  
-  
+
+
+
+
 }
 
 /*Dark mode CSS*/
 
-.searchdarkerrrmodeicon{
+.searchdarkerrrmodeicon {
   position: absolute;
-  left: 975px; /* Position on the left side inside input */
+  left: 975px;
+  /* Position on the left side inside input */
   top: 52%;
   transform: translateY(-50%);
   color: #ffff;
-  font-size: 14px; /* Adjust icon size */
+  font-size: 14px;
+  /* Adjust icon size */
 }
+
 /* Dropdown menu hidden by default */
 .dropdown-menudarkerrmode {
   position: absolute;
-  top: 100%; /* Position it below the link */
+  top: 100%;
+  /* Position it below the link */
   left: 0;
-  display: none; /* Hidden by default */
-  background-color:#292F42;
+  display: none;
+  /* Hidden by default */
+  background-color: #292F42;
   border: 1px solid #ddd;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   min-width: 200px;
   padding: 10px 0;
   z-index: 10;
- 
+
   gap: 20px;
 }
 
@@ -1190,22 +1428,27 @@ font-size: 14px;
 
 .dropdown-itemdarkerrmode a {
   color: white;
-  text-decoration: none; /* Optional: Removes underline */
+  text-decoration: none;
+  /* Optional: Removes underline */
 }
 
 .dropdown-itemdarkerrmode a:hover {
-  color: #ccc; /* Optional: Light gray on hover */
+  color: #ccc;
+  /* Optional: Light gray on hover */
 }
 
 
 /* Hover effect for the paragraph */
 .dropdown-itemdarkerrmode:hover p {
-  color: white; /* Match paragraph text color to link */
+  color: white;
+  /* Match paragraph text color to link */
 }
+
 /* Show Dropdown on Hover or Focus */
 .portfolio-dropdown:hover .dropdown-menudarkerrmode,
 .portfolio-dropdown:focus-within .dropdown-menudarkerrmode {
-  display: block; /* Make dropdown visible */
+  display: block;
+  /* Make dropdown visible */
 }
 
 /* Dropdown Items */
@@ -1215,6 +1458,7 @@ font-size: 14px;
   cursor: pointer;
   color: #ffff;
 }
+
 .dropdown-itemdarkerrmode a {
   color: #FFFFFF;
 }
@@ -1223,8 +1467,9 @@ font-size: 14px;
   background-color: #24b676;
   color: white;
 }
+
 .dropdown-itemdarkerrmode p:hover {
-  
+
   color: white;
 }
 
@@ -1236,7 +1481,7 @@ font-size: 14px;
 
 
 
- .dropdown-itemdarkerrmode p {
+.dropdown-itemdarkerrmode p {
   font-size: 12px;
   color: #ffff;
   margin: 5px 0 0;
@@ -1254,58 +1499,78 @@ font-size: 14px;
   background-color: #292F42;
   border-bottom: 1px solid #e0e0e0;
   font-family: 'Calibri', sans-serif;
-  position: fixed; /* Fix the navbar to the top */
-  top: 0; /* Align it to the top of the viewport */
-  left: 0; /* Align it to the left */
-  right: 0; /* Align it to the right */
+  position: fixed;
+  /* Fix the navbar to the top */
+  top: 0;
+  /* Align it to the top of the viewport */
+  left: 0;
+  /* Align it to the left */
+  right: 0;
+  /* Align it to the right */
   z-index: 1000;
 }
 
 /* Stock dropdown menu */
 .stockmenudarkerrrrmode {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns */
   background: #292F42;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 100%; /* Position it just below the menu */
+  top: 100%;
+  /* Position it just below the menu */
   /* Align it relative to the "Stocks" button */
-  transform: translateX(-50%); /* Center align */
+  transform: translateX(-50%);
+  /* Center align */
   z-index: 10;
   padding: 25px;
-  width: 550px; /* Adjust dropdown width */
+  width: 550px;
+  /* Adjust dropdown width */
   gap: 20px;
 }
-.mutualstockmenudarkerrrrmode{
+
+.mutualstockmenudarkerrrrmode {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-columns: repeat(2, 1fr);
+  /* Two columns */
   background: #292F42;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: 100%; /* Position it just below the menu */
+  top: 100%;
+  /* Position it just below the menu */
   /* Align it relative to the "Stocks" button */
-  transform: translateX(-50%); /* Center align */
+  transform: translateX(-50%);
+  /* Center align */
   z-index: 10;
   padding: 25px;
-  width: 550px; /* Adjust dropdown width */
+  width: 550px;
+  /* Adjust dropdown width */
   gap: 20px;
 }
- 
+
 
 .stockmenudarkerrrrmode::before {
-  content: ""; /* Empty content for the line */
+  content: "";
+  /* Empty content for the line */
   position: absolute;
-  height: 85%; /* Adjust line height */
-  width: 1px; /* Thickness of the line */
-  background: #333; /* Line color */
-  top: 7.5%; /* Center vertically */
-  left: 50%; /* Place in the middle of the menu */
+  height: 85%;
+  /* Adjust line height */
+  width: 1px;
+  /* Thickness of the line */
+  background: #333;
+  /* Line color */
+  top: 7.5%;
+  /* Center vertically */
+  left: 50%;
+  /* Place in the middle of the menu */
   transform: translateX(-50%);
 }
+
 /* Dropdown Columns */
 .stockmenu-columndarkerrrrmode ul {
   list-style: none;
@@ -1328,7 +1593,7 @@ font-size: 14px;
   color: #24b676;
   font-size: 14px;
   transition: transform 0.3s ease;
- 
+
 }
 
 /* Navigation links */
@@ -1357,22 +1622,25 @@ font-size: 14px;
 }
 
 .navbar-search input {
-  padding: 10px 2px 6px 30px; /* Add padding to make space for the icon */
+  padding: 10px 2px 6px 30px;
+  /* Add padding to make space for the icon */
   border-radius: 6px;
   border: 1px solid #333333;
   font-size: 12px;
-  
+
   height: 35px;
 }
 
 /* Search icon */
 .search-icon {
   position: absolute;
-  left: 10px; /* Position on the left side inside input */
+  left: 10px;
+  /* Position on the left side inside input */
   top: 50%;
   transform: translateY(-50%);
   color: #333333;
-  font-size: 14px; /* Adjust icon size */
+  font-size: 14px;
+  /* Adjust icon size */
 }
 
 /* Icons section */
@@ -1388,9 +1656,11 @@ font-size: 14px;
   cursor: pointer;
 
 }
+
 .profile-section span {
   text-decoration: none;
 }
+
 .profile-section {
   display: flex;
   align-items: center;
@@ -1404,43 +1674,75 @@ font-size: 14px;
 
 /* Dropdown menu for user profile */
 .dropdown-menudarkerrmode {
-  position: absolute; /* Position the dropdown below the icon */
-  right: 0; /* Align to the right */
-  top: 100%; /* Position it just below the icon */
-  background-color: #292F42; /* Background color for dropdown */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 200px; /* Set a minimum width for the dropdown */
+  position: absolute;
+  /* Position the dropdown below the icon */
+  right: 0;
+  /* Align to the right */
+  top: 100%;
+  /* Position it just below the icon */
+  background-color: #292F42;
+  /* Background color for dropdown */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 200px;
+  /* Set a minimum width for the dropdown */
 }
-.user-menudarkerrmode{
-  position: absolute; /* Position the dropdown below the icon */
-  right: 0; /* Align to the right */
-  top: 100%; /* Position it just below the icon */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 160px; /* Set a minimum width for the dropdown */
+
+.user-menudarkerrmode {
+  position: absolute;
+  /* Position the dropdown below the icon */
+  right: 0;
+  /* Align to the right */
+  top: 100%;
+  /* Position it just below the icon */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 160px;
+  /* Set a minimum width for the dropdown */
   margin-right: 20px;
   background-color: #292F42;
 
 }
-.learn-menudarkerrrrmode{
-  position: absolute; /* Position the dropdown below the icon */
-  top: 100%; /* Position it just below the icon */
-  border: 1px solid #ddd; /* Border for dropdown */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  list-style: none; /* Remove default list styles */
-  padding: 15px 0; /* Increased vertical spacing */
-  margin: 0; /* Remove margin */
-  z-index: 1000; /* Ensure dropdown appears above other elements */
-  min-width: 210px; /* Set a minimum width for the dropdown */
+
+.learn-menudarkerrrrmode {
+  position: absolute;
+  /* Position the dropdown below the icon */
+  top: 100%;
+  /* Position it just below the icon */
+  border: 1px solid #ddd;
+  /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* Optional shadow */
+  list-style: none;
+  /* Remove default list styles */
+  padding: 15px 0;
+  /* Increased vertical spacing */
+  margin: 0;
+  /* Remove margin */
+  z-index: 1000;
+  /* Ensure dropdown appears above other elements */
+  min-width: 210px;
+  /* Set a minimum width for the dropdown */
   margin-right: 20px;
   background-color: #292F42;
 
@@ -1448,68 +1750,108 @@ font-size: 14px;
 
 /* Dropdown items */
 .dropdown-menudarkerrmode li {
-  display: flex; /* Use flex to align icon and text */
+  display: flex;
+  /* Use flex to align icon and text */
   align-items: center;
-  padding: 12px 16px; /* Increased spacing for dropdown items */
-  font-size: 16px; /* Increase font size for better readability */
+  padding: 12px 16px;
+  /* Increased spacing for dropdown items */
+  font-size: 16px;
+  /* Increase font size for better readability */
 }
-.profile-section li{
+
+.profile-section li {
   list-style-type: none;
 }
 
 
 .dropdown-menudarkerrmode li:hover {
-  background-color: #f0f0f0; /* Change background on hover */
+  background-color: #f0f0f0;
+  /* Change background on hover */
 }
 
 .dropdown-menudarkerrmode a {
-  text-decoration: none; /* Remove underline from links */
-  color: white; /* Link color */
-  display: block; /* Make the entire area clickable */
+  text-decoration: none;
+  /* Remove underline from links */
+  color: white;
+  /* Link color */
+  display: block;
+  /* Make the entire area clickable */
 }
 
 /* Icon in dropdown menu */
 .dropdown-icondarkerrrmode {
-  margin-right: 8px; /* Space between icon and text */
-  font-size: 25px; /* Adjust icon size */
-  color: #ffff; /* Icon color */
+  margin-right: 8px;
+  /* Space between icon and text */
+  font-size: 25px;
+  /* Adjust icon size */
+  color: #ffff;
+  /* Icon color */
 }
+
 /* Footer styling for navbar links on mobile */
 .footer-nav {
-  display: none; /* Flex layout for horizontal arrangement */
-  justify-content: space-around; /* Even spacing around items */
-  position: fixed; /* Fix it to the bottom of the viewport */
-  bottom: 0; /* Align to the bottom */
-  left: 0; /* Stretch from left */
-  width: 100%; /* Full width */
-  padding: 10px 0; /* Padding for comfortable touch area */
-  background-color: #fff; /* Background color */
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-  z-index: 1000; /* Ensure it appears above other elements */
-  border-top: 1px solid #e0e0e0; /* Optional border for separation */
-  list-style: none; /* Remove default list styles */
+  display: none;
+  /* Flex layout for horizontal arrangement */
+  justify-content: space-around;
+  /* Even spacing around items */
+  position: fixed;
+  /* Fix it to the bottom of the viewport */
+  bottom: 0;
+  /* Align to the bottom */
+  left: 0;
+  /* Stretch from left */
+  width: 100%;
+  /* Full width */
+  padding: 10px 0;
+  /* Padding for comfortable touch area */
+  background-color: #fff;
+  /* Background color */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for elevation */
+  z-index: 1000;
+  /* Ensure it appears above other elements */
+  border-top: 1px solid #e0e0e0;
+  /* Optional border for separation */
+  list-style: none;
+  /* Remove default list styles */
   font-family: 'calibri';
- 
+
 }
+
 .footer-item {
   display: flex;
-  flex-direction: column; /* Arrange icon and label vertically */
-  align-items: center; /* Center align items */
-  gap: 5px; /* Space between icon and label */
+  flex-direction: column;
+  /* Arrange icon and label vertically */
+  align-items: center;
+  /* Center align items */
+  gap: 5px;
+  /* Space between icon and label */
   font-family: 'calibri';
 }
+
 .footer-item.selected {
-  color: #fff; /* Text color */
-  background-color: #24b676; /* Highlighted background */
-  padding: 5px 5px; /* Inner spacing */
-  border-radius: 50%; /* Circular appearance */
-  margin-bottom: 10px; /* Space below the selected item */
-  box-shadow: 0px 4px 6px #a9e8c2; /* Add subtle shadow for depth */
-  border: 5px solid #a9e8c2; /* Light color border */
-  display: flex; /* Align icon and text */
-  flex-direction: column; /* Stack icon and text */
-  align-items: center; /* Center alignment */
-  gap: 0; /* Remove any spacing between icon and text */
+  color: #fff;
+  /* Text color */
+  background-color: #24b676;
+  /* Highlighted background */
+  padding: 5px 5px;
+  /* Inner spacing */
+  border-radius: 50%;
+  /* Circular appearance */
+  margin-bottom: 10px;
+  /* Space below the selected item */
+  box-shadow: 0px 4px 6px #a9e8c2;
+  /* Add subtle shadow for depth */
+  border: 5px solid #a9e8c2;
+  /* Light color border */
+  display: flex;
+  /* Align icon and text */
+  flex-direction: column;
+  /* Stack icon and text */
+  align-items: center;
+  /* Center alignment */
+  gap: 0;
+  /* Remove any spacing between icon and text */
   font-family: 'calibri';
 }
 
@@ -1523,51 +1865,81 @@ font-size: 14px;
 }
 
 
-.footerportfolio-icon{
-  font-size: 20px; /* Icon size */
- 
+.footerportfolio-icon {
+  font-size: 20px;
+  /* Icon size */
+
 }
+
 .footer-nav a:hover {
   color: #6ee9b4;
 }
-.navbar-linksdarkerrrrmode > li > a{
+
+.navbar-linksdarkerrrrmode>li>a {
   color: #24b676;
 }
-.navbar-linksdarkerrrrmode > li > a:hover {
-  color:  #1d9d5b; /* Change navbar link color on hover */
+
+.navbar-linksdarkerrrrmode>li>a:hover {
+  color: #1d9d5b;
+  /* Change navbar link color on hover */
 }
 
 .dropdown-item a:hover {
-  color: white; /* Change dropdown link color on hover */
+  color: white;
+  /* Change dropdown link color on hover */
 }
+
 .subscritebutton {
-  display: inline-block; /* Makes it behave like a button */
-  padding: 10px 20px; /* Adds padding for clickability */
-  font-size: 16px; /* Adjust font size */
-  font-weight: bold; /* Make text bold */
-  color: white; /* Text color */
-  border: 1px solid ; /* Border styling */
-  border-radius: 5px; /* Rounded corners */
-  background: linear-gradient(90deg,#24b676,#24b676); /* Gradient background */
-  cursor: pointer; /* Pointer cursor for interactivity */
-  text-align: center; /* Centers text */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  margin-top: 20px; /* Keeps margin for spacing */
-  box-shadow: 0 4px 6px red; /* Adds subtle shadow */
+  display: inline-block;
+  /* Makes it behave like a button */
+  padding: 10px 20px;
+  /* Adds padding for clickability */
+  font-size: 16px;
+  /* Adjust font size */
+  font-weight: bold;
+  /* Make text bold */
+  color: white;
+  /* Text color */
+  border: 1px solid;
+  /* Border styling */
+  border-radius: 5px;
+  /* Rounded corners */
+  background: linear-gradient(90deg, #24b676, #24b676);
+  /* Gradient background */
+  cursor: pointer;
+  /* Pointer cursor for interactivity */
+  text-align: center;
+  /* Centers text */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effects */
+  margin-top: 20px;
+  /* Keeps margin for spacing */
+  box-shadow: 0 4px 6px red;
+  /* Adds subtle shadow */
 }
 
 .subscritebutton:hover {
-  background: linear-gradient(90deg,  red,rgb(208, 11, 11)); /* Gradient background */
-  color: white; /* Ensures white text on hover */
-  border-color:  red; /* Matches border with gradient color */
-  box-shadow: 0 4px 6px  rgb(111, 5, 5); /* Adds hover shadow effect */
-  transform: translateY(-2px); /* Slight lift on hover */
+  background: linear-gradient(90deg, red, rgb(208, 11, 11));
+  /* Gradient background */
+  color: white;
+  /* Ensures white text on hover */
+  border-color: red;
+  /* Matches border with gradient color */
+  box-shadow: 0 4px 6px rgb(111, 5, 5);
+  /* Adds hover shadow effect */
+  transform: translateY(-2px);
+  /* Slight lift on hover */
 }
+
 .subscritebutton:active {
-  background: red; /* Darker green on click */
-  box-shadow: none; /* Removes shadow when clicked */
-  transform: translateY(0); /* Restores position */
+  background: red;
+  /* Darker green on click */
+  box-shadow: none;
+  /* Removes shadow when clicked */
+  transform: translateY(0);
+  /* Restores position */
 }
+
 .footer-dropdown {
   position: absolute;
   background-color: #fff;
@@ -1575,7 +1947,8 @@ font-size: 14px;
   border-radius: 5px;
   z-index: 1000;
   padding: 10px;
-  display: none; /* Hide by default */
+  display: none;
+  /* Hide by default */
   font-family: 'calibri';
 }
 
@@ -1614,7 +1987,7 @@ font-size: 14px;
 
 .dropdown-content {
   position: absolute;
- left: -350px;
+  left: -350px;
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
@@ -1646,7 +2019,8 @@ font-size: 14px;
   display: flex;
 
 }
-.notificationall-header{
+
+.notificationall-header {
   display: flex;
 }
 
@@ -1659,7 +2033,7 @@ font-size: 14px;
 
 .dotnotifyicon {
   font-size: 30px;
-  color:#24b676;
+  color: #24b676;
   margin-left: auto;
   margin-top: 10px;
 }
@@ -1686,7 +2060,8 @@ font-size: 14px;
   padding: 8px 12px;
   background-color: white;
   color: black;
-  text-decoration: underline; /* Adds underline to the text */
+  text-decoration: underline;
+  /* Adds underline to the text */
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -1695,78 +2070,84 @@ font-size: 14px;
   cursor: pointer;
 }
 
-.willamnamedarkmode{
+.willamnamedarkmode {
   margin-bottom: 50px;
   color: white;
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-.subscritebutton {
-  /* display: inline-block; */
-  padding: 10px 13px;
-   font-size: 12px;
-  font-weight: bold;
-  color: white;
-  border: 1px solid;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #24b676, #24b676);
-  cursor: pointer;
-  text-align: center;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-  box-shadow: 0 4px 6px red;
-}
-.navbar-icons {
-  display: flex
-;
-  align-items: center;
-  gap: 2px;
-}
-.icon.bell-icon {
-  font-size: 20px;
-  cursor: pointer;
-  color: #333;
-}
-.chevron-icon {
-  margin-left: 5px;
-  color: #24b676;
-   font-size: 10px; 
-  transition: transform 0.3s ease;
+  .subscritebutton {
+    /* display: inline-block; */
+    padding: 10px 13px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #24b676, #24b676);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px red;
+  }
 
-}
-.landingnavbar-buttonregister-button {
-  background-color: transparent;
-  color: #24b676;
-  padding: 8px 10px;
-  border: 1px solid #24b676;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: 'calibri';
-  font-size: 15px;
-  font-weight: 600;
-}
-.navbar-links {
-  gap: 20px;
-}
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
 
-.navbar-search input {
-  padding: 6px 2px 6px 30px;
-  border-radius: 6px;
-  border: 1px solid #333333;
-  font-size: 12px;
-  height: 30px;
-  width: 115px;
-}
-.landingnavbar-icons {
-    display: flex
-;
+  .icon.bell-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+  }
+
+  .chevron-icon {
+    margin-left: 5px;
+    color: #24b676;
+    font-size: 10px;
+    transition: transform 0.3s ease;
+
+  }
+
+  .landingnavbar-buttonregister-button {
+    background-color: transparent;
+    color: #24b676;
+    padding: 8px 10px;
+    border: 1px solid #24b676;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'calibri';
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .navbar-links {
+    gap: 20px;
+  }
+
+  .navbar-search input {
+    padding: 6px 2px 6px 30px;
+    border-radius: 6px;
+    border: 1px solid #333333;
+    font-size: 12px;
+    height: 30px;
+    width: 115px;
+  }
+
+  .landingnavbar-icons {
+    display: flex;
     align-items: center;
     gap: 5px;
     font-family: 'calibri';
+  }
 }
-}
+
 /* For screens 480px and below */
 @media (max-width: 768px) {
+
   /* Show navbar logo, and dropdown icon on mobile */
   .navbar-logo,
   .navbar-icons,
@@ -1775,11 +2156,10 @@ font-size: 14px;
   }
 
   .footer-nav {
-    display: flex
-;
+    display: flex;
     height: 70px;
     margin-bottom: 0px;
-}
+  }
 
   /* Hide search input on mobile */
   .navbar-search {
@@ -1790,13 +2170,19 @@ font-size: 14px;
   .profile-section span {
     font-size: 14px;
   }
+
   .subscritebutton {
-    padding: 8px 16px; /* Slightly reduce padding for smaller screens */
-    font-size: 14px; /* Reduce font size */
-    margin-top: 15px; /* Adjust margin spacing */
-    box-shadow: 0 3px 5px red; /* Slightly lighter shadow for smaller screens */
+    padding: 8px 16px;
+    /* Slightly reduce padding for smaller screens */
+    font-size: 14px;
+    /* Reduce font size */
+    margin-top: 15px;
+    /* Adjust margin spacing */
+    box-shadow: 0 3px 5px red;
+    /* Slightly lighter shadow for smaller screens */
     margin-left: 300px;
   }
+
   /* Adjust logo size */
   .logo-image {
     width: 180px;
@@ -1804,67 +2190,118 @@ font-size: 14px;
 
   /* Stock dropdown menu */
   .stockmenu {
-    
-    width: 530%;
-   
-    gap: 10px;
-    transform: translateY(-50%);
+    position: absolute;
+    top: -96px;/* You should remove this or bottom, not both */
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: 250px;
+    overflow-y: auto;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    scrollbar-color: #24b676 #f0f0f0; /* thumb and track */
+  scrollbar-width: thin;
   }
-  .mutualstockmenu{
-    width: 600%;
-    height: 130vh; /* Full height on mobile */
-    gap: 10px;
-    transform: translateY(-50%);
+  
+  /* Custom scrollbar */
+  .stockmenu::-webkit-scrollbar {
+    width: 8px;
   }
+  
+  .stockmenu::-webkit-scrollbar-thumb {
+    background-color: #24b676;
+    border-radius: 4px;
+  }
+  
+  .stockmenu::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+  
+
+  .mutualstockmenu {
+    position: absolute;
+    top: -181px;/* You should remove this or bottom, not both */
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: 250px;
+    overflow-y: auto;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    scrollbar-color: #24b676 #f0f0f0; /* thumb and track */
+  scrollbar-width: thin;
+  }
+
   .learn-menu {
     min-width: 180px;
     padding: 10px 0;
     margin-top: -447px;
     margin-left: -50px;
-}
+  }
+
   /* Styling for the divider line */
   .stockmenu::before {
-    content: ""; /* Empty content for the line */
-    background: #ddd; /* Line color */
+    content: "";
+    /* Empty content for the line */
+    background: #ddd;
+    /* Line color */
   }
-  
+
   /* Chevron Icon */
   .chevron-icon {
     margin-left: -4px;
-   
+
     font-size: 11px;
     transition: transform 0.3s ease;
   }
 
   /* Dropdown menu for user profile */
-  
+
 
   .dropdown-menu li {
-    font-size: 14px; /* Reduce font size */
-    padding: 10px 12px; /* Adjust padding */
+    font-size: 14px;
+    /* Reduce font size */
+    padding: 10px 12px;
+    /* Adjust padding */
   }
 
   .dropdown-icon {
-    font-size: 20px; /* Adjust icon size */
+    font-size: 20px;
+    /* Adjust icon size */
   }
+
   .footer-dropdown {
-    width: 50%; /* Adjust width for tablet view */
-    height: auto; /* Adjust height dynamically */
-    left: 5%; /* Center horizontally */
-    top: 40px; /* Position below the button */
+    width: 50%;
+    /* Adjust width for tablet view */
+    height: auto;
+    /* Adjust height dynamically */
+    left: 5%;
+    /* Center horizontally */
+    top: 40px;
+    /* Position below the button */
   }
 
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 14px; /* Smaller font for mobile view */
-    padding: 8px; /* Adjust padding */
+    font-size: 14px;
+    /* Smaller font for mobile view */
+    padding: 8px;
+    /* Adjust padding */
   }
+
   .footer-icon {
     margin-right: 8px;
     font-size: 25px;
     vertical-align: middle;
     color: #24b676;
   }
-  
 
 
 
@@ -1872,27 +2309,28 @@ font-size: 14px;
 
 
 
-  
+
+
   .notificationall {
     position: relative;
     display: inline-block;
     font-family: 'calibri';
   }
-  
+
   .icon.bell-icon {
     font-size: 24px;
     cursor: pointer;
     color: #333;
     margin-left: 10px;
   }
-  
+
   .icon.bell-icon:hover {
     color: #24b676;
   }
-  
+
   .dropdown-content {
     position: absolute;
-   
+
     background-color: #fff;
     border: 1px solid #eaeaea;
     border-radius: 8px;
@@ -1904,7 +2342,7 @@ font-size: 14px;
     margin-top: 10px;
     padding: 15px;
   }
-  
+
   .notification-card {
     display: flex;
     flex-direction: column;
@@ -1915,88 +2353,94 @@ font-size: 14px;
     padding: 10px;
     transition: box-shadow 0.3s ease;
   }
-  
+
   .notification-card:hover {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   .notification-header {
     display: flex;
-  
+
   }
-  .notificationall-header{
+
+  .notificationall-header {
     display: flex;
   }
-  
+
   .notification-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .dotnotifyicon {
     font-size: 30px;
-    color:#24b676;
+    color: #24b676;
     margin-left: auto;
     margin-top: 10px;
   }
-  
+
   .notification-details {
     margin-top: 10px;
   }
-  
+
   .notification-title {
     font-size: 16px;
     font-weight: bold;
     margin: 0 0 5px 0;
   }
-  
+
   .notification-date {
     font-size: 15px;
     color: #777;
     margin: 0;
   }
-  
+
   .view-all {
     display: block;
     width: 100%;
     padding: 8px 12px;
     background-color: white;
     color: black;
-    text-decoration: underline; /* Adds underline to the text */
+    text-decoration: underline;
+    /* Adds underline to the text */
     border: none;
     border-radius: 5px;
     text-align: center;
     font-size: 14px;
     margin-top: 10px;
     cursor: pointer;
-}
+  }
 
-  
- 
-  
+
+
+
 }
 
 
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
-  .subscritebutton{
+  .subscritebutton {
     display: block;
   }
+
   /* Adjust logo size for very small screens */
   .logo-image {
-    width: 110px !important; /* Further reduce logo size */
+    width: 110px !important;
+    /* Further reduce logo size */
   }
 
   /* Adjust navbar logo size */
   .navbar-logo {
-    font-size: 14px; /* Smaller font size */
+    font-size: 14px;
+    /* Smaller font size */
   }
 
   /* Adjust profile section layout */
   .profile-section span {
-    font-size: 10px !important; /* Smaller font size */
+    font-size: 10px !important;
+    /* Smaller font size */
   }
 
   .navbar-logo,
@@ -2007,14 +2451,19 @@ font-size: 14px;
 
   /* Adjust navbar icons */
   .navbar-icons {
-    font-size: 12px; /* Smaller icons */
+    font-size: 12px;
+    /* Smaller icons */
   }
 
   .subscritebutton {
-    padding: 4px 10px; /* Further reduce padding */
-    font-size: 10px; /* Further reduce font size */
-    margin-top: 8px; /* Adjust spacing */
-    box-shadow: 0 1px 3px red; /* Subtle shadow */
+    padding: 4px 10px;
+    /* Further reduce padding */
+    font-size: 10px;
+    /* Further reduce font size */
+    margin-top: 8px;
+    /* Adjust spacing */
+    box-shadow: 0 1px 3px red;
+    /* Subtle shadow */
     display: block;
     margin-left: 0px;
   }
@@ -2025,51 +2474,61 @@ font-size: 14px;
     height: 202vh;
     position: absolute;
     left: 40px;
-   bottom: 30%;
+    bottom: 30%;
     transform: translateY(-25%);
     gap: 4px;
-  
-   
-}
-.mutualstockmenu::before {
-  content: "";
-  position: absolute;
-  height: 85%;
-  width: 1px;
-  background: #ddd;
-  top: 1.5%;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-.mutualstockmenu {
-  width: 200px !important;
-  height: 100vh;
-  gap: 8px;
-  transform: translateY(-43%);
-  left: 0px;
-}
-.learn-menu {
-  min-width: 180px;
-  padding: 10px 0;
-  margin-top: -288px;
-  margin-left: -140px;
-}
+
+  }
+
+  .mutualstockmenu::before {
+    content: "";
+    position: absolute;
+    height: 85%;
+    width: 1px;
+    background: #ddd;
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mutualstockmenu {
+    width: 200px !important;
+    height: 100vh;
+    gap: 8px;
+    transform: translateY(-43%);
+    left: 0px;
+  }
+
+  .learn-menu {
+    min-width: 180px;
+    padding: 10px 0;
+    margin-top: -288px;
+    margin-left: -140px;
+  }
+
   /* Dropdown menu adjustments */
   .dropdown-menu li {
-    font-size: 10px; /* Smaller font size for dropdown */
-    padding: 6px 8px; /* Reduce padding */
+    font-size: 10px;
+    /* Smaller font size for dropdown */
+    padding: 6px 8px;
+    /* Reduce padding */
   }
 
   /* Adjust button and icon sizes */
   .dropdown-icon {
-    font-size: 16px; /* Smaller icon size */
+    font-size: 16px;
+    /* Smaller icon size */
   }
-  .chevron-Portfolioicon{
-  font-size: 10px; /* Smaller chevron icon */
-}
+
+  .chevron-Portfolioicon {
+    font-size: 10px;
+    /* Smaller chevron icon */
+  }
+
   .chevron-icon {
-    font-size: 10px; /* Smaller chevron icon */
+    font-size: 10px;
+    /* Smaller chevron icon */
   }
 
   /* Adjust footer nav layout */
@@ -2077,17 +2536,22 @@ font-size: 14px;
     font-size: 10px;
     height: 68px;
     margin-bottom: 0px;
-}
+  }
 
   .footer-dropdown {
-    width: 90%; /* Adjust width for smaller screens */
-    left: 5%; /* Center horizontally */
-    top: 30px; /* Position below the button */
+    width: 90%;
+    /* Adjust width for smaller screens */
+    left: 5%;
+    /* Center horizontally */
+    top: 30px;
+    /* Position below the button */
   }
 
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 10px; /* Smaller font for smaller screens */
-    padding: 5px; /* Adjust padding */
+    font-size: 10px;
+    /* Smaller font for smaller screens */
+    padding: 5px;
+    /* Adjust padding */
   }
 
   .footer-icon {
@@ -2137,11 +2601,12 @@ font-size: 14px;
     font-size: 12px;
     padding: 6px 10px;
   }
+
   span.willamname {
     font-size: 9px !important;
     width: 10px;
 
-   
+
   }
 
 
@@ -2152,36 +2617,42 @@ font-size: 14px;
   .navbar-links {
     gap: 20px;
   }
+
   .stockmenu,
   .mutualstockmenu {
     width: 500px;
   }
+
   .body {
     overflow-x: hidden;
   }
 }
- 
- 
+
+
 
 
 /* Additional styles for 480px and below */
 @media (max-width: 480px) {
-  .subscritebutton{
+  .subscritebutton {
     display: block;
   }
+
   /* Adjust logo size for very small screens */
   .logo-image {
-    width: 110px !important; /* Further reduce logo size */
+    width: 110px !important;
+    /* Further reduce logo size */
   }
 
   /* Adjust navbar logo size */
   .navbar-logo {
-    font-size: 14px; /* Smaller font size */
+    font-size: 14px;
+    /* Smaller font size */
   }
 
   /* Adjust profile section layout */
   .profile-section span {
-    font-size: 10px !important; /* Smaller font size */
+    font-size: 10px !important;
+    /* Smaller font size */
   }
 
   .navbar-logo,
@@ -2192,74 +2663,94 @@ font-size: 14px;
 
   /* Adjust navbar icons */
   .navbar-icons {
-    font-size: 12px; /* Smaller icons */
+    font-size: 12px;
+    /* Smaller icons */
   }
 
   .subscritebutton {
-    padding: 4px 10px; /* Further reduce padding */
-    font-size: 10px; /* Further reduce font size */
-    margin-top: 8px; /* Adjust spacing */
-    box-shadow: 0 1px 3px red; /* Subtle shadow */
+    padding: 4px 10px;
+    /* Further reduce padding */
+    font-size: 10px;
+    /* Further reduce font size */
+    margin-top: 8px;
+    /* Adjust spacing */
+    box-shadow: 0 1px 3px red;
+    /* Subtle shadow */
     display: block;
     margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */
   .stockmenu {
-    width: 550% !important;
-    height: 212vh;
     position: absolute;
-    left: 40px;
-   bottom: 30%;
-    transform: translateY(-25%);
-    gap: 4px;
-  
-   
-}
-.dropdown-item {
-  padding: 10px 10px;
-  text-align: left;
-  cursor: pointer;
-}
-.mutualstockmenu::before {
-  content: "";
-  position: absolute;
-  height: 85%;
-  width: 1px;
-  background: #ddd;
-  top: 1.5%;
-  left: 50%;
-  transform: translateX(-50%);
+    top: -252px;
+    bottom: 60px;
+    left: 10px;
+    right: 10px;
+    width: auto;
+    height: 250px;
+    overflow-y: hidden;
+    padding: 15px;
+  }
+
+  .dropdown-item {
+    padding: 10px 10px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mutualstockmenu::before {
+    content: "";
+    position: absolute;
+    height: 85%;
+    width: 1px;
+    background: #ddd;
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .mutualstockmenu {
+    position: absolute;
+    top: -161px;
+    bottom: 60px;
+    left: 60px;
+    right: 10px;
+    width: auto;
+    height: 180px;
+    overflow-y: hidden;
+    padding: 15px;
 }
 
-.mutualstockmenu {
-  width: 200px !important;
-  height: 90vh;
-  gap: 8px;
-  transform: translateY(-43%);
-  left: 0px;
-}
-.learn-menu {
-  min-width: 180px;
-  padding: 10px 0;
-  margin-top: -288px;
-  margin-left: -140px;
-}
+  .learn-menu {
+    min-width: 180px;
+    padding: 10px 0;
+    margin-top: -288px;
+    margin-left: -140px;
+  }
+
   /* Dropdown menu adjustments */
   .dropdown-menu li {
-    font-size: 10px; /* Smaller font size for dropdown */
-    padding: 6px 8px; /* Reduce padding */
+    font-size: 10px;
+    /* Smaller font size for dropdown */
+    padding: 6px 8px;
+    /* Reduce padding */
   }
 
   /* Adjust button and icon sizes */
   .dropdown-icon {
-    font-size: 16px; /* Smaller icon size */
+    font-size: 16px;
+    /* Smaller icon size */
   }
-  .chevron-Portfolioicon{
-  font-size: 10px; /* Smaller chevron icon */
-}
+
+  .chevron-Portfolioicon {
+    font-size: 10px;
+    /* Smaller chevron icon */
+  }
+
   .chevron-icon {
-    font-size: 10px; /* Smaller chevron icon */
+    font-size: 10px;
+    /* Smaller chevron icon */
   }
 
   /* Adjust footer nav layout */
@@ -2267,17 +2758,22 @@ font-size: 14px;
     font-size: 10px;
     height: 68px;
     margin-bottom: 0px;
-}
+  }
 
   .footer-dropdown {
-    width: 90%; /* Adjust width for smaller screens */
-    left: 5%; /* Center horizontally */
-    top: 30px; /* Position below the button */
+    width: 90%;
+    /* Adjust width for smaller screens */
+    left: 5%;
+    /* Center horizontally */
+    top: 30px;
+    /* Position below the button */
   }
 
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 10px; /* Smaller font for smaller screens */
-    padding: 5px; /* Adjust padding */
+    font-size: 10px;
+    /* Smaller font for smaller screens */
+    padding: 5px;
+    /* Adjust padding */
   }
 
   .footer-icon {
@@ -2328,18 +2824,20 @@ font-size: 14px;
     font-size: 12px;
     padding: 6px 10px;
   }
+
   span.willamname {
     font-size: 10px !important;
     width: 30px;
 
-   
+
   }
+
   .iconuser-icon {
     margin-bottom: -5px;
     font-size: 15px;
     color: black;
     cursor: pointer;
-}
+  }
 }
 
 
@@ -2357,8 +2855,19 @@ font-size: 14px;
     margin-top: 10px;
     padding: 15px;
     margin-left: -585px;
-}
+  }
+
   .notification-card {
     width: 200px;
+  }
+.stockmenu {
+    
+        left: 40px;
+       
+    }
+    .mutualstockmenu {
+     
+     left: 40px;
+      
   }
 }
