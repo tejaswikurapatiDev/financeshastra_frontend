@@ -471,9 +471,44 @@ const MutualWatchlist = ({ children }) => {
   const RenamePopup = () => {
     const [localName, setLocalName] = useState(uiState.newWatchlistName);
 
-    const handleSave = () => {
-      setUiState(prev => ({ ...prev, newWatchlistName: localName }));
-      handleRenameConfirm();
+    const handleSave = async () => {
+      try {
+        const token = Cookies.get("jwtToken");
+        const response = await fetch(`${API_BASE_URL}/Watchlist/renameMutualWatchlist`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            watchlist_id: uiState.renameIndex,
+            name: localName
+          }),
+        });
+
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || `Failed with status: ${response.status}`);
+        }
+
+        setWatchlistState(prev => ({
+          ...prev,
+          list: prev.list.map(w =>
+            w.watchlist_id === uiState.renameIndex
+              ? { ...w, name: localName }
+              : w
+          )
+        }));
+
+        setUiState(prev => ({
+          ...prev,
+          renamePopup: false,
+          renameIndex: null
+        }));
+      } catch (error) {
+        console.error("Rename error:", error);
+        alert(error.message || "Failed to rename watchlist.");
+      }
     };
 
     return (
@@ -806,14 +841,14 @@ const MutualWatchlist = ({ children }) => {
 
 
       <div className="layout">
-      <Sidebar />
-      <div className="main-contentover">
-        <div className="contentover">{children}</div>
-        <div className="oversidefooter">
-          <FooterForAllPage />
+        <Sidebar />
+        <div className="main-contentover">
+          <div className="contentover">{children}</div>
+          <div className="oversidefooter">
+            <FooterForAllPage />
           </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };
