@@ -9,7 +9,7 @@ import linkimg from "../../assest/linkk.svg";
 import twitterimg from "../../assest/twitter.svg";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
-import React, { useState } from "react";
+import React, { useState,useEffect, useRef } from "react";
 import ChatBox from "../Chatbox/Chatbox";
 
 
@@ -18,29 +18,46 @@ const ContactCards = () => {
 
  
   const [showOptions, setShowOptions] = useState(false);
-
+  const dropdownRef = useRef(null); 
   const socialLinks = [
     {
       img: linkimg,
-      url: "https://www.linkedin.com/company/FinanceShastra",
+      url: "https://www.linkedin.com/company/financeshastra/",
       label: "LinkedIn",
     },
     {
       img: instaimg,
-      url: "https://www.instagram.com/FinanceShastra/",
+      url: "https://www.instagram.com/financeshastra_official",
       label: "Instagram",
     },
     {
       img: twitterimg,
-      url: "https://twitter.com/FinanceShastra",
+      url: "https://x.com/FinanceShastra",
       label: "Twitter",
     },
   ];
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
+  const handleEmailClick = () => {
+    const a = document.createElement('a');
+    a.href = "mailto:info@financeshastra.com";
+    a.click();
+  };
   const handleChatClick = () => {
     setIsChatOpen(!isChatOpen); // Toggle the chatbox visibility
   };
+
   return (
     <div className="contacthelpcarddds">
          <div className="headercontactttimagehelpcenter">
@@ -59,7 +76,7 @@ const ContactCards = () => {
       <div className="cardshelpcenter">
         {/* Email Us Card */}
         <div className="cardhelpcenter">
-          <div className="cardhelpcenter-icon"><img src={emailimg}/></div> {/* Replace with an actual icon component */}
+          <div className="cardhelpcenter-icon"><img src={emailimg}/></div> 
           <h3>Email Us at</h3>
           <h4>info@financeshastra.com</h4>
           <p>Accessible 24/7 for users</p>
@@ -70,6 +87,7 @@ const ContactCards = () => {
   >
     Send Email →
   </button>
+ 
         </div>
 
         {/* Connect with Us Card */}
@@ -98,59 +116,62 @@ const ContactCards = () => {
 
         {/* Social Media Card */}
         <div className="cardhelpcenter">
-          <div className="cardhelpcenter-icon"><img src={instaimg}/>
-          <img src={linkimg}/>
-          <img src={twitterimg}/></div> 
-          <h3>@ FinanceShastra on<br/> Social media</h3>
-          <p>Reach out to our social media team for assistance.</p>
-          <div style={{ position: "relative", display: "inline-block" }}>
-      <button
-        onClick={() => setShowOptions(!showOptions)}
-       
+      <div className="cardhelpcenter-icon">
+        <img src={instaimg} />
+        <img src={linkimg} />
+        <img src={twitterimg} />
+      </div>
+      <h3>@ FinanceShastra on<br />Social media</h3>
+      <p>Reach out to our social media team for assistance.</p>
+
+      {/* ⬇️ Wrap button & dropdown in one ref container */}
+      <div
+        ref={dropdownRef}
+        style={{ position: "relative", display: "inline-block" }}
       >
-        Open App →
-      </button>
-      {showOptions && (
-        <div
-          style={{
-            position: "absolute",
-            top: "130%",
-            left: 0,
-            backgroundColor: "#FFF",
-            border: "1px solid #DDD",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            borderRadius: "5px",
-            zIndex: 1000,
-            width:"170px"
-          }}
-        >
-          
-          {socialLinks.map(({ img, url, label }) => (
-            <a
-              key={url}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-                padding: "10px",
-                textDecoration: "none",
-                color: "#333",
-              
-              }}
-              >
-              <img
-                src={img}
-                alt={label}
+        <button onClick={() => setShowOptions((prev) => !prev)}>
+          Open App →
+        </button>
+
+        {showOptions && (
+          <div
+            style={{
+              position: "absolute",
+              top: "130%",
+              left: 0,
+              backgroundColor: "#FFF",
+              border: "1px solid #DDD",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              borderRadius: "5px",
+              zIndex: 1000,
+              width: "170px",
+            }}
+          >
+            {socialLinks.map(({ img, url, label }) => (
+              <a
+                key={url}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
-                  width: "24px",
-                  height: "24px",
-                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "10px",
+                  textDecoration: "none",
+                  color: "#333",
                 }}
-              />
-              <span>{label}</span>
+              >
+                <img
+                  src={img}
+                  alt={label}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                    borderRadius: "50%",
+                  }}
+                />
+                <span>{label}</span>
             </a>
           ))}
         </div>

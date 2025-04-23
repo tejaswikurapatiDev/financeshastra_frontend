@@ -365,6 +365,20 @@ font-size: 14px;
   background-color: white;
 
 }
+.home-menu{
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 210px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
 
 /* Dropdown items */
 .dropdown-menu li {
@@ -1822,6 +1836,12 @@ font-size: 14px;
     margin-top: -447px;
     margin-left: -50px;
 }
+.home-menu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -337px;
+  margin-left: -50px;
+}
   /* Styling for the divider line */
   .stockmenu::before {
     content: ""; /* Empty content for the line */
@@ -2054,6 +2074,12 @@ font-size: 14px;
   padding: 10px 0;
   margin-top: -288px;
   margin-left: -140px;
+}
+.home-menu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -311px;
+  margin-left: -9px;
 }
   /* Dropdown menu adjustments */
   .dropdown-menu li {
