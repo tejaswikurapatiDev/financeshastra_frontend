@@ -1208,13 +1208,13 @@
 
 @media (max-width: 320px) {
   .allemailphone input {
-    width: 115%;
+    width: 105%;
     font-size: 12px;
     margin-left: auto;
     margin-right: auto;
   }
   .profilepage-roww{
-    width: 128%;
+    width: 138%;
   }
 }
 
