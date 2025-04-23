@@ -11,6 +11,8 @@ const LandingPageUnlockInvest = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
+  //state for search suggestion dropdown
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const dispatch = useDispatch();
   // getting data from redux store
@@ -77,6 +79,11 @@ const LandingPageUnlockInvest = () => {
     return () => debounceSearch.cancel();
   }, [searchInputText, debounceSearch]);
 
+  const handleSearchInputText = (item) => {
+    setSearchInputText(item);
+    setFilterData([]);
+  };
+
   return (
     <div
       className={
@@ -96,30 +103,45 @@ const LandingPageUnlockInvest = () => {
               <input
                 type="text"
                 placeholder="Search for Stocks, Mutual..."
+                value={searchInputText}
                 className={
                   darkMode
                     ? "landingpageunlockinvestdarkinput"
                     : "landingpageunlockinvest-input"
                 }
-                onChange={(e) => setSearchInputText(e.target.value)}
+                onChange={(e) => {
+                  setSearchInputText(e.target.value);
+                  setShowDropdown(true);
+                }}
               />
               {/* to display result */}
-              <div>
-                {filterData.length > 0 ? (
-                  <ul>
-                    {filterData.map((data) => {
-                      return (
-                        <li key={data.id}>
-                          {data.name} {data.Scheme_Name} {data.sector}{" "}
-                          {data.symbol}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                ) : (
-                  searchInputText && <p>No result found</p>
-                )}
-              </div>
+              {showDropdown && (
+                <div>
+                  {filterData.length > 0 ? (
+                    <ul>
+                      {filterData.map((data) => {
+                        return (
+                          <li
+                            key={data.id}
+                            onClick={() => {
+                              handleSearchInputText(
+                                data.name || data.Scheme_Name
+                              );
+                              setFilterData([]);
+                              setShowDropdown(false);
+                            }}
+                          >
+                            {data.name} {data.Scheme_Name} {data.sector}{" "}
+                            {data.symbol}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  ) : (
+                    searchInputText && <p>No result found</p>
+                  )}
+                </div>
+              )}
             </div>
 
             <button className="landingpageunlockinvest-button">

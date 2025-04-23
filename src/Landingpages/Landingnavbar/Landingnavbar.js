@@ -645,8 +645,8 @@ const Landingnavbar = () => {
                         key={data.id}
                         onClick={() => {
                           handleSearchInputText(data.name || data.Scheme_Name);
-                          setFilterData([]); // Clear filtered data
-                          setShowDropdown(false); // Hide dropdown
+                          setFilterData([]); 
+                          setShowDropdown(false); 
                         }}
                       >
                         {data.name} {data.Scheme_Name} {data.sector}{" "}
