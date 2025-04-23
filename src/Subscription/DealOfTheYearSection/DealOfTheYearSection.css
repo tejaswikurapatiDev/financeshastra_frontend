@@ -276,12 +276,8 @@
 @media (max-width: 480px) {
   .deal-section-container {
    
-    background: linear-gradient(
-        rgba(255, 255, 255, 1) 0%, 
-        rgba(255, 255, 255, 0.1) 20%, 
-        rgba(255, 255, 255, 1) 0%
-    ),
-    url("https://myequitylab.com/upload/candle%20chart%201_1679116683.jpeg");
+  
+    margin-top: 10px;
     background-size: contain;
     background-position: center;
 }
@@ -295,6 +291,7 @@
     width: 70%;
     padding: 15px; /* Reduce padding */
     height: auto; /* Flexible height */
+    display: none;
   }
 
   .deal-title {

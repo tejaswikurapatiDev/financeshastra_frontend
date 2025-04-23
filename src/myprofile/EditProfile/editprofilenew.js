@@ -1201,7 +1201,7 @@ const EditProfile = () => {
               name="income"
               value={formData.income}
               onChange={handleChange}
-              className="profilepageocc-select"
+              className="profilepageann-select"
             >
               <option value="">Select</option>
               <option value="0-5L">Less than 5 Lacs</option>
