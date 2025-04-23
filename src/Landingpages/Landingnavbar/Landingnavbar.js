@@ -5,11 +5,9 @@ import React, {
   useCallback,
   useContext,
 } from "react";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
-import {
-  FaBell,
-} from "react-icons/fa";
+import { FaBell } from "react-icons/fa";
 import notiimg2 from "../../assest/mobile.png";
 import { LuDot } from "react-icons/lu";
 import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
@@ -24,7 +22,7 @@ import { LuChartNoAxesCombined } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchData } from "../../Store/Slices/searchDataSlice";
-import { debounce } from "lodash";
+import { debounce, set } from "lodash";
 import Cookies from "js-cookie";
 
 import logo from "../../assest/Logo design (1).png";
@@ -35,7 +33,6 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 
 // Dropdown menu components
 const StockDropdownMenu = () => (
-  
   <div className="stockmenu">
     <div className="stockmenu-column">
       <ul>
@@ -125,17 +122,13 @@ const StockDropdownMenu = () => (
           </div>
         </li>
         <li>
-                    <div
-                      className={
-                         "dropdown-item"
-                      }
-                    >
-                      <Link to="/stockThemesSectorPages">
-                        Stock Themes
-                        <p>Research is key before buying any stock</p>
-                      </Link>
-                    </div>
-                  </li>
+          <div className={"dropdown-item"}>
+            <Link to="/stockThemesSectorPages">
+              Stock Themes
+              <p>Research is key before buying any stock</p>
+            </Link>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
@@ -296,7 +289,6 @@ const MutualFundsDropdownMenu = () => (
 );
 
 const Landingnavbar = () => {
-
   // State for different dropdowns
   const [dropdowns, setDropdowns] = useState({
     stock: false,
@@ -310,19 +302,21 @@ const Landingnavbar = () => {
   });
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
-  const [storedName, setUsername]= useState('')
+  const [storedName, setUsername] = useState("");
 
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
   const [isLogedin, setIsLogedin] = useState(false);
-    const userDropdownRef = useRef(null);
-    const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
-    const dropdownRef = useRef(null); // Reference for dropdown
-     const [isOpen, setIsOpen] = useState(false);
-     const [notifications, setNotifications] = useState([]);
-     const [loading, setLoading] = useState(true);
-     const [showAll, setShowAll] = useState(false);
+  const userDropdownRef = useRef(null);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const dropdownRef = useRef(null); // Reference for dropdown
+  const [isOpen, setIsOpen] = useState(false);
+  const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [showAll, setShowAll] = useState(false);
+  //state for search suggestion dropdown
+  const [showDropdown, setShowDropdown] = useState(false);
 
   // Refs for handling click outside
   const dropdownRefs = {
@@ -388,15 +382,12 @@ const Landingnavbar = () => {
     [getDataFromStore]
   );
 
-  const onLogout= ()=>{
-    localStorage.clear()
-    Cookies.remove('jwtToken', { path: '/' })
-    setIsLogedin(false)
-    navigate('/login')
-
-    
-  }
-
+  const onLogout = () => {
+    localStorage.clear();
+    Cookies.remove("jwtToken", { path: "/" });
+    setIsLogedin(false);
+    navigate("/login");
+  };
 
   // Get all data on component mount
   useEffect(() => {
@@ -407,24 +398,24 @@ const Landingnavbar = () => {
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired
-    
+
       try {
         const { exp } = jwtDecode(token);
         if (!exp) return true; // If no expiration time, consider expired
-    
+
         return exp * 1000 < Date.now(); // Compare expiry time with current time
       } catch (error) {
         return true; // If token is invalid, consider it expired
       }
     };
     if (token) {
-      if (isTokenExpired(token)){
-        onLogout()
+      if (isTokenExpired(token)) {
+        onLogout();
         setIsLogedin(false);
-      }else{
+      } else {
         setIsLogedin(true);
       }
-      
+
       //setIsLogedin(true);
     }
     getAllData();
@@ -439,39 +430,39 @@ const Landingnavbar = () => {
   }, [searchInputText, debounceSearch]);
 
   const fetchNotifications = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/notifications`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        const data = await response.json();
-        setNotifications(data);
-      } catch (error) {
-        console.error("Error fetching notifications:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    try {
+      const response = await fetch(`${API_BASE_URL}/notifications`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setNotifications(data);
+    } catch (error) {
+      console.error("Error fetching notifications:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const markNotificationAsRead = async (id) => {
-        try {
-          const response = await fetch(
-            `${API_BASE_URL}/notifications?notificationId=${id}`,
-            { method: "PATCH" }
-          ); // Replace with your API
-    
-          if (!response.ok) throw new Error("Failed to mark as read");
-    
-          setNotifications((prevNotifications) => {
-            return prevNotifications.data.map((notif) =>
-              notif.id === id ? { ...notif, is_read: true } : notif
-            );
-          });
-        } catch (error) {
-          console.error("Error marking notification as read:", error);
-        }
-      };
+  const markNotificationAsRead = async (id) => {
+    try {
+      const response = await fetch(
+        `${API_BASE_URL}/notifications?notificationId=${id}`,
+        { method: "PATCH" }
+      ); // Replace with your API
+
+      if (!response.ok) throw new Error("Failed to mark as read");
+
+      setNotifications((prevNotifications) => {
+        return prevNotifications.data.map((notif) =>
+          notif.id === id ? { ...notif, is_read: true } : notif
+        );
+      });
+    } catch (error) {
+      console.error("Error marking notification as read:", error);
+    }
+  };
 
   // Handle click outside to close dropdowns
   useEffect(() => {
@@ -500,44 +491,50 @@ const Landingnavbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
-   const renderUserDropdown = () => (
-      <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
-        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-          <Link to="/userDetailsupdate">
-            <FaUser
-              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
-            />
-            My Profile
-          </Link>
-        </div>
-        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-          <Link to="/help">
-            <FaCircleQuestion
-              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
-            />
-            Help Center
-          </Link>
-        </div>
-        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-          <button className="butn" onClick={onLogout} type="button">
-            <FaUserCircle
-              className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
-            />
-            Logout
-          </button>
-        </div>
-        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-          <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
-            Dark Mode
-          </div>
+  const renderUserDropdown = () => (
+    <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/userDetailsupdate">
+          <FaUser
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
+          My Profile
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/help">
+          <FaCircleQuestion
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
+          Help Center
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <button className="butn" onClick={onLogout} type="button">
+          <FaUserCircle
+            className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
+          />
+          Logout
+        </button>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
+          Dark Mode
         </div>
       </div>
-    );
+    </div>
+  );
 
+  const handleSearchInputText = (item) => {
+    setSearchInputText(item);
+    setFilterData([]);
+  };
+
+  console.log("filterData", filterData);
   return (
     <>
       <nav className={darkMode ? "darkmodenavbar" : "navbar"}>
@@ -628,116 +625,133 @@ const Landingnavbar = () => {
             type="text"
             placeholder="Search for Stocks, Mutual..."
             value={searchInputText}
-            onChange={(e) => setSearchInputText(e.target.value)}
+            onChange={(e) => {
+              setSearchInputText(e.target.value);
+              setShowDropdown(true);
+            }}
           />
           <FaSearch
             className={darkMode ? "searchdarkicon" : "search-icon"}
             style={darkMode ? { color: "white" } : {}}
           />
           {/* show search results  */}
-          <div>
-            {filterData.length > 0 ? (
-              <ul>
-                {filterData.map((data) => {
-                  return (
-                    <li key={data.id}>
-                      {data.name} {data.Scheme_Name} {data.sector} {data.symbol}
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              searchInputText && <p>No result found</p>
-            )}
-          </div>
+          {showDropdown && (
+            <div>
+              {filterData.length > 0 ? (
+                <ul>
+                  {filterData.map((data) => {
+                    return (
+                      <li
+                        key={data.id}
+                        onClick={() => {
+                          handleSearchInputText(data.name || data.Scheme_Name);
+                          setFilterData([]); 
+                          setShowDropdown(false); 
+                        }}
+                      >
+                        {data.name} {data.Scheme_Name} {data.sector}{" "}
+                        {data.symbol}
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                searchInputText && <p>No result found</p>
+              )}
+            </div>
+          )}
         </div>
-        
-        {isLogedin ? (<>
-          {!isLoading && !isSubscribed && (
-          <h4
-            className="subscritebutton"
-            onClick={() => navigate("/pricehalf")}
-          >
-            Subscribe
-          </h4>
-        )}
-          <FaBell
-                          className={
-                            darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
-                          }
-                          onClick={() => setIsOpen(!isOpen)}
-                          
+
+        {isLogedin ? (
+          <>
+            {!isLoading && !isSubscribed && (
+              <h4
+                className="subscritebutton"
+                onClick={() => navigate("/pricehalf")}
+              >
+                Subscribe
+              </h4>
+            )}
+            <FaBell
+              className={
+                darkMode ? "icon bell-darkerrmodeicon" : "icon bell-icon"
+              }
+              onClick={() => setIsOpen(!isOpen)}
+            />
+            {isOpen && displayedNotifications?.length > 0 && (
+              <div className="dropdown-contentnotilanding" ref={dropdownRef}>
+                {displayedNotifications.map((notif) => (
+                  <div
+                    key={notif.id}
+                    onClick={() =>
+                      !notif.is_read && markNotificationAsRead(notif.id)
+                    }
+                    className={`notification-card ${
+                      notif.is_read ? "read" : "unread"
+                    }`}
+                    style={{
+                      backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
+                      color: notif.is_read ? "#757575" : "#000",
+                      cursor: notif.is_read ? "default" : "pointer",
+                    }}
+                  >
+                    <div className="notification-header">
+                      <div className="notificationall-header">
+                        <div>
+                          <img
+                            src={notiimg2}
+                            alt="Notification"
+                            className="notification-img"
+                          />
+                        </div>
+                      </div>
+                      <div className="notification-details">
+                        <p
+                          className="notification-title"
+                          style={{
+                            fontWeight: "bold",
+                          }}
+                        >
+                          {notif.message}
+                        </p>
+                        <p className="notification-date">{notif.created_at}</p>
+                      </div>
+                      {!notif.is_read && (
+                        <LuDot
+                          className="dotnotifyicon"
+                          style={{ color: "green" }}
                         />
-                        {isOpen && displayedNotifications?.length > 0 && (
-                                      <div className="dropdown-contentnotilanding" ref={dropdownRef}>
-                                        {displayedNotifications.map((notif) => (
-                                          <div
-                                            key={notif.id}
-                                            onClick={() =>
-                                              !notif.is_read && markNotificationAsRead(notif.id)
-                                            }
-                                            className={`notification-card ${
-                                              notif.is_read ? "read" : "unread"
-                                            }`}
-                                            style={{
-                                              backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
-                                              color: notif.is_read ? "#757575" : "#000",
-                                              cursor: notif.is_read ? "default" : "pointer",
-                                            }}
-                                          >
-                                            <div className="notification-header">
-                                              <div className="notificationall-header">
-                                                <div>
-                                                  <img
-                                                    src={notiimg2}
-                                                    alt="Notification"
-                                                    className="notification-img"
-                                                  />
-                                                </div>
-                                              </div>
-                                              <div className="notification-details">
-                                                <p
-                                                  className="notification-title"
-                                                  style={{
-                                                    fontWeight: "bold",
-                                                  }}
-                                                >
-                                                  {notif.message}
-                                                </p>
-                                                <p className="notification-date">{notif.created_at}</p>
-                                              </div>
-                                              {!notif.is_read && (
-                                                <LuDot
-                                                  className="dotnotifyicon"
-                                                  style={{ color: "green" }}
-                                                />
-                                              )}
-                                            </div>
-                                          </div>
-                                        ))}
-                                        {/* View All Button */}
-                                        {!showAll && (
-                                          <button className="view-all" onClick={() => setShowAll(true)}>
-                                            View all notifications
-                                          </button>
-                                        )}
-                                      </div>
-                                    )}
-          <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-                              <li className="" ref={userDropdownRef}>
-                                <Link to="#" onClick={toggleUserDropdown}>
-                                  <FaUserCircle
-                                    className={
-                                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
-                                    }
-                                  />
-                                </Link>
-                                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-                                  {storedName.split(" ")[0]}
-                                </span>
-                                {userDropdownOpen && renderUserDropdown()}
-                              </li>
-                            </div></>
+                      )}
+                    </div>
+                  </div>
+                ))}
+                {/* View All Button */}
+                {!showAll && (
+                  <button className="view-all" onClick={() => setShowAll(true)}>
+                    View all notifications
+                  </button>
+                )}
+              </div>
+            )}
+            <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
+              <li className="" ref={userDropdownRef}>
+                <Link to="#" onClick={toggleUserDropdown}>
+                  <FaUserCircle
+                    className={
+                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
+                    }
+                  />
+                </Link>
+                <span
+                  className={darkMode ? "willamnamedarkmode" : "willamname"}
+                >
+                  {storedName.split(" ")[0]}
+                </span>
+                {userDropdownOpen && renderUserDropdown()}
+              </li>
+            </div>
+          </>
+        ) : (
           /*<div className="landingnavbar-icons">
             <VscBell className="landingnavbaricon bell-icon" />
             <button
@@ -747,9 +761,7 @@ const Landingnavbar = () => {
               Log out
             </button>
           </div>*/
-        ) : (
           <div className="landingnavbar-icons">
-            
             <button
               className="landingnavbar-buttonregister-button"
               onClick={() => navigate("/register")}
@@ -833,7 +845,11 @@ const Landingnavbar = () => {
         </li>
 
         <li>
-          <Link to="/#" onClick={() => toggleDropdown("learn")} className="footer-link">
+          <Link
+            to="/#"
+            onClick={() => toggleDropdown("learn")}
+            className="footer-link"
+          >
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />
