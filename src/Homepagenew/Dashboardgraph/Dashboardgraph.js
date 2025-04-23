@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-import { UserProfileContext } from "../../Portfoilo/context/UserProfileContext";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import "chart.js/auto";
@@ -30,8 +29,15 @@ const Dashboardchartmain = ({ children }) => {
   const [latestValue, setLatestValue] = useState(0);
   const [percentChange, setPercentChange] = useState(0);
   const [activeTab, setActiveTab] = useState("Stock Sector");
+  const [user, setUsername] = useState('')
 
-  const { user } = useContext(UserProfileContext);
+  useEffect(() => {
+      // Fetch username from localStorage when the component mounts
+      const storedUsername = localStorage.getItem("username");
+      if (storedUsername) {
+        setUsername(storedUsername);
+      }
+    }, []);
 
   const navigate = useNavigate();
 
