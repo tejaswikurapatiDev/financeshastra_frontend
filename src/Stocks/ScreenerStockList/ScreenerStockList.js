@@ -216,7 +216,7 @@ const ScreenerStockList = () => {
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price);
+        parseFloat(newFilters.price);
 
       const matchesDivYield =
         newFilters.divYield.length === 0 ||
@@ -1431,8 +1431,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1579,8 +1579,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1653,8 +1653,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1874,8 +1874,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1951,8 +1951,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2026,8 +2026,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2101,8 +2101,8 @@ const ScreenerStockList = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2159,9 +2159,8 @@ const ScreenerStockList = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Valuation" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Valuation" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Valuation");
               navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
@@ -2171,9 +2170,8 @@ const ScreenerStockList = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Income Statement" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Income Statement");
               navigate("/IncomeStatement"); // Add a route for Income Statement if needed
@@ -2318,8 +2316,8 @@ const ScreenerStockList = () => {
                         parseFloat(stock.change) > 0
                           ? "#24b676"
                           : parseFloat(stock.change) < 0
-                          ? "red"
-                          : "inherit",
+                            ? "red"
+                            : "inherit",
                     }}
                   >
                     {parseFloat(stock.change) > 0
@@ -2336,8 +2334,8 @@ const ScreenerStockList = () => {
                         parseFloat(stock.epsDilGrowth) > 0
                           ? "#24b676"
                           : parseFloat(stock.epsDilGrowth) < 0
-                          ? "red"
-                          : "inherit",
+                            ? "red"
+                            : "inherit",
                     }}
                   >
                     {parseFloat(stock.epsDilGrowth) > 0
@@ -2370,9 +2368,8 @@ const ScreenerStockList = () => {
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
-              stocks.length
-            } records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length
+              } records`}
           </div>
 
           <div className="pagination-slider">
@@ -2399,9 +2396,8 @@ const ScreenerStockList = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${
-                  currentPage === startPage + i ? "active-page" : ""
-                }`}
+                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""
+                  }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}

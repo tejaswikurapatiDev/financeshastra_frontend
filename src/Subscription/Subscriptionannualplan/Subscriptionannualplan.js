@@ -14,7 +14,7 @@ const SubscriptionPlans = () => {
   const handleToggle = () => {
     setIsAnnually(!isAnnually);
     if (!isAnnually) {
-      navigate("/annualplan"); // Navigate to the annual plan page
+      navigate("/subscription"); // Navigate to the annual plan page
     }
   };
 

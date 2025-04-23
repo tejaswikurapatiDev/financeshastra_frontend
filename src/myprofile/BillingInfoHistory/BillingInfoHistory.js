@@ -223,7 +223,7 @@ const BillingInfoHistory = () => {
     <p className="billinginfohistorypara"><strong>Next Charge:</strong> {endingDate} </p>
     <button className="billinginfohistory-btn"
     onClick={() => {
-      navigate("/annualplan"); 
+      navigate("/subscription"); 
       window.scrollTo(0, 0); // Scroll to top after navigation
     }}
   >View Other Plans</button>

@@ -16,6 +16,7 @@ function StocksSmartSIPPS() {
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
    
   return (
+    <div>
     <div className={darkMode ? "smartsip-darkcontainer" : "smartsip-container"}>
       <h1 className={darkMode ? "smartsip-darktitle" :"smartsip-title"}>Stocks SmartSIP</h1>
       <div className="smartsip-content">
@@ -82,8 +83,10 @@ function StocksSmartSIPPS() {
         </div>
       </div>
       <Navbar/>
-      <div className="smartsipfooter"><FooterForAllPage/></div>
       
+      
+    </div>
+    <div ><FooterForAllPage/></div>
     </div>
   );
 }

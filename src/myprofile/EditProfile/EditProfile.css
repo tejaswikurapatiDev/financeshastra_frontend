@@ -9,7 +9,7 @@
   box-sizing: border-box;
   /* Includes padding and border in the width calculation */
   overflow-x: hidden;
-  margin-top: 90px;
+  margin-top: 70px;
   /* Prevents x-axis scrolling */
 }
 
@@ -115,7 +115,7 @@
 
 /* Input field styling */
 .profile-phone-input {
-  flex: 1;
+
   /* Ensures the input takes up available space */
   padding: 10px;
   font-size: 14px;
@@ -161,7 +161,7 @@
   cursor: pointer;
   padding: 9px 12px;
   font-size: 12px;
-  
+  margin-left: 5px;
 }
 .profile-verify-btn:hover {
   background-color: #24b676;
@@ -255,6 +255,7 @@
   align-items: center; /* Align items vertically */
   justify-content: space-between; /* Distribute space evenly */
   margin-left: 0; /* Reset margin for proper alignment */
+  width: 580px;
 }
 
 .editalliconnn {
@@ -312,6 +313,9 @@
   color: white;
 }
 
+.profilepage-select {
+  width: 100%;
+}
 .profilepage-cancel-btn {
   background-color: white;
   /* Set background color to white */
@@ -427,6 +431,11 @@
 }
 
 .profilepageocc-select {
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 10px;
+}
+.profilepageann-select {
   margin-bottom: 10px;
   border-radius: 4px;
   padding: 10px;
@@ -648,14 +657,22 @@
 .profilepage-editemail-btn:hover {
   background-color: #e0e0e0;
 }
-
 /* Mobile view - 768px */
 @media (max-width: 768px) {
   .profilepage-title {
     font-size: 20px;
   }
-  .profilepage-form,
+ 
   .profilepage-rowss {
+    width: 100%;
+    margin-left: auto;
+    padding: 10px;
+    flex-direction: row;
+    width: 97%;
+    margin-bottom: -20px;
+    margin-right: auto;
+  }
+  .profilepage-form{
     width: 100%;
     margin-left: auto;
     padding: 10px;
@@ -698,20 +715,19 @@
 
   }
   .profile-email-container {
-    flex-direction: column; /* Stack input and buttons vertically */
+    /* flex-direction: column; */
     align-items: flex-start;
-    width: 100%; /* Ensure full width */
-    margin-left: auto;
+    width: 110%;
+    margin-left: 0px;
     margin-right: auto;
 }
-
-  .profile-phone-container {
-    flex-direction: column; /* Stack input and buttons vertically */
-    align-items: flex-start;
-    width: 100%; /* Ensure full width */
-    margin-left: auto;
-    margin-right: auto;
-  }
+.profile-phone-container {
+  flex-direction: row;
+  align-items: flex-start;
+  width: 150%;
+  margin-left: 60px;
+  /* margin-right: 100px; */
+}
 
   .profilepage-email-input,
   .profilepage-phone-input {
@@ -738,20 +754,30 @@
   }
 
   .allemailphone {
-    flex-direction: column; /* Stack email and phone sections vertically */
+    flex-direction: row; /* Stack email and phone sections vertically */
+    display: flex;
     gap: 20px; /* Adjust spacing for vertical layout */
     align-items: flex-start; /* Align items to the left */
+    width: 600px;
   }
-
+  .verification-popup .otp-input {
+    width: 90%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
   .profilepage-container {
     margin-bottom: 100px;
   }
 
   .profilepage-row {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 20px;
     margin-bottom: 15px;
+    width: 97%;
   }
 
   .profilepage-tabs {
@@ -783,10 +809,11 @@
 
   .profilepage-container {
     padding: 10px;
+    margin-top: 0px;
   }
 
   .profilepage-field {
-    width: 100%;
+    width: 96%;
   }
 
   .profilepage-verifyemail-btn {
@@ -804,13 +831,45 @@
   }
 
   .profilepage-actions {
-    flex-direction: column;
+    flex-direction: row;
+    margin-left: 635px;
   }
-
-  .profilepage-save-btn,
+  .profilepage-mobverify-btn {
+    color: white;
+    background-color: #24b676;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 9px 12px;
+    font-size: 12px;
+   
+    margin-left: 10px;
+}
+  .profilepage-save-btn {
+    padding: 12px 12px;
+    font-size: 11px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin-left: -100px;
+    margin-top: 20px;
+}
   .profilepage-cancel-btn {
-    padding: 12px;
-    font-size: 14px;
+    padding: 12px 12px;
+    font-size: 11px;
+    border-radius: 5px;
+    cursor: pointer;
+   
+    background-color: white;
+   
+    color: #24b676;
+    
+    border: 2px solid #24b676;
+    
+    transition: background-color 0.3s, color 0.3s;
+    
+  
+    margin-top: 20px;
   }
 
   .modal-content {
@@ -850,25 +909,55 @@
     margin-top: 1px;
 
   }
-
   .pftab {
     display: flex;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     overflow-x: scroll;
-  }
+    scrollbar-color: transparent transparent; /* Firefox ke liye */
+    scrollbar-width: thin;
+}
+
+/* WebKit browsers ke liye (Chrome, Safari, Edge) */
+.pftab::-webkit-scrollbar {
+    height: 6px;
+    background: transparent;
+}
+
+.pftab::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.pftab::-webkit-scrollbar-track {
+    background: transparent;
+}
   .allemailphone input {
-    width: 160%;
+   
     font-size: 14px;
-    margin-left: -50px;
+    margin-left: 0px;
     margin-right: auto;
   }
+  .profilepageocc-select {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 104%;
+}
+.profilepageann-select {
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+}
+.phonenulabel {
+  margin-left: 60px;
+}
   /* Custom styles for the select dropdown */
   .emailidlabel{
-    margin-left: -85px;
+   
   }
 .phonenulabel{
-  margin-left: -85px;
+ 
 }
 }
 
@@ -879,7 +968,11 @@
     margin-top: 70px;
     width: auto;
   }
-  .profilepage-form,
+  .profilepageemail-input {
+    width: 100%;
+  }
+  
+  
   .profilepage-rowss {
     width: 100%;
     margin-left: auto;
@@ -888,7 +981,14 @@
     margin-bottom: -20px;
     margin-right: auto;
   }
-
+  .profilepage-form {
+    width: 100%;
+    margin-left: auto;
+    padding: 10px;
+    flex-direction: column;
+    margin-bottom: -20px;
+    margin-right: auto;
+  }
   .profilepage-title {
     font-size: 20px;
   }
@@ -919,22 +1019,39 @@
     font-size: 14px;
   }
 
-  .profilepage-email-input,
+
   .profilepage-phone-input,
-  .profilepage-select,
+
   .profilepage-input {
     font-size: 12px;
+    width: 88%;
     /* Reduce font size on smaller screens */
    
   }
 
+ .profilepage-select{
+  width: 94%;
+ }
   .profilepage-field label {
     font-size: 12px;
     /* Reduce font size on smaller screens */
   }
+  .profilepageocc-select {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 94%;
+}
+.profilepageann-select{
+  margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 94%;
+}
 
   .profilepage-row {
     gap: 10px;
+    flex-direction: column;
   }
 
   .profilepage-container {
@@ -960,20 +1077,23 @@
     margin-right: auto;
 }
 
-  .profilepage-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .profilepage-save-btn,
-  .profilepage-cancel-btn {
-    padding: 12px;
-    font-size: 14px;
-  }
+.profilepage-actions {
+  flex-direction: row;
+  align-items: center;
+  margin-left: 250px;
+}
+.profilepage-save-btn {
+  padding: 8px;
+  font-size: 10px;
+}
+.profilepage-cancel-btn {
+  padding: 6px;
+  font-size: 10px;
+}
 
   .allemailphone input {
-    width: 100%;
-    font-size: 14px;
+    width: 130%;
+    font-size: 12px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -982,8 +1102,21 @@
 ;
     flex-direction: column;
     gap: 10px;
-    margin-left: auto;
-    margin-right: auto;
+ 
+}
+.profilepage-titleeeditt {
+  font-size: 18px;
+  margin-top: -0px;
+}
+.profilepage-mobverify-btn {
+  color: white;
+  background-color: #24b676;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
   .modal-content {
@@ -1037,20 +1170,62 @@
     border: 1px solid #333;
     border-radius: 4px;
   }
-
+ 
   .pftab {
     display: flex;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     overflow-x: scroll;
-  }
+    scrollbar-color: transparent transparent; /* For Firefox */
+    scrollbar-width: thin;
+}
+
+/* For WebKit (Chrome, Safari) */
+.pftab::-webkit-scrollbar {
+    height: 6px;
+    background: transparent;
+}
+
+.pftab::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.pftab::-webkit-scrollbar-track {
+    background: transparent;
+}
 .profilepage-roww{
-  width: 50%;
+  width: 130%;
 }
 .emailidlabel{
-  margin-left: -35px;
+  margin-left: -1px;
 }
 .phonenulabel{
   margin-left: 0px;
+}
+
+}
+
+
+@media (max-width: 320px) {
+  .allemailphone input {
+    width: 105%;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profilepage-roww{
+    width: 138%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .profilepage-container {
+    font-family: 'Calibri';
+    margin: 20px auto;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-top: 53px;
 }
 }
