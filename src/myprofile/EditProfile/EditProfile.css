@@ -140,7 +140,8 @@
   margin-left: 10px;
 
 }
-.profilepage-verify-btn{
+
+.profilepage-verify-btn {
   color: white;
   background-color: #24b676;
   border: none;
@@ -148,12 +149,14 @@
   cursor: pointer;
   padding: 9px 12px;
   font-size: 12px;
- 
+
 }
+
 .profilepage-verify-btn:hover {
   background-color: #62ab8b;
 }
-.profilepage-mobverify-btn{
+
+.profilepage-mobverify-btn {
   color: white;
   background-color: #24b676;
   border: none;
@@ -163,6 +166,7 @@
   font-size: 12px;
   margin-left: 5px;
 }
+
 .profile-verify-btn:hover {
   background-color: #24b676;
   color: white;
@@ -201,7 +205,8 @@
 }
 
 .profile-verify-btn.verified:hover {
-  background-color: #24b676; /* No hover effect for verified button */
+  background-color: #24b676;
+  /* No hover effect for verified button */
 }
 
 /* Error text styling */
@@ -251,10 +256,14 @@
 .allemailphone {
   display: flex;
   flex-direction: row;
-  gap: 30px; /* Adjust spacing between email and phone sections */
-  align-items: center; /* Align items vertically */
-  justify-content: space-between; /* Distribute space evenly */
-  margin-left: 0; /* Reset margin for proper alignment */
+  gap: 30px;
+  /* Adjust spacing between email and phone sections */
+  align-items: center;
+  /* Align items vertically */
+  justify-content: space-between;
+  /* Distribute space evenly */
+  margin-left: 0;
+  /* Reset margin for proper alignment */
   width: 580px;
 }
 
@@ -316,6 +325,7 @@
 .profilepage-select {
   width: 100%;
 }
+
 .profilepage-cancel-btn {
   background-color: white;
   /* Set background color to white */
@@ -435,6 +445,7 @@
   border-radius: 4px;
   padding: 10px;
 }
+
 .profilepageann-select {
   margin-bottom: 10px;
   border-radius: 4px;
@@ -515,6 +526,7 @@
   margin-bottom: 20px;
 
 }
+
 .verification-popupemailll {
   position: absolute;
   top: 50%;
@@ -657,12 +669,13 @@
 .profilepage-editemail-btn:hover {
   background-color: #e0e0e0;
 }
+
 /* Mobile view - 768px */
 @media (max-width: 768px) {
   .profilepage-title {
     font-size: 20px;
   }
- 
+
   .profilepage-rowss {
     width: 100%;
     margin-left: auto;
@@ -672,7 +685,8 @@
     margin-bottom: -20px;
     margin-right: auto;
   }
-  .profilepage-form{
+
+  .profilepage-form {
     width: 100%;
     margin-left: auto;
     padding: 10px;
@@ -680,6 +694,7 @@
     margin-bottom: -20px;
     margin-right: auto;
   }
+
   .profilepage-tabsorderuserseditt {
     overflow-x: scroll;
     /* Stack tabs vertically */
@@ -714,35 +729,41 @@
     margin-left: 300px;
 
   }
+
   .profile-email-container {
     /* flex-direction: column; */
     align-items: flex-start;
     width: 110%;
     margin-left: 0px;
     margin-right: auto;
-}
-.profile-phone-container {
-  flex-direction: row;
-  align-items: flex-start;
-  width: 150%;
-  margin-left: 60px;
-  /* margin-right: 100px; */
-}
+  }
+
+  .profile-phone-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 150%;
+    margin-left: 60px;
+    /* margin-right: 100px; */
+  }
 
   .profilepage-email-input,
   .profilepage-phone-input {
-    width: 100%; /* Full width for smaller screens */
+    width: 100%;
+    /* Full width for smaller screens */
   }
 
   .profilepage-verifyemail-btn,
   .profile-verify-btn {
-    width: auto; /* Adjust button width for responsiveness */
-    margin-top: 10px; /* Add spacing above buttons */
+    width: auto;
+    /* Adjust button width for responsiveness */
+    margin-top: 10px;
+    /* Add spacing above buttons */
   }
 
   .emailidlabel,
   .phonenulabel {
-    margin-left: 0; /* Reset margin for smaller screens */
+    margin-left: 0;
+    /* Reset margin for smaller screens */
   }
 
   .profilepage-field-income select {
@@ -754,12 +775,16 @@
   }
 
   .allemailphone {
-    flex-direction: row; /* Stack email and phone sections vertically */
+    flex-direction: row;
+    /* Stack email and phone sections vertically */
     display: flex;
-    gap: 20px; /* Adjust spacing for vertical layout */
-    align-items: flex-start; /* Align items to the left */
+    gap: 20px;
+    /* Adjust spacing for vertical layout */
+    align-items: flex-start;
+    /* Align items to the left */
     width: 600px;
   }
+
   .verification-popup .otp-input {
     width: 90%;
     padding: 10px;
@@ -767,7 +792,8 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-}
+  }
+
   .profilepage-container {
     margin-bottom: 100px;
   }
@@ -834,6 +860,7 @@
     flex-direction: row;
     margin-left: 635px;
   }
+
   .profilepage-mobverify-btn {
     color: white;
     background-color: #24b676;
@@ -842,9 +869,10 @@
     cursor: pointer;
     padding: 9px 12px;
     font-size: 12px;
-   
+
     margin-left: 10px;
-}
+  }
+
   .profilepage-save-btn {
     padding: 12px 12px;
     font-size: 11px;
@@ -853,22 +881,23 @@
     border: none;
     margin-left: -100px;
     margin-top: 20px;
-}
+  }
+
   .profilepage-cancel-btn {
     padding: 12px 12px;
     font-size: 11px;
     border-radius: 5px;
     cursor: pointer;
-   
+
     background-color: white;
-   
+
     color: #24b676;
-    
+
     border: 2px solid #24b676;
-    
+
     transition: background-color 0.3s, color 0.3s;
-    
-  
+
+
     margin-top: 20px;
   }
 
@@ -909,56 +938,60 @@
     margin-top: 1px;
 
   }
+
   .pftab {
     display: flex;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     overflow-x: scroll;
-    scrollbar-color: transparent transparent; /* Firefox ke liye */
+    scrollbar-color: transparent transparent;
+    /* Firefox ke liye */
     scrollbar-width: thin;
-}
+  }
 
-/* WebKit browsers ke liye (Chrome, Safari, Edge) */
-.pftab::-webkit-scrollbar {
+  /* WebKit browsers ke liye (Chrome, Safari, Edge) */
+  .pftab::-webkit-scrollbar {
     height: 6px;
     background: transparent;
-}
+  }
 
-.pftab::-webkit-scrollbar-thumb {
+  .pftab::-webkit-scrollbar-thumb {
     background-color: transparent;
-}
+  }
 
-.pftab::-webkit-scrollbar-track {
+  .pftab::-webkit-scrollbar-track {
     background: transparent;
-}
+  }
+
   .allemailphone input {
-   
+
     font-size: 14px;
     margin-left: 0px;
     margin-right: auto;
   }
+
   .profilepageocc-select {
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 10px;
     width: 104%;
-}
-.profilepageann-select {
-  margin-bottom: 10px;
-  border-radius: 4px;
-  padding: 10px;
-  width: 100%;
-}
-.phonenulabel {
-  margin-left: 60px;
-}
-  /* Custom styles for the select dropdown */
-  .emailidlabel{
-   
   }
-.phonenulabel{
- 
-}
+
+  .profilepageann-select {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .phonenulabel {
+    margin-left: 60px;
+  }
+
+  /* Custom styles for the select dropdown */
+  .emailidlabel {}
+
+  .phonenulabel {}
 }
 
 /* Mobile view - 480px */
@@ -968,11 +1001,12 @@
     margin-top: 70px;
     width: auto;
   }
+
   .profilepageemail-input {
     width: 100%;
   }
-  
-  
+
+
   .profilepage-rowss {
     width: 100%;
     margin-left: auto;
@@ -981,6 +1015,7 @@
     margin-bottom: -20px;
     margin-right: auto;
   }
+
   .profilepage-form {
     width: 100%;
     margin-left: auto;
@@ -989,24 +1024,27 @@
     margin-bottom: -20px;
     margin-right: auto;
   }
+
   .profilepage-title {
     font-size: 20px;
   }
 
   .profile-email-container {
-    flex-direction: column; /* Stack input and buttons vertically */
+    flex-direction: row;
     align-items: flex-start;
-    width: 100%; /* Ensure full width */
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
-}
+    gap: 15px;
+  }
 
-  .profile-phone-container {
-    flex-direction: column; /* Stack input and buttons vertically */
+  .profile-phone-container>div {
+    display: flex;
     align-items: flex-start;
-    width: 100%; /* Ensure full width */
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin-left: -60px;
+    margin-right: -34px;
+    gap: 2px;
   }
 
   .profilepage-tabs {
@@ -1026,28 +1064,31 @@
     font-size: 12px;
     width: 88%;
     /* Reduce font size on smaller screens */
-   
+
   }
 
- .profilepage-select{
-  width: 94%;
- }
+  .profilepage-select {
+    width: 94%;
+  }
+
   .profilepage-field label {
     font-size: 12px;
     /* Reduce font size on smaller screens */
   }
+
   .profilepageocc-select {
     margin-bottom: 10px;
     border-radius: 4px;
     padding: 10px;
     width: 94%;
-}
-.profilepageann-select{
-  margin-bottom: 10px;
+  }
+
+  .profilepageann-select {
+    margin-bottom: 10px;
     border-radius: 4px;
     padding: 10px;
     width: 94%;
-}
+  }
 
   .profilepage-row {
     gap: 10px;
@@ -1060,6 +1101,16 @@
 
   .profilepage-field {
     width: 100%;
+  }
+
+  .profilepage-verify-btn {
+    color: white;
+    background-color: #24b676;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 12px;
   }
 
   .profilepage-verifyemail-btn {
@@ -1075,21 +1126,23 @@
     margin-top: 1px;
     margin-left: auto;
     margin-right: auto;
-}
+  }
 
-.profilepage-actions {
-  flex-direction: row;
-  align-items: center;
-  margin-left: 250px;
-}
-.profilepage-save-btn {
-  padding: 8px;
-  font-size: 10px;
-}
-.profilepage-cancel-btn {
-  padding: 6px;
-  font-size: 10px;
-}
+  .profilepage-actions {
+    flex-direction: row;
+    align-items: center;
+    margin-left: 250px;
+  }
+
+  .profilepage-save-btn {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .profilepage-cancel-btn {
+    padding: 6px;
+    font-size: 10px;
+  }
 
   .allemailphone input {
     width: 130%;
@@ -1097,27 +1150,30 @@
     margin-left: auto;
     margin-right: auto;
   }
+
   .allemailphone {
-    display: flex
-;
+    display: flex;
     flex-direction: column;
     gap: 10px;
- 
-}
-.profilepage-titleeeditt {
-  font-size: 18px;
-  margin-top: -0px;
-}
-.profilepage-mobverify-btn {
-  color: white;
-  background-color: #24b676;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 9px 12px;
-  font-size: 12px;
-  margin-top: 10px;
-}
+
+  }
+
+  .profilepage-titleeeditt {
+    font-size: 18px;
+    margin-top: -0px;
+  }
+
+  .profilepage-mobverify-btn {
+    color: white;
+    background-color: #24b676;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 13px;
+  }
 
   .modal-content {
     width: 70%;
@@ -1126,12 +1182,12 @@
   }
 
   .editalliconnn {
-    display: flex
-;
+    display: flex;
     gap: 4px;
     align-items: center;
     margin-left: 0px;
-}
+  }
+
   .emailedit {
     margin-top: 10px;
   }
@@ -1149,7 +1205,7 @@
     margin-left: auto;
     /* width: 70px; */
     margin-top: 1px;
-}
+  }
 
   /* Custom styles for the select dropdown */
 
@@ -1170,38 +1226,42 @@
     border: 1px solid #333;
     border-radius: 4px;
   }
- 
+
   .pftab {
     display: flex;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     overflow-x: scroll;
-    scrollbar-color: transparent transparent; /* For Firefox */
+    scrollbar-color: transparent transparent;
+    /* For Firefox */
     scrollbar-width: thin;
-}
+  }
 
-/* For WebKit (Chrome, Safari) */
-.pftab::-webkit-scrollbar {
+  /* For WebKit (Chrome, Safari) */
+  .pftab::-webkit-scrollbar {
     height: 6px;
     background: transparent;
-}
+  }
 
-.pftab::-webkit-scrollbar-thumb {
+  .pftab::-webkit-scrollbar-thumb {
     background-color: transparent;
-}
+  }
 
-.pftab::-webkit-scrollbar-track {
+  .pftab::-webkit-scrollbar-track {
     background: transparent;
-}
-.profilepage-roww{
-  width: 130%;
-}
-.emailidlabel{
-  margin-left: -1px;
-}
-.phonenulabel{
-  margin-left: 0px;
-}
+  }
+
+  .profilepage-roww {
+    width: 130%;
+  }
+
+  .emailidlabel {
+    margin-left: -1px;
+  }
+
+  .phonenulabel {
+    margin-left: 0px;
+  }
 
 }
 
@@ -1213,12 +1273,53 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .profilepage-roww{
+
+  .profilepage-roww {
     width: 138%;
   }
+
+  .profile-email-container {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 80%;
+    margin-left: 0px;
+    margin-right: auto;
+    gap: 8px;
+  }
+
+  .profile-phone-container>div {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: -60px;
+    margin-right: -34px;
+    gap: 2px;
+  }
+
+  .profile-phone-container>div {
+    display: flex;
+    align-items: flex-start;
+    width: 110%;
+    margin-left: -59px;
+    margin-right: -87px;
+    /* gap: 2px; */
+  }
+
+  .profilepage-mobverify-btn {
+    color: white;
+    background-color: #24b676;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-left: 8px;
+  }
+
 }
 
-@media (min-width: 1024px) and (max-width: 1279px)  {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .profilepage-container {
     font-family: 'Calibri';
     margin: 20px auto;
@@ -1227,5 +1328,5 @@
     box-sizing: border-box;
     overflow-x: hidden;
     margin-top: 53px;
-}
+  }
 }

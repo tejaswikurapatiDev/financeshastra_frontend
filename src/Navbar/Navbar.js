@@ -72,6 +72,8 @@ const Navbar = () => {
   const [userName, setUsername] = useState("");
   const [isLogedin, setIsLogedin] = useState(false);
   const [isSubed, setisSubed] = useState(false);
+  //state for search suggestion dropdown
+  const [showDropdown, setShowDropdown] = useState(false);
   //calling useSearch Hook
   useSearch();
 
@@ -94,7 +96,7 @@ const Navbar = () => {
     } else {
       setIsLogedin(false);
     }
-    
+
     if (user) {
       setUsername(user);
       //setIsLogedin(true)
@@ -285,6 +287,11 @@ const Navbar = () => {
     }, 300),
     [searchData] // Only depend on searchData from Redux
   );
+
+  const handleSearchInputText = (item) => {
+    setSearchInputText(item);
+    setFilterData([]);
+  };
 
   // Handle search input changes
   const handleSearchInputChange = (e) => {
@@ -817,12 +824,12 @@ const Navbar = () => {
             style={{ cursor: "pointer" }}
           />
         </div>
-  
+
         <ul className={darkMode ? "navbar-links-dark-mode" : "navbar-links"}>
           <li>
             <Link to="/home">Home</Link>
           </li>
-  
+
           <li
             className="stock-dropdown"
             ref={stockDropdownRef}
@@ -847,7 +854,7 @@ const Navbar = () => {
             </Link>
             {mutualFundsDropdownOpen && renderMutualFundsDropdown()}
           </li>
-  
+
           <li
             className="learn-dropdown"
             ref={learnDropdownRef}
@@ -873,28 +880,40 @@ const Navbar = () => {
             {portfolioDropdownOpen && renderPortfolioDropdown()}
           </li>
         </ul>
-  
+
         <div className="navbar-search">
           <input
             type="text"
             placeholder="Search for Stocks, Mutual..."
             value={searchInputText}
-            onChange={handleSearchInputChange}
+            onChange={(e) => {
+              handleSearchInputChange(e);
+              setShowDropdown(true);
+            }}
           />
           <FaSearch
             className={darkMode ? "search-dark-mode-icon" : "search-icon"}
           />
-  
+
           {/* Show results only when there is input */}
-          {searchInputText && (
+          {showDropdown && (
             <div
               ref={searchResultsRef}
-              className={`search-results-watchlist-sector ${filterData.length > 0 ? "active" : ""}`}
+              className={`search-results-watchlist-sector ${
+                filterData.length > 0 ? "active" : ""
+              }`}
             >
               {filterData.length > 0 ? (
                 <ul>
                   {filterData.map((data, index) => (
-                    <li key={data.id || index}>
+                    <li
+                      key={data.id || index}
+                      onClick={() => {
+                        handleSearchInputText(data.name || data.Scheme_Name);
+                        setFilterData([]);
+                        setShowDropdown(false);
+                      }}
+                    >
                       {data.name || ""} {data.Scheme_Name || ""}{" "}
                       {data.sector || ""} {data.symbol || ""}
                     </li>
@@ -933,8 +952,12 @@ const Navbar = () => {
                 {displayedNotifications.map((notif) => (
                   <div
                     key={notif.id}
-                    onClick={() => !notif.is_read && markNotificationAsRead(notif.id)}
-                    className={`notification-card ${notif.is_read ? "read" : "unread"}`}
+                    onClick={() =>
+                      !notif.is_read && markNotificationAsRead(notif.id)
+                    }
+                    className={`notification-card ${
+                      notif.is_read ? "read" : "unread"
+                    }`}
                     style={{
                       backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
                       color: notif.is_read ? "#757575" : "#000",
@@ -990,9 +1013,11 @@ const Navbar = () => {
                     }
                   />
                 </Link>
-                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
-  {userName.split(" ")[0]}
-</span>
+                <span
+                  className={darkMode ? "willamnamedarkmode" : "willamname"}
+                >
+                  {userName.split(" ")[0]}
+                </span>
 
                 {userDropdownOpen && renderUserDropdown()}
               </li>
@@ -1015,7 +1040,7 @@ const Navbar = () => {
           )}
         </div>
       </nav>
-  
+
       <ul className="footer-nav">
         <li  className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a 
