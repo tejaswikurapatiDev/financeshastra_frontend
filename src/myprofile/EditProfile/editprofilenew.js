@@ -151,13 +151,15 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
+        // console.log("Form data sent to API:", formData);
+        const data=await response.json();
         if (response.ok) {
           const username = formData.firstName + formData.lastName;
           localStorage.setItem("username", username);
           console.log(username);
           setIsPopupVisible(true);
         } else {
+          alert(data.message);
           console.error("Failed to save user details:", response.statusText);
         }
       } catch (error) {
@@ -1039,7 +1041,7 @@ const EditProfile = () => {
                 <div className="profile-phone-container">
                   <div>
                     <input
-                      type="tel"
+                      type="number"
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handlemobileChange}
