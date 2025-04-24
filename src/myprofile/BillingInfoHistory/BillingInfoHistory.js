@@ -222,7 +222,6 @@ const BillingInfoHistory = () => {
             </h1>
             <AccountBar />
 
-<<<<<<< HEAD
             {isSubed ? <div className="billinginfohistory-container"><div>
               <div className="billinginfohistory-row">
                 <div className="billinginfohistory-plan billinginfohistory-wide">
@@ -240,25 +239,7 @@ const BillingInfoHistory = () => {
                     >View Other Plans</button>
                   </div>
                 </div>
-=======
-{isSubed? <div className="billinginfohistory-container"><div>
-<div className="billinginfohistory-row">
-<div className="billinginfohistory-plan billinginfohistory-wide">
-  <h2 className="currenth2">Current Plan</h2>
-  <div className="billinginfohistorycard">
-    <p className="billinginfohistorypara"><strong>Plan Type:</strong> {plan} {BillingCycle}</p>
-    <p className="billinginfohistorypara"><strong>Plan Pricing:</strong> {price} billed {BillingCycle}</p>
-    <p className="billinginfohistory-switch">Switch to annual & save ₹3,999/-</p>
-    <p className="billinginfohistorypara"><strong>Next Charge:</strong> {endingDate} </p>
-    <button className="billinginfohistory-btn"
-    onClick={() => {
-      navigate("/subscription"); 
-      window.scrollTo(0, 0); // Scroll to top after navigation
-    }}
-  >View Other Plans</button>
-  </div>
-</div>
->>>>>>> b91f583f81046c0eaa70a5e0a26921a2c3d05a85
+
 
                 <div className="billinginfohistory-billing billinginfohistory-wide">
                   <h2 className="billlh2">Billing Information</h2>
