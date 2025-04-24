@@ -193,8 +193,9 @@ margin-left: 270px;
   
     }
     .chart-containerportana {
-      margin-left: 120px;
-      margin-bottom: -90px;
+      margin-left: 60px;   /* Adjusted from 120px */
+      margin-right: 60px;  /* Newly added */
+      margin-bottom: -50px;
   }
     .allsegmsize {
       margin-left: 20px;

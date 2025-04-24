@@ -24,7 +24,7 @@ const stockThemesData = [
     earningsYOY: "68,251 (13.4%)",
     industries: "2",
     stocks: "12",
-    sectorUrl: "/bankSectorThemePagelock"  // Add the URL for navigation
+    sectorUrl: "/bankSectorThemePagelock", // Add the URL for navigation
   },
   
   {
@@ -35,6 +35,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "18",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Finance",
@@ -44,6 +45,7 @@ const stockThemesData = [
     earningsYOY: "17,932 (24.18%)",
     industries: "8",
     stocks: "20",
+    sectorUrl: "/bankSectorThemePagelock",
   },
   {
     sector: "Automobile & Components",
@@ -53,6 +55,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "6",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Healthcare",
@@ -62,6 +65,7 @@ const stockThemesData = [
     earningsYOY: "4,720 (22.85%)",
     industries: "5",
     stocks: "15",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Capital Goods",
@@ -71,6 +75,7 @@ const stockThemesData = [
     earningsYOY: "2,083 (22.44%)",
     industries: "9",
     stocks: "8",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Power",
@@ -80,6 +85,7 @@ const stockThemesData = [
     earningsYOY: "9,466 (8.12%)",
     industries: "1",
     stocks: "20",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Energy (Oil & Gas)",
@@ -89,6 +95,7 @@ const stockThemesData = [
     earningsYOY: "31,846 (-4%)",
     industries: "2",
     stocks: "17",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "FMCG",
@@ -98,6 +105,7 @@ const stockThemesData = [
     earningsYOY: "4,651 (12.75%)",
     industries: "5",
     stocks: "7",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Metals & Mining",
@@ -107,6 +115,7 @@ const stockThemesData = [
     earningsYOY: "14,692 (-15.46%)",
     industries: "10",
     stocks: "11",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Media & Entertainment",
@@ -115,7 +124,8 @@ const stockThemesData = [
     sectorPE: "95.60",
     earningsYOY: "-1,398 (-74.51%)",
     industries: "4",
-    stocks: "14"
+    stocks: "14",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Construction & Materials",
@@ -125,6 +135,7 @@ const stockThemesData = [
     earningsYOY: "5,464 (34.99%)",
     industries: "7",
     stocks: "12",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Aviation",
@@ -134,6 +145,7 @@ const stockThemesData = [
     earningsYOY: "2,449 (-18.32%)",
     industries: "2",
     stocks: "17",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Real Estate",
@@ -143,6 +155,7 @@ const stockThemesData = [
     earningsYOY: "2,680 (50.9%)",
     industries: "4",
     stocks: "13",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Telecom",
@@ -152,6 +165,7 @@ const stockThemesData = [
     earningsYOY: "4,245 (134.79%)",
     industries: "4",
     stocks: "10",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Consumer Durables",
@@ -161,6 +175,7 @@ const stockThemesData = [
     earningsYOY: "695 (102.78%)",
     industries: "5",
     stocks: "54",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Textiles",
@@ -170,6 +185,7 @@ const stockThemesData = [
     earningsYOY: "361 (-4.4%)",
     industries: "6",
     stocks: "9",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Agriculture",
@@ -179,6 +195,7 @@ const stockThemesData = [
     earningsYOY: "1,464 (-4.4%)",
     industries: "2",
     stocks: "18",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Logistics",
@@ -188,6 +205,7 @@ const stockThemesData = [
     earningsYOY: "3,214 (19.8%)",
     industries: "3",
     stocks: "11",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Chemicals",
@@ -197,6 +215,7 @@ const stockThemesData = [
     earningsYOY: "7,620 (15.4%)",
     industries: "6",
     stocks: "22",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   
 ];
@@ -251,6 +270,7 @@ export default function StockThemesSectorPages() {
   };
  
   return (
+    <div>
     <>
   {isLoading ? 
     <div className='loader-cont'><ClipLoader
@@ -344,7 +364,8 @@ export default function StockThemesSectorPages() {
             </div>
             <ChevronRight
   className="StockThemesSectorPages-themes-icon"
-  onClick={() => navigate(item.sectorUrl)} // Add navigation on click for the ChevronRight icon
+  onClick={() => navigate("/bankSectorThemePagelock")}
+    // Add navigation on click for the ChevronRight icon
   style={{ cursor: 'pointer' }} // Optional: Add pointer cursor for better UX
 />
 
@@ -353,14 +374,15 @@ export default function StockThemesSectorPages() {
       </div>
       
       <Navbar/>
-      <div className="StockThemesSectorPagesfooter">
-      <FooterForAllPage/>
-      </div>
+     
       
     </div>
     
     }
     </>
-  
+    <div className="foooterpagesaupdate">
+        <FooterForAllPage />
+      </div>
+    </div>
   );
 }
