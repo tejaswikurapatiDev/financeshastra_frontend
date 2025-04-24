@@ -13,7 +13,9 @@
   margin-bottom: 5px;
   margin-left: 50px;
 }
-
+.stockresarch-search-icon{
+display: none;
+}
 .stockresearchreportpage-description {
   font-size: 14px;
   color: #333;

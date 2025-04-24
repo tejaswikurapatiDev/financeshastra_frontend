@@ -42,12 +42,19 @@
   color: #24b676;
 }
 
-
+.etfgold-description {
+  color: #666;
+  margin-bottom: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
  
   /* Responsive styles */
 @media screen and (max-width: 768px) {
   .goldetf-title {
     font-size: 20px; /* Reduce title size for small devices */
+    margin-top: -40px;
  
   }
   .etf-tableegold {
@@ -61,7 +68,14 @@
 @media screen and (max-width: 480px) {
   .goldetf-title {
     font-size: 20px;
-    margin-top: -30px;
+    margin-top: -70px;
+}
+.etfgold-description {
+  font-size: 12px; /* Further reduce description text size */
+  padding: 10px;
+
+
+
 }
 
 .etf-tableegold {
@@ -95,5 +109,16 @@ top: -1px;
 }
 
 
+
+}
+
+@media (max-width: 320px) {
+   
+
+.etfgold-description {
+  font-size: 11px !important; /* 480px से छोटा कर दिया और !important लगाया */
+width: 280px;
+  margin-left: 0px;
+}
 
 }

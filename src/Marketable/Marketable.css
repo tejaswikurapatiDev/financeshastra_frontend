@@ -69,7 +69,7 @@
 @media screen and (max-width: 768px) {
   .etcontainerrr {
     width: 100%;
-    margin-top: 80px;
+    margin-top: -30px;
 }
 
   .etf-title {
@@ -105,7 +105,7 @@
 @media(max-width: 480px) {
   .etcontainerrr {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 70px;
 
 }
   .etf-title {
@@ -115,10 +115,11 @@ margin-left: -100px;
   }
 
   .etf-description {
-    font-size: 13px; /* Further reduce description text size */
-    margin-left: 10px;
-    max-width: 370px;
-    width: 348px;
+    font-size: 12px; /* Further reduce description text size */
+  margin-left: 10px;
+  max-width: 70%;
+
+
   }
 
  
@@ -169,7 +170,7 @@ margin-left: -100px;
 @media (max-width: 375px) {
   .etf-description {
     font-size: 11px !important; /* 480px से छोटा कर दिया और !important लगाया */
-  width: 290px;
+  width: 70%;
     margin-left: 5px;
   }
 }
@@ -190,8 +191,8 @@ margin-left: -100px;
 }
 .etf-description {
   font-size: 11px !important; /* 480px से छोटा कर दिया और !important लगाया */
-width: 290px;
-  margin-left: 5px;
+width: 280px;
+  margin-left: 10px;
 }
 .etf-title {
   font-size: 20px; /* Reduce title size for small devices */
