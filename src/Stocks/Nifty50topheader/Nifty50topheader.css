@@ -234,7 +234,7 @@
 
   .graphheadernifty {
     display: flex;
-    gap: 0px;
+    gap: 40px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -288,9 +288,17 @@
   body {
     overflow-x: hidden;
   }
+
+  .graphpricenifty50 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 100px;
+    margin-top: 20px;
+  }
+  
 }
 
-@media (min-width: 320px) {
+@media (max-width: 320px) {
 
   .graphupdatenifty50 {
     font-size: 8px;
@@ -298,5 +306,12 @@
     margin-top: 2px;
     /* margin-left: -50px; */
     margin-right: 50px;
+  }
+  .graphheadernifty {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
 }
