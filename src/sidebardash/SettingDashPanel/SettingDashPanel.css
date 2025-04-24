@@ -95,7 +95,8 @@
     justify-content: flex-end;
     gap: 10px;
     margin-top: 15px;
-    margin-right: 160px;
+    margin-right:-40px;
+
   }
   
   .saveBtn, .cancelBtn, .suspendBtn, .noBtn {

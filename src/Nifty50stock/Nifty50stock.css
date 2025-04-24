@@ -104,9 +104,10 @@
   }
 
   .dropdown-menu {
-    max-width: 300px;
-  }
-
+    max-width: 100px;
+    /* margin-left: -10px; */
+    left: 50px;
+}
   .dropdown-menu label {
     font-size: 12px;
   }
