@@ -373,9 +373,9 @@ margin-top: -30px;
 }
 
 .pagination-containeranalystreaserch {
-  margin-left: 10px;
-  display: flex
-;
+  margin-left: 10px;     /* Existing value, adjust as needed */
+  margin-right: 10px;    /* Newly added */
+  display: flex;
   gap: 60px;
   margin-top: -30px;
 }
