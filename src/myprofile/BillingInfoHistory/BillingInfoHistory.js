@@ -1,10 +1,10 @@
-import { useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import html2pdf from "html2pdf.js";
 import { HiOutlineDownload } from "react-icons/hi";
 import { API_BASE_URL } from "../../config";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import "./BillingInfoHistory.css";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
@@ -20,8 +20,8 @@ const override = {
 
 const BillingInfoHistory = () => {
   const navigate = useNavigate();
-  const [isLoading, setisLoading] = useState(true)
-  const [isSubed, setisSubed] = useState(false)
+  const [isLoading, setisLoading] = useState(true);
+  const [isSubed, setisSubed] = useState(false);
 
   const [billingInfo, setBillingInfo] = useState({});
 
@@ -38,12 +38,12 @@ const BillingInfoHistory = () => {
     });
   };
 
-  const [plan, setPlan] = useState('')
-  const [endingDate, setEndingDate] = useState('')
-  const [payedDate, setpayedDate] = useState('')
-  const [BillingCycle, setBillingCycle] = useState('')
-  const [price, setpricePayed] = useState('')
-  const [ordersData, setordersData] = useState([])
+  const [plan, setPlan] = useState("");
+  const [endingDate, setEndingDate] = useState("");
+  const [payedDate, setpayedDate] = useState("");
+  const [BillingCycle, setBillingCycle] = useState("");
+  const [price, setpricePayed] = useState("");
+  const [ordersData, setordersData] = useState([]);
 
   useEffect(() => {
     const CookieToken = Cookies.get("jwtToken");
@@ -60,7 +60,7 @@ const BillingInfoHistory = () => {
         try {
           const response = await fetch(url, options);
           const data = await response.json(); // Convert response to JSON
-          console.log("data from subscriptio and billing page:", data)
+          console.log("data from subscriptio and billing page:", data);
           if (data.length === 0) {
             setisSubed(false);
           } else {
@@ -70,25 +70,36 @@ const BillingInfoHistory = () => {
               planId: e.plan_id,
               endingDate: e.ending_date,
               paymentDate: e.payment_date_time,
-              billingCycle: e.billing_cycle
+              billingCycle: e.billing_cycle,
+            }));
+            setPlan(formatedData[0].planId === 1 ? "Elite" : "Premium");
+            setEndingDate(formatedDate(formatedData[0].endingDate));
+            setpayedDate(formatedDate(formatedData[0].paymentDate));
+            setBillingCycle(formatedData[0].billingCycle);
 
-            }))
-            setPlan(formatedData[0].planId === 1 ? "Elite" : "Premium")
-            setEndingDate(formatedDate(formatedData[0].endingDate))
-            setpayedDate(formatedDate(formatedData[0].paymentDate))
-            setBillingCycle(formatedData[0].billingCycle)
-
-            if (formatedData[0].planId === 1 & formatedData[0].billingCycle === "half yearly") {
-              setpricePayed("1,999")
-            } else if (formatedData[0].planId === 1 & formatedData[0].billingCycle === 'yearly') {
-              setpricePayed("2,999")
-            } else if (formatedData[0].planId === 2 & formatedData[0].billingCycle === 'yearly') {
-              setpricePayed("7,999")
-            } else if (formatedData[0].planId === 1 & formatedData[0].billingCycle === "half yearly") {
-              setpricePayed("5,999")
+            if (
+              (formatedData[0].planId === 1) &
+              (formatedData[0].billingCycle === "half yearly")
+            ) {
+              setpricePayed("1,999");
+            } else if (
+              (formatedData[0].planId === 1) &
+              (formatedData[0].billingCycle === "yearly")
+            ) {
+              setpricePayed("2,999");
+            } else if (
+              (formatedData[0].planId === 2) &
+              (formatedData[0].billingCycle === "yearly")
+            ) {
+              setpricePayed("7,999");
+            } else if (
+              (formatedData[0].planId === 1) &
+              (formatedData[0].billingCycle === "half yearly")
+            ) {
+              setpricePayed("5,999");
             }
           }
-          setisLoading(false)
+          setisLoading(false);
         } catch (error) {
           console.error("Error fetching user payment details:", error);
         }
@@ -96,36 +107,36 @@ const BillingInfoHistory = () => {
       fetchdata();
 
       const fetchuserData = async () => {
-        const urluserData = `${API_BASE_URL}/userdetails`
+        const urluserData = `${API_BASE_URL}/userdetails`;
         const options = {
           method: "GET",
           headers: {
-            "Content-Type": 'application/json',
-            "Authorization": `Bearer ${CookieToken}`
-          }
-        }
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${CookieToken}`,
+          },
+        };
 
-        const responseUserData = await fetch(urluserData, options)
+        const responseUserData = await fetch(urluserData, options);
         if (responseUserData.ok === true) {
-          const data = await responseUserData.json()
-          const usernameLocal = localStorage.getItem('username')
+          const data = await responseUserData.json();
+          const usernameLocal = localStorage.getItem("username");
           let dataupdated = {
             name: usernameLocal,
             address: data[0].address,
             country: "India",
             state: data[0].state,
             city: data[0].city,
-            phoneNumber: data[0].phone_number
-          }
-          setBillingInfo(dataupdated)
+            phoneNumber: data[0].phone_number,
+          };
+          setBillingInfo(dataupdated);
         }
-      }
-      fetchuserData()
+      };
+      fetchuserData();
 
       const formatDateforOrders = (orderDate) => {
         const date = new Date(orderDate);
         return date.toISOString().split("T")[0]; // "2025-03-08"
-      }
+      };
 
       const fetOrders = async () => {
         const options = {
@@ -149,27 +160,28 @@ const BillingInfoHistory = () => {
               amount: e.Amount,
               status: e.Status === "Completed" ? "Success" : "Processing",
               end: formatDateforOrders(e.ending_date),
-              statusClass: e.Status === "Completed" ? "success" : "processing"
+              statusClass: e.Status === "Completed" ? "success" : "processing",
             }));
             console.log("formattedordersData:", formattedordersData);
             setordersData(formattedordersData);
           }
         }
-        setisLoading(false)
+        setisLoading(false);
       };
       fetOrders();
-
-
     }
-  }, [])
+  }, []);
   const invoiceRef = useRef();
+  const invoiceRefs = useRef({}); // Dynamic refs for each plan
 
-  const downloadPDF = () => {
-    const element = invoiceRef.current;
-    html2pdf()
-      .set({ margin: 1, filename: "invoice.pdf", html2canvas: { scale: 2 } })
-      .from(element)
-      .save();
+  const downloadPDF = (plan) => {
+    const element = invoiceRefs.current[plan.id]; // Get the ref for the selected plan
+    if (element) {
+      html2pdf()
+        .set({ margin: 1, filename: `${plan.name}_invoice.pdf`, html2canvas: { scale: 2 } })
+        .from(element)
+        .save();
+    }
   };
 
   const handleDownload = (planName) => {
@@ -202,127 +214,175 @@ const BillingInfoHistory = () => {
     `);
   };
 
-
-
   return (
     <div>
-      <div className="outer-cont">{isLoading ? <div className='loader-cont'><ClipLoader
-        cssOverride={override}
-        size={35}
-        data-testid="loader"
-        loading={isLoading}
-        speedMultiplier={1}
-        color="green"
-      /></div> :
-        <>
-          <div className="profilepagee-container">
-
-            <h1 className="profilepage-billtitleorder" style={{ fontFamily: 'Calibri' }}>
-              My Billing & Subscription
-            </h1>
-            <AccountBar />
-
-            {isSubed ? <div className="billinginfohistory-container"><div>
-              <div className="billinginfohistory-row">
-                <div className="billinginfohistory-plan billinginfohistory-wide">
-                  <h2 className="currenth2">Current Plan</h2>
-                  <div className="billinginfohistorycard">
-                    <p className="billinginfohistorypara"><strong>Plan Type:</strong> {plan} {BillingCycle}</p>
-                    <p className="billinginfohistorypara"><strong>Plan Pricing:</strong> {price} billed {BillingCycle}</p>
-                    <p className="billinginfohistory-switch">Switch to annual & save ₹3,999/-</p>
-                    <p className="billinginfohistorypara"><strong>Next Charge:</strong> {endingDate} </p>
-                    <button className="billinginfohistory-btn"
-                      onClick={() => {
-                        navigate("/annualplan");
-                        window.scrollTo(0, 0); // Scroll to top after navigation
-                      }}
-                    >View Other Plans</button>
-                  </div>
-                </div>
-
-
-                <div className="billinginfohistory-billing billinginfohistory-wide">
-                  <h2 className="billlh2">Billing Information</h2>
-                  <div className="billinginfohistory-card">
-                    <p className="billinginfohistorypara"><strong>Name:   </strong> {billingInfo.name}</p>
-                    <p className="billinginfohistorypara"><strong>Address:   </strong> {billingInfo.address}</p>
-                    <p className="billinginfohistorypara"><strong>City, State:   </strong> {billingInfo.city}, {billingInfo.state}</p>
-                    <p className="billinginfohistorypara"><strong>Country:    </strong> {billingInfo.country}</p>
-                    <button
-                      className="billinginfohistorybtn"
-                      onClick={handleNavigation}
-                    >
-                      Update Billing Address
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div className="billinginfohistory-history">
-                <h2 className="billinginfohistory-historyh2">Billing History</h2>
-                <div className="billinginfohistory-history-scroll">
-                  <table className="billinginfohistory-historytable">
-                    <thead>
-                      <tr>
-                        <th>Plan Name</th>
-                        <th>Amount</th>
-                        <th>Purchase Date</th>
-                        <th>End Date</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {ordersData.map((plan, index) => (
-                        <tr key={index}>
-                          <td>{plan.name}</td>
-                          <td>{plan.amount}</td>
-                          <td>{plan.purchase}</td>
-                          <td>{plan.end}</td>
-                          <td className={`billinginfohistory-${plan.statusClass}`}>
-                            <span className={`status-icon ${plan.statusClass}`}>●</span> {plan.status}
-                          </td>
-                          <td>
-                            <button className="billinginfohistory-download" onClick={() => downloadPDF(plan)}>
-                              <HiOutlineDownload />
-                            </button>
-                            <div style={{ display: "none" }}>
-                              <div ref={invoiceRef}>
-                                <Invoicedownloadpage
-                                  planName={plan.name}
-                                  purchaseDate={plan.purchase}
-                                  amount={plan.amount}
-                                  username={billingInfo.name}
-                                  address={billingInfo.address}
-                                  city={billingInfo.city}
-                                  state={billingInfo.state}
-                                  country={billingInfo.country}
-                                  number={billingInfo.phoneNumber}
-                                />
-                              </div>
-                            </div>
-                            <button className="billinginfohistory-view" onClick={() => handleViewInvoice(plan)}>
-                              <MdOutlineRemoveRedEye />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            </div> :
-              <Billingavailableplan />
-            }
-
-
-
-            <Navbar />
+      <div className="outer-cont">
+        {isLoading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isLoading}
+              speedMultiplier={1}
+              color="green"
+            />
           </div>
+        ) : (
+          <>
+            <div className="profilepagee-container">
+              <h1
+                className="profilepage-billtitleorder"
+                style={{ fontFamily: "Calibri" }}
+              >
+                My Billing & Subscription
+              </h1>
+              <AccountBar />
 
-        </>}
+              {isSubed ? (
+                <div className="billinginfohistory-container">
+                  <div>
+                    <div className="billinginfohistory-row">
+                      <div className="billinginfohistory-plan billinginfohistory-wide">
+                        <h2 className="currenth2">Current Plan</h2>
+                        <div className="billinginfohistorycard">
+                          <p className="billinginfohistorypara">
+                            <strong>Plan Type:</strong> {plan} {BillingCycle}
+                          </p>
+                          <p className="billinginfohistorypara">
+                            <strong>Plan Pricing:</strong> {price} billed{" "}
+                            {BillingCycle}
+                          </p>
+                          <p className="billinginfohistory-switch">
+                            Switch to annual & save ₹3,999/-
+                          </p>
+                          <p className="billinginfohistorypara">
+                            <strong>Next Charge:</strong> {endingDate}{" "}
+                          </p>
+                          <button
+                            className="billinginfohistory-btn"
+                            onClick={() => {
+                              navigate("/annualplan");
+                              window.scrollTo(0, 0); // Scroll to top after navigation
+                            }}
+                          >
+                            View Other Plans
+                          </button>
+                        </div>
+                      </div>
 
+                      <div className="billinginfohistory-billing billinginfohistory-wide">
+                        <h2 className="billlh2">Billing Information</h2>
+                        <div className="billinginfohistory-card">
+                          <p className="billinginfohistorypara">
+                            <strong>Name: </strong> {billingInfo.name}
+                          </p>
+                          <p className="billinginfohistorypara">
+                            <strong>Address: </strong> {billingInfo.address}
+                          </p>
+                          <p className="billinginfohistorypara">
+                            <strong>City, State: </strong> {billingInfo.city},{" "}
+                            {billingInfo.state}
+                          </p>
+                          <p className="billinginfohistorypara">
+                            <strong>Country: </strong> {billingInfo.country}
+                          </p>
+                          <button
+                            className="billinginfohistorybtn"
+                            onClick={handleNavigation}
+                          >
+                            Update Billing Address
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="billinginfohistory-history">
+                      <h2 className="billinginfohistory-historyh2">
+                        Billing History
+                      </h2>
+                      <div className="billinginfohistory-history-scroll">
+                        <table className="billinginfohistory-historytable">
+                          <thead>
+                            <tr>
+                              <th>Plan Name</th>
+                              <th>Amount</th>
+                              <th>Purchase Date</th>
+                              <th>End Date</th>
+                              <th>Status</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {ordersData.map(
+                              (plan, index) => (
+                                console.log(
+                                  "🚀 ~ BillingInfoHistory ~ plan:",
+                                  plan
+                                ),
+                                (
+                                  <tr key={index}>
+                                    <td>{plan.name}</td>
+                                    <td>{plan.amount}</td>
+                                    <td>{plan.purchase}</td>
+                                    <td>{plan.end}</td>
+                                    <td
+                                      className={`billinginfohistory-${plan.statusClass}`}
+                                    >
+                                      <span
+                                        className={`status-icon ${plan.statusClass}`}
+                                      >
+                                        ●
+                                      </span>{" "}
+                                      {plan.status}
+                                    </td>
+                                    <td>
+                                      <button
+                                        className="billinginfohistory-download"
+                                        onClick={() => downloadPDF(plan)}
+                                      >
+                                        <HiOutlineDownload />
+                                      </button>
+                                      <div style={{ display: "none" }}>
+                                        <div ref={(el) => (invoiceRefs.current[plan.id] = el)}>
+                                          <Invoicedownloadpage
+                                            planName={plan.name}
+                                            purchaseDate={plan.purchase}
+                                            amount={plan.amount}
+                                            username={billingInfo.name}
+                                            address={billingInfo.address}
+                                            city={billingInfo.city}
+                                            state={billingInfo.state}
+                                            country={billingInfo.country}
+                                            number={billingInfo.phoneNumber}
+                                          />
+                                        </div>
+                                      </div>
+                                      <button
+                                        className="billinginfohistory-view"
+                                        onClick={() => handleViewInvoice(plan)}
+                                      >
+                                        <MdOutlineRemoveRedEye />
+                                      </button>
+                                    </td>
+                                  </tr>
+                                )
+                              )
+                            )}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Billingavailableplan />
+              )}
+
+              <Navbar />
+            </div>
+          </>
+        )}
       </div>
       <FooterForAllPage />
     </div>
