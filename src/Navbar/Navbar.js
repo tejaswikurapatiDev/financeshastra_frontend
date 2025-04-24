@@ -60,6 +60,8 @@ const Navbar = () => {
   const [filterData, setFilterData] = useState([]);
   const [footerMutualFundsDropdownOpen, setFooterMutualFundsDropdownOpen] =
     useState(false);
+    const [footerhomeDropdownOpen, setFooterhomeDropdownOpen] =
+    useState(false);
   const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] = useState(false);
   const [footerPortfolioDropdownOpen, setFooterPortfolioDropdownOpen] =
     useState(false);
@@ -231,6 +233,7 @@ const Navbar = () => {
   const footerPortfolioDropdownRef = useRef(null);
   const footerMutualFundsDropdownRef = useRef(null);
   const footerLearnDropdownRef = useRef(null);
+  const footerhomeDropdownRef = useRef(null);
   const footerportfolioDropdownRef = useRef(null);
   const stockDropdownRef = useRef(null);
   const userDropdownRef = useRef(null);
@@ -238,6 +241,7 @@ const Navbar = () => {
   const portfolioDropdownRef = useRef(null);
   const mutualFundsDropdownRef = useRef(null);
   const learnDropdownRef = useRef(null);
+ 
   const searchResultsRef = useRef(null);
 
   useEffect(() => {
@@ -312,6 +316,12 @@ const Navbar = () => {
         setFooterMutualFundsDropdownOpen(false);
       }
       if (
+        footerhomeDropdownRef.current &&
+        !footerhomeDropdownRef.current.contains(event.target)
+      ) {
+        setFooterhomeDropdownOpen(false);
+      }
+      if (
         footerportfolioDropdownRef.current &&
         !footerportfolioDropdownRef.current.contains(event.target)
       ) {
@@ -380,6 +390,9 @@ const Navbar = () => {
 
   const toggleFooterStockDropdown = () => {
     setFooterStockDropdownOpen(!footerStockDropdownOpen);
+  };
+  const toggleFooterhomeDropdown = () => {
+    setFooterhomeDropdownOpen(!footerhomeDropdownOpen);
   };
 
   const toggleUserDropdown = () => {
@@ -617,6 +630,44 @@ const Navbar = () => {
     </div>
   );
 
+
+  const renderhomeDropdown = () => (
+    <div className={darkMode ? "learn-homedarkerrrrmode" : "home-menu"}>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/home">
+        Dashboard
+         
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/porfolioanalysisallpagecall">
+        Portfolio Analysis
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/stockWatchlist">
+        Watchlist
+        </Link>
+      </div>
+
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/stockresearchpages">
+        Research
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/security">
+        Security
+       
+        </Link>
+      </div>
+      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+        <Link to="/settingDashPanel">
+        Setting
+        </Link>
+      </div>
+    </div>
+  );
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
@@ -858,7 +909,7 @@ const Navbar = () => {
         {!isLoading && !isSubscribed && (
           <h4
             className="subscritebutton"
-            onClick={() => navigate("/annualplan")}
+            onClick={() => navigate("/subscription")}
           >
             Subscribe
           </h4>
@@ -966,15 +1017,21 @@ const Navbar = () => {
       </nav>
   
       <ul className="footer-nav">
-        <li>
-          <a href="/home" className="footer-link">
+        <li  className="learn-dropdown" ref={footerhomeDropdownRef}>
+          <a 
+            href="#"
+            onClick={toggleFooterhomeDropdown}
+           className="footer-link">
             <div className="footer-item">
               <i className="footer-icon">
                 <RiHome5Fill />
+               
               </i>
               <span>Home</span>
+              <FaChevronDown className="chevron-icon" />
             </div>
           </a>
+          {footerhomeDropdownOpen && renderhomeDropdown()}
         </li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
           <a
