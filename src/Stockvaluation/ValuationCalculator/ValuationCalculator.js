@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Slider, TextField, Button, Typography, Box } from "@mui/material";
 import "./ValuationCalculator.css";
+import { fontSize } from "@mui/system";
 
 const ValuationCalculator = () => {
   const [epsGrowthRate, setEpsGrowthRate] = useState(0);
@@ -50,7 +51,7 @@ const ValuationCalculator = () => {
     <div>
       <h1 className="valuationHead">Valuation of ITI Limited</h1>
       <Box className="valuationContainer">
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom className="headervalll">
           Price Calculator
         </Typography>
 
@@ -59,7 +60,7 @@ const ValuationCalculator = () => {
           <Box className="valuationColumn" sx={{ marginRight: 5 }}>
             {/* EPS Growth Rate Slider */}
             <Box className="sliderSection">
-              <Typography>Expected EPS Growth Rate:</Typography>
+              <Typography className="eppps" style={{fontSize:"14px"}} >Expected EPS Growth Rate:</Typography>
               <Slider
                 value={epsGrowthRate}
                 onChange={handleSliderChange(setEpsGrowthRate)}
@@ -69,13 +70,13 @@ const ValuationCalculator = () => {
                 sx={{ width: '100%' }}
               />
               <div className="basevaluation">
-                <Typography>Base {epsGrowthRate}%</Typography>
+                <Typography style={{fontSize:"14px"}}>Base {epsGrowthRate}%</Typography>
               </div>
             </Box>
 
             {/* Expected Rate of Return Slider */}
             <Box className="sliderSection">
-              <Typography>Expected Rate of Return:</Typography>
+              <Typography style={{fontSize:"14px"}}>Expected Rate of Return:</Typography>
               <Slider
                 value={rateOfReturn}
                 onChange={handleSliderChange(setRateOfReturn)}
@@ -85,13 +86,13 @@ const ValuationCalculator = () => {
                 sx={{ width: '100%' }}
               />
               <div className="basevaluation">
-                <Typography>Base {rateOfReturn}%</Typography>
+                <Typography style={{fontSize:"14px"}}>Base {rateOfReturn}%</Typography>
               </div>
             </Box>
 
             {/* Future PE Slider */}
             <Box className="sliderSection">
-              <Typography>Future PE:</Typography>
+              <Typography style={{fontSize:"14px"}}>Future PE:</Typography>
               <Slider
                 value={futurePE}
                 onChange={handleSliderChange(setFuturePE)}
@@ -101,7 +102,7 @@ const ValuationCalculator = () => {
                 sx={{ width: '100%' }}
               />
               <div className="basevaluation">
-                <Typography>Base {futurePE}%</Typography>
+                <Typography style={{fontSize:"14px"}}>Base {futurePE}%</Typography>
               </div>
             </Box>
           </Box>
@@ -119,6 +120,7 @@ const ValuationCalculator = () => {
                   backgroundColor: activeButton === "base" ? "#24b676" : "transparent",
                   color: activeButton === "base" ? "white" : "black",
                   border: activeButton === "base" ? "none" : "1px solid #24b676",
+                  fontSize:"12px"
                 }}
               >
                 Base Value
@@ -134,6 +136,7 @@ const ValuationCalculator = () => {
                   color: activeButton === "my" ? "white" : "black",
                   border: activeButton === "my" ? "none" : "1px solid #24b676",
                   marginLeft: "10px",
+                     fontSize:"12px"
                 }}
               >
                 My Valuation
@@ -142,13 +145,13 @@ const ValuationCalculator = () => {
 
             {/* MRP & DP Values */}
             <Box className="mrpDpRow" display="flex" justifyContent="space-between" marginBottom="10px">
-              <Typography sx={{ fontSize: "16px" }}>MRP: ₹{mrp}</Typography>
-              <Typography sx={{ fontSize: "16px" }}>DP: ₹{dp}</Typography>
+              <Typography sx={{ fontSize: "14px" }}>MRP: ₹{mrp}</Typography>
+              <Typography sx={{ fontSize: "14px" }}>DP: ₹{dp}</Typography>
             </Box>
 
             {/* Base EPS Input */}
             <Box className="inputSection">
-              <Typography sx={{ fontSize: "16px" }}>Base EPS ₹:</Typography>
+              <Typography sx={{ fontSize: "14px" }}>Base EPS ₹:</Typography>
               <TextField
                 type="number"
                 value={baseEPS}
@@ -159,7 +162,7 @@ const ValuationCalculator = () => {
 
             {/* DPS Input */}
             <Box className="inputSection">
-              <Typography>DPS ₹:</Typography>
+              <Typography style={{fontSize:"14px"}}>DPS ₹:</Typography>
               <TextField
                 type="number"
                 value={dps}
@@ -170,7 +173,7 @@ const ValuationCalculator = () => {
 
             {/* MOS Input */}
             <Box className="inputSection">
-              <Typography>MOS (%):</Typography>
+              <Typography style={{fontSize:"14px"}}>MOS (%):</Typography>
               <TextField
                 type="number"
                 value={mos}
@@ -190,6 +193,7 @@ const ValuationCalculator = () => {
                   padding: "8px",
                   borderRadius: "10px",
                   marginRight: "5px",
+                     fontSize:"12px"
                 }}
                 onClick={() => alert("Valuation saved")}
               >
