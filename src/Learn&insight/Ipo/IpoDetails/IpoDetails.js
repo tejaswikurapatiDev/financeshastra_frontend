@@ -322,11 +322,25 @@ const IpoDetails = () => {
         <div className='iconimageall'>
           <div className="shareIcons">
             <h3>Share</h3>
-            <FaFacebookF className="shareIcon" />
-            <FaTwitter className="shareIcon" />
-            <FaLinkedinIn className="shareIcon" />
-            <FaWhatsapp className="shareIcon" />
-            <FaEnvelope className="shareIcon" />
+            <a href="https://www.facebook.com/FinanceShastra/" target="_blank" rel="noopener noreferrer">
+      <FaFacebookF className="shareIcon" />
+    </a>
+    <a href="https://x.com/FinanceShastra" target="_blank" rel="noopener noreferrer">
+      <FaTwitter className="shareIcon" />
+    </a>
+    <a href="https://www.linkedin.com/company/financeshastra/" target="_blank" rel="noopener noreferrer">
+      <FaLinkedinIn className="shareIcon" />
+    </a>
+    <a
+      href="https://wa.me/9067604020"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <FaWhatsapp className="shareIcon" />
+    </a>
+    <a href="mailto:info@financeshastra.com">
+      <FaEnvelope className="shareIcon" />
+    </a>
           </div>
           <div>
             <img src={ipoDetails.image} alt="Sanathan Textiles IPO" className="ipoImage" /></div>
