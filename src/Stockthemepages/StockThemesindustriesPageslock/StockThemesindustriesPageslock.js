@@ -133,7 +133,7 @@ export default function StockThemesindustrieslockPages() {
                 </span>
               </p>
 
-              <p>
+              <p className="StockThemesSectorPages-themespara">
                 <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
                 <br />
                 <span style={{ color: "#24b676", fontWeight: "bold" }}>
@@ -145,16 +145,16 @@ export default function StockThemesindustrieslockPages() {
                 </span>
               </p>
 
-              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br/>  <span style={{ fontWeight: "bold", color: "#333" }}>
+              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br/>  <span style={{ fontWeight: "bold", color: "#333" }}>
                 {item.sectorPE}</span></p>
-              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
+                <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
                 {item.earningsYOY.split(" ")[0]}</span>{" "}
                 <span style={{ color: "#24b676",fontWeight: "bold" }}>
                   {item.earningsYOY.match(/\(.*\)/)}
                 </span>
               </p>
               
-              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
+              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
             </div>
 
             <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreenerList")}className="StockThemesSectorPages-themes-icon" />

@@ -338,27 +338,27 @@ export default function StockThemesSectorPages() {
                     <span style={{ color: "#24b676", fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
                   </p>
 
-                  <p>
-                    <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
-                    <br />
-                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
-                      {item.adv}
-                    </span>{" "}
-                    |{" "}
-                    <span style={{ color: "red", fontWeight: "bold" }}>
-                      {item.decline}
-                    </span>
-                  </p>
+<p className="StockThemesSectorPages-themespara">
+  <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
+  <br />
+  <span style={{ color: "#24b676", fontWeight: "bold" }}>
+    {item.adv}
+  </span>{" "}
+  |{" "}
+  <span style={{ color: "red", fontWeight: "bold" }}>
+    {item.decline}
+  </span>
+</p>
 
-                  <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br />  <span style={{ fontWeight: "bold", color: "#333" }}>
-                    {item.sectorPE}</span></p>
-                  <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br />
-
-                    {item.earningsYOY}</span>{" "}
-                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
-                      {item.earningsYOYper}</span>
-                  </p>
-                  <p><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br /><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
+              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br/>  <span style={{ fontWeight: "bold", color: "#333" }}>
+                {item.sectorPE}</span></p>
+              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
+              
+              {item.earningsYOY}</span>{" "}
+              <span style={{ color: "#24b676",fontWeight: "bold" }}>
+              {item.earningsYOYper}</span>
+              </p>
+              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
 
                   </span></p>
                   <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br /><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
