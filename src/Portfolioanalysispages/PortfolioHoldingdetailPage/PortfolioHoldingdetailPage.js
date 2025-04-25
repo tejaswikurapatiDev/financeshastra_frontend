@@ -289,6 +289,7 @@ const handleSearchChange = (e) => {
      <CiSearch className="portfolioholdingsector-search-icon"/>
   </div>
 </div>
+<div className="overallholdingtable">
       <div className="PortfolioHoldingPageHeader">
         <h2 className="PortfolioHoldingPageh2">Holdings - {holdings.length}</h2>
 
@@ -372,6 +373,7 @@ const handleSearchChange = (e) => {
           </div>
         ))}
       </div>
+      </div>
 
       {/* Pagination Section */}
       <div className="pagination-containerdetrailportfolio">
@@ -412,7 +414,9 @@ const handleSearchChange = (e) => {
       <Sidebar />
       <div className="main-contentover">
         <div className="contentover">{children}</div>
+        <div className="oversidefooter">
         <FooterForAllPage />
+        </div>
       </div>
     </div>
     </div>

@@ -18,6 +18,7 @@ import cbiImage from '../../assest/centralbank.png';
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
+import Navbar from "../../Navbar/Navbar";
 
 const BankSectorThemePage = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -203,12 +204,10 @@ const BankSectorThemePage = () => {
         ))}
       </tbody>
     </table>
-    <Stockthemeunlocknavbar/>
+    <Navbar/>
    
         </div>
-        <div >
-      <FooterForAllPage/>
-      </div>
+        <FooterForAllPage/>
         </div>
     );
 };

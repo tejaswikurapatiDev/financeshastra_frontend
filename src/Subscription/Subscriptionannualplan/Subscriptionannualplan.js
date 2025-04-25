@@ -44,7 +44,7 @@ const SubscriptionPlans = () => {
                     <span className="ribbon-price-detailelite">   ₹8,999  / After 12 Month</span>
 
                     <div className="text-black">You save
-                      <span className="text-highlight"> ₹6,000</span>
+                      <span className="text-highlight"> ₹5,000</span>
                       <span className="text-highlight"> (66%)</span>
                       <span className="text-blackyear"> a year</span>
                     </div>

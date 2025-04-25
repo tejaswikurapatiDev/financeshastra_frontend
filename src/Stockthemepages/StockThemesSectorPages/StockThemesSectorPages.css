@@ -183,13 +183,27 @@
   .StockThemesSectorPages-themes-list {
     gap: 10px;
   }
-
   .StockThemesSectorPages-themes-card {
-
     padding: 10px;
-   
     white-space: nowrap;
-  }
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Chrome, Safari, Edge - hide scrollbar */
+.StockThemesSectorPages-themes-card::-webkit-scrollbar {
+    display: none;
+}
+
+.StockThemesSectorPages-themes-icon {
+  flex: 0 0 auto; /* Prevent shrinking */
+  display: inline-block;
+  margin-right: 10px; /* Optional spacing */
+}
 
   .StockThemesSectorPages-themes-details {
  
@@ -207,16 +221,15 @@
   margin-left: -23px;
 }
 }
-
 @media screen and (max-width: 480px) {
   .StockThemesSectorPages-themes-container {
-    padding: 10px;
+    padding: 16px;
   }
 
   .StockThemesSectorPages-themes-title {
-    font-size: 18px;
-    margin-top: 70px;
-}
+    font-size: 22px;
+    margin-top: 30px;
+  }
 
   .banksectorsearchstock,
   .StockThemesSectorPages-themes-search {
@@ -226,60 +239,69 @@
   }
 
   .StockThemesSectorPages-themes-list {
-    gap: 8px;
+    gap: 10px;
   }
 
   .StockThemesSectorPages-themes-card {
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1px;
-    /* Reduced from 16px */
-    border: 1px solid #cecece;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease-in-out;
-    min-height: 10px;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
-    padding-bottom: 10px;
-    width: 99%;
-    margin-left: 0px;
-    margin-right: 0px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
   }
-  .StockThemesSectorPages-themes-icon {
 
-
-}
-  .StockThemesSectorPages-themes-details {
-    display: grid
-    ;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 4px;
-            width: 1%;
-            margin-left: -40px;
-
-        }
-        /*.StockThemesSectorPages-themes-details {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr); /* 3 columns */
-          /*gap: 4px;
-          width: 100%;
-          margin-left: 0;
-        }*/
-  .StockThemesSectorPages-themes-icon {
-
+  /* Chrome, Safari, Edge - hide scrollbar */
+  .StockThemesSectorPages-themes-card::-webkit-scrollbar {
+    display: none;
   }
-  .StockThemesSectorPages-themes-card-header {
+
+  .StockThemesSectorPages-themes-card > * {
+    flex: 0 0 auto; /* Ensure children don't shrink and stay in one line */
+    margin-right: 10px;
+  }
+
+  .StockThemesSectorPages-themes-icon {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
     display: flex
 ;
-    flex-direction: column;
-    /* gap: 4px; */
-    margin-left: -2px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 200px;
 }
-.StockThemesSectorPagesfooter{
-  width: 113%;
-  margin-left: -23px;
+
+  .StockThemesSectorPages-themes-details {
+    gap: 25px;
+    min-width: 200px; /* adjust as per content */
+    margin-left: 10px;
+  }
+
+  .StockThemesSectorPages-themes-card-header {
+    margin-top: 7px;
+    margin-left: -20px;
+  }
+
+  .StockThemesSectorPagesfooter {
+    width: 113%;
+    margin-left: -23px;
+  }
+}
+@media (max-width: 320px) {
+  .StockThemesSectorPages-themes-icon {
+    flex: 0 0 auto;
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    margin-left: 270px;
 }
 }

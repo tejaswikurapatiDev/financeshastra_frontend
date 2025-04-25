@@ -35,7 +35,7 @@ const Goldmarket = () => {
         /></div> :
     <div className="etcontainerrr">
       <h1 className="goldetf-title">Gold Exchange Traded Funds</h1>
-      <p className="etf-description">
+      <p className="etfgold-description">
       Gold Exchange Traded Funds (Gold ETFs) are a type of investment fund that tracks the price of gold. 1 
        They are a popular way to invest in gold without the need to physically buy and store gold.
         ETFs trade on the cash market of the National Stock Exchange, like any other company stock, and can be 
