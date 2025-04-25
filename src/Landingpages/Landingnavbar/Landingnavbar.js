@@ -667,7 +667,7 @@ const Landingnavbar = () => {
             {!isLoading && !isSubscribed && (
               <h4
                 className="subscritebutton"
-                onClick={() => navigate("/pricehalf")}
+                onClick={() => navigate("/subscription")}
               >
                 Subscribe
               </h4>

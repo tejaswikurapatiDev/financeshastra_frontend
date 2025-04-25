@@ -11,8 +11,11 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+
 const Highstock = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
@@ -2347,13 +2350,15 @@ const Highstock = () => {
                   </td>
 
                   <td>
+                  {!isLoading && !isSubscribed ? 
                     <button
                       className="screener-unlock-btn"
                       onClick={handleNavigate}
                     >
                       <IoLockClosedOutline style={{ marginRight: "8px" }} />
                       <span className="button-text">Unlock</span>
-                    </button>
+                    </button>: stock.analystRating
+}
                   </td>
                 </tr>
               ))}

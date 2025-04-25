@@ -11,8 +11,11 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+
 const Netify100 = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
@@ -106,19 +109,22 @@ const toggleDropdown = (key) => {
          if (response.ok=== true){
            const data= await response.json()
            const formattedData= data.map(each =>({
-             "id": each.ID,
-             "symbol": each.Symbol,
-             "price": each.Price,
-             "change": each.Change,
-             "volume": each.Volume,
-             "marketCap": each.Market_cap,
-             "pToE": each.P_E,
-             "eps": each.EPS_dil,
-             "epsDilGrowth": each.EPS_dil_growth_TTM_YoY,
-             "divYield": each.Div_yield,
-             "sector": each.Sector,
-             "url": '/stockhandle',
-             "icon": each.icons
+             id: each.id,
+          symbol: each.CompanyName,
+          price: each.LastTradedPrice,
+          change: each.ChangePercentage,
+          volume: each.Volume,
+          marketCap: each.MarketCap,
+          pToE: each.CurrentPE,
+          eps: each.EPS,
+          epsDilGrowth: each.EPSGrowth,
+          divYield: each.DividendYield,
+          sector: each.Sector,
+          url: "/stockhandle",
+          icon: each.icons,
+          index: each.IndexName,
+          roe: each.ROE,
+          analystRating: each.Analyst_Rating
            }))
            //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
            
@@ -2290,10 +2296,11 @@ const perfOptions = [
 
 
 <td>
+{!isLoading && !isSubscribed ? 
       <button className="screener-unlock-btn" onClick={handleNavigate}>
         <IoLockClosedOutline style={{ marginRight: '8px' }} />
         <span className="button-text">Unlock</span>
-      </button>
+      </button>: stock.analystRating}
     </td>
 
 

@@ -12,6 +12,13 @@ import Sidebar from "../../Sidebar/Sidebar";
 
 const StockWatchlist = ({ children }) => {
   const navigate = useNavigate();
+  useEffect(()=>{
+    const token = Cookies.get("jwtToken");
+        if (!token) {
+          navigate("/login");
+          return;
+        }
+  }, [])
   const getStockData = useSelector(
     (store) => store?.searchData?.searchData || []
   );
