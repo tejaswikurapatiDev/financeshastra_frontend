@@ -168,14 +168,12 @@
 
 /* Extra Large Screens (1536px and above) */
 @media (min-width: 1536px) {
- 
+  
 }
 
 /* Large Desktops (1280px - 1535px) */
 @media (min-width: 1280px) and (max-width: 1535px) {
-  .FooterForAllPage-footer {
-    height: 600px;
-  }
+
 }
 
 /* Medium Desktops (1024px - 1279px) */

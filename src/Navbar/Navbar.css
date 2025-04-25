@@ -4,6 +4,27 @@
   /* Makes the dropdown position relative to this element */
 }
 
+
+.dropdown-item,
+.dropdown-itemdarkerrmode {
+  color: inherit;
+}
+
+.dropdown-item:hover,
+.dropdown-itemdarkerrmode:hover {
+  background-color: #24b676;
+  color: white;
+}
+
+.dropdown-item:hover * {
+  color: white;
+}
+
+.dropdown-itemdarkerrmode:hover * {
+  color: white;
+}
+
+
 .butn {
   background-color: transparent;
   border: none;
@@ -265,9 +286,6 @@ a span {
   font-family: 'calibri';
 }
 
-.navbar-links :hover {
-  color: black;
-}
 
 .navbar-search {
   position: relative;
@@ -2728,7 +2746,7 @@ a span {
 
   .mutualstockmenu {
     position: absolute;
-    top: -161px;
+    top: -152px;
     bottom: 60px;
     left: 60px;
     right: 10px;
@@ -2736,12 +2754,14 @@ a span {
     height: 180px;
     overflow-y: hidden;
     padding: 15px;
+    height: 165px;
+    
 }
 
   .learn-menu {
     min-width: 180px;
     padding: 10px 0;
-    margin-top: -288px;
+    margin-top: -276px;
     margin-left: -140px;
   }
 
@@ -2786,7 +2806,7 @@ a span {
   }
 
   .mutualfunds-dropdown .dropdown-item {
-    font-size: 10px;
+    font-size: 12px;
     /* Smaller font for smaller screens */
     padding: 5px;
     /* Adjust padding */

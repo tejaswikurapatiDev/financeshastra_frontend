@@ -437,138 +437,181 @@ const Navbar = () => {
         }
       >
         <ul>
-          <li>
-            <div
-              className={
+       <li style={{ listStyle: "none" }}>
+  <Link
+    to="/StockScreenerList"
+    className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+    style={{
+      display: "block",
+      textDecoration: "none",
+    
+      
+    }}
+  >
+   Stock Screener
+    <p >
+      Discover stocks based on various filters and criteria to make informed
+      decisions.
+    </p>
+  </Link>
+</li>
+
+          <li style={{ listStyle: "none" }}>
+          
+              <Link to="/beststock"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/StockScreenerList">
-                Stock Screener
-                <p>
-                  Discover stocks based on various filters and criteria to make
-                  informed decisions.
-                </p>
-              </Link>
-            </div>
-          </li>
-          <li>
-            <div
-              className={
-                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
-              }
-            >
-              <Link to="/beststock">
+              style={{
+                display: "block",
+                textDecoration: "none",
+               
+                
+              }}>
                 Best Stock
                 <p>
                   Explore the best stocks for investment based on analysis and
                   trends.
                 </p>
               </Link>
-            </div>
+           
           </li>
           <li>
-            <div
-              className={
+          
+              <Link to="/highgrowth"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/highgrowth">
+              style={{
+                display: "block",
+                textDecoration: "none",
+              
+              
+              }}
+              >
                 High Growth Stocks
                 <p>
                   Find stocks that are expected to grow rapidly in the upcoming
                   years.
                 </p>
               </Link>
-            </div>
+          
           </li>
           <li>
-            <div
-              className={
-                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
-              }
-            >
-              <Link to="/nifty50pageall">
-                Nifty 50 Companies
+          
+              <Link to="/nifty50pageall"
+                className={
+                  darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                }
+
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                 
+                  
+                }}
+                >
+                 Nifty 50 Companies
                 <p>
                   Track the top 50 companies listed on the National Stock
                   Exchange of India.
                 </p>
               </Link>
-            </div>
           </li>
         </ul>
       </div>
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div
-              className={
+        
+              <Link to="/nifty"  className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/nifty">
-                Nifty 100 Companies
+              style={{
+                display: "block",
+                textDecoration: "none",
+               
+                
+              }}
+              >
+               Nifty 100 Companies
                 <p>
                   Explore all 500 companies listed on the Nifty index to
                   diversify your portfolio.
                 </p>
               </Link>
-            </div>
           </li>
           <li>
-            <div
-              className={
-                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
-              }
-            >
-              <Link to="/smallcap">
+          
+              <Link to="/smallcap"
+                className={
+                  darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                }
+              style={{
+                display: "block",
+                textDecoration: "none",
+              
+              }}>
                 Small Cap
                 <p>
                   Invest in smaller companies with high potential for growth.
                 </p>
               </Link>
-            </div>
+           
           </li>
           <li>
-            <div
-              className={
+            
+              <Link to="/midcap"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/midcap">
-                Mid Cap
+               style={{
+                display: "block",
+                textDecoration: "none",
+              
+                
+              }}>
+                 Mid Cap
                 <p>
                   Discover mid-sized companies with a strong growth trajectory.
                 </p>
               </Link>
-            </div>
+      
           </li>
           <li>
-            <div
-              className={
+          
+              <Link to="/largecap"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/largecap">
-                Large Cap
+               style={{
+                display: "block",
+                textDecoration: "none",
+               
+              
+              }}>
+                 Large Cap
                 <p>
                   Focus on large, established companies with stable returns.
                 </p>
               </Link>
-            </div>
+            
           </li>
           <li>
-            <div
-              className={
+              <Link to="/stockThemesSectorPages"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/stockThemesSectorPages">
+              style={{
+                display: "block",
+                textDecoration: "none",
+              
+               
+              }}>
                 Stock Themes
                 <p>Research is key before buying any stock</p>
               </Link>
-            </div>
+           
           </li>
         </ul>
       </div>
@@ -577,56 +620,110 @@ const Navbar = () => {
 
   const renderPortfolioDropdown = () => (
     <div className={darkMode ? "learn-menudarkerrrrmode" : "dropdown-menu"}>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/portfolio">
-          My Portfolio
-          <p>Your financial navigator</p>
-        </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/portfolio-risk">
-          Portfolio Risk Analysis
+       <Link
+      to="/portfolio"
+      className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+      style={{
+        display: "block",
+        textDecoration: "none",
+        
+       
+      }}
+    >
+      My Portfolio
+      <p >Your financial navigator</p>
+    </Link>
+     
+        <Link to="/portfolio-risk"
+         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+         style={{
+          display: "block",
+          textDecoration: "none",
+        
+          
+        }}>
+         Portfolio Risk Analysis
           <p>Risk evaluation and insights(coming soon)</p>
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/stockWatchlist">
+   
+      
+        <Link to="/stockWatchlist"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+          style={{
+            display: "block",
+            textDecoration: "none",
+           
+           
+          }}>
           Watchlist
           <p>Monitor, assess, and improve</p>
         </Link>
-      </div>
+     
     </div>
   );
 
   const renderlearnDropdown = () => (
     <div className={darkMode ? "learn-menudarkerrrrmode" : "learn-menu"}>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/stockNewsComponent">
-          Stock News
+  
+        <Link to="/stockNewsComponent"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+          style={{
+            display: "block",
+            textDecoration: "none",
+          
+            
+          }}>
+         Stock News
           <p>Discover what's happening in the stock markets in real-time</p>
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/blogsComponent">
+     
+        <Link to="/blogsComponent"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+         style={{
+          display: "block",
+          textDecoration: "none",
+         
+         
+        }}>
           Blogs
           <p>Investment Knowledge Hub</p>
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/ipoComponent">
+
+  
+        <Link to="/ipoComponent"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+         
+          
+        }}>
           IPO Details
           <p>Key Information on the Latest IPO Trends</p>
         </Link>
-      </div>
 
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/earningsInsightLearn">
+
+        <Link to="/earningsInsightLearn" className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+         style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
           Quarterly Earnings
           <p>Monitor thorough quarterly earnings summaries</p>
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/learncard">
+    
+     
+        <Link to="/learncard"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+         
+          
+        }}
+        >
           Learn
           <p>
             {" "}
@@ -634,46 +731,88 @@ const Navbar = () => {
           </p>
         </Link>
       </div>
-    </div>
+  
   );
 
 
   const renderhomeDropdown = () => (
     <div className={darkMode ? "learn-homedarkerrrrmode" : "home-menu"}>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/home">
+     
+        <Link to="/home"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
         Dashboard
          
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/porfolioanalysisallpagecall">
+   
+     
+        <Link to="/porfolioanalysisallpagecall"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+      
+         
+        }}>
         Portfolio Analysis
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/stockWatchlist">
+     
+
+        <Link to="/stockWatchlist"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
         Watchlist
         </Link>
-      </div>
+   
 
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/stockresearchpages">
+     
+        <Link to="/stockresearchpages"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+        
+        }}>
         Research
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/security">
-        Security
+
+     
+        <Link to="/security"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+         
+          
+        }}>
+       Security
        
         </Link>
-      </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/settingDashPanel">
-        Setting
+  
+     
+        <Link to="/settingDashPanel"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
+       Setting
         </Link>
       </div>
-    </div>
+   
   );
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
@@ -716,93 +855,120 @@ const Navbar = () => {
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div
-              className={
+          
+              <Link to="/mutualfund" className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/mutualfund">
+              style={{
+                display: "block",
+                textDecoration: "none",
+              
+                
+              }}>
                 Top Rated Funds
                 <p>Focus on risk management and long-term growth.</p>
               </Link>
-            </div>
+            
           </li>
           <li>
-            <div
-              className={
+           
+              <Link to="/fundscreenerregular" className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/fundscreenerregular">
-                Fund Screener
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}
+             >
+               Fund Screener
                 <p>Efficient filter and compare investment options.</p>
               </Link>
-            </div>
+            
           </li>
           <li>
-            <div
+           <Link to="/bestsmallcapregular"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/bestsmallcapregular">
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}>
                 Best Small Cap Fund
                 <p>Strong returns by investing in high-growth opportunities.</p>
               </Link>
-            </div>
-            <div
+         
+              <Link to="/market"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/market">Equity (ETFs)</Link>
-            </div>
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}>
+                Equity (ETFs)</Link>
+           
           </li>
         </ul>
       </div>
       <div className="stockmenu-column">
         <ul>
           <li>
-            <div
-              className={
+           
+              <Link to="/bestgrowthregular"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/bestgrowthregular">
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}>
                 Best Growth Fund
                 <p>Focus on high-potential growth.</p>
               </Link>
-            </div>
+          
           </li>
           <li>
-            <div
+
+              <Link to="/flexregular"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/flexregular">
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}>
                 Best Flex Cap Fund
                 <p>Invest in companies poised for future and today's growth.</p>
               </Link>
-            </div>
+            
           </li>
           <li>
-            <div
+            
+              <Link to="/etfregular"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/etfregular">
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}>
                 Best ETF Fund
                 <p>Diverse and cost-effective investment strategy.</p>
               </Link>
-            </div>
+            
             <div
-              className={
+             
+            >
+              <Link to="/gold"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
-            >
-              <Link to="/gold"> Gold (ETFs)</Link>
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}> 
+              Gold (ETFs)</Link>
             </div>
           </li>
         </ul>
