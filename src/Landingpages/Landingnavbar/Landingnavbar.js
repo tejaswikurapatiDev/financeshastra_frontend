@@ -158,7 +158,7 @@ const PortfolioDropdownMenu = () => (
 );
 
 const LearnDropdownMenu = () => (
-  <div className="learn-menu">
+  <div className="learn-lanmenu">
     <div className="dropdown-item">
       <Link to="/stockNewsComponent">
         Stock News
@@ -316,8 +316,10 @@ const Landingnavbar = () => {
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
   //state for search suggestion dropdown
+    const footerhomeDropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
-
+  const [footerhomeDropdownOpen, setFooterhomeDropdownOpen] =
+    useState(false);
   // Refs for handling click outside
   const dropdownRefs = {
     footerPortfolio: useRef(null),
@@ -343,7 +345,9 @@ const Landingnavbar = () => {
       [dropdown]: !prev[dropdown],
     }));
   };
-
+  const toggleFooterhomeDropdown = () => {
+    setFooterhomeDropdownOpen(!footerhomeDropdownOpen);
+  };
   // API Call for search data
   const getAllData = async () => {
     try {
@@ -476,6 +480,12 @@ const Landingnavbar = () => {
       ) {
         setUserDropdownOpen(false);
       }
+      if (
+        footerhomeDropdownRef.current &&
+        !footerhomeDropdownRef.current.contains(event.target)
+      ) {
+        setFooterhomeDropdownOpen(false);
+      }
       Object.entries(dropdownRefs).forEach(([key, ref]) => {
         if (ref.current && !ref.current.contains(event.target)) {
           setDropdowns((prev) => ({
@@ -495,6 +505,43 @@ const Landingnavbar = () => {
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
+   const renderhomeDropdown = () => (
+      <div className={darkMode ? "learn-homedarkerrrrmode" : "home-menu"}>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/home">
+          Dashboard
+           
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/porfolioanalysisallpagecall">
+          Portfolio Analysis
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/stockWatchlist">
+          Watchlist
+          </Link>
+        </div>
+  
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/stockresearchpages">
+          Research
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/security">
+          Security
+         
+          </Link>
+        </div>
+        <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
+          <Link to="/settingDashPanel">
+          Setting
+          </Link>
+        </div>
+      </div>
+    );
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
@@ -779,17 +826,22 @@ const Landingnavbar = () => {
       </nav>
 
       <ul className="footer-nav">
-        <li>
-          <Link to="/home" className="footer-link">
-            <div className="footer-item">
-              <i className="footer-icon">
-                <RiHome5Fill />
-              </i>
-              <span>Home</span>
-            </div>
-          </Link>
-        </li>
-
+        <li  className="learn-dropdown" ref={footerhomeDropdownRef}>
+                 <a 
+                   href="#"
+                   onClick={toggleFooterhomeDropdown}
+                  className="footer-link">
+                   <div className="footer-item">
+                     <i className="footer-icon">
+                       <RiHome5Fill />
+                      
+                     </i>
+                     <span>Home</span>
+                     <FaChevronDown className="chevron-icon" />
+                   </div>
+                 </a>
+                 {footerhomeDropdownOpen && renderhomeDropdown()}
+               </li>
         <li className="stock-dropdown" ref={dropdownRefs.footerStock}>
           <Link
             to="#"

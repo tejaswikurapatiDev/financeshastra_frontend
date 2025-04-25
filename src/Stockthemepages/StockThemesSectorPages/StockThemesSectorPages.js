@@ -4,7 +4,6 @@ import { FiTrendingDown } from "react-icons/fi";
 import { CiSearch } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
 import { API_BASE_URL } from "../../config";
-import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 
 import "./StockThemesSectorPages.css";
 
@@ -16,7 +15,7 @@ const override = {
   textAlign: "center",
 };
 const stockThemesData = [
-
+  
   {
     sector: "Bank",
     marketCap: "4,794,099 (0.71%)",
@@ -25,9 +24,9 @@ const stockThemesData = [
     earningsYOY: "68,251 (13.4%)",
     industries: "2",
     stocks: "12",
-    sectorUrl: "/bankSectorThemePagelock"  // Add the URL for navigation
+    sectorUrl: "/bankSectorThemePagelock", // Add the URL for navigation
   },
-
+  
   {
     sector: "IT Services",
     marketCap: "4,688,173 (2.68%)",
@@ -36,6 +35,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "18",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Finance",
@@ -45,6 +45,7 @@ const stockThemesData = [
     earningsYOY: "17,932 (24.18%)",
     industries: "8",
     stocks: "20",
+    sectorUrl: "/bankSectorThemePagelock",
   },
   {
     sector: "Automobile & Components",
@@ -54,6 +55,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "6",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Healthcare",
@@ -63,6 +65,7 @@ const stockThemesData = [
     earningsYOY: "4,720 (22.85%)",
     industries: "5",
     stocks: "15",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Capital Goods",
@@ -72,6 +75,7 @@ const stockThemesData = [
     earningsYOY: "2,083 (22.44%)",
     industries: "9",
     stocks: "8",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Power",
@@ -81,6 +85,7 @@ const stockThemesData = [
     earningsYOY: "9,466 (8.12%)",
     industries: "1",
     stocks: "20",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Energy (Oil & Gas)",
@@ -90,6 +95,7 @@ const stockThemesData = [
     earningsYOY: "31,846 (-4%)",
     industries: "2",
     stocks: "17",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "FMCG",
@@ -99,6 +105,7 @@ const stockThemesData = [
     earningsYOY: "4,651 (12.75%)",
     industries: "5",
     stocks: "7",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Metals & Mining",
@@ -108,6 +115,7 @@ const stockThemesData = [
     earningsYOY: "14,692 (-15.46%)",
     industries: "10",
     stocks: "11",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Media & Entertainment",
@@ -116,7 +124,8 @@ const stockThemesData = [
     sectorPE: "95.60",
     earningsYOY: "-1,398 (-74.51%)",
     industries: "4",
-    stocks: "14"
+    stocks: "14",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Construction & Materials",
@@ -126,6 +135,7 @@ const stockThemesData = [
     earningsYOY: "5,464 (34.99%)",
     industries: "7",
     stocks: "12",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Aviation",
@@ -135,6 +145,7 @@ const stockThemesData = [
     earningsYOY: "2,449 (-18.32%)",
     industries: "2",
     stocks: "17",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Real Estate",
@@ -144,6 +155,7 @@ const stockThemesData = [
     earningsYOY: "2,680 (50.9%)",
     industries: "4",
     stocks: "13",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Telecom",
@@ -153,6 +165,7 @@ const stockThemesData = [
     earningsYOY: "4,245 (134.79%)",
     industries: "4",
     stocks: "10",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Consumer Durables",
@@ -162,6 +175,7 @@ const stockThemesData = [
     earningsYOY: "695 (102.78%)",
     industries: "5",
     stocks: "54",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Textiles",
@@ -171,6 +185,7 @@ const stockThemesData = [
     earningsYOY: "361 (-4.4%)",
     industries: "6",
     stocks: "9",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Agriculture",
@@ -180,6 +195,7 @@ const stockThemesData = [
     earningsYOY: "1,464 (-4.4%)",
     industries: "2",
     stocks: "18",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Logistics",
@@ -189,6 +205,7 @@ const stockThemesData = [
     earningsYOY: "3,214 (19.8%)",
     industries: "3",
     stocks: "11",
+     sectorUrl: "/bankSectorThemePagelock"
   },
   {
     sector: "Chemicals",
@@ -198,45 +215,42 @@ const stockThemesData = [
     earningsYOY: "7,620 (15.4%)",
     industries: "6",
     stocks: "22",
+     sectorUrl: "/bankSectorThemePagelock"
   },
-
+  
 ];
 
 export default function StockThemesSectorPages() {
-
-  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
-  const [isloading, setisLoading] = useState(true)
+  const [isLoading, setisLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const navigate = useNavigate();
-  const [showSubscribe, setShowSubscribe] = useState(false); 
-  const [isLocked, setIsLocked] = useState(true);
 
   useEffect(() => {
-
-    const fetchfun = async () => {
-      const url = `${API_BASE_URL}/stocks/stockstheme`;
-      const response = await fetch(url);
-      const data = await response.json()
-      console.log(data)
-      const formatedData = data.map(e => ({
-        sector: e.Sector,
-        marketCap: e.M_cap,
-        M_cap_percentage: e.M_cap_percentage,
-        adv: e.adv,
-        decline: e.decline,
-        sectorPE: e.sector_PE,
-        earningsYOY: e.sector_earnings_yoy,
-        earningsYOYper: e.sector_earnings_yoy_per,
-        industries: e.Industries,
-        stocks: e.Stocks,
-      }))
-      setFilteredData(formatedData)
-      console.log(formatedData)
-    };
-    setisLoading(false)
-    fetchfun();
+    
+        const fetchfun = async () => {
+          const url = `${API_BASE_URL}/stocks/stockstheme`;
+          const response = await fetch(url);
+          const data= await response.json()
+          console.log(data)
+          const formatedData= data.map(e => ({
+              sector: e.Sector,
+              marketCap: e.M_cap,
+              M_cap_percentage: e.M_cap_percentage,
+              adv: e.adv,
+              decline: e.decline,
+              sectorPE: e.sector_PE,
+              earningsYOY: e.sector_earnings_yoy,
+              earningsYOYper: e.sector_earnings_yoy_per,
+              industries: e.Industries,
+              stocks: e.Stocks,
+          }))
+          setFilteredData(formatedData)
+          console.log(formatedData)
+        };
+        setisLoading(false)
+        fetchfun();
   }, []);
 
 
@@ -254,89 +268,74 @@ export default function StockThemesSectorPages() {
       setFilteredData(filteredList);
     }
   };
-
-  const handleLockClick = () => {
-    //setIsLocked(false); // Unlock the table
-    setShowSubscribe(true); // Show the subscribe button
-  };
-
-  const handleSubscribeClick = () => {
-    navigate("/subscription"); // Navigate to the subscription page
-  };
-
-  const handleMouseEnter = () => {
-    if (isLocked) {
-      setShowSubscribe(true); // Show the subscribe button on hover
-    }
-  };
-
+ 
   return (
+    <div>
     <>
-      {isloading ?
-        <div className='loader-cont'><ClipLoader
-          cssOverride={override}
-          size={35}
-          data-testid="loader"
-          loading={isloading}
-          speedMultiplier={1}
-          color="green"
-        /></div>
-        :
-        <div className="StockThemesSectorPages-themes-container">
-          <h1 className="StockThemesSectorPages-themes-title">Stocks Themes</h1>
-          <p className="StockThemesSectorPages-themes-description">
-            Evaluate sector results, classifications, financial outcomes, growth trends, and other factors to make well-informed choices.
-          </p>
-          <div className="search-wrapper" style={{ position: "relative" }}>
-            <input
-              type="text"
-              className="banksectorsearchstock"
-              placeholder="Search by sector name"
-              value={searchTerm}
-              onChange={handleSearchChange}
-              onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
-              style={{ paddingLeft: "30px" }}
-            />
-            <CiSearch
-              style={{
-                position: "absolute",
-                left: "10px",
-                top: "72%",
-                transform: "translateY(-50%)",
-              }}
-            />
-          </div>
-          <div className={!isSubscribed && !isLoading && "blurred"}>
-          <div className="StockThemesSectorPages-themes-list">
-            {filteredData.map((item, index) => (
-              <div key={index} className="StockThemesSectorPages-themes-card">
-                <div className="StockThemesSectorPages-themes-card-header">
-                  <h2
-                    className="StockThemesSectorPages-themes-sector"
-                    onClick={() => navigate(item.sectorUrl)} // Navigate to the URL for the sector
-                    style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
-                  >
-                    {item.sector.split(" & ").map((text, index) => (
-                      <React.Fragment key={index}>
-                        {text}
-                        {index === 0 && <br />}
-                      </React.Fragment>
-                    ))}
-                  </h2>
-                  <p className="StockThemesSectorPages-themes-status">
-                    <FiTrendingDown className="StockThemesSectorPages-bearish-icon" /> Bearish
-                  </p>
-                </div>
+  {isLoading ? 
+    <div className='loader-cont'><ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={isLoading}
+        speedMultiplier={1}
+        color="green"
+      /></div> 
+    :
+    <div className="StockThemesSectorPages-themes-container">
+      <h1 className="StockThemesSectorPages-themes-title">Stocks Themes</h1>
+      <p className="StockThemesSectorPages-themes-description">
+        Evaluate sector results, classifications, financial outcomes, growth trends, and other factors to make well-informed choices.
+      </p>
+      <div className="search-wrapper" style={{ position: "relative" }}>
+        <input
+          type="text"
+          className="banksectorsearchstock"
+          placeholder="Search by sector name"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          onFocus={() => setShowSuggestions(true)}
+          onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+          style={{ paddingLeft: "30px" }}
+        />
+        <CiSearch
+          style={{
+            position: "absolute",
+            left: "10px",
+            top: "72%",
+            transform: "translateY(-50%)",
+          }}
+        />
+      </div>
+      <div className="StockThemesSectorPages-themes-list">
+      {filteredData.map((item, index) => (
+          <div key={index} className="StockThemesSectorPages-themes-card">
+            <div className="StockThemesSectorPages-themes-card-header">
+            <h2
+            className="StockThemesSectorPages-themes-sector"
+            onClick={() => navigate(item.sectorUrl)} // Navigate to the URL for the sector
+            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+          >
+            {item.sector.split(" & ").map((text, index) => (
+              <React.Fragment key={index}>
+                {text}
+                {index === 0 && <br />}
+              </React.Fragment>
+            ))}
+          </h2>
+  <p className="StockThemesSectorPages-themes-status">
+    <FiTrendingDown className="StockThemesSectorPages-bearish-icon" /> Bearish
+  </p>
+</div>
 
-                <div className="StockThemesSectorPages-themes-details">
-                  <p>
-                    <strong style={{ color: "#333", fontWeight: "normal" }}>M.Cap (₹ Cr.):</strong> <br />
-                    <span style={{ fontWeight: "bold", color: "#333" }}>
-                      {item.marketCap}
-                    </span>{" "}
-                    <span style={{ color: "#24b676", fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
-                  </p>
+            <div className="StockThemesSectorPages-themes-details">
+            <p>
+  <strong style={{ color: "#333",fontWeight:"normal" }}>M.Cap (₹ Cr.):</strong> <br />
+  <span style={{ fontWeight: "bold", color: "#333" }}>
+    {item.marketCap}
+  </span>{" "}
+  <span style={{ color: "#24b676",fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
+</p>
 
 <p className="StockThemesSectorPages-themespara">
   <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
@@ -360,54 +359,30 @@ export default function StockThemesSectorPages() {
               </p>
               <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
 
-                  </span></p>
-                  <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br /><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
-                </div>
-                <ChevronRight
-                  className="StockThemesSectorPages-themes-icon"
-                  onClick={() => navigate(item.sectorUrl)} // Add navigation on click for the ChevronRight icon
-                  style={{ cursor: 'pointer' }} // Optional: Add pointer cursor for better UX
-                />
-
-              </div>
-            ))}
-          </div>
-          </div>
-
-          {!isSubscribed && !isLoading && (
-          <div className="subscribethemestocklocked-overlay">
-            <div
-              className="subscribethemestocklocked-lock-icon"
-              onClick={handleLockClick} // Click on the lock icon to unlock and show subscribe
-              onMouseEnter={handleMouseEnter} // Show button on hover
-             // Hide button on hover out
-            >
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png" 
-                onClick={() => navigate("/banksectorstocktheme")}
-                alt="Lock Icon"
-              />
+              </span></p>
+              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
             </div>
-            {showSubscribe && (
-              <button
-                className="subscribethemestock-button"
-                onClick={handleSubscribeClick} // Navigate to the subscribe page
-              >
-                Subscribe for more details
-              </button>
-            )}
+            <ChevronRight
+  className="StockThemesSectorPages-themes-icon"
+  onClick={() => navigate("/bankSectorThemePagelock")}
+    // Add navigation on click for the ChevronRight icon
+  style={{ cursor: 'pointer' }} // Optional: Add pointer cursor for better UX
+/>
+
           </div>
-        )}
-
-          <Navbar />
-          <div className="StockThemesSectorPagesfooter">
-            <FooterForAllPage />
-          </div>
-
-        </div>
-
-      }
+        ))}
+      </div>
+      
+      <Navbar/>
+     
+      
+    </div>
+    
+    }
     </>
-
+    <div className="foooterpagesaupdate">
+        <FooterForAllPage />
+      </div>
+    </div>
   );
 }
