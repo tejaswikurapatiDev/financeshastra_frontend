@@ -79,7 +79,7 @@ function StocksSmartSIPPS() {
         <div className="smartsip-subscribe">
           <h3 >Subscribe Now!</h3>
           <p>Choose a plan that aligns with your investment goals!</p>
-          <button className="smartsip-button"onClick={() => navigate("/pricehalf")}>Subscribe</button>
+          <button className="smartsip-button"onClick={() => navigate("/subscription")}>Subscribe</button>
         </div>
       </div>
       <Navbar/>

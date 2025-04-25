@@ -17,7 +17,7 @@ const AnalystInsights = () => {
          Sed cursus ante dapibus diam. Sed nisi.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Sed cursus ante dapibus diam. Sed nisi.</p>
-        <div className="premium-feature" onClick={() => navigate('/pricehalf')}>
+        <div className="premium-feature" onClick={() => navigate('/subscription')}>
       This feature is exclusive to premium users. Click here for more details.
     </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. 

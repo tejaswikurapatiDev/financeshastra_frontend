@@ -264,7 +264,7 @@ const StockResearchAnalysisPage = () => {
             <div className="overlaylocksub">
                <img src={lockimg} alt="Lock" className="lock-iconanalysi" />
        
-               <button className="subscribe-btnblurone" onClick={() => navigate("/pricehalf")}>Subscribe Now</button>
+               <button className="subscribe-btnblurone" onClick={() => navigate("/subscription")}>Subscribe Now</button>
              
              </div>
              }

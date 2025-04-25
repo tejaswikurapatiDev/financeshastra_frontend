@@ -1134,7 +1134,7 @@ const Netify100valuation = () => {
       console.log("Filtered by Change Range:", changeRange);
     };
     const handleNavigate = () => {
-      navigate('/pricehalf'); // Navigate to the desired route
+      navigate('/subscription'); // Navigate to the desired route
     };
     const recordsPerPage = 10;
     const totalPages = Math.ceil(stocks.length / recordsPerPage);

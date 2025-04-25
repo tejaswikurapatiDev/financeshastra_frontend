@@ -50,17 +50,25 @@ const UserDetailsupdate = () => {
   });
 
   const [investmentDetails, setInvestmentDetails] = useState({
-    householdSavings: "-",
-    termInsurance: "-",
-    healthInsurance: "-",
-    currentInvestments: "-",
-    interestedToInvest: "-",
+    householdSavings: "",
+    termInsurance: "",
+    healthInsurance: "",
+    currentInvestments: "",
+    stocks: '',
+    mutualfunds: ''
   });
 
   const [showPopupforLogin, setShowPopupforLogin] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setisLoading] = useState(false);
-  const [modalData, setModalData] = useState({ ...investmentDetails });
+  const [modalData, setModalData] = useState({
+    householdSavings: "",
+    termInsurance: "",
+    healthInsurance: "",
+    currentInvestments: "",
+    stocks: '',
+    mutualfunds: ''
+  });
 
   const formatDate = (dob) => {
     const date = new Date(dob); // Ensure dob is a Date object
@@ -97,18 +105,22 @@ const UserDetailsupdate = () => {
         };
 
         const response = await fetch(url, options);
+        console.log(response)
 
         if (response.ok) {
           try {
             const decode = decodingtoken(cookietoken);
             const { email } = decode;
             const data = await response.json();
+            console.log("🚀 ~ Fetched User Data:", data);
 
-            if (data && data.length > 0) {
-              const userData = data[0];
+            if (data) {
+              const userData = data.userdetails[0];
+              const investmentData= data.investdetails[0];
               const formattedDate = formatDate(userData.dob);
 
-              console.log("🚀 ~ Fetched User Data:", userData.investment);
+              console.log("🚀 ~ Fetched User details:", userData);
+              console.log("🚀 ~ Fetched User Investment details:", investmentData)
 
               // Prepare updated data for state
               const updatedData = {
@@ -132,17 +144,17 @@ const UserDetailsupdate = () => {
                   incomeRange: userData.income || "-",
                 },
                 investment: {
-                  householdSavings:
-                    userData.investment?.household_savings || "-",
-                  termInsurance: userData.investment?.term_insurance || "-",
-                  healthInsurance: userData.investment?.health_insurance || "-",
-                  currentInvestments:
-                    userData.investment?.current_investments || "-",
+                  householdSavings: investmentData?.household_savings || "-",
+                  termInsurance: investmentData?.term_insurance || "-",
+                  healthInsurance: investmentData?.health_insurance|| "-",
+                  currentInvestments: investmentData?.current_investments || "-",
+                  stocks: investmentData?.stocks || "-",
+                  mutualfunds: investmentData?.mutualfunds || "-"
                 },
               };
               console.log(
                 "🚀 ~ setInvestmentDetails ~ updatedData.investment:",
-                updatedData.investment
+                investmentData?.household_savings || "-"
               );
 
               // Update states
@@ -155,8 +167,13 @@ const UserDetailsupdate = () => {
                 ...updatedData.professional,
               }));
               setInvestmentDetails((prev) => ({
+                ...prev,
                 ...updatedData.investment,
               }));
+              setModalData((prev)=>({
+                ...prev,
+                ...updatedData.investment,
+              }))
             } else {
               console.warn("No user data found.");
             }
@@ -196,6 +213,7 @@ const UserDetailsupdate = () => {
   };
 
   const handleEditInvestment = () => {
+    console.log(modalData)
     setModalData({ ...investmentDetails });
     setShowModal(true);
   };
@@ -242,8 +260,8 @@ const UserDetailsupdate = () => {
 
     // Automatically adjust the other field
     if (name === "stocks") {
-      updatedData.mutualfund = 100 - percentage;
-    } else if (name === "mutualfund") {
+      updatedData.mutualfunds = 100 - percentage;
+    } else if (name === "mutualfunds") {
       updatedData.stocks = 100 - percentage;
     }
 
@@ -436,7 +454,7 @@ const UserDetailsupdate = () => {
                     <div className="modal-body">
                       <label>Household Savings per month*</label>
                       <input
-                        type="text"
+                        type="number"
                         name="householdSavings"
                         value={modalData.householdSavings}
                         onChange={handleFinancialChange}
@@ -444,7 +462,7 @@ const UserDetailsupdate = () => {
 
                       <label>Term Insurance*</label>
                       <input
-                        type="text"
+                        type="number"
                         name="termInsurance"
                         value={modalData.termInsurance}
                         onChange={handleFinancialChange}
@@ -452,7 +470,7 @@ const UserDetailsupdate = () => {
 
                       <label>Health Insurance*</label>
                       <input
-                        type="text"
+                        type="number"
                         name="healthInsurance"
                         value={modalData.healthInsurance}
                         onChange={handleFinancialChange}
@@ -460,7 +478,7 @@ const UserDetailsupdate = () => {
 
                       <label>Major Current Investments*</label>
                       <input
-                        type="text"
+                        type="number"
                         name="currentInvestments"
                         value={modalData.currentInvestments}
                         onChange={handleFinancialChange}
@@ -482,8 +500,8 @@ const UserDetailsupdate = () => {
                           <span>Mutual Fund</span>
                           <input
                             type="number"
-                            name="mutualfund"
-                            value={modalData.mutualfund}
+                            name="mutualfunds"
+                            value={modalData.mutualfunds}
                             onChange={handleChange}
                             placeholder="%"
                           />

@@ -56,7 +56,7 @@ export default function StockThemesindustrieslockPages() {
 
   const handleSubscribeClick = () => {
     // Navigate to the subscribe page (example route, you can change it)
-    navigate("/pricehalf");
+    navigate("/subscription");
   };
 
   const handleSearchChange = (e) => {
