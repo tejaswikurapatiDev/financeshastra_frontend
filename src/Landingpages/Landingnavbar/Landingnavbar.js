@@ -31,172 +31,6 @@ import "./Landingnavbar.css";
 import { API_BASE_URL } from "../../config";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 
-// Dropdown menu components
-const StockDropdownMenu = () => (
-  <div className="stockmenu">
-    <div className="stockmenu-column">
-      <ul>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/StockScreenerList">
-              Stock Screener
-              <p>
-                Discover stocks based on various filters and criteria to make
-                informed decisions.
-              </p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/beststock">
-              Best Stock
-              <p>
-                Explore the best stocks for investment based on analysis and
-                trends.
-              </p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/highgrowth">
-              High Growth Stocks
-              <p>
-                Find stocks that are expected to grow rapidly in the upcoming
-                years.
-              </p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/nifty50pageall">
-              Nifty 50 Companies
-              <p>
-                Track the top 50 companies listed on the National Stock Exchange
-                of India.
-              </p>
-            </Link>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div className="stockmenu-column">
-      <ul>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/nifty">
-              Nifty 100 Companies
-              <p>
-                Explore all 500 companies listed on the Nifty index to diversify
-                your portfolio.
-              </p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/smallcap">
-              Small Cap
-              <p>Invest in smaller companies with high potential for growth.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/midcap">
-              Mid Cap
-              <p>
-                Discover mid-sized companies with a strong growth trajectory.
-              </p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/largecap">
-              Large Cap
-              <p>Focus on large, established companies with stable returns.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className={"dropdown-item"}>
-            <Link to="/stockThemesSectorPages">
-              Stock Themes
-              <p>Research is key before buying any stock</p>
-            </Link>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-);
-
-const PortfolioDropdownMenu = () => (
-  <div className="dropdown-menu">
-    <div className="dropdown-item">
-      <Link to="/portfolio">
-        My Portfolio
-        <p>Your financial navigator</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/portfolio-risk">
-        Portfolio Risk Analysis
-        <p>Risk evaluation and insights</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/stockwatchlist">
-        Watchlist
-        <p>Monitor, assess, and improve</p>
-      </Link>
-    </div>
-  </div>
-);
-
-const LearnDropdownMenu = () => (
-  <div className="learn-menu">
-    <div className="dropdown-item">
-      <Link to="/stockNewsComponent">
-        Stock News
-        <p>Discover what's happening in the stock markets in real-time</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/blogsComponent">
-        Blogs
-        <p>Investment Knowledge Hub</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/ipoComponent">
-        IPO Details
-        <p>Key Information on the Latest IPO Trends</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/stockwatchlist">
-        Market Insights
-        <p>Keep up with in-depth market insights</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/earningsInsightLearn">
-        Quarterly Earnings
-        <p>Monitor thorough quarterly earnings summaries</p>
-      </Link>
-    </div>
-    <div className="dropdown-item">
-      <Link to="/learncard">
-        Learn
-        <p>Knowledge is the key to successful trading—learn, adapt, and grow</p>
-      </Link>
-    </div>
-  </div>
-);
 
 const UserDropdownMenu = () => (
   <div className="user-menu">
@@ -221,72 +55,6 @@ const UserDropdownMenu = () => (
   </div>
 );
 
-const MutualFundsDropdownMenu = () => (
-  <div className="mutualstockmenu">
-    <div className="stockmenu-column">
-      <ul>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/mutualfund">
-              Top Rated Funds
-              <p>Focus on risk management and long-term growth.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/fundscreenerregular">
-              Fund Screener
-              <p>Efficient filter and compare investment options.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/bestsmallcapregular">
-              Best Small Cap Fund
-              <p>Strong returns by investing in high-growth opportunities.</p>
-            </Link>
-          </div>
-          <div className="dropdown-item">
-            <Link to="/market">Equity (ETFs)</Link>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div className="stockmenu-column">
-      <ul>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/bestgrowthregular">
-              Best Growth Fund
-              <p>Focus on high-potential growth.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/flexregular">
-              Best Flex Cap Fund
-              <p>Invest in companies poised for future and today's growth.</p>
-            </Link>
-          </div>
-        </li>
-        <li>
-          <div className="dropdown-item">
-            <Link to="/etfregular">
-              Best ETF Fund
-              <p>Diverse and cost-effective investment strategy.</p>
-            </Link>
-          </div>
-          <div className="dropdown-item">
-            <Link to="/gold"> Gold (ETFs)</Link>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-);
 
 const Landingnavbar = () => {
   // State for different dropdowns
@@ -495,6 +263,512 @@ const Landingnavbar = () => {
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
+
+
+  // Dropdown menu components
+const StockDropdownMenu = () => (
+  <div className="stockmenu">
+    <div className="stockmenu-column">
+      <ul>
+            <li style={{ listStyle: "none" }}>
+       <Link
+         to="/StockScreenerList"
+         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+         style={{
+           display: "block",
+           textDecoration: "none",
+         
+           
+         }}
+       >
+         <strong>Stock Screener</strong>
+         <p >
+           Discover stocks based on various filters and criteria to make informed
+           decisions.
+         </p>
+       </Link>
+     </li>
+     
+               <li style={{ listStyle: "none" }}>
+               
+                   <Link to="/beststock"
+                    className={
+                     "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                    
+                     
+                   }}>
+                     <strong>Best Stock</strong>
+                     <p>
+                       Explore the best stocks for investment based on analysis and
+                       trends.
+                     </p>
+                   </Link>
+                
+               </li>
+               <li>
+               
+                   <Link to="/highgrowth"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                   
+                   
+                   }}
+                   >
+                     <strong>High Growth Stocks</strong>
+                     <p>
+                       Find stocks that are expected to grow rapidly in the upcoming
+                       years.
+                     </p>
+                   </Link>
+               
+               </li>
+               <li>
+               
+                   <Link to="/nifty50pageall"
+                     className={
+                       darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                     }
+     
+                     style={{
+                       display: "block",
+                       textDecoration: "none",
+                      
+                       
+                     }}
+                     >
+                      <strong>Nifty 50 Companies</strong>
+                     <p>
+                       Track the top 50 companies listed on the National Stock
+                       Exchange of India.
+                     </p>
+                   </Link>
+               </li>
+             </ul>
+           </div>
+           <div className="stockmenu-column">
+             <ul>
+               <li>
+             
+                   <Link to="/nifty"  className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                    
+                     
+                   }}
+                   >
+                     <strong>Nifty 100 Companies</strong>
+                     <p>
+                       Explore all 500 companies listed on the Nifty index to
+                       diversify your portfolio.
+                     </p>
+                   </Link>
+               </li>
+               <li>
+               
+                   <Link to="/smallcap"
+                     className={
+                       darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                     }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                   
+                   }}>
+                     <strong>Small Cap</strong>
+                     <p>
+                       Invest in smaller companies with high potential for growth.
+                     </p>
+                   </Link>
+                
+               </li>
+               <li>
+                 
+                   <Link to="/midcap"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                    style={{
+                     display: "block",
+                     textDecoration: "none",
+                   
+                     
+                   }}>
+                      <strong>Mid Cap</strong>
+                     <p>
+                       Discover mid-sized companies with a strong growth trajectory.
+                     </p>
+                   </Link>
+           
+               </li>
+               <li>
+               
+                   <Link to="/largecap"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                    style={{
+                     display: "block",
+                     textDecoration: "none",
+                    
+                   
+                   }}>
+                      <strong>Large Cap</strong>
+                     <p>
+                       Focus on large, established companies with stable returns.
+                     </p>
+                   </Link>
+                 
+               </li>
+               <li>
+                   <Link to="/stockThemesSectorPages"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                   
+                    
+                   }}>
+                     <strong>Stock Themes</strong>
+                     <p>Research is key before buying any stock</p>
+                   </Link>
+                
+               </li>
+             </ul>
+    </div>
+  </div>
+);
+
+const PortfolioDropdownMenu = () => (
+  <div className="dropdown-menu">
+    <Link
+         to="/portfolio"
+         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+         style={{
+           display: "block",
+           textDecoration: "none",
+           
+          
+         }}
+       >
+         <strong>My Portfolio</strong>
+         <p >Your financial navigator</p>
+       </Link>
+        
+           <Link to="/portfolio-risk"
+            className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+            style={{
+             display: "block",
+             textDecoration: "none",
+           
+             
+           }}>
+             <strong>Portfolio Risk Analysis</strong>
+             <p>Risk evaluation and insights(coming soon)</p>
+           </Link>
+      
+         
+           <Link to="/stockWatchlist"
+           className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+             style={{
+               display: "block",
+               textDecoration: "none",
+              
+              
+             }}>
+             <strong>Watchlist</strong>
+             <p>Monitor, assess, and improve</p>
+           </Link>
+  </div>
+);
+
+const LearnDropdownMenu = () => (
+  <div className="learn-menu">
+   <Link to="/stockNewsComponent"
+           className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+             style={{
+               display: "block",
+               textDecoration: "none",
+             
+               
+             }}>
+             <strong>Stock News</strong>
+             <p>Discover what's happening in the stock markets in real-time</p>
+           </Link>
+        
+           <Link to="/blogsComponent"
+           className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+            style={{
+             display: "block",
+             textDecoration: "none",
+            
+            
+           }}>
+             <strong>Blogs</strong>
+             <p>Investment Knowledge Hub</p>
+           </Link>
+   
+     
+           <Link to="/ipoComponent"
+           className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+           style={{
+             display: "block",
+             textDecoration: "none",
+            
+             
+           }}>
+             <strong>IPO Details</strong>
+             <p>Key Information on the Latest IPO Trends</p>
+           </Link>
+   
+   
+           <Link to="/earningsInsightLearn" className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+            style={{
+             display: "block",
+             textDecoration: "none",
+           
+            
+           }}>
+             <strong>Quarterly Earnings</strong>
+             <p>Monitor thorough quarterly earnings summaries</p>
+           </Link>
+       
+        
+           <Link to="/learncard"
+           className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+           style={{
+             display: "block",
+             textDecoration: "none",
+            
+             
+           }}
+           >
+             <strong>Learn</strong>
+             <p>
+               {" "}
+               Knowledge is the key to successful trading—learn, adapt, and grow
+             </p>
+           </Link>
+  </div>
+);
+const MutualFundsDropdownMenu = () => (
+  <div className="mutualstockmenu">
+    <div className="stockmenu-column">
+      <ul>
+               <li>
+               
+                   <Link to="/mutualfund" className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",
+                   
+                     
+                   }}>
+                     <strong>Top Rated Funds</strong>
+                     <p>Focus on risk management and long-term growth.</p>
+                   </Link>
+                 
+               </li>
+               <li>
+                
+                   <Link to="/fundscreenerregular" className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}
+                  >
+                     <strong>Fund Screener</strong>
+                     <p>Efficient filter and compare investment options.</p>
+                   </Link>
+                 
+               </li>
+               <li>
+                <Link to="/bestsmallcapregular"
+                   className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}>
+                     <strong>Best Small Cap Fund</strong>
+                     <p>Strong returns by investing in high-growth opportunities.</p>
+                   </Link>
+              
+                   <Link to="/market"
+                   className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}>
+                     <strong>Equity (ETFs)</strong></Link>
+                
+               </li>
+             </ul>
+           </div>
+           <div className="stockmenu-column">
+             <ul>
+               <li>
+                
+                   <Link to="/bestgrowthregular"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}>
+                     <strong>Best Growth Fund</strong>
+                     <p>Focus on high-potential growth.</p>
+                   </Link>
+               
+               </li>
+               <li>
+     
+                   <Link to="/flexregular"
+                   className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}>
+                     <strong>Best Flex Cap Fund</strong>
+                     <p>Invest in companies poised for future and today's growth.</p>
+                   </Link>
+                 
+               </li>
+               <li>
+                 
+                   <Link to="/etfregular"
+                   className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}>
+                     <strong>Best ETF Fund</strong>
+                     <p>Diverse and cost-effective investment strategy.</p>
+                   </Link>
+                 
+                 <div
+                  
+                 >
+                   <Link to="/gold"
+                    className={
+                     darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+                   }
+                   style={{
+                     display: "block",
+                     textDecoration: "none",                
+                   }}> 
+                   <strong>Gold (ETFs)</strong></Link>
+                 </div>
+               </li>
+             </ul>
+    </div>
+  </div>
+);
+
+const renderhomeDropdown = () => (
+    <div className={darkMode ? "learn-homedarkerrrrmode" : "home-menu"}>
+     
+        <Link to="/home"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
+        <strong>Dashboard</strong>
+         
+        </Link>
+   
+     
+        <Link to="/porfolioanalysisallpagecall"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+      
+         
+        }}>
+        <strong>Portfolio Analysis</strong>
+        </Link>
+     
+
+        <Link to="/stockWatchlist"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
+        <strong>Watchlist</strong>
+        </Link>
+   
+
+     
+        <Link to="/stockresearchpages"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+        
+        }}>
+        <strong>Research</strong>
+        </Link>
+
+     
+        <Link to="/security"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+         
+          
+        }}>
+        <strong>Security</strong>
+       
+        </Link>
+  
+     
+        <Link to="/settingDashPanel"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
+        <strong>Setting</strong>
+        </Link>
+      </div>
+   
+  );
+
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>

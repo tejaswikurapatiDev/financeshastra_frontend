@@ -4,6 +4,27 @@
   /* Makes the dropdown position relative to this element */
 }
 
+
+.dropdown-item,
+.dropdown-itemdarkerrmode {
+  color: inherit;
+}
+
+.dropdown-item:hover,
+.dropdown-itemdarkerrmode:hover {
+  background-color: #24b676;
+  color: white;
+}
+
+.dropdown-item:hover * {
+  color: white;
+}
+
+.dropdown-itemdarkerrmode:hover * {
+  color: white;
+}
+
+
 .butn {
   background-color: transparent;
   border: none;
@@ -265,9 +286,6 @@ a span {
   font-family: 'calibri';
 }
 
-.navbar-links :hover {
-  color: black;
-}
 
 .navbar-search {
   position: relative;
@@ -2706,7 +2724,7 @@ a span {
     width: auto;
     height: 250px;
     overflow-y: hidden;
-    padding: 15px;
+    padding: 10px;
   }
 
   .dropdown-item {
@@ -2728,20 +2746,21 @@ a span {
 
   .mutualstockmenu {
     position: absolute;
-    top: -161px;
+    top: -127px;
     bottom: 60px;
     left: 60px;
     right: 10px;
     width: auto;
     height: 180px;
     overflow-y: hidden;
-    padding: 15px;
+    padding: 10px;
+    height: 130px;
 }
 
   .learn-menu {
     min-width: 180px;
     padding: 10px 0;
-    margin-top: -288px;
+    margin-top: -276px;
     margin-left: -140px;
   }
 
