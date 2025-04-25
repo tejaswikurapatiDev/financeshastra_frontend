@@ -110,14 +110,16 @@ const BillingInfoHistory = () => {
         const responseUserData = await fetch(urluserData, options);
         if (responseUserData.ok === true) {
           const data = await responseUserData.json();
+          const userdetials= data.userdetails;
+          console.log(userdetials)
           const usernameLocal = localStorage.getItem("username");
           let dataupdated = {
             name: usernameLocal,
-            address: data[0].address,
+            address: userdetials[0].address,
             country: "India",
-            state: data[0].state,
-            city: data[0].city,
-            phoneNumber: data[0].phone_number,
+            state: userdetials[0].state,
+            city: userdetials[0].city,
+            phoneNumber: userdetials[0].phone_number,
           };
           setBillingInfo(dataupdated);
         }
@@ -296,10 +298,6 @@ const BillingInfoHistory = () => {
                       <tbody>
                         {ordersData.map(
                           (plan, index) => (
-                            console.log(
-                              "🚀 ~ BillingInfoHistory ~ plan:",
-                              plan
-                            ),
                             (
                               <tr key={index}>
                                 <td>{plan.name}</td>
