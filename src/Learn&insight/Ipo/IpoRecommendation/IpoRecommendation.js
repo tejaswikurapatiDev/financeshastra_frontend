@@ -8,7 +8,7 @@ const IpoRecommendation = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/pricehalf"); // Navigate to "ipoDetailsubscribe"
+    navigate("/subscription"); // Navigate to "ipoDetailsubscribe"
   };
   return (
     <div className="iporecommendation-container">

@@ -151,15 +151,13 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        // console.log("Form data sent to API:", formData);
-        const data=await response.json();
+        console.log("Form data sent to API:", formData);
         if (response.ok) {
           const username = formData.firstName + formData.lastName;
           localStorage.setItem("username", username);
           console.log(username);
           setIsPopupVisible(true);
         } else {
-          alert(data.message);
           console.error("Failed to save user details:", response.statusText);
         }
       } catch (error) {
@@ -893,7 +891,7 @@ const EditProfile = () => {
           </span>
           <span
             className="profilepage-tabb"
-            onClick={() => navigate("/billingSubscriptionPages")}
+            onClick={() => navigate("/billingInfoHistory")}
           >
             Billing & Subscription
           </span>
@@ -1041,7 +1039,7 @@ const EditProfile = () => {
                 <div className="profile-phone-container">
                   <div>
                     <input
-                      type="number"
+                      type="tel"
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handlemobileChange}

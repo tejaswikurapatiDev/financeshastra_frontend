@@ -183,12 +183,22 @@ import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../config";
 
 const SettingsDashboard = ({children}) => {
+
+  const navigate= useNavigate()
+  
+    useEffect(()=>{
+        const token = Cookies.get("jwtToken");
+            if (!token) {
+              navigate("/login");
+              return;
+            }
+      }, [])
+      
   const [notificationPermission, setNotificationPermission] = useState([]);
   const [tempNotificationPermission, setTempNotificationPermission] = useState(
     []
   );
   const [isBlurred, setBlurred] = useState(false);
-  const navigate = useNavigate();
   const userId = 3; // Change this to dynamic user ID if needed
 
   useEffect(() => {

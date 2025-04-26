@@ -1195,7 +1195,7 @@ const SmallcapIncomeStatement = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/pricehalf'); // Navigate to the desired route
+    navigate('/subscription'); // Navigate to the desired route
   };
   return (
     <div>

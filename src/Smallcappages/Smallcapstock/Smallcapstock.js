@@ -9,9 +9,19 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import { API_BASE_URL } from "../../config";
-const Smallcap = () => {
+import ClipLoader from "react-spinners/ClipLoader";
 
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
+const Smallcap = () => {
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+  const [isloading, setisloading]= useState(true)
+  const [isSubed, setisSubed]= useState(false)
   const [stocks, setStocks] = useState(screenerStockListData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
@@ -93,6 +103,10 @@ const Smallcap = () => {
         console.log(formattedData)
         setStocks(formattedData)
       }
+      if (isSubscribed && isLoading) {
+        setisSubed(true)
+      }
+      setisloading(false)
     }
     fetchfun()
   }, [])
@@ -1199,7 +1213,7 @@ const Smallcap = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/pricehalf'); // Navigate to the desired route
+    navigate('/subscription'); // Navigate to the desired route
   };
   return (
     <div>
@@ -2136,7 +2150,14 @@ const Smallcap = () => {
           </button>
         </div>
         {/* Conditional Rendering */}
-
+{isloading? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isloading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
 
           <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
@@ -2254,11 +2275,14 @@ const Smallcap = () => {
                   </td>
 
 
-                  <td>
+                  <td>{
+                    !isSubed ? 
                     <button className="screener-unlock-btn" onClick={handleNavigate}>
                       <IoLockClosedOutline style={{ marginRight: '8px' }} />
                       <span className="button-text">Unlock</span>
-                    </button>
+                    </button> : stock.analystRating
+                    }
+                    
                   </td>
 
 
@@ -2266,7 +2290,7 @@ const Smallcap = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">

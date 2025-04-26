@@ -9,8 +9,19 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
 const Beststock = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const [isloading, setisloading]= useState(true);
+  const [isSubed, setisSubed]= useState(false);
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
@@ -119,6 +130,10 @@ const Beststock = () => {
 
         setStocks(formattedData);
       }
+      if (isSubscribed && isLoading) {
+        setisSubed(true)
+      }
+      setisloading(false)
     };
     fetchfun();
   }, []);
@@ -1261,7 +1276,7 @@ const Beststock = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate("/pricehalf"); // Navigate to the desired route
+    navigate("/subscription"); // Navigate to the desired route
   };
   return (
     <div>
@@ -2203,7 +2218,14 @@ const Beststock = () => {
           </button>
         </div>
         {/* Conditional Rendering */}
-
+{isloading? <div className='loader-cont'><ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isLoading}
+              speedMultiplier={1}
+              color="green"
+            /></div>:
         <div
           className="screener-table-wrapper"
           style={{ overflowY: "auto", height: "500px" }}
@@ -2372,19 +2394,21 @@ const Beststock = () => {
                   </td>
 
                   <td>
-                    <button
-                      className="screener-unlock-btn"
-                      onClick={handleNavigate}
-                    >
-                      <IoLockClosedOutline style={{ marginRight: "8px" }} />
-                      <span className="button-text">Unlock</span>
-                    </button>
+                  {isSubed ? 
+                  stock.analystRating
+                     : <button
+                     className="screener-unlock-btn"
+                     onClick={handleNavigate}
+                   >
+                     <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                     <span className="button-text">Unlock</span>
+                   </button>}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
+        </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">

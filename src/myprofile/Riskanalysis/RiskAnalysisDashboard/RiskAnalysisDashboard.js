@@ -104,7 +104,7 @@ const RiskAnalysisDashboard = () => {
         <button 
   className="footer-subscribe-buttonmanage" 
   onClick={() => {
-    navigate('/pricehalf', { replace: true }); 
+    navigate('/subscription', { replace: true }); 
     window.scrollTo(0, 0);
   }} 
 >

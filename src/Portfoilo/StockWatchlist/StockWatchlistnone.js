@@ -12,6 +12,16 @@ import Sidebar from "../../Sidebar/Sidebar";
 
 const StockWatchlist = ({ children }) => {
   const navigate = useNavigate();
+  useEffect(()=>{
+    const token = Cookies.get("jwtToken");
+        if (!token) {
+          navigate("/login");
+          return;
+        }else{
+          fetchWatchlists();
+        }
+  }, [])
+
   const getStockData = useSelector(
     (store) => store?.searchData?.searchData || []
   );
@@ -437,9 +447,7 @@ const StockWatchlist = ({ children }) => {
   };
 
   // Effects
-  useEffect(() => {
-    fetchWatchlists();
-  }, []);
+ 
 
   useEffect(() => {
     debounceSearch(stockInput.name);

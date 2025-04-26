@@ -90,7 +90,7 @@ const handlePageChange = (pageNumber) => {
     }
   };
   const handleNavigate = () => {
-    navigate('/pricehalf'); // Navigate to the desired route
+    navigate('/subscription'); // Navigate to the desired route
   };
   // Handle sorting logic for columns
   const handleSort = (key) => {

@@ -40,7 +40,7 @@ const Stockindexall = ({children}) => {
         setLoading(true);
         const token = Cookies.get("jwtToken");
         if (!token) {
-          alert("Session expired, Please login again.");
+          //alert("Session expired, Please login again.");
           setLoading(false);
           navigate("/login")
           return;

@@ -23,7 +23,7 @@ import { API_BASE_URL } from "../../config";
 import Navbar from "../../Navbar/Navbar";
 
 const BankSectorThemePagelock = () => {
-  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+    const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
     const [searchTerm, setSearchTerm] = useState("");
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [showSubscribe, setShowSubscribe] = useState(false); 
@@ -101,7 +101,7 @@ const BankSectorThemePagelock = () => {
   };
 
   const handleSubscribeClick = () => {
-    navigate("/pricehalf"); // Navigate to the subscription page
+    navigate("/subscription"); // Navigate to the subscription page
   };
 
   const handleMouseEnter = () => {

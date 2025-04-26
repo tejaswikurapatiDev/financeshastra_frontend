@@ -340,7 +340,7 @@ const Nifty50headerunlock = () => {
           <input type="text" placeholder="Search" />
           <FaSearch className="search-icon" />
         </div>
-        <h4 className="subscritebuttoniconnifty" onClick={() => navigate('/pricehalf')} >
+        <h4 className="subscritebuttoniconnifty" onClick={() => navigate('/subscription')} >
         <img src={subscribeIcon} alt="Subscribenifty50" />
 
 </h4>

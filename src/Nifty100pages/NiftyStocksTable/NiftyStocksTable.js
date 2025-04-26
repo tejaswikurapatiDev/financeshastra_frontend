@@ -11,8 +11,19 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
 const Netify100 = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const [isSubed, setisSubed]= useState(false)
+  const [isloading, setisloading]= useState(true)
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
@@ -106,19 +117,22 @@ const toggleDropdown = (key) => {
          if (response.ok=== true){
            const data= await response.json()
            const formattedData= data.map(each =>({
-             "id": each.ID,
-             "symbol": each.Symbol,
-             "price": each.Price,
-             "change": each.Change,
-             "volume": each.Volume,
-             "marketCap": each.Market_cap,
-             "pToE": each.P_E,
-             "eps": each.EPS_dil,
-             "epsDilGrowth": each.EPS_dil_growth_TTM_YoY,
-             "divYield": each.Div_yield,
-             "sector": each.Sector,
-             "url": '/stockhandle',
-             "icon": each.icons
+             id: each.id,
+          symbol: each.CompanyName,
+          price: each.LastTradedPrice,
+          change: each.ChangePercentage,
+          volume: each.Volume,
+          marketCap: each.MarketCap,
+          pToE: each.CurrentPE,
+          eps: each.EPS,
+          epsDilGrowth: each.EPSGrowth,
+          divYield: each.DividendYield,
+          sector: each.Sector,
+          url: "/stockhandle",
+          icon: each.icons,
+          index: each.IndexName,
+          roe: each.ROE,
+          analystRating: each.Analyst_Rating
            }))
            //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
            
@@ -126,6 +140,10 @@ const toggleDropdown = (key) => {
            console.log(formattedData)
            setStocks(formattedData)
          }
+         if (isSubscribed && isLoading) {
+          setisSubed(true)
+        }
+        setisloading(false)
        }
        fetchfun()
      }, [])
@@ -1234,7 +1252,7 @@ const perfOptions = [
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/pricehalf'); // Navigate to the desired route
+    navigate('/subscription'); // Navigate to the desired route
   };
   return (
     <div>
@@ -2171,7 +2189,14 @@ const perfOptions = [
         </button>
         </div>
 {/* Conditional Rendering */}
-
+{isloading ? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
 <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
 
   <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
@@ -2290,10 +2315,11 @@ const perfOptions = [
 
 
 <td>
+{!isSubed? 
       <button className="screener-unlock-btn" onClick={handleNavigate}>
         <IoLockClosedOutline style={{ marginRight: '8px' }} />
         <span className="button-text">Unlock</span>
-      </button>
+      </button>: stock.analystRating}
     </td>
 
 
@@ -2301,7 +2327,7 @@ const perfOptions = [
             ))}
           </tbody>
         </table>
-      </div>
+      </div>}
       {/* Pagination Section */}
    <div className="pagination-stockcontainer">
         <div className="pagination-info">

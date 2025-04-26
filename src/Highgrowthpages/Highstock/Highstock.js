@@ -11,8 +11,19 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
 const Highstock = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const [isloading, setisloading] = useState(true)
+  const [isSubed, setisSubed] = useState(false)
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
@@ -129,13 +140,13 @@ const Highstock = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price)
+        parseFloat(newFilters.price)
       );
       console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-          parseFloat(newFilters.price);
+        parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -637,6 +648,10 @@ const Highstock = () => {
         console.log(formattedData);
         setStocks(formattedData);
       }
+      if (isSubscribed && isLoading) {
+        setisSubed(true)
+      }
+      setisloading(false)
     };
     fetchfun();
   }, []);
@@ -1237,7 +1252,7 @@ const Highstock = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate("/pricehalf"); // Navigate to the desired route
+    navigate("/subscription"); // Navigate to the desired route
   };
   return (
     <div>
@@ -1259,7 +1274,7 @@ const Highstock = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-                <div className="stockindexscreeneropt">
+              <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1338,7 +1353,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                 <div className="dropdown-market-cap-options">
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1409,7 +1424,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                   <div className="dropdown-change-options">
+                  <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1426,8 +1441,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1483,7 +1498,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                    <div className="dropdown-marketcap-options">
+                  <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1574,8 +1589,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1648,8 +1663,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1705,7 +1720,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                    <div className="dropdown-div-options">
+                  <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1775,7 +1790,7 @@ const Highstock = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-            <div className="stockindexscreenesectoropt">
+              <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1852,7 +1867,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                   <div className="dropdown-perf-options">
+                  <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1869,8 +1884,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1927,7 +1942,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                <div className="dropdown-revgro-options">
+                  <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -1946,8 +1961,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2004,7 +2019,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                   <div className="dropdown-peg-options">
+                  <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2021,8 +2036,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2079,7 +2094,7 @@ const Highstock = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                   <div className="dropdown-roe-options">
+                  <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2096,8 +2111,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2154,9 +2169,8 @@ const Highstock = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Valuation" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Valuation" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Valuation");
               navigate("/highstockvaluation"); // Navigate to the ScreenerStockvaluation page
@@ -2166,9 +2180,8 @@ const Highstock = () => {
           </button>
 
           <button
-            className={`tab-button ${
-              activeTab === "Income Statement" ? "active" : ""
-            }`}
+            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
+              }`}
             onClick={() => {
               setActiveTab("Income Statement");
               navigate("/highgrowthStockIncomeStatement"); // Add a route for Income Statement if needed
@@ -2178,194 +2191,202 @@ const Highstock = () => {
           </button>
         </div>
         {/* Conditional Rendering */}
-
-        <div
-          className="screener-table-wrapper"
-          style={{ overflowY: "auto", height: "500px" }}
-        >
-          <table
-            className="screener-table"
-            style={{ borderCollapse: "collapse", width: "100%" }}
+        {isloading ? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
+          <div
+            className="screener-table-wrapper"
+            style={{ overflowY: "auto", height: "500px" }}
           >
-            <thead
-              style={{
-                position: "sticky",
-                top: 0,
-                backgroundColor: "#f9f9f9",
-                zIndex: 10,
-                boxShadow: "0 4px 6px #24b676",
-              }}
+            <table
+              className="screener-table"
+              style={{ borderCollapse: "collapse", width: "100%" }}
             >
-              <tr>
-                <th>Symbol</th>
-                <th>
-                  Price
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("price")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Change %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("change")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Volume
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("volume")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Market Cap
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("marketCap")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  P / E
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("pToE")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-
-                <th>
-                  EPS (₹)
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("eps")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS Gr %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("epsDilGrowth")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Div Yield %
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("divYield")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Sectors
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("sector")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Analyst Rating
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("analystrating")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentData.map((stock, index) => (
-                <tr key={index} className="screener-row">
-                  <td className="symbol-cell">
-                    <img
-                      src={stock.icon}
-                      alt={`${stock.symbol} logo`}
-                      className="company-icon"
-                    />
-
-                    <a href={stock.url}>{stock.symbol}</a>
-                  </td>
-
-                  <td>{stock.price}</td>
-                  <td
-                    style={{
-                      color:
-                        parseFloat(stock.change) > 0
-                          ? "#24b676"
-                          : parseFloat(stock.change) < 0
-                          ? "red"
-                          : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.change) > 0
-                      ? `${stock.change}`
-                      : stock.change}
-                  </td>
-                  <td>{stock.volume}</td>
-                  <td>{stock.marketCap}</td>
-                  <td>{stock.pToE}</td>
-                  <td>{stock.eps}</td>
-                  <td
-                    style={{
-                      color:
-                        parseFloat(stock.epsDilGrowth) > 0
-                          ? "#24b676"
-                          : parseFloat(stock.epsDilGrowth) < 0
-                          ? "red"
-                          : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.epsDilGrowth) > 0
-                      ? `${stock.epsDilGrowth}`
-                      : stock.epsDilGrowth}
-                  </td>
-                  <td>{stock.divYield}</td>
-                  <td
-                    style={{
-                      color: "blue",
-                    }}
-                  >
-                    {stock.sector}
-                  </td>
-
-                  <td>
+              <thead
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#f9f9f9",
+                  zIndex: 10,
+                  boxShadow: "0 4px 6px #24b676",
+                }}
+              >
+                <tr>
+                  <th>Symbol</th>
+                  <th>
+                    Price
                     <button
-                      className="screener-unlock-btn"
-                      onClick={handleNavigate}
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("price")}
                     >
-                      <IoLockClosedOutline style={{ marginRight: "8px" }} />
-                      <span className="button-text">Unlock</span>
+                      <PiCaretUpDownFill />
                     </button>
-                  </td>
+                  </th>
+                  <th>
+                    Change %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("change")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Volume
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("volume")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Market Cap
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("marketCap")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P / E
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToE")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+
+                  <th>
+                    EPS (₹)
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("eps")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EPS Gr %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("epsDilGrowth")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Div Yield %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("divYield")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Sectors
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("sector")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Analyst Rating
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("analystrating")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {currentData.map((stock, index) => (
+                  <tr key={index} className="screener-row">
+                    <td className="symbol-cell">
+                      <img
+                        src={stock.icon}
+                        alt={`${stock.symbol} logo`}
+                        className="company-icon"
+                      />
+
+                      <a href={stock.url}>{stock.symbol}</a>
+                    </td>
+
+                    <td>{stock.price}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.change) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.change) < 0
+                              ? "red"
+                              : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.change) > 0
+                        ? `${stock.change}`
+                        : stock.change}
+                    </td>
+                    <td>{stock.volume}</td>
+                    <td>{stock.marketCap}</td>
+                    <td>{stock.pToE}</td>
+                    <td>{stock.eps}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.epsDilGrowth) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.epsDilGrowth) < 0
+                              ? "red"
+                              : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.epsDilGrowth) > 0
+                        ? `${stock.epsDilGrowth}`
+                        : stock.epsDilGrowth}
+                    </td>
+                    <td>{stock.divYield}</td>
+                    <td
+                      style={{
+                        color: "blue",
+                      }}
+                    >
+                      {stock.sector}
+                    </td>
+
+                    <td>
+                      {!isSubed ?
+                        <button
+                          className="screener-unlock-btn"
+                          onClick={handleNavigate}
+                        >
+                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                          <span className="button-text">Unlock</span>
+                        </button> : stock.analystRating
+                      }
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
-              stocks.length
-            } records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length
+              } records`}
           </div>
 
           <div className="pagination-slider">
@@ -2392,9 +2413,8 @@ const Highstock = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${
-                  currentPage === startPage + i ? "active-page" : ""
-                }`}
+                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""
+                  }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}

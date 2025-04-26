@@ -98,8 +98,15 @@
   font-weight: bold;
   color: #333;
   margin-left: 32px;
+  min-width: 180px;
+  max-width: 250px;
+  text-overflow: ellipsis;
 
 
+
+}
+.StockThemesSectorPages-themespara{
+margin-left: 30px;
 }
 
 .StockThemesSectorPages-themes-status {
@@ -286,7 +293,7 @@
     margin-top: 7px;
     margin-left: -20px;
   }
-
+ 
   .StockThemesSectorPagesfooter {
     width: 113%;
     margin-left: -23px;
