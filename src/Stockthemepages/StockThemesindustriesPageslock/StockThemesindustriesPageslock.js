@@ -157,7 +157,7 @@ export default function StockThemesindustrieslockPages() {
               <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
             </div>
 
-            <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreenerList")}className="StockThemesSectorPages-themes-icon" />
+            <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreener")}className="StockThemesSectorPages-themes-icon" />
 
             {/* Lock and Subscribe logic */}
             {!isSubscribed && !isLoading && (

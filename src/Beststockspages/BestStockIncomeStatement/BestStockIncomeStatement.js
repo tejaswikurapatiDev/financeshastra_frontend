@@ -2077,7 +2077,7 @@ const perfOptions = [
           className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
           onClick={() => {
             setActiveTab("Overview");
-            navigate('/beststock'); // Navigate to the StockScreenerList page
+            navigate('/beststock'); 
           }}
         >
           Overview

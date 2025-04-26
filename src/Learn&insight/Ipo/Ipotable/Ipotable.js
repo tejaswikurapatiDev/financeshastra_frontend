@@ -79,8 +79,11 @@ const Ipotable = (props) => {
               <tr>
                 <td className="border px-3 py-2">Revenue</td>
                 <td className="border px-3 py-2">
-                  {getGrowth(sortedData[0].revenue, sortedData[2].revenue)}
+                  {sortedData[0] && sortedData[2]
+                    ? getGrowth(sortedData[0].revenue, sortedData[2].revenue)
+                    : "_"}
                 </td>
+
                 {getValue("revenue").map((val, i) => (
                   <td key={i} className="border px-3 py-2">{val}</td>
                 ))}
@@ -88,7 +91,9 @@ const Ipotable = (props) => {
               <tr>
                 <td className="border px-3 py-2">EBIT</td>
                 <td className="border px-3 py-2">
-                  {getGrowth(sortedData[0].ebit, sortedData[2].ebit)}
+                  {sortedData[0] && sortedData[2] && sortedData[0].ebit !== undefined && sortedData[2].ebit !== undefined
+                    ? getGrowth(sortedData[0].ebit, sortedData[2].ebit)
+                    : "_"}
                 </td>
                 {getValue("ebit").map((val, i) => (
                   <td key={i} className="border px-3 py-2">{val}</td>
@@ -97,8 +102,11 @@ const Ipotable = (props) => {
               <tr>
                 <td className="border px-3 py-2">PAT</td>
                 <td className="border px-3 py-2">
-                  {getGrowth(sortedData[0].pat, sortedData[2].pat)}
+                  {sortedData[0]?.pat && sortedData[2]?.pat
+                    ? getGrowth(sortedData[0].pat, sortedData[2].pat)
+                    : "_"}
                 </td>
+
                 {getValue("pat").map((val, i) => (
                   <td key={i} className="border px-3 py-2">{val}</td>
                 ))}

@@ -196,7 +196,6 @@ const EditProfile = () => {
   }, []);*/
 
   useEffect(() => {
-    // Fetch user details and check if mobile is verified
     const fetchUserDetails = async () => {
       try {
         const token = Cookies.get("jwtToken");
@@ -204,60 +203,49 @@ const EditProfile = () => {
           console.error("Token is missing. Ensure the user is logged in.");
           return;
         }
-
+  
         const response = await fetch(`${API_BASE_URL}/userdetails`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-
-        // console.log("🚀 ~ fetchUserDetails ~ response:", response.json());
-
+  
         if (response.ok) {
           const data = await response.json();
-          console.log(data);
-          //console.log("User details fetched:", data); // Debugging: Log the entire response
-
-          // Check if isMobileVerified exists in the response
-          setIsMobileVerified(
-            data[0].isMobileVerified === 1 || data[0].isMobileVerified === true
-          );
-
-          // After setting isMobileVerified and state values
-          const user = data[0];
-
-          //format date to show
+          // console.log(data); 
+  
+          const user = data?.userdetails?.[0];
+  
           const formattedDOB = user.dob
             ? new Date(user.dob).toISOString().split("T")[0]
             : "";
-
-          // Set state
+  
           setIsMobileVerified(
             user.isMobileVerified === 1 || user.isMobileVerified === true
           );
 
+  
           setPersonalDetails({
-            firstName: user.first_name,
-            lastName: user.last_name,
+            firstName: user.first_name || "",
+            lastName: user.last_name || "",
             dob: formattedDOB,
-            gender: user.gender,
-            email: user.email,
-            phoneNumber: user.phone_number,
-            address: user.address,
-            country: user.country,
-            state: user.state,
-            city: user.city,
-            pincode: user.pincode,
+            gender: user.gender || "",
+            email: user.email || "",
+            phoneNumber: user.phone_number || "",
+            address: user.address || "",
+            country: user.country || "India",
+            state: user.state || "",
+            city: user.city || "",
+            pincode: user.pincode || "",
           });
-
+  
           setProfessionalDetails({
-            occupation: user.occupation !== "undefined" ? user.occupation : "",
-            industry: user.industry !== "undefined" ? user.industry : "",
-            income: user.income !== "undefined" ? user.income : "",
+            occupation: user.occupation || "",
+            industry: user.industry || "",
+            income: user.income || "",
           });
-
-          // Set formData directly from response
+  
           setFormData({
             firstName: user.first_name || "",
             lastName: user.last_name || "",
@@ -269,10 +257,10 @@ const EditProfile = () => {
             country: user.country || "India",
             state: user.state || "",
             city: user.city || "",
-            occupation: user.occupation !== "undefined" ? user.occupation : "",
+            occupation: user.occupation || "",
             pincode: user.pincode || "",
-            industry: user.industry !== "undefined" ? user.industry : "",
-            income: user.income !== "undefined" ? user.income : "",
+            industry: user.industry || "",
+            income: user.income || "",
           });
         } else {
           console.error("Failed to fetch user details:", response.statusText);
@@ -281,9 +269,10 @@ const EditProfile = () => {
         console.error("Error fetching user details:", error);
       }
     };
-
+  
     fetchUserDetails();
   }, []);
+  
 
   console.log(personalDetails, professionalDetails);
   const closePopup = () => {
@@ -312,7 +301,7 @@ const EditProfile = () => {
         // More fields here
       },
     };
-    navigate("/userDetailsupdate", { state: { updatedData } });
+    navigate("/userDetails", { state: { updatedData } });
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -885,7 +874,7 @@ const EditProfile = () => {
           </span>
           <span
             className="profilepage-tabb"
-            onClick={() => navigate("/orderTable")}
+            onClick={() => navigate("/orders")}
           >
             Orders
           </span>

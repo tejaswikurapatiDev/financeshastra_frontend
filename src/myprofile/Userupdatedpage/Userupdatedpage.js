@@ -27,6 +27,7 @@ const UserDetailsupdate = () => {
   // Initial state (can be overwritten by updated data passed through location.state)
   //const [emaillocal, setEmail]= useState('')
   const [profileImage, setProfileImage] = useState(williamImage);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [personalDetails, setPersonalDetails] = useState({
     firstName: "-",
@@ -54,8 +55,8 @@ const UserDetailsupdate = () => {
     termInsurance: "",
     healthInsurance: "",
     currentInvestments: "",
-    stocks: '',
-    mutualfunds: ''
+    stocks: "",
+    mutualfunds: "",
   });
 
   const [showPopupforLogin, setShowPopupforLogin] = useState(false);
@@ -66,8 +67,8 @@ const UserDetailsupdate = () => {
     termInsurance: "",
     healthInsurance: "",
     currentInvestments: "",
-    stocks: '',
-    mutualfunds: ''
+    stocks: "",
+    mutualfunds: "",
   });
 
   const formatDate = (dob) => {
@@ -105,7 +106,7 @@ const UserDetailsupdate = () => {
         };
 
         const response = await fetch(url, options);
-        console.log(response)
+        console.log(response);
 
         if (response.ok) {
           try {
@@ -116,11 +117,14 @@ const UserDetailsupdate = () => {
 
             if (data) {
               const userData = data.userdetails[0];
-              const investmentData= data.investdetails[0];
+              const investmentData = data.investdetails[0];
               const formattedDate = formatDate(userData.dob);
 
               console.log("🚀 ~ Fetched User details:", userData);
-              console.log("🚀 ~ Fetched User Investment details:", investmentData)
+              console.log(
+                "🚀 ~ Fetched User Investment details:",
+                investmentData
+              );
 
               // Prepare updated data for state
               const updatedData = {
@@ -146,10 +150,11 @@ const UserDetailsupdate = () => {
                 investment: {
                   householdSavings: investmentData?.household_savings || "-",
                   termInsurance: investmentData?.term_insurance || "-",
-                  healthInsurance: investmentData?.health_insurance|| "-",
-                  currentInvestments: investmentData?.current_investments || "-",
+                  healthInsurance: investmentData?.health_insurance || "-",
+                  currentInvestments:
+                    investmentData?.current_investments || "-",
                   stocks: investmentData?.stocks || "-",
-                  mutualfunds: investmentData?.mutualfunds || "-"
+                  mutualfunds: investmentData?.mutualfunds || "-",
                 },
               };
               console.log(
@@ -170,10 +175,10 @@ const UserDetailsupdate = () => {
                 ...prev,
                 ...updatedData.investment,
               }));
-              setModalData((prev)=>({
+              setModalData((prev) => ({
                 ...prev,
                 ...updatedData.investment,
-              }))
+              }));
             } else {
               console.warn("No user data found.");
             }
@@ -213,7 +218,7 @@ const UserDetailsupdate = () => {
   };
 
   const handleEditInvestment = () => {
-    console.log(modalData)
+    console.log(modalData);
     setModalData({ ...investmentDetails });
     setShowModal(true);
   };
@@ -244,21 +249,38 @@ const UserDetailsupdate = () => {
   };
   const handleFinancialChange = (e) => {
     const { name, value } = e.target;
-    setModalData((prevData) => ({
-      ...prevData,
-      [name]: value, // Directly update the value without restricting it to 100
-    }));
+
+    // Check if value contains "+" or "-"
+    if (value.includes("+") || value.includes("-")) {
+      setErrorMessage(
+        "Please enter a valid positive number without '+' or '-'"
+      );
+    } else {
+      setErrorMessage(""); // Clear error if input is fine
+      setModalData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    let percentage = parseFloat(value) || 0; // Agar NaN ho toh 0 le lo
 
-    if (percentage > 100) percentage = 100; // 100% se zyada na ho
+    // Check if value has "+" or "-"
+    if (value.includes("+") || value.includes("-")) {
+      setErrorMessage("Please enter a valid number without '+' or '-'");
+      return; // Stop processing if invalid
+    } else {
+      setErrorMessage(""); // Clear any previous error
+    }
+
+    let percentage = parseFloat(value) || 0;
+
+    if (percentage > 100) percentage = 100;
 
     let updatedData = { ...modalData, [name]: percentage };
 
-    // Automatically adjust the other field
     if (name === "stocks") {
       updatedData.mutualfunds = 100 - percentage;
     } else if (name === "mutualfunds") {
@@ -452,6 +474,11 @@ const UserDetailsupdate = () => {
                 <div className="modal-overlay">
                   <div className="modal-contentuserupdate">
                     <div className="modal-body">
+                      {errorMessage && (
+                        <p style={{ color: "red", marginBottom: "10px" }}>
+                          {errorMessage}
+                        </p>
+                      )}
                       <label>Household Savings per month*</label>
                       <input
                         type="number"

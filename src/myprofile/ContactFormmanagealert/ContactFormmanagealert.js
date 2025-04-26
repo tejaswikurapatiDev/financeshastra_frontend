@@ -85,7 +85,7 @@ const ContactFormmanagealert = () => {
           My Account</span>
         <span
           className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
+          onClick={() => navigate("/orders")}
         >
           Orders
         </span>

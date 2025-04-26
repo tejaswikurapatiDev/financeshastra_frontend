@@ -761,4 +761,12 @@ padding: 5px;
           max-width: 80%;
          
         }
+      
+    .fullscreenanalysis {
+                font-size: 30px;
+                margin-top: -30px;
+                cursor: pointer;
+                margin-left: 0px;
+            }
+        
       }

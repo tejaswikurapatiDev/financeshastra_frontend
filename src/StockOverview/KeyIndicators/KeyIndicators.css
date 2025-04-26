@@ -14,7 +14,9 @@
     font-family:  "calibri";
     margin-top: 0;
   }
-  
+  .key-indicators-title{
+
+  }
   .divider {
     margin: 10px 0;
   }
@@ -71,7 +73,7 @@
       font-size: 12px;
     }
     .key {
-      font-size: 16px; /* Reduce font size further */
+      font-size: 18px; /* Reduce font size further */
     }
   
     

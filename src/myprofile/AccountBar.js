@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const tabs = [
-  { id: "myaccount", label: "My Account", path: "/userDetailsupdate" },
-  { id: "orders", label: "Orders", path: "/orderTable" },
+  { id: "myaccount", label: "My Account", path: "/userDetails" },
+  { id: "orders", label: "Orders", path: "/orders" },
   { id: "billingSubscriptionPages", label: "Billing & Subscription", path: "/Billinginfohistory" },
   { id: "riskAnalysisDashboard", label: "Risk Profile Report", path: "/riskAnalysisDashboard" },
   { id: "managealert", label: "Manage Alert", path: "/managealert" },
@@ -13,8 +13,8 @@ const tabs = [
     id: "myReferalPage",
     label: "My Referrals",
     paths: [
-      "/myReferalPage",
-      "/referMoreProfilePages",
+      "/myReferrals",
+      "/referMore",
       "/earningCalculatorProfilePage",
       "/reffeerralProfilePageSSS"
     ]

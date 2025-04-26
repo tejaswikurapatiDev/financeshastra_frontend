@@ -65,7 +65,7 @@ function Nifty50topheader() {
       {/* Overview link with smooth scroll and route navigation */}
       <ScrollLink to="overview" smooth={true} duration={500}>
         <span 
-          onClick={() => handleNavigation("/nifty50pageall")} 
+          onClick={() => handleNavigation("/nifty50stocks")} 
           style={{ cursor: "pointer" }}
         >
           Overview

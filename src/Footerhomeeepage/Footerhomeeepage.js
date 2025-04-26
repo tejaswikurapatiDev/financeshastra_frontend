@@ -21,9 +21,9 @@ const FooterForhomeAllPage = () => {
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
   const stockRoutes = {
-    "Stock Screener": "/StockScreenerList",
-    "High Growth Stocks": "/highgrowth",
-    "Nifty 50 Companies": "/nifty50pageall",
+    "Stock Screener": "/StockScreener",
+    "High Growth Stocks": "/highgrowthstocks",
+    "Nifty 50 Companies": "/nifty50stocks",
     "Small Cap Stocks": "/smallcap",
     "Mid Cap Stocks": "/midcap",
     "Large Cap Stocks":"/largecap"
@@ -37,9 +37,9 @@ const FooterForhomeAllPage = () => {
     "Best ETF Fund": "/etfregular",
   };
   const learnRoutes = {
-    "Stock News": "/stockNewsComponent",
-    "IPO Details": "/ipoComponent",
-    "Blogs": "/blogsComponent",
+    "Stock News": "/stockNews",
+    "IPO Details": "/ipoDetails",
+    "Blogs": "/blogs",
     "Market Insights": "/marketinsights",
     "Quarterly Earnings": "/earningsInsightLearn",
     "Learn": "/learncard",

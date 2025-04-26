@@ -44,7 +44,7 @@
 }
 
 .overviewqutarely {
-  margin-top: 50px;
+  margin-top: 90px;
   color: #24b676;
   font-size: 26px;
   margin-left: 30px;
@@ -194,10 +194,11 @@
   }
 
   .overviewqutarely {
-    margin-top: 80px;
+    margin-top: 120px;
     color: #24b676;
     font-size: 24px;
     margin-bottom: -10px;
+    margin-left: 10px;
   }
 
   .time-rangemutual-selectorr {

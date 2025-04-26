@@ -2122,7 +2122,7 @@ const Largecap = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/largecap'); // Navigate to the StockScreenerList page
+              navigate('/largecap'); 
             }}
           >
             Overview

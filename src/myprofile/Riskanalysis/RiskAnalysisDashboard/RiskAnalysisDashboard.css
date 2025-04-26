@@ -292,6 +292,9 @@ max-width: 1000px;
 
 
   }
+  .profilepage-titlesession {
+    margin-top: 10px;
+}
   .riskheaderheader h3{
     font-size: 15px;
     margin-left: 20px;

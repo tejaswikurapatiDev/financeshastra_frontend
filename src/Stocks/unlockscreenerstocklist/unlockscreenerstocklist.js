@@ -1836,7 +1836,7 @@ const resetRange = () => {
 
           onClick={() => {
             setActiveTab("Overview");
-            navigate('/StockScreenerList'); // Navigate to the StockScreenerList page
+            navigate('/StockScreener'); // Navigate to the StockScreenerList page
           }}
         >
           Overview

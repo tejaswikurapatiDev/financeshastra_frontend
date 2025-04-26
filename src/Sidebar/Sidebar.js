@@ -25,7 +25,7 @@ const Sidebar = () => {
                     href="/porfolioanalysisallpagecall" 
                   
                     className={`sidebar-item ${["/porfolioanalysisallpagecall", "/portfolioanalysisdividendcall","/portfoliobonuscall","/portfoliosplitcall","/portfolioanalysisrightscall"
-                        ,"/portfolioAGMcall"
+                        ,"/portfolioAGMcall","/portfolioHoldingdetailPage"
                     ].includes(location.pathname) ? "active" : ""}`}
                 >
                     <GrAnalytics className="sideicon"/> Portfolio Analysis

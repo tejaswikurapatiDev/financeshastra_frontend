@@ -43,7 +43,7 @@ const LandingAboutPage = () => {
           </p>
           <button className="landingaboutpage-button"
            onClick={() => {
-            navigate("/whoWeAre"); 
+            navigate("/aboutUs"); 
             window.scrollTo(0, 0); // Scroll to top after navigation
           }}
         >Learn more</button>
