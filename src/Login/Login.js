@@ -107,7 +107,7 @@ function Login() {
       const { jwtToken, username, deviceId } = data;
 
       if (response.ok === true) {
-        alert("You are logedin seccessfully!");
+        alert("You are logged in successfully!");
         // ✅ Store in Local Storage
         localStorage.setItem("username", username);
         localStorage.setItem("deviceId",deviceId);
