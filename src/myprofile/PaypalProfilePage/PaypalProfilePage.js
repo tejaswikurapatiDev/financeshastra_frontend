@@ -73,11 +73,11 @@ const PaypalProfilePage = () => {
       </h1>
 
       <div className="profilepage-tabsorderusers" >
-        <span className="profilepage-tabb"onClick={() => navigate("/userDetailsupdate")}
+        <span className="profilepage-tabb"onClick={() => navigate("/userDetails")}
        >My Account</span>
         <span
           className="profilepage-tabb"
-          onClick={() => navigate("/orderTable")}
+          onClick={() => navigate("/orders")}
         >
           Orders
         </span>

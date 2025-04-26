@@ -312,7 +312,7 @@ const EditProfile = () => {
         // More fields here
       },
     };
-    navigate("/userDetailsupdate", { state: { updatedData } });
+    navigate("/userDetails", { state: { updatedData } });
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -885,7 +885,7 @@ const EditProfile = () => {
           </span>
           <span
             className="profilepage-tabb"
-            onClick={() => navigate("/orderTable")}
+            onClick={() => navigate("/orders")}
           >
             Orders
           </span>

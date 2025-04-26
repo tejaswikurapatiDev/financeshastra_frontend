@@ -478,7 +478,7 @@ const Navbar = () => {
           </li>
           <li>
           
-              <Link to="/highgrowth"
+              <Link to="/highgrowthstocks"
                className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -499,7 +499,7 @@ const Navbar = () => {
           </li>
           <li>
           
-              <Link to="/nifty50pageall"
+              <Link to="/nifty50stocks"
                 className={
                   darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
                 }
@@ -665,7 +665,7 @@ const Navbar = () => {
   const renderlearnDropdown = () => (
     <div className={darkMode ? "learn-menudarkerrrrmode" : "learn-menu"}>
   
-        <Link to="/stockNewsComponent"
+        <Link to="/stockNews"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
           style={{
             display: "block",
@@ -677,7 +677,7 @@ const Navbar = () => {
           <p>Discover what's happening in the stock markets in real-time</p>
         </Link>
      
-        <Link to="/blogsComponent"
+        <Link to="/blogs"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
          style={{
           display: "block",
@@ -690,7 +690,7 @@ const Navbar = () => {
         </Link>
 
   
-        <Link to="/ipoComponent"
+        <Link to="/ipoDetails"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -817,7 +817,7 @@ const Navbar = () => {
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/userDetailsupdate">
+        <Link to="/userDetails">
           <FaUser
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />

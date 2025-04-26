@@ -29,8 +29,8 @@ const FooterForAllPage = () => {
   ];
   const stockRoutes = {
     "Stock Screener": "/StockScreener",
-    "High Growth Stocks": "/highgrowth",
-    "Nifty 50 Companies": "/nifty50pageall",
+    "High Growth Stocks": "/highgrowthstocks",
+    "Nifty 50 Companies": "/nifty50stocks",
     "Small Cap Stocks": "/smallcap",
     "Mid Cap Stocks": "/midcap",
     "Large Cap Stocks":"/largecap"
@@ -44,9 +44,9 @@ const FooterForAllPage = () => {
     "Best ETF Fund": "/etfregular",
   };
   const learnRoutes = {
-    "Stock News": "/stockNewsComponent",
-    "IPO Details": "/ipoComponent",
-    "Blogs": "/blogsComponent",
+    "Stock News": "/stockNews",
+    "IPO Details": "/ipoDetails",
+    "Blogs": "/blogs",
    
     "Quarterly Earnings": "/earningsInsightLearn",
     "Learn": "/learncard",
@@ -62,8 +62,8 @@ const FooterForAllPage = () => {
   };
   const AboutRoutes = {
     "Who We Are?": "/aboutUs",
-    "Why FinanceShastra?": "/WhyFinadvanceeducationnn",
-    "Contact Us": "/contactUsnew",
+    "Why FinanceShastra?": "/WhyFinanceAdvanceEducation",
+    "Contact Us": "/contactus",
    
   
   };

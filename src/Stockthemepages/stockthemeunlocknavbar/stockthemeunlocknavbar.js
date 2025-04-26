@@ -112,13 +112,13 @@ const Stockthemeunlocknavbar = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/highgrowth">High Growth Stocks
+              <Link to="/highgrowthstocks">High Growth Stocks
                 <p>Find stocks that are expected to grow rapidly in the upcoming years.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/nifty50pageall">Nifty 50 Companies
+              <Link to="/nifty50stocks">Nifty 50 Companies
                 <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>
@@ -174,15 +174,15 @@ const Stockthemeunlocknavbar = () => {
   const renderlearnDropdown = () => (
     <div className="learn-menu">
       <div className="dropdown-item">
-        <Link to="/stockNewsComponent">Stock News
+        <Link to="/stockNews">Stock News
           <p>Discover what's happening in the stock markets in real-time</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/blogsComponent">Blogs
+        <Link to="/blogs">Blogs
           <p>Investment Knowledge Hub</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/ipoComponent">IPO Details
+        <Link to="/ipoDetails">IPO Details
           <p>Key Information on the Latest IPO Trends</p></Link>
       </div>
       <div className="dropdown-item">
@@ -204,7 +204,7 @@ const Stockthemeunlocknavbar = () => {
   const renderUserDropdown = () => (
     <div className="user-menu">
       <div className="dropdown-item">
-        <Link to="/userDetailsupdate"><FaUser className="dropdown-icon" />
+        <Link to="/userDetails"><FaUser className="dropdown-icon" />
           My Profile</Link>
       </div>
       <div className="dropdown-item">

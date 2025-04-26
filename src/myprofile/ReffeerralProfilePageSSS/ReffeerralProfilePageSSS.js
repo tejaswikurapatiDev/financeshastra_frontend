@@ -93,13 +93,13 @@ const ReffeerralProfilePageSSS = () => {
           <div className="myreferalpagesss-buttons">
             <button
               className="myreferalpagesss-button "
-              onClick={() => navigate("/myReferalPage")}
+              onClick={() => navigate("/myReferrals")}
             >
               Overview
             </button>
             <button
               className="myreferalpagesss-button "
-              onClick={() => navigate("/referMoreProfilePages")}
+              onClick={() => navigate("/referMore")}
             >
               Refer More
             </button>

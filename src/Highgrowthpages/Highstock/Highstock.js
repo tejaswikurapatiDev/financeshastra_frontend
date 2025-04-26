@@ -2162,7 +2162,7 @@ const Highstock = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/highgrowth"); 
+              navigate("/highgrowthstocks"); 
             }}
           >
             Overview
