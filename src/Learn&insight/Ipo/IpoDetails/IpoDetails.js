@@ -25,7 +25,6 @@ const IpoDetails = () => {
 
   const { id } = useParams();
 
-
   const [isLoading, setisLoading] = useState(true)
   const [comapiesState, setCompaniesData] = useState([])
   const [financialDataState, setFinancialData] = useState([])
@@ -52,9 +51,7 @@ const IpoDetails = () => {
   const [metricsDataState, setmetrics] = useState([])
   const [statusDataState, setStatusData] = useState([])
 
-
   useEffect(() => {
-
     const fetchIPO_detailscompanies = async () => {
       setisLoading(true)
       const url = `${API_BASE_URL}/ipodetails/companies/${id}`
@@ -73,7 +70,7 @@ const IpoDetails = () => {
       
       const companiesData = companies.map((e) => ({
         activeYarnVarieties: e.active_yarn_varieties,
-        customerYount: e.customer_count,
+        customerCount: e.customer_count,
         description: e.description,
         establishedYear: e.established_year,
         industry: e.industry,
@@ -109,7 +106,7 @@ const IpoDetails = () => {
 
       const governanceData = governance.map((e) => ({
         consistentAccountingPolicy: e.consistent_accounting_policy,
-        founders_ownership: e.founders_ownership,
+        foundersOwnership: e.founders_ownership,
         leadershipExperience: e.leadership_experience,
         promoterSharePledging: e.promoter_share_pledging,
         promoterStake: e.promoter_stake
@@ -174,12 +171,12 @@ const IpoDetails = () => {
       }
 
       const metricsData = metrics.map((e) => ({
-        median_peer_pb: e.median_peer_pb,
-        median_peer_pe: e.median_peer_pe,
-        operating_earnings_yield: e.operating_earnings_yield,
-        pb_ratio: e.pb_ratio,
-        pe_ratio: e.pe_ratio,
-        valuation_id: e.valuation_id
+        medianPeerPb: e.median_peer_pb,
+        medianPeerPe: e.median_peer_pe,
+        operatingEarningsYield: e.operating_earnings_yield,
+        pbRatio: e.pb_ratio,
+        peRatio: e.pe_ratio,
+        valuationId: e.valuation_id
       }))
       setmetrics(metricsData)
 
@@ -209,94 +206,72 @@ const IpoDetails = () => {
       }))
       setSummary(summaryData)
 
-      console.log("summaryData: ", summaryData[0].coreStrengths)
-
-      /*console.log("statusData: ", statusData)
-      
-      console.log("metricsData: ", metricsData)
-
-      console.log("keyRatiosData: ", keyRatiosData)
-
-      console.log("ipoDetailsData: ", ipoDetailsData);
-
-      console.log("governanceData: ", governanceData);
-
-      console.log("financialData: ", financialData);
-      
-      console.log("companies: ", compniesData);*/
       setisLoading(false)
-
     }
     fetchIPO_detailscompanies()
-  }, [])
+  }, [id])
+
+  const getValueOrNA = (value) => {
+    return value !== undefined && value !== null && value !== "" ? value : "NA";
+  };
+
+  const formatNumberOrNA = (value) => {
+    if (value === undefined || value === null || value === "") return "NA";
+    return parseFloat(value).toLocaleString("en-IN", {
+      minimumFractionDigits: 2,
+    });
+  };
 
   const ipoDetails = {
-    title: "Sanathan Textiles IPO analysis",
-    subtitle: "All you need to know about the Sanathan Textiles IPO",
+    title: `${getValueOrNA(comapiesState[0]?.name)} IPO analysis`,
+    subtitle: `All you need to know about the ${getValueOrNA(comapiesState[0]?.name)} IPO`,
     date: "17 Dec 2024",
     author: "Chandresh Tripathi",
     image: ipo1,
-    details: [
-      { label: "Opening Date", value: "19 Dec 2024" },
-      { label: "Price band (₹)", value: "₹305 - 321" },
-      { label: "Closing Date", value: "24-Dec-2024" },
-      { label: "Face Value", value: "₹₹10" },
-      { label: "Allotment Date", value: "24 Dec 2024" },
-      { label: "No. of shares", value: "17,133,956" },
-      { label: "Refunds Date", value: "26 Dec 2024" },
-      { label: "Offer for sale (₹ cr)", value: "₹150" },
-      { label: "Listing Date", value: "27 Dec 2024" },
-      { label: "Fresh issue (₹ cr)", value: "₹400" },
-      { label: "Lot Size", value: "46" },
-      { label: "Offered to Public", value: "5,996,885" },
-      { label: "Minimum Investment", value: "₹14,766.00" },
-      { label: "Purpose of issue", value: "Repayment of debt and investment in subsidiary" },
-    ],
     content: {
       nutshell: "Sanathan Textiles recorded an average ROE of 23.1% and ROCE of 21% over three financial years from FY22 to FY24. During the fiscal years FY22 to FY24, its revenue fell by 3.6% per year, while its net profit dropped by 8.3% annually.",
-      companyOverview: "Sanathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18% of its revenue).",
-      coreStrengths: "Sanathan Textiles has built enduring partnerships with well-known brands like Welspun India and has served over 1,500 customers.",
-      limitations: "Sanathan Textiles derived 65% of its revenue from Gujarat, Maharashtra, and Punjab in FY24. Potential disruptions in these states may influence the company’s profitability.",
+      companyOverview: getValueOrNA(comapiesState[0]?.description),
+      coreStrengths: getValueOrNA(summaryState[0]?.coreStrengths),
+      limitations: getValueOrNA(summaryState[0]?.limitations),
     },
   };
 
   const tableRows = [
-    { label: "Opening Date", value: ipoDetailsDataState[0].openingDate },
+    { label: "Opening Date", value: getValueOrNA(ipoDetailsDataState[0]?.openingDate) },
     {
       label: "Price band (₹)",
-      value: `₹${ipoDetailsDataState[0].priceBandMin} - ₹${ipoDetailsDataState[0].priceBandMax}`,
+      value: ipoDetailsDataState[0]?.priceBandMin && ipoDetailsDataState[0]?.priceBandMax 
+        ? `₹${getValueOrNA(ipoDetailsDataState[0]?.priceBandMin)} - ₹${getValueOrNA(ipoDetailsDataState[0]?.priceBandMax)}` 
+        : "NA",
     },
-    { label: "Closing Date", value: ipoDetailsDataState[0].closingDate },
-    { label: "Face Value", value: `₹${ipoDetailsDataState[0].faceValue}` },
-    { label: "Allotment Date", value: ipoDetailsDataState[0].allotmentDate },
+    { label: "Closing Date", value: getValueOrNA(ipoDetailsDataState[0]?.closingDate) },
+    { label: "Face Value", value: ipoDetailsDataState[0]?.faceValue ? `₹${getValueOrNA(ipoDetailsDataState[0]?.faceValue)}` : "NA" },
+    { label: "Allotment Date", value: getValueOrNA(ipoDetailsDataState[0]?.allotmentDate) },
     {
       label: "No. of Shares",
-      value: ipoDetailsDataState[0].sharesOffered.toLocaleString("en-IN"),
+      value: ipoDetailsDataState[0]?.sharesOffered ? getValueOrNA(ipoDetailsDataState[0]?.sharesOffered.toLocaleString("en-IN")) : "NA",
     },
-    { label: "Refunds Date", value: ipoDetailsDataState[0].refundDate },
+    { label: "Refunds Date", value: getValueOrNA(ipoDetailsDataState[0]?.refundDate) },
     {
       label: "Offer for Sale (₹ cr)",
-      value: `₹${ipoDetailsDataState[0].offerForSale}`,
+      value: ipoDetailsDataState[0]?.offerForSale ? `₹${getValueOrNA(ipoDetailsDataState[0]?.offerForSale)}` : "NA",
     },
-    { label: "Listing Date", value: ipoDetailsDataState[0].listingDate },
+    { label: "Listing Date", value: getValueOrNA(ipoDetailsDataState[0]?.listingDate) },
     {
       label: "Fresh Issue (₹ cr)",
-      value: `₹${ipoDetailsDataState[0].freshIssue}`,
+      value: ipoDetailsDataState[0]?.freshIssue ? `₹${getValueOrNA(ipoDetailsDataState[0]?.freshIssue)}` : "NA",
     },
-    { label: "Lot Size", value: ipoDetailsDataState[0].lotSize },
+    { label: "Lot Size", value: getValueOrNA(ipoDetailsDataState[0]?.lotSize) },
     {
       label: "Offered to Public",
-      value: ipoDetailsDataState[0].offerToPublic.toLocaleString("en-IN"),
+      value: ipoDetailsDataState[0]?.offerToPublic ? getValueOrNA(ipoDetailsDataState[0]?.offerToPublic.toLocaleString("en-IN")) : "NA",
     },
     {
       label: "Minimum Investment",
-      value: `₹${parseFloat(ipoDetailsDataState[0].minInvest).toLocaleString("en-IN", {
-        minimumFractionDigits: 2,
-      })}`,
+      value: ipoDetailsDataState[0]?.minInvest ? `₹${formatNumberOrNA(ipoDetailsDataState[0]?.minInvest)}` : "NA",
     },
-    { label: "Purpose of Issue", value: ipoDetailsDataState[0].purpose },
+    { label: "Purpose of Issue", value: getValueOrNA(ipoDetailsDataState[0]?.purpose) },
   ];
-
 
   return (
     <>
@@ -347,20 +322,16 @@ const IpoDetails = () => {
                   </a>
                 </div>
                 <div>
-                  <img src={ipoDetails.image} alt="Sanathan Textiles IPO" className="ipoImage" /></div>
+                  <img src={ipoDetails.image} alt={`${getValueOrNA(comapiesState[0]?.name)} IPO`} className="ipoImage" /></div>
                 <div><RecentIPOs /></div>
               </div>
 
-
-              <h2 className="investgg-heading">Sanathan Textiles: Company Overview</h2>
+              <h2 className="investgg-heading">{ipoDetails.title}: Company Overview</h2>
               <p className="investgg-paragraph">
-                Sanathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18%
-                of its revenue). The company also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and
-                protective clothing. As of September 30, 2024, it offered over 3,200 active yarn varieties and had the capability to produce a diverse
-                portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including prominent names like Welspun, Premco
-                Global, and Page.
+                {getValueOrNA(comapiesState[0]?.description)} {comapiesState[0]?.activeYarnVarieties ? `As of September 30, 2024, it offered over ${getValueOrNA(comapiesState[0]?.activeYarnVarieties)} active yarn varieties and had the capability to produce a diverse portfolio of more than ${getValueOrNA(comapiesState[0]?.totalYarnVarieties)} yarn products.` : ""} {comapiesState[0]?.customerCount ? `In FY24, it served over ${getValueOrNA(comapiesState[0]?.customerCount)} customers, including prominent names like Welspun, Premco Global, and Page.` : ""}
               </p>
-              <h2 className="investgg-heading">Sanathan Textiles IPO details</h2>
+              
+              <h2 className="investgg-heading">{getValueOrNA(comapiesState[0]?.name)} IPO details</h2>
               <div className='ipodta'>
                 <div className="ipoDetails">
                   {tableRows.map((detail, index) => (
@@ -369,48 +340,42 @@ const IpoDetails = () => {
                       <span className="ipoDetailValue">{detail.value}</span>
                     </div>
                   ))}
-
                 </div>
               </div>
+              
               <div className="ipoContent">
-
-                <h2 className="investgg-heading">Sanathan Textiles IPO in brief</h2>
-
+                <h2 className="investgg-heading">{getValueOrNA(comapiesState[0]?.name)} IPO in brief</h2>
                 <p><strong className='strongfontipo'>Quality:</strong> Sanathan Textiles recorded an average ROE of 23.1% and ROCE of 21% over the three financial years from FY22 to FY24.</p>
                 <p><strong className='strongfontipo'>Growth:</strong> During the fiscal years FY22 to FY24, its revenue fell by 3.6% per year, while its net profit dropped by 38.6% annually</p>
-                <p><strong className='strongfontipo'>Valuation: </strong>The stock is valued at 20.2 times its earnings and 1.6 times its book value at the upper price band of ₹321.</p>
-                <p><strong className='strongfontipo'>Overview:</strong> The company stands to gain from geopolitical tensions in Bangladesh, a key exporter to the US and EU, and the reduction in China’s apparel exports to the
-                  US, positioning Indian exporters as a viable alternative for the US, which accounted for 22% of global apparel imports in CY23. However, the highly competitive textile
-                  sector remains a challenge.</p>
+                <p><strong className='strongfontipo'>Valuation: </strong>The stock is valued at {metricsDataState[0]?.peRatio ? `${getValueOrNA(metricsDataState[0]?.peRatio)} times` : "NA"} its earnings and {metricsDataState[0]?.pbRatio ? `${getValueOrNA(metricsDataState[0]?.pbRatio)} times` : "NA"} its book value at the upper price band of ₹321.</p>
+                <p><strong className='strongfontipo'>Overview:</strong> {getValueOrNA(summaryState[1]?.coreStrengths)} {summaryState[1]?.limitations ? `However, ${getValueOrNA(summaryState[1]?.limitations)}` : ""}</p>
 
-                <h3>Sanathan Textiles: Company Overview</h3>
-                <p>anathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18% of its revenue). The company
-                  also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and protective clothing. As of September 30, 2024, it offered over
-                  3,200 active yarn varieties and had the capability to produce a diverse portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including
-                  prominent names like Welspun, Premco Global, and Page.</p>
-                <h3>Core Strengths of Sanathan Textiles</h3>
-
-                <p><strong className='strongfontipo'>Established Clientele:</strong>{summaryState[0].coreStrengths
-                }</p>
-                <h3>Limitations of Sanathan Textiles</h3>
-                <p><strong className='strongfontipo'>Regional Focus:</strong> {summaryState[0].limitations}</p>
-                <p><strong className='strongfontipo'>Dependence on Distribution Network:</strong> The company relies extensively on its distributors to market and sell its products. In FY24, nearly 94% of its revenue was
-                  generated through its distribution partners. Consequently, the loss of important distributors could harm the company’s financial performance</p>
+                <h3>{getValueOrNA(comapiesState[0]?.name)}: Company Overview</h3>
+                <p>{getValueOrNA(comapiesState[0]?.description)} {comapiesState[0]?.activeYarnVarieties ? `As of September 30, 2024, it offered over ${getValueOrNA(comapiesState[0]?.activeYarnVarieties)} active yarn varieties and had the capability to produce a diverse portfolio of more than ${getValueOrNA(comapiesState[0]?.totalYarnVarieties)} yarn products.` : ""} {comapiesState[0]?.customerCount ? `In FY24, it served over ${getValueOrNA(comapiesState[0]?.customerCount)} customers, including prominent names like Welspun, Premco Global, and Page.` : ""}</p>
+                
+                <h3>Core Strengths of {getValueOrNA(comapiesState[0]?.name)}</h3>
+                <p><strong className='strongfontipo'>Established Clientele:</strong> {getValueOrNA(summaryState[0]?.coreStrengths)}</p>
+                
+                <h3>Limitations of {getValueOrNA(comapiesState[0]?.name)}</h3>
+                <p><strong className='strongfontipo'>Regional Focus:</strong> {getValueOrNA(summaryState[0]?.limitations)}</p>
+                <p><strong className='strongfontipo'>Dependence on Distribution Network:</strong> The company relies extensively on its distributors to market and sell its products. In FY24, nearly 94% of its revenue was generated through its distribution partners. Consequently, the loss of important distributors could harm the company's financial performance</p>
               </div>
 
-              <Ipotable financialData={financialDataState} keyratios={keyratioState} ipoDetailsData={ipoDetailsDataState}
-                subscriptionstatus={statusDataState} />
+              <Ipotable 
+                financialData={financialDataState} 
+                keyratios={keyratioState} 
+                ipoDetailsData={ipoDetailsDataState}
+                subscriptionstatus={statusDataState} 
+              />
               <IpoRecommendation />
               <IpoComment />
               <UpcomingIPOs />
-
             </div>
             <div className="foooterpagesaupdate">
               <FooterForAllPage />
             </div>
           </div>
       }
-
     </>
   );
 };
