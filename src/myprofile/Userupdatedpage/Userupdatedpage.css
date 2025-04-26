@@ -232,7 +232,7 @@ text-align: center;
  {
   width: 80px; /* Smaller width for % fields */
 }
-.investment-itemalluser input[name="mutualfund"] {
+.investment-itemalluser input[name="mutualfunds"] {
   width: 80px;
 }
 .modal-overlay {
@@ -463,7 +463,7 @@ text-align: center;
       font-weight: bold;
       margin-bottom: 20px;
       margin-left: 10px;
-      margin-top: -60px;
+      margin-top: -80px;
     }
     
   
@@ -762,7 +762,7 @@ margin-left: -20px;
     border-radius: 8px;
     width: 380px;
     margin-top: -25px;
-    height: 360px;
+    height: 399px;
   }
   .investment-itemalluser input[name="stocks"]{
     width: 25px;
@@ -776,6 +776,6 @@ margin-left: -20px;
 }
 .value, .current-value {
   font-size: 11px;
-  margin-left: -1px;
+  margin-left: -16px;
 }
 }

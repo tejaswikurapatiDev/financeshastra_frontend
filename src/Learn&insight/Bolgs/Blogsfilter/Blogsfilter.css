@@ -516,7 +516,7 @@ font-weight: bold;
   grid-column: span 2;
 }
 .dropdownSelect {
-  width: 150%; /* Make the dropdown fully responsive to the parent container */
+  width: 180%; /* Make the dropdown fully responsive to the parent container */
   max-width: 350px; /* Optional: Set a max-width to avoid it being too wide */
   padding: 8px;
   font-size: 14px;
@@ -527,14 +527,14 @@ font-weight: bold;
   cursor: pointer;
   background-color: #f9f9f9;
   color: black;
-  width: 75px;
+  width: 135px;
 }
 .dropdownOption {
   padding: 10px;
   cursor: pointer;
   background-color: #f9f9f9;
   color: black;
-  width: 60px;
+  width: 120px;
 }
 
 }
@@ -632,12 +632,14 @@ font-weight: bold;
 }
 
 .dropdownSelect {
-  width: 135%; /* Make the dropdown fully responsive to the parent container */
-  max-width: 320px; /* Optional: Set a max-width to avoid it being too wide */
+  width: 130%;
+  max-width: 320px;
   padding: 8px;
-  font-size: 14px;
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  font-size: 12px;
+  box-sizing: border-box;
+  height: 40px;
 }
+
 .dropdownOptions {
   z-index: 100;
   cursor: pointer;
@@ -651,5 +653,17 @@ font-weight: bold;
   background-color: #f9f9f9;
   color: black;
   width: 45px;
+  font-size: 12px;
 }
+}
+@media (max-width: 320px) {
+  .dropdownSelect {
+      width: 100%;
+      max-width: 320px;
+      padding: 8px;
+      font-size: 12px;
+      box-sizing: border-box;
+      height: 40px;
+      margin-top: 10px;
+  }
 }

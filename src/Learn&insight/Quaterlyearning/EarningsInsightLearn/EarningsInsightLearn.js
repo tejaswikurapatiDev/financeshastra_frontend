@@ -537,7 +537,7 @@ const EarningsInsightLearn = () => {
                     </div>
                     <div className="earnings-insight-learn-date-picker">
                         <div className="dateinsight">
-                            <label htmlFor="dateRange" className="date-picker-label">Select Date Range: </label>
+                            <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>
                             <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)} >
                                 <FaRegCalendarAlt />
                             </div>

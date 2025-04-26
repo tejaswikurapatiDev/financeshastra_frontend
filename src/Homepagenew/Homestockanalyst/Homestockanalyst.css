@@ -1,5 +1,5 @@
 .screener-headerniftytab50 {
-  margin-top: 130px;
+  margin-top: 150px;
   font-family: "calibri";
 }
 .tabsnifty50-containerdash {
@@ -219,11 +219,18 @@ margin-top: 290px;
 .DashboardMainPagetable-tableeee th,.DashboardMainPagetable-tableeee td {
   font-size: 12px;
 }
+.screener-headerniftytab50 {
+  margin-top: 100px;
+  font-family: "calibri";
+}
 }
 
 @media (max-width: 480px) {
 
-
+  .screener-headerniftytab50 {
+    margin-top: 160px;
+    font-family: "calibri";
+  }
 .tabnifty50-buttondash {
   font-size: 10px; /* Ensure font is small enough for mobile */
   padding: 8px 12px; /* Adjust button padding for mobile */

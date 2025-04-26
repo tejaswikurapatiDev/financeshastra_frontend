@@ -449,7 +449,7 @@ font-size: 12px;
 font-size:16px;
 }
 .blogsTitle{
-  margin-top: 50px;
+  margin-top: 80px;
   font-size: 20px;
 }
 .blogImage {
@@ -463,9 +463,10 @@ font-size:16px;
 
 .blogCard {
  width:auto;
-
- max-width: 20%;
+justify-content: center;
+ max-width: 25%;
   margin-left: -1180px;
+ 
 }
 
 /* Tab buttons */
@@ -483,7 +484,7 @@ font-size:16px;
 
 /* Blog title */
 .blogTitle {
-  font-size: 16px;
+  font-size: 15px;
   margin: 10px 0;
   text-align: center;
 }
@@ -530,12 +531,11 @@ font-size:16px;
 
 
 
-
 @media (max-width: 320px) {
   .blogCard {
     width: 250px;
    
-    margin-left: -1250px;
+    margin-left: -1260px;
   
    } 
 }

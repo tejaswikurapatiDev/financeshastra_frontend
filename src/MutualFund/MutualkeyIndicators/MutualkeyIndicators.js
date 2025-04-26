@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Grid } from '@mui/material';
-
+import './MutualkeyIndicators.css'
 const MutualkeyIndicators = ({ fundDetails }) => {
   if (!fundDetails) {
     return <Typography>Loading indicators...</Typography>;
@@ -27,7 +27,7 @@ const MutualkeyIndicators = ({ fundDetails }) => {
     <Card className="key-indicators-card">
       <CardContent>
         <Typography variant="h5" className="key-indicators-title" gutterBottom>
-          Key Indicators
+         <h1 className='keyindimutual'> Key Indicators</h1>
         </Typography>
 
         <Grid container spacing={2}>
