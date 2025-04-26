@@ -1,14 +1,21 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Portfoliomanager.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import PortfolioManagerDashboard from "../Portfoliodashboard/Portfoliodashboard";
 import { PortfolioDashboardContext } from "../context/PortfolioDashboardContext";
 import { PortfolioDashboardProvider } from "../context/PortfolioDashboardContext";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import Cookies from 'js-cookie'
 
 
 function Portfolio() {
+  const navigate= useNavigate()
+  useEffect(()=>{
+    if (!Cookies.get('jwtToken')){
+      navigate('/login')
+    }
+  }, [])
 
   const { 
     myInvestment = 0, 

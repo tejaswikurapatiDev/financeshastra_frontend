@@ -891,7 +891,7 @@ const EditProfile = () => {
           </span>
           <span
             className="profilepage-tabb"
-            onClick={() => navigate("/billingSubscriptionPages")}
+            onClick={() => navigate("/billingInfoHistory")}
           >
             Billing & Subscription
           </span>

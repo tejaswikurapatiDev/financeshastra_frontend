@@ -12,9 +12,17 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Netify100 = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
+  const [isSubed, setisSubed]= useState(false)
+  const [isloading, setisloading]= useState(true)
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
@@ -132,6 +140,10 @@ const toggleDropdown = (key) => {
            console.log(formattedData)
            setStocks(formattedData)
          }
+         if (isSubscribed && isLoading) {
+          setisSubed(true)
+        }
+        setisloading(false)
        }
        fetchfun()
      }, [])
@@ -2177,7 +2189,14 @@ const perfOptions = [
         </button>
         </div>
 {/* Conditional Rendering */}
-
+{isloading ? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
 <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
 
   <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
@@ -2296,7 +2315,7 @@ const perfOptions = [
 
 
 <td>
-{!isLoading && !isSubscribed ? 
+{!isSubed? 
       <button className="screener-unlock-btn" onClick={handleNavigate}>
         <IoLockClosedOutline style={{ marginRight: '8px' }} />
         <span className="button-text">Unlock</span>
@@ -2308,7 +2327,7 @@ const perfOptions = [
             ))}
           </tbody>
         </table>
-      </div>
+      </div>}
       {/* Pagination Section */}
    <div className="pagination-stockcontainer">
         <div className="pagination-info">

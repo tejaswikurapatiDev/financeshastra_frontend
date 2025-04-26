@@ -17,8 +17,11 @@ const StockWatchlist = ({ children }) => {
         if (!token) {
           navigate("/login");
           return;
+        }else{
+          fetchWatchlists();
         }
   }, [])
+
   const getStockData = useSelector(
     (store) => store?.searchData?.searchData || []
   );
@@ -444,9 +447,7 @@ const StockWatchlist = ({ children }) => {
   };
 
   // Effects
-  useEffect(() => {
-    fetchWatchlists();
-  }, []);
+ 
 
   useEffect(() => {
     debounceSearch(stockInput.name);

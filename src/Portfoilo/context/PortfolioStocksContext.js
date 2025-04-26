@@ -15,7 +15,7 @@ export const PortfolioStockProvider = ({ children }) => {
   const fetchStocks = async () => {
     const token = Cookies.get("jwtToken");
     if (!token) {
-      alert("Session expired, Please Login again");
+      //alert("Session expired, Please Login again");
       navigate('/login')
       return;
     }
