@@ -14,6 +14,7 @@ import IpoRecommendation from '../IpoRecommendation/IpoRecommendation';
 import IpoComment from '../IpoComment/IpoComment';
 import RecentIPOs from '../RecentIPOs/RecentIPOs';
 import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
+import { useParams } from "react-router-dom";
 
 const override = {
   display: "block",
@@ -21,6 +22,8 @@ const override = {
 };
 
 const IpoDetails = () => {
+
+  const { id } = useParams();
 
 
   const [isLoading, setisLoading] = useState(true)
@@ -39,7 +42,7 @@ const IpoDetails = () => {
     offerToPublic: "",
     openingDate: "",
     priceBandMax: "",
-    priceBandMin:"",
+    priceBandMin: "",
     purpose: "",
     refundDate: "",
     sharesOffered: ""
@@ -54,7 +57,7 @@ const IpoDetails = () => {
 
     const fetchIPO_detailscompanies = async () => {
       setisLoading(true)
-      const url = `${API_BASE_URL}/ipodetails/companies`
+      const url = `${API_BASE_URL}/ipodetails/companies/${id}`
       const options = {
         method: "GET",
       }
@@ -67,6 +70,7 @@ const IpoDetails = () => {
         console.warn("No companies array found in response");
         return;
       }
+      
       const companiesData = companies.map((e) => ({
         activeYarnVarieties: e.active_yarn_varieties,
         customerYount: e.customer_count,
@@ -296,117 +300,117 @@ const IpoDetails = () => {
 
   return (
     <>
-    {
-      isLoading ? <div className='loader-cont'><ClipLoader
-      cssOverride={override}
-      size={35}
-      data-testid="loader"
-      loading={isLoading}
-      speedMultiplier={1}
-      color="green"
-    /></div> : 
-    <div>
-      <div className="ipoDetailsContainer">
-        <Navbar />
-        <h2 className="ipoNewsTitle">{ipoDetails.title}</h2>
-        <p className="ipoNewsSubtitle">{ipoDetails.subtitle}</p>
-        <div className="datetimecardipo">
-          <p className="ipopara">
-            <MdDateRange className="dateipocard" /> Published Date: {ipoDetails.date}<GoDotFill style={{ color: "green", fontSize: "12px" }} />
-          </p>
-          <p className="ipopara">
-            <CgProfile className="profileipocard" /> Author: {ipoDetails.author}<GoDotFill style={{ color: "green", fontSize: "12px" }} />
-          </p>
-        </div>
-
-        <div className='iconimageall'>
-          <div className="shareIcons">
-            <h3>Share</h3>
-            <a href="https://www.facebook.com/FinanceShastra/" target="_blank" rel="noopener noreferrer">
-      <FaFacebookF className="shareIcon" />
-    </a>
-    <a href="https://x.com/FinanceShastra" target="_blank" rel="noopener noreferrer">
-      <FaTwitter className="shareIcon" />
-    </a>
-    <a href="https://www.linkedin.com/company/financeshastra/" target="_blank" rel="noopener noreferrer">
-      <FaLinkedinIn className="shareIcon" />
-    </a>
-    <a
-      href="https://wa.me/9067604020"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <FaWhatsapp className="shareIcon" />
-    </a>
-    <a href="mailto:info@financeshastra.com">
-      <FaEnvelope className="shareIcon" />
-    </a>
-          </div>
+      {
+        isLoading ? <div className='loader-cont'><ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        /></div> :
           <div>
-            <img src={ipoDetails.image} alt="Sanathan Textiles IPO" className="ipoImage" /></div>
-          <div><RecentIPOs /></div>
-        </div>
-
-
-        <h2 className="investgg-heading">Sanathan Textiles: Company Overview</h2>
-        <p className="investgg-paragraph">
-          Sanathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18%
-          of its revenue). The company also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and
-          protective clothing. As of September 30, 2024, it offered over 3,200 active yarn varieties and had the capability to produce a diverse
-          portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including prominent names like Welspun, Premco
-          Global, and Page.
-        </p>
-        <h2 className="investgg-heading">Sanathan Textiles IPO details</h2>
-        <div className='ipodta'>
-          <div className="ipoDetails">
-            {tableRows.map((detail, index) => (
-              <div key={index} className="ipoDetailItem">
-                <span className="ipoDetailLabel">{detail.label}</span>
-                <span className="ipoDetailValue">{detail.value}</span>
+            <div className="ipoDetailsContainer">
+              <Navbar />
+              <h2 className="ipoNewsTitle">{ipoDetails.title}</h2>
+              <p className="ipoNewsSubtitle">{ipoDetails.subtitle}</p>
+              <div className="datetimecardipo">
+                <p className="ipopara">
+                  <MdDateRange className="dateipocard" /> Published Date: {ipoDetails.date}<GoDotFill style={{ color: "green", fontSize: "12px" }} />
+                </p>
+                <p className="ipopara">
+                  <CgProfile className="profileipocard" /> Author: {ipoDetails.author}<GoDotFill style={{ color: "green", fontSize: "12px" }} />
+                </p>
               </div>
-            ))}
 
+              <div className='iconimageall'>
+                <div className="shareIcons">
+                  <h3>Share</h3>
+                  <a href="https://www.facebook.com/FinanceShastra/" target="_blank" rel="noopener noreferrer">
+                    <FaFacebookF className="shareIcon" />
+                  </a>
+                  <a href="https://x.com/FinanceShastra" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter className="shareIcon" />
+                  </a>
+                  <a href="https://www.linkedin.com/company/financeshastra/" target="_blank" rel="noopener noreferrer">
+                    <FaLinkedinIn className="shareIcon" />
+                  </a>
+                  <a
+                    href="https://wa.me/9067604020"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FaWhatsapp className="shareIcon" />
+                  </a>
+                  <a href="mailto:info@financeshastra.com">
+                    <FaEnvelope className="shareIcon" />
+                  </a>
+                </div>
+                <div>
+                  <img src={ipoDetails.image} alt="Sanathan Textiles IPO" className="ipoImage" /></div>
+                <div><RecentIPOs /></div>
+              </div>
+
+
+              <h2 className="investgg-heading">Sanathan Textiles: Company Overview</h2>
+              <p className="investgg-paragraph">
+                Sanathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18%
+                of its revenue). The company also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and
+                protective clothing. As of September 30, 2024, it offered over 3,200 active yarn varieties and had the capability to produce a diverse
+                portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including prominent names like Welspun, Premco
+                Global, and Page.
+              </p>
+              <h2 className="investgg-heading">Sanathan Textiles IPO details</h2>
+              <div className='ipodta'>
+                <div className="ipoDetails">
+                  {tableRows.map((detail, index) => (
+                    <div key={index} className="ipoDetailItem">
+                      <span className="ipoDetailLabel">{detail.label}</span>
+                      <span className="ipoDetailValue">{detail.value}</span>
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+              <div className="ipoContent">
+
+                <h2 className="investgg-heading">Sanathan Textiles IPO in brief</h2>
+
+                <p><strong className='strongfontipo'>Quality:</strong> Sanathan Textiles recorded an average ROE of 23.1% and ROCE of 21% over the three financial years from FY22 to FY24.</p>
+                <p><strong className='strongfontipo'>Growth:</strong> During the fiscal years FY22 to FY24, its revenue fell by 3.6% per year, while its net profit dropped by 38.6% annually</p>
+                <p><strong className='strongfontipo'>Valuation: </strong>The stock is valued at 20.2 times its earnings and 1.6 times its book value at the upper price band of ₹321.</p>
+                <p><strong className='strongfontipo'>Overview:</strong> The company stands to gain from geopolitical tensions in Bangladesh, a key exporter to the US and EU, and the reduction in China’s apparel exports to the
+                  US, positioning Indian exporters as a viable alternative for the US, which accounted for 22% of global apparel imports in CY23. However, the highly competitive textile
+                  sector remains a challenge.</p>
+
+                <h3>Sanathan Textiles: Company Overview</h3>
+                <p>anathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18% of its revenue). The company
+                  also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and protective clothing. As of September 30, 2024, it offered over
+                  3,200 active yarn varieties and had the capability to produce a diverse portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including
+                  prominent names like Welspun, Premco Global, and Page.</p>
+                <h3>Core Strengths of Sanathan Textiles</h3>
+
+                <p><strong className='strongfontipo'>Established Clientele:</strong>{summaryState[0].coreStrengths
+                }</p>
+                <h3>Limitations of Sanathan Textiles</h3>
+                <p><strong className='strongfontipo'>Regional Focus:</strong> {summaryState[0].limitations}</p>
+                <p><strong className='strongfontipo'>Dependence on Distribution Network:</strong> The company relies extensively on its distributors to market and sell its products. In FY24, nearly 94% of its revenue was
+                  generated through its distribution partners. Consequently, the loss of important distributors could harm the company’s financial performance</p>
+              </div>
+
+              <Ipotable financialData={financialDataState} keyratios={keyratioState} ipoDetailsData={ipoDetailsDataState}
+                subscriptionstatus={statusDataState} />
+              <IpoRecommendation />
+              <IpoComment />
+              <UpcomingIPOs />
+
+            </div>
+            <div className="foooterpagesaupdate">
+              <FooterForAllPage />
+            </div>
           </div>
-        </div>
-        <div className="ipoContent">
+      }
 
-          <h2 className="investgg-heading">Sanathan Textiles IPO in brief</h2>
-
-          <p><strong className='strongfontipo'>Quality:</strong> Sanathan Textiles recorded an average ROE of 23.1% and ROCE of 21% over the three financial years from FY22 to FY24.</p>
-          <p><strong className='strongfontipo'>Growth:</strong> During the fiscal years FY22 to FY24, its revenue fell by 3.6% per year, while its net profit dropped by 38.6% annually</p>
-          <p><strong className='strongfontipo'>Valuation: </strong>The stock is valued at 20.2 times its earnings and 1.6 times its book value at the upper price band of ₹321.</p>
-          <p><strong className='strongfontipo'>Overview:</strong> The company stands to gain from geopolitical tensions in Bangladesh, a key exporter to the US and EU, and the reduction in China’s apparel exports to the
-            US, positioning Indian exporters as a viable alternative for the US, which accounted for 22% of global apparel imports in CY23. However, the highly competitive textile
-            sector remains a challenge.</p>
-
-          <h3>Sanathan Textiles: Company Overview</h3>
-          <p>anathan Textiles specializes in the manufacturing and supply of polyester yarn (accounting for 77% of its revenue) and cotton yarn (18% of its revenue). The company
-            also produces technical textiles used in sectors such as automotive, healthcare, construction, sports, and protective clothing. As of September 30, 2024, it offered over
-            3,200 active yarn varieties and had the capability to produce a diverse portfolio of more than 14,000 yarn products. In FY24, it served over 1,500 customers, including
-            prominent names like Welspun, Premco Global, and Page.</p>
-          <h3>Core Strengths of Sanathan Textiles</h3>
-
-          <p><strong className='strongfontipo'>Established Clientele:</strong>{summaryState[0].coreStrengths
-          }</p>
-          <h3>Limitations of Sanathan Textiles</h3>
-          <p><strong className='strongfontipo'>Regional Focus:</strong> {summaryState[0].limitations}</p>
-          <p><strong className='strongfontipo'>Dependence on Distribution Network:</strong> The company relies extensively on its distributors to market and sell its products. In FY24, nearly 94% of its revenue was
-            generated through its distribution partners. Consequently, the loss of important distributors could harm the company’s financial performance</p>
-        </div>
-
-        <Ipotable financialData={financialDataState} keyratios={keyratioState} ipoDetailsData={ipoDetailsDataState}
-          subscriptionstatus={statusDataState} />
-        <IpoRecommendation />
-        <IpoComment />
-        <UpcomingIPOs />
-
-      </div>
-      <div className="foooterpagesaupdate">
-        <FooterForAllPage />
-      </div>
-    </div>
-    }
-    
     </>
   );
 };
