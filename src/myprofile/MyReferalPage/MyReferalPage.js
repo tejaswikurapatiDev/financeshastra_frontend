@@ -38,13 +38,13 @@ const MyReferalPage = () => {
           <div className="myreferalpagesss-buttons">
             <button
               className="myreferalpagesss-button active"
-              onClick={() => navigate("/myReferalPage")}
+              onClick={() => navigate("/myReferrals")}
             >
               Overview
             </button>
             <button
               className="myreferalpagesss-button"
-              onClick={() => navigate("/referMoreProfilePages")}
+              onClick={() => navigate("/referMore")}
             >
               Refer More
             </button>
@@ -146,7 +146,7 @@ const MyReferalPage = () => {
               <button
                 className="myreferalpagesss-partner-benefitsrefer-button"
                 onClick={() => {
-                  navigate("/referMoreProfilePages");
+                  navigate("/referMore");
                   window.scrollTo(0, 0); // Scroll to top after navigation
                 }}
               >
@@ -210,7 +210,7 @@ const MyReferalPage = () => {
               <button
                 className="why-financeshastrarefer-now-button"
                 onClick={() => {
-                  navigate("/referMoreProfilePages");
+                  navigate("/referMore");
                   window.scrollTo(0, 0); // Scroll to top after navigation
                 }}
               >
@@ -250,7 +250,7 @@ const MyReferalPage = () => {
             <button
               className="refer-now-button"
               onClick={() => {
-                navigate("/referMoreProfilePages");
+                navigate("/referMore");
                 window.scrollTo(0, 0); // Scroll to top after navigation
               }}
             >

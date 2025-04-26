@@ -37,7 +37,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
       <ul>
             <li style={{ listStyle: "none" }}>
        <Link
-         to="/StockScreenerList"
+         to="/StockScreener"
          className= "dropdown-item"
          style={{
            display: "block",
@@ -76,7 +76,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
                </li>
                <li>
                
-                   <Link to="/highgrowth"
+                   <Link to="/highgrowthstocks"
                     className= "dropdown-item"
                    
                    style={{
@@ -96,7 +96,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
                </li>
                <li>
                
-                   <Link to="/nifty50pageall"
+                   <Link to="/nifty50stocks"
                      className= "dropdown-item"
                      
      
@@ -120,7 +120,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
              <ul>
                <li>
              
-                   <Link to="/nifty"  className="dropdown-item"
+                   <Link to="/nifty100stocks"  className="dropdown-item"
                    
                    style={{
                      display: "block",
@@ -190,7 +190,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
                  
                </li>
                <li>
-                   <Link to="/stockThemesSectorPages"
+                   <Link to="/stockThemes"
                     className="dropdown-item"
                    
                    style={{
@@ -254,7 +254,7 @@ const PortfolioDropdownMenu = () => (
 
 const LearnDropdownMenu = () => (
   <div className="learn-lanmenu">
-   <Link to="/stockNewsComponent"
+   <Link to="/stockNews"
            className= "dropdown-item"
              style={{
                display: "block",
@@ -266,7 +266,7 @@ const LearnDropdownMenu = () => (
              <p>Discover what's happening in the stock markets in real-time</p>
            </Link>
         
-           <Link to="/blogsComponent"
+           <Link to="/blogs"
            className= "dropdown-item"
             style={{
              display: "block",
@@ -279,7 +279,7 @@ const LearnDropdownMenu = () => (
            </Link>
    
      
-           <Link to="/ipoComponent"
+           <Link to="/ipoDetails"
            className="dropdown-item"
            style={{
              display: "block",
@@ -523,7 +523,7 @@ const renderhomeDropdown = () => (
 const UserDropdownMenu = () => (
   <div className="user-menu">
     <div className="dropdown-item">
-      <Link to="/userDetailsupdate">
+      <Link to="/userDetails">
         <FaUser className="dropdown-icon" />
         My Profile
       </Link>
@@ -769,7 +769,7 @@ const Landingnavbar = () => {
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/userDetailsupdate">
+        <Link to="/userDetails">
           <FaUser
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />

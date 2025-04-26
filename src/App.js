@@ -306,12 +306,12 @@ function App() {
               <Route path="/balance-sheet" element={<BalanceSheet />} />
               <Route path="/register" element={<Register />} />
               <Route path="/stockhandle" element={<Overview />} />
-              <Route path="/nifty" element={<Netify100 />} />
+              <Route path="/nifty100stocks" element={<Netify100 />} />
               <Route path="/smallcap" element={<Smallcap />} />
               <Route path="/midcap" element={<Midcap />} />
               <Route path="/largecap" element={<Largecap />} />
               <Route path="/niftystock" element={<NiftyStocks />} />
-              <Route path="/highgrowth" element={<Highstock />} />
+              <Route path="/highgrowthstocks" element={<Highstock />} />
               <Route path="/beststock" element={<Beststock />} />
               <Route
                 path="/portfolio"
@@ -478,11 +478,11 @@ function App() {
               <Route path="/etfregular" element={<Etfregular />} />
               <Route path="/etfdirect" element={<Etfdirect />} />
               <Route
-                path="/stockNewsComponent"
+                path="/stockNews"
                 element={<StockNewsComponent />}
               />
               <Route
-                path="/stockScreenerlist"
+                path="/stockScreener"
                 element={<ScreenerStockList />}
               />
               <Route
@@ -498,7 +498,7 @@ function App() {
                 path="/earningsInsightLearn"
                 element={<EarningsInsightLearn />}
               />
-              <Route path="/blogsComponent" element={<BlogsComponent />} />
+              <Route path="/blogs" element={<BlogsComponent />} />
               <Route path="/blogFilter" element={<BlogFilter />} />
               <Route path="/bloginvestment/:id" element={<Bloginvestment />} />
               <Route path="/blogpmscard/:id" element={<Blogpmscard />} />
@@ -512,7 +512,7 @@ function App() {
                 element={<LearnCourseDetails />}
               />
               <Route
-                path="/stockNewsComponent"
+                path="/stockNews"
                 element={<StockNewsComponent />}
               />
               <Route
@@ -524,7 +524,7 @@ function App() {
                 path="/modulecourseDetails"
                 element={<ModulecourseDetails />}
               />
-              <Route path="/ipoComponent" element={<IpoComponent />} />
+              <Route path="/ipoDetails" element={<IpoComponent />} />
               <Route path="/ipoDetails/:id" element={<IpoDetails />} />
               <Route
                 path="/ipoDetailsubscribe"
@@ -578,7 +578,7 @@ function App() {
                 path="/nifty50screenerStockunlockList"
                 element={<Nifty50screenerStockunlockList />}
               />
-              <Route path="/nifty50pageall" element={<Nifty50all />} />
+              <Route path="/nifty50stocks" element={<Nifty50all />} />
 
               <Route path="/footerForAllPage" element={<FooterForAllPage />} />
               <Route path="/profilePage" element={<ProfilePage />} />
@@ -661,9 +661,9 @@ function App() {
                 path="/billingDetailsPageannually"
                 element={<BillingDetailsPageannually />}
               />
-              <Route path="/myReferalPage" element={<MyReferalPage />} />
+              <Route path="/myReferrals" element={<MyReferalPage />} />
               <Route
-                path="/referMoreProfilePages"
+                path="/referMore"
                 element={<ReferMoreProfilePages />}
               />
               <Route
@@ -678,7 +678,7 @@ function App() {
 
               <Route path="/sessionHistory" element={<SessionHistory />} />
               <Route path="/accountSettings" element={<AccountSettings />} />
-              <Route path="/orderTable" element={<OrderTable />} />
+              <Route path="/orders" element={<OrderTable />} />
               <Route path="/managealert" element={<Managealert />} />
 
               <Route
@@ -687,7 +687,7 @@ function App() {
               />
               <Route path="/editProfile" element={<EditProfile />} />
               <Route
-                path="/userDetailsupdate"
+                path="/userDetails"
                 element={<UserDetailsupdate />}
               />
               <Route
@@ -751,13 +751,13 @@ function App() {
                 element={<Accountsipallpage />}
               />
 
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
 
               <Route path="/" element={<LandingPage />} />
 
               <Route path="/landingnavbar" element={<Landingnavbar />} />
               <Route
-                path="/whyFinadvanceeducationnn"
+                path="/WhyFinanceAdvanceEducation"
                 element={<WhyFinadvanceeducationnn />}
               />
               <Route
@@ -765,7 +765,7 @@ function App() {
                 element={<Banksectorstocktheme />}
               />
               <Route
-                path="/stockThemesSectorPages"
+                path="/stockThemes"
                 element={<StockThemesSectorPages />}
               />
               <Route
@@ -920,7 +920,7 @@ function App() {
               <Route path="/disclaimer" element={<Disclaimer />} />
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1032,7 +1032,7 @@ function App() {
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
 
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1047,9 +1047,9 @@ function App() {
                 path="/addTransactiongold"
                 element={<AddTransactiongold />}
               />
-              <Route path="/contactUsnew" element={<ContactUsnew />} />
+              <Route path="/contactus" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route
                 path="/billingavailableplan"
@@ -1166,7 +1166,7 @@ function App() {
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
 
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1181,9 +1181,9 @@ function App() {
                 path="/addTransactiongold"
                 element={<AddTransactiongold />}
               />
-              <Route path="/contactUsnew" element={<ContactUsnew />} />
+              <Route path="/contactus" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route path="/privacyPolicypage" element={<PrivacyPolicypage/>} /> 
               <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment/>} />
@@ -1194,15 +1194,15 @@ function App() {
      
       <Route path="/refundPolicy" element={<RefundPolicy/>}/>
   
-      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+      <Route path="/aboutUs" element={<WhoWeAre/>}/>
   
       <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
    
       <Route path="/addTransactionmutual" element={<AddTransactionmutual/>}/>
       <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
-      <Route path="/contactUsnew" element={<ContactUsnew/>}/>
+      <Route path="/contactus" element={<ContactUsnew/>}/>
       <Route path="/contactCards" element={<ContactCards/>}/> 
-      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS/>}/>
       <Route path="/dashboardall" element={< Dashboardall/>}/>
       <Route path="/billingavailableplan" element={<Billingavailableplan/>}/>
       <Route path="/billingInfoHistory" element={<BillingInfoHistory/>}/>

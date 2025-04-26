@@ -73,7 +73,7 @@ const PortfolioAnalysisnew = () => {
         <NewsCard key={index} {...news} />
       ))}
       {visibleNews < newsData.length && (
-        <div className="know-moreportfoilioanalytick"  onClick={() => navigate("/stockNewsComponent")}>
+        <div className="know-moreportfoilioanalytick"  onClick={() => navigate("/stockNews")}>
             
            Know more
         </div>
