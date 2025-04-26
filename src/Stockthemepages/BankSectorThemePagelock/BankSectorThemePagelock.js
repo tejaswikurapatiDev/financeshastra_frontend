@@ -122,7 +122,7 @@ const BankSectorThemePagelock = () => {
         <div className="banksectorthemepage">
             <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
-                <button className="banksectorbtnactive" onClick={() => navigate("/bankSectorThemePagelock")} >All Stocks (12)</button>
+                <button className="banksectorbtnactive" onClick={() => navigate("/bankSectorStockTheme")} >All Stocks (12)</button>
                 <button className="banksectorbtn"onClick={() => navigate("/stockThemesindustrieslockPages")}>Industries (02)</button>
             </div>
             <div className="search-wrapper" style={{ position: "relative" }}>

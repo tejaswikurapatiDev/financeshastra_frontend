@@ -83,7 +83,7 @@ export default function StockThemesindustrieslockPages() {
       <div className="banksectorfilter">
         <button
           className="banksectorbtnn"
-          onClick={() => navigate("/bankSectorThemePagelock")} // Correct usage of navigate inside onClick
+          onClick={() => navigate("/bankSectorStockTheme")} // Correct usage of navigate inside onClick
         >
           All Stocks (12)
         </button>
@@ -171,7 +171,7 @@ export default function StockThemesindustrieslockPages() {
                 >
                   <img
                     src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png" 
-                    onClick={() => navigate("/stockThemesindustriesPages")}
+                    onClick={() => navigate("/stockThemesindustries")}
                     alt="Lock Icon"
                   />
                 </div>
