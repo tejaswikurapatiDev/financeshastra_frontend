@@ -123,7 +123,7 @@ const SessionHistory = () => {
     <div>
       <div className="session-history">
         <h1 className="profilepage-titlesession">My Account</h1>
-        <div className="profilepage-tabsorderuserss">
+        <div className="sess">
         
         <AccountBar/>
         </div>
