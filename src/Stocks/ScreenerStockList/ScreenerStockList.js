@@ -1267,7 +1267,7 @@ const ScreenerStockList = () => {
           {/* Filter for each parameter */}
           <div
             className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
+          
           >
             {/* Dropdown Button */}
             <button
@@ -1347,7 +1347,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div >
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1418,7 +1418,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1492,7 +1492,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1566,7 +1566,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1640,7 +1640,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div >
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1714,7 +1714,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1784,7 +1784,7 @@ const ScreenerStockList = () => {
           {/* Sector Dropdown */}
           <div
             className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
+           
           >
             <button
               className="indexscreenerbuttonstock"
@@ -1861,7 +1861,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div >
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1936,7 +1936,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div >
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2013,7 +2013,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2088,7 +2088,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
