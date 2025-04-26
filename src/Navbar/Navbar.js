@@ -524,7 +524,7 @@ const Navbar = () => {
         <ul>
           <li>
         
-              <Link to="/nifty"  className={
+              <Link to="/nifty100stocks"  className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
@@ -598,7 +598,7 @@ const Navbar = () => {
             
           </li>
           <li>
-              <Link to="/stockThemesSectorPages"
+              <Link to="/stockThemes"
                className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }

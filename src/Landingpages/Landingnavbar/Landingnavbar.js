@@ -120,7 +120,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
              <ul>
                <li>
              
-                   <Link to="/nifty"  className="dropdown-item"
+                   <Link to="/nifty100stocks"  className="dropdown-item"
                    
                    style={{
                      display: "block",
@@ -190,7 +190,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
                  
                </li>
                <li>
-                   <Link to="/stockThemesSectorPages"
+                   <Link to="/stockThemes"
                     className="dropdown-item"
                    
                    style={{

@@ -306,7 +306,7 @@ function App() {
               <Route path="/balance-sheet" element={<BalanceSheet />} />
               <Route path="/register" element={<Register />} />
               <Route path="/stockhandle" element={<Overview />} />
-              <Route path="/nifty" element={<Netify100 />} />
+              <Route path="/nifty100stocks" element={<Netify100 />} />
               <Route path="/smallcap" element={<Smallcap />} />
               <Route path="/midcap" element={<Midcap />} />
               <Route path="/largecap" element={<Largecap />} />
@@ -765,7 +765,7 @@ function App() {
                 element={<Banksectorstocktheme />}
               />
               <Route
-                path="/stockThemesSectorPages"
+                path="/stockThemes"
                 element={<StockThemesSectorPages />}
               />
               <Route
