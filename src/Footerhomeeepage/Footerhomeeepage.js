@@ -21,7 +21,7 @@ const FooterForhomeAllPage = () => {
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
   const stockRoutes = {
-    "Stock Screener": "/StockScreenerList",
+    "Stock Screener": "/StockScreener",
     "High Growth Stocks": "/highgrowth",
     "Nifty 50 Companies": "/nifty50pageall",
     "Small Cap Stocks": "/smallcap",

@@ -37,7 +37,7 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
       <ul>
             <li style={{ listStyle: "none" }}>
        <Link
-         to="/StockScreenerList"
+         to="/StockScreener"
          className= "dropdown-item"
          style={{
            display: "block",

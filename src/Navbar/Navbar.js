@@ -439,7 +439,7 @@ const Navbar = () => {
         <ul>
        <li style={{ listStyle: "none" }}>
   <Link
-    to="/StockScreenerList"
+    to="/StockScreener"
     className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
     style={{
       display: "block",

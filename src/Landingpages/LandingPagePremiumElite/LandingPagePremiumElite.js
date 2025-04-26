@@ -89,7 +89,7 @@ const LandingPagePremiumElite = () => {
 
             <button className="landingpagepremiumelite-button"
               onClick={() => {
-                navigate("/premiumSubscriptionPages");
+                navigate("/subscribe-Premium");
                 window.scrollTo(0, 0); // Scroll to top after navigation
               }} >
               Continue</button>
@@ -105,7 +105,7 @@ const LandingPagePremiumElite = () => {
         </p>
         <div className="landingpagepremiumelite-content-row">
           <div className="landingpagepremiumelite-price">
-            <span className="landingpagepremiumelite-price-amount">₹2,999/</span>
+            <span className="landingpagepremiumelite-price-amount">₹3,999/</span>
             <span className={darkMode ? "landingpagepremiumelite-darkyear" : "landingpagepremiumelite-year"}>Year</span>
             <span className={darkMode ? "landingpagepremiumelite-original-darkprice" : "landingpagepremiumelite-original-price"}>  ₹8,999/-</span><br />
             <span className={darkMode ? "landingpagepremiumelite-darkdiscount" : "landingpagepremiumelite-discount"}>You save</span>
@@ -149,7 +149,7 @@ const LandingPagePremiumElite = () => {
         </div>
         <button className={darkMode ? "landingpageelitedarkbutton" : "landingpageelite-button"}
           onClick={() => {
-            navigate("/halfyearlySubscriptionPages");
+            navigate("/subscribe-Elite");
             window.scrollTo(0, 0); // Scroll to top after navigation
           }} >
           Continue</button>

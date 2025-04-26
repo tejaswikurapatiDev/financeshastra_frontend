@@ -100,7 +100,7 @@ const Stockthemeunlocknavbar = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/StockScreenerList">Stock Screener
+              <Link to="/StockScreener">Stock Screener
                 <p>Discover stocks based on various filters and criteria to make informed decisions.</p></Link>
             </div>
           </li>

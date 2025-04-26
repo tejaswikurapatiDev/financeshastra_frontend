@@ -482,7 +482,7 @@ function App() {
                 element={<StockNewsComponent />}
               />
               <Route
-                path="/stockScreenerlist"
+                path="/stockScreener"
                 element={<ScreenerStockList />}
               />
               <Route
@@ -751,7 +751,7 @@ function App() {
                 element={<Accountsipallpage />}
               />
 
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
 
               <Route path="/" element={<LandingPage />} />
 
@@ -920,7 +920,7 @@ function App() {
               <Route path="/disclaimer" element={<Disclaimer />} />
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1032,7 +1032,7 @@ function App() {
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
 
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1049,7 +1049,7 @@ function App() {
               />
               <Route path="/contactUsnew" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route
                 path="/billingavailableplan"
@@ -1166,7 +1166,7 @@ function App() {
 
               <Route path="/refundPolicy" element={<RefundPolicy />} />
 
-              <Route path="/whoWeAre" element={<WhoWeAre />} />
+              <Route path="/aboutUs" element={<WhoWeAre />} />
 
               <Route
                 path="/termsAndConditions"
@@ -1183,7 +1183,7 @@ function App() {
               />
               <Route path="/contactUsnew" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS />} />
+              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route path="/privacyPolicypage" element={<PrivacyPolicypage/>} /> 
               <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment/>} />
@@ -1194,7 +1194,7 @@ function App() {
      
       <Route path="/refundPolicy" element={<RefundPolicy/>}/>
   
-      <Route path="/whoWeAre" element={<WhoWeAre/>}/>
+      <Route path="/aboutUs" element={<WhoWeAre/>}/>
   
       <Route path="/termsAndConditions" element={<TermsAndConditions/>}/>
    
@@ -1202,7 +1202,7 @@ function App() {
       <Route path="/addTransactiongold" element={<AddTransactiongold/>}/>
       <Route path="/contactUsnew" element={<ContactUsnew/>}/>
       <Route path="/contactCards" element={<ContactCards/>}/> 
-      <Route path="/stocksSmartSIPPS" element={<StocksSmartSIPPS/>}/>
+      <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS/>}/>
       <Route path="/dashboardall" element={< Dashboardall/>}/>
       <Route path="/billingavailableplan" element={<Billingavailableplan/>}/>
       <Route path="/billingInfoHistory" element={<BillingInfoHistory/>}/>
