@@ -342,7 +342,8 @@
       padding: 10px 20px;
       font-size: 16px;
       color: white;
-    }
+      text-align: left;
+  }
     .footermobileviewpages-column-list li:hover {
       color: #24b676;
       cursor: pointer;

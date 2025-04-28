@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BiSolidEdit } from "react-icons/bi";
 import { MdOutlineEdit } from "react-icons/md";
@@ -12,219 +12,181 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import ClipLoader from "react-spinners/ClipLoader";
 import AccountBar from "../AccountBar";
+
 const override = {
   display: "block",
   textAlign: "center",
 };
 
+const initialPersonalDetails = {
+  firstName: "-",
+  lastName: "-",
+  email: "",
+  gender: "-",
+  dob: "-",
+  country: "India",
+  state: "-",
+  city: "-",
+  address: "-",
+  phoneNumber: "-",
+  pincode: "",
+};
+
+const initialProfessionalDetails = {
+  occupation: "-",
+  industry: "-",
+  incomeRange: "-",
+};
+
+const initialInvestmentDetails = {
+  householdSavings: "-",
+  termInsurance: "-",
+  healthInsurance: "-",
+  currentInvestments: "-",
+  stocks: "-",
+  mutualfunds: "-",
+};
+
+const fieldValidations = {
+  householdSavings: {
+    validate: (value) => !isNaN(value) && value >= 0,
+    message: "Please enter a valid positive number"
+  },
+  termInsurance: {
+    validate: (value) => !isNaN(value) && value >= 0,
+    message: "Please enter a valid positive number"
+  },
+  healthInsurance: {
+    validate: (value) => !isNaN(value) && value >= 0,
+    message: "Please enter a valid positive number"
+  },
+  currentInvestments: {
+    validate: (value) => !isNaN(value) && value >= 0,
+    message: "Please enter a valid positive number"
+  },
+  stocks: {
+    validate: (value) => !isNaN(value) && value >= 0 && value <= 100,
+    message: "Please enter a percentage between 0-100"
+  },
+  mutualfunds: {
+    validate: (value) => !isNaN(value) && value >= 0 && value <= 100,
+    message: "Please enter a percentage between 0-100"
+  }
+};
+
 const UserDetailsupdate = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
-  const { userEmail } = useContext(UserProfileContext);
   const { token } = useContext(UserProfileContext);
 
-  // Initial state (can be overwritten by updated data passed through location.state)
-  //const [emaillocal, setEmail]= useState('')
   const [profileImage, setProfileImage] = useState(williamImage);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const [personalDetails, setPersonalDetails] = useState({
-    firstName: "-",
-    lastName: "-",
-    email: "",
-    gender: "-",
-    dob: "-",
-    country: "India",
-
-    state: "-",
-    city: "-",
-    address: "-",
-    phoneNumber: "-",
-    pincode: "",
-  });
-
-  const [professionalDetails, setProfessionalDetails] = useState({
-    occupation: "-",
-    industry: "-",
-    incomeRange: "-",
-  });
-
-  const [investmentDetails, setInvestmentDetails] = useState({
-    householdSavings: "",
-    termInsurance: "",
-    healthInsurance: "",
-    currentInvestments: "",
-    stocks: "",
-    mutualfunds: "",
-  });
-
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [personalDetails, setPersonalDetails] = useState(initialPersonalDetails);
+  const [professionalDetails, setProfessionalDetails] = useState(initialProfessionalDetails);
+  const [investmentDetails, setInvestmentDetails] = useState(initialInvestmentDetails);
   const [showPopupforLogin, setShowPopupforLogin] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [isLoading, setisLoading] = useState(false);
-  const [modalData, setModalData] = useState({
-    householdSavings: "",
-    termInsurance: "",
-    healthInsurance: "",
-    currentInvestments: "",
-    stocks: "",
-    mutualfunds: "",
-  });
+  const [isLoading, setIsLoading] = useState(false);
+  const [modalData, setModalData] = useState(initialInvestmentDetails);
 
-  const formatDate = (dob) => {
-    const date = new Date(dob); // Ensure dob is a Date object
-    if (isNaN(date)) return "Invalid Date"; // Handle invalid date cases
-    return date.toISOString().split("T")[0];
-  };
-
-  const decodingtoken = (token) => {
-    return jwtDecode(token);
-  };
-
-  // Update state when new data is passed from EditProfile
-  useEffect(() => {
-    setisLoading(true);
-    const cookietoken = Cookies.get("jwtToken");
-
-    if (!Cookies.get("jwtToken")) {
-      setShowPopupforLogin(true);
-    } else if (cookietoken) {
-      const { email } = decodingtoken(cookietoken);
-      setPersonalDetails((prevDetails) => ({
-        ...prevDetails,
-        email: email,
-      }));
-
-      const fetchfunc = async () => {
-        const url = `${API_BASE_URL}/userdetails`;
-        const options = {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${cookietoken}`,
-          },
-        };
-
-        const response = await fetch(url, options);
-        console.log(response);
-
-        if (response.ok) {
-          try {
-            const decode = decodingtoken(cookietoken);
-            const { email } = decode;
-            const data = await response.json();
-            console.log("🚀 ~ Fetched User Data:", data);
-
-            if (data) {
-              const userData = data.userdetails[0];
-              const investmentData = data.investdetails[0];
-              const formattedDate = formatDate(userData.dob);
-
-              console.log("🚀 ~ Fetched User details:", userData);
-              console.log(
-                "🚀 ~ Fetched User Investment details:",
-                investmentData
-              );
-
-              // Prepare updated data for state
-              const updatedData = {
-                personal: {
-                  firstName: userData.first_name || "-",
-                  lastName: userData.last_name || "-",
-                  email: email || "-",
-                  gender: userData.gender || "-",
-                  dob: formattedDate || "-",
-                  country: "India",
-                  state: userData.state || "-",
-                  city: userData.city || "-",
-                  address: userData.address || "-",
-                  phoneNumber: userData.phone_number || "-",
-                  pincode: userData.pincode || "-",
-                  username: userData.username || "-",
-                },
-                professional: {
-                  occupation: userData.occupation || "-",
-                  industry: userData.industry || "-",
-                  incomeRange: userData.income || "-",
-                },
-                investment: {
-                  householdSavings: investmentData?.household_savings || "-",
-                  termInsurance: investmentData?.term_insurance || "-",
-                  healthInsurance: investmentData?.health_insurance || "-",
-                  currentInvestments:
-                    investmentData?.current_investments || "-",
-                  stocks: investmentData?.stocks || "-",
-                  mutualfunds: investmentData?.mutualfunds || "-",
-                },
-              };
-              console.log(
-                "🚀 ~ setInvestmentDetails ~ updatedData.investment:",
-                investmentData?.household_savings || "-"
-              );
-
-              // Update states
-              setPersonalDetails((prev) => ({
-                ...prev,
-                ...updatedData.personal,
-              }));
-              setProfessionalDetails((prev) => ({
-                ...prev,
-                ...updatedData.professional,
-              }));
-              setInvestmentDetails((prev) => ({
-                ...prev,
-                ...updatedData.investment,
-              }));
-              setModalData((prev) => ({
-                ...prev,
-                ...updatedData.investment,
-              }));
-            } else {
-              console.warn("No user data found.");
-            }
-          } catch (error) {
-            console.error("Error processing user data:", error);
-          } finally {
-            setisLoading(false);
-          }
-        } else {
-          console.error(
-            "Failed to fetch user details. Status:",
-            response.status
-          );
-          setisLoading(false);
-        }
-      };
-      fetchfunc();
+  const decodingtoken = useCallback((token) => {
+    try {
+      return jwtDecode(token);
+    } catch (error) {
+      console.error("Error decoding token:", error);
+      return {};
     }
+  }, []);
 
-    /*if (location.state && location.state.updatedData) {
-      const { updatedData } = location.state;
- 
-      if (updatedData.personal) {
-        setPersonalDetails((prev) => ({ ...prev, ...updatedData.personal }));
-      }
-      if (updatedData.professional) {
-        setProfessionalDetails((prev) => ({ ...prev, ...updatedData.professional }));
-      }
-      if (updatedData.investment) {
-        setInvestmentDetails((prev) => ({ ...prev, ...updatedData.investment }));
-      }
-    }*/
-  }, [location.state]);
+  const formatDate = useCallback((dob) => {
+    try {
+      const date = new Date(dob);
+      return isNaN(date) ? "Invalid Date" : date.toISOString().split("T")[0];
+    } catch (error) {
+      console.error("Error formatting date:", error);
+      return "-";
+    }
+  }, []);
 
-  const onlogin = () => {
-    navigate("/login");
-  };
+  const fetchUserData = useCallback(async (cookietoken) => {
+    setIsLoading(true);
+    try {
+      const url = `${API_BASE_URL}/userdetails`;
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${cookietoken}`,
+        },
+      };
 
-  const handleEditInvestment = () => {
-    console.log(modalData);
-    setModalData({ ...investmentDetails });
-    setShowModal(true);
-  };
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (!data?.userdetails?.[0]) {
+        throw new Error("No user data found");
+      }
+
+      const userData = data.userdetails[0];
+      const investmentData = data.investdetails?.[0] || initialInvestmentDetails;
+      const { email } = decodingtoken(cookietoken);
+
+      const transformedData = {
+        personal: {
+          ...initialPersonalDetails,
+          firstName: userData.first_name || "-",
+          lastName: userData.last_name || "-",
+          email: email || "-",
+          gender: userData.gender || "-",
+          dob: formatDate(userData.dob),
+          state: userData.state || "-",
+          city: userData.city || "-",
+          address: userData.address || "-",
+          phoneNumber: userData.phone_number || "-",
+          pincode: userData.pincode || "-",
+          username: userData.username || "-",
+        },
+        professional: {
+          ...initialProfessionalDetails,
+          occupation: userData.occupation || "-",
+          industry: userData.industry || "-",
+          incomeRange: userData.income || "-",
+        },
+        investment: {
+          ...initialInvestmentDetails,
+          householdSavings: investmentData.household_savings || "-",
+          termInsurance: investmentData.term_insurance || "-",
+          healthInsurance: investmentData.health_insurance || "-",
+          currentInvestments: investmentData.current_investments || "-",
+          stocks: investmentData.stocks || "-",
+          mutualfunds: investmentData.mutualfunds || "-",
+        },
+      };
+
+      setPersonalDetails(transformedData.personal);
+      setProfessionalDetails(transformedData.professional);
+      setInvestmentDetails(transformedData.investment);
+      setModalData(transformedData.investment);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  }, [decodingtoken, formatDate]);
+
+  useEffect(() => {
+    const cookietoken = Cookies.get("jwtToken");
+    if (!cookietoken) {
+      setShowPopupforLogin(true);
+      return;
+    }
+    fetchUserData(cookietoken);
+  }, [fetchUserData, location.state]);
 
   const handleNavigation = (section) => {
-    // Pass the updated data to the EditProfile page for further editing
     navigate("/editProfile", {
       state: {
         section,
@@ -239,332 +201,273 @@ const UserDetailsupdate = () => {
 
   const uploadImage = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setProfileImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => setProfileImage(reader.result);
+    reader.readAsDataURL(file);
   };
+
+  const validateField = (name, value) => {
+    const validation = fieldValidations[name];
+    if (!validation) return true; // No validation defined for this field
+    
+    const isValid = validation.validate(value);
+    setFieldErrors(prev => ({
+      ...prev,
+      [name]: isValid ? null : validation.message
+    }));
+    return isValid;
+  };
+
   const handleFinancialChange = (e) => {
     const { name, value } = e.target;
-
-    // Check if value contains "+" or "-"
-    if (value.includes("+") || value.includes("-")) {
-      setErrorMessage(
-        "Please enter a valid positive number without '+' or '-'"
-      );
-    } else {
-      setErrorMessage(""); // Clear error if input is fine
-      setModalData((prevData) => ({
-        ...prevData,
-        [name]: value,
+    
+    // Basic validation for negative numbers and special characters
+    if (value.includes("-") || value.includes("+") || isNaN(value)) {
+      setFieldErrors(prev => ({
+        ...prev,
+        [name]: "Please enter a valid positive number"
       }));
+      return;
     }
+
+    const numValue = value === "" ? "" : parseFloat(value);
+    setModalData(prev => ({ ...prev, [name]: numValue }));
+    validateField(name, numValue);
   };
 
-  const handleChange = (e) => {
+  const handleInvestmentChange = (e) => {
     const { name, value } = e.target;
-
-    // Check if value has "+" or "-"
-    if (value.includes("+") || value.includes("-")) {
-      setErrorMessage("Please enter a valid number without '+' or '-'");
-      return; // Stop processing if invalid
-    } else {
-      setErrorMessage(""); // Clear any previous error
+    
+    if (value.includes("-") || value.includes("+") || isNaN(value)) {
+      setFieldErrors(prev => ({
+        ...prev,
+        [name]: "Please enter a valid number"
+      }));
+      return;
     }
 
-    let percentage = parseFloat(value) || 0;
+    const percentage = value === "" ? "" : Math.min(parseFloat(value) || 0, 100);
+    
+    setModalData(prev => {
+      const updated = { ...prev, [name]: percentage };
+      if (name === "stocks") updated.mutualfunds = 100 - percentage;
+      if (name === "mutualfunds") updated.stocks = 100 - percentage;
+      return updated;
+    });
 
-    if (percentage > 100) percentage = 100;
-
-    let updatedData = { ...modalData, [name]: percentage };
-
-    if (name === "stocks") {
-      updatedData.mutualfunds = 100 - percentage;
-    } else if (name === "mutualfunds") {
-      updatedData.stocks = 100 - percentage;
-    }
-
-    setModalData(updatedData);
+    validateField(name, percentage);
   };
 
-  // const handleSave = () => {
-  //   setInvestmentDetails({ ...modalData });
-  //   setShowModal(false);
-  // };
   const handleSave = async () => {
+    // Validate all fields before saving
+    const validations = Object.keys(modalData).map(field => 
+      validateField(field, modalData[field])
+    );
+    
+    if (validations.some(valid => !valid)) {
+      return; // Don't save if any field is invalid
+    }
+
+    setIsLoading(true);
     try {
-      setisLoading(true); // Show loader while saving
-
       const cookietoken = Cookies.get("jwtToken");
-      if (!cookietoken) {
-        alert("You are not logged in!");
-        setisLoading(false);
-        return;
-      }
+      if (!cookietoken) throw new Error("Not authenticated");
 
-      const url = `${API_BASE_URL}/userdetails/adduserinvestment`;
-      const options = {
+      const response = await fetch(`${API_BASE_URL}/userdetails/adduserinvestment`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${cookietoken}`,
         },
-        body: JSON.stringify(modalData), // Send updated investment details
-      };
+        body: JSON.stringify(modalData),
+      });
 
-      const response = await fetch(url, options);
-      if (response.ok) {
-        const result = await response.json();
-        console.log("Investment details updated successfully:", result);
+      if (!response.ok) throw new Error("Update failed");
 
-        // Update the state with the new investment details
-        setInvestmentDetails({ ...modalData });
-
-        // Close the modal
-        setShowModal(false);
-
-        alert("Investment details updated successfully!");
-      } else {
-        console.error("Failed to update investment details:", response.status);
-        alert("Failed to update investment details. Please try again.");
-      }
+      setInvestmentDetails(modalData);
+      setShowModal(false);
     } catch (error) {
-      console.error("Error updating investment details:", error);
-      alert("An error occurred while updating investment details.");
+      console.error("Update error:", error);
+      alert(error.message || "Failed to update. Please try again.");
     } finally {
-      setisLoading(false); // Hide loader
+      setIsLoading(false);
     }
   };
+
+  const renderDetailSection = (title, details, section) => (
+    <>
+      <h2 className="sectionTitle">{title}</h2>
+      <div className="allpersonal">
+        <div className="personalDetailAll">
+          {Object.entries(details).map(([key, value]) => (
+            <p key={key} className="detailRow">
+              <strong className="labelprofiledetail">
+                {key.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}:
+              </strong>
+              <span className="value">{value === "undefined" ? "-" : value}</span>
+            </p>
+          ))}
+        </div>
+        <div 
+          className={`editiconprofile${section === "Professional" ? "ee" : ""}`}
+          onClick={() => handleNavigation(section)}
+        >
+          <BiSolidEdit />
+        </div>
+      </div>
+    </>
+  );
+
+  const renderInvestmentModal = () => (
+    <div className="modal-overlay">
+      <div className="modal-contentuserupdate">
+        <div className="modal-body">
+          {["householdSavings", "termInsurance", "healthInsurance", "currentInvestments"].map(field => (
+            <div key={field} className="modal-field-group">
+              <label>{field.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}*</label>
+              <input
+                type="number"
+                name={field}
+                value={modalData[field]}
+                onChange={handleFinancialChange}
+                className={fieldErrors[field] ? "input-error" : ""}
+              />
+              {fieldErrors[field] && (
+                <div className="error-message">{fieldErrors[field]}</div>
+              )}
+            </div>
+          ))}
+
+          <label>Interested to invest in*</label>
+          <div className="investment-optionsalluser">
+            {["stocks", "mutualfunds"].map(type => (
+              <div key={type} className="investment-itemalluser">
+                <span>{type === "stocks" ? "Stocks" : "Mutual Fund"}</span>
+                <input
+                  type="number"
+                  name={type}
+                  value={modalData[type]}
+                  onChange={handleInvestmentChange}
+                  placeholder="%"
+                  className={fieldErrors[type] ? "input-error" : ""}
+                />
+                {fieldErrors[type] && (
+                  <div className="error-message">{fieldErrors[type]}</div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="modal-footer">
+          <button 
+            className="save-btnuserrr" 
+            onClick={handleSave}
+            disabled={Object.values(fieldErrors).some(Boolean)}
+          >
+            Save & Update
+          </button>
+          <button 
+            className="cancel-btnuserrrr" 
+            onClick={() => {
+              setShowModal(false);
+              setFieldErrors({});
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  if (isLoading) {
+    return (
+      <div className="loader-cont">
+        <ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        />
+      </div>
+    );
+  }
+
+  if (showPopupforLogin) {
+    return (
+      <div className="payment-popup">
+        <div className="payment-popup-content">
+          <h2>You Are not Logged in!</h2>
+          <p className="amount-paid">Please Login</p>
+          <button onClick={() => navigate("/login")} className="loginbtnpopupnot">
+            Login
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
       <div className="outer-cont">
-        {isLoading ? (
-          <div className="loader-cont">
-            <ClipLoader
-              cssOverride={override}
-              size={35}
-              data-testid="loader"
-              loading={isLoading}
-              speedMultiplier={1}
-              color="green"
-            />
-          </div>
-        ) : (
-          <>
-            <div className="userDetailss">
-              <h1 className="profilepage-title">My profile</h1>
+        <div className="userDetailss">
+          <h1 className="profilepage-title">My profile</h1>
+          <AccountBar />
 
-              <AccountBar />
-
-              <div className="profileContainer">
-                <div className="userwilliamimg">
-                  <img
-                    src={profileImage}
-                    alt="William Rober"
-                    className="profileImage"
-                  />
-                  <MdOutlineEdit
-                    className="editIcon"
-                    onClick={() => document.getElementById("fileInput").click()}
-                  />
-                  <input
-                    type="file"
-                    id="fileInput"
-                    accept="image/*"
-                    style={{ display: "none" }}
-                    onChange={(e) => {
-                      uploadImage(e);
-                    }}
-                  />
-                </div>
-                <div className="profileInfo">
-                  <h1 className="profileName">
-                    {" "}
-                    {personalDetails.firstName} {personalDetails.lastName}
-                  </h1>
-                  <p className="profileOccupation">
-                    {professionalDetails.occupation === "undefined"
-                      ? "-"
-                      : professionalDetails.occupation}
-                  </p>
-                </div>
-              </div>
-
-              {/* Personal Details Section */}
-              <h2 className="sectionTitle">Personal Details</h2>
-              <div className="allpersonal">
-                <div className="personalDetailAll">
-                  {Object.entries(personalDetails).map(([key, value]) => (
-                    <p key={key} className="detailRow">
-                      <strong className="labelprofiledetail">
-                        {key
-                          .replace(/([A-Z])/g, " $1")
-                          .replace(/^./, (str) => str.toUpperCase())}
-                        :
-                      </strong>
-                      <span className="value">
-                        {value === "undefined" ? "-" : value}
-                      </span>
-                    </p>
-                  ))}
-                </div>
-                <div
-                  className="editiconprofile"
-                  onClick={() => handleNavigation("Personal", "Professional")}
-                >
-                  <BiSolidEdit />
-                </div>
-              </div>
-
-              {/* Professional Details Section */}
-              <h2 className="sectionTitle">Professional Details</h2>
-              <div className="allpersonall">
-                <div className="personalDetailAll">
-                  {Object.entries(professionalDetails).map(([key, value]) => (
-                    <p key={key} className="detailRow">
-                      <strong className="labelprofiledetail">
-                        {key
-                          .replace(/([A-Z])/g, " $1")
-                          .replace(/^./, (str) => str.toUpperCase())}
-                        :
-                      </strong>
-                      <span className="value">
-                        {value === "undefined" ? "-" : value}
-                      </span>
-                    </p>
-                  ))}
-                </div>
-                <div
-                  className="editiconprofileee"
-                  onClick={() => handleNavigation("Personal", "Professional")}
-                >
-                  <BiSolidEdit />
-                </div>
-              </div>
-
-              {/* Investment Details Section */}
-              <h2 className="sectionTitle">Investment Details</h2>
-              <div className="allpersonal">
-                <div className="personalDetailAll">
-                  {Object.entries(investmentDetails).map(([key, value]) => (
-                    <p key={key} className="detailRow">
-                      <strong className="labelprofiledetail">
-                        {key
-                          .replace(/([A-Z])/g, " $1")
-                          .replace(/^./, (str) => str.toUpperCase())}
-                        :
-                      </strong>
-                      <span className="value">{value}</span>
-                    </p>
-                  ))}
-                </div>
-                <div
-                  className="editiconprofilee"
-                  onClick={handleEditInvestment}
-                >
-                  <BiSolidEdit />
-                </div>
-              </div>
-
-              {showModal && (
-                <div className="modal-overlay">
-                  <div className="modal-contentuserupdate">
-                    <div className="modal-body">
-                      {errorMessage && (
-                        <p style={{ color: "red", marginBottom: "10px" }}>
-                          {errorMessage}
-                        </p>
-                      )}
-                      <label>Household Savings per month*</label>
-                      <input
-                        type="number"
-                        name="householdSavings"
-                        value={modalData.householdSavings}
-                        onChange={handleFinancialChange}
-                      />
-
-                      <label>Term Insurance*</label>
-                      <input
-                        type="number"
-                        name="termInsurance"
-                        value={modalData.termInsurance}
-                        onChange={handleFinancialChange}
-                      />
-
-                      <label>Health Insurance*</label>
-                      <input
-                        type="number"
-                        name="healthInsurance"
-                        value={modalData.healthInsurance}
-                        onChange={handleFinancialChange}
-                      />
-
-                      <label>Major Current Investments*</label>
-                      <input
-                        type="number"
-                        name="currentInvestments"
-                        value={modalData.currentInvestments}
-                        onChange={handleFinancialChange}
-                      />
-                      <label>Interested to invest in*</label>
-                      <div className="investment-optionsalluser">
-                        <div className="investment-itemalluser">
-                          <span>Stocks</span>
-                          <input
-                            type="number"
-                            name="stocks"
-                            value={modalData.stocks}
-                            onChange={handleChange}
-                            placeholder="%"
-                          />
-                        </div>
-
-                        <div className="investment-itemalluser">
-                          <span>Mutual Fund</span>
-                          <input
-                            type="number"
-                            name="mutualfunds"
-                            value={modalData.mutualfunds}
-                            onChange={handleChange}
-                            placeholder="%"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="modal-footer">
-                      <button className="save-btnuserrr" onClick={handleSave}>
-                        Save & Update
-                      </button>
-                      <button
-                        className="cancel-btnuserrrr"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
-              <Navbar />
+          <div className="profileContainer">
+            <div className="userwilliamimg">
+              <img src={profileImage} alt="Profile" className="profileImage" />
+              <MdOutlineEdit
+                className="editIcon"
+                onClick={() => document.getElementById("fileInput").click()}
+              />
+              <input
+                type="file"
+                id="fileInput"
+                accept="image/*"
+                style={{ display: "none" }}
+                onChange={uploadImage}
+              />
             </div>
-          </>
-        )}
-
-        {showPopupforLogin && (
-          <div className="payment-popup">
-            <div className="payment-popup-content">
-              <h2>You Are not Logged in!</h2>
-              <p className="amount-paid">Please Login</p>
-              <button onClick={onlogin} className="loginbtnpopupnot">
-                Login
-              </button>
+            <div className="profileInfo">
+              <h1 className="profileName">
+                {personalDetails.firstName} {personalDetails.lastName}
+              </h1>
+              <p className="profileOccupation">
+                {professionalDetails.occupation === "undefined" 
+                  ? "-" 
+                  : professionalDetails.occupation}
+              </p>
             </div>
           </div>
-        )}
+
+          {renderDetailSection("Personal Details", personalDetails, "Personal")}
+          {renderDetailSection("Professional Details", professionalDetails, "Professional")}
+          
+          <h2 className="sectionTitle">Investment Details</h2>
+          <div className="allpersonal">
+            <div className="personalDetailAll">
+              {Object.entries(investmentDetails).map(([key, value]) => (
+                <p key={key} className="detailRow">
+                  <strong className="labelprofiledetail">
+                    {key.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}:
+                  </strong>
+                  <span className="value">{value}</span>
+                </p>
+              ))}
+            </div>
+            <div className="editiconprofilee" onClick={() => setShowModal(true)}>
+              <BiSolidEdit />
+            </div>
+          </div>
+
+          {showModal && renderInvestmentModal()}
+          <Navbar />
+        </div>
       </div>
       <div className="foooterpagesaupdate">
         <FooterForAllPage />
