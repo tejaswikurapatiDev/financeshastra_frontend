@@ -353,7 +353,7 @@
    margin-left: -18px;
     margin-top: 1px;
   }
-    
+ 
   
     .footermobileviewpages-stock-letters {
       display: flex;
@@ -508,6 +508,8 @@
   .FooterForAllPage-footer {
     display: none;
   }
+ 
+
 }
 
 @media (max-width:320px) {
