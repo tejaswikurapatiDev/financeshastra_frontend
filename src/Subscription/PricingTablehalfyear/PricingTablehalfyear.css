@@ -667,6 +667,7 @@ margin-top: 10px;
     margin-left: 0;
     font-size: 16px;
     text-align: center; /* Center-align text */
+    margin-bottom: -10px;
   }
 
   .plans-wrapper {

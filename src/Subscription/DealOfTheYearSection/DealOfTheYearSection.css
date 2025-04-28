@@ -230,6 +230,7 @@
     /* padding: 10px 20px; */
     text-align: center;
     margin-top: -10px;
+    min-height: 150px;
 }
   .deal-chart-text {
     max-width: 100%; /* Use full width */
@@ -238,7 +239,7 @@
   }
 
   .deal-highlight-text {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 50px;
     margin-left: 0;
 }
@@ -284,8 +285,9 @@
 }
 
   .deal-highlight-text {
-    font-size: 20px; /* Further reduce font size */
+    font-size: 16px; /* Further reduce font size */
     margin-bottom: 30px; /* Adjust spacing */
+    margin-top: 70px;
   }
 
   .deal-offer-box {
