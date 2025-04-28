@@ -25,7 +25,7 @@
     border: none;
     border-radius: 35px; /* Adds rounded corners */
     padding: 20px; /* Optional: Adds some inner spacing */
-    margin-top: 30px;
+    margin-top: -10px;
     margin-left: -220px; /* Adds space on the left */
    
    
@@ -242,16 +242,25 @@
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
     margin-right: 140px;
+    margin-left: 5px; /* Added left margin */
+    text-decoration: line-through; /* Strike-through */
+    text-decoration-color: #333; /* Strike color */
    
   }
-  .ribbon-price-detailelite{
+  .ribbon-price-detailelite {
     font-size: 12px;
     color: #333;
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 70px;
-  }
+    margin-right: 180px;
+    margin-left: 5px; /* Added left margin */
+    text-decoration: line-through; /* Strike-through */
+    text-decoration-color: #333; /* Strike color */
+}
+
+
+  
  .text-highlight {
     color: #24b676; /* Green color for highlighted text */
     /* Make it bold if desired */
@@ -495,7 +504,7 @@ margin-top: 10px;
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 100px;
+  margin-right: 150px;
 }
 .ribbon-price-detail {
   font-size: 12px;
@@ -503,7 +512,7 @@ margin-top: 10px;
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 40px;
+  margin-right: 100px;
 }
 }
 
@@ -581,7 +590,12 @@ margin-top: 10px;
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 0px;
+  margin-right: 90px;
+}
+.text-black {
+  color: black;
+  text-align: left;
+  margin-left: 20px;
 }
 .plan-featuresul {
   padding-left: 0px;
@@ -625,7 +639,7 @@ margin-top: 10px;
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 0px;
+  margin-right: 140px;
 }
 .plan-header-titleelite {
   font-size: 1.8rem;
@@ -737,7 +751,7 @@ margin-top: 10px;
 
   .ribbon-price-detail {
     font-size: 14px;
-    margin-right: 90px;
+    margin-right: 140px;
 }
 .plan-featuresul {
   padding-left: 20px;
@@ -778,7 +792,12 @@ margin-top: 10px;
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 140px;
+  margin-right: 210px;
+}
+.text-black {
+  color: black;
+  text-align: left;
+  margin-left: 30px;
 }
 }
 
@@ -909,7 +928,16 @@ margin-top: 10px;
 
   .ribbon-price-detail {
     font-size: 12px; /* Smaller font size for details */
+    margin-right: 0px;
   }
+  .ribbon-price-detailelite {
+    font-size: 12px;
+    color: #333;
+    font-weight: normal;
+    background-color: rgb(255, 239, 242);
+    border-radius: 5px;
+    margin-right: 50px;
+}
 
 }
 

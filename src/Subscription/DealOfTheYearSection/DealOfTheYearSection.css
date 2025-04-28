@@ -1,43 +1,44 @@
 /* Container for the entire section */
 .deal-section-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px;
-      /* Background image with gradient overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px; /* Smaller padding = shorter height */
   background: linear-gradient(
-    rgba(255, 255, 255, 0.8) 0%, 
-    rgba(255, 255, 255, 0) 40%, 
-    rgba(255, 255, 255, 0.8) 0%
-  ),
-  url("https://myequitylab.com/upload/candle%20chart%201_1679116683.jpeg");
-   
-    background-repeat: no-repeat;
-    font-family: "calibri";
-    margin-top: 100px;
-    
-  }
+      rgba(255, 255, 255, 0.8) 80%, 
+      rgba(255, 255, 255, 0) 70%, 
+      rgba(255, 255, 255, 0.8) 100%
+  ), 
+  url(https://myequitylab.com/upload/candle%20chart%201_1679116683.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Calibri", sans-serif;
+  font-size: 14px; /* Decreased font size */
+  margin: 30px auto; /* Reduced top-bottom margin */
+  width: 90%;
+  max-width: 1200px;
+  min-height: 200px; /* Smaller min-height */
+  border-radius: 10px;
+}
+
   
   /* Left side text styling */
   .deal-chart-text {
     max-width: 60%;
   }
-  
   .deal-highlight-text {
-    font-size: 35px;
+    font-size: 24px; /* Decreased font size */
     font-weight: bold;
     text-align: center;
-    line-height: 1.5;
-    margin-bottom: 70px;
-    font-family: 'calibri';
-  
-  margin-left: 100px;
-    /* Gradient text styling */
+    line-height: 1.2; /* Tighter line height */
+    margin-bottom: 40px; /* Reduced bottom margin */
+    font-family: 'Calibri';
+   
     background: linear-gradient(90deg, #24b676, #238486);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
-  }
-  
+    -webkit-text-fill-color: transparent;
+}
+
   /* Right side offer box */
   .deal-offer-box {
     display: flex;
@@ -189,7 +190,7 @@
   line-height: 1.5;
   margin-bottom: 70px;
   font-family: 'calibri';
-  margin-left: 100px;
+  
   background: linear-gradient(90deg, #24b676, #238486);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
