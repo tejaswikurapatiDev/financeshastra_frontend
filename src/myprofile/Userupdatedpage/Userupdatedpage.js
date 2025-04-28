@@ -12,6 +12,7 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import ClipLoader from "react-spinners/ClipLoader";
 import AccountBar from "../AccountBar";
+
 const override = {
   display: "block",
   textAlign: "center",
@@ -20,15 +21,18 @@ const override = {
 const UserDetailsupdate = () => {
   const navigate = useNavigate();
   const location = useLocation();
-
   const { userEmail } = useContext(UserProfileContext);
   const { token } = useContext(UserProfileContext);
 
-  // Initial state (can be overwritten by updated data passed through location.state)
-  //const [emaillocal, setEmail]= useState('')
   const [profileImage, setProfileImage] = useState(williamImage);
-  const [errorMessage, setErrorMessage] = useState("");
-
+  const [errors, setErrors] = useState({
+    householdSavings: "",
+    termInsurance: "",
+    healthInsurance: "",
+    currentInvestments: "",
+    stocks: "",
+    mutualfunds: "",
+  });
   const [personalDetails, setPersonalDetails] = useState({
     firstName: "-",
     lastName: "-",
@@ -36,20 +40,17 @@ const UserDetailsupdate = () => {
     gender: "-",
     dob: "-",
     country: "India",
-
     state: "-",
     city: "-",
     address: "-",
     phoneNumber: "-",
     pincode: "",
   });
-
   const [professionalDetails, setProfessionalDetails] = useState({
     occupation: "-",
     industry: "-",
     incomeRange: "-",
   });
-
   const [investmentDetails, setInvestmentDetails] = useState({
     householdSavings: "",
     termInsurance: "",
@@ -58,7 +59,6 @@ const UserDetailsupdate = () => {
     stocks: "",
     mutualfunds: "",
   });
-
   const [showPopupforLogin, setShowPopupforLogin] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [isLoading, setisLoading] = useState(false);
@@ -72,8 +72,8 @@ const UserDetailsupdate = () => {
   });
 
   const formatDate = (dob) => {
-    const date = new Date(dob); // Ensure dob is a Date object
-    if (isNaN(date)) return "Invalid Date"; // Handle invalid date cases
+    const date = new Date(dob);
+    if (isNaN(date)) return "Invalid Date";
     return date.toISOString().split("T")[0];
   };
 
@@ -81,13 +81,13 @@ const UserDetailsupdate = () => {
     return jwtDecode(token);
   };
 
-  // Update state when new data is passed from EditProfile
   useEffect(() => {
     setisLoading(true);
     const cookietoken = Cookies.get("jwtToken");
 
     if (!Cookies.get("jwtToken")) {
       setShowPopupforLogin(true);
+      setisLoading(false);
     } else if (cookietoken) {
       const { email } = decodingtoken(cookietoken);
       setPersonalDetails((prevDetails) => ({
@@ -126,7 +126,6 @@ const UserDetailsupdate = () => {
                 investmentData
               );
 
-              // Prepare updated data for state
               const updatedData = {
                 personal: {
                   firstName: userData.first_name || "-",
@@ -151,8 +150,7 @@ const UserDetailsupdate = () => {
                   householdSavings: investmentData?.household_savings || "-",
                   termInsurance: investmentData?.term_insurance || "-",
                   healthInsurance: investmentData?.health_insurance || "-",
-                  currentInvestments:
-                    investmentData?.current_investments || "-",
+                  currentInvestments: investmentData?.current_investments || "-",
                   stocks: investmentData?.stocks || "-",
                   mutualfunds: investmentData?.mutualfunds || "-",
                 },
@@ -162,7 +160,6 @@ const UserDetailsupdate = () => {
                 investmentData?.household_savings || "-"
               );
 
-              // Update states
               setPersonalDetails((prev) => ({
                 ...prev,
                 ...updatedData.personal,
@@ -197,20 +194,6 @@ const UserDetailsupdate = () => {
       };
       fetchfunc();
     }
-
-    /*if (location.state && location.state.updatedData) {
-      const { updatedData } = location.state;
- 
-      if (updatedData.personal) {
-        setPersonalDetails((prev) => ({ ...prev, ...updatedData.personal }));
-      }
-      if (updatedData.professional) {
-        setProfessionalDetails((prev) => ({ ...prev, ...updatedData.professional }));
-      }
-      if (updatedData.investment) {
-        setInvestmentDetails((prev) => ({ ...prev, ...updatedData.investment }));
-      }
-    }*/
   }, [location.state]);
 
   const onlogin = () => {
@@ -221,10 +204,17 @@ const UserDetailsupdate = () => {
     console.log(modalData);
     setModalData({ ...investmentDetails });
     setShowModal(true);
+    setErrors({
+      householdSavings: "",
+      termInsurance: "",
+      healthInsurance: "",
+      currentInvestments: "",
+      stocks: "",
+      mutualfunds: "",
+    }); // Clear errors when modal opens
   };
 
   const handleNavigation = (section) => {
-    // Pass the updated data to the EditProfile page for further editing
     navigate("/editProfile", {
       state: {
         section,
@@ -247,16 +237,17 @@ const UserDetailsupdate = () => {
       reader.readAsDataURL(file);
     }
   };
+
   const handleFinancialChange = (e) => {
     const { name, value } = e.target;
-
-    // Check if value contains "+" or "-"
+    console.log("handleFinancialChange value:", value);
     if (value.includes("+") || value.includes("-")) {
-      setErrorMessage(
-        "Please enter a valid positive number without '+' or '-'"
-      );
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "Please enter a valid positive number without '+' or '-'",
+      }));
     } else {
-      setErrorMessage(""); // Clear error if input is fine
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
       setModalData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -266,41 +257,46 @@ const UserDetailsupdate = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Check if value has "+" or "-"
     if (value.includes("+") || value.includes("-")) {
-      setErrorMessage("Please enter a valid number without '+' or '-'");
-      return; // Stop processing if invalid
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        [name]: "Please enter a valid number without '+' or '-'",
+      }));
+      return;
     } else {
-      setErrorMessage(""); // Clear any previous error
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
     }
 
     let percentage = parseFloat(value) || 0;
-
     if (percentage > 100) percentage = 100;
 
     let updatedData = { ...modalData, [name]: percentage };
 
     if (name === "stocks") {
       updatedData.mutualfunds = 100 - percentage;
+      setErrors((prevErrors) => ({ ...prevErrors, ["mutualfunds"]: "" }));
     } else if (name === "mutualfunds") {
       updatedData.stocks = 100 - percentage;
+      setErrors((prevErrors) => ({ ...prevErrors, ["stocks"]: "" }));
     }
 
     setModalData(updatedData);
   };
 
-  // const handleSave = () => {
-  //   setInvestmentDetails({ ...modalData });
-  //   setShowModal(false);
-  // };
   const handleSave = async () => {
     try {
-      setisLoading(true); // Show loader while saving
+      setisLoading(true);
 
       const cookietoken = Cookies.get("jwtToken");
       if (!cookietoken) {
         alert("You are not logged in!");
+        setisLoading(false);
+        return;
+      }
+
+      // Check for any errors before saving
+      if (Object.values(errors).some((error) => error !== "")) {
+        alert("Please correct the errors in the form.");
         setisLoading(false);
         return;
       }
@@ -312,20 +308,15 @@ const UserDetailsupdate = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${cookietoken}`,
         },
-        body: JSON.stringify(modalData), // Send updated investment details
+        body: JSON.stringify(modalData),
       };
 
       const response = await fetch(url, options);
       if (response.ok) {
         const result = await response.json();
         console.log("Investment details updated successfully:", result);
-
-        // Update the state with the new investment details
         setInvestmentDetails({ ...modalData });
-
-        // Close the modal
         setShowModal(false);
-
         alert("Investment details updated successfully!");
       } else {
         console.error("Failed to update investment details:", response.status);
@@ -335,7 +326,7 @@ const UserDetailsupdate = () => {
       console.error("Error updating investment details:", error);
       alert("An error occurred while updating investment details.");
     } finally {
-      setisLoading(false); // Hide loader
+      setisLoading(false);
     }
   };
 
@@ -474,11 +465,6 @@ const UserDetailsupdate = () => {
                 <div className="modal-overlay">
                   <div className="modal-contentuserupdate">
                     <div className="modal-body">
-                      {errorMessage && (
-                        <p style={{ color: "red", marginBottom: "10px" }}>
-                          {errorMessage}
-                        </p>
-                      )}
                       <label>Household Savings per month*</label>
                       <input
                         type="number"
@@ -486,7 +472,11 @@ const UserDetailsupdate = () => {
                         value={modalData.householdSavings}
                         onChange={handleFinancialChange}
                       />
-
+                      {errors.householdSavings && (
+                        <p className="error-message">
+                          {errors.householdSavings}
+                        </p>
+                      )}
                       <label>Term Insurance*</label>
                       <input
                         type="number"
@@ -494,6 +484,9 @@ const UserDetailsupdate = () => {
                         value={modalData.termInsurance}
                         onChange={handleFinancialChange}
                       />
+                      {errors.termInsurance && (
+                        <p className="error-message">{errors.termInsurance}</p>
+                      )}
 
                       <label>Health Insurance*</label>
                       <input
@@ -502,6 +495,11 @@ const UserDetailsupdate = () => {
                         value={modalData.healthInsurance}
                         onChange={handleFinancialChange}
                       />
+                      {errors.healthInsurance && (
+                        <p className="error-message">
+                          {errors.healthInsurance}
+                        </p>
+                      )}
 
                       <label>Major Current Investments*</label>
                       <input
@@ -510,6 +508,11 @@ const UserDetailsupdate = () => {
                         value={modalData.currentInvestments}
                         onChange={handleFinancialChange}
                       />
+                      {errors.currentInvestments && (
+                        <p className="error-message">
+                          {errors.currentInvestments}
+                        </p>
+                      )}
                       <label>Interested to invest in*</label>
                       <div className="investment-optionsalluser">
                         <div className="investment-itemalluser">
@@ -521,6 +524,9 @@ const UserDetailsupdate = () => {
                             onChange={handleChange}
                             placeholder="%"
                           />
+                          {errors.stocks && (
+                            <p className="error-message">{errors.stocks}</p>
+                          )}
                         </div>
 
                         <div className="investment-itemalluser">
@@ -532,6 +538,11 @@ const UserDetailsupdate = () => {
                             onChange={handleChange}
                             placeholder="%"
                           />
+                          {errors.mutualfunds && (
+                            <p className="error-message">
+                              {errors.mutualfunds}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
