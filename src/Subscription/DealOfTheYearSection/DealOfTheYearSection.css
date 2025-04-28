@@ -226,11 +226,11 @@
   /* General Responsive Design */
 @media (max-width: 768px) {
   .deal-section-container {
-    flex-direction: column; /* Stack elements vertically */
-    padding: 50px 20px; /* Adjust padding for smaller screens */
-    text-align: center; /* Center-align content */
-  }
-
+    flex-direction: column;
+    /* padding: 10px 20px; */
+    text-align: center;
+    margin-top: -10px;
+}
   .deal-chart-text {
     max-width: 100%; /* Use full width */
     margin-bottom: 30px; /* Add spacing between sections */
@@ -238,10 +238,10 @@
   }
 
   .deal-highlight-text {
-    font-size: 25px; /* Smaller font size for headlines */
-    margin-bottom: 50px; /* Adjust spacing */
-    margin-left: 0; /* Center-align text */
-  }
+    font-size: 20px;
+    margin-bottom: 50px;
+    margin-left: 0;
+}
 
   .deal-offer-box {
     width: 40%;
