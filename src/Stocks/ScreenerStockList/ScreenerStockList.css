@@ -1677,6 +1677,12 @@
     /* margin-right: 30px; */
     left: 45%;
   }
+  .screener-header {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 1rem;
+    margin-top: 30px;
+}
 }
  
 @media (max-width: 320px) {
