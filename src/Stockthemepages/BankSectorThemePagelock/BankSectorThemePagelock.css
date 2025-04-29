@@ -19,11 +19,13 @@
   
   }
   
-  .subscribethemestocklocked-lock-icon{
-    position: relative;
-  display: inline-block;
-  margin-top: 100px;
+  .subscribethemestocklocked-lock-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* space between icon and button */
   }
+  
   .subscribethemestocklocked-lock-icon img{
     width: 50px;
     height: 50px;

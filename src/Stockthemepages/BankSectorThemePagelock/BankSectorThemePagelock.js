@@ -96,9 +96,9 @@ const BankSectorThemePagelock = () => {
     }
   };
   const handleLockClick = () => {
-    //setIsLocked(false); // Unlock the table
-    setShowSubscribe(true); // Show the subscribe button
+    setShowSubscribe(true); // Show button when lock is clicked
   };
+  
 
   const handleSubscribeClick = () => {
     navigate("/subscription"); // Navigate to the subscription page
@@ -122,7 +122,7 @@ const BankSectorThemePagelock = () => {
         <div className="banksectorthemepage">
             <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
-                <button className="banksectorbtnactive" onClick={() => navigate("/bankSectorThemePagelock")} >All Stocks (12)</button>
+                <button className="banksectorbtnactive" onClick={() => navigate("/bankSectorStockTheme")} >All Stocks (12)</button>
                 <button className="banksectorbtn"onClick={() => navigate("/stockThemesindustrieslockPages")}>Industries (02)</button>
             </div>
             <div className="search-wrapper" style={{ position: "relative" }}>
@@ -230,29 +230,25 @@ const BankSectorThemePagelock = () => {
       </tbody>
     </table>
     {!isSubscribed && !isLoading && (
-          <div className="subscribethemestocklocked-overlay">
-            <div
-              className="subscribethemestocklocked-lock-icon"
-              onClick={handleLockClick} // Click on the lock icon to unlock and show subscribe
-              onMouseEnter={handleMouseEnter} // Show button on hover
-             // Hide button on hover out
-            >
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png" 
-                onClick={() => navigate("/banksectorstocktheme")}
-                alt="Lock Icon"
-              />
-            </div>
-            {showSubscribe && (
-              <button
-                className="subscribethemestock-button"
-                onClick={handleSubscribeClick} // Navigate to the subscribe page
-              >
-                Subscribe for more details
-              </button>
-            )}
-          </div>
-        )}
+  <div className="subscribethemestocklocked-overlay">
+    <div
+      className="subscribethemestocklocked-lock-icon"
+      onClick={handleLockClick}
+    >
+      <img
+        src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
+        alt="Lock Icon"
+      />
+      <button
+        className="subscribethemestock-button"
+        onClick={handleSubscribeClick}
+      >
+        Subscribe for more details
+      </button>
+    </div>
+  </div>
+)}
+
     <Navbar/>
     
     </div>

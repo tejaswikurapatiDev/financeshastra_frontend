@@ -50,6 +50,7 @@ export default function StockThemesindustriesPages() {
   const navigate = useNavigate();
  
   return (
+    <div>
     <div className="banksectorthemepage">
        <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
@@ -59,7 +60,7 @@ export default function StockThemesindustriesPages() {
     >
       All Stocks (12)
     </button>
-                <button className="banksectorbtnactivee"onClick={() => navigate("/stockThemesindustriesPages")}>Industries (02)</button>
+                <button className="banksectorbtnactivee"onClick={() => navigate("/stockThemesindustries")}>Industries (02)</button>
             </div>
       <div className="search-wrapper" style={{ position: "relative" }}>
         <input
@@ -137,10 +138,12 @@ export default function StockThemesindustriesPages() {
       </div>
       
       <Navbar/>
-      <div className="StockThemesindustriesPagesfooter">
-      <FooterForAllPage/>
-      </div>
       
+    
+  
+      
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 }

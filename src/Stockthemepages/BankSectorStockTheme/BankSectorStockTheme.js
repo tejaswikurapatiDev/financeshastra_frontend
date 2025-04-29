@@ -96,7 +96,7 @@ const BankSectorThemePage = () => {
             <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
                 <button className="banksectorbtnactive" onClick={() => navigate("/banksectorstocktheme")}>All Stocks (12)</button>
-                <button className="banksectorbtn"onClick={() => navigate("/stockThemesindustriesPages")}>Industries (02)</button>
+                <button className="banksectorbtn"onClick={() => navigate("/stockThemesindustries")}>Industries (02)</button>
             </div>
             <div className="search-wrapper" style={{ position: "relative" }}>
         <input

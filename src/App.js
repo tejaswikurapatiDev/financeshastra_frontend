@@ -773,11 +773,11 @@ function App() {
                 element={<Stockthemeunlocknavbar />}
               />
               <Route
-                path="/bankSectorThemePagelock"
+                path="/bankSectorStockTheme"
                 element={<BankSectorThemePagelock />}
               />
               <Route
-                path="/stockThemesindustriesPages"
+                path="/stockThemesindustries"
                 element={<StockThemesindustriesPages />}
               />
               <Route

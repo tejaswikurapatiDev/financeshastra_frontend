@@ -8,11 +8,18 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 
 
 const HighStockIncomeStatement = () => {
   const [stocks, setStocks] = useState(screenerStockincomeData);
+  const [isloading, setisloading]= useState(true)
    const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
    const navigate = useNavigate();
    const [activeTab, setActiveTab] = useState("Income Statement");
@@ -99,6 +106,7 @@ const HighStockIncomeStatement = () => {
                setStocks(formattedData);
                console.log(data)
              }
+             setisloading(false)
            };
            fetchfun();
          }, []);
@@ -2131,7 +2139,15 @@ const perfOptions = [
         >
           Income Statement
         </button>
-        </div>
+        </div>{
+          isloading ? <div className='loader-cont'><ClipLoader
+                      cssOverride={override}
+                      size={35}
+                      data-testid="loader"
+                      loading={isloading}
+                      speedMultiplier={1}
+                      color="green"
+                    /></div> :
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
   <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%',marginTop:'10px' }}>
     <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
@@ -2222,7 +2238,7 @@ const perfOptions = [
        
   
      
-      </div>
+      </div>}
                              {/* Pagination Section */}
    <div className="pagination-stockcontainer">
         <div className="pagination-info">
