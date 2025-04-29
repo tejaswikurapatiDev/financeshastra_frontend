@@ -6,6 +6,7 @@ import "./stockthemeindustriespage.css";
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
+import Navbar from "../../Navbar/Navbar";
 const stockThemesindustriesData = [
   
   {
@@ -49,6 +50,7 @@ export default function StockThemesindustriesPages() {
   const navigate = useNavigate();
  
   return (
+    <div>
     <div className="banksectorthemepage">
        <h1 className="banksectortitle">Banks Sector Stocks</h1>
             <div className="banksectorfilter">
@@ -135,11 +137,13 @@ export default function StockThemesindustriesPages() {
         ))}
       </div>
       
-      <Stockthemeunlocknavbar/>
-      <div className="StockThemesindustriesPagesfooter">
-      <FooterForAllPage/>
-      </div>
+      <Navbar/>
       
+    
+  
+      
+    </div>
+    <FooterForAllPage/>
     </div>
   );
 }

@@ -29,7 +29,18 @@
   background-color: transparent;
   border: none;
 }
+.butn {
+  display: flex;
+  align-items: center; /* vertical center alignment */
+  gap: 0px; /* icon aur text ke beech thoda gap */
+  padding: 1px 1px;
 
+  border: none;
+  cursor: pointer;
+}
+.dropdown-item span{
+  font-size: 12px;
+}
 a span {
   text-decoration: none;
   /* This will remove the underline from the span inside the link */
@@ -97,9 +108,29 @@ a span {
   margin-left: 5px;
 }
 
-.willamname {
-  margin-bottom: 50px;
+.user-info {
+  list-style: none;
 }
+
+.user-trigger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0px;
+  cursor: pointer;
+}
+
+.iconuser-icon,
+.iconuser-darkerrmodeicon {
+  font-size: 20px;
+}
+
+.willamname,
+.willamnamedarkmode {
+  font-size: 14px;
+  white-space: nowrap; /* Prevent wrapping to new line */
+}
+
 
 /* Dropdown Menu Styling */
 
@@ -365,11 +396,12 @@ a span {
 }
 
 .iconuser-icon {
-  font-size: 18px;
+  font-size: 20px;
   color: black;
   cursor: pointer;
 
 }
+
 
 .profile-section span {
   text-decoration: none;
@@ -384,6 +416,8 @@ a span {
   margin-left: 8px;
   font-size: 16px;
   color: #333333;
+  
+
 }
 
 /* Dropdown menu for user profile */
@@ -504,6 +538,7 @@ a span {
   /* Adjust icon size */
   color: #333;
   /* Icon color */
+
 }
 
 /* Footer styling for navbar links on mobile */
@@ -1680,6 +1715,13 @@ a span {
 
 }
 
+.iconuser-icon {
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+
+}
+
 .profile-section span {
   text-decoration: none;
 }
@@ -2113,12 +2155,14 @@ a span {
     transition: all 0.3s ease;
     margin-top: 20px;
     box-shadow: 0 4px 6px red;
+    margin-left: 10px;
   }
 
   .navbar-icons {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 9px;
+    margin-right: 10px;
   }
 
   .icon.bell-icon {
@@ -2149,6 +2193,7 @@ a span {
 
   .navbar-links {
     gap: 20px;
+    margin-left: -20px;
   }
 
   .navbar-search input {
@@ -2351,6 +2396,7 @@ a span {
     cursor: pointer;
     color: #333;
     margin-left: 10px;
+  
   }
 
   .icon.bell-icon:hover {
@@ -2485,7 +2531,7 @@ a span {
   }
 
   .subscritebutton {
-    padding: 4px 10px;
+    padding: 10px 15px;
     /* Further reduce padding */
     font-size: 10px;
     /* Further reduce font size */
@@ -2494,7 +2540,7 @@ a span {
     box-shadow: 0 1px 3px red;
     /* Subtle shadow */
     display: block;
-    margin-left: 0px;
+    margin-left: 78px;
   }
 
   /* Stock dropdown menu adjustments */
@@ -2700,10 +2746,12 @@ a span {
   .navbar-icons {
     font-size: 12px;
     /* Smaller icons */
+
+    gap: 12px;
   }
 
   .subscritebutton {
-    padding: 4px 10px;
+    padding: 10px 15px;
     /* Further reduce padding */
     font-size: 10px;
     /* Further reduce font size */
@@ -2712,7 +2760,7 @@ a span {
     box-shadow: 0 1px 3px red;
     /* Subtle shadow */
     display: block;
-    margin-left: 0px;
+    margin-left: 48px;
   }
 
   /* Stock dropdown menu adjustments */
@@ -2824,9 +2872,10 @@ a span {
   }
 
   .icon.bell-icon {
-    font-size: 16px;
+    font-size: 20px;
     margin-left: 10px;
     margin-bottom: -5px;
+    margin-top: 3px;
   }
 
   .dropdown-content {
@@ -2863,15 +2912,16 @@ a span {
   }
 
   span.willamname {
-    font-size: 10px !important;
+    font-size: 12px !important;
     width: 30px;
+    display: none;
 
 
   }
 
   .iconuser-icon {
     margin-bottom: -5px;
-    font-size: 15px;
+    font-size: 18px;
     color: black;
     cursor: pointer;
   }
@@ -2906,5 +2956,18 @@ a span {
      
      left: 40px;
       
+  }
+  
+  .subscritebutton {
+    padding: 8px 10px;
+    /* Further reduce padding */
+    font-size: 10px;
+    /* Further reduce font size */
+    margin-top: 8px;
+    /* Adjust spacing */
+    box-shadow: 0 1px 3px red;
+    /* Subtle shadow */
+    display: block;
+    margin-left: 0px;
   }
 }
