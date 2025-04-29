@@ -1,9 +1,5 @@
 /* src/components/ScreenerStockList.css */
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 .screener-container {
   max-width: 95%;
   overflow-x: hidden;
@@ -1276,11 +1272,7 @@
 
 
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 @media (min-width: 1280px) and (max-width: 1535px) {
   .screener-header {
     font-size: 22px;
@@ -1298,11 +1290,7 @@
     margin-top: 40px;
   }
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 /* Mobile View for 768px */
 @media screen and (max-width: 768px) {
   .screener-filters {
@@ -1319,11 +1307,7 @@
     scrollbar-color: #24b676 #e0e0e0;
     /* Prevent wrapping of child elements */
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   /* Always show scrollbar for WebKit browsers (Chrome, Safari) */
   .screener-filters::-webkit-scrollbar {
     height: 8px;
@@ -1331,30 +1315,18 @@
     display: block;
     /* Forces scrollbar visibility */
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .screener-filters::-webkit-scrollbar-thumb {
     background: #24b676;
     /* Green scrollbar color */
     border-radius: 4px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .screener-filters::-webkit-scrollbar-track {
     background: #24b676;
     /* Light gray scrollbar track */
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .stockindexscreeneropt {
     position: absolute;
     top: 180px;
@@ -1367,11 +1339,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-market-cap-options {
     position: absolute;
     top: 180px;
@@ -1382,11 +1350,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-marketcap-options {
     position: absolute;
     top: 180px;
@@ -1397,11 +1361,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-eps-options {
     position: absolute;
     top: 180px;
@@ -1412,11 +1372,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-div-options {
     position: absolute;
     top: 180px;
@@ -1429,11 +1385,7 @@
     /* margin-right: 30px; */
     left: 70%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .stockindexscreenesectoropt {
     position: absolute;
     top: 180px;
@@ -1446,11 +1398,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-perf-options {
     position: absolute;
     top: 180px;
@@ -1463,11 +1411,7 @@
     /* margin-right: 30px; */
     left: 60%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-revgro-options {
     position: absolute;
     top: 180px;
@@ -1480,11 +1424,7 @@
     /* margin-right: 30px; */
     left: 60%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-peg-options {
     position: absolute;
     top: 180px;
@@ -1497,11 +1437,7 @@
     /* margin-right: 30px; */
     left: 65%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-roe-options {
     position: absolute;
     top: 180px;
@@ -1514,11 +1450,7 @@
     /* margin-right: 30px; */
     left: 70%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-change-options {
     position: absolute;
     top: 180px;
@@ -1529,11 +1461,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-pe-options {
     position: absolute;
     top: 180px;
@@ -1544,11 +1472,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .screener-container {
     max-width: 95%;
     overflow-x: hidden;
@@ -1557,11 +1481,7 @@
     margin-top: 0px;
     margin-bottom: 100px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .pagination-stockcontainer {
     display: flex;
     gap: 400px;
@@ -1569,11 +1489,7 @@
     margin-top: 20px;
   }
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 /* Mobile View for 480px */
 @media (max-width: 480px) {
   .searchboxindexscreener {
@@ -1585,22 +1501,14 @@
     border-radius: 12px;
     width: 250px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .pagination-stockcontainer {
     display: flex;
     gap: 100px;
     align-items: center;
     margin-top: 20px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .screener-container {
     max-width: 95%;
     overflow-x: hidden;
@@ -1609,11 +1517,7 @@
     margin-top: 50px;
     margin-bottom: 100px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .stockindexscreeneropt {
     position: absolute;
     top: 150px;
@@ -1626,11 +1530,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-market-cap-options {
     position: absolute;
     top: 150px;
@@ -1641,11 +1541,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-change-options {
     position: absolute;
     top: 150px;
@@ -1656,11 +1552,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-marketcap-options {
     position: absolute;
     top: 150px;
@@ -1672,11 +1564,7 @@
     border: 1px solid #ccc;
     left: 55%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-pe-options {
     position: absolute;
     top: 150px;
@@ -1688,11 +1576,7 @@
     border: 1px solid #ccc;
     left: 30%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-eps-options {
     position: absolute;
     top: 150px;
@@ -1704,11 +1588,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-div-options {
     position: absolute;
     top: 150px;
@@ -1721,11 +1601,7 @@
     /* margin-right: 30px; */
     left: 20%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .stockindexscreenesectoropt {
     position: absolute;
     top: 150px;
@@ -1738,11 +1614,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .resetstockscreener {
     padding: 5px 10px;
     border: 1px solid #24b676;
@@ -1752,11 +1624,7 @@
     cursor: pointer;
     margin-left: 150px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-perf-options {
     position: absolute;
     top: 150px;
@@ -1768,15 +1636,9 @@
     border: 1px solid #ccc;
     /* margin-right: 30px; */
     left: 40%;
-<<<<<<< HEAD
-
-  }
-
-=======
  
   }
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-revgro-options {
     position: absolute;
     top: 150px;
@@ -1789,11 +1651,7 @@
     /* margin-right: 30px; */
     left: 30%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-peg-options {
     position: absolute;
     top: 150px;
@@ -1806,11 +1664,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-roe-options {
     position: absolute;
     top: 150px;
@@ -1824,11 +1678,7 @@
     left: 45%;
   }
 }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 @media (max-width: 320px) {
   .searchboxindexscreener {
     display: flex;
@@ -1839,11 +1689,7 @@
     border-radius: 12px;
     width: 200px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .resetstockscreener {
     padding: 5px 10px;
     border: 1px solid #24b676;
@@ -1853,11 +1699,7 @@
     cursor: pointer;
     margin-left: 100px;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-market-cap-options {
     position: absolute;
     top: 150px;
@@ -1868,11 +1710,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-change-options {
     position: absolute;
     top: 150px;
@@ -1884,11 +1722,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-marketcap-options {
     position: absolute;
     top: 150px;
@@ -1900,11 +1734,7 @@
     border: 1px solid #ccc;
     left: 30%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-pe-options {
     position: absolute;
     top: 150px;
@@ -1916,11 +1746,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-eps-options {
     position: absolute;
     top: 150px;
@@ -1932,11 +1758,7 @@
     border: 1px solid #ccc;
     left: 20%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-div-options {
     position: absolute;
     top: 150px;
@@ -1949,11 +1771,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-perf-options {
     position: absolute;
     top: 150px;
@@ -1966,11 +1784,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-revgro-options {
     position: absolute;
     top: 150px;
@@ -1983,11 +1797,7 @@
     /* margin-right: 30px; */
     left: 20%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-peg-options {
     position: absolute;
     top: 150px;
@@ -2000,11 +1810,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-roe-options {
     position: absolute;
     top: 150px;
@@ -2017,11 +1823,7 @@
     /* margin-right: 30px; */
     left: 44%;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .pagination-stockcontainer {
     display: flex;
     gap: 50px;
@@ -2029,13 +1831,8 @@
     margin-top: 20px;
   }
 }
-<<<<<<< HEAD
-
-
-=======
  
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 @media (min-width: 1280px) and (max-width: 1535px)
 /* Medium Desktops (1024px - 1279px) */
   {
@@ -2373,11 +2170,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-=======
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
   .dropdown-peg-options {
     position: absolute;
     top: 176px;
@@ -2388,11 +2181,6 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
-<<<<<<< HEAD
-
-
-=======
  
  
->>>>>>> bff394d76263924dd8e81521bfa8a487fea89d83
 }
