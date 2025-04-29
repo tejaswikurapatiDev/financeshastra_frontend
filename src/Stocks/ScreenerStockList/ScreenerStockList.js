@@ -2201,7 +2201,7 @@ const ScreenerStockList = () => {
           cssOverride={override}
           size={35}
           data-testid="loader"
-          loading={isLoading}
+          loading={isloading}
           speedMultiplier={1}
           color="green"
         /></div> :

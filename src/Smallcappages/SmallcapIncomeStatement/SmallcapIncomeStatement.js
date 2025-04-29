@@ -8,10 +8,17 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 
 
 const SmallcapIncomeStatement = () => {
+  const [isloading, setisloading] = useState(true)
   const [stocks, setStocks] = useState(screenerStockincomeData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
@@ -65,6 +72,7 @@ const SmallcapIncomeStatement = () => {
         setStocks(formattedData);
         console.log(data)
       }
+      setisloading(false)
     };
     fetchfun();
   }, []);
@@ -1199,9 +1207,9 @@ const SmallcapIncomeStatement = () => {
   };
   return (
     <div>
-    <div className="screener-container">
-    <h1 className="screener-header">List of Top Small Cap Companies</h1>
-    <div className="screener-filters">
+      <div className="screener-container">
+        <h1 className="screener-header">List of Top Small Cap Companies</h1>
+        <div className="screener-filters">
           {/* Filter for each parameter */}
           <div
             className="indexscreenerbuttonstockcontainar"
@@ -1217,7 +1225,7 @@ const SmallcapIncomeStatement = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-                <div className="stockindexscreeneropt">
+              <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1296,7 +1304,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                 <div className="dropdown-market-cap-options">
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1367,7 +1375,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                   <div className="dropdown-change-options">
+                  <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1384,8 +1392,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1441,7 +1449,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                    <div className="dropdown-marketcap-options">
+                  <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1532,8 +1540,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1606,8 +1614,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1663,7 +1671,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                    <div className="dropdown-div-options">
+                  <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1733,7 +1741,7 @@ const SmallcapIncomeStatement = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-            <div className="stockindexscreenesectoropt">
+              <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1810,7 +1818,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                   <div className="dropdown-perf-options">
+                  <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1827,8 +1835,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1885,7 +1893,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                <div className="dropdown-revgro-options">
+                  <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -1904,8 +1912,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1962,7 +1970,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                   <div className="dropdown-peg-options">
+                  <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -1979,8 +1987,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2037,7 +2045,7 @@ const SmallcapIncomeStatement = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                   <div className="dropdown-roe-options">
+                  <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2054,8 +2062,8 @@ const SmallcapIncomeStatement = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                      (item) => item !== category.value
-                                    ) // Remove category
+                                    (item) => item !== category.value
+                                  ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2099,7 +2107,7 @@ const SmallcapIncomeStatement = () => {
           </div>
         </div>
 
-          <div className="tab-container">
+        <div className="tab-container">
           <button
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
@@ -2130,97 +2138,106 @@ const SmallcapIncomeStatement = () => {
             Income Statement
           </button>
         </div>
-        <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
-          <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%', marginTop: '10px' }}>
-            <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
-              <tr>
-                <th>Symbol</th>
-                <th>
-                  Revenue
-                  <button className="screenerbtnlist" onClick={() => handleSort("revenue")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Revenue Growth %
-                  <button className="screenerbtnlist" onClick={() => handleSort("revenueGrowth")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Gross Profit
-                  <button className="screenerbtnlist" onClick={() => handleSort("grossProfit")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Operating Income
-                  <button className="screenerbtnlist" onClick={() => handleSort("operatingIncome")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Net Income
-                  <button className="screenerbtnlist" onClick={() => handleSort("netIncome")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EBITDA
-                  <button className="screenerbtnlist" onClick={() => handleSort("ebitda")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS Diluted
-                  <button className="screenerbtnlist" onClick={() => handleSort("epsDil")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS Diluted Growth %
-                  <button className="screenerbtnlist" onClick={() => handleSort("epsDilGrowth")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-              </tr>
-            </thead>
+        {
+          isloading ? <div className='loader-cont'><ClipLoader
+            cssOverride={override}
+            size={35}
+            data-testid="loader"
+            loading={isloading}
+            speedMultiplier={1}
+            color="green"
+          /></div> :
+            <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
+              <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%', marginTop: '10px' }}>
+                <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
+                  <tr>
+                    <th>Symbol</th>
+                    <th>
+                      Revenue
+                      <button className="screenerbtnlist" onClick={() => handleSort("revenue")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      Revenue Growth %
+                      <button className="screenerbtnlist" onClick={() => handleSort("revenueGrowth")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      Gross Profit
+                      <button className="screenerbtnlist" onClick={() => handleSort("grossProfit")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      Operating Income
+                      <button className="screenerbtnlist" onClick={() => handleSort("operatingIncome")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      Net Income
+                      <button className="screenerbtnlist" onClick={() => handleSort("netIncome")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      EBITDA
+                      <button className="screenerbtnlist" onClick={() => handleSort("ebitda")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      EPS Diluted
+                      <button className="screenerbtnlist" onClick={() => handleSort("epsDil")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                    <th>
+                      EPS Diluted Growth %
+                      <button className="screenerbtnlist" onClick={() => handleSort("epsDilGrowth")}>
+                        <PiCaretUpDownFill />
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
 
 
-            <tbody>
-              {currentData.map((stock, index) => (
-                <tr key={index} className="screener-row">
-                  <td className="symbol-cell">
-                    <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-
-
-
-                    <a href={stock.url}>{stock.symbol}</a>
-                  </td>
-                  <td>{stock.revenue}</td>
-                  <td style={{ color: stock.revenueGrowth > 0 ? "#24b676" : "red" }}>
-                    {stock.revenueGrowth}%
-                  </td>
-                  <td>{stock.grossProfit || "-"}</td>
-                  <td>{stock.operatingIncome}</td>
-                  <td>{stock.netIncome}</td>
-                  <td>{stock.ebitda}</td>
-                  <td>{stock.epsDil}</td>
-                  <td style={{ color: stock.epsDilGrowth > 0 ? "#24b676" : "red" }}>
-                    {stock.epsDilGrowth}%
-                  </td>
+                <tbody>
+                  {currentData.map((stock, index) => (
+                    <tr key={index} className="screener-row">
+                      <td className="symbol-cell">
+                        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
 
 
 
-                </tr>
-              ))}
-            </tbody>
+                        <a href={stock.url}>{stock.symbol}</a>
+                      </td>
+                      <td>{stock.revenue}</td>
+                      <td style={{ color: stock.revenueGrowth > 0 ? "#24b676" : "red" }}>
+                        {stock.revenueGrowth}%
+                      </td>
+                      <td>{stock.grossProfit || "-"}</td>
+                      <td>{stock.operatingIncome}</td>
+                      <td>{stock.netIncome}</td>
+                      <td>{stock.ebitda}</td>
+                      <td>{stock.epsDil}</td>
+                      <td style={{ color: stock.epsDilGrowth > 0 ? "#24b676" : "red" }}>
+                        {stock.epsDilGrowth}%
+                      </td>
 
-          </table>
+
+
+                    </tr>
+                  ))}
+                </tbody>
+
+              </table>
 
 
 
-        </div>
+            </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
