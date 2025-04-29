@@ -1,0 +1,11 @@
+.keyindimutual{
+    font-family: 'calibri';
+    font-size: 26px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+}
+@media (max-width: 480px) {
+    .keyindimutual{
+        font-size: 20px;
+    }  
+}

@@ -212,6 +212,7 @@
     width: 140px;
     border-radius: 5px;
     box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
+    gap: 20px;
 
     
 }
@@ -287,7 +288,7 @@
     }
     .allheaedrearnun{
         display: flex;
-        gap: 40px;
+        gap: 60px;
     }
     
     .earnings-insight-learn-header h1 {
@@ -368,7 +369,7 @@
         width: 140px;
         border-radius: 5px;
         box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
-        /* Adjust margin to position the date picker outside */
+        margin-left: -100px;
     }
 
   
@@ -415,7 +416,7 @@
     }
     .earnings-insight-learn-header h1 {
         font-size: 20px; /* Adjust font size for headers */
-        margin-top: 70px;
+        margin-top: 75px;
     }
 
   
@@ -499,9 +500,10 @@
 
     .dateinsight {
         display: flex
-;
+;gap: 5px;
         border: 1px solid rgb(212, 209, 209);
-        height: 49px;
+        margin-top: 3px;
+        height: 38px;
         width: 105px;
         border-radius: 5px;
         box-shadow: 0 0 0 2px #efeeee;
@@ -509,6 +511,7 @@
     }
     .allheaedrearnun{
         display: flex;
-        gap: 17px;
+        gap: 1px;
     }
+ 
 }

@@ -171,11 +171,11 @@
   /* Mobile View - 768px */
   @media (max-width: 768px) {
     .FooterForAllPage-social-icons {
-      margin-left: -580px;
+      margin-left: -140px;
     }
     .FooterForAllPage-logo-img {
       max-width: 280px;
       fill: blue;
-      margin-left: -120px;
+      margin-left: 70px;
   }
 }

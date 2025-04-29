@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect, useRef  } from "react";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the sorting icon
 import "./EarningsInsightLearn.css";
 import Navbar from "../../../Navbar/Navbar";
@@ -442,18 +442,33 @@ const EarningsInsightLearn = () => {
 
     const CustomDropdown = ({ label, options, value, onChange }) => {
         const [isOpen, setIsOpen] = useState(false);
-        const [selectedOption, setSelectedOption] = useState(value);
+    const [selectedOption, setSelectedOption] = useState(value);
+    const dropdownRef = useRef(null); // Create a ref
     
         const handleOptionClick = (option) => {
             setSelectedOption(option);
             onChange(option);  // Pass the selected option directly to onChange
             setIsOpen(false); // Close the dropdown after selecting an option
         };
+        useEffect(() => {
+            const handleClickOutside = (event) => {
+                if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                    setIsOpen(false);
+                }
+            };
+    
+            document.addEventListener('mousedown', handleClickOutside);
+    
+            // Cleanup event on unmount
+            return () => {
+                document.removeEventListener('mousedown', handleClickOutside);
+            };
+        }, []);
     
        
         return (
         
-            <div className="customDropdown">
+            <div className="customDropdown" ref={dropdownRef}>
                 <label className="dropdownLabel">{label}</label>
                 <div className="dropdownSelect" onClick={() => setIsOpen(!isOpen)}>
                     {selectedOption}
@@ -537,7 +552,7 @@ const EarningsInsightLearn = () => {
                     </div>
                     <div className="earnings-insight-learn-date-picker">
                         <div className="dateinsight">
-                            <label htmlFor="dateRange" className="date-picker-label">Select Date Range: </label>
+                            <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>
                             <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)} >
                                 <FaRegCalendarAlt />
                             </div>
