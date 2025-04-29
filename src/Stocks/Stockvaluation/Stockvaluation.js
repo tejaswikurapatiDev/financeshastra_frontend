@@ -8,9 +8,16 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const ScreenerStockvaluation = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
+  const [isloading, setisloading]= useState(true)
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
@@ -67,6 +74,7 @@ const ScreenerStockvaluation = () => {
         }));
         setStocks(formattedData);
       }
+      setisloading(false)
     };
     fetchfun();
   }, []);
@@ -2224,6 +2232,14 @@ const ScreenerStockvaluation = () => {
             Income Statement
           </button>
         </div>
+        {isloading ? <div className='loader-cont'><ClipLoader
+                  cssOverride={override}
+                  size={35}
+                  data-testid="loader"
+                  loading={isloading}
+                  speedMultiplier={1}
+                  color="green"
+                /></div> :
         <div
           className="screener-table-wrapper"
           style={{ overflowY: "auto", height: "500px" }}
@@ -2404,7 +2420,7 @@ const ScreenerStockvaluation = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">

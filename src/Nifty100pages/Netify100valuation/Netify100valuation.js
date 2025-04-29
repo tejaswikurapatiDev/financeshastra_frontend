@@ -2075,7 +2075,7 @@ const Netify100valuation = () => {
           className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
           onClick={() => {
             setActiveTab("Overview");
-            navigate('/nifty'); // Navigate to the StockScreenerList page
+            navigate('/nifty100stocks'); // Navigate to the StockScreenerList page
           }}
         >
           Overview

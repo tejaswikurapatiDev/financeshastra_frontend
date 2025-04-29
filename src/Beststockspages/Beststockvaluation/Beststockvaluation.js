@@ -8,11 +8,18 @@ import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 
 
 const BestStockvaluation  = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
+  const [isloading, setisloading]= useState(true)
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
@@ -70,6 +77,7 @@ const BestStockvaluation  = () => {
             }));
             setStocks(formattedData);
           }
+          setisloading(false)
         };
         fetchfun();
       }, []);
@@ -2136,7 +2144,15 @@ const BestStockvaluation  = () => {
           >
             Income Statement
           </button>
-        </div>
+        </div>{
+          isloading ? <div className='loader-cont'><ClipLoader
+                                    cssOverride={override}
+                                    size={35}
+                                    data-testid="loader"
+                                    loading={isloading}
+                                    speedMultiplier={1}
+                                    color="green"
+                                  /></div> :
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
   <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%',marginTop:'10px' }}>
     <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
@@ -2256,7 +2272,7 @@ const BestStockvaluation  = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </div>}
       {/* Pagination Section */}
    <div className="pagination-stockcontainer">
         <div className="pagination-info">
