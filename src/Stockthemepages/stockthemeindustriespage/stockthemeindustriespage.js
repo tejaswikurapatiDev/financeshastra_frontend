@@ -6,6 +6,7 @@ import "./stockthemeindustriespage.css";
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
+import Navbar from "../../Navbar/Navbar";
 const stockThemesindustriesData = [
   
   {
@@ -135,7 +136,7 @@ export default function StockThemesindustriesPages() {
         ))}
       </div>
       
-      <Stockthemeunlocknavbar/>
+      <Navbar/>
       <div className="StockThemesindustriesPagesfooter">
       <FooterForAllPage/>
       </div>
