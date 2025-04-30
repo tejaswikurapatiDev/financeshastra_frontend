@@ -20,8 +20,8 @@ const override = {
 
 const Smallcap = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
-  const [isloading, setisloading]= useState(true)
-  const [isSubed, setisSubed]= useState(false)
+  const [isloading, setisloading] = useState(true);
+  const [isSubed, setisSubed] = useState(false);
   const [stocks, setStocks] = useState(screenerStockListData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ const Smallcap = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
-    pe: [],           // Initialize as an empty array
-    roe: [],          // Initialize as an empty array
+    pe: [], // Initialize as an empty array
+    roe: [], // Initialize as an empty array
     price: "All",
     marketCap: "All",
     divYield: [],
@@ -53,13 +53,15 @@ const Smallcap = () => {
     sector: false,
   });
 
-
   const recordsPerPage = 10;
   const totalPages = Math.ceil(stocks.length / recordsPerPage);
 
   //  Ensure currentData updates correctly
   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
-  const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+  const indexOfLastItem = Math.min(
+    indexOfFirstItem + recordsPerPage,
+    stocks.length
+  );
   const currentData = useMemo(() => {
     return stocks.slice(indexOfFirstItem, indexOfLastItem);
   }, [currentPage, stocks]);
@@ -73,13 +75,12 @@ const Smallcap = () => {
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
     const fetchfun = async () => {
-      const url = `${API_BASE_URL}/stocks/smallcap`
-      const response = await fetch(url)
-      console.log('response smallcap:', response)
+      const url = `${API_BASE_URL}/stocks/smallcap`;
+      const response = await fetch(url);
+      console.log("response smallcap:", response);
       if (response.ok === true) {
-        const data = await response.json()
-        const formattedData = data.map(each => ({
-
+        const data = await response.json();
+        const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.CompanyName,
           price: each.LastTradedPrice,
@@ -95,21 +96,20 @@ const Smallcap = () => {
           icon: each.icons,
           index: each.IndexName,
           roe: each.ROE,
-          analystRating: each.Analyst_Rating
-        }))
+          analystRating: each.Analyst_Rating,
+        }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
-
-        console.log(formattedData)
-        setStocks(formattedData)
+        console.log(formattedData);
+        setStocks(formattedData);
       }
       if (isSubscribed && isLoading) {
-        setisSubed(true)
+        setisSubed(true);
       }
-      setisloading(false)
-    }
-    fetchfun()
-  }, [])
+      setisloading(false);
+    };
+    fetchfun();
+  }, []);
 
   // ✅ Pagination Range Calculation
   const { startPage, endPage } = useMemo(() => {
@@ -169,7 +169,6 @@ const Smallcap = () => {
     }));
   };
 
-
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -206,11 +205,15 @@ const Smallcap = () => {
   const applyFilters = (newFilters) => {
     console.log(newFilters, "newfilter");
     const filteredStocks = screenerStockListData.filter((stock) => {
-      console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
-      console.log(stock.price.replace(/₹|,/g, ""))
+      console.log(
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price)
+      );
+      console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
-        parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price);
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -224,7 +227,6 @@ const Smallcap = () => {
       //   return false;
       // });
 
-
       const matchesDivYield =
         newFilters.divYield.length === 0 ||
         newFilters.divYield.some((divYieldValue) => {
@@ -232,7 +234,12 @@ const Smallcap = () => {
           if (divYieldValue === "10-above" && stockDivYield >= 10) return true;
           if (divYieldValue === "5-above" && stockDivYield >= 5) return true;
           if (divYieldValue === "2-below" && stockDivYield <= 2) return true;
-          if (divYieldValue === "0-2" && stockDivYield > 0 && stockDivYield <= 2) return true;
+          if (
+            divYieldValue === "0-2" &&
+            stockDivYield > 0 &&
+            stockDivYield <= 2
+          )
+            return true;
           return false;
         });
 
@@ -253,7 +260,8 @@ const Smallcap = () => {
           if (roeValue === "15" && parseFloat(stock.roe) >= 15) return true;
           if (roeValue === "0-above" && parseFloat(stock.roe) >= 0) return true;
           if (roeValue === "0-below" && parseFloat(stock.roe) < 0) return true;
-          if (roeValue === "15-below" && parseFloat(stock.roe) < 15) return true;
+          if (roeValue === "15-below" && parseFloat(stock.roe) < 15)
+            return true;
           return false;
         });
       const matchesEPSDilGrowth =
@@ -268,7 +276,6 @@ const Smallcap = () => {
           if (epsValue === "-25-below" && stockEPS <= -25) return true;
           return false;
         });
-
 
       // PE filter
       const matchesPE =
@@ -324,7 +331,9 @@ const Smallcap = () => {
 
       // For sector column, compare alphabetically
       if (key === "sector") {
-        return sortDirection ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        return sortDirection
+          ? valA.localeCompare(valB)
+          : valB.localeCompare(valA);
       }
 
       // For other columns, compare numerically
@@ -336,7 +345,10 @@ const Smallcap = () => {
   };
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const [performanceRange, setPerformanceRange] = useState({ min: -30, max: 40 });
+  const [performanceRange, setPerformanceRange] = useState({
+    min: -30,
+    max: 40,
+  });
 
   const handlePerformanceRangeChange = (value) => {
     setPerformanceRange((prevRange) => ({
@@ -351,11 +363,9 @@ const Smallcap = () => {
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
-
   const resetchangeRange = () => {
     setChangeRange({ min: -50, max: 100 });
   };
-
 
   const resetRange = () => {
     setPerformanceRange({ min: -30, max: 40 });
@@ -403,7 +413,6 @@ const Smallcap = () => {
     "Textiles",
   ];
 
-
   const indexes = [
     "Nifty 50",
     "Nifty 500",
@@ -424,13 +433,19 @@ const Smallcap = () => {
     "Nifty Auto",
     "Nifty CPSE",
   ];
-  const marketCapCategory = ["Large Cap", "Mid Cap", "Small Cap", "Micro Cap", "Other"];
+  const marketCapCategory = [
+    "Large Cap",
+    "Mid Cap",
+    "Small Cap",
+    "Micro Cap",
+    "Other",
+  ];
   const peFilterOptions = [
     { value: "0-above", label: "0 and above" },
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
 
   const epsDilGrowthOptions = [
@@ -586,13 +601,14 @@ const Smallcap = () => {
   const filteredIndexes = indexes.filter((index) =>
     index.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const filteredmarketCapCategory = marketCapCategory.filter((marketCapCategory) =>
-    marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredmarketCapCategory = marketCapCategory.filter(
+    (marketCapCategory) =>
+      marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleReset = () => {
-    setSelectedSectors([]);  // Reset selected sectors
-    setSearchTerm("");       // Reset search term
+    setSelectedSectors([]); // Reset selected sectors
+    setSearchTerm(""); // Reset search term
     setSelectedIndexes([]);
     setSelectedMcap([]);
     setSelectedPe([]);
@@ -621,7 +637,6 @@ const Smallcap = () => {
       sector: false,
       performance: false,
       // Close PEG dropdown
-
     }));
   };
 
@@ -630,7 +645,6 @@ const Smallcap = () => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       index: selectedIndexes,
-
     }));
     if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
     // Apply the filter based on the selected indexes and sectors
@@ -717,7 +731,6 @@ const Smallcap = () => {
       }
     }, 100); // Small delay to ensure UI updates properly
   };
-
 
   const handlePeApply = () => {
     // Filter stocks based on the selected P/E range
@@ -868,7 +881,6 @@ const Smallcap = () => {
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
 
-
     setDropdowns((prev) => ({
       ...prev,
       roe: false, // Close PEG dropdown
@@ -926,7 +938,6 @@ const Smallcap = () => {
       }
     }, 100); // Small delay to ensure UI updates properly
   };
-
 
   const handleRevenueGrowthApply = () => {
     // Filter stocks based on the selected Revenue Growth range
@@ -1030,7 +1041,9 @@ const Smallcap = () => {
     if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
     const filteredStocks = screenerStockListData.filter((stock) => {
       // Parse the change percentage, removing any symbols like `%` and converting it to a float
-      const stockChangePercentage = parseFloat(stock.change.replace(/%|₹|,/g, ""));
+      const stockChangePercentage = parseFloat(
+        stock.change.replace(/%|₹|,/g, "")
+      );
 
       return selectedchange.some((range) => {
         switch (range) {
@@ -1086,7 +1099,9 @@ const Smallcap = () => {
     // Filter stocks based on the selected performance range
     const filteredStocks = screenerStockListData.filter((stock) => {
       // Safely parse the perf value, defaulting to 0 if undefined or invalid
-      const stockperf = stock.perf ? parseFloat(stock.perf.replace(/%|₹|,/g, "")) : 0;
+      const stockperf = stock.perf
+        ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
+        : 0;
 
       return selectedperf.some((range) => {
         switch (range) {
@@ -1138,69 +1153,90 @@ const Smallcap = () => {
     }, 100); // Small delay to ensure UI updates properly
   };
 
-
-  const handleCheckboxChange = (index, sector, marketCapCategory, pToE, epsDilGrowth, divYield, roe, peg, revenueGrowth, price, change, perf) => {
+  const handleCheckboxChange = (
+    index,
+    sector,
+    marketCapCategory,
+    pToE,
+    epsDilGrowth,
+    divYield,
+    roe,
+    peg,
+    revenueGrowth,
+    price,
+    change,
+    perf
+  ) => {
     setSelectedIndexes((prev) =>
-      prev.includes(index)
-        ? prev.filter((s) => s !== index)
-        : [...prev, index]
+      prev.includes(index) ? prev.filter((s) => s !== index) : [...prev, index]
     );
-    setSelectedSectors((prev) =>
-      prev.includes(sector) // Check if the sector is already in the selected list
-        ? prev.filter((s) => s !== sector) // If so, remove it
-        : [...prev, sector] // Otherwise, add it
+    setSelectedSectors(
+      (prev) =>
+        prev.includes(sector) // Check if the sector is already in the selected list
+          ? prev.filter((s) => s !== sector) // If so, remove it
+          : [...prev, sector] // Otherwise, add it
     );
-    setSelectedMcap((prev) =>
-      prev.includes(marketCapCategory) // Check if the category is already selected
-        ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
-        : [...prev, marketCapCategory] // If it isn't, add it to the list
+    setSelectedMcap(
+      (prev) =>
+        prev.includes(marketCapCategory) // Check if the category is already selected
+          ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
+          : [...prev, marketCapCategory] // If it isn't, add it to the list
     );
-    setSelectedPe((prev) =>
-      prev.includes(pToE) // Check if the category is already selected
-        ? prev.filter((s) => s !== pToE) // If it is, remove it
-        : [...prev, pToE] // If it isn't, add it to the list
+    setSelectedPe(
+      (prev) =>
+        prev.includes(pToE) // Check if the category is already selected
+          ? prev.filter((s) => s !== pToE) // If it is, remove it
+          : [...prev, pToE] // If it isn't, add it to the list
     );
-    setSelectedeps((prev) =>
-      prev.includes(epsDilGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
-        : [...prev, epsDilGrowth] // If it isn't, add it to the list
+    setSelectedeps(
+      (prev) =>
+        prev.includes(epsDilGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
+          : [...prev, epsDilGrowth] // If it isn't, add it to the list
     );
-    setSelecteddivyield((prev) =>
-      prev.includes(divYield) // Check if the category is already selected
-        ? prev.filter((s) => s !== divYield) // If it is, remove it
-        : [...prev, divYield] // If it isn't, add it to the list
+    setSelecteddivyield(
+      (prev) =>
+        prev.includes(divYield) // Check if the category is already selected
+          ? prev.filter((s) => s !== divYield) // If it is, remove it
+          : [...prev, divYield] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(roe) // Check if the category is already selected
-        ? prev.filter((s) => s !== roe) // If it is, remove it
-        : [...prev, roe] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(roe) // Check if the category is already selected
+          ? prev.filter((s) => s !== roe) // If it is, remove it
+          : [...prev, roe] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(peg) // Check if the category is already selected
-        ? prev.filter((s) => s !== peg) // If it is, remove it
-        : [...prev, peg] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(peg) // Check if the category is already selected
+          ? prev.filter((s) => s !== peg) // If it is, remove it
+          : [...prev, peg] // If it isn't, add it to the list
     );
-    setSelectedrevenuegrowth((prev) =>
-      prev.includes(revenueGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
-        : [...prev, revenueGrowth] // If it isn't, add it to the list
+    setSelectedrevenuegrowth(
+      (prev) =>
+        prev.includes(revenueGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
+          : [...prev, revenueGrowth] // If it isn't, add it to the list
     );
-    setSelectedprice((prev) =>
-      prev.includes(price) // Check if the category is already selected
-        ? prev.filter((s) => s !== price) // If it is, remove it
-        : [...prev, price] // If it isn't, add it to the list
+    setSelectedprice(
+      (prev) =>
+        prev.includes(price) // Check if the category is already selected
+          ? prev.filter((s) => s !== price) // If it is, remove it
+          : [...prev, price] // If it isn't, add it to the list
     );
-    setSelectedchange((prev) =>
-      prev.includes(change) // Check if the category is already selected
-        ? prev.filter((s) => s !== change) // If it is, remove it
-        : [...prev, change] // If it isn't, add it to the list
+    setSelectedchange(
+      (prev) =>
+        prev.includes(change) // Check if the category is already selected
+          ? prev.filter((s) => s !== change) // If it is, remove it
+          : [...prev, change] // If it isn't, add it to the list
     );
-    setSelectedperf((prev) =>
-      prev.includes(perf) // Check if the category is already selected
-        ? prev.filter((s) => s !== perf) // If it is, remove it
-        : [...prev, perf] // If it isn't, add it to the list
+    setSelectedperf(
+      (prev) =>
+        prev.includes(perf) // Check if the category is already selected
+          ? prev.filter((s) => s !== perf) // If it is, remove it
+          : [...prev, perf] // If it isn't, add it to the list
     );
-  }
+  };
 
   const filterStocksByChangeRange = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
@@ -1213,18 +1249,15 @@ const Smallcap = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/subscription'); // Navigate to the desired route
+    navigate("/subscription"); // Navigate to the desired route
   };
   return (
     <div>
-    <div className="screener-container">
-       <h1 className="screener-header">List of Top Small Cap Companies</h1>
-       <div className="screener-filters">
+      <div className="screener-container">
+        <h1 className="screener-header">List of Top Small Cap Companies</h1>
+        <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1235,7 +1268,7 @@ const Smallcap = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-                <div className="stockindexscreeneropt">
+              <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1303,7 +1336,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1314,7 +1347,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                 <div className="dropdown-market-cap-options">
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1374,7 +1407,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1385,7 +1418,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                   <div className="dropdown-change-options">
+                  <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1448,7 +1481,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1459,7 +1492,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                    <div className="dropdown-marketcap-options">
+                  <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1522,7 +1555,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1596,7 +1629,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1670,7 +1703,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1681,7 +1714,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                    <div className="dropdown-div-options">
+                  <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1738,10 +1771,7 @@ const Smallcap = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1751,7 +1781,7 @@ const Smallcap = () => {
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-            <div className="stockindexscreenesectoropt">
+              <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1817,7 +1847,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1828,7 +1858,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                   <div className="dropdown-perf-options">
+                  <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1892,7 +1922,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1903,7 +1933,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                <div className="dropdown-revgro-options">
+                  <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -1969,7 +1999,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1980,7 +2010,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                   <div className="dropdown-peg-options">
+                  <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2044,7 +2074,7 @@ const Smallcap = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2055,7 +2085,7 @@ const Smallcap = () => {
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                   <div className="dropdown-roe-options">
+                  <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2123,186 +2153,260 @@ const Smallcap = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/smallcap'); // Navigate to the StockScreenerList page
+              navigate("/smallcap"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
+            className={`tab-button ${
+              activeTab === "Valuation" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/smallcapvaluation'); // Navigate to the ScreenerStockvaluation page
+              navigate("/smallcapvaluation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
+            className={`tab-button ${
+              activeTab === "Income Statement" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/smallcapIncomeStatement'); // Add a route for Income Statement if needed
+              navigate("/smallcapIncomeStatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement
           </button>
         </div>
         {/* Conditional Rendering */}
-{isloading? <div className='loader-cont'><ClipLoader
-          cssOverride={override}
-          size={35}
-          data-testid="loader"
-          loading={isloading}
-          speedMultiplier={1}
-          color="green"
-        /></div> :
-        <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
+        {isloading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isloading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </div>
+        ) : (
+          <div
+            className="screener-table-wrapper"
+            style={{ overflowY: "auto", height: "500px" }}
+          >
+            <table
+              className="screener-table"
+              style={{ borderCollapse: "collapse", width: "100%" }}
+            >
+              <thead
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#f9f9f9",
+                  zIndex: 10,
+                  boxShadow: "0 4px 6px #24b676",
+                }}
+              >
+                <tr>
+                  <th>Symbol</th>
+                  <th>
+                    Price
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("price")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Change %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("change")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Volume
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("volume")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Market Cap
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("marketCap")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P / E
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToE")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
 
-          <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
-            <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
-              <tr>
-                <th>Symbol</th>
-                <th>
-                  Price
-                  <button className="screenerbtnlist" onClick={() => handleSort("price")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Change %
-                  <button className="screenerbtnlist" onClick={() => handleSort("change")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Volume
-                  <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Market Cap
-                  <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  P / E
-                  <button
-                    className="screenerbtnlist"
-                    onClick={() => handleSort("pToE")}
-                  >
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-
-                <th>
-                  EPS (₹)
-                  <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS Gr %
-                  <button className="screenerbtnlist" onClick={() => handleSort("epsDilGrowth")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Div Yield %
-                  <button className="screenerbtnlist" onClick={() => handleSort("divYield")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Sectors
-                  <button className="screenerbtnlist" onClick={() => handleSort("sector")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Analyst Rating
-                  <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentData.map((stock, index) => (
-                <tr key={index} className="screener-row">
-                  <td className="symbol-cell">
-                    <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-
-
-
-                    <a href={stock.url}>{stock.symbol}</a>
-                  </td>
-
-                  <td>{stock.price}</td>
-                  <td
-                    style={{
-                      color: parseFloat(stock.change) > 0 ? "#24b676" : parseFloat(stock.change) < 0 ? "red" : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.change) > 0 ? `${stock.change}` : stock.change}
-
-
-                  </td>
-                  <td>{stock.volume}</td>
-                  <td>{stock.marketCap}</td>
-                  <td>{stock.pToE}</td>
-                  <td>{stock.eps}</td>
-                  <td
-                    style={{
-                      color: parseFloat(stock.epsDilGrowth) > 0 ? "#24b676" : parseFloat(stock.epsDilGrowth) < 0 ? "red" : "inherit",
-                    }}
-                  >
-                    {parseFloat(stock.epsDilGrowth) > 0 ? `${stock.epsDilGrowth}` : stock.epsDilGrowth}
-
-
-                  </td>
-                  <td>{stock.divYield}</td>
-                  <td
-                    style={{
-                      color: "blue",
-
-                    }}
-                  >
-                    {stock.sector}
-                  </td>
-
-
-                  <td>{
-                    !isSubed ? 
-                    <button className="screener-unlock-btn" onClick={handleNavigate}>
-                      <IoLockClosedOutline style={{ marginRight: '8px' }} />
-                      <span className="button-text">Unlock</span>
-                    </button> : stock.analystRating
-                    }
-                    
-                  </td>
-
-
+                  <th>
+                    EPS (₹)
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("eps")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EPS Gr %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("epsDilGrowth")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Div Yield %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("divYield")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Sectors
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("sector")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Analyst Rating
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("analystrating")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>}
+              </thead>
+              <tbody>
+                {currentData.map((stock, index) => (
+                  <tr key={index} className="screener-row">
+                    <td className="symbol-cell">
+                      <img
+                        src={stock.icon}
+                        alt={`${stock.symbol} logo`}
+                        className="company-icon"
+                      />
+
+                      <a href={stock.url}>{stock.symbol}</a>
+                    </td>
+
+                    <td>{stock.price}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.change) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.change) < 0
+                            ? "red"
+                            : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.change) > 0
+                        ? `${stock.change}`
+                        : stock.change}
+                    </td>
+                    <td>{stock.volume}</td>
+                    <td>{stock.marketCap}</td>
+                    <td>{stock.pToE}</td>
+                    <td>{stock.eps}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.epsDilGrowth) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.epsDilGrowth) < 0
+                            ? "red"
+                            : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.epsDilGrowth) > 0
+                        ? `${stock.epsDilGrowth}`
+                        : stock.epsDilGrowth}
+                    </td>
+                    <td>{stock.divYield}</td>
+                    <td
+                      style={{
+                        color: "blue",
+                      }}
+                    >
+                      {stock.sector}
+                    </td>
+
+                    <td>
+                      {!isSubed ? (
+                        <button
+                          className="screener-unlock-btn"
+                          onClick={handleNavigate}
+                        >
+                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                          <span className="button-text">Unlock</span>
+                        </button>
+                      ) : (
+                        stock.analystRating
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
           </div>
 
           <div className="pagination-slider">
-            <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
 
             {startPage > 1 && (
               <>
-                <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
                 {startPage > 2 && <span>...</span>}
               </>
             )}
@@ -2310,7 +2414,9 @@ const Smallcap = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}
@@ -2320,21 +2426,29 @@ const Smallcap = () => {
             {endPage < totalPages && (
               <>
                 {endPage < totalPages - 1 && <span>...</span>}
-                <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
               </>
             )}
 
-            <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
           </div>
         </div>
         <Navbar />
-
-
       </div>
       <div className="foooterpagesaupdate">
         <FooterForAllPage />
       </div>
-
     </div>
   );
 };

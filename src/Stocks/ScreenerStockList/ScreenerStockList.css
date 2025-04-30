@@ -1,5 +1,5 @@
 /* src/components/ScreenerStockList.css */
- 
+
 .screener-container {
   max-width: 95%;
   overflow-x: hidden;
@@ -1272,7 +1272,7 @@
 
 
 }
- 
+
 @media (min-width: 1280px) and (max-width: 1535px) {
   .screener-header {
     font-size: 22px;
@@ -1290,7 +1290,7 @@
     margin-top: 40px;
   }
 }
- 
+
 /* Mobile View for 768px */
 @media screen and (max-width: 768px) {
   .screener-filters {
@@ -1307,7 +1307,7 @@
     scrollbar-color: #24b676 #e0e0e0;
     /* Prevent wrapping of child elements */
   }
- 
+
   /* Always show scrollbar for WebKit browsers (Chrome, Safari) */
   .screener-filters::-webkit-scrollbar {
     height: 8px;
@@ -1315,18 +1315,18 @@
     display: block;
     /* Forces scrollbar visibility */
   }
- 
+
   .screener-filters::-webkit-scrollbar-thumb {
     background: #24b676;
     /* Green scrollbar color */
     border-radius: 4px;
   }
- 
+
   .screener-filters::-webkit-scrollbar-track {
     background: #24b676;
     /* Light gray scrollbar track */
   }
- 
+
   .stockindexscreeneropt {
     position: absolute;
     top: 180px;
@@ -1339,7 +1339,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
- 
+
   .dropdown-market-cap-options {
     position: absolute;
     top: 180px;
@@ -1350,7 +1350,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-marketcap-options {
     position: absolute;
     top: 180px;
@@ -1361,7 +1361,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-eps-options {
     position: absolute;
     top: 180px;
@@ -1372,7 +1372,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-div-options {
     position: absolute;
     top: 180px;
@@ -1385,7 +1385,7 @@
     /* margin-right: 30px; */
     left: 70%;
   }
- 
+
   .stockindexscreenesectoropt {
     position: absolute;
     top: 180px;
@@ -1398,7 +1398,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
- 
+
   .dropdown-perf-options {
     position: absolute;
     top: 180px;
@@ -1411,7 +1411,7 @@
     /* margin-right: 30px; */
     left: 60%;
   }
- 
+
   .dropdown-revgro-options {
     position: absolute;
     top: 180px;
@@ -1424,7 +1424,7 @@
     /* margin-right: 30px; */
     left: 60%;
   }
- 
+
   .dropdown-peg-options {
     position: absolute;
     top: 180px;
@@ -1437,7 +1437,7 @@
     /* margin-right: 30px; */
     left: 65%;
   }
- 
+
   .dropdown-roe-options {
     position: absolute;
     top: 180px;
@@ -1450,7 +1450,7 @@
     /* margin-right: 30px; */
     left: 70%;
   }
- 
+
   .dropdown-change-options {
     position: absolute;
     top: 180px;
@@ -1461,7 +1461,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-pe-options {
     position: absolute;
     top: 180px;
@@ -1472,7 +1472,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .screener-container {
     max-width: 95%;
     overflow-x: hidden;
@@ -1481,7 +1481,7 @@
     margin-top: 0px;
     margin-bottom: 100px;
   }
- 
+
   .pagination-stockcontainer {
     display: flex;
     gap: 400px;
@@ -1489,7 +1489,7 @@
     margin-top: 20px;
   }
 }
- 
+
 /* Mobile View for 480px */
 @media (max-width: 480px) {
   .searchboxindexscreener {
@@ -1501,14 +1501,14 @@
     border-radius: 12px;
     width: 250px;
   }
- 
+
   .pagination-stockcontainer {
     display: flex;
     gap: 100px;
     align-items: center;
     margin-top: 20px;
   }
- 
+
   .screener-container {
     max-width: 95%;
     overflow-x: hidden;
@@ -1517,7 +1517,7 @@
     margin-top: 50px;
     margin-bottom: 100px;
   }
- 
+
   .stockindexscreeneropt {
     position: absolute;
     top: 150px;
@@ -1530,7 +1530,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
- 
+
   .dropdown-market-cap-options {
     position: absolute;
     top: 150px;
@@ -1541,7 +1541,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-change-options {
     position: absolute;
     top: 150px;
@@ -1552,7 +1552,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-marketcap-options {
     position: absolute;
     top: 150px;
@@ -1564,7 +1564,7 @@
     border: 1px solid #ccc;
     left: 55%;
   }
- 
+
   .dropdown-pe-options {
     position: absolute;
     top: 150px;
@@ -1576,7 +1576,7 @@
     border: 1px solid #ccc;
     left: 30%;
   }
- 
+
   .dropdown-eps-options {
     position: absolute;
     top: 150px;
@@ -1588,7 +1588,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
- 
+
   .dropdown-div-options {
     position: absolute;
     top: 150px;
@@ -1601,7 +1601,7 @@
     /* margin-right: 30px; */
     left: 20%;
   }
- 
+
   .stockindexscreenesectoropt {
     position: absolute;
     top: 150px;
@@ -1614,7 +1614,7 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
   }
- 
+
   .resetstockscreener {
     padding: 5px 10px;
     border: 1px solid #24b676;
@@ -1624,7 +1624,7 @@
     cursor: pointer;
     margin-left: 150px;
   }
- 
+
   .dropdown-perf-options {
     position: absolute;
     top: 150px;
@@ -1636,9 +1636,9 @@
     border: 1px solid #ccc;
     /* margin-right: 30px; */
     left: 40%;
- 
+
   }
- 
+
   .dropdown-revgro-options {
     position: absolute;
     top: 150px;
@@ -1651,7 +1651,7 @@
     /* margin-right: 30px; */
     left: 30%;
   }
- 
+
   .dropdown-peg-options {
     position: absolute;
     top: 150px;
@@ -1664,7 +1664,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
- 
+
   .dropdown-roe-options {
     position: absolute;
     top: 150px;
@@ -1677,14 +1677,15 @@
     /* margin-right: 30px; */
     left: 45%;
   }
+
   .screener-header {
     font-size: 22px;
     color: #333;
     margin-bottom: 1rem;
     margin-top: 30px;
+  }
 }
-}
- 
+
 @media (max-width: 320px) {
   .searchboxindexscreener {
     display: flex;
@@ -1695,7 +1696,7 @@
     border-radius: 12px;
     width: 200px;
   }
- 
+
   .resetstockscreener {
     padding: 5px 10px;
     border: 1px solid #24b676;
@@ -1705,7 +1706,7 @@
     cursor: pointer;
     margin-left: 100px;
   }
- 
+
   .dropdown-market-cap-options {
     position: absolute;
     top: 150px;
@@ -1716,7 +1717,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-change-options {
     position: absolute;
     top: 150px;
@@ -1728,7 +1729,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
- 
+
   .dropdown-marketcap-options {
     position: absolute;
     top: 150px;
@@ -1740,7 +1741,7 @@
     border: 1px solid #ccc;
     left: 30%;
   }
- 
+
   .dropdown-pe-options {
     position: absolute;
     top: 150px;
@@ -1752,7 +1753,7 @@
     border: 1px solid #ccc;
     left: 40%;
   }
- 
+
   .dropdown-eps-options {
     position: absolute;
     top: 150px;
@@ -1764,7 +1765,7 @@
     border: 1px solid #ccc;
     left: 20%;
   }
- 
+
   .dropdown-div-options {
     position: absolute;
     top: 150px;
@@ -1777,7 +1778,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
- 
+
   .dropdown-perf-options {
     position: absolute;
     top: 150px;
@@ -1790,7 +1791,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
- 
+
   .dropdown-revgro-options {
     position: absolute;
     top: 150px;
@@ -1803,7 +1804,7 @@
     /* margin-right: 30px; */
     left: 20%;
   }
- 
+
   .dropdown-peg-options {
     position: absolute;
     top: 150px;
@@ -1816,7 +1817,7 @@
     /* margin-right: 30px; */
     left: 40%;
   }
- 
+
   .dropdown-roe-options {
     position: absolute;
     top: 150px;
@@ -1829,7 +1830,7 @@
     /* margin-right: 30px; */
     left: 44%;
   }
- 
+
   .pagination-stockcontainer {
     display: flex;
     gap: 50px;
@@ -1837,8 +1838,8 @@
     margin-top: 20px;
   }
 }
- 
- 
+
+
 @media (min-width: 1280px) and (max-width: 1535px)
 /* Medium Desktops (1024px - 1279px) */
   {
@@ -1851,7 +1852,8 @@
 
   }
 }
- 
+
+
 /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .screener-filters {
@@ -2176,7 +2178,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
+
   .dropdown-peg-options {
     position: absolute;
     top: 176px;
@@ -2187,6 +2189,6 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
- 
- 
+
+
 }

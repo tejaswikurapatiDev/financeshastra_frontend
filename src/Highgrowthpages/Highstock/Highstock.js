@@ -21,8 +21,8 @@ const override = {
 
 const Highstock = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
-  const [isloading, setisloading] = useState(true)
-  const [isSubed, setisSubed] = useState(false)
+  const [isloading, setisloading] = useState(true);
+  const [isSubed, setisSubed] = useState(false);
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
@@ -140,13 +140,13 @@ const Highstock = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-        parseFloat(newFilters.price)
+          parseFloat(newFilters.price)
       );
       console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
-        parseFloat(newFilters.price);
+          parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -621,7 +621,7 @@ const Highstock = () => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/stocksscreener/1`;
       const response = await fetch(url);
-      console.log(response)
+      console.log(response);
       if (response.ok === true) {
         const data = await response.json();
         console.log(data);
@@ -641,7 +641,7 @@ const Highstock = () => {
           icon: each.icons,
           index: each.IndexName,
           roe: each.ROE,
-          analystRating: each.Analyst_Rating
+          analystRating: each.Analyst_Rating,
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
@@ -649,9 +649,9 @@ const Highstock = () => {
         setStocks(formattedData);
       }
       if (isSubscribed && isLoading) {
-        setisSubed(true)
+        setisSubed(true);
       }
-      setisloading(false)
+      setisloading(false);
     };
     fetchfun();
   }, []);
@@ -1260,10 +1260,7 @@ const Highstock = () => {
         <h1 className="screener-header">High Growth Stocks</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1342,7 +1339,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1413,7 +1410,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1441,8 +1438,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1487,7 +1484,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1561,7 +1558,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1589,8 +1586,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1635,7 +1632,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1663,8 +1660,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1709,7 +1706,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1777,10 +1774,7 @@ const Highstock = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1856,7 +1850,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1884,8 +1878,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1931,7 +1925,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1961,8 +1955,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2008,7 +2002,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2036,8 +2030,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2083,7 +2077,7 @@ const Highstock = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2111,8 +2105,8 @@ const Highstock = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2162,15 +2156,16 @@ const Highstock = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/highgrowthstocks"); 
+              navigate("/highgrowthstocks");
             }}
           >
             Overview
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Valuation" ? "active" : ""
-              }`}
+            className={`tab-button ${
+              activeTab === "Valuation" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Valuation");
               navigate("/highstockvaluation"); // Navigate to the ScreenerStockvaluation page
@@ -2180,8 +2175,9 @@ const Highstock = () => {
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""
-              }`}
+            className={`tab-button ${
+              activeTab === "Income Statement" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Income Statement");
               navigate("/highgrowthStockIncomeStatement"); // Add a route for Income Statement if needed
@@ -2191,14 +2187,18 @@ const Highstock = () => {
           </button>
         </div>
         {/* Conditional Rendering */}
-        {isloading ? <div className='loader-cont'><ClipLoader
-          cssOverride={override}
-          size={35}
-          data-testid="loader"
-          loading={isLoading}
-          speedMultiplier={1}
-          color="green"
-        /></div> :
+        {isloading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isLoading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </div>
+        ) : (
           <div
             className="screener-table-wrapper"
             style={{ overflowY: "auto", height: "500px" }}
@@ -2331,8 +2331,8 @@ const Highstock = () => {
                           parseFloat(stock.change) > 0
                             ? "#24b676"
                             : parseFloat(stock.change) < 0
-                              ? "red"
-                              : "inherit",
+                            ? "red"
+                            : "inherit",
                       }}
                     >
                       {parseFloat(stock.change) > 0
@@ -2349,8 +2349,8 @@ const Highstock = () => {
                           parseFloat(stock.epsDilGrowth) > 0
                             ? "#24b676"
                             : parseFloat(stock.epsDilGrowth) < 0
-                              ? "red"
-                              : "inherit",
+                            ? "red"
+                            : "inherit",
                       }}
                     >
                       {parseFloat(stock.epsDilGrowth) > 0
@@ -2367,26 +2367,30 @@ const Highstock = () => {
                     </td>
 
                     <td>
-                      {!isSubed ?
+                      {!isSubed ? (
                         <button
                           className="screener-unlock-btn"
                           onClick={handleNavigate}
                         >
                           <IoLockClosedOutline style={{ marginRight: "8px" }} />
                           <span className="button-text">Unlock</span>
-                        </button> : stock.analystRating
-                      }
+                        </button>
+                      ) : (
+                        stock.analystRating
+                      )}
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-          </div>}
+          </div>
+        )}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length
-              } records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
           </div>
 
           <div className="pagination-slider">
@@ -2413,8 +2417,9 @@ const Highstock = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""
-                  }`}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}

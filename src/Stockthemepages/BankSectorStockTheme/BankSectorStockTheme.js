@@ -74,7 +74,7 @@ const BankSectorThemePage = () => {
     
         setFilteredBanks(sortedBanks);
         setSortDirection(!sortDirection); // Toggle sort direction
-      };
+      }; 
  // Handle search input changes and filter suggestions
  const handleSearchChange = (e) => {
     const value = e.target.value;

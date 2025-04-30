@@ -761,10 +761,6 @@ function App() {
                 element={<WhyFinadvanceeducationnn />}
               />
               <Route
-                path="/banksectorstocktheme"
-                element={<Banksectorstocktheme />}
-              />
-              <Route
                 path="/stockThemes"
                 element={<StockThemesSectorPages />}
               />
@@ -781,7 +777,7 @@ function App() {
                 element={<StockThemesindustriesPages />}
               />
               <Route
-                path="/stockThemesindustrieslockPages"
+                path="/stocksThemesindustries"
                 element={<StockThemesindustrieslockPages />}
               />
 
