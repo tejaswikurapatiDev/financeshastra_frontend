@@ -1,8 +1,8 @@
 import { screenerStockListData } from "../../Stocks/screenerStockListData";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
-import { useState, useEffect,useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { API_BASE_URL } from "../../config";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
@@ -21,18 +21,19 @@ const override = {
 
 const Netify100 = () => {
   const [stocks, setStocks] = useState(screenerStockListData);
-  const [isSubed, setisSubed]= useState(false)
-  const [isloading, setisloading]= useState(true)
+  const [isSubed, setisSubed] = useState(false);
+  const [isloading, setisloading] = useState(true);
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
-  const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] = useState(false);
+  const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] =
+    useState(false);
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
-    pe: [],           // Initialize as an empty array
-    roe: [],          // Initialize as an empty array
+    pe: [], // Initialize as an empty array
+    roe: [], // Initialize as an empty array
     price: "All",
     marketCap: "All",
     divYield: [],
@@ -40,84 +41,83 @@ const Netify100 = () => {
     change: "All",
   });
 
- const [dropdowns, setDropdowns] = useState({
-       divYield: false,
-       price: false,
-       change: false, 
-       eps: false,
-       roe: false,
-       pe: false,
-       marketcap: false,
-       performance: false,
-       peg: false,
-       revenue: false,
-       index: false,
-       sector: false,
-     });
-    
-const toggleDropdown = (key) => {
-  setDropdowns((prev) => {
-    // Create a new object where all dropdowns are closed except the one being toggled
-    const updatedDropdowns = Object.keys(prev).reduce((acc, currKey) => {
-      acc[currKey] = currKey === key ? !prev[currKey] : false;
-      return acc;
-    }, {});
-    return updatedDropdowns;
+  const [dropdowns, setDropdowns] = useState({
+    divYield: false,
+    price: false,
+    change: false,
+    eps: false,
+    roe: false,
+    pe: false,
+    marketcap: false,
+    performance: false,
+    peg: false,
+    revenue: false,
+    index: false,
+    sector: false,
   });
-};
-// Close dropdown when clicking outside
 
-  const [filteredData, setFilteredData] = useState(screenerStockListData); 
+  const toggleDropdown = (key) => {
+    setDropdowns((prev) => {
+      // Create a new object where all dropdowns are closed except the one being toggled
+      const updatedDropdowns = Object.keys(prev).reduce((acc, currKey) => {
+        acc[currKey] = currKey === key ? !prev[currKey] : false;
+        return acc;
+      }, {});
+      return updatedDropdowns;
+    });
+  };
+  // Close dropdown when clicking outside
+
+  const [filteredData, setFilteredData] = useState(screenerStockListData);
 
   const toggleDivYieldDropdown = () => {
     setDivYieldDropdownVisible(!isDivYieldDropdownVisible);
-   
   };
   const [isPriceDropdownVisible, setPriceDropdownVisible] = useState(false);
   const togglePriceDropdown = () => {
     setPriceDropdownVisible(!isPriceDropdownVisible);
-   
   };
   const [ischangeDropdownVisible, setchangeDropdownVisible] = useState(false);
   const togglechangeDropdown = () => {
     setchangeDropdownVisible(!ischangeDropdownVisible);
-   
   };
   const [isEPSDropdownVisible, setEPSDropdownVisible] = useState(false);
 
   const [isROEDropdownVisible, setROEDropdownVisible] = useState(false);
 
+  const recordsPerPage = 10;
+  const totalPages = Math.ceil(stocks.length / recordsPerPage);
 
-    const recordsPerPage = 10;
-       const totalPages = Math.ceil(stocks.length / recordsPerPage);
-     
-       //  Ensure currentData updates correctly
-       const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
-       const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
-       const currentData = useMemo(() => {
-         return stocks.slice(indexOfFirstItem, indexOfLastItem);
-       }, [currentPage, stocks]);
-     
-       const handlePageChange = (pageNumber) => {
-         if (pageNumber > 0 && pageNumber <= totalPages) {
-           setCurrentPage(pageNumber);
-         }
-       };
-     
-       //  Debugging Effect: Confirm re-rendering when `currentPage` updates
-     useEffect(()=>{
-       const fetchfun= async ()=>{
-         const url= `${API_BASE_URL}/stocks/nifty100`
-         const options= {
-          method: "GET",
-          Authorization: `Bearer ${Cookies.get('jwtToken')}`
-         }
-         console.log('url:', url)
-         const response= await fetch(url, options)
-         if (response.ok=== true){
-           const data= await response.json()
-           const formattedData= data.map(each =>({
-             id: each.id,
+  //  Ensure currentData updates correctly
+  const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
+  const indexOfLastItem = Math.min(
+    indexOfFirstItem + recordsPerPage,
+    stocks.length
+  );
+  const currentData = useMemo(() => {
+    return stocks.slice(indexOfFirstItem, indexOfLastItem);
+  }, [currentPage, stocks]);
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber > 0 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  //  Debugging Effect: Confirm re-rendering when `currentPage` updates
+  useEffect(() => {
+    const fetchfun = async () => {
+      const url = `${API_BASE_URL}/stocks/nifty100`;
+      const options = {
+        method: "GET",
+        Authorization: `Bearer ${Cookies.get("jwtToken")}`,
+      };
+      console.log("url:", url);
+      const response = await fetch(url, options);
+      if (response.ok === true) {
+        const data = await response.json();
+        const formattedData = data.map((each) => ({
+          id: each.id,
           symbol: each.CompanyName,
           price: each.LastTradedPrice,
           change: each.ChangePercentage,
@@ -132,51 +132,48 @@ const toggleDropdown = (key) => {
           icon: each.icons,
           index: each.IndexName,
           roe: each.ROE,
-          analystRating: each.Analyst_Rating
-           }))
-           //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
-           
-   
-           console.log(formattedData)
-           setStocks(formattedData)
-         }
-         if (isSubscribed && isLoading) {
-          setisSubed(true)
-        }
-        setisloading(false)
-       }
-       fetchfun()
-     }, [])
-     
-       // Pagination Range Calculation
-       const { startPage, endPage } = useMemo(() => {
-         const maxVisiblePages = 5;
-         let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
-         let end = Math.min(totalPages, start + maxVisiblePages - 1);
-     
-         if (end - start + 1 < maxVisiblePages) {
-           start = Math.max(1, end - maxVisiblePages + 1);
-         }
-     
-         return { startPage: start, endPage: end };
-       }, [currentPage, totalPages]);
-     
+          analystRating: each.Analyst_Rating,
+        }));
+        //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
+
+        console.log(formattedData);
+        setStocks(formattedData);
+      }
+      if (isSubscribed && isLoading) {
+        setisSubed(true);
+      }
+      setisloading(false);
+    };
+    fetchfun();
+  }, []);
+
+  // Pagination Range Calculation
+  const { startPage, endPage } = useMemo(() => {
+    const maxVisiblePages = 5;
+    let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let end = Math.min(totalPages, start + maxVisiblePages - 1);
+
+    if (end - start + 1 < maxVisiblePages) {
+      start = Math.max(1, end - maxVisiblePages + 1);
+    }
+
+    return { startPage: start, endPage: end };
+  }, [currentPage, totalPages]);
+
   const toggleROEDropdown = () => {
     setROEDropdownVisible(!isROEDropdownVisible);
-   
   };
-  
 
-  
   const toggleEPSDropdown = () => {
     setEPSDropdownVisible(!isEPSDropdownVisible);
   };
   const [isPEDropdownVisible, setPEDropdownVisible] = useState(false);
- 
+
   const togglePEDropdown = () => {
     setPEDropdownVisible(!isPEDropdownVisible);
   };
-  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] = useState(false);
+  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] =
+    useState(false);
   const [marketCapFilters, setMarketCapFilters] = useState([]);
 
   const handleMarketCapChange = (value) => {
@@ -208,7 +205,6 @@ const toggleDropdown = (key) => {
     }));
   };
 
-  
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -243,38 +239,46 @@ const toggleDropdown = (key) => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters,"newfilter");
+    console.log(newFilters, "newfilter");
     const filteredStocks = screenerStockListData.filter((stock) => {
-      console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
-      console.log(stock.price.replace(/₹|,/g, ""))
+      console.log(
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price)
+      );
+      console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
-        parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price);
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price);
 
-        // const matchesMarketCap =
-        // newFilters.marketCap.length !== 0 || // Check if it's empty
-        // newFilters.marketCap.some((cap) => {
-        //   const stockMarketCap = parseFloat(stock.marketCap.replace("T", ""));
-        //   if (cap === "large" && stockMarketCap > 10) return true;
-        //   if (cap === "mid" && stockMarketCap > 2 && stockMarketCap <= 10) return true;
-        //   if (cap === "small" && stockMarketCap > 0.5 && stockMarketCap <= 2) return true;
-        //   if (cap === "micro" && stockMarketCap <= 0.5) return true;
-        //   if (cap === "others" && stockMarketCap > 0) return true;
-        //   return false;
-        // });
-      
+      // const matchesMarketCap =
+      // newFilters.marketCap.length !== 0 || // Check if it's empty
+      // newFilters.marketCap.some((cap) => {
+      //   const stockMarketCap = parseFloat(stock.marketCap.replace("T", ""));
+      //   if (cap === "large" && stockMarketCap > 10) return true;
+      //   if (cap === "mid" && stockMarketCap > 2 && stockMarketCap <= 10) return true;
+      //   if (cap === "small" && stockMarketCap > 0.5 && stockMarketCap <= 2) return true;
+      //   if (cap === "micro" && stockMarketCap <= 0.5) return true;
+      //   if (cap === "others" && stockMarketCap > 0) return true;
+      //   return false;
+      // });
 
-        const matchesDivYield =
+      const matchesDivYield =
         newFilters.divYield.length === 0 ||
         newFilters.divYield.some((divYieldValue) => {
           const stockDivYield = parseFloat(stock.divYield.replace("%", ""));
           if (divYieldValue === "10-above" && stockDivYield >= 10) return true;
           if (divYieldValue === "5-above" && stockDivYield >= 5) return true;
           if (divYieldValue === "2-below" && stockDivYield <= 2) return true;
-          if (divYieldValue === "0-2" && stockDivYield > 0 && stockDivYield <= 2) return true;
+          if (
+            divYieldValue === "0-2" &&
+            stockDivYield > 0 &&
+            stockDivYield <= 2
+          )
+            return true;
           return false;
         });
-        
+
       const matchesSector =
         newFilters.sector === "All" || stock.sector === newFilters.sector;
 
@@ -292,37 +296,37 @@ const toggleDropdown = (key) => {
           if (roeValue === "15" && parseFloat(stock.roe) >= 15) return true;
           if (roeValue === "0-above" && parseFloat(stock.roe) >= 0) return true;
           if (roeValue === "0-below" && parseFloat(stock.roe) < 0) return true;
-          if (roeValue === "15-below" && parseFloat(stock.roe) < 15) return true;
+          if (roeValue === "15-below" && parseFloat(stock.roe) < 15)
+            return true;
           return false;
         });
-        const matchesEPSDilGrowth =
-      newFilters.epsDilGrowth.length === 0 ||
-      newFilters.epsDilGrowth.some((epsValue) => {
-        const stockEPS = parseFloat(stock.epsDilGrowth.replace("%", ""));
-        if (epsValue === "50-above" && stockEPS >= 50) return true;
-        if (epsValue === "25-above" && stockEPS >= 25) return true;
-        if (epsValue === "10-below" && stockEPS <= 10) return true;
-        if (epsValue === "0-above" && stockEPS >= 0) return true;
-        if (epsValue === "0-below" && stockEPS < 0) return true;
-        if (epsValue === "-25-below" && stockEPS <= -25) return true;
-        return false;
-      });
-     
-      
-  // PE filter
-  const matchesPE =
-  newFilters.pe.length === 0 ||
-  newFilters.pe.some((peValue) => {
-    const stockPE = parseFloat(stock.pe || "0");
-    if (peValue === "50-above" && stockPE >= 50) return true;
-    if (peValue === "25-50" && stockPE >= 25 && stockPE < 50) return true;
-    if (peValue === "15-25" && stockPE >= 15 && stockPE < 25) return true;
-    if (peValue === "0-15" && stockPE >= 0 && stockPE < 15) return true;
-    if (peValue === "25-below" && stockPE < 25) return true;
-    if (peValue === "15-below" && stockPE < 15) return true;
-    if (peValue === "0-above" && stockPE >= 0) return true;
-    return false;
-  });
+      const matchesEPSDilGrowth =
+        newFilters.epsDilGrowth.length === 0 ||
+        newFilters.epsDilGrowth.some((epsValue) => {
+          const stockEPS = parseFloat(stock.epsDilGrowth.replace("%", ""));
+          if (epsValue === "50-above" && stockEPS >= 50) return true;
+          if (epsValue === "25-above" && stockEPS >= 25) return true;
+          if (epsValue === "10-below" && stockEPS <= 10) return true;
+          if (epsValue === "0-above" && stockEPS >= 0) return true;
+          if (epsValue === "0-below" && stockEPS < 0) return true;
+          if (epsValue === "-25-below" && stockEPS <= -25) return true;
+          return false;
+        });
+
+      // PE filter
+      const matchesPE =
+        newFilters.pe.length === 0 ||
+        newFilters.pe.some((peValue) => {
+          const stockPE = parseFloat(stock.pe || "0");
+          if (peValue === "50-above" && stockPE >= 50) return true;
+          if (peValue === "25-50" && stockPE >= 25 && stockPE < 50) return true;
+          if (peValue === "15-25" && stockPE >= 15 && stockPE < 25) return true;
+          if (peValue === "0-15" && stockPE >= 0 && stockPE < 15) return true;
+          if (peValue === "25-below" && stockPE < 25) return true;
+          if (peValue === "15-below" && stockPE < 15) return true;
+          if (peValue === "0-above" && stockPE >= 0) return true;
+          return false;
+        });
       return (
         matchesPrice &&
         // matchesMarketCap &&
@@ -337,7 +341,7 @@ const toggleDropdown = (key) => {
 
     setStocks(filteredStocks);
   };
-  
+
   // Handle sorting logic for columns
   const handleSort = (key) => {
     const sortedStocks = [...stocks].sort((a, b) => {
@@ -363,7 +367,9 @@ const toggleDropdown = (key) => {
 
       // For sector column, compare alphabetically
       if (key === "sector") {
-        return sortDirection ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        return sortDirection
+          ? valA.localeCompare(valB)
+          : valB.localeCompare(valA);
       }
 
       // For other columns, compare numerically
@@ -375,30 +381,31 @@ const toggleDropdown = (key) => {
   };
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-const [performanceRange, setPerformanceRange] = useState({ min: -30, max: 40 });
+  const [performanceRange, setPerformanceRange] = useState({
+    min: -30,
+    max: 40,
+  });
 
-const handlePerformanceRangeChange = (value) => {
-  setPerformanceRange((prevRange) => ({
-    ...prevRange,
-    min: value,
-    max: value, // Both min and max are the same, creating a single slider
-  }));
-};
+  const handlePerformanceRangeChange = (value) => {
+    setPerformanceRange((prevRange) => ({
+      ...prevRange,
+      min: value,
+      max: value, // Both min and max are the same, creating a single slider
+    }));
+  };
 
-const applyRange = () => {
-  console.log("Performance Range Applied:", performanceRange);
-  //setPerfDropdownVisible(false); // Close dropdown after applying
-};
+  const applyRange = () => {
+    console.log("Performance Range Applied:", performanceRange);
+    //setPerfDropdownVisible(false); // Close dropdown after applying
+  };
 
-
-const resetchangeRange = () => {
+  const resetchangeRange = () => {
     setChangeRange({ min: -50, max: 100 });
-};
+  };
 
-
-const resetRange = () => {
-  setPerformanceRange({ min: -30, max: 40 });
-};
+  const resetRange = () => {
+    setPerformanceRange({ min: -30, max: 40 });
+  };
   // Sector dropdown logic
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -442,7 +449,6 @@ const resetRange = () => {
     "Textiles",
   ];
 
- 
   const indexes = [
     "Nifty 50",
     "Nifty 500",
@@ -463,15 +469,21 @@ const resetRange = () => {
     "Nifty Auto",
     "Nifty CPSE",
   ];
-  const marketCapCategory = ["Large Cap", "Mid Cap", "Small Cap", "Micro Cap", "Other"];
+  const marketCapCategory = [
+    "Large Cap",
+    "Mid Cap",
+    "Small Cap",
+    "Micro Cap",
+    "Other",
+  ];
   const peFilterOptions = [
     { value: "0-above", label: "0 and above" },
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
-  
+
   const epsDilGrowthOptions = [
     {
       label: "0% and above",
@@ -498,7 +510,7 @@ const resetRange = () => {
       value: "-25-below",
     },
   ];
-  
+
   const divYieldOptions = [
     {
       label: "0% to 2%",
@@ -517,7 +529,7 @@ const resetRange = () => {
       value: "10-above",
     },
   ];
-  
+
   const roeOptions = [
     {
       label: "0% and above",
@@ -540,7 +552,7 @@ const resetRange = () => {
       value: "30",
     },
   ];
-  
+
   const pegOptions = [
     {
       label: "0.9 to 1.1",
@@ -567,7 +579,7 @@ const resetRange = () => {
       value: "2-below",
     },
   ];
-  
+
   const revenueGrowthOptions = [
     { label: "0% and above", value: "0-above" },
     { label: "0% and below", value: "0-below" },
@@ -576,44 +588,44 @@ const resetRange = () => {
     { label: "50% and above", value: "50-above" },
     { label: "-25% and below", value: "-25-below" },
   ];
-  
+
   const priceOptions = [
-  { label: "5 and below", value: "5-below" },
-  { label: "10 and below", value: "10-below" },
-  { label: "10 to 100", value: "10-100" },
-  { label: "100 and above", value: "100" },
-  { label: "Up to 500", value: "500" },
-  { label: "Up to 1000", value: "1000" },
-  { label: "Up to 5000", value: "5000" },
-];
-const changeOptions = [
-  { label: "0% and below", value: "0-below" },
-  { label: "0% and above", value: "0-above" },
-  { label: "0% to 5%", value: "0-5" },
- { label: "5% and above", value: "5-above" },
-  { label: "10% and above", value: "10-above" },
-  {label: "20% and above", value: "20-above" },
-  { label: "30% and above", value: "30-above" },
-  { label: "-5% to 0%", value: "-5-0" },
-  { label: "-5% and below", value: "-5-below" },
-  { label: "-10% and below", value: "-10-below" },
-  { label: "-20% and below", value: "-20-below" },
-  { label: "-30% and below", value: "-30-below" },
-];
-const perfOptions = [
-  { label: "0% and below", value: "0-below" },
-  { label: "0% and above", value: "0-above" },
-  { label: "0% to 5%", value: "0-5" },
-  { label: "5% and above", value: "5-above" },
-  { label: "10% and above", value: "10-above" },
-  { label: "20% and above", value: "20-above" },
-  { label: "30% and above", value: "30-above" },
-  { label: "-5% to 0%", value: "-5-0" },
-  { label: "-5% and below", value: "-5-below" },
-  { label: "-10% and below", value: "-10-below" },
-  { label: "-20% and below", value: "-20-below" },
-  { label: "-30% and below", value: "-30-below" },
-];
+    { label: "5 and below", value: "5-below" },
+    { label: "10 and below", value: "10-below" },
+    { label: "10 to 100", value: "10-100" },
+    { label: "100 and above", value: "100" },
+    { label: "Up to 500", value: "500" },
+    { label: "Up to 1000", value: "1000" },
+    { label: "Up to 5000", value: "5000" },
+  ];
+  const changeOptions = [
+    { label: "0% and below", value: "0-below" },
+    { label: "0% and above", value: "0-above" },
+    { label: "0% to 5%", value: "0-5" },
+    { label: "5% and above", value: "5-above" },
+    { label: "10% and above", value: "10-above" },
+    { label: "20% and above", value: "20-above" },
+    { label: "30% and above", value: "30-above" },
+    { label: "-5% to 0%", value: "-5-0" },
+    { label: "-5% and below", value: "-5-below" },
+    { label: "-10% and below", value: "-10-below" },
+    { label: "-20% and below", value: "-20-below" },
+    { label: "-30% and below", value: "-30-below" },
+  ];
+  const perfOptions = [
+    { label: "0% and below", value: "0-below" },
+    { label: "0% and above", value: "0-above" },
+    { label: "0% to 5%", value: "0-5" },
+    { label: "5% and above", value: "5-above" },
+    { label: "10% and above", value: "10-above" },
+    { label: "20% and above", value: "20-above" },
+    { label: "30% and above", value: "30-above" },
+    { label: "-5% to 0%", value: "-5-0" },
+    { label: "-5% and below", value: "-5-below" },
+    { label: "-10% and below", value: "-10-below" },
+    { label: "-20% and below", value: "-20-below" },
+    { label: "-30% and below", value: "-30-below" },
+  ];
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -625,621 +637,642 @@ const perfOptions = [
   const filteredIndexes = indexes.filter((index) =>
     index.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const filteredmarketCapCategory = marketCapCategory.filter((marketCapCategory) =>
-    marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredmarketCapCategory = marketCapCategory.filter(
+    (marketCapCategory) =>
+      marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleReset = () => {
-      setSelectedSectors([]);  // Reset selected sectors
-      setSearchTerm("");       // Reset search term
-      setSelectedIndexes([]);
-      setSelectedMcap([]);
-      setSelectedPe([]);
-      setSelectedeps([]);
-      setSelecteddivyield([]);
-      setSelectedroe([]);
-      setSelectedpeg([]);
-      setSelectedrevenuegrowth([]);
-      setSelectedprice([]);
-      setSelectedchange([]);
-      setSelectedperf([]);
-  
-      //close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        peg: false,
-        roe: false,
-        revenue: false,
-        price: false,
-        change: false,
-        divYield: false,
-        eps: false,
-        pe: false,
-        marketcap: false,
-        index: false,
-        sector: false,
-        performance: false,
-        // Close PEG dropdown
-  
-      }));
-    };
-  
-    const handleApply = () => {
-      // Update the filters with the selected indexes and sectors
-      setFilters((prevFilters) => ({
-        ...prevFilters,
-        index: selectedIndexes,
-  
-      }));
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      // Apply the filter based on the selected indexes and sectors
-      const filteredStocks = screenerStockListData.filter((stock) =>
-        selectedIndexes.includes(stock.index)
+    setSelectedSectors([]); // Reset selected sectors
+    setSearchTerm(""); // Reset search term
+    setSelectedIndexes([]);
+    setSelectedMcap([]);
+    setSelectedPe([]);
+    setSelectedeps([]);
+    setSelecteddivyield([]);
+    setSelectedroe([]);
+    setSelectedpeg([]);
+    setSelectedrevenuegrowth([]);
+    setSelectedprice([]);
+    setSelectedchange([]);
+    setSelectedperf([]);
+
+    //close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      peg: false,
+      roe: false,
+      revenue: false,
+      price: false,
+      change: false,
+      divYield: false,
+      eps: false,
+      pe: false,
+      marketcap: false,
+      index: false,
+      sector: false,
+      performance: false,
+      // Close PEG dropdown
+    }));
+  };
+
+  const handleApply = () => {
+    // Update the filters with the selected indexes and sectors
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      index: selectedIndexes,
+    }));
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    // Apply the filter based on the selected indexes and sectors
+    const filteredStocks = screenerStockListData.filter((stock) =>
+      selectedIndexes.includes(stock.index)
+    );
+    // Update the stocks with the filtered data
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      index: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handlesectorApply = () => {
+    // Update the filters with the selected indexes and sectors
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+
+      sector: selectedSectors, // Assuming selectedSectors is an array of selected sectors
+    }));
+
+    // Apply the filter based on the selected indexes and sectors
+    const filteredStocks = screenerStockListData.filter((stock) =>
+      selectedSectors.includes(stock.sector)
+    );
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      sector: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handlemcapApply = () => {
+    // Update the filters with the selected market cap categories
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      marketCapCategory: selectedMcap, // Assuming selectedMcap is an array of selected categories
+    }));
+
+    // Filter the stocks based on the selected market cap categories
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) =>
+      selectedMcap.includes(stock.marketCapCategory)
+    );
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // ✅ Corrected way to close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      marketcap: false, // ✅ Corrected key (should match toggleDropdown)
+    }));
+
+    // Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handlePeApply = () => {
+    // Filter stocks based on the selected P/E range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockPe = parseFloat(stock.pToE);
+      return selectedPe.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockPe >= 50;
+          case "25-50":
+            return stockPe >= 25 && stockPe < 50;
+          case "15-25":
+            return stockPe >= 15 && stockPe < 25;
+          case "15-below":
+            return stockPe < 15;
+          case "0-above":
+            return stockPe >= 0; // Includes all positive values
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      pe: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handleEPSApply = () => {
+    // Filter stocks based on the selected EPS Dil Growth range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockEpsGrowth = parseFloat(stock.epsDilGrowth); // Assuming `epsDilGrowth` is the field in the stock data
+      return selectedeps.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockEpsGrowth >= 50;
+          case "25-above":
+            return stockEpsGrowth >= 25;
+          case "10-below":
+            return stockEpsGrowth <= 10;
+          case "0-above":
+            return stockEpsGrowth >= 0;
+          case "0-below":
+            return stockEpsGrowth <= 0;
+          case "-25-below":
+            return stockEpsGrowth <= -25;
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      eps: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handleDivYieldApply = () => {
+    // Filter stocks based on the selected Dividend Yield range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockDivYield = parseFloat(stock.divYield); // Assuming `divYield` is the field in the stock data
+      return selecteddivyield.some((range) => {
+        switch (range) {
+          case "10-above":
+            return stockDivYield >= 10;
+          case "5-above":
+            return stockDivYield >= 5;
+          case "2-below":
+            return stockDivYield <= 2;
+          case "0-2":
+            return stockDivYield >= 0 && stockDivYield <= 2; // Covers 0% to 2%
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      divYield: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handleROEApply = () => {
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    // Filter stocks based on the selected ROE range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockROE = parseFloat(stock.roe); // Assuming `roe` is the field in the stock data
+      return selectedroe.some((range) => {
+        switch (range) {
+          case "30":
+            return stockROE >= 30; // 30% and above
+          case "15":
+            return stockROE >= 15; // 15% and above
+          case "0-above":
+            return stockROE >= 0; // 0% and above
+          case "0-below":
+            return stockROE <= 0; // 0% and below
+          case "15-below":
+            return stockROE <= 15; // 15% and below
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    setDropdowns((prev) => ({
+      ...prev,
+      roe: false, // Close PEG dropdown
+    }));
+
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+  const [pegDropdownVisible, setPegDropdownVisible] = useState(false);
+
+  const handlePEGApply = () => {
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    // Filter stocks based on the selected PEG range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockPEG = parseFloat(stock.peg);
+      return selectedpeg.some((range) => {
+        switch (range) {
+          case "2-above":
+            return stockPEG >= 2;
+          case "2-below":
+            return stockPEG <= 2;
+          case "1-above":
+            return stockPEG >= 1;
+          case "1-below":
+            return stockPEG <= 1;
+          case "0.9-1.1":
+            return stockPEG >= 0.9 && stockPEG <= 1.1;
+          case "0.5-below":
+            return stockPEG <= 0.5;
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      peg: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handleRevenueGrowthApply = () => {
+    // Filter stocks based on the selected Revenue Growth range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
+      return selectedrevenuegrowth.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockRevenueGrowth >= 50; // 50% and above
+          case "25-above":
+            return stockRevenueGrowth >= 25; // 25% and above
+          case "10-below":
+            return stockRevenueGrowth <= 10; // 10% and below
+          case "0-above":
+            return stockRevenueGrowth >= 0; // 0% and above
+          case "0-below":
+            return stockRevenueGrowth <= 0; // 0% and below
+          case "-25-below":
+            return stockRevenueGrowth <= -25; // -25% and below
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      revenue: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handlePriceApply = () => {
+    // Filter stocks based on the selected price range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Parse the stock price, removing currency symbols and commas
+      const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
+
+      return selectedprice.some((range) => {
+        switch (range) {
+          case "5000":
+            return stockPrice <= 5000; // Up to 5000
+          case "1000":
+            return stockPrice <= 1000; // Up to 1000
+          case "500":
+            return stockPrice <= 500; // Up to 500
+          case "100":
+            return stockPrice >= 100; // 100 and above
+          case "10-100":
+            return stockPrice >= 10 && stockPrice < 100; // Between 10 and 100
+          case "10-below":
+            return stockPrice < 10 && stockPrice >= 5; // Between 5 and 10
+          case "5-below":
+            return stockPrice < 5; // Below 5
+          case "above-ema-50":
+            return stock.priceEMA50 && stockPrice > stock.priceEMA50; // Above EMA (50)
+          case "below-ema-50":
+            return stock.priceEMA50 && stockPrice < stock.priceEMA50; // Below EMA (50)
+          case "crosses-bb-upper":
+            return stock.bbUpper && stockPrice > stock.bbUpper; // Crosses BB Upper
+          case "crosses-bb-lower":
+            return stock.bbLower && stockPrice < stock.bbLower; // Crosses BB Lower
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      price: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+  const handleChangeApply = () => {
+    // Filter stocks based on the selected change range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Parse the change percentage, removing any symbols like `%` and converting it to a float
+      const stockChangePercentage = parseFloat(
+        stock.change.replace(/%|₹|,/g, "")
       );
-      // Update the stocks with the filtered data
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        index: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
+
+      return selectedchange.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockChangePercentage >= 30; // 30% and above
+          case "20-above":
+            return stockChangePercentage >= 20; // 20% and above
+          case "10-above":
+            return stockChangePercentage >= 10; // 10% and above
+          case "5-above":
+            return stockChangePercentage >= 5; // 5% and above
+          case "0-5":
+            return stockChangePercentage >= 0 && stockChangePercentage <= 5; // 0% to 5%
+          case "0-above":
+            return stockChangePercentage >= 0; // 0% and above
+          case "0-below":
+            return stockChangePercentage < 0; // 0% and below
+          case "-5-0":
+            return stockChangePercentage < 0 && stockChangePercentage >= -5; // -5% to 0%
+          case "-5-below":
+            return stockChangePercentage < -5; // -5% and below
+          case "-10-below":
+            return stockChangePercentage < -10; // -10% and below
+          case "-20-below":
+            return stockChangePercentage < -20; // -20% and below
+          case "-30-below":
+            return stockChangePercentage < -30; // -30% and below
+          default:
+            return false;
         }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handlesectorApply = () => {
-      // Update the filters with the selected indexes and sectors
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      setFilters((prevFilters) => ({
-        ...prevFilters,
-  
-        sector: selectedSectors, // Assuming selectedSectors is an array of selected sectors
-      }));
-  
-      // Apply the filter based on the selected indexes and sectors
-      const filteredStocks = screenerStockListData.filter((stock) =>
-        selectedSectors.includes(stock.sector)
-      );
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        sector: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handlemcapApply = () => {
-      // Update the filters with the selected market cap categories
-      setFilters((prevFilters) => ({
-        ...prevFilters,
-        marketCapCategory: selectedMcap, // Assuming selectedMcap is an array of selected categories
-      }));
-  
-      // Filter the stocks based on the selected market cap categories
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) =>
-        selectedMcap.includes(stock.marketCapCategory)
-      );
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // ✅ Corrected way to close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        marketcap: false, // ✅ Corrected key (should match toggleDropdown)
-      }));
-  
-      // Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-  
-    const handlePeApply = () => {
-      // Filter stocks based on the selected P/E range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockPe = parseFloat(stock.pToE);
-        return selectedPe.some((range) => {
-          switch (range) {
-            case "50-above":
-              return stockPe >= 50;
-            case "25-50":
-              return stockPe >= 25 && stockPe < 50;
-            case "15-25":
-              return stockPe >= 15 && stockPe < 25;
-            case "15-below":
-              return stockPe < 15;
-            case "0-above":
-              return stockPe >= 0; // Includes all positive values
-            default:
-              return false;
-          }
-        });
       });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        pe: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      change: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+  const handleperfApply = () => {
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    // Filter stocks based on the selected performance range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      // Safely parse the perf value, defaulting to 0 if undefined or invalid
+      const stockperf = stock.perf
+        ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
+        : 0;
+
+      return selectedperf.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockperf >= 30; // 30% and above
+          case "20-above":
+            return stockperf >= 20; // 20% and above
+          case "10-above":
+            return stockperf >= 10; // 10% and above
+          case "5-above":
+            return stockperf >= 5; // 5% and above
+          case "0-5":
+            return stockperf >= 0 && stockperf <= 5; // 0% to 5%
+          case "0-above":
+            return stockperf >= 0; // 0% and above
+          case "0-below":
+            return stockperf < 0; // 0% and below
+          case "-5-0":
+            return stockperf < 0 && stockperf >= -5; // -5% to 0%
+          case "-5-below":
+            return stockperf < -5; // -5% and below
+          case "-10-below":
+            return stockperf < -10; // -10% and below
+          case "-20-below":
+            return stockperf < -20; // -20% and below
+          case "-30-below":
+            return stockperf < -30; // -30% and below
+          default:
+            return false;
         }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handleEPSApply = () => {
-      // Filter stocks based on the selected EPS Dil Growth range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockEpsGrowth = parseFloat(stock.epsDilGrowth); // Assuming `epsDilGrowth` is the field in the stock data
-        return selectedeps.some((range) => {
-          switch (range) {
-            case "50-above":
-              return stockEpsGrowth >= 50;
-            case "25-above":
-              return stockEpsGrowth >= 25;
-            case "10-below":
-              return stockEpsGrowth <= 10;
-            case "0-above":
-              return stockEpsGrowth >= 0;
-            case "0-below":
-              return stockEpsGrowth <= 0;
-            case "-25-below":
-              return stockEpsGrowth <= -25;
-            default:
-              return false;
-          }
-        });
       });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        eps: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handleDivYieldApply = () => {
-      // Filter stocks based on the selected Dividend Yield range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockDivYield = parseFloat(stock.divYield); // Assuming `divYield` is the field in the stock data
-        return selecteddivyield.some((range) => {
-          switch (range) {
-            case "10-above":
-              return stockDivYield >= 10;
-            case "5-above":
-              return stockDivYield >= 5;
-            case "2-below":
-              return stockDivYield <= 2;
-            case "0-2":
-              return stockDivYield >= 0 && stockDivYield <= 2; // Covers 0% to 2%
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        divYield: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handleROEApply = () => {
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      // Filter stocks based on the selected ROE range
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockROE = parseFloat(stock.roe); // Assuming `roe` is the field in the stock data
-        return selectedroe.some((range) => {
-          switch (range) {
-            case "30":
-              return stockROE >= 30; // 30% and above
-            case "15":
-              return stockROE >= 15; // 15% and above
-            case "0-above":
-              return stockROE >= 0; // 0% and above
-            case "0-below":
-              return stockROE <= 0; // 0% and below
-            case "15-below":
-              return stockROE <= 15; // 15% and below
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-  
-      setDropdowns((prev) => ({
-        ...prev,
-        roe: false, // Close PEG dropdown
-      }));
-  
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-    const [pegDropdownVisible, setPegDropdownVisible] = useState(false);
-  
-    const handlePEGApply = () => {
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-  
-      // Filter stocks based on the selected PEG range
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockPEG = parseFloat(stock.peg);
-        return selectedpeg.some((range) => {
-          switch (range) {
-            case "2-above":
-              return stockPEG >= 2;
-            case "2-below":
-              return stockPEG <= 2;
-            case "1-above":
-              return stockPEG >= 1;
-            case "1-below":
-              return stockPEG <= 1;
-            case "0.9-1.1":
-              return stockPEG >= 0.9 && stockPEG <= 1.1;
-            case "0.5-below":
-              return stockPEG <= 0.5;
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        peg: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-  
-    const handleRevenueGrowthApply = () => {
-      // Filter stocks based on the selected Revenue Growth range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
-        return selectedrevenuegrowth.some((range) => {
-          switch (range) {
-            case "50-above":
-              return stockRevenueGrowth >= 50; // 50% and above
-            case "25-above":
-              return stockRevenueGrowth >= 25; // 25% and above
-            case "10-below":
-              return stockRevenueGrowth <= 10; // 10% and below
-            case "0-above":
-              return stockRevenueGrowth >= 0; // 0% and above
-            case "0-below":
-              return stockRevenueGrowth <= 0; // 0% and below
-            case "-25-below":
-              return stockRevenueGrowth <= -25; // -25% and below
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        revenue: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-    const handlePriceApply = () => {
-      // Filter stocks based on the selected price range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        // Parse the stock price, removing currency symbols and commas
-        const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
-  
-        return selectedprice.some((range) => {
-          switch (range) {
-            case "5000":
-              return stockPrice <= 5000; // Up to 5000
-            case "1000":
-              return stockPrice <= 1000; // Up to 1000
-            case "500":
-              return stockPrice <= 500; // Up to 500
-            case "100":
-              return stockPrice >= 100; // 100 and above
-            case "10-100":
-              return stockPrice >= 10 && stockPrice < 100; // Between 10 and 100
-            case "10-below":
-              return stockPrice < 10 && stockPrice >= 5; // Between 5 and 10
-            case "5-below":
-              return stockPrice < 5; // Below 5
-            case "above-ema-50":
-              return stock.priceEMA50 && stockPrice > stock.priceEMA50; // Above EMA (50)
-            case "below-ema-50":
-              return stock.priceEMA50 && stockPrice < stock.priceEMA50; // Below EMA (50)
-            case "crosses-bb-upper":
-              return stock.bbUpper && stockPrice > stock.bbUpper; // Crosses BB Upper
-            case "crosses-bb-lower":
-              return stock.bbLower && stockPrice < stock.bbLower; // Crosses BB Lower
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        price: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-    const handleChangeApply = () => {
-      // Filter stocks based on the selected change range
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        // Parse the change percentage, removing any symbols like `%` and converting it to a float
-        const stockChangePercentage = parseFloat(stock.change.replace(/%|₹|,/g, ""));
-  
-        return selectedchange.some((range) => {
-          switch (range) {
-            case "30-above":
-              return stockChangePercentage >= 30; // 30% and above
-            case "20-above":
-              return stockChangePercentage >= 20; // 20% and above
-            case "10-above":
-              return stockChangePercentage >= 10; // 10% and above
-            case "5-above":
-              return stockChangePercentage >= 5; // 5% and above
-            case "0-5":
-              return stockChangePercentage >= 0 && stockChangePercentage <= 5; // 0% to 5%
-            case "0-above":
-              return stockChangePercentage >= 0; // 0% and above
-            case "0-below":
-              return stockChangePercentage < 0; // 0% and below
-            case "-5-0":
-              return stockChangePercentage < 0 && stockChangePercentage >= -5; // -5% to 0%
-            case "-5-below":
-              return stockChangePercentage < -5; // -5% and below
-            case "-10-below":
-              return stockChangePercentage < -10; // -10% and below
-            case "-20-below":
-              return stockChangePercentage < -20; // -20% and below
-            case "-30-below":
-              return stockChangePercentage < -30; // -30% and below
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        change: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-    const handleperfApply = () => {
-      if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-      // Filter stocks based on the selected performance range
-      const filteredStocks = screenerStockListData.filter((stock) => {
-        // Safely parse the perf value, defaulting to 0 if undefined or invalid
-        const stockperf = stock.perf ? parseFloat(stock.perf.replace(/%|₹|,/g, "")) : 0;
-  
-        return selectedperf.some((range) => {
-          switch (range) {
-            case "30-above":
-              return stockperf >= 30; // 30% and above
-            case "20-above":
-              return stockperf >= 20; // 20% and above
-            case "10-above":
-              return stockperf >= 10; // 10% and above
-            case "5-above":
-              return stockperf >= 5; // 5% and above
-            case "0-5":
-              return stockperf >= 0 && stockperf <= 5; // 0% to 5%
-            case "0-above":
-              return stockperf >= 0; // 0% and above
-            case "0-below":
-              return stockperf < 0; // 0% and below
-            case "-5-0":
-              return stockperf < 0 && stockperf >= -5; // -5% to 0%
-            case "-5-below":
-              return stockperf < -5; // -5% and below
-            case "-10-below":
-              return stockperf < -10; // -10% and below
-            case "-20-below":
-              return stockperf < -20; // -20% and below
-            case "-30-below":
-              return stockperf < -30; // -30% and below
-            default:
-              return false;
-          }
-        });
-      });
-  
-      // Update the stocks with the filtered data
-      setStocks(filteredStocks);
-  
-      // close the dropdown
-      setDropdowns((prev) => ({
-        ...prev,
-        performance: false, // Close PEG dropdown
-      }));
-  
-      //Scroll smoothly to the stocks table
-      setTimeout(() => {
-        const tableElement = document.getElementById("stocks-table");
-        if (tableElement) {
-          tableElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure UI updates properly
-    };
-  
-  
-  const handleCheckboxChange = (index, sector,marketCapCategory,pToE,epsDilGrowth,divYield,roe,peg,revenueGrowth,price,change,perf) => {
-    setSelectedIndexes((prev) => 
-      prev.includes(index) 
-      ? prev.filter((s) => s !== index) 
-      : [...prev, index]
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // close the dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      performance: false, // Close PEG dropdown
+    }));
+
+    //Scroll smoothly to the stocks table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100); // Small delay to ensure UI updates properly
+  };
+
+  const handleCheckboxChange = (
+    index,
+    sector,
+    marketCapCategory,
+    pToE,
+    epsDilGrowth,
+    divYield,
+    roe,
+    peg,
+    revenueGrowth,
+    price,
+    change,
+    perf
+  ) => {
+    setSelectedIndexes((prev) =>
+      prev.includes(index) ? prev.filter((s) => s !== index) : [...prev, index]
     );
-    setSelectedSectors((prev) =>
-      prev.includes(sector) // Check if the sector is already in the selected list
-        ? prev.filter((s) => s !== sector) // If so, remove it
-        : [...prev, sector] // Otherwise, add it
+    setSelectedSectors(
+      (prev) =>
+        prev.includes(sector) // Check if the sector is already in the selected list
+          ? prev.filter((s) => s !== sector) // If so, remove it
+          : [...prev, sector] // Otherwise, add it
     );
-    setSelectedMcap((prev) =>
-      prev.includes(marketCapCategory) // Check if the category is already selected
-        ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
-        : [...prev, marketCapCategory] // If it isn't, add it to the list
+    setSelectedMcap(
+      (prev) =>
+        prev.includes(marketCapCategory) // Check if the category is already selected
+          ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
+          : [...prev, marketCapCategory] // If it isn't, add it to the list
     );
-    setSelectedPe((prev) =>
-      prev.includes( pToE) // Check if the category is already selected
-        ? prev.filter((s) => s !== pToE) // If it is, remove it
-        : [...prev,pToE] // If it isn't, add it to the list
+    setSelectedPe(
+      (prev) =>
+        prev.includes(pToE) // Check if the category is already selected
+          ? prev.filter((s) => s !== pToE) // If it is, remove it
+          : [...prev, pToE] // If it isn't, add it to the list
     );
-    setSelectedeps((prev) =>
-      prev.includes(epsDilGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
-        : [...prev,epsDilGrowth] // If it isn't, add it to the list
+    setSelectedeps(
+      (prev) =>
+        prev.includes(epsDilGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
+          : [...prev, epsDilGrowth] // If it isn't, add it to the list
     );
-    setSelecteddivyield((prev) =>
-      prev.includes(divYield) // Check if the category is already selected
-        ? prev.filter((s) => s !== divYield) // If it is, remove it
-        : [...prev,divYield] // If it isn't, add it to the list
+    setSelecteddivyield(
+      (prev) =>
+        prev.includes(divYield) // Check if the category is already selected
+          ? prev.filter((s) => s !== divYield) // If it is, remove it
+          : [...prev, divYield] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(roe) // Check if the category is already selected
-        ? prev.filter((s) => s !== roe) // If it is, remove it
-        : [...prev,roe] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(roe) // Check if the category is already selected
+          ? prev.filter((s) => s !== roe) // If it is, remove it
+          : [...prev, roe] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(peg) // Check if the category is already selected
-        ? prev.filter((s) => s !== peg) // If it is, remove it
-        : [...prev,peg] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(peg) // Check if the category is already selected
+          ? prev.filter((s) => s !== peg) // If it is, remove it
+          : [...prev, peg] // If it isn't, add it to the list
     );
-    setSelectedrevenuegrowth((prev) =>
-      prev.includes(revenueGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
-        : [...prev,revenueGrowth] // If it isn't, add it to the list
+    setSelectedrevenuegrowth(
+      (prev) =>
+        prev.includes(revenueGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
+          : [...prev, revenueGrowth] // If it isn't, add it to the list
     );
-    setSelectedprice((prev) =>
-      prev.includes(price) // Check if the category is already selected
-        ? prev.filter((s) => s !== price) // If it is, remove it
-        : [...prev,price] // If it isn't, add it to the list
+    setSelectedprice(
+      (prev) =>
+        prev.includes(price) // Check if the category is already selected
+          ? prev.filter((s) => s !== price) // If it is, remove it
+          : [...prev, price] // If it isn't, add it to the list
     );
-    setSelectedchange((prev) =>
-      prev.includes(change) // Check if the category is already selected
-        ? prev.filter((s) => s !== change) // If it is, remove it
-        : [...prev,change] // If it isn't, add it to the list
+    setSelectedchange(
+      (prev) =>
+        prev.includes(change) // Check if the category is already selected
+          ? prev.filter((s) => s !== change) // If it is, remove it
+          : [...prev, change] // If it isn't, add it to the list
     );
-    setSelectedperf((prev) =>
-      prev.includes(perf) // Check if the category is already selected
-        ? prev.filter((s) => s !== perf) // If it is, remove it
-        : [...prev,perf] // If it isn't, add it to the list
+    setSelectedperf(
+      (prev) =>
+        prev.includes(perf) // Check if the category is already selected
+          ? prev.filter((s) => s !== perf) // If it is, remove it
+          : [...prev, perf] // If it isn't, add it to the list
     );
-  }
+  };
 
   const filterStocksByChangeRange = () => {
     const filteredStocks = screenerStockListData.filter((stock) => {
@@ -1252,18 +1285,15 @@ const perfOptions = [
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/subscription'); // Navigate to the desired route
+    navigate("/subscription"); // Navigate to the desired route
   };
   return (
     <div>
-    <div className="screener-container">
+      <div className="screener-container">
         <h1 className="screener-header">List of Nifty 100 company</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1274,7 +1304,7 @@ const perfOptions = [
 
             {/* Dropdown Menu */}
             {dropdowns.index && (
-                <div className="stockindexscreeneropt">
+              <div className="stockindexscreeneropt">
                 {/* Search Box */}
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
@@ -1342,7 +1372,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1353,7 +1383,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.price && (
-                 <div className="dropdown-market-cap-options">
+                  <div className="dropdown-market-cap-options">
                     {/* Checkbox List */}
                     {priceOptions.map((category) => (
                       <label
@@ -1413,7 +1443,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1424,7 +1454,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.change && (
-                   <div className="dropdown-change-options">
+                  <div className="dropdown-change-options">
                     {/* Checkbox List */}
 
                     {changeOptions.map((category) => (
@@ -1487,7 +1517,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1498,7 +1528,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.marketcap && (
-                    <div className="dropdown-marketcap-options">
+                  <div className="dropdown-marketcap-options">
                     {/* Search Box */}
 
                     {/* Checkbox List */}
@@ -1561,7 +1591,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1635,7 +1665,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1709,7 +1739,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1720,7 +1750,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.divYield && (
-                    <div className="dropdown-div-options">
+                  <div className="dropdown-div-options">
                     {/* Checkbox List */}
                     {divYieldOptions.map((category) => (
                       <label
@@ -1777,10 +1807,7 @@ const perfOptions = [
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1790,7 +1817,7 @@ const perfOptions = [
 
             {/* Dropdown Menu */}
             {dropdowns.sector && (
-            <div className="stockindexscreenesectoropt">
+              <div className="stockindexscreenesectoropt">
                 <div className="searchboxindexscreener">
                   <FaSearch style={{ marginRight: "4px", color: "#333" }} />
                   <input
@@ -1856,7 +1883,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1867,7 +1894,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.performance && (
-                   <div className="dropdown-perf-options">
+                  <div className="dropdown-perf-options">
                     {/* Checkbox List */}
 
                     {perfOptions.map((category) => (
@@ -1931,7 +1958,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1942,7 +1969,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.revenue && (
-                <div className="dropdown-revgro-options">
+                  <div className="dropdown-revgro-options">
                     {/* Checkbox List */}
 
                     {revenueGrowthOptions.map((category) => (
@@ -2008,7 +2035,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2019,7 +2046,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.peg && (
-                   <div className="dropdown-peg-options">
+                  <div className="dropdown-peg-options">
                     {/* Checkbox List */}
 
                     {pegOptions.map((category) => (
@@ -2083,7 +2110,7 @@ const perfOptions = [
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2094,7 +2121,7 @@ const perfOptions = [
 
                 {/* Dropdown Menu */}
                 {dropdowns.roe && (
-                   <div className="dropdown-roe-options">
+                  <div className="dropdown-roe-options">
                     {/* Checkbox List */}
 
                     {roeOptions.map((category) => (
@@ -2156,222 +2183,309 @@ const perfOptions = [
           </div>
         </div>
 
-      {/* Tabs */}
-      <div className="tab-container">
+        {/* Tabs */}
+        <div className="tab-container">
           <button
-          className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Overview");
-            navigate('/nifty'); // Navigate to the StockScreenerList page
-          }}
-        >
-          Overview
-        </button>
+            className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("Overview");
+              navigate("/nifty"); // Navigate to the StockScreenerList page
+            }}
+          >
+            Overview
+          </button>
 
-        <button
-          className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Valuation");
-            navigate('/netify100valuation'); // Navigate to the ScreenerStockvaluation page
-          }}
-        >
-          Valuation
-        </button>
+          <button
+            className={`tab-button ${
+              activeTab === "Valuation" ? "active" : ""
+            }`}
+            onClick={() => {
+              setActiveTab("Valuation");
+              navigate("/netify100valuation"); // Navigate to the ScreenerStockvaluation page
+            }}
+          >
+            Valuation
+          </button>
 
-        <button
-          className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Income Statement");
-            navigate('/netify100IncomeStatement'); // Add a route for Income Statement if needed
-          }}
-        >
-          Income Statement
-        </button>
+          <button
+            className={`tab-button ${
+              activeTab === "Income Statement" ? "active" : ""
+            }`}
+            onClick={() => {
+              setActiveTab("Income Statement");
+              navigate("/netify100IncomeStatement"); // Add a route for Income Statement if needed
+            }}
+          >
+            Income Statement
+          </button>
         </div>
-{/* Conditional Rendering */}
-{isloading ? <div className='loader-cont'><ClipLoader
-          cssOverride={override}
-          size={35}
-          data-testid="loader"
-          loading={isLoading}
-          speedMultiplier={1}
-          color="green"
-        /></div> :
-<div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
-
-  <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%' }}>
-    <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
-            <tr>
-              <th>Symbol</th>
-              <th>
-                Price 
-                <button className="screenerbtnlist" onClick={() => handleSort("price")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Change % 
-                <button className="screenerbtnlist" onClick={() => handleSort("change")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Volume
-                <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Market Cap 
-                <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-  P / E
-  <button
-    className="screenerbtnlist"
-    onClick={() => handleSort("pToE")}
-  >
-    <PiCaretUpDownFill />
-  </button>
-</th>
-
-              <th>
-                EPS (₹)
-                <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                EPS Gr % 
-                <button className="screenerbtnlist" onClick={() => handleSort("epsDilGrowth")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Div Yield % 
-                <button className="screenerbtnlist" onClick={() => handleSort("divYield")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Sectors
-                <button className="screenerbtnlist" onClick={() => handleSort("sector")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-              <th>
-                Analyst Rating
-                <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                  <PiCaretUpDownFill />
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-  {currentData.map((stock, index) => (
-    <tr key={index} className="screener-row">
-      <td className="symbol-cell">
-      <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-
-
-
-      <a href={stock.url}>{stock.symbol}</a>
-      </td>
-    
-      <td>{stock.price}</td>
-      <td
-        style={{
-          color: parseFloat(stock.change) > 0 ? "#24b676" : parseFloat(stock.change) < 0 ? "red" : "inherit",
-        }}
-      >
-     {parseFloat(stock.change) > 0 ? `${stock.change}` : stock.change}
-
-
-      </td>
-                <td>{stock.volume}</td>
-                <td>{stock.marketCap}</td>
-                <td>{stock.pToE}</td>
-                <td>{stock.eps}</td>
-                <td
-        style={{
-          color: parseFloat(stock.epsDilGrowth) > 0 ? "#24b676" : parseFloat(stock.epsDilGrowth) < 0 ? "red" : "inherit",
-        }}
-      >
-   {parseFloat(stock.epsDilGrowth) > 0 ? `${stock.epsDilGrowth}` : stock.epsDilGrowth}
-
-
-      </td>
-                <td>{stock.divYield}</td>
-                <td
-  style={{
-    color: "blue",
-    
-  }}
->
-  {stock.sector}
-</td>
-
-
-<td>
-{!isSubed? 
-      <button className="screener-unlock-btn" onClick={handleNavigate}>
-        <IoLockClosedOutline style={{ marginRight: '8px' }} />
-        <span className="button-text">Unlock</span>
-      </button>: stock.analystRating}
-    </td>
-
-
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>}
-      {/* Pagination Section */}
-   <div className="pagination-stockcontainer">
-        <div className="pagination-info">
-          {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
-        </div>
-
-        <div className="pagination-slider">
-          <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
-
-          {startPage > 1 && (
-            <>
-              <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
-              {startPage > 2 && <span>...</span>}
-            </>
-          )}
-
-          {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
-            <button
-              key={startPage + i}
-              className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
-              onClick={() => handlePageChange(startPage + i)}
+        {/* Conditional Rendering */}
+        {isloading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isLoading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </div>
+        ) : (
+          <div
+            className="screener-table-wrapper"
+            style={{ overflowY: "auto", height: "500px" }}
+          >
+            <table
+              className="screener-table"
+              style={{ borderCollapse: "collapse", width: "100%" }}
             >
-              {startPage + i}
+              <thead
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#f9f9f9",
+                  zIndex: 10,
+                  boxShadow: "0 4px 6px #24b676",
+                }}
+              >
+                <tr>
+                  <th>Symbol</th>
+                  <th>
+                    Price
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("price")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Change %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("change")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Volume
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("volume")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Market Cap
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("marketCap")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P / E
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToE")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+
+                  <th>
+                    EPS (₹)
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("eps")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EPS Gr %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("epsDilGrowth")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Div Yield %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("divYield")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Sectors
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("sector")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Analyst Rating
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("analystrating")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentData.map((stock, index) => (
+                  <tr key={index} className="screener-row">
+                    <td className="symbol-cell">
+                      <img
+                        src={stock.icon}
+                        alt={`${stock.symbol} logo`}
+                        className="company-icon"
+                      />
+
+                      <a href={stock.url}>{stock.symbol}</a>
+                    </td>
+
+                    <td>{stock.price}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.change) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.change) < 0
+                            ? "red"
+                            : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.change) > 0
+                        ? `${stock.change}`
+                        : stock.change}
+                    </td>
+                    <td>{stock.volume}</td>
+                    <td>{stock.marketCap}</td>
+                    <td>{stock.pToE}</td>
+                    <td>{stock.eps}</td>
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.epsDilGrowth) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.epsDilGrowth) < 0
+                            ? "red"
+                            : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.epsDilGrowth) > 0
+                        ? `${stock.epsDilGrowth}`
+                        : stock.epsDilGrowth}
+                    </td>
+                    <td>{stock.divYield}</td>
+                    <td
+                      style={{
+                        color: "blue",
+                      }}
+                    >
+                      {stock.sector}
+                    </td>
+
+                    <td>
+                      {!isSubed ? (
+                        <button
+                          className="screener-unlock-btn"
+                          onClick={handleNavigate}
+                        >
+                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                          <span className="button-text">Unlock</span>
+                        </button>
+                      ) : (
+                        stock.analystRating
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        {/* Pagination Section */}
+        <div className="pagination-stockcontainer">
+          <div className="pagination-info">
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
+          </div>
+
+          <div className="pagination-slider">
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
             </button>
-          ))}
 
-          {endPage < totalPages && (
-            <>
-              {endPage < totalPages - 1 && <span>...</span>}
-              <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
-            </>
-          )}
+            {startPage > 1 && (
+              <>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
+                {startPage > 2 && <span>...</span>}
+              </>
+            )}
 
-          <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+            {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+              <button
+                key={startPage + i}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
+                onClick={() => handlePageChange(startPage + i)}
+              >
+                {startPage + i}
+              </button>
+            ))}
+
+            {endPage < totalPages && (
+              <>
+                {endPage < totalPages - 1 && <span>...</span>}
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
+              </>
+            )}
+
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
         </div>
+        <Navbar />
       </div>
-    <Navbar/>
-   
-    </div>
-        <div className="foooterpagesaupdate">
+      <div className="foooterpagesaupdate">
         <FooterForAllPage />
-        </div>
-       
-        </div>
+      </div>
+    </div>
   );
 };
 

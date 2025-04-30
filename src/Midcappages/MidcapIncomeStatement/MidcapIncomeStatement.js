@@ -4,7 +4,7 @@ import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
@@ -415,7 +415,7 @@ const MidcapIncomeStatement = () => {
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
 
   const epsDilGrowthOptions = [
@@ -1210,10 +1210,7 @@ const MidcapIncomeStatement = () => {
         <h1 className="screener-header">List of Top Mid Cap Companies</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1292,7 +1289,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1363,7 +1360,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1437,7 +1434,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1511,7 +1508,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1585,7 +1582,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1659,7 +1656,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1727,10 +1724,7 @@ const MidcapIncomeStatement = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1806,7 +1800,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1881,7 +1875,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1958,7 +1952,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2033,7 +2027,7 @@ const MidcapIncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"

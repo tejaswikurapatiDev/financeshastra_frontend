@@ -5,7 +5,7 @@ import { API_BASE_URL } from "../../config";
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import ClipLoader from "react-spinners/ClipLoader";
@@ -15,18 +15,17 @@ const override = {
   textAlign: "center",
 };
 
-
 const Highstockvaluation = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
-  const [isloading, setisloading]= useState(true)
+  const [isloading, setisloading] = useState(true);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
   const [currentPage, setCurrentPage] = useState(1);
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
-    pe: [],           // Initialize as an empty array
-    roe: [],          // Initialize as an empty array
+    pe: [], // Initialize as an empty array
+    roe: [], // Initialize as an empty array
     price: "All",
     marketCap: "All",
     divYield: [],
@@ -66,7 +65,7 @@ const Highstockvaluation = () => {
       const response = await fetch(url);
       if (response.ok === true) {
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.Symbol,
@@ -83,15 +82,13 @@ const Highstockvaluation = () => {
           evEbitda: each.EVRevenue,
           evSales: each.EVEBIT,
           evEbit: each.EVEBITDA,
-
         }));
         setStocks(formattedData);
       }
-      setisloading(false)
+      setisloading(false);
     };
     fetchfun();
   }, []);
-
 
   const [filteredData, setFilteredData] = useState(screenerStockvaluationData);
 
@@ -126,7 +123,6 @@ const Highstockvaluation = () => {
     }));
   };
 
-
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
@@ -160,14 +156,18 @@ const Highstockvaluation = () => {
       change: "All",
     });
   };
-  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] = useState(false);
+  const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] =
+    useState(false);
 
   const recordsPerPage = 10;
   const totalPages = Math.ceil(stocks.length / recordsPerPage);
 
   //  Ensure currentData updates correctly
   const indexOfFirstItem = (currentPage - 1) * recordsPerPage;
-  const indexOfLastItem = Math.min(indexOfFirstItem + recordsPerPage, stocks.length);
+  const indexOfLastItem = Math.min(
+    indexOfFirstItem + recordsPerPage,
+    stocks.length
+  );
   const currentData = useMemo(() => {
     return stocks.slice(indexOfFirstItem, indexOfLastItem);
   }, [currentPage, stocks]);
@@ -198,11 +198,15 @@ const Highstockvaluation = () => {
   const applyFilters = (newFilters) => {
     console.log(newFilters, "newfilter");
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
-      console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
-      console.log(stock.price.replace(/₹|,/g, ""))
+      console.log(
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price)
+      );
+      console.log(stock.price.replace(/₹|,/g, ""));
       const matchesPrice =
         newFilters.price === "All" ||
-        parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price);
+        parseFloat(stock.price.replace(/₹|,/g, "")) <=
+          parseFloat(newFilters.price);
 
       // const matchesMarketCap =
       // newFilters.marketCap.length !== 0 || // Check if it's empty
@@ -216,7 +220,6 @@ const Highstockvaluation = () => {
       //   return false;
       // });
 
-
       const matchesDivYield =
         newFilters.divYield.length === 0 ||
         newFilters.divYield.some((divYieldValue) => {
@@ -224,7 +227,12 @@ const Highstockvaluation = () => {
           if (divYieldValue === "10-above" && stockDivYield >= 10) return true;
           if (divYieldValue === "5-above" && stockDivYield >= 5) return true;
           if (divYieldValue === "2-below" && stockDivYield <= 2) return true;
-          if (divYieldValue === "0-2" && stockDivYield > 0 && stockDivYield <= 2) return true;
+          if (
+            divYieldValue === "0-2" &&
+            stockDivYield > 0 &&
+            stockDivYield <= 2
+          )
+            return true;
           return false;
         });
 
@@ -245,7 +253,8 @@ const Highstockvaluation = () => {
           if (roeValue === "15" && parseFloat(stock.roe) >= 15) return true;
           if (roeValue === "0-above" && parseFloat(stock.roe) >= 0) return true;
           if (roeValue === "0-below" && parseFloat(stock.roe) < 0) return true;
-          if (roeValue === "15-below" && parseFloat(stock.roe) < 15) return true;
+          if (roeValue === "15-below" && parseFloat(stock.roe) < 15)
+            return true;
           return false;
         });
       const matchesEPSDilGrowth =
@@ -260,7 +269,6 @@ const Highstockvaluation = () => {
           if (epsValue === "-25-below" && stockEPS <= -25) return true;
           return false;
         });
-
 
       // PE filter
       const matchesPE =
@@ -316,7 +324,9 @@ const Highstockvaluation = () => {
 
       // For sector column, compare alphabetically
       if (key === "sector") {
-        return sortDirection ? valA.localeCompare(valB) : valB.localeCompare(valA);
+        return sortDirection
+          ? valA.localeCompare(valB)
+          : valB.localeCompare(valA);
       }
 
       // For other columns, compare numerically
@@ -328,7 +338,10 @@ const Highstockvaluation = () => {
   };
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const [performanceRange, setPerformanceRange] = useState({ min: -30, max: 40 });
+  const [performanceRange, setPerformanceRange] = useState({
+    min: -30,
+    max: 40,
+  });
 
   const handlePerformanceRangeChange = (value) => {
     setPerformanceRange((prevRange) => ({
@@ -343,11 +356,9 @@ const Highstockvaluation = () => {
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
-
   const resetchangeRange = () => {
     setChangeRange({ min: -50, max: 100 });
   };
-
 
   const resetRange = () => {
     setPerformanceRange({ min: -30, max: 40 });
@@ -394,7 +405,6 @@ const Highstockvaluation = () => {
     "Textiles",
   ];
 
-
   const indexes = [
     "Nifty 50",
     "Nifty 500",
@@ -415,13 +425,19 @@ const Highstockvaluation = () => {
     "Nifty Auto",
     "Nifty CPSE",
   ];
-  const marketCapCategory = ["Large Cap", "Mid Cap", "Small Cap", "Micro Cap", "Other"];
+  const marketCapCategory = [
+    "Large Cap",
+    "Mid Cap",
+    "Small Cap",
+    "Micro Cap",
+    "Other",
+  ];
   const peFilterOptions = [
     { value: "0-above", label: "0 and above" },
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
 
   const epsDilGrowthOptions = [
@@ -577,13 +593,14 @@ const Highstockvaluation = () => {
   const filteredIndexes = indexes.filter((index) =>
     index.toLowerCase().includes(searchTerm.toLowerCase())
   );
-  const filteredmarketCapCategory = marketCapCategory.filter((marketCapCategory) =>
-    marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredmarketCapCategory = marketCapCategory.filter(
+    (marketCapCategory) =>
+      marketCapCategory.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const handleReset = () => {
-    setSelectedSectors([]);  // Reset selected sectors
-    setSearchTerm("");       // Reset search term
+    setSelectedSectors([]); // Reset selected sectors
+    setSearchTerm(""); // Reset search term
     setSelectedIndexes([]);
     setSelectedMcap([]);
     setSelectedPe([]);
@@ -612,7 +629,6 @@ const Highstockvaluation = () => {
       sector: false,
       performance: false,
       // Close PEG dropdown
-
     }));
   };
 
@@ -621,9 +637,12 @@ const Highstockvaluation = () => {
     setFilters((prevFilters) => ({
       ...prevFilters,
       index: selectedIndexes,
-
     }));
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     // Apply the filter based on the selected indexes and sectors
     const filteredStocks = screenerStockvaluationData.filter((stock) =>
       selectedIndexes.includes(stock.index)
@@ -649,7 +668,11 @@ const Highstockvaluation = () => {
 
   const handlesectorApply = () => {
     // Update the filters with the selected indexes and sectors
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     setFilters((prevFilters) => ({
       ...prevFilters,
 
@@ -686,7 +709,11 @@ const Highstockvaluation = () => {
     }));
 
     // Filter the stocks based on the selected market cap categories
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) =>
       selectedMcap.includes(stock.marketCapCategory)
     );
@@ -709,10 +736,13 @@ const Highstockvaluation = () => {
     }, 100); // Small delay to ensure UI updates properly
   };
 
-
   const handlePeApply = () => {
     // Filter stocks based on the selected P/E range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       const stockPe = parseFloat(stock.pToE);
       return selectedPe.some((range) => {
@@ -753,7 +783,11 @@ const Highstockvaluation = () => {
 
   const handleEPSApply = () => {
     // Filter stocks based on the selected EPS Dil Growth range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       const stockEpsGrowth = parseFloat(stock.epsDilGrowth); // Assuming `epsDilGrowth` is the field in the stock data
       return selectedeps.some((range) => {
@@ -796,7 +830,11 @@ const Highstockvaluation = () => {
 
   const handleDivYieldApply = () => {
     // Filter stocks based on the selected Dividend Yield range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       const stockDivYield = parseFloat(stock.divYield); // Assuming `divYield` is the field in the stock data
       return selecteddivyield.some((range) => {
@@ -834,7 +872,11 @@ const Highstockvaluation = () => {
   };
 
   const handleROEApply = () => {
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     // Filter stocks based on the selected ROE range
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       const stockROE = parseFloat(stock.roe); // Assuming `roe` is the field in the stock data
@@ -859,7 +901,6 @@ const Highstockvaluation = () => {
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
 
-
     setDropdowns((prev) => ({
       ...prev,
       roe: false, // Close PEG dropdown
@@ -875,7 +916,11 @@ const Highstockvaluation = () => {
   const [pegDropdownVisible, setPegDropdownVisible] = useState(false);
 
   const handlePEGApply = () => {
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
 
     // Filter stocks based on the selected PEG range
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
@@ -918,10 +963,13 @@ const Highstockvaluation = () => {
     }, 100); // Small delay to ensure UI updates properly
   };
 
-
   const handleRevenueGrowthApply = () => {
     // Filter stocks based on the selected Revenue Growth range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
       return selectedrevenuegrowth.some((range) => {
@@ -964,7 +1012,11 @@ const Highstockvaluation = () => {
 
   const handlePriceApply = () => {
     // Filter stocks based on the selected price range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       // Parse the stock price, removing currency symbols and commas
       const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
@@ -1018,14 +1070,20 @@ const Highstockvaluation = () => {
   };
   const handleChangeApply = () => {
     // Filter stocks based on the selected change range
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
 
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       //  Check if stock.change exists before using replace
       if (!stock.change) return false;
 
       // Parse the change percentage, removing any symbols like `%`, `₹`, or `,`
-      const stockChangePercentage = parseFloat(stock.change.replace(/%|₹|,/g, ""));
+      const stockChangePercentage = parseFloat(
+        stock.change.replace(/%|₹|,/g, "")
+      );
 
       return selectedchange.some((range) => {
         switch (range) {
@@ -1078,11 +1136,17 @@ const Highstockvaluation = () => {
   };
 
   const handleperfApply = () => {
-    if (!screenerStockvaluationData || !Array.isArray(screenerStockvaluationData)) return;
+    if (
+      !screenerStockvaluationData ||
+      !Array.isArray(screenerStockvaluationData)
+    )
+      return;
     // Filter stocks based on the selected performance range
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       // Safely parse the perf value, defaulting to 0 if undefined or invalid
-      const stockperf = stock.perf ? parseFloat(stock.perf.replace(/%|₹|,/g, "")) : 0;
+      const stockperf = stock.perf
+        ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
+        : 0;
 
       return selectedperf.some((range) => {
         switch (range) {
@@ -1134,68 +1198,90 @@ const Highstockvaluation = () => {
     }, 100); // Small delay to ensure UI updates properly
   };
 
-  const handleCheckboxChange = (index, sector, marketCapCategory, pToE, epsDilGrowth, divYield, roe, peg, revenueGrowth, price, change, perf) => {
+  const handleCheckboxChange = (
+    index,
+    sector,
+    marketCapCategory,
+    pToE,
+    epsDilGrowth,
+    divYield,
+    roe,
+    peg,
+    revenueGrowth,
+    price,
+    change,
+    perf
+  ) => {
     setSelectedIndexes((prev) =>
-      prev.includes(index)
-        ? prev.filter((s) => s !== index)
-        : [...prev, index]
+      prev.includes(index) ? prev.filter((s) => s !== index) : [...prev, index]
     );
-    setSelectedSectors((prev) =>
-      prev.includes(sector) // Check if the sector is already in the selected list
-        ? prev.filter((s) => s !== sector) // If so, remove it
-        : [...prev, sector] // Otherwise, add it
+    setSelectedSectors(
+      (prev) =>
+        prev.includes(sector) // Check if the sector is already in the selected list
+          ? prev.filter((s) => s !== sector) // If so, remove it
+          : [...prev, sector] // Otherwise, add it
     );
-    setSelectedMcap((prev) =>
-      prev.includes(marketCapCategory) // Check if the category is already selected
-        ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
-        : [...prev, marketCapCategory] // If it isn't, add it to the list
+    setSelectedMcap(
+      (prev) =>
+        prev.includes(marketCapCategory) // Check if the category is already selected
+          ? prev.filter((s) => s !== marketCapCategory) // If it is, remove it
+          : [...prev, marketCapCategory] // If it isn't, add it to the list
     );
-    setSelectedPe((prev) =>
-      prev.includes(pToE) // Check if the category is already selected
-        ? prev.filter((s) => s !== pToE) // If it is, remove it
-        : [...prev, pToE] // If it isn't, add it to the list
+    setSelectedPe(
+      (prev) =>
+        prev.includes(pToE) // Check if the category is already selected
+          ? prev.filter((s) => s !== pToE) // If it is, remove it
+          : [...prev, pToE] // If it isn't, add it to the list
     );
-    setSelectedeps((prev) =>
-      prev.includes(epsDilGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
-        : [...prev, epsDilGrowth] // If it isn't, add it to the list
+    setSelectedeps(
+      (prev) =>
+        prev.includes(epsDilGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== epsDilGrowth) // If it is, remove it
+          : [...prev, epsDilGrowth] // If it isn't, add it to the list
     );
-    setSelecteddivyield((prev) =>
-      prev.includes(divYield) // Check if the category is already selected
-        ? prev.filter((s) => s !== divYield) // If it is, remove it
-        : [...prev, divYield] // If it isn't, add it to the list
+    setSelecteddivyield(
+      (prev) =>
+        prev.includes(divYield) // Check if the category is already selected
+          ? prev.filter((s) => s !== divYield) // If it is, remove it
+          : [...prev, divYield] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(roe) // Check if the category is already selected
-        ? prev.filter((s) => s !== roe) // If it is, remove it
-        : [...prev, roe] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(roe) // Check if the category is already selected
+          ? prev.filter((s) => s !== roe) // If it is, remove it
+          : [...prev, roe] // If it isn't, add it to the list
     );
-    setSelectedroe((prev) =>
-      prev.includes(peg) // Check if the category is already selected
-        ? prev.filter((s) => s !== peg) // If it is, remove it
-        : [...prev, peg] // If it isn't, add it to the list
+    setSelectedroe(
+      (prev) =>
+        prev.includes(peg) // Check if the category is already selected
+          ? prev.filter((s) => s !== peg) // If it is, remove it
+          : [...prev, peg] // If it isn't, add it to the list
     );
-    setSelectedrevenuegrowth((prev) =>
-      prev.includes(revenueGrowth) // Check if the category is already selected
-        ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
-        : [...prev, revenueGrowth] // If it isn't, add it to the list
+    setSelectedrevenuegrowth(
+      (prev) =>
+        prev.includes(revenueGrowth) // Check if the category is already selected
+          ? prev.filter((s) => s !== revenueGrowth) // If it is, remove it
+          : [...prev, revenueGrowth] // If it isn't, add it to the list
     );
-    setSelectedprice((prev) =>
-      prev.includes(price) // Check if the category is already selected
-        ? prev.filter((s) => s !== price) // If it is, remove it
-        : [...prev, price] // If it isn't, add it to the list
+    setSelectedprice(
+      (prev) =>
+        prev.includes(price) // Check if the category is already selected
+          ? prev.filter((s) => s !== price) // If it is, remove it
+          : [...prev, price] // If it isn't, add it to the list
     );
-    setSelectedchange((prev) =>
-      prev.includes(change) // Check if the category is already selected
-        ? prev.filter((s) => s !== change) // If it is, remove it
-        : [...prev, change] // If it isn't, add it to the list
+    setSelectedchange(
+      (prev) =>
+        prev.includes(change) // Check if the category is already selected
+          ? prev.filter((s) => s !== change) // If it is, remove it
+          : [...prev, change] // If it isn't, add it to the list
     );
-    setSelectedperf((prev) =>
-      prev.includes(perf) // Check if the category is already selected
-        ? prev.filter((s) => s !== perf) // If it is, remove it
-        : [...prev, perf] // If it isn't, add it to the list
+    setSelectedperf(
+      (prev) =>
+        prev.includes(perf) // Check if the category is already selected
+          ? prev.filter((s) => s !== perf) // If it is, remove it
+          : [...prev, perf] // If it isn't, add it to the list
     );
-  }
+  };
 
   const filterStocksByChangeRange = () => {
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
@@ -1208,7 +1294,7 @@ const Highstockvaluation = () => {
     console.log("Filtered by Change Range:", changeRange);
   };
   const handleNavigate = () => {
-    navigate('/subscription'); // Navigate to the desired route
+    navigate("/subscription"); // Navigate to the desired route
   };
 
   return (
@@ -1217,10 +1303,7 @@ const Highstockvaluation = () => {
         <h1 className="screener-header">High Growth Stocks</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1299,7 +1382,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1370,7 +1453,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1398,8 +1481,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1444,7 +1527,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1518,7 +1601,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1546,8 +1629,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1592,7 +1675,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1620,8 +1703,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1666,7 +1749,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1734,10 +1817,7 @@ const Highstockvaluation = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1813,7 +1893,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1841,8 +1921,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1888,7 +1968,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1918,8 +1998,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -1965,7 +2045,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1993,8 +2073,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2040,7 +2120,7 @@ const Highstockvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2068,8 +2148,8 @@ const Highstockvaluation = () => {
                               (prev) =>
                                 prev.includes(category.value)
                                   ? prev.filter(
-                                    (item) => item !== category.value
-                                  ) // Remove category
+                                      (item) => item !== category.value
+                                    ) // Remove category
                                   : [...prev, category.value] // Add category
                             );
                           }}
@@ -2118,172 +2198,250 @@ const Highstockvaluation = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/highgrowthstocks');
+              navigate("/highgrowthstocks");
             }}
           >
             Overview
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
+            className={`tab-button ${
+              activeTab === "Valuation" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/highstockvaluation'); // Navigate to the ScreenerStockvaluation page
+              navigate("/highstockvaluation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
           </button>
 
           <button
-            className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
+            className={`tab-button ${
+              activeTab === "Income Statement" ? "active" : ""
+            }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/highgrowthStockIncomeStatement'); // Add a route for Income Statement if needed
+              navigate("/highgrowthStockIncomeStatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement
           </button>
-        </div>{
-          isloading ? <div className='loader-cont'><ClipLoader
-            cssOverride={override}
-            size={35}
-            data-testid="loader"
-            loading={isloading}
-            speedMultiplier={1}
-            color="green"
-          /></div> :
-            <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
-              <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%', marginTop: '10px' }}>
-                <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
-                  <tr>
-                    <th>Symbol</th>
-                    <th>
-                      Market Cap
-                      <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      Market Cap %
-                      <button className="screenerbtnlist" onClick={() => handleSort("marketCapPerf")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      P/E
-                      <button className="screenerbtnlist" onClick={() => handleSort("pToE")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      P/S
-                      <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      P/B
-                      <button className="screenerbtnlist" onClick={() => handleSort("pToB")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      P/CF
-                      <button className="screenerbtnlist" onClick={() => handleSort("pToS")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      P/FCF
-                      <button className="screenerbtnlist" onClick={() => handleSort("pToCF")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      Price
-                      <button className="screenerbtnlist" onClick={() => handleSort("price")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      EV
-                      <button className="screenerbtnlist" onClick={() => handleSort("ev")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      EV/Revenue
-                      <button className="screenerbtnlist" onClick={() => handleSort("evSales")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      EV/EBIT
-                      <button className="screenerbtnlist" onClick={() => handleSort("evEbit")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
-                    <th>
-                      EV/EBITDA
-                      <button className="screenerbtnlist" onClick={() => handleSort("evEbitda")}>
-                        <PiCaretUpDownFill />
-                      </button>
-                    </th>
+        </div>
+        {isloading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isloading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </div>
+        ) : (
+          <div
+            className="screener-table-wrapper"
+            style={{ overflowY: "auto", height: "500px" }}
+          >
+            <table
+              className="screener-table"
+              style={{
+                borderCollapse: "collapse",
+                width: "100%",
+                marginTop: "10px",
+              }}
+            >
+              <thead
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#f9f9f9",
+                  zIndex: 10,
+                  boxShadow: "0 4px 6px #24b676",
+                }}
+              >
+                <tr>
+                  <th>Symbol</th>
+                  <th>
+                    Market Cap
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("marketCap")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Market Cap %
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("marketCapPerf")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P/E
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToE")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P/S
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToS")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P/B
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToB")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P/CF
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToS")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P/FCF
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("pToCF")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Price
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("price")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EV
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("ev")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EV/Revenue
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("evSales")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EV/EBIT
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("evEbit")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EV/EBITDA
+                    <button
+                      className="screenerbtnlist"
+                      onClick={() => handleSort("evEbitda")}
+                    >
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {currentData.map((stock, index) => (
+                  <tr key={index} className="screener-row">
+                    <td className="symbol-cell">
+                      <img
+                        src={stock.icon}
+                        alt={`${stock.symbol} logo`}
+                        className="company-icon"
+                      />
+
+                      <a href={stock.url}>{stock.symbol}</a>
+                    </td>
+                    <td>{stock.marketCap}</td>
+
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.marketCapPerf) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.marketCapPerf) < 0
+                            ? "red"
+                            : "inherit",
+                      }}
+                    >
+                      {stock.marketCapPerf}
+                    </td>
+
+                    <td>{stock.pToE}</td>
+                    <td>{stock.pToB}</td>
+                    <td>{stock.peg}</td>
+                    <td>{stock.pToS}</td>
+                    <td>{stock.pToCF}</td>
+                    <td>{stock.price}</td>
+                    <td>{stock.ev}</td>
+                    <td>{stock.evEbitda}</td>
+                    <td>{stock.evSales}</td>
+                    <td>{stock.evEbit}</td>
                   </tr>
-                </thead>
-
-
-                <tbody>
-                  {currentData.map((stock, index) => (
-                    <tr key={index} className="screener-row">
-                      <td className="symbol-cell">
-                        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-
-
-
-                        <a href={stock.url}>{stock.symbol}</a>
-                      </td>
-                      <td>{stock.marketCap}</td>
-
-                      <td
-                        style={{
-                          color: parseFloat(stock.marketCapPerf) > 0 ? "#24b676" : parseFloat(stock.marketCapPerf) < 0 ? "red" : "inherit",
-                        }}
-                      >
-                        {stock.marketCapPerf}
-                      </td>
-
-                      <td>{stock.pToE}</td>
-                      <td>{stock.pToB}</td>
-                      <td>{stock.peg}</td>
-                      <td>{stock.pToS}</td>
-                      <td>{stock.pToCF}</td>
-                      <td>{stock.price}</td>
-                      <td>{stock.ev}</td>
-                      <td>{stock.evEbitda}</td>
-                      <td>{stock.evSales}</td>
-                      <td>{stock.evEbit}</td>
-
-
-
-
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>}
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
-            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${stocks.length} records`}
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
           </div>
 
           <div className="pagination-slider">
-            <button className="pagination-button" disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>&lt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
 
             {startPage > 1 && (
               <>
-                <button className="pagination-button" onClick={() => handlePageChange(1)}>1</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
                 {startPage > 2 && <span>...</span>}
               </>
             )}
@@ -2291,7 +2449,9 @@ const Highstockvaluation = () => {
             {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
               <button
                 key={startPage + i}
-                className={`pagination-button ${currentPage === startPage + i ? "active-page" : ""}`}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
                 onClick={() => handlePageChange(startPage + i)}
               >
                 {startPage + i}
@@ -2301,15 +2461,25 @@ const Highstockvaluation = () => {
             {endPage < totalPages && (
               <>
                 {endPage < totalPages - 1 && <span>...</span>}
-                <button className="pagination-button" onClick={() => handlePageChange(totalPages)}>{totalPages}</button>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
               </>
             )}
 
-            <button className="pagination-button" disabled={currentPage === totalPages} onClick={() => handlePageChange(currentPage + 1)}>&gt;</button>
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
           </div>
         </div>
         <Navbar />
-
       </div>
       <div className="foooterpagesaupdate">
         <FooterForAllPage />

@@ -4,7 +4,7 @@ import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
@@ -339,6 +339,7 @@ const Largecapvaluation = () => {
     }));
   };
 
+
   const applyRange = () => {
     console.log("Performance Range Applied:", performanceRange);
     //setPerfDropdownVisible(false); // Close dropdown after applying
@@ -346,6 +347,7 @@ const Largecapvaluation = () => {
 
 
   const resetchangeRange = () => {
+    setChangeRange({ min: -50, max: 100 });
     setChangeRange({ min: -50, max: 100 });
   };
 
@@ -368,6 +370,7 @@ const Largecapvaluation = () => {
   const [selectedprice, setSelectedprice] = useState([]);
   const [selectedchange, setSelectedchange] = useState([]);
   const [selectedperf, setSelectedperf] = useState([]);
+  
   const sectors = [
     "Agriculture and Chemicals",
     "Capital Goods",
@@ -1217,10 +1220,7 @@ const Largecapvaluation = () => {
         <h1 className="screener-header">List of Top Large Cap Companies</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1299,7 +1299,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1370,7 +1370,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1444,7 +1444,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1518,7 +1518,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1592,7 +1592,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1666,7 +1666,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1734,10 +1734,7 @@ const Largecapvaluation = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1813,7 +1810,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1888,7 +1885,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1965,7 +1962,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2040,7 +2037,7 @@ const Largecapvaluation = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2115,14 +2112,14 @@ const Largecapvaluation = () => {
 
         <div className="tab-container">
           <button
-          className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Overview");
-            navigate('/largecap'); 
-          }}
-        >
-          Overview
-        </button>
+            className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("Overview");
+              navigate("/largecap");
+            }}
+          >
+            Overview
+          </button>
 
           <button
             className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
