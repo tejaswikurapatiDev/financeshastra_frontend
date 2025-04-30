@@ -12,7 +12,6 @@ import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import AccountBar from "../AccountBar";
 import ClipLoader from "react-spinners/ClipLoader";
-
  
 const override = {
   display: "block",
