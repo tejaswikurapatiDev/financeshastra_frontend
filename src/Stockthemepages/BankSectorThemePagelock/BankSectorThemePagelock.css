@@ -19,11 +19,13 @@
   
   }
   
-  .subscribethemestocklocked-lock-icon{
-    position: relative;
-  display: inline-block;
-  margin-top: 100px;
+  .subscribethemestocklocked-lock-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* space between icon and button */
   }
+  
   .subscribethemestocklocked-lock-icon img{
     width: 50px;
     height: 50px;
@@ -87,4 +89,20 @@
       font-size: 12px;
       padding: 5px;
   }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .subscribethemestocklocked-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(10px);
+    height: 38%;
+    margin-top: 220px;
+}
 }

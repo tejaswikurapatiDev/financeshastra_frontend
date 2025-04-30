@@ -54,14 +54,16 @@ const StockNewsCard = () => {
     return () => clearInterval(interval);
   }, [stockPrice]);
 
-  const currentDate = new Date().toLocaleString('en-GB', {
+  console.log(article?.created_at)
+  const rawDate=article?.created_at;
+  const currentDate =rawDate ? new Date().toLocaleString('en-GB', {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
     hour12: false
-  });
+  }): "Date is not available";
 
   if (!article) return <div className="stocknewsss"><p>Loading...</p></div>;
 
@@ -87,7 +89,7 @@ const StockNewsCard = () => {
             <div>
               <div className='newsscolumnn'>
                 <p className="stocknewsss-stock-price">
-                  ₹ {article.current_price.toLocaleString()}
+                  ₹ {article.current_price !==null ? article.current_price.toLocaleString() : "N/A"}
                   {change.value >= 0 ? <FaCaretUp className="iconnewss" /> : <FaCaretDown className="iconnewss down" />}
                 </p>
                 <p className={`stocknewsss-change ${change.value >= 0 ? 'positive' : 'negative'}`}>
