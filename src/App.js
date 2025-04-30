@@ -777,7 +777,7 @@ function App() {
                 element={<StockThemesindustriesPages />}
               />
               <Route
-                path="/stockThemesindustrieslockPages"
+                path="/stocksThemesindustries"
                 element={<StockThemesindustrieslockPages />}
               />
 

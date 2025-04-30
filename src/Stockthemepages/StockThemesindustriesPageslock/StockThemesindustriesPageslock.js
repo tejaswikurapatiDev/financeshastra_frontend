@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
@@ -8,6 +8,12 @@ import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlockna
 import Navbar from "../../Navbar/Navbar";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const stockThemesindustriesData = [
   {
@@ -33,11 +39,19 @@ export default function StockThemesindustrieslockPages() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(stockThemesindustriesData);
   const [showSuggestions, setShowSuggestions] = useState(false);
-
+const [isloading, setisloading]= useState(true)
   const [isLocked, setIsLocked] = useState(true);
   const [showSubscribe, setShowSubscribe] = useState(false);
 
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if (isSubscribed && isLoading){
+      setisloading(false)
+    }else{
+      setisloading(false)
+    }
+  }, [])
 
   const handleLockClick = () => {
     setShowSubscribe(true);
@@ -70,6 +84,16 @@ export default function StockThemesindustrieslockPages() {
 
   return (
     <div>
+      {isloading ?  <div className="loader-cont">
+          <ClipLoader
+            cssOverride={override}
+            size={35}
+            data-testid="loader"
+            loading={isLoading}
+            speedMultiplier={1}
+            color="green"
+          />
+        </div> : 
       <div className={`banksectorthemepage ${!isSubscribed && !isLoading && "backdrop-blur"}`}>
         <h1 className="banksectortitle">Banks Sector Stocks</h1>
         <div className="banksectorfilter">
@@ -81,7 +105,7 @@ export default function StockThemesindustrieslockPages() {
           </button>
           <button
             className="banksectorbtnactivee"
-            onClick={() => navigate("/stockThemesindustrieslockPages")}
+            onClick={() => navigate("/stocksThemesindustries")}
           >
             Industries (02)
           </button>
@@ -213,7 +237,7 @@ export default function StockThemesindustrieslockPages() {
             </div>
           ))}
         </div>
-      </div>
+      </div>}
 
       {/* Wrap these in a fragment to fix the JSX error */}
       <>
