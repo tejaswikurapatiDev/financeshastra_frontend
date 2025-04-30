@@ -4,7 +4,7 @@
   max-width: 95%;
   overflow-x: hidden;
   margin: auto;
-  font-family: "calibri";
+  font-family: 'calibri';
   margin-top: 70px;
   margin-bottom: 100px;
 }
@@ -19,6 +19,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
+
 }
 
 .screener-filter-btn {
@@ -36,14 +37,17 @@
 .screener-table-wrapper {
   overflow-x: auto;
   font-size: 15px;
-  font-family: "calibri";
-  overflow-y: auto;
+  font-family: 'calibri';
+  overflow-Y: auto;
   height: 500px;
+
 }
 
 .screener-table {
   width: 100%;
   border-collapse: collapse;
+
+
 }
 
 .screener-table th,
@@ -64,6 +68,7 @@
   /* Border color for top */
   box-shadow: 0 4px 6px #24b676;
   /* Adds subtle shadow */
+
 
   /* No left or right borders by default */
 }
@@ -107,6 +112,8 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
+
+
 
 .stockindexscreenesectoropt {
   position: absolute;
@@ -156,11 +163,17 @@
 .screener-table th:first-child {
   border-left: 1px solid #24b676;
   /* Left border for first column */
+
+
+
 }
 
 .screener-table th:last-child {
   border-right: 1px solid #24b676;
   /* Right border for last column */
+
+
+
 }
 
 .screener-table th:not(:first-child):not(:last-child) {
@@ -170,9 +183,12 @@
   /* No right border for middle columns */
 }
 
+
 .screener-row:nth-child(even) {
   background-color: #f4f4f4;
 }
+
+
 
 /* Screener Unlock Button */
 .screener-unlock-btn {
@@ -196,6 +212,9 @@
   font-weight: bold;
 }
 
+
+
+
 /* Tooltip effect on hover */
 .screener-unlock-btn:hover::after {
   content: "Unlock with Subscription";
@@ -214,6 +233,8 @@
   z-index: 10;
   cursor: pointer;
 }
+
+
 
 .screener-show-more-btn {
   display: block;
@@ -313,6 +334,7 @@
   transition: background-color 0.3s;
 }
 
+
 .tab-button.active {
   background-color: #24b676;
   color: white;
@@ -348,6 +370,7 @@
 }
 
 .dropdownscreenerstock-content {
+
   position: absolute;
   top: 40px;
 
@@ -359,10 +382,13 @@
   border: 1px solid #ccc;
 }
 
+
+
 .dropdownscreenerstock-content label {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+
 }
 
 .dropdownscreenerstock-buttons {
@@ -449,6 +475,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+
 }
 
 .dropdown-peg-toggle {
@@ -510,6 +537,8 @@
   margin-bottom: 10px;
 }
 
+
+
 .dropdown-revenue-growth-actions {
   display: flex;
   gap: 30px;
@@ -536,10 +565,12 @@
 /* Wrapper for the filter group */
 /* Wrapper for the filter group */
 
+
 /* Dropdown wrapper for performance filter */
 .dropdown-performance-wrapper {
   position: relative;
   display: inline-block;
+
 }
 
 /* Button that toggles the dropdown visibility */
@@ -553,6 +584,7 @@
   justify-content: space-between;
   gap: 6px;
   border-radius: 5px;
+
 }
 
 /* Style for the arrow icon */
@@ -646,6 +678,7 @@
 .apply-performance-button {
   background-color: #24b676;
   color: white;
+
 }
 
 /* Hover effects for buttons */
@@ -717,6 +750,8 @@
   margin-right: 30px;
 }
 
+
+
 /* Wrapper for the dropdown button */
 .dropdown-eps-wrapper {
   position: relative;
@@ -735,6 +770,8 @@
   gap: 6px;
   border-radius: 5px;
 }
+
+
 
 /* Dropdown menu */
 .dropdown-eps-options {
@@ -755,6 +792,10 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
+
+
+
 
 /* Dropdown actions (reset and apply buttons) */
 .dropdown-eps-actions {
@@ -779,11 +820,14 @@
   margin-left: 30px;
 }
 
+
+
 .dropdown-eps-apply {
   background-color: #24b676;
   color: white;
   margin-right: 30px;
 }
+
 
 /* Wrapper for P/E dropdown */
 .dropdown-pe-wrapper {
@@ -804,6 +848,8 @@
   border-radius: 5px;
 }
 
+
+
 /* Dropdown Options */
 .dropdown-pe-options {
   position: absolute;
@@ -823,6 +869,10 @@
   align-items: center;
   margin-bottom: 10px;
 }
+
+
+
+
 
 /* Dropdown Actions */
 .dropdown-pe-actions {
@@ -847,11 +897,14 @@
   margin-left: 30px;
 }
 
+
+
 .dropdown-pe-apply {
   background-color: #24b676;
   color: white;
   margin-right: 30px;
 }
+
 
 .dropdown-market-cap-wrapper {
   display: inline-block;
@@ -994,6 +1047,8 @@
   margin-bottom: 10px;
 }
 
+
+
 .dropdown-market-cap-actions {
   display: flex;
   justify-content: space-between;
@@ -1013,12 +1068,15 @@
   background-color: white;
   color: #24b676;
   border: 1px solid #24b676;
+
 }
 
 .dropdown-market-cap-apply {
   background-color: #24b676;
   color: white;
+
 }
+
 
 .dropdown-change-wrapper {
   display: inline-block;
@@ -1036,6 +1094,7 @@
   gap: 6px;
   border-radius: 5px;
 }
+
 
 /* .dropdown-change-options {
   position: absolute;
@@ -1134,10 +1193,16 @@
   border: 1px solid #24b676;
 }
 
+
+
 .apply-change-button {
   background-color: #24b676;
   color: white;
 }
+
+
+
+
 
 .range-slider {
   position: relative;
@@ -1184,6 +1249,7 @@
   color: inherit;
   /* Inherit text color */
   cursor: pointer;
+
 }
 
 .symbol-cell a:hover {
@@ -1203,6 +1269,8 @@
   gap: 1020px;
   align-items: center;
   margin-top: 20px;
+
+
 }
 
 @media (min-width: 1280px) and (max-width: 1535px) {
@@ -1409,7 +1477,7 @@
     max-width: 95%;
     overflow-x: hidden;
     margin: auto;
-    font-family: "calibri";
+    font-family: 'calibri';
     margin-top: 0px;
     margin-bottom: 100px;
   }
@@ -1445,7 +1513,7 @@
     max-width: 95%;
     overflow-x: hidden;
     margin: auto;
-    font-family: "calibri";
+    font-family: 'calibri';
     margin-top: 50px;
     margin-bottom: 100px;
   }
@@ -1780,6 +1848,8 @@
     gap: 1000px;
     align-items: center;
     margin-top: 20px;
+
+
   }
 }
 
@@ -1836,6 +1906,8 @@
   .dropdown-market-cap-options {
     margin-top: -13px;
     position: absolute;
+
+
   }
 
   .stockindexscreeneropt {
@@ -1856,6 +1928,8 @@
     gap: 620px;
     align-items: center;
     margin-top: 20px;
+
+
   }
 
   .dropdown-change-options {
@@ -1974,6 +2048,7 @@
     z-index: 1000;
     border: 1px solid #ccc;
   }
+
 }
 
 /* Large Desktops (1280px - 1535px) */
