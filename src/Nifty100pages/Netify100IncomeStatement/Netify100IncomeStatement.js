@@ -4,11 +4,9 @@ import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
 import { IoLockClosedOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-
-
 
 const Netify100IncomeStatement = () => {
   const [stocks, setStocks] = useState(screenerStockincomeData);
@@ -361,7 +359,7 @@ const Netify100IncomeStatement = () => {
     { value: "15-below", label: "15 and below" },
     { value: "15-25", label: "15 to 25" },
     { value: "25-50", label: "25 to 50" },
-    { value: "50-above", label: "50 and above" }
+    { value: "50-above", label: "50 and above" },
   ];
 
   const epsDilGrowthOptions = [
@@ -1215,10 +1213,7 @@ const Netify100IncomeStatement = () => {
         <h1 className="screener-header">List of Nifty 100 company</h1>
         <div className="screener-filters">
           {/* Filter for each parameter */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             {/* Dropdown Button */}
             <button
               className="indexscreenerbuttonstock"
@@ -1297,7 +1292,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1368,7 +1363,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1442,7 +1437,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1516,7 +1511,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1590,7 +1585,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1664,7 +1659,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1732,10 +1727,7 @@ const Netify100IncomeStatement = () => {
             </div>
           </div>
           {/* Sector Dropdown */}
-          <div
-            className="indexscreenerbuttonstockcontainar"
-            style={{ position: "relative" }}
-          >
+          <div className="indexscreenerbuttonstockcontainar">
             <button
               className="indexscreenerbuttonstock"
               onClick={() => toggleDropdown("sector")}
@@ -1811,7 +1803,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1886,7 +1878,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1963,7 +1955,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2038,7 +2030,7 @@ const Netify100IncomeStatement = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div style={{ position: "relative" }}>
+              <div>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2113,14 +2105,14 @@ const Netify100IncomeStatement = () => {
 
         <div className="tab-container">
           <button
-          className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
-          onClick={() => {
-            setActiveTab("Overview");
-            navigate('/nifty100stocks'); // Navigate to the StockScreenerList page
-          }}
-        >
-          Overview
-        </button>
+            className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
+            onClick={() => {
+              setActiveTab("Overview");
+              navigate("/nifty100stocks"); // Navigate to the StockScreenerList page
+            }}
+          >
+            Overview
+          </button>
 
           <button
             className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
