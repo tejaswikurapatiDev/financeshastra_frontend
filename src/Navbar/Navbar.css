@@ -2511,7 +2511,10 @@ a span {
     font-size: 14px;
     /* Smaller font size */
   }
-
+  .navbar {
+    padding: 5px 10px;
+    height: 50px;
+}
   /* Adjust profile section layout */
   .profile-section span {
     font-size: 10px !important;

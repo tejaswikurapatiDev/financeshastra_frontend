@@ -22,7 +22,7 @@
   color: black;
   margin-bottom: 30px;
   font-size: 15px;
-  margin-left: 100px;
+  margin-left: 0px;
 
 }
 
@@ -381,6 +381,7 @@
 
 .popup-contentcontact h2 {
   margin-bottom: 10px;
+  margin-left: -10px;
 }
 
 .popup-contentcontact button {
