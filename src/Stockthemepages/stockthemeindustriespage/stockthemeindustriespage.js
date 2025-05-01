@@ -5,7 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import "./stockthemeindustriespage.css";
 
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
+
 import Navbar from "../../Navbar/Navbar";
 const stockThemesindustriesData = [
   

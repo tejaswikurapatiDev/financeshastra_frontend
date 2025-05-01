@@ -1,17 +1,24 @@
 import { useState, useEffect, useMemo } from "react";
 import { screenerStockvaluationData } from "../../Stocks/stockscreenervaluationdata";
 import { FaSearch } from "react-icons/fa"; // Import FaSearch for the search bar
-
+import { API_BASE_URL } from "../../config";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Netify100valuation = () => {
   const [stocks, setStocks] = useState(screenerStockvaluationData);
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const [currentPage, setCurrentPage] = useState(1);
+  const [isloading, setisloading]= useState(true)
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Valuation");
   const [filters, setFilters] = useState({
@@ -54,6 +61,38 @@ const Netify100valuation = () => {
   const [filteredData, setFilteredData] = useState(screenerStockvaluationData);
 
   const [marketCapFilters, setMarketCapFilters] = useState([]);
+
+  useEffect(() => {
+      const fetchfun = async () => {
+        const url = `${API_BASE_URL}/stocks/nifty100valuation`;
+        const response = await fetch(url);
+        if (response.ok === true) {
+          const data = await response.json();
+          console.log(data)
+          const formattedData = data.map((each) => ({
+            id: each.id,
+            symbol: each.Symbol,
+            price: each.Price,
+            marketCap: each.MarketCap,
+            pToE: each.PERatio,
+            pToB: each.PSRatio,
+            roe: each.ROE,
+            marketCapPerf: each.MarketCapPercentage,
+            peg: each.PBRatio,
+            pToS: each.PCFRatio,
+            pToCF: each.PFCFRatio,
+            ev: each.EnterpriseValue,
+            evEbitda: each.EVRevenue,
+            evSales: each.EVEBIT,
+            evEbit: each.EVEBITDA,
+  
+          }));
+          setStocks(formattedData);
+        }
+        setisloading(false)
+      };
+      fetchfun();
+    }, []);
 
   const handleMarketCapChange = (value) => {
     setMarketCapFilters((prevFilters) =>
@@ -2183,7 +2222,14 @@ const Netify100valuation = () => {
           >
             Income Statement
           </button>
-        </div>
+        </div>{isloading ? <div className='loader-cont'><ClipLoader
+                  cssOverride={override}
+                  size={35}
+                  data-testid="loader"
+                  loading={isloading}
+                  speedMultiplier={1}
+                  color="green"
+                /></div> :
         <div
           className="screener-table-wrapper"
           style={{ overflowY: "auto", height: "500px" }}
@@ -2359,7 +2405,7 @@ const Netify100valuation = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">

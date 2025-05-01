@@ -1,4 +1,313 @@
 /* Blurred effect when locked */
+
+.banksectorthemepage {
+  font-family: 'calibri';
+  padding: 20px;
+  background-color: #ffff;
+  margin-left: 23px;
+}
+
+.banksectortitle {
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #24b676, #238486);
+  /* Gradient background */
+  -webkit-background-clip: text;
+  /* Clips the gradient to the text */
+  -webkit-text-fill-color: transparent;
+  /* Makes the text itself transparent */
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-top: 90px;
+
+}
+
+.banksectorfilter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  width: 90%;
+  position: relative;
+  /* Add position relative to use the pseudo-element */
+}
+
+.banksectorfilter::before {
+  content: '';
+  position: absolute;
+  top: 43px;
+  /* Adjust this for top margin */
+  left: 40px;
+  /* Adjust this for left margin */
+  width: calc(100% + 20px);
+  /* Extend the width to account for the margins */
+  border-bottom: 2px solid #cecece;
+}
+
+
+.banksectorbtnactive {
+  background: linear-gradient(90deg, #24b676, #238486);
+  /* Gradient background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.banksectorbtn {
+
+  background: none;
+  /* Removes any background */
+  border: none;
+  /* Removes the border */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+
+
+}
+
+.banksectorbtn:nth-child(2) {
+
+  color: black;
+}
+
+.banksectorbtn:hover {
+  opacity: 0.8;
+}
+
+.banksectorsearch {
+  width: 30%;
+  padding: 9px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #898989;
+  border-radius: 6px;
+  margin-left: 40px;
+
+}
+
+.banksectortable {
+  width: 93%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 40px;
+  margin-bottom: 50px;
+}
+
+.banksectortable th,
+.banksectortable td {
+  border-bottom: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.banksectortable th {
+  background-color: #fff;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  border-top: 1px solid #24b676;
+  /* Top border */
+  border-bottom: 1px solid #24b676;
+  /* Bottom border */
+  border-radius: 7px;
+  /* Border radius */
+  padding: 10px;
+  /* Optional, adds spacing inside the header cells */
+}
+
+/* Remove left and right borders of th */
+.banksectortable th:first-child {
+  border-left: 1px solid #24b676;
+  /* Left border for the first th */
+  border-top-left-radius: 7px;
+  /* Rounded top-left corner */
+  border-bottom-left-radius: 7px;
+  /* Rounded bottom-left corner */
+  border-top: 1px solid #24b676;
+  /* Top border for the first th */
+}
+
+
+.banksectortable th:last-child {
+  border-right: 1px solid #24b676;
+  /* Right border for the last th */
+  border-top-right-radius: 17px;
+  /* Rounded top-right corner */
+  border-bottom-right-radius: 17px;
+  /* Rounded bottom-right corner */
+}
+
+
+.banksectortable tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.banksectortable tr:hover {
+  background-color: #eaf4f4;
+}
+
+.banksectortable td {
+  color: #333;
+}
+
+
+
+.banksectortable td:nth-child(3)[data-positive="true"] {
+  color: #27ae60;
+}
+
+.banksectortable td:nth-child(3)[data-positive="false"] {
+  color: #e74c3c;
+}
+
+.bank-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.banksector-search-icon {
+  position: absolute;
+  left: 50px;
+  top: 32%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .banksectortable {
+    width: 93%;
+    margin-left: 30px;
+    overflow-x: auto;
+    display: block;
+
+  }
+  .banksectorthemepage {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: #ffff;
+    margin-left: 15px;
+}
+}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .banksectortitle {
+    font-size: 22px;
+    margin-left: 15px;
+    margin-top: -10px;
+
+  }
+  .banksectorthemepage {
+    font-family: 'calibri';
+    padding: 20px;
+    background-color: #ffff;
+    margin-left: 5px;
+}
+
+  .banksectorfilter {
+    flex-direction: row;
+    width: 100%;
+    margin-left: -10px;
+  }
+
+  .banksectorbtnactive {
+    margin-left: 20px;
+  }
+
+  .banksectorsearch {
+    width: 30%;
+    margin-left: 0px;
+  }
+
+  .banksectortable {
+    width: 100%;
+    margin-left: 0;
+    overflow-x: auto;
+    display: block;
+  }
+  .banksector-search-icon {
+    position: absolute;
+    left: 10px;
+    top: 32%;
+    transform: translateY(-50%);
+    
+}
+.banksectorfilter::before {
+  content: '';
+  position: absolute;
+  top: 43px;
+  left: 10px;
+  width: calc(97% + 20px);
+  border-bottom: 2px solid #cecece;
+}
+}
+
+@media screen and (max-width: 480px) {
+  .banksectortitle {
+    font-size: 18px;
+    margin-left: 10px;
+    margin-top: 60px;
+}
+
+  .banksectorfilter {
+    flex-direction: row;
+    width: 100%;
+}
+
+  .banksectorbtnactive {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  .banksectorbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+.banksectorthemepage {
+  font-family: 'calibri';
+  padding: 20px;
+  background-color: #ffff;
+  margin-left: -5px;
+}
+
+  .banksectorsearch {
+    width: 50%;
+    margin-left: 10px;
+  }
+
+  .banksectortable {
+    width: 100%;
+    margin-left: 0;
+    overflow-x: auto;
+    display: block;
+  }
+  .banksector-search-icon {
+    position: absolute;
+    left: 20px;
+    top: 32%;
+    transform: translateY(-50%);
+    
+}
+.banksectorfilter::before {
+  content: '';
+  position: absolute;
+  top: 43px;
+  left: 10px;
+  width: calc(95% + 20px);
+  border-bottom: 2px solid #cecece;
+}
+}
+
 .blurred {
     filter: blur(5px);
   }

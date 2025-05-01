@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import './StockThemesindustriesPageslock.css';
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
 import Navbar from "../../Navbar/Navbar";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
@@ -39,18 +38,16 @@ export default function StockThemesindustrieslockPages() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(stockThemesindustriesData);
   const [showSuggestions, setShowSuggestions] = useState(false);
-const [isloading, setisloading]= useState(true)
+  const [isloading, setisloading] = useState(true)
   const [isLocked, setIsLocked] = useState(true);
   const [showSubscribe, setShowSubscribe] = useState(false);
 
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if (isSubscribed && isLoading){
+  useEffect(() => {
+    if (isSubscribed && isLoading) {
       setisloading(false)
-    }else{
-      setisloading(false)
-    }
+    } 
   }, [])
 
   const handleLockClick = () => {
@@ -84,16 +81,6 @@ const [isloading, setisloading]= useState(true)
 
   return (
     <div>
-      {isloading ?  <div className="loader-cont">
-          <ClipLoader
-            cssOverride={override}
-            size={35}
-            data-testid="loader"
-            loading={isLoading}
-            speedMultiplier={1}
-            color="green"
-          />
-        </div> : 
       <div className={`banksectorthemepage ${!isSubscribed && !isLoading && "backdrop-blur"}`}>
         <h1 className="banksectortitle">Banks Sector Stocks</h1>
         <div className="banksectorfilter">
@@ -124,120 +111,130 @@ const [isloading, setisloading]= useState(true)
           />
           <CiSearch className="banksector-search-icon" />
         </div>
-
-        <div className="StockThemesSectorPages-themes-listt">
-          {filteredData.map((item, index) => (
-            <div key={index} className="StockThemesSectorPages-themes-card">
-              <div className="StockThemesSectorPages-themes-card-header">
-                <h2 className="StockThemesSectorPages-themes-sector">
-                  {item.sector.split(" & ").map((text, index) => (
-                    <React.Fragment key={index}>
-                      {text}
-                      {index === 0 && <br />}
-                    </React.Fragment>
-                  ))}
-                </h2>
-                <p className="StockThemesSectorPages-themes-neutral">
-                  - Neutral
-                </p>
-              </div>
-
-              <div className="StockThemesSectorPages-themes-details">
-                <p>
-                  <strong style={{ color: "#333", fontWeight: "normal" }}>
-                    M.Cap (₹ Cr.):
-                  </strong>
-                  <br />
-                  <span style={{ fontWeight: "bold", color: "#333" }}>
-                    {item.marketCap.split(" ")[0]}
-                  </span>{" "}
-                  <span
-                    style={{
-                      color: item.marketCap.includes("-") ? "red" : "#24b676",
-                      fontWeight: "bold",
-                    }}
-                  >
-                    {item.marketCap.split(" ")[1]}
-                  </span>
-                </p>
-
-                <p className="StockThemesSectorPages-themespara">
-                  <strong style={{ color: "#333", fontWeight: "normal" }}>
-                    Adv/Decline:
-                  </strong>
-                  <br />
-                  <span style={{ color: "#24b676", fontWeight: "bold" }}>
-                    {item.advDecl.split(" | ")[0]}
-                  </span>{" "}
-                  |{" "}
-                  <span style={{ color: "red", fontWeight: "bold" }}>
-                    {item.advDecl.split(" | ")[1]}
-                  </span>
-                </p>
-
-                <p className="StockThemesSectorPages-themespara">
-                  <strong style={{ color: "#333", fontWeight: "normal" }}>
-                    Sector PE:
-                  </strong>
-                  <br />
-                  <span style={{ fontWeight: "bold", color: "#333" }}>
-                    {item.sectorPE}
-                  </span>
-                </p>
-
-                <p>
-                  <strong style={{ color: "#333", fontWeight: "normal" }}>
-                    Sector earnings YOY:
-                  </strong>
-                  <br />
-                  <span style={{ fontWeight: "bold", color: "#333" }}>
-                    {item.earningsYOY.split(" ")[0]}
-                  </span>{" "}
-                  <span style={{ color: "#24b676", fontWeight: "bold" }}>
-                    {item.earningsYOY.match(/\(.*\)/)}
-                  </span>
-                </p>
-
-                <p className="StockThemesSectorPages-themespara">
-                  <strong style={{ color: "#333", fontWeight: "normal" }}>
-                    Stocks:
-                  </strong>
-                  <br />
-                  <span style={{ fontWeight: "bold", color: "#333" }}>
-                    {item.stocks}
-                  </span>
-                </p>
-              </div>
-
-              <ChevronRight
-                style={{ cursor: "pointer" }}
-                onClick={() => navigate("/StockScreener")}
-                className="StockThemesSectorPages-themes-icon"
-              />
-
-              {!isSubscribed && !isLoading && (
-                <div className="subscribethemestocklocked-overlay">
-                  <div
-                    className="subscribethemestocklocked-lock-icon"
-                    onClick={handleLockClick}
-                  >
-                    <img
-                      src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
-                      alt="Lock Icon"
-                    />
-                    <button
-                      className="subscribethemestock-button"
-                      onClick={handleSubscribeClick}
-                    >
-                      Subscribe for more details
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+        {isloading ? <div className="loader-cont">
+          <ClipLoader
+            cssOverride={override}
+            size={35}
+            data-testid="loader"
+            loading={isLoading}
+            speedMultiplier={1}
+            color="green"
+          />
         </div>
-      </div>}
+          : <div className="StockThemesSectorPages-themes-listt">
+            {filteredData.map((item, index) => (
+              <div key={index} className="StockThemesSectorPages-themes-card">
+                <div className="StockThemesSectorPages-themes-card-header">
+                  <h2 className="StockThemesSectorPages-themes-sector">
+                    {item.sector.split(" & ").map((text, index) => (
+                      <React.Fragment key={index}>
+                        {text}
+                        {index === 0 && <br />}
+                      </React.Fragment>
+                    ))}
+                  </h2>
+                  <p className="StockThemesSectorPages-themes-neutral">
+                    - Neutral
+                  </p>
+                </div>
+
+                <div className="StockThemesSectorPages-themes-details">
+                  <p>
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      M.Cap (₹ Cr.):
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.marketCap.split(" ")[0]}
+                    </span>{" "}
+                    <span
+                      style={{
+                        color: item.marketCap.includes("-") ? "red" : "#24b676",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.marketCap.split(" ")[1]}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Adv/Decline:
+                    </strong>
+                    <br />
+                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                      {item.advDecl.split(" | ")[0]}
+                    </span>{" "}
+                    |{" "}
+                    <span style={{ color: "red", fontWeight: "bold" }}>
+                      {item.advDecl.split(" | ")[1]}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Sector PE:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.sectorPE}
+                    </span>
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Sector earnings YOY:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.earningsYOY.split(" ")[0]}
+                    </span>{" "}
+                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                      {item.earningsYOY.match(/\(.*\)/)}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Stocks:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.stocks}
+                    </span>
+                  </p>
+                </div>
+
+                <ChevronRight
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/StockScreener")}
+                  className="StockThemesSectorPages-themes-icon"
+                />
+
+                
+              </div>
+            ))}
+          </div>}
+          {!isSubscribed && !isLoading && (
+                  <div className="subscribethemestocklocked-overlay">
+                    <div
+                      className="subscribethemestocklocked-lock-icon"
+                      onClick={handleLockClick}
+                    >
+                      <img
+                        src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
+                        alt="Lock Icon"
+                      />
+                      <button
+                        className="subscribethemestock-button"
+                        onClick={handleSubscribeClick}
+                      >
+                        Subscribe for more details
+                      </button>
+                    </div>
+                  </div>
+                )}
+      </div>
 
       {/* Wrap these in a fragment to fix the JSX error */}
       <>

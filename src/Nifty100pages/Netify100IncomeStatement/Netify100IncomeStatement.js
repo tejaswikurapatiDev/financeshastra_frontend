@@ -7,9 +7,17 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom"; // Import useNavigate from react-router-dom
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Netify100IncomeStatement = () => {
   const [stocks, setStocks] = useState(screenerStockincomeData);
+  const [isloading, setisloading]= useState(true)
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Income Statement");
@@ -68,6 +76,34 @@ const Netify100IncomeStatement = () => {
   };
   const [isMarketCapDropdownVisible, setIsMarketCapDropdownVisible] = useState(false);
   const [marketCapFilters, setMarketCapFilters] = useState([]);
+
+  useEffect(() => {
+      const fetchfun = async () => {
+        const url = `${API_BASE_URL}/stocks/nifty100income`;
+        const response = await fetch(url);
+        console.log(response)
+        if (response.ok === true) {
+          const data = await response.json();
+          const formattedData = data.map((each) => ({
+            id: each.id,
+            symbol: each.Symbol,
+            epsDilGrowth: each.EPSDilutedGrowth,
+            url: "/stockhandle",
+            revenue: each.Revenue,
+            revenueGrowth: each.RevenueGrowth,
+            grossProfit: each.GrossProfit,
+            operatingIncome: each.OperatingIncome,
+            netIncome: each.NetIncome,
+            ebitda: each.EBITDA,
+            epsDil: each.EPS_Diluted,
+          }));
+          setStocks(formattedData);
+          console.log(data)
+        }
+        setisloading(false)
+      };
+      fetchfun();
+    }, []);
 
   const handleMarketCapChange = (value) => {
     setMarketCapFilters((prevFilters) =>
@@ -2133,7 +2169,14 @@ const Netify100IncomeStatement = () => {
           >
             Income Statement
           </button>
-        </div>
+        </div>{isloading ? <div className='loader-cont'><ClipLoader
+                          cssOverride={override}
+                          size={35}
+                          data-testid="loader"
+                          loading={isloading}
+                          speedMultiplier={1}
+                          color="green"
+                        /></div> :
         <div className="screener-table-wrapper" style={{ overflowY: 'auto', height: '500px' }}>
           <table className="screener-table" style={{ borderCollapse: 'collapse', width: '100%', marginTop: '10px' }}>
             <thead style={{ position: 'sticky', top: 0, backgroundColor: '#f9f9f9', zIndex: 10, boxShadow: '0 4px 6px #24b676' }}>
@@ -2224,7 +2267,7 @@ const Netify100IncomeStatement = () => {
 
 
 
-        </div>
+        </div>}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
           <div className="pagination-info">
