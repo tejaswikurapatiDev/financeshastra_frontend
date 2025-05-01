@@ -26,7 +26,7 @@ const Billingavailableplan = () => {
                     <h2 className="billingSubscriptionTitle">Available Plan</h2>
                     <div className="billingSubscriptionCard">
                         <h2 className="billing-detailspages-amount">
-                            <span style={{ color: "black" }}>Rs 5,999</span> <br />
+                            <span style={{ color: "black" }}>Rs 7,999</span> <br />
 
 
                         </h2>
@@ -34,7 +34,7 @@ const Billingavailableplan = () => {
               <p className="billing-detailspages-plan">
                 <strong style={{ color: "#888" }}>Plan </strong>
                 <span style={{ color: "black" }}>Premium</span>
-                <span style={{ color: "#24b676" }}> (half Year)</span>
+                <span style={{ color: "#24b676" }}> (Annually)</span>
               </p>
               <div class="plan-features">
                 <h4 className="plan-featuresh4">
@@ -135,7 +135,11 @@ const Billingavailableplan = () => {
               </div>
               <button
                 className="billingSubscriptionButton"
-                onClick={() => navigate("/premiumSubscriptionPages")}
+               
+                onClick={() => {
+                  navigate("/subscribe-Premium"); 
+                  window.scrollTo(0, 0); // Scroll to top after navigation
+                }}
               >
                 Billing Details
               </button>

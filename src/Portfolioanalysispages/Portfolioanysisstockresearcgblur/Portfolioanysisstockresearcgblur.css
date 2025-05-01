@@ -52,15 +52,15 @@ font-weight: bold;
     font-weight: bold;
     border-radius: 12px;
   }
-  
   .overlaylocksub {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 70%;
+    left: 55%;
     transform: translate(-50%, -50%);
-    display: flex;
+    display: flex
+;
     flex-direction: column;
-  }
+}
   
   .lock-iconanalysi {
     width: 60px;
@@ -212,12 +212,13 @@ margin-left: 40px;
     
     .overlaylocksub {
       position: absolute;
-      top: 50%;
+      top: 75%;
       left: 50%;
       transform: translate(-50%, -50%);
-      display: flex;
+      display: flex
+;
       flex-direction: column;
-    }
+  }
     
     .lock-iconanalysi {
       width: 60px;
@@ -355,7 +356,7 @@ margin-left: 40px;
     
     .overlaylocksub {
       position: absolute;
-      top: 50%;
+      top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
       display: flex;
@@ -469,7 +470,15 @@ margin-left: 40px;
   scrollbar-color: #24b676 white;
   scrollbar-width: thin;
 }
-
+.overlaylocksub {
+  position: absolute;
+  top: 75%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  display: flex
+;
+  flex-direction: column;
+}
 /* Custom scrollbar for WebKit browsers (Chrome, Safari) */
 .stockresearchanalysispage-tableanalysisblur::-webkit-scrollbar {
   height: 8px; /* Adjust scrollbar thickness */
