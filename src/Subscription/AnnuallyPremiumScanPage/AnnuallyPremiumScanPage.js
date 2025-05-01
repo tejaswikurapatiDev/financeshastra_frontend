@@ -8,8 +8,8 @@ const AnnuallyPremiumScanPage = () => {
 
 
     <div className="scanAndPayProfilePage-qr-section">
-      <h2 className="scanAndPayProfilePage-qr-sectionh2">Dynamic QR Generated</h2>
-      <p className="scanAndPayProfilePage-qr-sectionp">Is it more convenient to pay by phone?</p>
+      <h2 className="scanAndPayProfilePage-qr-sectionh2">It is easier to pay using a phone and laptop/desktop</h2>
+    
       <p>
         <strong className="scanAndPayProfilePage-qr-sectionstong">Scan QR code</strong>
       </p>
@@ -17,8 +17,10 @@ const AnnuallyPremiumScanPage = () => {
         <img
           src={qrcode}
           alt="QR Code"
+
         />
       </div>
+      <h3 className="scanall">Scan and pay</h3>
     </div>
 
   );
