@@ -256,10 +256,12 @@ const BankSectorThemePagelock = () => {
               className="subscribethemestocklocked-lock-icon"
               onClick={handleLockClick}
             >
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
-                alt="Lock Icon"
-              />
+           <img
+  src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
+  alt="Lock Icon"
+  onClick={handleSubscribeClick}
+  style={{ cursor: "pointer" }} // optional: makes it clear it's clickable
+/>
               <button
                 className="subscribethemestock-button"
                 onClick={handleSubscribeClick}
