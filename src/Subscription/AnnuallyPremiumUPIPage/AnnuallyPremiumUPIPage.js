@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
 import Cookies from 'js-cookie'
 import { jwtDecode } from "jwt-decode";
-
+import upiLogoimg from '../../assest/upi.webp';
 
 const AnnuallyPremiumUPIPage = () => {
   const [upiId, setUpiId] = useState("");
@@ -99,6 +99,7 @@ const AnnuallyPremiumUPIPage = () => {
   <div>
 
           <h2 className="paypalprofilepage-title">Pay with UPI</h2>
+       
           <div className="upiprofilepage-icons">
             <img src={phonepay} alt="PhonePe" onClick={handlePhPayClick} style={{ cursor: "pointer" }} />
             {showPopupPhonep && (
@@ -132,7 +133,10 @@ const AnnuallyPremiumUPIPage = () => {
               </div>
             )}
           </div>
-
+          <div>
+         
+          </div>
+       
           <form className="upiprofilepage-form">
             <div className="upiprofilepage-field">
               <input

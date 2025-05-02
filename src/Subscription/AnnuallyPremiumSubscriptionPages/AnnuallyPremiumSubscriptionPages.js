@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-
+import upiLogo from '../../assest/upii.webp';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FaPaypal } from 'react-icons/fa';
@@ -38,7 +38,7 @@ const AnnuallyPremiumSubscriptionPages = () => {
   const [errors, setErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [showPopupforLogin, setShowPopupforLogin] = useState(false)
-  const [activepage, setactivepage] = useState('card')
+  const [activepage, setactivepage] = useState('upi')
   const [userName, setUsername] = useState("");
 
   useEffect(() => {
@@ -217,22 +217,12 @@ const AnnuallyPremiumSubscriptionPages = () => {
           </div>
           <div className="billing-detailspages-payment">
             <div className="billing-detailspages-payment-options">
-              <button className={activepage === "card" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handleCardClick}>
-                <div className="payment-option-content">
-                  <IoCard size={20} />
-                  <span>Card</span>
-                </div>
-              </button>
+             
 
-              <button className={activepage === "paypal" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handlePayPalClick}>
-                <div className="payment-option-content">
-                  <FaPaypal size={20} />
-                  <span>PayPal</span>
-                </div>
-              </button>
+             
               <button className={activepage === "upi" ? "billing-detailspages-method active" : "billing-detailspages-method"} onClick={handleupiClick}>
                 <div className="payment-option-content">
-                  <MdPayment size={20} />
+                   <img src={upiLogo} alt="UPI Logo" style={{ height: "20px", marginRight: "8px" }}  />
                   <span>UPI</span>
                 </div>
               </button>
@@ -243,87 +233,10 @@ const AnnuallyPremiumSubscriptionPages = () => {
                 </div>
               </button>
             </div>
-            {activepage === 'card' && <>
-              <h2 className="profilepage-tittlle">Card details</h2>
-              <form className="billing-detailspages-card-form">
-                <div
-                  className={`billing-detailspages-card-input-container ${errors.cardNumber ? "error" : ""
-                    }`}
-                >
-                  <input
-                    type="text"
-                    placeholder="0000 0000 0000 0000"
-                    className="billing-detailspages-card-input"
-                    maxLength={16}
-                    value={cardNumber}
-                    onChange={(e) => {
-                      // Allow only numbers and ensure length does not exceed 16 digits
-                      const value = e.target.value.replace(/\D/g, "");
-                      if (value.length <= 16) {
-                        setCardNumber(value);
-                      }
-                    }}
-                  />
+          
 
-                  <div className="billing-detailspages-card-icons">
-                    <img src={card1} alt="Visa" />
-                    <img src={card2} alt="MasterCard" />
-                    <img src={card3} alt="Amex" />
-                    <img src={card4} alt="RuPay" />
-                  </div>
-                </div>
-
-                <div className="billing-detailspages-card-expiry">
-                  <div className={`billing-detailspages-expiry ${errors.expiryDate ? "error" : ""}`}>
-                    <DatePicker
-                      selected={expiryDate}
-                      onChange={(date) => setExpiryDate(date)}
-                      dateFormat="MM/yyyy"
-                      showMonthYearPicker
-                      customInput={<CustomInput />}
-                    />
-                  </div>
-
-
-
-                  <div className={`billing-detailspages-cvc ${errors.cvc ? "error" : ""}`}>
-                    <input
-                      type="text"
-                      placeholder="CVC"
-                      aria-label="CVC"
-                      className="billing-detailspages-cvc-input"
-                      maxLength={3}
-                      value={cvc}
-                      onChange={(e) => {
-                        const value = e.target.value.replace(/\D/g, ""); // Allow only numbers
-                        if (value.length <= 3) {
-                          setCvc(value);
-                        }
-                      }}
-                    />
-                    <FontAwesomeIcon
-                      icon={faShieldAlt}
-                      className="billing-detailspages-iconnn"
-                    />
-                  </div>
-
-
-                </div>
-
-                <p className="billing-detailspages-terms">
-                  By providing your card information, you allow us to charge your card
-                  for future payments in accordance with their terms.
-                </p>
-
-                <button
-                  type="button"
-                  className="billing-detailspages-pay-button"
-                  onClick={handlePaymentBillingDetailsPage}
-                >
-                  Pay ₹7999
-                </button>
-              </form></>}
-              {activepage === "paypal" && <AnnuallyPremiumPaypalProfilePage/>}
+                
+             
               {activepage === 'upi' && <AnnuallyPremiumUPIPage/>}
               {activepage === "scan" && <AnnuallyPremiumScanPage/>}
 

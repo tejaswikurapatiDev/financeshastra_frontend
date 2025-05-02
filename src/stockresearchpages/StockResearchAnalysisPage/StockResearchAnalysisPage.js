@@ -29,10 +29,17 @@ import { API_BASE_URL } from '../../config';
 
 import lockimg from '../../assest/lock.png'
 import { useNavigate } from 'react-router-dom';
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const StockResearchAnalysisPage = () => {
 
   const navigate= useNavigate()
+  const [isloading, setisloading]= useState(true)
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const stockResearchData = [
     { date: "22-01-2025", symbol: "Reliance Industries Ltd", price: "₹1,272.15", change: "-0.09%", marketCap: "₹17.23T", target: "₹489.00", action: "Book Profits", rating: "Buy", profitBooked: "+18.73%", image: reliance, pdfLink: "View"  },
@@ -69,6 +76,14 @@ const StockResearchAnalysisPage = () => {
   const currentStocksresearch = filteredstock.slice(indexOfFirstItem, indexOfLastItem);
 
   const totalPages = Math.ceil(filteredstock.length / itemsPerPage);
+
+  useEffect(()=>{
+    if (isSubscribed && isLoading){
+      setisloading(false)
+    }else{
+      setisloading(false)
+    }
+  }, [])
 
   // Handle page change
   const handlePageChange = (pageNumber) => {
@@ -180,6 +195,7 @@ const StockResearchAnalysisPage = () => {
         </div>
       </div>
       <div className='containerforunblur'>
+        
       <div className={!isLoading && !isSubscribed && "blurred-content"}>
       <table className="stockresearchanalysispage-table">
         <thead>

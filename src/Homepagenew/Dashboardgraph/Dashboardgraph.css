@@ -963,7 +963,10 @@ max-width: 90%;
         font-size: 17px;
         margin-top: 50px;
     }
-
+    .allheadd {
+        max-width: 90%;
+        margin-top: 20px;
+    }
 
 
     .portfoliomutual-containerrniftydashboard {

@@ -196,11 +196,11 @@ const FooterForAllPage = () => {
           </div>
 
           <div className="footermobileviewpages-social-icons">
-            <a href="#" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaTwitter /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaYoutube /></a>
+            <a href="https://www.facebook.com/FinanceShastra/" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
+            <a href="https://x.com/FinanceShastra" className="footermobileviewpages-social-icon"><FaTwitter /></a>
+            <a href="https://www.instagram.com/financeshastra_official" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
+            <a href="https://www.linkedin.com/company/financeshastra/" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
+            <a href="https://www.youtube.com/@FinanceShastra" className="footermobileviewpages-social-icon"><FaYoutube /></a>
           </div>
           <div className="footermobileviewpages-bottom-section">
   <p className="footermobileviewpages-copyright">
@@ -208,8 +208,8 @@ const FooterForAllPage = () => {
     <br />
     <span className="rights-text">
       All Rights Reserved |{" "}
-      <a href="#" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
-      <a href="#" className="footermobileviewpages-link">Privacy Policy</a>
+      <a href="/termsAndConditions" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
+      <a href="/privacyPolicypage" className="footermobileviewpages-link">Privacy Policy</a>
     </span>
   </p>
 </div>

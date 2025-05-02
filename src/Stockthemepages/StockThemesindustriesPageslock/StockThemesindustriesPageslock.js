@@ -1,13 +1,18 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronRight } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import './StockThemesindustriesPageslock.css';
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-import Stockthemeunlocknavbar from "../stockthemeunlocknavbar/stockthemeunlocknavbar";
 import Navbar from "../../Navbar/Navbar";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const stockThemesindustriesData = [
   {
@@ -33,168 +38,209 @@ export default function StockThemesindustrieslockPages() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState(stockThemesindustriesData);
   const [showSuggestions, setShowSuggestions] = useState(false);
-
-  // Lock and Subscribe States
-  const [isLocked, setIsLocked] = useState(true);  // Set this initially to `true` for testing
+  const [isloading, setisloading] = useState(true)
+  const [isLocked, setIsLocked] = useState(true);
   const [showSubscribe, setShowSubscribe] = useState(false);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isSubscribed && isLoading) {
+      setisloading(false)
+    } 
+  }, [])
+
   const handleLockClick = () => {
-    //setIsLocked(false); // Unlock the item
     setShowSubscribe(true);
   };
 
   const handleMouseEnter = () => {
-    if (isLocked){
-      setShowSubscribe(true);
-    }
-     // Show the subscription button on hover
+    if (isLocked) setShowSubscribe(true);
   };
 
   const handleMouseLeave = () => {
-    setShowSubscribe(false); // Hide subscription button on hover out
+    setShowSubscribe(false);
   };
 
   const handleSubscribeClick = () => {
-    // Navigate to the subscribe page (example route, you can change it)
     navigate("/subscription");
   };
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
-
-    // Filter the sectors based on the search term
     if (value.trim() === "") {
-      setFilteredData(stockThemesindustriesData);  // Show all when input is empty
+      setFilteredData(stockThemesindustriesData);
     } else {
       const filteredList = stockThemesindustriesData.filter((item) =>
-        item.sector.toLowerCase().includes(value.toLowerCase()) // Match by sector name
+        item.sector.toLowerCase().includes(value.toLowerCase())
       );
       setFilteredData(filteredList);
     }
   };
 
-  const navigate = useNavigate();
-
   return (
     <div>
-    <div className={`banksectorthemepage ${!isSubscribed && !isLoading && "backdrop-blur" }`}>
-      <h1 className="banksectortitle">Banks Sector Stocks</h1>
-      <div className="banksectorfilter">
-        <button
-          className="banksectorbtnn"
-          onClick={() => navigate("/bankSectorThemePagelock")} // Correct usage of navigate inside onClick
-        >
-          All Stocks (12)
-        </button>
-        <button className="banksectorbtnactivee" onClick={() => navigate("/stockThemesindustrieslockPages")}>Industries (02)</button>
-      </div>
-      <div className="search-wrapper" style={{ position: "relative" }}>
-        <input
-          type="text"
-          className="banksectorsearch"
-          placeholder="Search by sector name"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          onFocus={() => setShowSuggestions(true)}
-          onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
-          style={{ paddingLeft: "30px" }}
-        />
-        <CiSearch className="banksector-search-icon"/>
-      </div>
-      <div className="StockThemesSectorPages-themes-listt">
-        {filteredData.map((item, index) => (
-          <div key={index} className="StockThemesSectorPages-themes-card">
-            <div className="StockThemesSectorPages-themes-card-header">
-              <h2 className="StockThemesSectorPages-themes-sector">
-                {item.sector.split(" & ").map((text, index) => (
-                  <React.Fragment key={index}>
-                    {text}
-                    {index === 0 && <br />}
-                  </React.Fragment>
-                ))}
-              </h2>
-              <p className="StockThemesSectorPages-themes-neutral">
-                - Neutral
-              </p>
-            </div>
+      <div className={`banksectorthemepage ${!isSubscribed && !isLoading && "backdrop-blur"}`}>
+        <h1 className="banksectortitle">Banks Sector Stocks</h1>
+        <div className="banksectorfilter">
+          <button
+            className="banksectorbtnn"
+            onClick={() => navigate("/bankSectorStockTheme")}
+          >
+            All Stocks (12)
+          </button>
+          <button
+            className="banksectorbtnactivee"
+            onClick={() => navigate("/stocksThemesindustries")}
+          >
+            Industries (02)
+          </button>
+        </div>
 
-            <div className="StockThemesSectorPages-themes-details">
-              <p>
-                <strong style={{ color: "#333", fontWeight: "normal" }}>M.Cap (₹ Cr.):</strong> <br />
-                <span style={{ fontWeight: "bold", color: "#333" }}>
-                  {item.marketCap.split(" ")[0]}
-                </span>{" "}
-                <span style={{
-                  color: item.marketCap.includes("-") ? "red" : "#24b676",
-                  fontWeight: "bold"
-                }}>
-                  {item.marketCap.split(" ")[1]} {/* Display percentage value */}
-                </span>
-              </p>
-
-              <p className="StockThemesSectorPages-themespara">
-                <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
-                <br />
-                <span style={{ color: "#24b676", fontWeight: "bold" }}>
-                  {item.advDecl.split(" | ")[0]}
-                </span>{" "}
-                |{" "}
-                <span style={{ color: "red", fontWeight: "bold" }}>
-                  {item.advDecl.split(" | ")[1]}
-                </span>
-              </p>
-
-              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br/>  <span style={{ fontWeight: "bold", color: "#333" }}>
-                {item.sectorPE}</span></p>
-                <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
-                {item.earningsYOY.split(" ")[0]}</span>{" "}
-                <span style={{ color: "#24b676",fontWeight: "bold" }}>
-                  {item.earningsYOY.match(/\(.*\)/)}
-                </span>
-              </p>
-              
-              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
-            </div>
-
-            <ChevronRight style={{cursor:"pointer"}}onClick={() => navigate("/StockScreener")}className="StockThemesSectorPages-themes-icon" />
-
-            {/* Lock and Subscribe logic */}
-            {!isSubscribed && !isLoading && (
-              <div className="subscribethemestocklocked-overlayyy">
-                <div
-                  className="subscribethemestocklocked-lock-icon"
-                  onClick={handleLockClick} // Click on the lock icon to unlock and show subscribe
-                  onMouseEnter={handleMouseEnter} // Show button on hover
-                  
-                  // Hide button on hover out
-                >
-                  <img
-                    src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png" 
-                    onClick={() => navigate("/stockThemesindustriesPages")}
-                    alt="Lock Icon"
-                  />
+        <div className="search-wrapper" style={{ position: "relative" }}>
+          <input
+            type="text"
+            className="banksectorsearch"
+            placeholder="Search by sector name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            onFocus={() => setShowSuggestions(true)}
+            onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+            style={{ paddingLeft: "30px" }}
+          />
+          <CiSearch className="banksector-search-icon" />
+        </div>
+        {isloading ? <div className="loader-cont">
+          <ClipLoader
+            cssOverride={override}
+            size={35}
+            data-testid="loader"
+            loading={isLoading}
+            speedMultiplier={1}
+            color="green"
+          />
+        </div>
+          : <div className="StockThemesSectorPages-themes-listt">
+            {filteredData.map((item, index) => (
+              <div key={index} className="StockThemesSectorPages-themes-card">
+                <div className="StockThemesSectorPages-themes-card-header">
+                  <h2 className="StockThemesSectorPages-themes-sector">
+                    {item.sector.split(" & ").map((text, index) => (
+                      <React.Fragment key={index}>
+                        {text}
+                        {index === 0 && <br />}
+                      </React.Fragment>
+                    ))}
+                  </h2>
+                  <p className="StockThemesSectorPages-themes-neutral">
+                    - Neutral
+                  </p>
                 </div>
-                {showSubscribe && (
-                  <button
-                    className="subscribethemestock-button"
-                    onClick={handleSubscribeClick} // Navigate to the subscribe page
-                  >
-                    Subscribe for more details
-                  </button>
-                )}
+
+                <div className="StockThemesSectorPages-themes-details">
+                  <p>
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      M.Cap (₹ Cr.):
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.marketCap.split(" ")[0]}
+                    </span>{" "}
+                    <span
+                      style={{
+                        color: item.marketCap.includes("-") ? "red" : "#24b676",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      {item.marketCap.split(" ")[1]}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Adv/Decline:
+                    </strong>
+                    <br />
+                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                      {item.advDecl.split(" | ")[0]}
+                    </span>{" "}
+                    |{" "}
+                    <span style={{ color: "red", fontWeight: "bold" }}>
+                      {item.advDecl.split(" | ")[1]}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Sector PE:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.sectorPE}
+                    </span>
+                  </p>
+
+                  <p>
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Sector earnings YOY:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.earningsYOY.split(" ")[0]}
+                    </span>{" "}
+                    <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                      {item.earningsYOY.match(/\(.*\)/)}
+                    </span>
+                  </p>
+
+                  <p className="StockThemesSectorPages-themespara">
+                    <strong style={{ color: "#333", fontWeight: "normal" }}>
+                      Stocks:
+                    </strong>
+                    <br />
+                    <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.stocks}
+                    </span>
+                  </p>
+                </div>
+
+                <ChevronRight
+                  style={{ cursor: "pointer" }}
+                  onClick={() => navigate("/StockScreener")}
+                  className="StockThemesSectorPages-themes-icon"
+                />
+
+                
               </div>
-            )}
-          </div>
-        ))}
+            ))}
+          </div>}
+          {!isSubscribed && !isLoading && (
+                  <div className="subscribethemestocklocked-overlay">
+                    <div
+                      className="subscribethemestocklocked-lock-icon"
+                      onClick={handleLockClick}
+                    >
+                      <img
+                        src="https://static.vecteezy.com/system/resources/previews/015/117/333/original/padlock-icon-with-glowing-neon-effect-security-lock-sign-secure-protection-symbol-png.png"
+                        alt="Lock Icon"
+                      />
+                      <button
+                        className="subscribethemestock-button"
+                        onClick={handleSubscribeClick}
+                      >
+                        Subscribe for more details
+                      </button>
+                    </div>
+                  </div>
+                )}
       </div>
-      
-      <Navbar/>
-     
-      </div>
-      <div >
+
+      {/* Wrap these in a fragment to fix the JSX error */}
+      <>
+        <Navbar />
         <FooterForAllPage />
-      </div>
+      </>
     </div>
   );
-}  
+}

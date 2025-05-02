@@ -1,3 +1,85 @@
+.StockThemesSectorPages-themes-neutral {
+    display: flex;
+    align-items: center;
+    color: #595959;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: -10px;
+    margin-left: 30px;
+}
+
+.StockThemesSectorPages-themes-listt {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+    width: 80%;
+    margin-left: 40px;
+}
+
+.banksectorbtnn {
+    background: none;
+    /* Removes any background */
+    border: none;
+    /* Removes the border */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 40px;
+}
+.banksectorbtnactivee{
+    background: linear-gradient(90deg, #24b676, #238486);
+    /* Gradient background */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.StockThemesindustriesPagesfooter{
+    width: 101%;
+}
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .StockThemesSectorPages-themes-listt {
+        width: 100%;
+        margin-left: 0px;
+    }
+    
+    .banksectorbtnn {
+        margin-left: 20px;
+    }
+    
+    .banksectorbtnactivee {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .StockThemesSectorPages-themes-listt {
+        width: 100%;
+        margin-left: 10px;
+    }
+    
+    .banksectorbtnn {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    
+    .banksectorbtnactivee {
+       
+       font-size: 12px;
+        margin-left: 5px;
+    }
+    
+    .StockThemesindustriesPagesfooter{
+        width: 100%;
+    }
+}
 .subscribethemestocklocked-overlayyy {
     position: absolute;
     inset: 0;

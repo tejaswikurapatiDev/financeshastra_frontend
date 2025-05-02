@@ -817,19 +817,19 @@ const Navbar = () => {
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/userDetails">
+        <Link to="/userDetails" className="butn">
           <FaUser
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />
-          My Profile
+          <div>My Profile</div>
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <Link to="/help">
+        <Link to="/help" className="butn">
           <FaCircleQuestion
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />
-          Help Center
+          <div>Help Center</div>
         </Link>
       </div>
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
@@ -837,14 +837,15 @@ const Navbar = () => {
           <FaUserCircle
             className={darkMode ? "dropdown-icondarkerrrmode" : "dropdown-icon"}
           />
-          Logout
+        <div>Logout</div>
         </button>
       </div>
+      {/* 
       <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
         <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
           Dark Mode
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 
@@ -1171,23 +1172,20 @@ const Navbar = () => {
           </div>
           {isLogedin ? (
             <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-              <li className="" ref={userDropdownRef}>
-                <Link to="#" onClick={toggleUserDropdown}>
-                  <FaUserCircle
-                    className={
-                      darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
-                    }
-                  />
-                </Link>
-                <span
-                  className={darkMode ? "willamnamedarkmode" : "willamname"}
-                >
+            <li ref={userDropdownRef} className="user-info">
+              <div className="user-trigger" onClick={toggleUserDropdown}>
+                <FaUserCircle
+                  className={darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"}
+                />
+                <span className={darkMode ? "willamnamedarkmode" : "willamname"}>
                   {userName.split(" ")[0]}
                 </span>
-
-                {userDropdownOpen && renderUserDropdown()}
-              </li>
-            </div>
+              </div>
+          
+              {userDropdownOpen && renderUserDropdown()}
+            </li>
+          </div>
+          
           ) : (
             <div className="landingnavbar-icons">
               <button
