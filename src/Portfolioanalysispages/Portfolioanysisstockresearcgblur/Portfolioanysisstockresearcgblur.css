@@ -166,7 +166,19 @@ margin-left: 40px;
     border-bottom-right-radius: 17px;
     /* Rounded bottom-right corner */
   }
-
+  @media (min-width: 1024px) and (max-width: 1279px)  {
+    .allblursearchbutton {
+      background-color: #24b676;
+      color: white;
+      border: none;
+      padding: 9px 10px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      margin-left: 590px;
+  }
+  }
 
   @media (max-width: 768px) {
     .report-container {
@@ -179,11 +191,22 @@ margin-left: 40px;
       border: 3px solid rgb(223, 218, 218);
       box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
       overflow: hidden;
-      height: 600px;
+      height: 610px;
       margin-left: 20px;
       margin-top: 30px;
       margin-bottom: 30px;
   }
+  .allblursearchbutton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 580px;
+}
   .stockresearchanalysispage-containerforblur {
 
     margin-left: 40px;
@@ -322,11 +345,24 @@ margin-left: 40px;
       border: 3px solid rgb(223, 218, 218);
       box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
       overflow: hidden;
-      height: 450px;
+      height: 530px;
       margin-left: 20px;
       margin-top: 30px;
       margin-bottom: 30px;
+      
   }
+  .allblursearchbutton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 220px;
+margin-top: -20px;
+}
   .stockresearchanalysispage-containerforblur {
     width: 95%;
     margin-left: 0px;
@@ -456,7 +492,7 @@ margin-left: 40px;
   .report-container {
     width: 68%;
     margin-left: 270px;
-    height: 580px;
+    height: 600px;
     padding: 18px;
 }
 .stockresearchanalysispage-tableanalysisblur {
@@ -498,9 +534,27 @@ margin-left: 40px;
       border: 3px solid rgb(223, 218, 218);
       box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
       overflow: hidden;
-      height: 450px;
+      height: 520px;
       margin-left: 10px;
       margin-top: 30px;
       margin-bottom: 30px;
   }
+  .allblursearchbutton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 160px;
+margin-top: -50px;
+}
+.stockresearchanalysispagecontainerblur {
+  margin-top: -180px;
+  margin-left: -5px;
+  width: auto;
+  margin-bottom: -20px;
+}
 }

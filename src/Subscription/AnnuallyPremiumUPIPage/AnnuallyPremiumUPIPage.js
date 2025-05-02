@@ -8,6 +8,7 @@ import { API_BASE_URL } from "../../config";
 import Cookies from 'js-cookie'
 import { jwtDecode } from "jwt-decode";
 import upiLogoimg from '../../assest/upi.webp';
+import upilogoo from "../../assest/UPIColor.png";
 
 const AnnuallyPremiumUPIPage = () => {
   const [upiId, setUpiId] = useState("");
@@ -97,9 +98,13 @@ const AnnuallyPremiumUPIPage = () => {
   
   return (
   <div>
-
-          <h2 className="paypalprofilepage-title">Pay with UPI</h2>
-       
+  <div className="upiallll">
+  <div>
+          <h2 className="paypalprofilepage-title">Pay with UPI</h2></div>
+        <div>
+                 <img src={upilogoo} alt="upi logo" className="upi-logo" />
+                 </div>
+                 </div>
           <div className="upiprofilepage-icons">
             <img src={phonepay} alt="PhonePe" onClick={handlePhPayClick} style={{ cursor: "pointer" }} />
             {showPopupPhonep && (

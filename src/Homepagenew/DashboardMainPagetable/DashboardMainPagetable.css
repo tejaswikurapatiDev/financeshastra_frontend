@@ -768,10 +768,11 @@ body {
   .pagination-containerrsector {
     display: flex
 ;
-    gap: 210px;
+    gap: 280px;
     align-items: center;
     margin: 20px 0;
     margin-left: 40px;
+    width: 1000px;
 }
 
   .FooterForAllPage-footerrr {
