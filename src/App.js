@@ -268,13 +268,14 @@ import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboar
 import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistory";
 import IpoRecommendationsubscribe from "./Learn&insight/Ipo/IpoRecommendationsubscribe/IpoRecommendationsubscribe";
 import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
+import StocksOrSchemeDetails from "./SearchResult/StocksOrSchemeDetails";
 
 
 function App() {
   useEffect(() => {
     onMessageListener()
       .then((payload) => {
-        console.log("Message received in foreground:", payload);
+        
         toast.info(
           `${payload.notification.title}: ${payload.notification.body}`
         );
@@ -302,6 +303,7 @@ function App() {
               <Route path="/balance-sheet" element={<BalanceSheet />} />
               <Route path="/register" element={<Register />} />
               <Route path="/stockhandle" element={<Overview />} />
+              <Route path="/stockhandle/:id" element={<Overview/>}/>
               <Route path="/nifty100stocks" element={<Netify100 />} />
               <Route path="/smallcap" element={<Smallcap />} />
               <Route path="/midcap" element={<Midcap />} />

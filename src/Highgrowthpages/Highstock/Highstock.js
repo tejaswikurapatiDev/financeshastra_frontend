@@ -86,7 +86,7 @@ const Highstock = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
+    
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -136,13 +136,13 @@ const Highstock = () => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
+    
     const filteredStocks = screenerStockListData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
           parseFloat(newFilters.price)
       );
-      console.log(stock.price.replace(/₹|,/g, ""));
+      
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
@@ -292,7 +292,7 @@ const Highstock = () => {
   };
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
+    
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -621,10 +621,10 @@ const Highstock = () => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/stocksscreener/1`;
       const response = await fetch(url);
-      console.log(response);
+      
       if (response.ok === true) {
         const data = await response.json();
-        console.log(data);
+        
         const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.CompanyName,
@@ -645,7 +645,7 @@ const Highstock = () => {
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
-        console.log(formattedData);
+        
         setStocks(formattedData);
       }
       if (isSubscribed && isLoading) {
@@ -1153,7 +1153,7 @@ const Highstock = () => {
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
+    
   }, [currentPage]);
 
   const handleCheckboxChange = (
@@ -1249,7 +1249,7 @@ const Highstock = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
+    
   };
   const handleNavigate = () => {
     navigate("/subscription"); // Navigate to the desired route

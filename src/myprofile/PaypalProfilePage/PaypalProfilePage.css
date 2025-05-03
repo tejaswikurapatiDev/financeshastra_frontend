@@ -14,6 +14,16 @@
     justify-content: space-between;
     margin-bottom: 20px;
   }
+  .upiallll {
+    display: flex;
+    align-items: center;       
+   margin-top: -10px;
+    gap:500px;                
+  }
+  
+  .upi-logo {
+    height: 20px;             
+  }
   
   .paypalprofilepage-method {
     flex: 1;
@@ -132,7 +142,7 @@
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 400px;
-    margin-right: 400px;
+    margin-right: 50px;
     margin-bottom: 100px;
 
   }
@@ -153,7 +163,12 @@
       width: 90%;
       padding: 15px;
   }
-
+  .upiallll {
+    display: flex;
+    align-items: center;       
+   
+    gap:400px;                
+  }
   .paypalprofilepage-payment-options {
       flex-direction: column;
       align-items: center;
@@ -186,7 +201,7 @@
   }
 
   .paypal-popup-content {
-      width: 90%;
+      width: 50%;
       margin-right: 0;
       margin-bottom: 20px;
   }
@@ -202,7 +217,16 @@
   .paypalprofilepage-title {
       font-size: 18px;
   }
-
+  .upiallll {
+    display: flex;
+    align-items: center;       
+   
+    gap:100px;                
+  }
+  .upi-logo {
+    margin-top: 10px;
+    height: 15px;
+  }
   .paypalprofilepage-input {
     font-size: 14px;
     padding: 10px;
@@ -230,7 +254,7 @@
 
   .paypal-popup-content {
       padding: 30px;
-      width: 90%;
+      width: 60%;
   }
 
   .paypal-logo {
@@ -240,5 +264,18 @@
 
   .paypal-popup-content p {
       font-size: 18px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .upiallll {
+    display: flex;
+    align-items: center;       
+   margin-left: -15px;
+    gap:70px; 
+    margin-top: -5px;               
+  }
+  .upi-logo {
+    margin-top: 10px;
+    height: 15px;
   }
 }

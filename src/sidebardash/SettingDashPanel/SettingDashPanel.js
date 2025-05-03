@@ -252,7 +252,7 @@ const SettingsDashboard = ({children}) => {
         })),
       };
 
-      console.log("🚀 ~ saveChanges ~ updatedPermissions:", updatedPermissions);
+      
 
       const response = await fetch(`${API_BASE_URL}/notificationpermissions`, {
         method: "PUT",

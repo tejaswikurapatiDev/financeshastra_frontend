@@ -53,7 +53,7 @@ const EditProfile = () => {
   }, [billingInfo]);
 
   const profilePageCancel = () => {
-    console.log("Form data cleared");
+    
     setFormData({
       firstName: "",
       lastName: "",

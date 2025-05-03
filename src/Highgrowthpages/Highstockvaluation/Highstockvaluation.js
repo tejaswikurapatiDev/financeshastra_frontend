@@ -65,7 +65,7 @@ const Highstockvaluation = () => {
       const response = await fetch(url);
       if (response.ok === true) {
         const data = await response.json();
-        console.log(data);
+        
         const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.Symbol,
@@ -107,7 +107,7 @@ const Highstockvaluation = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
+    
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -180,7 +180,7 @@ const Highstockvaluation = () => {
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
+    
   }, [currentPage]);
 
   //  Pagination Range Calculation
@@ -196,13 +196,13 @@ const Highstockvaluation = () => {
     return { startPage: start, endPage: end };
   }, [currentPage, totalPages]);
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
+    
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
           parseFloat(newFilters.price)
       );
-      console.log(stock.price.replace(/₹|,/g, ""));
+      
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
@@ -352,7 +352,7 @@ const Highstockvaluation = () => {
   };
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
+    
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -1291,7 +1291,7 @@ const Highstockvaluation = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
+    
   };
   const handleNavigate = () => {
     navigate("/subscription"); // Navigate to the desired route

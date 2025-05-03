@@ -28,7 +28,7 @@ const ProfilePage = () => {
 
 
   const profilePageCancel = () => {
-    console.log("Form data cleared");
+    
     setFormData({
       firstName: "",
       lastName: "",
@@ -67,7 +67,7 @@ const ProfilePage = () => {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length === 0) {
-      console.log("Form data saved:", formData);
+      
       setIsPopupVisible(true);
     }
   };
@@ -283,7 +283,7 @@ const ProfilePage = () => {
     setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
 
     // Simulate sending OTP
-    console.log(`Sending OTP to ${newEmail}`);
+    
 
     setOtpStep(true); // Show OTP input step
   };

@@ -264,7 +264,7 @@ const AnnuallySubscriptionPages = () => {
         </div>
         <Navbar />
       </div>
-      <div className="foooterpagesaupdate">
+      <div>
         <FooterForAllPage />
       </div>
     </div>

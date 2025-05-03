@@ -209,7 +209,7 @@ const StockResearchtablePage = () => {
       </div>
     {!isLoading && !isSubscribed && 
                 <div className="overlaylocksub">
-                   <img src={lockimg} alt="Lock" className="lock-iconanalysi" />
+                   <img src={lockimg} onClick={() =>{ navigate("/subscription");window.scrollTo(0, 0);}} style={{cursor:"pointer"}}alt="Lock" className="lock-iconanalysi" />
            
                    <button className="subscribe-btnblurone" onClick={() => navigate("/subscription")}>Subscribe Now</button>
                  

@@ -37,7 +37,7 @@ const UPIProfilePage = () => {
     if (Object.keys(newErrors).length === 0) {
       // Proceed with UPI Payment verification without timer or redirection
 
-      console.log("Proceeding with UPI Payment...");
+      
       setShowPopup(true); // Show the popup
       setTimeout(() => {
         setShowPopup(false); // Automatically close the popup after 5 seconds

@@ -530,7 +530,12 @@ color: #333;
     margin-left: 10px;
     margin-right: 10px;
 }
-
+.payment-option-content span {
+  margin-top: 8px;
+  font-size: 10px;
+  color: #333;
+  
+}
 .custom-datepicker-input input {
     margin-left: 0;
     margin-right: 0;
@@ -555,7 +560,18 @@ color: #333;
 }
 }
 
-
+@media screen and (max-width: 320px) {
+  .billing-detailspages-card , .billing-detailspages-payment
+    {
+      width: 90%;
+      padding: 10px;
+      margin: 0 auto;
+      margin-left: -1px;
+  }
+  .billing-detailspages-card{
+margin-bottom: 20px;
+  }
+}
 /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
   .billing-detailspages-card {

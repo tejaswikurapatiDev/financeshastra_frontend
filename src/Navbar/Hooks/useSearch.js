@@ -10,12 +10,12 @@ const useSearch = () => {
     try {
       const res = await fetch(`${API_BASE_URL}/search/allInfo`);
       const data = await res.json();
-      console.log("from use searchHook", data);
+      
       if (res.ok) {
         dispatch(setSearchData(data.data || []));
       }
     } catch (error) {
-      console.log(error);
+      
     }
   }, [dispatch]);
 
