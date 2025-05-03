@@ -44,7 +44,7 @@ const Watchlistdashboardmain = () => {
       setWatchlistState(data[0].watchlist_id);
     } catch (error) {
       //alert(error.message || "Failed to fetch watchlists.");
-      console.log(error.message || "Failed to fetch watchlists.");
+      
     }
   };
 

@@ -219,7 +219,7 @@ function Login() {
   };
 
   const handleFailure = (error) => {
-    console.log("Google Login Failed: ", error);
+    
     alert("Google Sign-In failed. Please try again.");
   };
 

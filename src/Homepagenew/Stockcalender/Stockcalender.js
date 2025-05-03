@@ -134,7 +134,7 @@ const Stockcalender = () => {
       }
     });
   
-    console.log("Filtered Data:", filtered); // Debugging
+     // Debugging
     setSortedData(filtered);
   }, [allStocks]);
   

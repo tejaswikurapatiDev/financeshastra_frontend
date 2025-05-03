@@ -37,7 +37,7 @@ const PaypalProfilePage = () => {
 
     // If there are no errors, proceed with showing the popup
     if (Object.keys(newErrors).length === 0) {
-      console.log("Logging in with PayPal...");
+      
       setShowPopup(true); // Show the popup
       setTimeout(() => {
         setShowPopup(false); // Automatically close the popup after 5 seconds

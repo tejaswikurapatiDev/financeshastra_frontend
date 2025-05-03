@@ -96,7 +96,7 @@ function Register() {
       const response = await fetch(url, options);
       const data = await response.json();
 
-      console.log(response);
+      
 
       if (response.status === 200) {
         alert(data.message);
@@ -120,7 +120,7 @@ function Register() {
   };
 
   const handleSuccess = async (response) => {
-    console.log("Google Login Success:", response);
+    
     const token = response.credential; // Ensure we receive a valid token
 
     if (!token) {
@@ -136,7 +136,7 @@ function Register() {
       });
 
       const data = await res.json();
-      console.log("Backend Response:", data);
+      
 
       if (res.ok) {
         // Store JWT token in cookies
@@ -154,7 +154,7 @@ function Register() {
   };
 
   const handleFailure = (error) => {
-    console.log("Login Failed: ", error);
+    
   };
 
   return (
