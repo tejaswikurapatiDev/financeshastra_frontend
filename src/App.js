@@ -921,7 +921,6 @@ function App() {
               />
               <Route path="/contactus" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route path="/privacyPolicypage" element={<PrivacyPolicypage />} />
               <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment />} />
