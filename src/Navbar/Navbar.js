@@ -118,13 +118,7 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  useEffect(() => {
-    // Fetch username from localStorage when the component mounts
-    const storedUsername = localStorage.getItem("username");
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
-  }, []);
+  
   useEffect(() => {
     fetchNotifications();
   }, []);
