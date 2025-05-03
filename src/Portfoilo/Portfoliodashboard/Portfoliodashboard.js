@@ -30,7 +30,7 @@ const PortfolioManagerDashboard = () => {
       if (!res.ok) throw new Error("Failed to fetch data");
 
       const data = await res.json();
-      console.log("portfolio: ", data);
+      
       setPortfolioData(data);
     } catch (error) {
       console.error("Error fetching transactions:", error);

@@ -101,7 +101,7 @@ const Largecapvaluation = () => {
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
+    
   }, [currentPage]);
 
   //  Pagination Range Calculation
@@ -146,7 +146,7 @@ const Largecapvaluation = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
+    
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -197,7 +197,7 @@ const Largecapvaluation = () => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
+    
     const filteredStocks = screenerStockvaluationData.filter((stock) => {
       console.log(parseFloat(stock.price.replace(/₹|,/g, "")) <= parseFloat(newFilters.price,))
       console.log(stock.price.replace(/₹|,/g, ""))
@@ -341,7 +341,7 @@ const Largecapvaluation = () => {
 
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
+    
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -1208,7 +1208,7 @@ const Largecapvaluation = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
+    
   };
   const handleNavigate = () => {
     navigate('/subscription'); // Navigate to the desired route

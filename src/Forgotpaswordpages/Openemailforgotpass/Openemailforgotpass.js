@@ -235,7 +235,7 @@ function Openemailforgotpass() {
 
       const data = await res.json();
       if (res.ok) {
-        console.log("Backend Response: ", data);
+        
       } else {
         console.error("Authentication failed: ", data);
       }
@@ -245,7 +245,7 @@ function Openemailforgotpass() {
   };
 
   const handleFailure = (error) => {
-    console.log("Login Failed: ", error);
+    
   };
   return (
     <div className="login-container">

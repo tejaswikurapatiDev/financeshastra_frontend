@@ -35,10 +35,10 @@ const ReffeerralProfilePageSSS = () => {
 
       if (response.status === 200) {
         setReferrals(data.referals);
-        console.log(data.message);
+        
       }
     } catch (error) {
-      console.log(error);
+      
     } finally {
       setIsLoading(false);
     }
@@ -65,7 +65,7 @@ const ReffeerralProfilePageSSS = () => {
     ),
   };
 
-  console.log(referrals);
+  
   return (
     <div>
     <div className="profilepageee-container">

@@ -25,10 +25,10 @@ export default function CommentBox() {
           },
         });
 
-        console.log("🚀 ~ fetchComments ~ response:", response); // Log response
+         // Log response
         if (response.ok) {
           const data = await response.json();
-          console.log("Fetched comments:", data.data); // Log fetched comments
+           // Log fetched comments
 
           // Update comments and count based on the response structure
           if (Array.isArray(data.data)) {
@@ -53,7 +53,7 @@ export default function CommentBox() {
 
   const handleCommentSubmit = async () => {
     if (comment.trim()) {
-      console.log("Submitting comment:", comment); // Log comment data
+       // Log comment data
       try {
         const token = Cookies.get("jwtToken");
         if (!token) {
@@ -70,10 +70,10 @@ export default function CommentBox() {
           body: JSON.stringify({ comment }),
         });
 
-        console.log("API response status:", response.status); // Log response status
+         // Log response status
         if (response.ok) {
           const responseData = await response.json();
-          console.log("API response data:", responseData); // Log success response
+           // Log success response
           setComments([
             ...comments,
             { comment, user_name: "User", created_at: new Date().toISOString() },

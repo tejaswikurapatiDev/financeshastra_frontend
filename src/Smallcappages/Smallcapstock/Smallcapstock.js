@@ -77,7 +77,7 @@ const Smallcap = () => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/smallcap`;
       const response = await fetch(url);
-      console.log("response smallcap:", response);
+      
       if (response.ok === true) {
         const data = await response.json();
         const formattedData = data.map((each) => ({
@@ -100,7 +100,7 @@ const Smallcap = () => {
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
-        console.log(formattedData);
+        
         setStocks(formattedData);
       }
       if (isSubscribed && isLoading) {
@@ -153,7 +153,7 @@ const Smallcap = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
+    
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -203,13 +203,13 @@ const Smallcap = () => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
+    
     const filteredStocks = screenerStockListData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
           parseFloat(newFilters.price)
       );
-      console.log(stock.price.replace(/₹|,/g, ""));
+      
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
@@ -359,7 +359,7 @@ const Smallcap = () => {
   };
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
+    
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -1246,7 +1246,7 @@ const Smallcap = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
+    
   };
   const handleNavigate = () => {
     navigate("/subscription"); // Navigate to the desired route
