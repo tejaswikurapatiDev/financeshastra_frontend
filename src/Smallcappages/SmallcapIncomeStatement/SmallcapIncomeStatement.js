@@ -53,7 +53,7 @@ const SmallcapIncomeStatement = () => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/smallcapincome`;
       const response = await fetch(url);
-      console.log(response);
+      
       if (response.ok === true) {
         const data = await response.json();
         const formattedData = data.map((each) => ({
@@ -70,7 +70,7 @@ const SmallcapIncomeStatement = () => {
           epsDil: each.EPS_Diluted,
         }));
         setStocks(formattedData);
-        console.log(data);
+        
       }
       setisloading(false)
     };
@@ -97,7 +97,7 @@ const SmallcapIncomeStatement = () => {
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
-    console.log("Current Page Updated:", currentPage);
+    
   }, [currentPage]);
 
   //  Pagination Range Calculation
@@ -141,7 +141,7 @@ const SmallcapIncomeStatement = () => {
   };
 
   const applyMarketCapFilters = () => {
-    console.log("Applied Market Cap filters:", marketCapFilters);
+    
     // Optionally, update the main filters state with the Market Cap selections
     setFilters((prevFilters) => ({
       ...prevFilters,
@@ -191,13 +191,13 @@ const SmallcapIncomeStatement = () => {
     });
   };
   const applyFilters = (newFilters) => {
-    console.log(newFilters, "newfilter");
+    
     const filteredStocks = screenerStockincomeData.filter((stock) => {
       console.log(
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
           parseFloat(newFilters.price)
       );
-      console.log(stock.price.replace(/₹|,/g, ""));
+      
       const matchesPrice =
         newFilters.price === "All" ||
         parseFloat(stock.price.replace(/₹|,/g, "")) <=
@@ -347,7 +347,7 @@ const SmallcapIncomeStatement = () => {
   };
 
   const applyRange = () => {
-    console.log("Performance Range Applied:", performanceRange);
+    
     //setPerfDropdownVisible(false); // Close dropdown after applying
   };
 
@@ -1251,7 +1251,7 @@ const SmallcapIncomeStatement = () => {
 
     // Update the stocks with the filtered data
     setStocks(filteredStocks);
-    console.log("Filtered by Change Range:", changeRange);
+    
   };
   const handleNavigate = () => {
     navigate("/subscription"); // Navigate to the desired route

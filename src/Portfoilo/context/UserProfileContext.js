@@ -28,7 +28,7 @@ export const UserProfileProvider = ({ children }) => {
           "Content-Type": "application/json",
         },
       });
-      console.log("🚀 ~ fetchUser ~ response:", response.status);
+      
       if (response.status == 401) {
         navigate("/login");
       }

@@ -29,7 +29,7 @@ const LandingPageUnlockInvest = () => {
       //store all data into the redux store
       dispatch(setSearchData(data?.data || []));
     } catch (error) {
-      console.log(error);
+      
     }
   };
 

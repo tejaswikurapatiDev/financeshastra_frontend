@@ -38,7 +38,7 @@ const SessionHistory = () => {
         throw new Error("Faild to fetch devices");
       }
       const data = await response.json();
-      console.log(data);
+      
       setDevices(data);
     } catch (error) {
       setError(error.message);

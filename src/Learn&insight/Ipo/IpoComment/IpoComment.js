@@ -22,7 +22,7 @@ const IpoComment = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data being submitted:", formData); // Log form data
+     // Log form data
     const token = Cookies.get("jwtToken");
     if (!token) {
       console.error("Token is missing. Ensure the user is logged in.");
@@ -39,7 +39,7 @@ const IpoComment = () => {
         body: JSON.stringify(formData),
       });
 
-      console.log("API response status:", response.status); // Log response status
+       // Log response status
       if (response.ok) {
         alert("Comment submitted successfully!");
         setFormData({

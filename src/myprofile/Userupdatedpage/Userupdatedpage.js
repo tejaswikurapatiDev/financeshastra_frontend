@@ -106,21 +106,21 @@ const UserDetailsupdate = () => {
         };
  
         const response = await fetch(url, options);
-        console.log(response);
+        
  
         if (response.ok) {
           try {
             const decode = decodingtoken(cookietoken);
             const { email } = decode;
             const data = await response.json();
-            console.log("🚀 ~ Fetched User Data:", data);
+            
  
             if (data) {
               const userData = data.userdetails[0];
               const investmentData = data.investdetails[0];
               const formattedDate = formatDate(userData.dob);
  
-              console.log("🚀 ~ Fetched User details:", userData);
+              
               console.log(
                 "🚀 ~ Fetched User Investment details:",
                 investmentData
@@ -201,7 +201,7 @@ const UserDetailsupdate = () => {
   };
  
   const handleEditInvestment = () => {
-    console.log(modalData);
+    
     setModalData({ ...investmentDetails });
     setShowModal(true);
     setErrors({
@@ -240,7 +240,7 @@ const UserDetailsupdate = () => {
  
   const handleFinancialChange = (e) => {
     const { name, value } = e.target;
-    console.log("handleFinancialChange value:", value);
+    
     if (value.includes("+") || value.includes("-")) {
       setErrors((prevErrors) => ({
         ...prevErrors,
@@ -314,7 +314,7 @@ const UserDetailsupdate = () => {
       const response = await fetch(url, options);
       if (response.ok) {
         const result = await response.json();
-        console.log("Investment details updated successfully:", result);
+        
         setInvestmentDetails({ ...modalData });
         setShowModal(false);
         alert("Investment details updated successfully!");
