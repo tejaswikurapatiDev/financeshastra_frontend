@@ -56,7 +56,7 @@ const PremiumUPIPage = () => {
     if (!user){
     setShowPopupforLogin(true)
     }else{
-    console.log("Proceeding with UPI Payment...");
+    
     setShowPopup(true); // Show the popup
     const userpaymentDetails= {
     'email': userEmail,

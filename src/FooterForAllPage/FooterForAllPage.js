@@ -171,6 +171,7 @@ const FooterForAllPage = () => {
                     // Navigate if the link has a corresponding route
                     if (allRoutes[link]) {
                       navigate(allRoutes[link]);
+                      window.scrollTo(0, 0); // Scroll to top after navigation
                     }
                   }}
                   style={{

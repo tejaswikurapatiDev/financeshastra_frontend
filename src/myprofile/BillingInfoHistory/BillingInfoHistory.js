@@ -60,7 +60,7 @@ const BillingInfoHistory = () => {
         try {
           const response = await fetch(url, options);
           const data = await response.json(); // Convert response to JSON
-          console.log("data from subscriptio and billing page:", data);
+          
           if (data.length === 0) {
             setisSubed(false);
           } else {
@@ -144,7 +144,7 @@ const BillingInfoHistory = () => {
         const response = await fetch(url, options);
         if (response.ok === true) {
           const data = await response.json();
-          console.log("orders Data: ", data);
+          
           if (data.length !== 0) {
             const formattedordersData = data.map((e) => ({
               id: e.order_id,
@@ -155,7 +155,7 @@ const BillingInfoHistory = () => {
               end: formatDateforOrders(e.ending_date),
               statusClass: e.Status === "Completed" ? "success" : "processing",
             }));
-            console.log("formattedordersData:", formattedordersData);
+            
             setordersData(formattedordersData);
           }
         }

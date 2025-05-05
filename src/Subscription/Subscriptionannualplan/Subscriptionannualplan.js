@@ -24,7 +24,6 @@ const SubscriptionPlans = () => {
       <Navbar />
       <div className="subscription-container">
         <h1 className='subscriptionh2'>Choose a plan that aligns with trading goals !</h1>
-        <h4 className='subscriptionh4'>It’s now or never—don’t miss your chance at the ultimate deal.</h4>
         <div className="pricing-containertoggle">
         
           <div className="plans-wrapper">

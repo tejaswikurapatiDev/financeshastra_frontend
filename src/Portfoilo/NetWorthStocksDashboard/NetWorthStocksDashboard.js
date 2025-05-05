@@ -40,7 +40,7 @@ function NetWorthStocksDashboard() {
         }
 
         const data = await response.json();
-        console.log(data);
+        
         setMyInvestment(data.investment_cost)
         setError(null); // Clear any previous error
         }

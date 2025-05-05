@@ -53,7 +53,7 @@ const EditProfile = () => {
   }, [billingInfo]);
 
   const profilePageCancel = () => {
-    console.log("Form data cleared");
+    
     setFormData({
       firstName: "",
       lastName: "",
@@ -102,7 +102,7 @@ const EditProfile = () => {
     if (Object.keys(validationErrors).length === 0) {
       const url = `${API_BASE_URL}/userdetails/adduser`; // API endpoint
       const token = Cookies.get("jwtToken");
-      console.log("🚀 ~ profilePageSaveUpdate ~ token:", token);
+      
 
       const options = {
         method: "PUT",

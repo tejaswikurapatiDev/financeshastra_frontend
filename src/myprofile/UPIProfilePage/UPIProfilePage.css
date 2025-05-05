@@ -14,7 +14,9 @@
     justify-content: space-between;
     margin-bottom: 20px;
   }
-  
+  .upiallll{
+    display: flex;
+  }
   .upiprofilepage-tab {
     flex: 1;
     padding: 10px 0;
@@ -232,7 +234,7 @@
 
   .upiprofilepage-icons {
       justify-content: center;
-      margin-left: 0;
+      margin-left: -110px;
   }
 
   .upiprofilepage-icons img {
@@ -269,4 +271,11 @@
   .upi-logo {
       width: 40px;
   }
+}
+@media screen and (max-width: 320px) {
+  
+  .upiprofilepage-icons {
+    justify-content: center;
+    margin-left: -70px;
+}
 }

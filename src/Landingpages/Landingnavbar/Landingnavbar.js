@@ -611,7 +611,7 @@ const Landingnavbar = () => {
       const data = await response.json();
       dispatch(setSearchData(data?.data || []));
     } catch (error) {
-      console.log(error);
+      
     }
   };
 
@@ -805,7 +805,7 @@ const Landingnavbar = () => {
     setFilterData([]);
   };
 
-  console.log("filterData", filterData);
+  
   return (
     <>
       <nav className={darkMode ? "darkmodenavbar" : "navbar"}>

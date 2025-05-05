@@ -20,7 +20,7 @@ const auth = getAuth(app);
 // Set session persistence to maintain the user's session across reloads
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
-    console.log("Session persistence set to browserLocalPersistence.");
+    
   })
   .catch((error) => {
     console.error("Error setting session persistence:", error);

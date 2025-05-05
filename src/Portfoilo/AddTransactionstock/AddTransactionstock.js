@@ -144,7 +144,7 @@ const AddTransactionstock = ({children}) => {
       }
 
       const result = await response.json();
-      console.log("Transaction added successfully:", result);
+      
 
       // Update the context with the new transaction
       setStocksTransactions((prevTransactions) => [

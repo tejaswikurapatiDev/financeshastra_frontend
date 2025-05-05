@@ -274,7 +274,7 @@ function App() {
   useEffect(() => {
     onMessageListener()
       .then((payload) => {
-        console.log("Message received in foreground:", payload);
+        
         toast.info(
           `${payload.notification.title}: ${payload.notification.body}`
         );

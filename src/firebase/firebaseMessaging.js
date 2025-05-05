@@ -15,7 +15,7 @@ export const requestNotificationPermission = async () => {
       return token;
     } 
     else {
-      console.log("Notification permission denied");
+      
     }
       
   } catch (error) {

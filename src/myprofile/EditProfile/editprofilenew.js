@@ -151,11 +151,11 @@ const EditProfile = () => {
 
       try {
         const response = await fetch(url, options);
-        console.log("Form data sent to API:", formData);
+        
         if (response.ok) {
           const username = formData.firstName + formData.lastName;
           localStorage.setItem("username", username);
-          console.log(username);
+          
           setIsPopupVisible(true);
         } else {
           console.error("Failed to save user details:", response.statusText);
@@ -186,9 +186,9 @@ const EditProfile = () => {
   /*useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("User is signed in:", user);
+        
       } else {
-        console.log("No user is signed in.");
+        
       }
     });
 
@@ -213,7 +213,7 @@ const EditProfile = () => {
   
         if (response.ok) {
           const data = await response.json();
-          // console.log(data); 
+          //  
   
           const user = data?.userdetails?.[0];
   
@@ -274,7 +274,7 @@ const EditProfile = () => {
   }, []);
   
 
-  console.log(personalDetails, professionalDetails);
+  
   const closePopup = () => {
     setIsPopupVisible(false);
     const updatedData = {
@@ -403,7 +403,7 @@ const EditProfile = () => {
   };
 
   const handleVerificationClick = async (type) => {
-    console.log("🚀 ~ handleVerificationClick triggered ~ type:", type); // Debug log
+     // Debug log
 
     if (type === "email" && (!formData.email || errors.email)) {
       setErrors((prevErrors) => ({
@@ -431,7 +431,7 @@ const EditProfile = () => {
 
     try {
       if (type === "email") {
-        console.log("Sending OTP to email...");
+        
         // Call the API to send OTP to the email
         const response = await fetch(`${API_BASE_URL}/otp/send`, {
           method: "POST",
@@ -442,12 +442,12 @@ const EditProfile = () => {
         });
 
         if (response.ok) {
-          console.log("OTP sent to email successfully.");
+          
         } else {
           console.error("Failed to send OTP to email.");
         }
       } else if (type === "mobile") {
-        console.log("Sending OTP to mobile...");
+        
         // Call the API to send OTP to the mobile number
         const response = await fetch(`${API_BASE_URL}/otp/send`, {
           method: "POST",
@@ -458,7 +458,7 @@ const EditProfile = () => {
         });
 
         if (response.ok) {
-          console.log("OTP sent to mobile successfully.");
+          
         } else {
           console.error("Failed to send OTP to mobile.");
         }
@@ -476,7 +476,7 @@ const EditProfile = () => {
 
     try {
       if (verificationType === "email") {
-        console.log("Verifying email OTP...");
+        
         // Call the API to verify the email OTP
         const response = await fetch(`${API_BASE_URL}/otp/verify`, {
           method: "POST",
@@ -487,7 +487,7 @@ const EditProfile = () => {
         });
 
         if (response.ok) {
-          console.log("Email OTP verified successfully.");
+          
           setIsEmailVerified(true);
           setShowVerificationPopup(false);
         } else {
@@ -495,7 +495,7 @@ const EditProfile = () => {
           setIsOtpValid(false);
         }
       } else if (verificationType === "mobile") {
-        console.log("Verifying mobile OTP...");
+        
         // Call the API to verify the mobile OTP
         const response = await fetch(`${API_BASE_URL}/otp/verify`, {
           method: "POST",
@@ -509,7 +509,7 @@ const EditProfile = () => {
         });
 
         if (response.ok) {
-          console.log("Mobile OTP verified successfully.");
+          
           setIsVerified(true);
           setShowVerificationPopup(false);
         } else {
@@ -548,10 +548,10 @@ const EditProfile = () => {
   };
 
   const handleSmsIconClick = () => {
-    console.log("Verify button clicked"); // Debug log
+     // Debug log
     const phoneRegex = /^[6-9]\d{9}$/; // Ensure this regex matches valid 10-digit Indian phone numbers
     if (phoneRegex.test(formData.phoneNumber)) {
-      console.log("Phone number is valid. Proceeding to send OTP...");
+      
       sendOtp(); // Call sendOtp function
     } else {
       console.error("Invalid phone number.");
@@ -565,9 +565,9 @@ const EditProfile = () => {
 
   const signInUser = async () => {
     try {
-      console.log("Attempting to sign in anonymously...");
+      
       const userCredential = await signInAnonymously(auth);
-      console.log("User signed in anonymously:", userCredential.user);
+      
     } catch (error) {
       console.error("Error signing in anonymously:", error);
     }
@@ -580,7 +580,7 @@ const EditProfile = () => {
         {
           size: "invisible",
           callback: (response) => {
-            console.log("Recaptcha verified:", response);
+            
           },
         },
         auth
@@ -589,7 +589,7 @@ const EditProfile = () => {
   };
 
   const sendOtp = async () => {
-    console.log("Attempting to send OTP...");
+    
 
     if (!formData.phoneNumber) {
       setErrors((prevErrors) => ({
@@ -612,7 +612,7 @@ const EditProfile = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("OTP sent successfully:", data);
+        
         setOtpStep(true); // Show OTP input section
       } else {
         console.error("Failed to send OTP:", response.statusText);
@@ -728,7 +728,7 @@ const EditProfile = () => {
     setErrors((prevErrors) => ({ ...prevErrors, email: "" }));
 
     // Simulate sending OTP
-    console.log(`Sending OTP to ${newEmail}`);
+    
 
     setOtpStep(true); // Show OTP input step
   };
@@ -829,13 +829,13 @@ const EditProfile = () => {
 
   const handleStateChange = (e) => {
     const selectedState = e.target.value;
-    console.log(selectedState);
+    
     setFormData((prev) => ({ ...prev, state: selectedState, city: "" }));
   };
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
-    console.log(selectedCountry);
+    
     setFormData((prev) => ({ ...prev, country: selectedCountry }));
   };
 

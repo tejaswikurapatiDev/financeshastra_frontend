@@ -115,7 +115,7 @@ const ReferMoreProfilePages = () => {
 
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data);
+        
 
         if (response.status === 200) {
           alert(data.message);
@@ -131,7 +131,7 @@ const ReferMoreProfilePages = () => {
           alert(data.error);
         }
       } catch (error) {
-        console.log(error);
+        
       }
     }
   };
