@@ -53,10 +53,11 @@
   cursor: pointer;
   padding: 5px 10px;
   border-radius: 4px;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.graphnavbarrnifty50 span:hover {
+
+.graphnavbarrnifty50 .active-span {
   color: #24b676;
   text-decoration: underline;
   text-decoration-color: #24b676;
