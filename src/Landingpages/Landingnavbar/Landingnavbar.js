@@ -312,7 +312,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/bestsmallcapregular"
+            to="/bestsmallcaps"
             className="dropdown-item"
             style={{
               display: "block",

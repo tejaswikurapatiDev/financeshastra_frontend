@@ -64,7 +64,6 @@ import MutualWatchportall from "./Portfoilo/Mutualwatchportall/Mutualwatchportal
 
 import Mutualfund from "./MutualFund/Mutualfund";
 import Bestsmallcapregular from "./MutualFund/Bestsmallcapregular/Bestsmallcapregular";
-import Bestsmallcapdirect from "./MutualFund/Bestsmallcapdirect/Bestsmallcapdirect";
 import MutualFundsSipCalculator from "./MutualFund/MutualFundsSipCalculator/MutualFundsSipCalculator";
 
 import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
@@ -448,13 +447,10 @@ function App() {
 
               <Route path="/mutualfundgrowth/:fundId" element={<Mutualfund />} />
               <Route
-                path="/bestsmallcapregular"
-                element={<Bestsmallcapregular />}
+                path="/bestsmallcaps"
+                element={<Bestsmallcaps />}
               />
-              <Route
-                path="/bestsmallcapdirect"
-                element={<Bestsmallcapdirect />}
-              />
+              
               <Route path="/sip" element={<MutualFundsSipCalculator />} />
               <Route path="/risk" element={<RiskoMeter />} />
               <Route path="/flexregular" element={<Flexregular />} />
