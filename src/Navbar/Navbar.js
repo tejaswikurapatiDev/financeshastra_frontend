@@ -5,7 +5,7 @@ import React, {
   useCallback,
   useContext,
 } from "react";
-
+import { jwtDecode } from "jwt-decode";
 import unlockstockthemeimg from "../assest/unlocknavbarimg.png";
 import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
@@ -370,6 +370,13 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  useEffect(() => {
+      const storedUsername = localStorage.getItem("username");
+      if (storedUsername) {
+        setUsername(storedUsername);
+      }
+      
+    }, []);
 
   // Cleanup debounced function on unmount
   useEffect(() => {

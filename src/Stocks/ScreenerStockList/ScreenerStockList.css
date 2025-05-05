@@ -1266,8 +1266,8 @@
 
 .pagination-stockcontainer {
   display: flex;
-  gap: 1020px;
-  align-items: center;
+  gap: 950px;
+
   margin-top: 20px;
 
 
@@ -1484,7 +1484,7 @@
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 400px;
+    gap: 230px;
     align-items: center;
     margin-top: 20px;
   }
@@ -1504,9 +1504,10 @@
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 100px;
-    align-items: center;
+    gap: 10px;
+flex-direction: column;
     margin-top: 20px;
+ 
   }
 
   .screener-container {
@@ -1833,9 +1834,10 @@
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 50px;
-    align-items: center;
+    gap: 10px;
+flex-direction: column;
     margin-top: 20px;
+
   }
 }
 

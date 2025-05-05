@@ -746,11 +746,7 @@ const Landingnavbar = () => {
           Logout
         </button>
       </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
-          Dark Mode
-        </div>
-      </div>
+     
     </div>
   );
 
