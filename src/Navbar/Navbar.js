@@ -848,7 +848,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/bestsmallcapregular"
+              to="/bestsmallcaps"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }

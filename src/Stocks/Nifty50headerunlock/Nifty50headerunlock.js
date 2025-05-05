@@ -241,7 +241,7 @@ const Nifty50headerunlock = () => {
           <li>
             <div className="dropdown-item">
 
-              <Link to="/bestsmallcapregular">Best Small Cap Fund
+              <Link to="/bestsmallcaps">Best Small Cap Fund
                 <p>Strong returns by investing in high-growth opportunities.</p></Link>
             </div>
             <div className="dropdown-item">
