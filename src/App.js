@@ -448,7 +448,7 @@ function App() {
               <Route path="/mutualfundgrowth/:fundId" element={<Mutualfund />} />
               <Route
                 path="/bestsmallcaps"
-                element={<Bestsmallcaps />}
+                element={<Bestsmallcapregular />}
               />
               
               <Route path="/sip" element={<MutualFundsSipCalculator />} />
