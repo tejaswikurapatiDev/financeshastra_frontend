@@ -13,12 +13,7 @@
     align-items: center;
     margin-bottom: 20px;
   }
-  .pagination-slidersmall {
-    display: flex
-;
-    align-items: center;
-    gap: 5px;
-}
+  
   .header h2 {
     font-size: 30px; /* Default font size for larger screens */
     text-align: left;
@@ -290,11 +285,4 @@
     padding: 6px;
     white-space: nowrap; /* Prevent text wrapping */
   }
-  .pagination-slidersmall{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-left: auto;
-  margin-left: 100px;
-}
 }

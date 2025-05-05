@@ -2450,7 +2450,7 @@ const ScreenerStockList = () => {
         </div>
         <Navbar />
       </div>
-      <div>
+      <div className="foooterpagesaupdate">
         <FooterForAllPage />
       </div>
     </div>
