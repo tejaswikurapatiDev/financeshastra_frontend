@@ -250,6 +250,7 @@ const Flexregular = () => {
           <div className="topfundbutton-container">
             <button
               className="fund-button regular"
+              style={activetab === "regular" ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
               onClick={() => setactivetab("regular")}
             >
               Regular

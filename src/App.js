@@ -72,7 +72,6 @@ import Flexdirect from "./MutualFund/Flexdirect/Flexdirect";
 import Fundscreenerregular from "./MutualFund/Fundscreenerregular/Fundscreenerregular";
 import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular";
 import Etfregular from "./MutualFund/Etfregular/Etfregular";
-import Etfdirect from "./MutualFund/Etfdirect/Etfdirect";
 import StockNewsComponent from "./Learn&insight/StockNewsComponent/StockNewsComponent";
 
 import ScreenerStockList from "./Stocks/ScreenerStockList/ScreenerStockList";
@@ -460,7 +459,6 @@ function App() {
               />
 
               <Route path="/etfregular" element={<Etfregular />} />
-              <Route path="/etfdirect" element={<Etfdirect />} />
               <Route
                 path="/stockNews"
                 element={<StockNewsComponent />}
