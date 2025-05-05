@@ -84,36 +84,6 @@ const Bestsmallcapdirect = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="funds-table-container">
-        <div className="funds-header">
-          <h2 className="funds-table-title">Best Small Cap Fund</h2>
-          <div className="topfundbutton-container">
-            <button
-              className="fund-button regular"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/bestsmallcapregular")}
-            >
-              Regular
-            </button>
-            <button
-              className="fund-button direct"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/Bestsmallcapdirect")}
-            >
-              Direct
-            </button>
-          </div>
-        </div>
-
-        <p className="funds-table-description">
-          Looking for the best mutual funds to build your wealth? At Value
-          Research, we’ve simplified the process for you. Our detailed guide to
-          top-performing mutual funds across <br />
-          different categories helps you identify options that suit your
-          financial objectives.
-        </p>
-
         {loading ? (
           <div className="spinner"></div>
         ) : error ? (
@@ -149,7 +119,7 @@ const Bestsmallcapdirect = () => {
                         </Link>
                       )}
                     </td>
-                    <td>{fund.Rating}</td>
+                    <td>{fund.Rating.split(" ")[0]}</td>
                     <td>{fund.Riskometer}</td>
                     <td>{fund.NAV_Direct ? `₹${fund.NAV_Direct}` : "N/A"}</td>
                     <td>{`₹${fund.AUM} Cr`}</td>
@@ -186,8 +156,6 @@ const Bestsmallcapdirect = () => {
             </div>
           </div>
         )}
-      </div>
-      <FooterForAllPage />
     </div>
   );
 };

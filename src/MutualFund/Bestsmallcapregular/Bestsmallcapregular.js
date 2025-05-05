@@ -6,6 +6,7 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSmallCapFunds from "../Hooks/useSmallCapFunds.js";
+import Bestsmallcapdirect from "../Bestsmallcapdirect/Bestsmallcapdirect.js";
 
 const headers = [
   { key: "FundName", label: "Funds" },
@@ -22,6 +23,7 @@ const headers = [
 
 const Bestsmallcapregular = () => {
   const navigate = useNavigate();
+  const [activetab, setactivetab]= useState('regular')
   const { smallCapfunds, loading, error } = useSmallCapFunds(); // Use the custom hook
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
   
@@ -83,7 +85,8 @@ const Bestsmallcapregular = () => {
     }
   };
 
-
+const activebutnstyle= { backgroundColor: "#24b676", color: "white" }
+const butnstyle = { backgroundColor: "white", color: "black" }
   return (
     <div>
       <Navbar />
@@ -93,15 +96,15 @@ const Bestsmallcapregular = () => {
           <div className="topfundbutton-container">
             <button
               className="fund-button regular"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/bestsmallcapregular")}
+              style={activetab === 'regular' ? activebutnstyle : butnstyle}
+              onClick={() => setactivetab('regular')}
             >
               Regular
             </button>
             <button
               className="fund-button direct"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/Bestsmallcapdirect")}
+              style={activetab === 'direct' ? activebutnstyle : butnstyle}
+              onClick={() =>setactivetab('direct')}
             >
               Direct
             </button>
@@ -121,6 +124,8 @@ const Bestsmallcapregular = () => {
         ) : error ? (
           <p className="error-text">Error: {error}</p>
         ) : (
+          <div>{
+            activetab === 'regular'? 
           <div className="table-wrapper">
             <table className="funds-table">
               <thead>
@@ -151,7 +156,7 @@ const Bestsmallcapregular = () => {
                         </Link>
                       )}
                     </td>
-                    <td>{fund.Rating}</td>
+                    <td>{fund.Rating.split(" ")[0]}</td>
                     <td>{fund.Riskometer}</td>
                     <td>{fund.NAV_Regular ? `₹${fund.NAV_Regular}` : "N/A"}</td>
                     <td>{`₹${fund.AUM} Cr`}</td>
@@ -186,6 +191,7 @@ const Bestsmallcapregular = () => {
               </div>
               </div>
             </div>
+          </div>: <Bestsmallcapdirect />}
           </div>
         )}
       </div>
