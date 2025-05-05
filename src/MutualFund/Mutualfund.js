@@ -1,27 +1,20 @@
-import React, { useState, useEffect } from "react";
-import "./Mutualfundall.css";
-import Mutualxray from "./MutualFund10years/MutualFund10years";
-import Mutualgraphtop from "./Mutualgraphtop/Mutualgraphtop";
-import MutualFundsSipCalculator from "./MutualFundsSipCalculator/MutualFundsSipCalculator";
-import MutualkeyIndicators from "./MutualkeyIndicators/MutualkeyIndicators";
-import MutualFundsSchemeAllocation from "./MutualFundsSchemeAllocation/MutualFundsSchemeAllocation";
-import MtuFundDetails from "./MtuFundDetails/MtuFundDetails";
-import FundContactInfo from "./FundContactInfo/FundContactInfo";
-import RiskOMeter from "./RiskoMutualDashboard/RiskoMutualDashboard";
-import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
-import { API_BASE_URL } from "../config";
+import React, { useState, useEffect } from 'react';
+import './Mutualfundall.css';
+import Mutualxray from './MutualFund10years/MutualFund10years';
+import Mutualgraphtop from './Mutualgraphtop/Mutualgraphtop';
+import MutualFundsSipCalculator from './MutualFundsSipCalculator/MutualFundsSipCalculator';
+import MutualkeyIndicators from './MutualkeyIndicators/MutualkeyIndicators';
+import MutualFundsSchemeAllocation from './MutualFundsSchemeAllocation/MutualFundsSchemeAllocation';
+import MtuFundDetails from './MtuFundDetails/MtuFundDetails';
+import FundContactInfo from './FundContactInfo/FundContactInfo';
+import RiskOMeter from './RiskoMutualDashboard/RiskoMutualDashboard';
+import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
+import { API_BASE_URL } from '../config';
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function Mutualfund() {
+
   const { fundId } = useParams();
-
-  //get data from redux store
-  const allFunds = useSelector((store) => store.searchData.searchData);
-
-  const getSelectedFund = allFunds.find((fund) => String(fund?.ID) === fundId);
-
-  console.log(getSelectedFund);
 
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
@@ -29,45 +22,44 @@ function Mutualfund() {
     lastUpdated: "05 Dec, 2024",
   });
   const [fundDetails, setFundDetails] = useState(null);
-  const [perfSummary, setPerfSummary] = useState(null);
-  const [cagrSummary, setCagrSummary] = useState(null);
-  const [peerCompare, setPeerCompare] = useState(null);
+  const [perfSummary, setPerfSummary] = useState(null)
+  const [cagrSummary, setCagrSummary] = useState(null)
+  const [peerCompare, setPeerCompare] = useState(null)
+
 
   const getMutualFundDetails = async () => {
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/mutualFunds/getMutualFundDetails/${fundId}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch(`${API_BASE_URL}/mutualFunds/getMutualFundDetails/${fundId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json"
+        },
+      });
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(
-          errorData.message || "Failed to fetch mutual fund details"
-        );
+        throw new Error(errorData.message || "Failed to fetch mutual fund details");
       }
 
       const result = await response.json();
-      console.log("Performance Summary", result.data);
+      console.log('Performance Summary',result.data)
       if (result.success && result.data) {
         setFundDetails(result.data.key_indicator[0]);
         setPerfSummary(result.data.performance_summary);
-        setCagrSummary(result.data.cagr_summary);
-        setPeerCompare(result.data.peer_comparison);
+        setCagrSummary(result.data.cagr_summary)
+        setPeerCompare(result.data.peer_comparison)
+
       }
     } catch (error) {
       console.error("Error fetching mutual fund details:", error);
     }
   };
 
+
   useEffect(() => {
     getMutualFundDetails();
-  }, [fundId]);
+  }, [fundId])
+
 
   // Example: Function to simulate data updates
   useEffect(() => {
@@ -89,6 +81,7 @@ function Mutualfund() {
         percentage: `${newPercentage > 0 ? "+" : ""}${newPercentage}%`, // Correct interpolation using backticks
         lastUpdated: newLastUpdated,
       });
+
     }, 5000); // Update every 5 seconds
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
@@ -96,20 +89,16 @@ function Mutualfund() {
 
   return (
     <div>
-      <h1 className="mutualdetalheadd">
-        {getSelectedFund?.Scheme_Name ||
-          `ICICI Pru Technology Fund - Direct Growth`}
-      </h1>
+       <h1 className='mutualdetalheadd'>ICICI Pru Technology Fund - Direct Growth</h1>
       <div className="mutualcandletop">
+       
         {/* Left Section */}
         <div className="mutualcandletop__left">
           <h2 className="mutualcandletop__title"> </h2>
           <div className="mutualcandletop__tags">
             <button className="mutualcandletop__tag">Mid Cap</button>
             {fundDetails && (
-              <button className="mutualcandletop__tag">
-                {fundDetails.riskometer}
-              </button>
+              <button className="mutualcandletop__tag">{fundDetails.riskometer}</button>
             )}
           </div>
         </div>
@@ -120,11 +109,10 @@ function Mutualfund() {
           )}
           {fundDetails && (
             <p
-              className={`mutualcandletop__percentage ${
-                parseFloat(fundDetails.change_percent) >= 0
-                  ? "mutualcandletop__percentage--positive"
-                  : "mutualcandletop__percentage--negative"
-              }`}
+              className={`mutualcandletop__percentage ${parseFloat(fundDetails.change_percent) >= 0
+                ? "mutualcandletop__percentage--positive"
+                : "mutualcandletop__percentage--negative"
+                }`}
             >
               {fundDetails.change_percent}
             </p>
@@ -142,11 +130,7 @@ function Mutualfund() {
       </div>
 
       <MutualkeyIndicators fundDetails={fundDetails} />
-      <Mutualxray
-        perfSummary={perfSummary}
-        cagrSummary={cagrSummary}
-        peerCompare={peerCompare}
-      />
+      <Mutualxray perfSummary={perfSummary} cagrSummary={cagrSummary} peerCompare={peerCompare} />
       <MutualFundsSchemeAllocation />
       <MtuFundDetails />
       <RiskOMeter />
@@ -155,6 +139,7 @@ function Mutualfund() {
         <FooterForAllPage />
       </div>
     </div>
+
   );
 }
 

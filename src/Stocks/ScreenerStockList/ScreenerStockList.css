@@ -1266,8 +1266,8 @@
 
 .pagination-stockcontainer {
   display: flex;
-  gap: 950px;
-
+  gap: 1020px;
+  align-items: center;
   margin-top: 20px;
 
 
@@ -1484,7 +1484,7 @@
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 230px;
+    gap: 400px;
     align-items: center;
     margin-top: 20px;
   }
@@ -1504,10 +1504,9 @@
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 10px;
-flex-direction: column;
+    gap: 100px;
+    align-items: center;
     margin-top: 20px;
- 
   }
 
   .screener-container {
@@ -1834,10 +1833,9 @@ flex-direction: column;
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 10px;
-flex-direction: column;
+    gap: 50px;
+    align-items: center;
     margin-top: 20px;
-
   }
 }
 

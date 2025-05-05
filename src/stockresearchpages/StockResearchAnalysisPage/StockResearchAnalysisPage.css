@@ -428,14 +428,7 @@ margin-left: 200px;
 .pagination-info {
 font-size: 11px;
 color: #333;
-
+width: 100px;
 }
 }
-
-@media (max-width: 320px) {
-  .pagination-info {
-    font-size: 11px;
-    color: #333;
-    width: 150px;
-    }
-}
+/* Medium Desktops (1024px - 1279px) */

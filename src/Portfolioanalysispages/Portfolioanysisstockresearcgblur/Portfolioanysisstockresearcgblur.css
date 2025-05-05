@@ -346,7 +346,7 @@ margin-left: 40px;
       border: 3px solid rgb(223, 218, 218);
       box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
       overflow: hidden;
-      height: 500px;
+      height: 530px;
       margin-left: 20px;
       margin-top: 30px;
       margin-bottom: 30px;
@@ -361,9 +361,9 @@ margin-left: 40px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin: 0;
-   
-  }
+    margin-left: 220px;
+margin-top: -20px;
+}
   .stockresearchanalysispage-containerforblur {
     width: 95%;
     margin-left: 0px;
@@ -438,7 +438,7 @@ margin-left: 40px;
       -webkit-overflow-scrolling: touch;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
       margin-left: 1px;
-      margin-bottom: 20px;
+      margin-bottom: 50px;
   }
     .stockresearchanalysispage-tableanalysisblur th,
     .stockresearchanalysispage-tableanalysisblur td {
@@ -543,30 +543,27 @@ margin-left: 40px;
       border: 3px solid rgb(223, 218, 218);
       box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
       overflow: hidden;
-      height: 505px;
+      height: 520px;
       margin-left: 10px;
       margin-top: 30px;
       margin-bottom: 30px;
   }
-
+  .allblursearchbutton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 160px;
+margin-top: -50px;
+}
 .stockresearchanalysispagecontainerblur {
   margin-top: -180px;
   margin-left: -5px;
   width: auto;
   margin-bottom: -20px;
-}
-
-.stockresearchanalysispage-tableanalysisblur {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 10px;
-  overflow-x: auto;
-  display: block;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  margin-left: 1px;
-  margin-bottom: 35px;
 }
 }

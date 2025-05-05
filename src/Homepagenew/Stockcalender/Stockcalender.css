@@ -12,9 +12,9 @@
 .pagination-containercalender {
   display: flex;
   gap: 680px;
-  
+  align-items: center;
   margin: 20px 0;
-  margin-left: 3px;
+  margin-left: 23px;
 }
 .DashboardMainPagetable-tablee {
     width: 89%;
@@ -144,11 +144,11 @@ width: 100%;
   gap: 710px;
   align-items: center;
   margin: 20px 0;
-  margin-left: 20px;
+  margin-left: 3px;
 }
 .DashboardMainPagetable-table-containerrrrr {
   width: 96%;
-  margin-left: -15px;
+  margin-left: 25px;
 }
 .earningquterlyrowalll {
   margin-left: 20px;
@@ -199,7 +199,7 @@ font-size: 12px;
 }
 .pagination-containercalender {
   display: flex;
- gap: 320px;
+ gap: 350px;
   align-items: center;
  margin-left: 15px;
 
@@ -271,10 +271,10 @@ font-size: 12px;
 }
 .pagination-containercalender {
   display: flex;
- gap: 260px;
- 
+ gap: 100px;
+  align-items: center;
  margin-left: 45px;
- width: 1000px;
+
 
 }
 .react-datepicker {
@@ -344,12 +344,10 @@ font-size: 12px;
       }
       .pagination-containercalender {
         display: flex;
-      flex-direction: column;
-        gap: 10px;
-   
-        margin-left: 80px;   /* Equal margins */
-        margin-right: 80px;
-        width: calc(100% - 20px); /* Full width minus margins */
+      
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 20px;
     
       }
       .DashboardMainPagetable-table-containercalen {
@@ -386,15 +384,5 @@ font-size: 12px;
           .stockcalender.react-datepicker {
           z-index: 100 !important;
           margin-left: -20px;
-      }
-      .pagination-containercalender {
-        display: flex;
-      flex-direction: column;
-        gap: 10px;
-   
-        margin-left: 40px;   /* Equal margins */
-        margin-right: 40px;
-        width: calc(100% - 20px); /* Full width minus margins */
-    
       }
       }

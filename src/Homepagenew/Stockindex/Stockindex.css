@@ -228,12 +228,11 @@ margin-bottom: 30px;
 }
 .pagination-containerrindex {
   display: flex;
-  gap: 320px;
+  gap: 280px;
   align-items: center;
 margin-left: 40px;
 margin-top: -75px;
 margin-bottom: 30px;
-width: 1000px;
 }
 .DashboardMainPagetable-headerrindex{
   display: flex;
@@ -241,7 +240,6 @@ width: 1000px;
       margin-bottom: 20px;
       margin-left: 30px;
       margin-top: 20px;
- 
 }
 }
 @media (max-width: 480px) {
@@ -276,14 +274,10 @@ width: 1000px;
   }
   .pagination-containerrindex {
     display: flex;
-    flex-direction: column;
-gap: 10px;
-margin-left: 50px;   /* Equal margins */
-margin-right: 50px;
-width: calc(100% - 20px); /* Full width minus margins */
+gap: 80px;
+  margin-left: 10px;
   margin-top: 15px;
   margin-bottom: 30px;
-
   }
   .DashboardMainPagetable-card {
     background-color: #fff;
@@ -313,18 +307,4 @@ width: calc(100% - 20px); /* Full width minus margins */
   width: 105px;
   margin-left: -7px;
 }
-}
-@media (max-width: 320px) {
-  .pagination-containerrindex {
-    display: flex;
-    flex-direction: column;
-gap: 10px;
-margin-left: 40px;   /* Equal margins */
-margin-right: 40px;
-width: calc(100% - 20px); /* Full width minus margins */
-  margin-top: 15px;
-  margin-bottom: 30px;
-
-  }
-
 }
