@@ -68,7 +68,6 @@ import MutualFundsSipCalculator from "./MutualFund/MutualFundsSipCalculator/Mutu
 
 import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
 import Flexregular from "./MutualFund/fundDataregularflex/fundDataregularflex";
-import Flexdirect from "./MutualFund/Flexdirect/Flexdirect";
 import Fundscreenerregular from "./MutualFund/Fundscreenerregular/Fundscreenerregular";
 import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular";
 import Etfregular from "./MutualFund/Etfregular/Etfregular";
