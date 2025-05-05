@@ -30,9 +30,9 @@ const FooterForhomeAllPage = () => {
   };
   const mutualRoutes = {
     "Top Rated Funds": "/mutualfund",
-    "Fund Screener": "/fundscreenerregular",
+    "Fund Screener": "/fundscreener",
     "Best Small Cap Fund": "/bestsmallcaps",
-    "Best Growth Fund": "/bestgrowthregular",
+    "Best Growth Fund": "/Bestgrowthfunds",
     "Best Flexi Cap Fund": "/flexregular",
     "Best ETF Fund": "/etfregular",
   };

@@ -299,7 +299,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/fundscreenerregular"
+            to="/fundscreener"
             className="dropdown-item"
             style={{
               display: "block",
@@ -340,7 +340,7 @@ const MutualFundsDropdownMenu = () => (
       <ul>
         <li>
           <Link
-            to="/bestgrowthregular"
+            to="/Bestgrowthfunds"
             className="dropdown-item"
             style={{
               display: "block",
@@ -353,7 +353,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/flexregular"
+            to="/flexfunds"
             className="dropdown-item"
             style={{
               display: "block",

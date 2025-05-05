@@ -833,7 +833,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/fundscreenerregular"
+              to="/fundscreener"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -880,7 +880,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link
-              to="/bestgrowthregular"
+              to="/Bestgrowthfunds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -895,7 +895,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/flexregular"
+              to="/flexfunds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa"; // Import the icons
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import Flexdirect from "../Flexdirect/Flexdirect";
 
 
 // Sample data with additional fields (rating, riskometer, returns)
@@ -184,6 +185,7 @@ const fundDataregularflex = [
 const Flexregular = () => {
 
   const navigate = useNavigate();
+  const [activetab, setactivetab]= useState('regular')
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10;
@@ -248,15 +250,14 @@ const Flexregular = () => {
           <div className="topfundbutton-container">
             <button
               className="fund-button regular"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/flexregular")}
+              onClick={() => setactivetab("regular")}
             >
               Regular
             </button>
             <button
               className="fund-button direct"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/flexdirect")}
+              style={activetab === "direct" ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
+              onClick={() => setactivetab("direct")}
             >
               Direct
             </button>
@@ -268,8 +269,8 @@ const Flexregular = () => {
           Research, we’ve simplified the process for you. Our detailed guide to<br />
           top-performing mutual funds across different categories helps you
           identify options that suit your financial objectives.
-        </p>
-
+        </p>{activetab === 'regular'? 
+        <div>
         <table className="funds-table">
           <thead>
             <tr className="funds-table-header">
@@ -338,6 +339,7 @@ const Flexregular = () => {
             </div>
           </div>
         </div>
+        </div> : <Flexdirect />}
       </div>
       <FooterForAllPage />
     </div>

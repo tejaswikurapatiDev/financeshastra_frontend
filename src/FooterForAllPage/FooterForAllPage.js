@@ -37,10 +37,10 @@ const FooterForAllPage = () => {
   };
   const mutualRoutes = {
     "Top Rated Funds": "/mutualfund",
-    "Fund Screener": "/fundscreenerregular",
+    "Fund Screener": "/fundscreener",
     "Best Small Cap Fund": "/bestsmallcaps",
-    "Best Growth Fund": "/bestgrowthregular",
-    "Best Flexi Cap Fund": "/flexregular",
+    "Best Growth Fund": "/Bestgrowthfunds",
+    "Best Flexi Cap Fund": "/flexfunds",
     "Best ETF Fund": "/etfregular",
   };
   const learnRoutes = {
@@ -97,11 +97,11 @@ const FooterForAllPage = () => {
               <img src={finanlog} alt="FinanceShastra Logo" onClick={() => navigate("/")}style={{cursor:"pointer"}} className="FooterForAllPage-logo-img" />
             </div>
             <div className="FooterForAllPage-social-icons">
-              <a  href="https://www.facebook.com/FinanceShastra/" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaFacebookF /></a>
-              <a href="https://x.com/FinanceShastra" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaTwitter /></a>
-              <a href="https://www.instagram.com/financeshastra_official" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><AiFillInstagram /></a>
-              <a href="https://www.linkedin.com/company/financeshastra/" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaLinkedinIn /></a>
-              <a   href="https://www.youtube.com/@FinanceShastra" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaYoutube /></a>
+              <a  href="https://www.facebook.com/FinanceShastra/" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaFacebookF /></a>
+              <a href="https://x.com/FinanceShastra" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaTwitter /></a>
+              <a href="https://www.instagram.com/financeshastra_official" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><AiFillInstagram /></a>
+              <a href="https://www.linkedin.com/company/financeshastra/" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaLinkedinIn /></a>
+              <a href="https://www.youtube.com/@FinanceShastra" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaYoutube /></a>
             </div>
           </div>
 

@@ -234,7 +234,7 @@ const Nifty50headerunlock = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/fundscreenerregular">Fund Screener
+              <Link to="/fundscreener">Fund Screener
                 <p>Efficient filter and compare investment options.</p></Link>
             </div>
           </li>
@@ -256,7 +256,7 @@ const Nifty50headerunlock = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/bestgrowthregular">Best Growth Fund
+              <Link to="/Bestgrowthfunds">Best Growth Fund
                 <p>Focus on high-potential growth.</p></Link>
             </div>
           </li>

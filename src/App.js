@@ -70,11 +70,9 @@ import RiskoMeter from "./MutualFund/RiskoMutualDashboard/RiskoMutualDashboard";
 import Flexregular from "./MutualFund/fundDataregularflex/fundDataregularflex";
 import Flexdirect from "./MutualFund/Flexdirect/Flexdirect";
 import Fundscreenerregular from "./MutualFund/Fundscreenerregular/Fundscreenerregular";
-import Fundscreenerdirect from "./MutualFund/Fundscreenerdirect/Fundscreenerdirect";
 import Bestgrowthregular from "./MutualFund/Bestgrowthregular/Bestgrowthregular";
 import Etfregular from "./MutualFund/Etfregular/Etfregular";
 import Etfdirect from "./MutualFund/Etfdirect/Etfdirect";
-import Bestgrowthdirect from "./MutualFund/Bestgrowthdirect/Bestgrowthdirect";
 import StockNewsComponent from "./Learn&insight/StockNewsComponent/StockNewsComponent";
 
 import ScreenerStockList from "./Stocks/ScreenerStockList/ScreenerStockList";
@@ -453,21 +451,15 @@ function App() {
               
               <Route path="/sip" element={<MutualFundsSipCalculator />} />
               <Route path="/risk" element={<RiskoMeter />} />
-              <Route path="/flexregular" element={<Flexregular />} />
-              <Route path="/flexdirect" element={<Flexdirect />} />
+              <Route path="/flexfunds" element={<Flexregular />} />
               <Route
-                path="/fundscreenerregular"
+                path="/fundscreener"
                 element={<Fundscreenerregular />}
               />
               <Route
-                path="/fundscreenerdirect"
-                element={<Fundscreenerdirect />}
-              />
-              <Route
-                path="/Bestgrowthregular"
+                path="/Bestgrowthfunds"
                 element={<Bestgrowthregular />}
               />
-              <Route path="/Bestgrowthdirect" element={<Bestgrowthdirect />} />
 
               <Route path="/etfregular" element={<Etfregular />} />
               <Route path="/etfdirect" element={<Etfdirect />} />
