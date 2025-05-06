@@ -1,30 +1,178 @@
 .landingnavbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Adjust spacing between icons and buttons */
-    font-family: 'calibri';
-  }
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adjust spacing between icons and buttons */
+  font-family: 'calibri';
+}
+
+.landingnavbaricon {
+  font-size: 20px;
+  color: #000; /* Adjust icon color */
+  cursor: pointer;
+}
+
+.learn-lanmenu{
+  position: absolute; /* Position the dropdown below the icon */
+  top: 100%; /* Position it just below the icon */
+  border: 1px solid #ddd; /* Border for dropdown */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  list-style: none; /* Remove default list styles */
+  padding: 15px 0; /* Increased vertical spacing */
+  margin: 0; /* Remove margin */
+  z-index: 1000; /* Ensure dropdown appears above other elements */
+  min-width: 210px; /* Set a minimum width for the dropdown */
+  margin-right: 20px;
+  background-color: white;
+
+}
+.dropdown-contentnotilanding{
+position: absolute;
+top: 60px;
+right: 10px;
+background-color: #fff;
+border: 1px solid #eaeaea;
+border-radius: 8px;
+width: 350px;
+max-height: 500px;
+overflow-y: auto;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+z-index: 10;
+margin-top: -10px;
+padding: 15px;
+overflow-x: hidden;
+}
+
+.landingnavbar-button {
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.landingnavbar-buttonregister-button {
+  background-color: transparent;
+  color: #24b676;
+  padding: 8px 16px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 15px;
+  font-weight: 600;
+ 
+}
+.landingnavbar-buttonregister-button:hover {
+  background-color: #24b676;
+  color: #ffff
+}
+
+
+.landingnavbar-buttonlogin-button {
+  background-color: #24b676;
+  color: #fff;
+  padding: 8px 16px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 15px;
+  font-weight: 600;
   
-  .landingnavbaricon {
-    font-size: 20px;
-    color: #000; /* Adjust icon color */
-    cursor: pointer;
-  }
-  
-  .learn-lanmenu{
-    position: absolute; /* Position the dropdown below the icon */
-    top: 100%; /* Position it just below the icon */
-    border: 1px solid #ddd; /* Border for dropdown */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
-    list-style: none; /* Remove default list styles */
-    padding: 15px 0; /* Increased vertical spacing */
-    margin: 0; /* Remove margin */
-    z-index: 1000; /* Ensure dropdown appears above other elements */
-    min-width: 210px; /* Set a minimum width for the dropdown */
-    margin-right: 20px;
-    background-color: white;
-  
-  }
+}
+
+.landingnavbar-buttonlogin-button:hover {
+  background-color: #1d9d5b;
+}
+
+
+
+
+
+.navbar-darksearch input {
+  padding: 10px 12px 6px 30px; /* Add padding to make space for the icon */
+  border-radius: 6px;
+  border: 1px solid #333333;
+  font-size: 12px;
+  width: 200px; /* Adjust as needed */
+  height: 20px;
+  background-color: #000000;
+  color: white;
+}
+.navbar-darksearch input::placeholder {
+  color: white; /* White color for placeholder text */
+  opacity: 0.7; /* Optional: Adjust opacity for better visibility */
+}
+.searchdarkicon {
+  position: absolute;
+  left: 1018px; /* Position on the left side inside input */
+  top: 55%;
+  transform: translateY(-50%);
+  color: #ffff;
+  font-size: 14px; /* Adjust icon size */
+
+}
+
+
+
+
+
+.darkmodenavbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #292F42;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: 'Calibri', sans-serif;
+  position: fixed; /* Fix the navbar to the top */
+  top: 0; /* Align it to the top of the viewport */
+  left: 0; /* Align it to the left */
+  right: 0; /* Align it to the right */
+  z-index: 1000;
+}
+
+.logo-darkimage {
+width: 220px; /* Increased logo width */
+height: auto; /* Keeps aspect ratio */
+margin-right: 8px;
+background-color: #292F42;
+}
+
+
+
+
+
+@media (min-width: 1024px) and (max-width: 1279px)  {
+.landingnavbar-buttonregister-button {
+  background-color: transparent;
+  color: #24b676;
+  padding: 8px 10px;
+  border: 1px solid #24b676;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'calibri';
+  font-size: 15px;
+  font-weight: 600;
+}
+.landingnavbar-icons {
+display: flex
+;
+align-items: center;
+gap: 5px;
+font-family: 'calibri';
+}
+}
+/* Media Query for screens <= 768px (Tablets) */
+@media (max-width: 768px) {
+.landingnavbar-icons {
+    gap: 10px; /* Slightly reduce the gap between icons */
+}
+
+.landingnavbaricon {
+    font-size: 18px; /* Reduce icon size */
+}
 .dropdown-contentnotilanding{
   position: absolute;
   top: 60px;
@@ -33,7 +181,7 @@
   border: 1px solid #eaeaea;
   border-radius: 8px;
   width: 350px;
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 10;
@@ -42,225 +190,52 @@
   overflow-x: hidden;
 }
 
-  .landingnavbar-button {
-    font-size: 14px;
-    padding: 8px 16px;
-    border: 1px solid #24b676;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .landingnavbar-buttonregister-button {
-    background-color: transparent;
-    color: #24b676;
-    padding: 8px 16px;
-    border: 1px solid #24b676;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'calibri';
-    font-size: 15px;
-    font-weight: 600;
-   
-  }
-  .landingnavbar-buttonregister-button:hover {
-    background-color: #24b676;
-    color: #ffff
-  }
- 
-  
-  .landingnavbar-buttonlogin-button {
-    background-color: #24b676;
-    color: #fff;
-    padding: 8px 16px;
-    border: 1px solid #24b676;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'calibri';
-    font-size: 15px;
-    font-weight: 600;
-    
-  }
-  
-  .landingnavbar-buttonlogin-button:hover {
-    background-color: #1d9d5b;
-  }
-
-
-
-
-
-  .navbar-darksearch input {
-    padding: 10px 12px 6px 30px; /* Add padding to make space for the icon */
-    border-radius: 6px;
-    border: 1px solid #333333;
-    font-size: 12px;
-    width: 200px; /* Adjust as needed */
-    height: 20px;
-    background-color: #000000;
-    color: white;
-  }
-  .navbar-darksearch input::placeholder {
-    color: white; /* White color for placeholder text */
-    opacity: 0.7; /* Optional: Adjust opacity for better visibility */
+.landingnavbar-button,
+.landingnavbar-buttonregister-button,
+.landingnavbar-buttonlogin-button {
+    font-size: 13px; /* Smaller text for buttons */
+    padding: 8px 14px; /* Adjust padding */
 }
-.searchdarkicon {
-    position: absolute;
-    left: 1018px; /* Position on the left side inside input */
-    top: 55%;
-    transform: translateY(-50%);
-    color: #ffff;
-    font-size: 14px; /* Adjust icon size */
+.landingpageunlockinvest-button{
+  padding: 4px 1px;
 
-  }
-
-
-
- 
-
-  .darkmodenavbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    background-color: #292F42;
-    border-bottom: 1px solid #e0e0e0;
-    font-family: 'Calibri', sans-serif;
-    position: fixed; /* Fix the navbar to the top */
-    top: 0; /* Align it to the top of the viewport */
-    left: 0; /* Align it to the left */
-    right: 0; /* Align it to the right */
-    z-index: 1000;
-  }
-  
-.logo-darkimage {
-  width: 220px; /* Increased logo width */
-  height: auto; /* Keeps aspect ratio */
-  margin-right: 8px;
-  background-color: #292F42;
 }
-
-
-
- 
-
-@media (min-width: 1024px) and (max-width: 1279px)  {
-  .landingnavbar-buttonregister-button {
-    background-color: transparent;
-    color: #24b676;
-    padding: 8px 10px;
-    border: 1px solid #24b676;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'calibri';
-    font-size: 15px;
-    font-weight: 600;
-}
-.landingnavbar-icons {
-  display: flex
-;
-  align-items: center;
-  gap: 5px;
-  font-family: 'calibri';
-}
-}
- /* Media Query for screens <= 768px (Tablets) */
-@media (max-width: 768px) {
-  .landingnavbar-icons {
-      gap: 10px; /* Slightly reduce the gap between icons */
-  }
-
-  .landingnavbaricon {
-      font-size: 18px; /* Reduce icon size */
-  }
-  .dropdown-contentnotilanding{
-    position: absolute;
-    top: 60px;
-   right: 10px;
-    background-color: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    width: 350px;
-    max-height: 400px;
-    overflow-y: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    margin-top: -10px;
-    padding: 15px;
-    overflow-x: hidden;
-  }
-
-  .landingnavbar-button,
-  .landingnavbar-buttonregister-button,
-  .landingnavbar-buttonlogin-button {
-      font-size: 13px; /* Smaller text for buttons */
-      padding: 8px 14px; /* Adjust padding */
-  }
-  .landingpageunlockinvest-button{
-    padding: 4px 1px;
-
-  }
-  .learn-lanmenu {
-    min-width: 180px;
-    padding: 10px 0;
-    margin-top: -550px;
-    margin-left: -103px;
+.learn-lanmenu {
+  min-width: 180px;
+  padding: 10px 0;
+  margin-top: -550px;
+  margin-left: -103px;
 }
 }
 
 /* Media Query for screens <= 480px (Mobile) */
 @media (max-width: 480px) {
-  .landingnavbar-icons {
-      gap: 8px; /* Even smaller gap between icons */
-      flex-direction: row; /* Stack icons vertically */
-      margin-left: -10px;
-  }
-
-  .landingnavbaricon {
-      font-size: 16px; /* Even smaller icon size */
-      margin-bottom: 10px; /* Add spacing between icons */
-  }
-
-  .landingnavbar-button,
-  .landingnavbar-buttonregister-button,
-  .landingnavbar-buttonlogin-button {
-      font-size: 12px; /* Further reduce font size */
-      padding: 6px 5px; /* Adjust button padding */
-  }
-
-
-
-  .landingnavbar-buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center buttons */
-      gap: 10px; /* Space between buttons */
-  }
-  .dropdown-contentnotilanding {
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background-color: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    width: 280px;
-    max-height: 400px;
-    overflow-y: auto;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 10;
-    margin-top: -15px;
-    padding: 15px;
-    overflow-x: hidden;
-}  
-  .learn-lanmenu {
-  min-width: 180px;
-  padding: 10px 0;
-  margin-top: -286px;
-  margin-left: -140px;
+.landingnavbar-icons {
+    gap: 8px; /* Even smaller gap between icons */
+    flex-direction: row; /* Stack icons vertically */
+    margin-left: -10px;
 }
-}
-@media (max-width: 320px) {
 
+.landingnavbaricon {
+    font-size: 16px; /* Even smaller icon size */
+    margin-bottom: 10px; /* Add spacing between icons */
+}
+
+.landingnavbar-button,
+.landingnavbar-buttonregister-button,
+.landingnavbar-buttonlogin-button {
+    font-size: 12px; /* Further reduce font size */
+    padding: 6px 5px; /* Adjust button padding */
+}
+
+
+
+.landingnavbar-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons */
+    gap: 10px; /* Space between buttons */
+}
 .dropdown-contentnotilanding {
   position: absolute;
   top: 60px;
@@ -268,7 +243,7 @@
   background-color: #fff;
   border: 1px solid #eaeaea;
   border-radius: 8px;
-  width: 230px;
+  width: 280px;
   max-height: 400px;
   overflow-y: auto;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -276,5 +251,30 @@
   margin-top: -15px;
   padding: 15px;
   overflow-x: hidden;
+}  
+.learn-lanmenu {
+min-width: 180px;
+padding: 10px 0;
+margin-top: -286px;
+margin-left: -140px;
+}
+}
+@media (max-width: 320px) {
+
+.dropdown-contentnotilanding {
+position: absolute;
+top: 60px;
+right: 10px;
+background-color: #fff;
+border: 1px solid #eaeaea;
+border-radius: 8px;
+width: 230px;
+max-height: 400px;
+overflow-y: auto;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+z-index: 10;
+margin-top: -15px;
+padding: 15px;
+overflow-x: hidden;
 }
 }

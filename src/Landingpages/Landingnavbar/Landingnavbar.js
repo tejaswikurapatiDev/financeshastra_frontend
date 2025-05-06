@@ -325,117 +325,113 @@ const MutualFundsDropdownMenu = () => (
   <div className="mutualstockmenu">
     <div className="stockmenu-column">
       <ul>
-               <li>
-               
-                   <Link to="/mutualfund" className= "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                   
-                     
-                   }}>
-                    Top Rated Funds
-                     <p>Focus on risk management and long-term growth.</p>
-                   </Link>
-                 
-               </li>
-               <li>
-                
-                   <Link to="/fundscreenerregular" className= "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}
-                  >
-                     Fund Screener
-                     <p>Efficient filter and compare investment options.</p>
-                   </Link>
-                 
-               </li>
-               <li>
-                <Link to="/bestsmallcapregular"
-                   className= "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}>
-                     Best Small Cap Fund
-                     <p>Strong returns by investing in high-growth opportunities.</p>
-                   </Link>
-              
-                   <Link to="/market"
-                   className="dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}>
-                    Equity (ETFs)</Link>
-                
-               </li>
-             </ul>
-           </div>
-           <div className="stockmenu-column">
-             <ul>
-               <li>
-                
-                   <Link to="/bestgrowthregular"
-                    className= "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}>
-                     Best Growth Fund
-                     <p>Focus on high-potential growth.</p>
-                   </Link>
-               
-               </li>
-               <li>
-     
-                   <Link to="/flexregular"
-                   className="dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}>
-                    Best Flex Cap Fund
-                     <p>Invest in companies poised for future and today's growth.</p>
-                   </Link>
-                 
-               </li>
-               <li>
-                 
-                   <Link to="/etfregular"
-                   className="dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}>
-                    Best ETF Fund
-                     <p>Diverse and cost-effective investment strategy.</p>
-                   </Link>
-                 
-                 <div
-                  
-                 >
-                   <Link to="/gold"
-                    className=
-                     "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",                
-                   }}> 
-                  Gold (ETFs)</Link>
-                 </div>
-               </li>
-             </ul>
+        <li>
+          <Link
+            to="/mutualfund"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Top Rated Funds
+            <p>Focus on risk management and long-term growth.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/fundscreener"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Fund Screener
+            <p>Efficient filter and compare investment options.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/bestsmallcaps"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Best Small Cap Fund
+            <p>Strong returns by investing in high-growth opportunities.</p>
+          </Link>
+
+          <Link
+            to="/market"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Equity (ETFs)
+          </Link>
+        </li>
+      </ul>
+    </div>
+    <div className="stockmenu-column">
+      <ul>
+        <li>
+          <Link
+            to="/Bestgrowthfunds"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Best Growth Fund
+            <p>Focus on high-potential growth.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/flexfunds"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Best Flex Cap Fund
+            <p>Invest in companies poised for future and today's growth.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/etfregular"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Best ETF Fund
+            <p>Diverse and cost-effective investment strategy.</p>
+          </Link>
+
+          <div>
+            <Link
+              to="/gold"
+              className="dropdown-item"
+              style={{
+                display: "block",
+                textDecoration: "none",
+              }}
+            >
+              Gold (ETFs)
+            </Link>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 );
@@ -611,7 +607,7 @@ const Landingnavbar = () => {
       const data = await response.json();
       dispatch(setSearchData(data?.data || []));
     } catch (error) {
-      
+      console.log(error);
     }
   };
 
@@ -792,11 +788,7 @@ const Landingnavbar = () => {
           Logout
         </button>
       </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
-          Dark Mode
-        </div>
-      </div>
+     
     </div>
   );
 
@@ -805,7 +797,7 @@ const Landingnavbar = () => {
     setFilterData([]);
   };
 
-  
+  console.log("filterData", filterData);
   return (
     <>
       <nav className={darkMode ? "darkmodenavbar" : "navbar"}>
@@ -1005,19 +997,20 @@ const Landingnavbar = () => {
               </div>
             )}
             <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-              <li className="" ref={userDropdownRef}>
-                <Link to="#" onClick={toggleUserDropdown}>
+              <li ref={userDropdownRef} className="user-info">
+                <div className="user-trigger" to="#" onClick={toggleUserDropdown}>
                   <FaUserCircle
                     className={
                       darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
                     }
                   />
-                </Link>
+               
                 <span
                   className={darkMode ? "willamnamedarkmode" : "willamname"}
                 >
                   {storedName.split(" ")[0]}
                 </span>
+                </div>
                 {userDropdownOpen && renderUserDropdown()}
               </li>
             </div>
