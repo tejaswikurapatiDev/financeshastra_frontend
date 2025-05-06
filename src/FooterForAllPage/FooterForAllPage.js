@@ -78,18 +78,7 @@ const FooterForAllPage = () => {
       {/* Desktop Footer */}
       
       <footer className={darkMode ? "FooterForAllPagedarkfooter" : "FooterForAllPage-footer"}>
-        <div className="FooterForAllPage-top-section">
-          <div className="FooterForAllPage-stock-list">
-            <div className="FooterForAllPage-stock-letters">
-              <span className="FooterForAllPage-stock-title">Stock List</span>
-              {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                <span key={letter} className="FooterForAllPage-letter">
-                  {letter}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+       
 
         <div className="FooterForAllPage-main-section">
           <div className="FooterForAllPage-logo-social">
