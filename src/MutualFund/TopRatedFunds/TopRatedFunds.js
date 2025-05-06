@@ -68,10 +68,10 @@ const TopRatedFunds = () => {
 
     return (
       <span className="sort-icons">
-      <FaCaretUp className={`icon-up ${isAscending ? "active" : "inactive"}`} />
-      <FaCaretDown className={`icon-down ${isDescending ? "active" : "inactive"}`} />
-    </span>
-    
+        <FaCaretUp className={`icon-up ${isAscending ? "active" : "inactive"}`} />
+        <FaCaretDown className={`icon-down ${isDescending ? "active" : "inactive"}`} />
+      </span>
+
     );
   };
 
@@ -143,19 +143,19 @@ const TopRatedFunds = () => {
                 ))}
               </tbody>
             </table>
-          
+
             <div className="pagination-topratedcontainer">
-            <div className="pagination-topratedwrapper">
-            <div className="pagination-topratedinfo">
-              {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${topRatedFunds.length} records`}
-            </div>
-            <div className="pagination-topratedcontainer-buttons">
-              <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
-              {[...Array(totalPages)].map((_, i) => (
-                <button key={i + 1} onClick={() => handlePageChange(i + 1)} className={currentPage === i + 1 ? "active" : ""}>{i + 1}</button>
-              ))}
-              <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
-              </div>
+              <div className="pagination-topratedwrapper">
+                <div className="pagination-topratedinfo">
+                  {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${topRatedFunds.length} records`}
+                </div>
+                <div className="pagination-topratedcontainer-buttons">
+                  <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
+                  {[...Array(totalPages)].map((_, i) => (
+                    <button key={i + 1} onClick={() => handlePageChange(i + 1)} className={currentPage === i + 1 ? "active" : ""}>{i + 1}</button>
+                  ))}
+                  <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
+                </div>
               </div>
             </div>
           </div>
