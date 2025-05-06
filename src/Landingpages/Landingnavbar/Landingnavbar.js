@@ -30,181 +30,149 @@ import Darkmodelogo from "../../assest/navlogo.png";
 import "./Landingnavbar.css";
 import { API_BASE_URL } from "../../config";
 import { faBullseye } from "@fortawesome/free-solid-svg-icons";
- // Dropdown menu components
- const StockDropdownMenu = () => (
+// Dropdown menu components
+const StockDropdownMenu = () => (
   <div className="stockmenu">
     <div className="stockmenu-column">
       <ul>
-            <li style={{ listStyle: "none" }}>
-       <Link
-         to="/StockScreener"
-         className= "dropdown-item"
-         style={{
-           display: "block",
-           textDecoration: "none",
-         
-           
-         }}
-       >
-        Stock Screener
-         <p >
-           Discover stocks based on various filters and criteria to make informed
-           decisions.
-         </p>
-       </Link>
-     </li>
-     
-               <li style={{ listStyle: "none" }}>
-               
-                   <Link to="/beststock"
-                    className=
-                     "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                    
-                     
-                   }}>
-                    Best Stock
-                     <p>
-                       Explore the best stocks for investment based on analysis and
-                       trends.
-                     </p>
-                   </Link>
-                
-               </li>
-               <li>
-               
-                   <Link to="/highgrowthstocks"
-                    className= "dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                   
-                   
-                   }}
-                   >
-                     High Growth Stocks
-                     <p>
-                       Find stocks that are expected to grow rapidly in the upcoming
-                       years.
-                     </p>
-                   </Link>
-               
-               </li>
-               <li>
-               
-                   <Link to="/nifty50stocks"
-                     className= "dropdown-item"
-                     
-     
-                     style={{
-                       display: "block",
-                       textDecoration: "none",
-                      
-                       
-                     }}
-                     >
-                      Nifty 50 Companies
-                     <p>
-                       Track the top 50 companies listed on the National Stock
-                       Exchange of India.
-                     </p>
-                   </Link>
-               </li>
-             </ul>
-           </div>
-           <div className="stockmenu-column">
-             <ul>
-               <li>
-             
-                   <Link to="/nifty100stocks"  className="dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                    
-                     
-                   }}
-                   >
-                    Nifty 100 Companies
-                     <p>
-                       Explore all 500 companies listed on the Nifty index to
-                       diversify your portfolio.
-                     </p>
-                   </Link>
-               </li>
-               <li>
-               
-                   <Link to="/smallcap"
-                     className= "dropdown-item"
-                     
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                   
-                   }}>
-                     Small Cap
-                     <p>
-                       Invest in smaller companies with high potential for growth.
-                     </p>
-                   </Link>
-                
-               </li>
-               <li>
-                 
-                   <Link to="/midcap"
-                    className= "dropdown-item"
-                   
-                    style={{
-                     display: "block",
-                     textDecoration: "none",
-                   
-                     
-                   }}>
-                     Mid Cap
-                     <p>
-                       Discover mid-sized companies with a strong growth trajectory.
-                     </p>
-                   </Link>
-           
-               </li>
-               <li>
-               
-                   <Link to="/largecap"
-                    className= "dropdown-item"
-                   
-                    style={{
-                     display: "block",
-                     textDecoration: "none",
-                    
-                   
-                   }}>
-                     Large Cap
-                     <p>
-                       Focus on large, established companies with stable returns.
-                     </p>
-                   </Link>
-                 
-               </li>
-               <li>
-                   <Link to="/stockThemes"
-                    className="dropdown-item"
-                   
-                   style={{
-                     display: "block",
-                     textDecoration: "none",
-                   
-                    
-                   }}>
-                     Stock Themes
-                     <p>Research is key before buying any stock</p>
-                   </Link>
-                
-               </li>
-             </ul>
+        <li style={{ listStyle: "none" }}>
+          <Link
+            to="/StockScreener"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Stock Screener
+            <p>
+              Discover stocks based on various filters and criteria to make
+              informed decisions.
+            </p>
+          </Link>
+        </li>
+
+        <li style={{ listStyle: "none" }}>
+          <Link
+            to="/beststock"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Best Stock
+            <p>
+              Explore the best stocks for investment based on analysis and
+              trends.
+            </p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/highgrowthstocks"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            High Growth Stocks
+            <p>
+              Find stocks that are expected to grow rapidly in the upcoming
+              years.
+            </p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/nifty50stocks"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Nifty 50 Companies
+            <p>
+              Track the top 50 companies listed on the National Stock Exchange
+              of India.
+            </p>
+          </Link>
+        </li>
+      </ul>
+    </div>
+    <div className="stockmenu-column">
+      <ul>
+        <li>
+          <Link
+            to="/nifty100stocks"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Nifty 100 Companies
+            <p>
+              Explore all 500 companies listed on the Nifty index to diversify
+              your portfolio.
+            </p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/smallcap"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Small Cap
+            <p>Invest in smaller companies with high potential for growth.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/midcap"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Mid Cap
+            <p>Discover mid-sized companies with a strong growth trajectory.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/largecap"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Large Cap
+            <p>Focus on large, established companies with stable returns.</p>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/stockThemes"
+            className="dropdown-item"
+            style={{
+              display: "block",
+              textDecoration: "none",
+            }}
+          >
+            Stock Themes
+            <p>Research is key before buying any stock</p>
+          </Link>
+        </li>
+      </ul>
     </div>
   </div>
 );
@@ -212,113 +180,104 @@ import { faBullseye } from "@fortawesome/free-solid-svg-icons";
 const PortfolioDropdownMenu = () => (
   <div className="dropdown-menu">
     <Link
-         to="/portfolio"
-         className="dropdown-item"
-         style={{
-           display: "block",
-           textDecoration: "none",
-           
-          
-         }}
-       >
-         My Portfolio
-         <p >Your financial navigator</p>
-       </Link>
-        
-           <Link to="/portfolio-risk"
-            className= "dropdown-item"
-            style={{
-             display: "block",
-             textDecoration: "none",
-           
-             
-           }}>
-             Portfolio Risk Analysis
-             <p>Risk evaluation and insights(coming soon)</p>
-           </Link>
-      
-         
-           <Link to="/stockWatchlist"
-           className= "dropdown-item"
-             style={{
-               display: "block",
-               textDecoration: "none",
-              
-              
-             }}>
-             Watchlist
-             <p>Monitor, assess, and improve</p>
-           </Link>
+      to="/portfolio"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      My Portfolio
+      <p>Your financial navigator</p>
+    </Link>
+
+    <Link
+      to="/portfolio-risk"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Portfolio Risk Analysis
+      <p>Risk evaluation and insights(coming soon)</p>
+    </Link>
+
+    <Link
+      to="/stockWatchlist"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Watchlist
+      <p>Monitor, assess, and improve</p>
+    </Link>
   </div>
 );
 
 const LearnDropdownMenu = () => (
   <div className="learn-lanmenu">
-   <Link to="/stockNews"
-           className= "dropdown-item"
-             style={{
-               display: "block",
-               textDecoration: "none",
-             
-               
-             }}>
-             Stock News
-             <p>Discover what's happening in the stock markets in real-time</p>
-           </Link>
-        
-           <Link to="/blogs"
-           className= "dropdown-item"
-            style={{
-             display: "block",
-             textDecoration: "none",
-            
-            
-           }}>
-             Blogs
-             <p>Investment Knowledge Hub</p>
-           </Link>
-   
-     
-           <Link to="/ipoDetails"
-           className="dropdown-item"
-           style={{
-             display: "block",
-             textDecoration: "none",
-            
-             
-           }}>
-            IPO Details
-             <p>Key Information on the Latest IPO Trends</p>
-           </Link>
-   
-   
-           <Link to="/earningsInsightLearn" className= "dropdown-item"
-            style={{
-             display: "block",
-             textDecoration: "none",
-           
-            
-           }}>
-            Quarterly Earnings
-             <p>Monitor thorough quarterly earnings summaries</p>
-           </Link>
-       
-        
-           <Link to="/learncard"
-           className= "dropdown-item"
-           style={{
-             display: "block",
-             textDecoration: "none",
-            
-             
-           }}
-           >
-             Learn
-             <p>
-               {" "}
-               Knowledge is the key to successful trading—learn, adapt, and grow
-             </p>
-           </Link>
+    <Link
+      to="/stockNews"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Stock News
+      <p>Discover what's happening in the stock markets in real-time</p>
+    </Link>
+
+    <Link
+      to="/blogs"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Blogs
+      <p>Investment Knowledge Hub</p>
+    </Link>
+
+    <Link
+      to="/ipoDetails"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      IPO Details
+      <p>Key Information on the Latest IPO Trends</p>
+    </Link>
+
+    <Link
+      to="/earningsInsightLearn"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Quarterly Earnings
+      <p>Monitor thorough quarterly earnings summaries</p>
+    </Link>
+
+    <Link
+      to="/learncard"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Learn
+      <p> Knowledge is the key to successful trading—learn, adapt, and grow</p>
+    </Link>
   </div>
 );
 const MutualFundsDropdownMenu = () => (
@@ -407,7 +366,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/etfregular"
+            to="/etf"
             className="dropdown-item"
             style={{
               display: "block",
@@ -437,84 +396,74 @@ const MutualFundsDropdownMenu = () => (
 );
 
 const renderhomeDropdown = () => (
-    <div className="home-menu">
-     
-        <Link to="/home"
-        className= "dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-        
-         
-        }}>
-        Dashboard
-         
-        </Link>
-   
-     
-        <Link to="/porfolioanalysisallpagecall"
-        className=  "dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-      
-         
-        }}>
-       Portfolio Analysis
-        </Link>
-     
+  <div className="home-menu">
+    <Link
+      to="/home"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Dashboard
+    </Link>
 
-        <Link to="/stockWatchlist"
-        className="dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-        
-         
-        }}>
-        Watchlist
-        </Link>
-   
+    <Link
+      to="/porfolioanalysisallpagecall"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Portfolio Analysis
+    </Link>
 
-     
-        <Link to="/stockresearchpages"
-        className= "dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-        
-        
-        }}>
-        Research
-        </Link>
+    <Link
+      to="/stockWatchlist"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Watchlist
+    </Link>
 
-     
-        <Link to="/security"
-        className= "dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-         
-          
-        }}>
-        Security
-       
-        </Link>
-  
-     
-        <Link to="/settingDashPanel"
-        className="dropdown-item"
-        style={{
-          display: "block",
-          textDecoration: "none",
-        
-         
-        }}>
-        Setting
-        </Link>
-      </div>
-   
-  );
+    <Link
+      to="/stockresearchpages"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Research
+    </Link>
+
+    <Link
+      to="/security"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Security
+    </Link>
+
+    <Link
+      to="/settingDashPanel"
+      className="dropdown-item"
+      style={{
+        display: "block",
+        textDecoration: "none",
+      }}
+    >
+      Setting
+    </Link>
+  </div>
+);
 
 const UserDropdownMenu = () => (
   <div className="user-menu">
@@ -538,7 +487,6 @@ const UserDropdownMenu = () => (
     </div>
   </div>
 );
-
 
 const Landingnavbar = () => {
   // State for different dropdowns
@@ -568,10 +516,9 @@ const Landingnavbar = () => {
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
   //state for search suggestion dropdown
-    const footerhomeDropdownRef = useRef(null);
+  const footerhomeDropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [footerhomeDropdownOpen, setFooterhomeDropdownOpen] =
-    useState(false);
+  const [footerhomeDropdownOpen, setFooterhomeDropdownOpen] = useState(false);
   // Refs for handling click outside
   const dropdownRefs = {
     footerPortfolio: useRef(null),
@@ -685,6 +632,21 @@ const Landingnavbar = () => {
     return () => debounceSearch.cancel();
   }, [searchInputText, debounceSearch]);
 
+  const handleSearchItemClick = (data) => {
+    setSearchInputText(data.name || data.Scheme_Name);
+    setFilterData([]);
+    setShowDropdown(false);
+    if (data.id || data.symbol) {
+      navigate(`/stockhandle/${data.id || data.symbol}`, {
+        state: { item: data },
+      });
+    } else if (data.ID) {
+      navigate(`/mutualfundgrowth/${data.ID}`, {
+        state: { item: data },
+      });
+    }
+  };
+
   const fetchNotifications = async () => {
     try {
       const response = await fetch(`${API_BASE_URL}/notifications`, {
@@ -757,10 +719,6 @@ const Landingnavbar = () => {
   const toggleUserDropdown = () => {
     setUserDropdownOpen(!userDropdownOpen);
   };
-  
-
-
- 
 
   const renderUserDropdown = () => (
     <div className={darkMode ? "user-menudarkerrmode" : "user-menu"}>
@@ -907,9 +865,7 @@ const Landingnavbar = () => {
                       <li
                         key={data.id}
                         onClick={() => {
-                          handleSearchInputText(data.name || data.Scheme_Name);
-                          setFilterData([]); 
-                          setShowDropdown(false); 
+                          handleSearchItemClick(data);
                         }}
                       >
                         {data.name} {data.Scheme_Name} {data.sector}{" "}
@@ -1043,22 +999,22 @@ const Landingnavbar = () => {
       </nav>
 
       <ul className="footer-nav">
-        <li  className="learn-dropdown" ref={footerhomeDropdownRef}>
-                 <a 
-                   href="#"
-                   onClick={toggleFooterhomeDropdown}
-                  className="footer-link">
-                   <div className="footer-item">
-                     <i className="footer-icon">
-                       <RiHome5Fill />
-                      
-                     </i>
-                     <span>Home</span>
-                     <FaChevronDown className="chevron-icon" />
-                   </div>
-                 </a>
-                 {footerhomeDropdownOpen && renderhomeDropdown()}
-               </li>
+        <li className="learn-dropdown" ref={footerhomeDropdownRef}>
+          <a
+            href="#"
+            onClick={toggleFooterhomeDropdown}
+            className="footer-link"
+          >
+            <div className="footer-item">
+              <i className="footer-icon">
+                <RiHome5Fill />
+              </i>
+              <span>Home</span>
+              <FaChevronDown className="chevron-icon" />
+            </div>
+          </a>
+          {footerhomeDropdownOpen && renderhomeDropdown()}
+        </li>
         <li className="stock-dropdown" ref={dropdownRefs.footerStock}>
           <Link
             to="#"

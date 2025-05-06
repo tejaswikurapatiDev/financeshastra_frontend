@@ -268,7 +268,7 @@ const Nifty50headerunlock = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/etfregular">Best ETF Fund
+              <Link to="/etf">Best ETF Fund
                 <p>Diverse and cost-effective investment strategy.</p></Link>
             </div>
             <div className="dropdown-item">

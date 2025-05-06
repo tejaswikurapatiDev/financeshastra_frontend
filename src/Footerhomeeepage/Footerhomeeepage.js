@@ -34,7 +34,7 @@ const FooterForhomeAllPage = () => {
     "Best Small Cap Fund": "/bestsmallcaps",
     "Best Growth Fund": "/Bestgrowthfunds",
     "Best Flexi Cap Fund": "/flexregular",
-    "Best ETF Fund": "/etfregular",
+    "Best ETF Fund": "/etf",
   };
   const learnRoutes = {
     "Stock News": "/stockNews",

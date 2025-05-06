@@ -4,6 +4,8 @@ import smartsipimg from '../../assest/smartsipimg.jpeg';
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
+import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import React, {
  
   useContext,
@@ -13,6 +15,7 @@ import React, {
 import { useNavigate } from "react-router-dom";
 function StocksSmartSIPPS() {
    const navigate = useNavigate();
+   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
     const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
    
   return (
@@ -76,11 +79,11 @@ function StocksSmartSIPPS() {
             </li>
           </ul>
         </div>
-        <div className="smartsip-subscribe">
+       {!isSubscribed && !isLoading && <div className="smartsip-subscribe">
           <h3 >Subscribe Now!</h3>
           <p>Choose a plan that aligns with your investment goals!</p>
           <button className="smartsip-button"onClick={() => navigate("/subscription")}>Subscribe</button>
-        </div>
+        </div>}
       </div>
       <Navbar/>
       
