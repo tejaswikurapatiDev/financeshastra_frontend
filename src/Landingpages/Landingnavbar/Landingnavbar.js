@@ -611,7 +611,7 @@ const Landingnavbar = () => {
       const data = await response.json();
       dispatch(setSearchData(data?.data || []));
     } catch (error) {
-      
+      console.log(error);
     }
   };
 
@@ -792,11 +792,7 @@ const Landingnavbar = () => {
           Logout
         </button>
       </div>
-      <div className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}>
-        <div onClick={toggleDarkMode} style={{ cursor: "pointer" }}>
-          Dark Mode
-        </div>
-      </div>
+     
     </div>
   );
 
@@ -805,7 +801,7 @@ const Landingnavbar = () => {
     setFilterData([]);
   };
 
-  
+  console.log("filterData", filterData);
   return (
     <>
       <nav className={darkMode ? "darkmodenavbar" : "navbar"}>
@@ -1005,19 +1001,20 @@ const Landingnavbar = () => {
               </div>
             )}
             <div className={darkMode ? "psectiondarkmode" : "profile-section"}>
-              <li className="" ref={userDropdownRef}>
-                <Link to="#" onClick={toggleUserDropdown}>
+              <li ref={userDropdownRef} className="user-info">
+                <div className="user-trigger" to="#" onClick={toggleUserDropdown}>
                   <FaUserCircle
                     className={
                       darkMode ? "iconuser-darkerrmodeicon" : "iconuser-icon"
                     }
                   />
-                </Link>
+               
                 <span
                   className={darkMode ? "willamnamedarkmode" : "willamname"}
                 >
                   {storedName.split(" ")[0]}
                 </span>
+                </div>
                 {userDropdownOpen && renderUserDropdown()}
               </li>
             </div>
