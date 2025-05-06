@@ -948,7 +948,7 @@ const Navbar = () => {
           </li>
           <li>
             
-              <Link to="/etfregular"
+              <Link to="/etf"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }

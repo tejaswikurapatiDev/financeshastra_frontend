@@ -407,7 +407,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/etfregular"
+            to="/etf"
             className="dropdown-item"
             style={{
               display: "block",

@@ -457,7 +457,7 @@ function App() {
                 element={<Bestgrowthregular />}
               />
 
-              <Route path="/etfregular" element={<Etfregular />} />
+              <Route path="/etf" element={<Etfregular />} />
               <Route
                 path="/stockNews"
                 element={<StockNewsComponent />}
