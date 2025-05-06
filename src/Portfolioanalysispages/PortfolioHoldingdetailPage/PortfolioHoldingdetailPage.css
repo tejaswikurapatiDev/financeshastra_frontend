@@ -1,6 +1,6 @@
 .pagination-containerdetrailportfolio{
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 justify-content: space-between;
 align-items: center;
 margin: 15px 0;
@@ -8,186 +8,205 @@ margin-top: 20px;
 margin-left: 0px
 }
 .PortfolioHoldingPageTradeRecordsHeader {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .PortfolioHoldingPageContainerdetaill {
-    width: 70%;
-    padding: 20px;
-    font-family: 'calibri';
-    margin-left: 280px;
-    margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-  .PortfolioHoldingPageTradeRecordsTitle {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .PortfolioHoldingPageSearchBarContainer {
-    display: flex;
-    align-items: center;
-    position: relative;
-    width: 300px;
-  }
-  
-  .PortfolioHoldingPageSearchInput {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #666666;
-    border-radius: 5px;
-    font-size: 12px;
-    color: #333;
-    outline: none;
-    margin-bottom: 20px;
-  }
-  
-  .PortfolioHoldingPageSearchInput::placeholder {
-    color: #9e9e9e;
-  }
-  
-  .PortfolioHoldingPageSearchBarContainer::before {
-   
-    position: absolute;
-    left: 10px;
-    font-size: 16px;
-    color: #9e9e9e;
-  }
-  .portfolioholdingsector-search-icon{
-    position: absolute;
-    left: 10px;
-    top: 32%;
-    transform: translateY(-50%);
-  }
-  .portfolioholdingfooter{
- margin-left: -140px;
-   width: 124%;
-  }
-  @media (min-width: 1024px) and (max-width: 1279px)  {
-    .PortfolioHoldingPageContainerdetaill {
-      width: 70%;
-      padding: 20px;
-      font-family: 'calibri';
-      margin-left: 255px;
-      margin-top: 70px;
-  }
-  }
-  @media (max-width: 768px) {
-    .PortfolioHoldingPageContainerdetaill {
-      width: 70%;
-      padding: 20px;
-      font-family: 'calibri';
-      margin-left: -10px;
-      margin-top: 70px;
-  }
-  .PortfolioHoldingPageholdingCard {
-    display: flex
-;margin-bottom: 10px;
-    width: 700px;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+
+.PortfolioHoldingPageContainerdetaill {
+  width: 70%;
+  padding: 20px;
+  font-family: 'calibri';
+  margin-left: 280px;
+  margin-top: 80px;
 }
 .PortfolioHoldingPageTradeRecordsTitle {
   font-size: 24px;
   font-weight: bold;
   color: #333;
-  margin-top: -65px;
-}
-.pagination-containerdetrailportfolio {
-  display: flex
-;
-  width: 135%;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px 0;
-  margin-top: 20px;
-  margin-left: 0px;
 }
 
-  }
-  @media (max-width: 480px) {
-    .PortfolioHoldingPageContainerdetaill {
-      width: 70%;
-      padding: 20px;
-      font-family: 'calibri';
-      margin-left: -10px;
-      margin-top: 120px;
-     
-  }
-  .PortfolioHoldingPageholdingCard {
-    display: flex
+.PortfolioHoldingPageSearchBarContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 300px;
+}
+
+.PortfolioHoldingPageSearchInput {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #666666;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #333;
+  outline: none;
+  margin-bottom: 20px;
+}
+
+.PortfolioHoldingPageSearchInput::placeholder {
+  color: #9e9e9e;
+}
+
+.PortfolioHoldingPageSearchBarContainer::before {
+ 
+  position: absolute;
+  left: 10px;
+  font-size: 16px;
+  color: #9e9e9e;
+}
+.portfolioholdingsector-search-icon{
+  position: absolute;
+  left: 10px;
+  top: 32%;
+  transform: translateY(-50%);
+}
+.portfolioholdingfooter{
+margin-left: -140px;
+ width: 124%;
+}
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .PortfolioHoldingPageContainerdetaill {
+    width: 70%;
+    padding: 20px;
+    font-family: 'calibri';
+    margin-left: 255px;
+    margin-top: 70px;
+}
+}
+@media (max-width: 768px) {
+  .PortfolioHoldingPageContainerdetaill {
+    width: 70%;
+    padding: 20px;
+    font-family: 'calibri';
+    margin-left: -10px;
+    margin-top: 70px;
+}
+.PortfolioHoldingPageholdingCard {
+  display: flex
 ;margin-bottom: 10px;
-    width: 88%;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 10px;
-    gap: 30px;
-    
+  width: 700px;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.PortfolioHoldingPageTradeRecordsTitle {
+font-size: 24px;
+font-weight: bold;
+color: #333;
+margin-top: -65px;
+}
+.pagination-containerdetrailportfolio {
+display: flex
+;
+width: 135%;
+justify-content: space-between;
+align-items: center;
+margin: 15px 0;
+margin-top: 20px;
+margin-left: 0px;
+}
+
+}
+@media (max-width: 480px) {
+  .PortfolioHoldingPageContainerdetaill {
+    width: 70%;
+    padding: 20px;
+    font-family: 'calibri';
+    margin-left: -10px;
+    margin-top: 120px;
+   
+}
+.PortfolioHoldingPageholdingCard {
+  display: flex
+;margin-bottom: 10px;
+  width: 110%;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 10px;
+  gap: 30px;
+  
 }
 .PortfolioHoldingPagestockPercentage {
-  font-size: 12px;
-  color: #fff;
-  border: 2px solid #24b676;
-  border-radius: 15px;
-  padding: 9px 10px;
-  display: inline-block;
-  background-color: #24b676;
+font-size: 12px;
+color: #fff;
+border: 2px solid #24b676;
+border-radius: 15px;
+padding: 9px 10px;
+display: inline-block;
+background-color: #24b676;
 }
 .PortfolioHoldingPagestockShares {
-  font-size: 12px;
-  color: #fff;
-  border: 2px solid #24b676;
-  border-radius: 15px;
-  padding: 8px 19px;
-  display: inline-block;
-  background-color: #24b676;
+font-size: 12px;
+color: #fff;
+border: 2px solid #24b676;
+border-radius: 15px;
+padding: 8px 19px;
+display: inline-block;
+background-color: #24b676;
 }
 .overallholdingtable{
 margin-left: 5px;
-  overflow-x: auto;
-  width: 150%;
+overflow-x: auto;
+width: 150%;
 }
 .PortfolioHoldingPageHeader{
-  width: 160%;
+width: 199%;
 }
 
 .pagination-containerdetrailportfolio{
-  display: flex;
-  width: 120%;
+display: flex;
+width: 120%;
 justify-content: space-between;
 align-items: center;
 margin: 15px 0;
 margin-top: 20px;
 margin-left: 10px
 }
+}
+@media (max-width: 320px) {
+  .PortfolioHoldingPagestockPercentage {
+    font-size: 12px;
+    color: #fff;
+    border: 2px solid #24b676;
+    border-radius: 15px;
+    padding: 9px 10px;
+    display: inline-block;
+    background-color: #24b676;
   }
-  @media (max-width: 320px) {
-    .PortfolioHoldingPagestockPercentage {
-      font-size: 12px;
-      color: #fff;
-      border: 2px solid #24b676;
-      border-radius: 15px;
-      padding: 9px 10px;
-      display: inline-block;
-      background-color: #24b676;
-    }
-    .PortfolioHoldingPagestockShares {
-      font-size: 12px;
-      color: #fff;
-      border: 2px solid #24b676;
-      border-radius: 15px;
-      padding: 1px 19px;
-      display: inline-block;
-      background-color: #24b676;
-    }
+  .PortfolioHoldingPagestockShares {
+    font-size: 12px;
+    color: #fff;
+    border: 2px solid #24b676;
+    border-radius: 15px;
+    padding: 1px 19px;
+    display: inline-block;
+    background-color: #24b676;
   }
+}
+@media (max-width: 320px) {
+  .PortfolioHoldingPageholdingCard {
+      display: flex
+;
+      margin-bottom: 10px;
+      width: 130%;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      font-size: 10px;
+      gap: 30px;
+  }
+  .PortfolioHoldingPageHeader {
+    width: 239%;
+}
+}
