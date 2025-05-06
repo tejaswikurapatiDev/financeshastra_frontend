@@ -5,6 +5,7 @@ import { FaCaretDown, FaCaretUp } from "react-icons/fa"; // Import the icons
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useMutualFunds from "../Hooks/useMutualFunds";
 import { Link } from "react-router-dom";
+import Bestgrowthdirect from "../Bestgrowthdirect/Bestgrowthdirect";
 
 const headers = [
   { key: "FundName", label: "Funds" },
@@ -26,6 +27,7 @@ const Bestgrowthregular = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10;
   const totalPages = Math.max(1, Math.ceil((allFunds?.length || 0) / recordsPerPage));
+  const [activetab, setactivetab]= useState('regular')
 
 
   const sortedData = () => {
@@ -88,15 +90,15 @@ const Bestgrowthregular = () => {
           <div className="topfundbutton-container">
             <button
               className="fund-button regular"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/Bestgrowthregular")}
+              style={activetab === "regular" ? { backgroundColor: "#24b676", color: "white" }: { backgroundColor: "white", color: "black" }}
+              onClick={() => setactivetab("regular")}
             >
               Regular
             </button>
             <button
               className="fund-button direct"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/Bestgrowthdirect")}
+              style={activetab === "direct" ? { backgroundColor: "#24b676", color: "white" }: { backgroundColor: "white", color: "black" }}
+              onClick={() => setactivetab("direct")}
             >
               Direct
             </button>
@@ -110,7 +112,7 @@ const Bestgrowthregular = () => {
           top-performing mutual funds across different categories helps you
           identify options that suit your financial objectives.
         </p>
-
+{activetab=== "regular"?  <div> 
         {loading ? (
            <div className="spinner"></div>
         ) : error ? (
@@ -146,7 +148,7 @@ const Bestgrowthregular = () => {
                         </Link>
                       )}
                     </td>
-                    <td>{fund.Rating}</td>
+                    <td>{fund.Rating.split(" ")[0]} ★</td>
                     <td>{fund.Riskometer}</td>
                     <td>{fund.NAV_Regular ? `₹${fund.NAV_Regular}` : "N/A"}</td>
                     <td>{`₹${fund.AUM} Cr`}</td>
@@ -182,7 +184,7 @@ const Bestgrowthregular = () => {
               </div>
             </div>
           </div>
-        )}
+        )}</div>: <Bestgrowthdirect />}
       </div>
       <FooterForAllPage />
     </div>

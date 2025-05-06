@@ -130,7 +130,7 @@ const TopRatedFunds = () => {
                         {fund.name}
                       </Link>
                     </td>
-                    <td>{fund.rating}★</td>
+                    <td>{fund.rating} ★</td>
                     <td>{fund.riskometer}</td>
                     <td>{fund.nav ? `₹${fund.nav}` : "N/A"}</td>
                     <td>{`₹${fund.current_aum_cr} Cr`}</td>

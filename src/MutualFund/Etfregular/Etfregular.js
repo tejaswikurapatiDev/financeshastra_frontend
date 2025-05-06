@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../Navbar/Navbar";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa"; // Import the icons
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import Etfdirect from "../Etfdirect/Etfdirect";
 
 
 // Sample data with additional fields (rating, riskometer, returns)
@@ -315,6 +316,7 @@ const Etfregular = () => {
     const navigate = useNavigate();
     const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
      const [currentPage, setCurrentPage] = useState(1);
+     const [activetab, setactivetab]= useState('regular')
       const recordsPerPage = 10;
       const totalPages = Math.max(1, Math.ceil((fundDataregularetf?.length || 0) / recordsPerPage));
     
@@ -378,15 +380,15 @@ const Etfregular = () => {
             <div className="topfundbutton-container">
               <button
                 className="fund-button regular"
-                style={{ backgroundColor: "#24b676", color: "white" }}
-                onClick={() => navigate("/etfregular")}
+                style={activetab  === "regular" ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
+                onClick={() => setactivetab("regular")}
               >
                 Regular
               </button>
               <button
                 className="fund-button direct"
-                style={{ backgroundColor: "white", color: "black" }}
-                onClick={() => navigate("/etfdirect")}
+                style={activetab  === "direct" ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
+                onClick={() => setactivetab("direct")}
               >
                 Direct
               </button>
@@ -398,8 +400,8 @@ const Etfregular = () => {
             Research, we’ve simplified the process for you. Our detailed guide to<br/>
             top-performing mutual funds across different categories helps you
             identify options that suit your financial objectives.
-          </p>
-  
+          </p>{activetab === 'regular' ?
+  <div>
           <table className="funds-table">
             <thead>
               <tr className="funds-table-header">
@@ -468,6 +470,8 @@ const Etfregular = () => {
                   </div>
                 </div>
               </div>
+              </div>
+              :<Etfdirect /> }
             </div>
             <FooterForAllPage />
           </div>

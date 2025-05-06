@@ -156,7 +156,7 @@ const butnstyle = { backgroundColor: "white", color: "black" }
                         </Link>
                       )}
                     </td>
-                    <td>{fund.Rating.split(" ")[0]}</td>
+                    <td>{fund.Rating.split(" ")[0]} ★</td>
                     <td>{fund.Riskometer}</td>
                     <td>{fund.NAV_Regular ? `₹${fund.NAV_Regular}` : "N/A"}</td>
                     <td>{`₹${fund.AUM} Cr`}</td>
