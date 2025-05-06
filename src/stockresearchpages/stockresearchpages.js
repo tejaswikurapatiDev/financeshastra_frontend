@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import StockResearchAnalysisPage from './StockResearchAnalysisPage/StockResearchAnalysisPage'
 import StockResearchtablePage from './StockResearchtablePage/StockResearchtablePage'
 import Navbar from '../Navbar/Navbar';
@@ -8,34 +8,38 @@ import FooterForAllPage from '../FooterForAllPage/FooterForAllPage';
 import Sidebar from '../Sidebar/Sidebar';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import Meta from "../Meta";
+import { useLocation } from "react-router-dom";
 
-function Stockresearchpages({children}) {
-  const navigate= useNavigate()
+function Stockresearchpages({ children }) {
+  const location = useLocation();
+  const navigate = useNavigate()
 
-  useEffect(()=>{
-      const token = Cookies.get("jwtToken");
-          if (!token) {
-            navigate("/login");
-            return;
-          }
-    }, [])
+  useEffect(() => {
+    const token = Cookies.get("jwtToken");
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+  }, [])
   return (
     <div>
-      <StockResearchAnalysisPage/>
-      <StockResearchtablePage/>
-      <StockResearchReportPage/>
-      <StockResearchFaqPage/>
+      <Meta path={location.pathname} />
+      <StockResearchAnalysisPage />
+      <StockResearchtablePage />
+      <StockResearchReportPage />
+      <StockResearchFaqPage />
 
-      <Navbar/>
+      <Navbar />
       <div className="layout">
-      <Sidebar />
-      <div className="main-contentover">
-        <div className="contentover">{children}</div>
-        <div className="oversidefooter">
-          <FooterForAllPage />
+        <Sidebar />
+        <div className="main-contentover">
+          <div className="contentover">{children}</div>
+          <div className="oversidefooter">
+            <FooterForAllPage />
           </div>
+        </div>
       </div>
-    </div>
     </div>
   )
 }

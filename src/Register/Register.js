@@ -14,6 +14,8 @@ import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
 import Cookies from "js-cookie";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Meta from "../Meta";
+import { useLocation } from "react-router-dom";
 
 const override = {
   display: "block",
@@ -33,6 +35,7 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams] = useSearchParams();
   const referralCode = searchParams.get("referralCode");
+  const location = useLocation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -158,7 +161,9 @@ function Register() {
   };
 
   return (
+    
     <div className="login-container">
+      <Meta path={location.pathname} />
       <div className="login-left">
         <img
           src={logoimg}

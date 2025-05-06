@@ -1010,7 +1010,7 @@ const Navbar = () => {
             onMouseLeave={() => setLearnDropdownOpen(false)}
           >
             <Link to="#" onClick={togglelearnDropdown}>
-              Learn & Insights
+              Markets
               <FaChevronDown className="chevron-icon" />
             </Link>
             {learnDropdownOpen && renderlearnDropdown()}

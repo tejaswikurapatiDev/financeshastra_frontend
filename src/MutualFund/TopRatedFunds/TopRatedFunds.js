@@ -6,6 +6,8 @@ import "./TopRatedFunds.css";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useTopRatedFunds from "../Hooks/useTopRatedFunds";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 const headers = [
   { key: "FundName", label: "Funds" },
@@ -22,6 +24,7 @@ const headers = [
 
 
 const TopRatedFunds = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { topRatedFunds, loading, error } = useTopRatedFunds();
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
@@ -77,6 +80,7 @@ const TopRatedFunds = () => {
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <Navbar />
       <div className="funds-table-container">
         <div className="funds-header">

@@ -12,7 +12,8 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
@@ -26,6 +27,7 @@ const ScreenerStockList = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
   const [currentPage, setCurrentPage] = useState(1);
+  const location = useLocation();
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
     pe: [], // Initialize as an empty array
@@ -1256,6 +1258,7 @@ const ScreenerStockList = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">Stocks Screener</h1>
         <div className="screener-filters">

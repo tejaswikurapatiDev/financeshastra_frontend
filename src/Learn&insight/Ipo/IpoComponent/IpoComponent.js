@@ -17,6 +17,8 @@ import { GoDotFill } from "react-icons/go";
 import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../../config";
 import ClipLoader from "react-spinners/ClipLoader";
+import Meta from "../../../Meta";
+import { useLocation } from "react-router-dom";
 
 const loaderStyle = {
   display: "block",
@@ -24,6 +26,7 @@ const loaderStyle = {
 };
 
 const IpoComponent = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [newsArticles, setNewsArticles] = useState([]);
@@ -82,6 +85,7 @@ const IpoComponent = () => {
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="stockNewsContainer">
         <h2 className="stockNewsTitle">IPO Details</h2>
         <div className="stockNewsList">

@@ -6,6 +6,8 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useMutualFunds from "../Hooks/useMutualFunds";
 import Fundscreenerdirect from "../Fundscreenerdirect/Fundscreenerdirect";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 const headers = [
   { key: "FundName", label: "Funds" },
@@ -21,6 +23,7 @@ const headers = [
 ];
 
 const Fundscreenerregular = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { allFunds, loading, error } = useMutualFunds(); // Use the custom hook
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
@@ -86,6 +89,7 @@ const Fundscreenerregular = () => {
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <Navbar />
       <div className="funds-table-container">
         <div className="funds-header">

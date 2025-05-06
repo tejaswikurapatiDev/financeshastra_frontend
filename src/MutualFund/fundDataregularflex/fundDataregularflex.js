@@ -4,7 +4,8 @@ import Navbar from "../../Navbar/Navbar";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa"; // Import the icons
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Flexdirect from "../Flexdirect/Flexdirect";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 // Sample data with additional fields (rating, riskometer, returns)
 const fundDataregularflex = [
@@ -184,8 +185,9 @@ const fundDataregularflex = [
 
 const Flexregular = () => {
 
+  const location = useLocation();
   const navigate = useNavigate();
-  const [activetab, setactivetab]= useState('regular')
+  const [activetab, setactivetab] = useState('regular')
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10;
@@ -243,6 +245,7 @@ const Flexregular = () => {
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <Navbar />
       <div className="funds-table-container">
         <div className="funds-header">
@@ -270,77 +273,77 @@ const Flexregular = () => {
           Research, we’ve simplified the process for you. Our detailed guide to<br />
           top-performing mutual funds across different categories helps you
           identify options that suit your financial objectives.
-        </p>{activetab === 'regular'? 
-        <div>
-        <table className="funds-table">
-          <thead>
-            <tr className="funds-table-header">
-              <th onClick={() => handleSort("name")}>Funds</th>
-              <th onClick={() => handleSort("nav")}>
-                NAV (₹) {renderSortIcons("nav")}
-              </th>
-              <th onClick={() => handleSort("aum")}>
-                AUM (Cr) {renderSortIcons("aum")}
-              </th>
-              <th onClick={() => handleSort("sip")}>
-                SIP Amount {renderSortIcons("sip")}
-              </th>
-              <th onClick={() => handleSort("expenseRatio")}>
-                Exp. Ratio (%) {renderSortIcons("expenseRatio")}
-              </th>
-              <th onClick={() => handleSort("oneYearReturn")}>
-                1Y (%) {renderSortIcons("oneYearReturn")}
-              </th>
-              <th onClick={() => handleSort("threeYearReturn")}>
-                3Y (%) {renderSortIcons("threeYearReturn")}
-              </th>
-              <th onClick={() => handleSort("fiveYearReturn")}>
-                5Y (%) {renderSortIcons("fiveYearReturn")}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentData.map((fund, idx) => (
-              <tr key={idx} className="funds-table-row">
-                <td>
-                  <a
-                    href={fund.url || "#"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="fund-name-link"
-                  >
-                    {fund.name}
-                  </a>
-                </td>
-                <td>{fund.nav}</td>
-                <td>{fund.aum}</td>
-                <td>{fund.sip}</td>
-                <td>{fund.expenseRatio}</td>
-                <td>{fund.oneYearReturn}</td>
-                <td>{fund.threeYearReturn}</td>
-                <td>{fund.fiveYearReturn}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="pagination-topratedcontainer">
-          <div className="pagination-topratedwrapper">
-            <div className="pagination-topratedinfo">
-              {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${fundDataregularflex.length} records`}
+        </p>{activetab === 'regular' ?
+          <div>
+            <table className="funds-table">
+              <thead>
+                <tr className="funds-table-header">
+                  <th onClick={() => handleSort("name")}>Funds</th>
+                  <th onClick={() => handleSort("nav")}>
+                    NAV (₹) {renderSortIcons("nav")}
+                  </th>
+                  <th onClick={() => handleSort("aum")}>
+                    AUM (Cr) {renderSortIcons("aum")}
+                  </th>
+                  <th onClick={() => handleSort("sip")}>
+                    SIP Amount {renderSortIcons("sip")}
+                  </th>
+                  <th onClick={() => handleSort("expenseRatio")}>
+                    Exp. Ratio (%) {renderSortIcons("expenseRatio")}
+                  </th>
+                  <th onClick={() => handleSort("oneYearReturn")}>
+                    1Y (%) {renderSortIcons("oneYearReturn")}
+                  </th>
+                  <th onClick={() => handleSort("threeYearReturn")}>
+                    3Y (%) {renderSortIcons("threeYearReturn")}
+                  </th>
+                  <th onClick={() => handleSort("fiveYearReturn")}>
+                    5Y (%) {renderSortIcons("fiveYearReturn")}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentData.map((fund, idx) => (
+                  <tr key={idx} className="funds-table-row">
+                    <td>
+                      <a
+                        href={fund.url || "#"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="fund-name-link"
+                      >
+                        {fund.name}
+                      </a>
+                    </td>
+                    <td>{fund.nav}</td>
+                    <td>{fund.aum}</td>
+                    <td>{fund.sip}</td>
+                    <td>{fund.expenseRatio}</td>
+                    <td>{fund.oneYearReturn}</td>
+                    <td>{fund.threeYearReturn}</td>
+                    <td>{fund.fiveYearReturn}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="pagination-topratedcontainer">
+              <div className="pagination-topratedwrapper">
+                <div className="pagination-topratedinfo">
+                  {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${fundDataregularflex.length} records`}
+                </div>
+                <div className="pagination-topratedcontainer-buttons">
+                  <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
+                  {[...Array(totalPages)].map((_, i) => (
+                    <button key={i + 1} onClick={() => handlePageChange(i + 1)}
+                      className={currentPage === i + 1 ? "active" : ""}>
+                      {i + 1}
+                    </button>
+                  ))}
+                  <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
+                </div>
+              </div>
             </div>
-            <div className="pagination-topratedcontainer-buttons">
-              <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
-              {[...Array(totalPages)].map((_, i) => (
-                <button key={i + 1} onClick={() => handlePageChange(i + 1)}
-                  className={currentPage === i + 1 ? "active" : ""}>
-                  {i + 1}
-                </button>
-              ))}
-              <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
-            </div>
-          </div>
-        </div>
-        </div> : <Flexdirect />}
+          </div> : <Flexdirect />}
       </div>
       <FooterForAllPage />
     </div>
