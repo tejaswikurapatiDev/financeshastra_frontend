@@ -1,21 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Link as ScrollLink } from 'react-scroll';  // For scroll navigation
-import './Nifty50topheader.css'
-
+import './Nifty50topheader.css';
 import { Divider } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 function Nifty50topheader() {
-  const [change, setChange] = useState(0); // For storing dynamic change value in rupees
+  const [activeTab, setActiveTab] = useState("overview");
+  const [change, setChange] = useState(0);
   const [lastUpdated, setLastUpdated] = useState('');
-  const [currentPrice, setCurrentPrice] = useState(300); // Example initial stock price, replace with actual price
+  const [currentPrice, setCurrentPrice] = useState(300);
+
   const navigate = useNavigate();
+
   const handleNavigation = (path) => {
-    navigate(path); // Navigate to the path
+    navigate(path);
   };
-  // Function to simulate fetching data (replace with real API call)
+
+  const handleNavigationWithActive = (path, tab) => {
+    setActiveTab(tab);
+    localStorage.setItem("activeTab", tab); // Store active tab
+    handleNavigation(path);
+  };
+
+  // Load active tab from localStorage on first mount
+  useEffect(() => {
+    const storedTab = localStorage.getItem("activeTab");
+    if (storedTab) setActiveTab(storedTab);
+  }, []);
+
   const fetchData = () => {
-    const randomChange = (Math.random() * 20 - 10).toFixed(2); // Random value between -10 and +10 INR
+    const randomChange = (Math.random() * 20 - 10).toFixed(2);
     setChange(randomChange);
 
     const currentTime = new Date();
@@ -28,19 +41,16 @@ function Nifty50topheader() {
       second: '2-digit',
     }));
 
-    // Update the current price after the change is applied, ensuring that the values are numbers
     setCurrentPrice(prevPrice => {
-      const newPrice = parseFloat(prevPrice) + parseFloat(randomChange); // Ensure both values are numbers
-      return newPrice.toFixed(1); // Now .toFixed works on a number
+      const newPrice = parseFloat(prevPrice) + parseFloat(randomChange);
+      return newPrice.toFixed(1);
     });
   };
 
-  // Fetch data initially and set an interval to update it
   useEffect(() => {
-    fetchData(); // Initial fetch
-    const interval = setInterval(fetchData, 3000); // Update every 3 seconds
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
+    fetchData();
+    const interval = setInterval(fetchData, 3000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -50,51 +60,42 @@ function Nifty50topheader() {
           <h1 className="telephoneniftyh1">Nifty 50</h1>
         </div>
         <div className="graph-price-update">
-        <span style={{fontSize:"20px"}}className={`graphpricenifty50 ${change >= 0 ? 'positive' : 'negative'}`}>
-
-            ₹{parseFloat(currentPrice).toLocaleString()} {/* Format the price with ₹ symbol */}
+          <span
+            style={{ fontSize: "20px" }}
+            className={`graphpricenifty50 ${change >= 0 ? 'positive' : 'negative'}`}
+          >
+            ₹{parseFloat(currentPrice).toLocaleString()}
           </span>
           <span className="graphupdatenifty50">Last updated: {lastUpdated}</span>
         </div>
       </div>
 
-     
       <nav className="graphnavbarrnifty50">
-      <Divider />
-      
-      {/* Overview link with smooth scroll and route navigation */}
-      <ScrollLink to="overview" smooth={true} duration={500}>
-        <span 
-          onClick={() => handleNavigation("/nifty50stocks")} 
-          style={{ cursor: "pointer" }}
+        <Divider />
+
+        <span
+          onClick={() => handleNavigationWithActive("/nifty50stocks", "overview")}
+          className={activeTab === "overview" ? "active-span" : ""}
         >
           Overview
         </span>
-      </ScrollLink>
 
-      {/* Sectors link with smooth scroll */}
-      <ScrollLink to="stockxray" smooth={true} duration={500}>
-      <span 
-          onClick={() => handleNavigation("/SectorWeightageTableniffty50")} 
-          style={{ cursor: "pointer" }}
+        <span
+          onClick={() => handleNavigationWithActive("/SectorWeightageTableniffty50", "stockxray")}
+          className={activeTab === "stockxray" ? "active-span" : ""}
         >
-        Sectors
+          Sectors
         </span>
-      </ScrollLink>
 
-      {/* Companies link with smooth scroll */}
-      <ScrollLink to="stockearning" smooth={true} duration={500}>
-      <span 
-          onClick={() => handleNavigation("/nifty50screenerStockList")} 
-          style={{ cursor: "pointer" }}
+        <span
+          onClick={() => handleNavigationWithActive("/nifty50screenerStockList", "stockearning")}
+          className={activeTab === "stockearning" ? "active-span" : ""}
         >
-        Companies
+          Companies
         </span>
-      </ScrollLink>
 
-      {/* Optional Divider */}
-      <Divider />
-    </nav>
+        <Divider />
+      </nav>
 
       <Divider sx={{ margin: '10px 0' }} />
     </div>
