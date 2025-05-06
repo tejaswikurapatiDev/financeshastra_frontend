@@ -34,7 +34,14 @@ const LandingPagePremiumElite = () => {
                 <span className={darkMode ? "landingpagepremiumelite-original-darkprice" : "landingpagepremiumelite-original-price"}>  ₹19,999/-</span><br />
                 <span className={darkMode ? "landingpagepremiumelite-darkdiscount" : "landingpagepremiumelite-discount"}>You save</span>
                 <span className="landingpagepremiumelitediscountt">₹12,000 (60%)</span>
-                <span className={darkMode ? "landingpagepremiumelitedarkdiscounttt" : "landingpagepremiumelitediscounttt"}>a year</span>
+                <span className={darkMode ? "landingpagepremiumelitedarkdiscounttt" : "landingpagepremiumelitediscounttt"}>a year</span><br/>
+                <button className="landingpagepremiumelite-button"
+                  onClick={() => {
+                    navigate("/subscribe-Premium");
+                    window.scrollTo(0, 0);
+                  }}>
+                  Subscribe
+                </button>
               </div>
 
 
@@ -87,12 +94,7 @@ const LandingPagePremiumElite = () => {
 
 
 
-            <button className="landingpagepremiumelite-button"
-              onClick={() => {
-                navigate("/subscribe-Premium");
-                window.scrollTo(0, 0); // Scroll to top after navigation
-              }} >
-              Continue</button>
+            
           </div>
         </div>
       </div>
@@ -110,7 +112,13 @@ const LandingPagePremiumElite = () => {
             <span className={darkMode ? "landingpagepremiumelite-original-darkprice" : "landingpagepremiumelite-original-price"}>  ₹8,999/-</span><br />
             <span className={darkMode ? "landingpagepremiumelite-darkdiscount" : "landingpagepremiumelite-discount"}>You save</span>
             <span className="landingpagepremiumelitediscountt">₹6,000 (68%)</span>
-            <span className={darkMode ? "landingpagepremiumelitedarkdiscounttt" : "landingpagepremiumelitediscounttt"}>a year</span>
+            <span className={darkMode ? "landingpagepremiumelitedarkdiscounttt" : "landingpagepremiumelitediscounttt"}>a year</span><br/>
+            <button className={darkMode ? "landingpageelitedarkbutton" : "landingpageelite-button"}
+          onClick={() => {
+            navigate("/subscribe-Elite");
+            window.scrollTo(0, 0); // Scroll to top after navigation
+          }} >
+          Subscribe</button>
           </div>
 
           <div className="landingpagepremiumelite-features">
@@ -147,12 +155,7 @@ const LandingPagePremiumElite = () => {
             </div>
           </div>
         </div>
-        <button className={darkMode ? "landingpageelitedarkbutton" : "landingpageelite-button"}
-          onClick={() => {
-            navigate("/subscribe-Elite");
-            window.scrollTo(0, 0); // Scroll to top after navigation
-          }} >
-          Continue</button>
+       
       </div>
     </div>
 

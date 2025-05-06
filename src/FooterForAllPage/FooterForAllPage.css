@@ -11,16 +11,12 @@
 .footermobileviewpages-footer {
   display: none;
 }
-.foooterpagesaupdate{
-  margin-left: -10px;
 
-
-}
   
 .FooterForAllPage-top-section {
   text-align: center;
   padding: 5px 0; /* Reduce top section padding */
-  border-bottom: 1px solid #ddd;
+
 }
 .FooterForAllPage-copyright {
   color: #6F6C90;

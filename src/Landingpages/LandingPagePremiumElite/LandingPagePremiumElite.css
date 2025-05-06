@@ -226,23 +226,24 @@ font-size: 14px;
   font-weight: 600;
 }
 
-/* Button styling */
 .landingpagepremiumelite-button {
-  background: #27ae60;
+  background: #24b676;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  padding: 10px 20px;
-  
+  padding: 10px 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 12px;
   cursor: pointer;
   margin-top: 20px;
   transition: background 0.3s ease;
+  width: 60%;
+  margin-left: 50px;
 }
 
+
 .landingpagepremiumelite-button:hover {
-  background: #1e8449;
+  background: #34d577;
 }
 .landingpagepremiumelite-card h3 {
   font-size: 25px;
@@ -269,44 +270,26 @@ font-size: 14px;
   font-size: 14px;
   color: #333;
 }
-
-.landingpagepremiumelite-button {
-  background: #24b676;
-  color: #fff;
-  padding: 7px 40px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 14px;
-  width: 22% !important;
-  margin-top: 10px;
-  font-weight: 600;
-  margin-left: 440px;
-}
 .landingpageelite-button{
-  background: #fff;
-  border: 1px solid #24b676;
+  background: #ffffff;
   color: #24b676;
-  padding: 7px 40px;
- 
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 10px;
+  border: 1px solid #24b676;
   border-radius: 12px;
   cursor: pointer;
+  margin-top: 20px;
   transition: background 0.3s ease;
-  font-size: 14px;
-  width: 22% !important;
-  margin-top: 50px;
-  font-weight: 600;
-  margin-left: 440px;
+  width: 60%;
+  margin-left: 50px;
 }
+
 .landingpageelite-button:hover {
   background: #24b676;
   color: #ffff;
 }
-.landingpagepremiumelite-button:hover {
-  background-color: #1d9d5b;
- 
-}
+
 .landingpagepremiumelite-content-row {
   display: flex;
   justify-content: space-between; /* Space between items */
@@ -612,7 +595,7 @@ margin-top: 10px;
   max-width: 1200px;
 }
 .landingpagepremiumelite-button, .landingpageelite-button {
-  width: 18%;
+ 
   font-size: 16px;
 }
 .most-popular-landingpagepremiumelitecontainer {
@@ -636,9 +619,7 @@ margin-top: 10px;
   max-width: 1100px;
   height: 330px; /* Adjust height as needed */
 }
-.landingpagepremiumelite-button, .landingpageelite-button {
-  width: 20%;
-}
+
 .most-popular-landingpagepremiumelitecontainer {
   width: 85%;
   margin-left: 100px;
@@ -664,7 +645,7 @@ margin-left: -30px; /* Adjust margin */
   
 }
 .landingpagepremiumelite-button, .landingpageelite-button {
-  width: 25%;
+ 
   font-size: 14px;
 }
 .most-popular-landingpagepremiumelitecontainer {
@@ -874,23 +855,6 @@ color: #24b676;
 font-weight: 600;
 }
 
-/* Button styling */
-.landingpagepremiumelite-button {
-background: #27ae60;
-color: white;
-font-size: 16px;
-font-weight: 600;
-padding: 10px 20px;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-margin-top: 20px;
-transition: background 0.3s ease;
-}
-
-.landingpagepremiumelite-button:hover {
-background: #1e8449;
-}
 
 .landingpagepremiumelite-card h3 {
 font-size: 20px;
@@ -907,44 +871,9 @@ color: #333;
 width: 500px;
 }
 
-.landingpagepremiumelite-button {
-background: #24b676;
-color: #fff;
-padding: 7px 40px;
-border: none;
-border-radius: 12px;
-cursor: pointer;
-transition: background 0.3s ease;
-font-size: 14px;
-width: 50% !important; /* Full width button on small screens */
-margin-top: 10px;
-font-weight: 600;
-margin-left:140px; /* Remove left margin */
-}
 
-.landingpageelite-button {
-background: #fff;
-border: 1px solid #24b676;
-color: #24b676;
-padding: 7px 40px;
-border-radius: 12px;
-cursor: pointer;
-transition: background 0.3s ease;
-font-size: 14px;
-width: 50% !important; /* Full width button on small screens */
-margin-top: 50px;
-font-weight: 600;
-margin-left:140px; /* Remove left margin */
-}
 
-.landingpageelite-button:hover {
-background: #24b676;
-color: #ffff;
-}
 
-.landingpagepremiumelite-button:hover {
-background-color: #1d9d5b;
-}
 
 .landingpagepremiumelite-content-row {
 display: flex;
@@ -1013,22 +942,21 @@ gap: 20px; /* Add spacing between items */
   gap: 20px; /* Space between cards */
   flex-wrap: wrap; /* Wrap cards if screen is too small */
 }
-
-/* Styling for individual cards */
 .landingpagepremiumelite-card {
   background: #ffffff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 150% !important;
-  max-width: 250px;
+  width: 87% !important;
+  /* max-width: 250px; */
   padding: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: left;
   height: 700px;
   margin-top: -10px;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 0px;
 }
+
 .landingpageelite-card {
 background: #ffffff;
 border: 1px solid #ddd;
@@ -1180,23 +1108,6 @@ margin-top: 70px;
   font-weight: 600;
 }
 
-/* Button styling */
-.landingpagepremiumelite-button {
-  background: #27ae60;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background 0.3s ease;
-}
-
-.landingpagepremiumelite-button:hover {
-  background: #1e8449;
-}
 
 .landingpagepremiumelite-card h3 {
   font-size: 20px;
@@ -1212,45 +1123,21 @@ margin-top: 70px;
   color: #333;
   width: 380px;
 }
-
 .landingpagepremiumelite-button {
-  background: #24b676;
-  color: #fff;
-  padding: 7px 40px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 14px;
-  width: 100% !important; /* Full width button on small screens */
-  margin-top: 10px;
-  font-weight: 600;
-  margin-left: 0; /* Remove left margin */
+  width: 80%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 20px;
+  display: block;
 }
-
 .landingpageelite-button {
-  background: #fff;
-  border: 1px solid #24b676;
-  color: #24b676;
-  padding: 7px 40px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 14px;
-  width: 100% !important; /* Full width button on small screens */
-  margin-top: 40px;
-  font-weight: 600;
-  margin-left: 0; /* Remove left margin */
+   width: 80%;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 20px;
+  display: block;
 }
 
-.landingpageelite-button:hover {
-  background: #24b676;
-  color: #ffff;
-}
-
-.landingpagepremiumelite-button:hover {
-  background-color: #1d9d5b;
-}
 
 .landingpagepremiumelite-content-row {
   display: flex;
@@ -1301,8 +1188,4 @@ width: 250px;
     font-size: 12px;
 }
 
-.landingpagepremiumelite-button {
-    font-size: 12px;
-    padding: 5px 30px;
-}
 }
