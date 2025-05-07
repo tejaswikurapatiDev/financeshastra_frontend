@@ -19,11 +19,21 @@
   }
   @media (max-width: 480px) {
     .inboximgg {
-      width: 100%; /* Makes the image responsive */
-      max-width: 50px; /* Adjust size as needed */
-      height: 50px; /* Maintain aspect ratio */
-      display: block; /* Removes extra space under the image */
-      margin-left: 120px;
-      margin-top: 30px;
-    }
+   
+      height: 50px;
+      display: block;
+      margin-left: 45%;   /* Adjust as needed */
+    margin-right: 45%;
+    width: calc(100% - 100px);
+  }
+  }
+  @media (max-width: 320px) {
+    .inboximgg {
+   
+      height: 50px;
+      display: block;
+      margin-left: 40%;   /* Adjust as needed */
+    margin-right: 40%;
+    width: calc(100% - 100px);
+  }
   }

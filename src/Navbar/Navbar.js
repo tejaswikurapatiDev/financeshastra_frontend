@@ -579,21 +579,22 @@ const Navbar = () => {
               <p>Focus on large, established companies with stable returns.</p>
             </Link>
           </li>
-          <li>
-            <Link
-              to="/stock-themes"
-              className={
+          {/*<li>
+              <Link to="/stockThemes"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
                 textDecoration: "none",
-              }}
-            >
-              Stock Themes
-              <p>Research is key before buying any stock</p>
-            </Link>
-          </li>
+              
+               
+              }}>
+                Stock Themes
+                <p>Research is key before buying any stock</p>
+              </Link>
+           
+          </li>*/}
         </ul>
       </div>
     </div>
@@ -644,26 +645,27 @@ const Navbar = () => {
       <Link
         to="/stock-market-news"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
-        style={{
-          display: "block",
-          textDecoration: "none",
-        }}
-      >
-        Stock News
-        <p>Discover what's happening in the stock markets in real-time</p>
-      </Link>
-
-      <Link
-        to="/blogs"
+          style={{
+            display: "block",
+            textDecoration: "none",
+          
+            
+          }}>
+         Stock News
+          <p>Discover what's happening in the stock markets in real-time</p>
+        </Link>
+     
+        {/*<Link to="/blogs"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
           textDecoration: "none",
-        }}
-      >
-        Blogs
-        <p>Investment Knowledge Hub</p>
-      </Link>
+         
+         
+        }}>
+          Blogs
+          <p>Investment Knowledge Hub</p>
+        </Link>*/}
 
       <Link
         to="/markets/ipo-details"
@@ -683,27 +685,29 @@ const Navbar = () => {
         style={{
           display: "block",
           textDecoration: "none",
-        }}
-      >
-        Quarterly Earnings
-        <p>Monitor thorough quarterly earnings summaries</p>
-      </Link>
-
-      <Link
-        to="/learncard"
+        
+         
+        }}>
+          Quarterly Earnings
+          <p>Monitor thorough quarterly earnings summaries</p>
+        </Link>
+    
+     
+        {/*<Link to="/learncard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
           textDecoration: "none",
         }}
-      >
-        Learn
-        <p>
-          {" "}
-          Knowledge is the key to successful trading—learn, adapt, and grow
-        </p>
-      </Link>
-    </div>
+        >
+          Learn
+          <p>
+            {" "}
+            Knowledge is the key to successful trading—learn, adapt, and grow
+          </p>
+        </Link>*/}
+      </div>
+  
   );
 
   const renderhomeDropdown = () => (
@@ -854,25 +858,22 @@ const Navbar = () => {
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Best Small Cap Fund
-              <p>Strong returns by investing in high-growth opportunities.</p>
-            </Link>
-
-            <Link
-              to="/market"
+                textDecoration: "none",                
+              }}>
+                Best Small Cap Fund
+                <p>Strong returns by investing in high-growth opportunities.</p>
+              </Link>
+         
+             {/* <Link to="/market"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Equity (ETFs)
-            </Link>
+                textDecoration: "none",                
+              }}>
+                Equity (ETFs)</Link>*/}
+           
           </li>
         </ul>
       </div>
@@ -916,26 +917,24 @@ const Navbar = () => {
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Best ETF Fund
-              <p>Diverse and cost-effective investment strategy.</p>
-            </Link>
-
-            <div>
-              <Link
-                to="/gold"
-                className={
-                  darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
-                }
-                style={{
-                  display: "block",
-                  textDecoration: "none",
-                }}
-              >
-                Gold (ETFs)
+                textDecoration: "none",                
+              }}>
+                Best ETF Fund
+                <p>Diverse and cost-effective investment strategy.</p>
               </Link>
+            
+            <div
+             
+            >
+              {/*<Link to="/gold"
+               className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}> 
+              Gold (ETFs)</Link>*/}
             </div>
           </li>
         </ul>

@@ -168,7 +168,7 @@ function Register() {
         <img
           src={logoimg}
           onClick={() => navigate("/")}
-          className="logoforgt"
+          className="logoforgtsign"
         />
       </div>
       <div className="login-right">
@@ -217,7 +217,7 @@ function Register() {
                   style={{
                     cursor: "pointer",
                     position: "absolute",
-                    right: "28px",
+                    right: "32px",
                     top: "50%",
                     transform: "translateY(-50%)",
                   }}

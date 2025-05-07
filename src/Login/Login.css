@@ -6,7 +6,7 @@
 .input-container input, .login-options a, .sign-in-btn, .google-login, 
 .linkedin-login, .register-link a, .error-text, .toggle-password , .cancel-btn , .forgot-password-link{
   font-family: 'calibri';
-  overflow-y: hidden;
+
 
   
 
@@ -60,7 +60,7 @@ input[type="password"]::-webkit-textfield-decoration-container {
     padding-top: 10px; /* Prevent cropping */
 
 }
-.logoforgt {
+.logoforgtsign {
   display: block; /* Ensures proper spacing */
   max-width: 240px; /* Adjust size as needed */
   width: 100%; /* Responsive scaling */
@@ -455,6 +455,16 @@ gap: 100px;
   font-weight: 500;
 }
 
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .login-right {
+    margin-left: -10px;
+  }
+  .login-options {
+    display: flex
+;
+    gap: 90px;
+}
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
@@ -466,6 +476,8 @@ gap: 100px;
     min-width: 50%;
     height: 100vh;
     padding-top: 20px;
+    background-color: #f8f6f6;
+    background-image: none;
   }
   
   .login-right {
@@ -473,12 +485,28 @@ gap: 100px;
   }
   
   .login-box {
-    width: 80%;
+    width: 100%;
 
-    
-    height: auto;
+  
+    height:580px;
     padding: 20px;
   }
+  .logoforgtsign {
+    display: block;
+    max-width: 300px;
+    background-color: #f8f6f6;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    margin-left: 40px;
+}
+.registerContgl {
+  font-size: 13px;
+  color: #111111;
+  font-weight: 500;
+  margin-top: -3px;
+  margin-bottom: -5px;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -495,9 +523,15 @@ gap: 100px;
     padding: 15px;
     box-shadow: 0 4px 8px rgba(194, 191, 191, 0.9);
     border: 3px solid rgb(188, 188, 188);
- 
+    height: 510px;
+    margin-bottom: 100px;
   }
-  
+  .register-linkp {
+    font-size: 13px;
+    font-weight: 500;
+    color: #111111;
+    margin-top: -10px;
+}
   .input-container label {
     font-size: 12px;
     margin-left: 20px;
@@ -939,6 +973,7 @@ gap: 100px;
   font-weight: 500;
 }
 
+
 @media (max-width: 480px) {
 
   /* Adjust main container for single-column layout */
@@ -1085,4 +1120,23 @@ gap: 100px;
     ;
         gap: 30px;
   }
+}
+@media(max-width: 320px) {
+.logoforgtsign {
+  display: block;
+  max-width: 230px;
+  background-color: #f8f6f6;
+  margin-top: -10px;
+  margin-bottom: -20px;
+  margin-left: 0px;
+}
+  .login-options
+
+{
+      display: flex
+;
+      gap: 0px;
+      margin-left: -20px;
+  
+}
 }
