@@ -177,12 +177,7 @@ const FooterForAllPage = () => {
 
           <div className="footermobileviewpages-stock-section">
             
-            <div className="footermobileviewpages-stock-letters">
-            <p className="footermobileviewpages-stock-title">Stock List</p>
-            {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                <span key={letter} className="footermobileviewpages-letter">{letter}</span>
-              ))}
-            </div>
+          
           </div>
 
           <div className="footermobileviewpages-social-icons">

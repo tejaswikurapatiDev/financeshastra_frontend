@@ -123,7 +123,7 @@
     }
     .password-field input {
         padding-right: 2.5rem;
-        width: 70%;
+        width: 72%;
     }
     .toggle-password{
         right: 50px; 
@@ -162,7 +162,14 @@
 .login-right {
 margin-bottom: -20px;
 }
+
 /*.password-field input {
     width: 93%; /* or a different width as needed 
   }*/
+}
+@media (max-width: 320px) {
+    .password-field input {
+        padding-right: 2.5rem;
+        width: 68%;
+    }
 }
