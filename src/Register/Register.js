@@ -271,7 +271,7 @@ function Register() {
                 {" "}
                 Terms & Conditions
               </a>
-              <a href="#" className="registerContglblack-text">
+              <a href="" className="registerContglblack-text">
                 {" "}
                 and
               </a>
@@ -285,7 +285,7 @@ function Register() {
           <div className="register-link">
             <p className="register-linkp">
               Already registered?{" "}
-              <a href="#" onClick={handleSignInClick} className="sign-in-link">
+              <a href="" onClick={handleSignInClick} className="sign-in-link">
                 Sign in
               </a>
             </p>

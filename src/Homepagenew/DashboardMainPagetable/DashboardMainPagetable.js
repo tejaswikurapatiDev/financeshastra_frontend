@@ -267,7 +267,7 @@ const DashboardMainPagetable = () => {
                 <td>{row.sector}</td>
                 <td>{row.pe}</td>
                 <td>
-                  <a href="#" className="clarification-link">
+                  <a href="" className="clarification-link">
                     Know more
                   </a>
                 </td>

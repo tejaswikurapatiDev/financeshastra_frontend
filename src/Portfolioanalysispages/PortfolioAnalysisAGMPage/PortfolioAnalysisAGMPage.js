@@ -127,7 +127,7 @@ const PortfolioAnalysisAGMPage = () => {
               </td>
               <td>{item.exDate}</td>
               <td>
-                  {item.agenda} <a href="#">Read more</a>
+                  {item.agenda} <a href="">Read more</a>
                 </td>
               
             </tr>

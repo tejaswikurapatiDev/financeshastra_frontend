@@ -60,7 +60,7 @@ const EarningCalculatorProfilePage = () => {
       <div className="myreferalpagesss-header">
       <div className="myreferalpagesss-header-row">
   <h1>Assist your friends in their investment journey and reach financial independence faster.</h1>
-  <a href="#" className="myreferalpagesss-benefits-link">View benefits</a>
+  <a href="" className="myreferalpagesss-benefits-link">View benefits</a>
 </div>
 
         <div className="myreferalpagesss-buttons">

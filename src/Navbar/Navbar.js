@@ -1188,7 +1188,7 @@ const Navbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >
@@ -1204,7 +1204,7 @@ const Navbar = () => {
         </li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterStockDropdown}
             className="footer-link"
           >
@@ -1220,7 +1220,7 @@ const Navbar = () => {
         </li>
         <li className="portfolio-dropdown" ref={footerportfolioDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterPortfolioDropdown}
             className="footer-link"
           >
@@ -1236,7 +1236,7 @@ const Navbar = () => {
         </li>
         <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterMutualFundsDropdown}
             className="footer-link"
           >
@@ -1252,7 +1252,7 @@ const Navbar = () => {
         </li>
         <li className="learn-dropdown" ref={footerLearnDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterlearnDropdown}
             className="footer-link"
           >d

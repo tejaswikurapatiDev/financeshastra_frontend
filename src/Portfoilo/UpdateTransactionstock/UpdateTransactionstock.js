@@ -223,7 +223,7 @@ const UpdateTransaction = ({children}) => {
 
             {/* SIP Toggle */}
             <div className="sip-link">
-              <a href="#" onClick={toggleSIPForm}>
+              <a href="" onClick={toggleSIPForm}>
                 Add SIP for this Stock
               </a>
             </div>

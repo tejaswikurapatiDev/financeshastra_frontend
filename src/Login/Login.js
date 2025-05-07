@@ -451,7 +451,7 @@ function Login() {
                 </div>
                 <div>
                   <a
-                    href="#"
+                    href=""
                     onClick={(e) => {
                       e.preventDefault();
                       navigate("/forgetpassword");
@@ -513,7 +513,7 @@ function Login() {
                 {" "}
                 Terms & Conditions
               </a>
-              <a href="#" className="registerContglblack-text">
+              <a href="" className="registerContglblack-text">
                 {" "}
                 and
               </a>
@@ -528,7 +528,7 @@ function Login() {
           <div className="register-link">
             <p className="register-linkp">
               Don't have an account?{" "}
-              <a href="#" onClick={handleRegisterClick}>
+              <a href="" onClick={handleRegisterClick}>
                 Register
               </a>
             </p>

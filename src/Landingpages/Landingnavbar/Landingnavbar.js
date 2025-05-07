@@ -782,7 +782,7 @@ const Landingnavbar = () => {
               setDropdowns((prev) => ({ ...prev, stock: false }))
             }
           >
-            <Link to="#" onClick={() => toggleDropdown("stock")}>
+            <Link to="" onClick={() => toggleDropdown("stock")}>
               Stocks
               <FaChevronDown className="chevron-icon" />
             </Link>
@@ -1001,7 +1001,7 @@ const Landingnavbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >

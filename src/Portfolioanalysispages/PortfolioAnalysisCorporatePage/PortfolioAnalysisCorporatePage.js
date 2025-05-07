@@ -109,7 +109,7 @@ const PortfolioAnalysisCorporatePage = () => {
                 </td>
                 <td>{item.date}</td>
                 <td>
-                  {item.agenda} <a href="#">Read more</a>
+                  {item.agenda} <a href="">Read more</a>
                 </td>
               </tr>
             ))}
