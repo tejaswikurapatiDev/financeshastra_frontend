@@ -78,11 +78,7 @@ const FooterForAllPage = () => {
       {/* Desktop Footer */}
       
       <footer className={darkMode ? "FooterForAllPagedarkfooter" : "FooterForAllPage-footer"}>
-        <div className="FooterForAllPage-top-section">
-          <div className="FooterForAllPage-stock-list">
-
-          </div>
-        </div>
+       
 
         <div className="FooterForAllPage-main-section">
           <div className="FooterForAllPage-logo-social">
