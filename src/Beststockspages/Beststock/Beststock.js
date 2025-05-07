@@ -2183,7 +2183,7 @@ const Beststock = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/beststock");
+              navigate("/stocks/best-stock");
             }}
           >
             Overview

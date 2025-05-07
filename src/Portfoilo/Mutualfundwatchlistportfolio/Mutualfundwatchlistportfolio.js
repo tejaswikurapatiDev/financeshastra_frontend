@@ -577,7 +577,7 @@ const MutualWatchlist = ({ children }) => {
 
       {/* Navigation tabs */}
       <div className="networth-tabswatclist">
-        <Link to="/stockWatchlist">
+        <Link to="/stock-watchlistt">
           <button
             className="networth-tab"
             style={{ background: "white", color: "black" }}

@@ -591,7 +591,7 @@ const StockWatchlist = ({ children }) => {
 
       {/* Navigation tabs */}
       <div className="networth-tabswatclist">
-        <Link to="/stockwatchlist">
+        <Link to="/stock-watchlist">
           <button
             className="networth-tab"
             style={{ background: "#24b676", color: "white" }}
@@ -762,7 +762,7 @@ const StockWatchlist = ({ children }) => {
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/stockwatchlist")}
+                onClick={() => navigate("/stock-watchlist")}
                 defaultChecked
                 style={{
                   width: "14px",

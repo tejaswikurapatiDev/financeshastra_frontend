@@ -132,7 +132,7 @@ export default function StockThemesindustriesPages() {
               
               <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
             </div>
-            <ChevronRight  onClick={() => navigate("/StockScreener")} className="StockThemesSectorPages-themes-icon" />
+            <ChevronRight  onClick={() => navigate("/Stock-Screener")} className="StockThemesSectorPages-themes-icon" />
           </div>
         ))}
       </div>

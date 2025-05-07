@@ -74,7 +74,7 @@ function Nifty50topheader() {
         <Divider />
 
         <span
-          onClick={() => handleNavigationWithActive("/nifty50stocks", "overview")}
+          onClick={() => handleNavigationWithActive("/nifty-50-stocks-list/", "overview")}
           className={activeTab === "overview" ? "active-span" : ""}
         >
           Overview

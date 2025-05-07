@@ -2144,7 +2144,7 @@ const Netify100IncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/nifty100stocks"); // Navigate to the StockScreenerList page
+              navigate("/nifty-100-stocks-list"); // Navigate to the StockScreenerList page
             }}
           >
             Overview

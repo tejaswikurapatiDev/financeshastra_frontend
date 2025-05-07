@@ -2105,7 +2105,7 @@ const MidcapIncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/midcap'); // Navigate to the StockScreenerList page
+              navigate('/mid-cap-stocks'); // Navigate to the StockScreenerList page
             }}
           >
             Overview

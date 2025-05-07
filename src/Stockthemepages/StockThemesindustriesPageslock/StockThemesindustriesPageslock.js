@@ -207,7 +207,7 @@ export default function StockThemesindustrieslockPages() {
 
                 <ChevronRight
                   style={{ cursor: "pointer" }}
-                  onClick={() => navigate("/StockScreener")}
+                  onClick={() => navigate("/Stock-Screener")}
                   className="StockThemesSectorPages-themes-icon"
                 />
 

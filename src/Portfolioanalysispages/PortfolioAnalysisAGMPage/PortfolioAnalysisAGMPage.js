@@ -64,7 +64,7 @@ const PortfolioAnalysisAGMPage = () => {
 
 
   const PortfolioAnalysisCorporatePagetabs = [
-    { label: "Board - Meetings", navigationPath: "/porfolioanalysisallpagecall"},
+    { label: "Board - Meetings", navigationPath: "/portfolio-analysis-tool"},
     { label: "Dividends", navigationPath: "/portfolioanalysisdividendcall"},
     { label: "Bonus", navigationPath: "/portfoliobonuscall" },
     { label: "Splits", navigationPath: "/portfoliosplitcall" },

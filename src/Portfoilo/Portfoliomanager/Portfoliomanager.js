@@ -34,7 +34,7 @@ function Portfolio() {
         {/* Header Section */}
         <h2 className="newwmutualmanagement">Portfolio Management Dashboard</h2>
         <div className="networth-tabs">
-          <Link to="/portfolio">
+          <Link to="/portfolio-management-dashboard">
             <button className="networth-tabact">Dashboard</button>
           </Link>
           <Link to="/portfoliostockaccount">

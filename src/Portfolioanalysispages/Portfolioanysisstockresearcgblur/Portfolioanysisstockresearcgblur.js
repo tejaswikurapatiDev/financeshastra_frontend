@@ -237,7 +237,7 @@ const AnalysisResearchReportblur = () => {
            
               <div>
               <button className='allblursearchbutton' onClick={() => { 
-    navigate("/stockresearchpages");
+    navigate("/stock-research-reports");
     window.scrollTo(0, 0);
   }}>
   view more

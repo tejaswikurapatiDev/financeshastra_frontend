@@ -113,7 +113,7 @@ const handleDeleteWatchlist = (index) => {
       <Navbar />
       <h2 className="newwmutual">Gold Watchlist</h2>
       <div className="networth-tabswatclist">
-        <Link to="/stockWatchlist">
+        <Link to="/stock-watchlist">
           <button className="networth-tab" style={{ background: "white", color: "black" }}>
             Stocks
           </button>

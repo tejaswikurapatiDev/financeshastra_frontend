@@ -51,7 +51,7 @@ const Portfoliodonut = ({total_investment}) => {
   Stocks Portfolio
     </h2>
     <div className="networth-tabs">
-      <Link to="/portfolio">
+      <Link to="/portfolio-management-dashboard">
         <button className="networth-tab ">Dashboard</button></Link>
         <Link to="/portfoliostockaccount">
         <button className="networth-tabact">Stocks</button></Link>

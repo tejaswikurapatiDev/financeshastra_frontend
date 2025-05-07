@@ -66,7 +66,7 @@ function NetWorthStocksDashboard() {
       {/* Navigation Tabs */}
      
       <div className="networth-tabs">
-      <Link to="/portfolio">
+      <Link to="/portfolio-management-dashboard">
         <button className="networth-tabact ">Dashboard</button></Link>
         <Link to="/portfoliostockaccount">
         <button className="networth-tab">Stocks</button></Link>

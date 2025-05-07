@@ -136,7 +136,7 @@ const  StockWatchportall= ({children}) => {
   Stock Watchlist
 </h2>
 <div className="networth-tabswatclist" >
-  <Link to="/stockWatchlist">
+  <Link to="/stock-watchlist">
     <button className="networth-tab" style={{ background: "#24b676", color: "white" }}>
       Stocks
     </button>

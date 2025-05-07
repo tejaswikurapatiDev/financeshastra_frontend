@@ -2158,7 +2158,7 @@ const HighStockIncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/highgrowthstocks");
+              navigate("/stocks/high-growth-stocks");
             }}
           >
             Overview

@@ -2157,7 +2157,7 @@ const SmallcapIncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/smallcap"); // Navigate to the StockScreenerList page
+              navigate("/small-cap-stocks"); // Navigate to the StockScreenerList page
             }}
           >
             Overview

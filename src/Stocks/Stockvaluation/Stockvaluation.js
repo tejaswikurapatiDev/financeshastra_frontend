@@ -2196,7 +2196,7 @@ const ScreenerStockvaluation = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/StockScreener"); // Navigate to the StockScreenerList page
+              navigate("/Stock-Screener"); // Navigate to the StockScreenerList page
             }}
           >
             Overview

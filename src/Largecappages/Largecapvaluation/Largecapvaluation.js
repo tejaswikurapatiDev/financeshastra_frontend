@@ -2115,7 +2115,7 @@ const Largecapvaluation = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/largecap");
+              navigate("/large-cap-stocks");
             }}
           >
             Overview

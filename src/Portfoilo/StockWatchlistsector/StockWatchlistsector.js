@@ -153,7 +153,7 @@ const StockWatchsectorlist = ({ children }) => {
       <Navbar />
       <h2 className="newwmutual">Stock Watchlist</h2>
       <div className="networth-tabswatclist">
-        <Link to="/stockWatchlist">
+        <Link to="/stock-watchlist">
           <button
             className="networth-tab"
             style={{ background: "#24b676", color: "white" }}
@@ -303,7 +303,7 @@ const StockWatchsectorlist = ({ children }) => {
                 value="nonewatchlist"
                 checked={selectedValue === "nonewatchlist"}
                 onChange={() =>
-                  handleChange("nonewatchlist", "/stockwatchlist")
+                  handleChange("nonewatchlist", "/stock-watchlist")
                 }
                 style={{
                   width: "14px",
