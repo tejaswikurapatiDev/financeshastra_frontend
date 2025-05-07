@@ -36,15 +36,15 @@ export default function CommentBox() {
             setCommentCount(data.count || 0); // Use the count field from the response
           } else {
             console.error("Unexpected response structure:", data);
-            alert("Failed to load comments. Please try again later.");
+            //alert("Failed to load comments. Please try again later.");
           }
         } else {
           console.error("Failed to fetch comments.");
-          alert("Failed to fetch comments. Please try again later.");
+          //alert("Failed to fetch comments. Please try again later.");
         }
       } catch (error) {
         console.error("Error fetching comments:", error);
-        alert("An error occurred while fetching comments. Please try again.");
+        //alert("An error occurred while fetching comments. Please try again.");
       }
     };
 
