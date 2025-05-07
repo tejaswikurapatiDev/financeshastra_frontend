@@ -597,7 +597,7 @@ const Navbar = () => {
               </Link>
             
           </li>
-          <li>
+          {/*<li>
               <Link to="/stockThemes"
                className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
@@ -612,7 +612,7 @@ const Navbar = () => {
                 <p>Research is key before buying any stock</p>
               </Link>
            
-          </li>
+          </li>*/}
         </ul>
       </div>
     </div>
@@ -677,7 +677,7 @@ const Navbar = () => {
           <p>Discover what's happening in the stock markets in real-time</p>
         </Link>
      
-        <Link to="/blogs"
+        {/*<Link to="/blogs"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
          style={{
           display: "block",
@@ -687,7 +687,7 @@ const Navbar = () => {
         }}>
           Blogs
           <p>Investment Knowledge Hub</p>
-        </Link>
+        </Link>*/}
 
   
         <Link to="/ipoDetails"
@@ -715,7 +715,7 @@ const Navbar = () => {
         </Link>
     
      
-        <Link to="/learncard"
+        {/*<Link to="/learncard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -729,7 +729,7 @@ const Navbar = () => {
             {" "}
             Knowledge is the key to successful trading—learn, adapt, and grow
           </p>
-        </Link>
+        </Link>*/}
       </div>
   
   );
@@ -901,7 +901,7 @@ const Navbar = () => {
                 <p>Strong returns by investing in high-growth opportunities.</p>
               </Link>
          
-              <Link to="/market"
+             {/* <Link to="/market"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -909,7 +909,7 @@ const Navbar = () => {
                 display: "block",
                 textDecoration: "none",                
               }}>
-                Equity (ETFs)</Link>
+                Equity (ETFs)</Link>*/}
            
           </li>
         </ul>
@@ -963,7 +963,7 @@ const Navbar = () => {
             <div
              
             >
-              <Link to="/gold"
+              {/*<Link to="/gold"
                className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -971,7 +971,7 @@ const Navbar = () => {
                 display: "block",
                 textDecoration: "none",                
               }}> 
-              Gold (ETFs)</Link>
+              Gold (ETFs)</Link>*/}
             </div>
           </li>
         </ul>

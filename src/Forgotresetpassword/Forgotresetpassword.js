@@ -41,31 +41,36 @@ function Forgotresetpassword() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(password)
     e.preventDefault();
     setSubmitted(true);
-
+  
+    let hasError = false;
+  
     if (!password) {
       setPasswordError("New password is required.");
-      return;
+      hasError = true;
+    } else {
+      const passwordValidationError = validatePassword(password);
+      if (passwordValidationError) {
+        setPasswordError(passwordValidationError);
+        hasError = true;
+      } else {
+        setPasswordError("");
+      }
     }
-
-    const passwordValidationError = validatePassword(password);
-    if (passwordValidationError) {
-      setPasswordError(passwordValidationError);
-      return;
-    }
-
+  
     if (!confirmPassword) {
       setPasswordMatchError("Confirm password is required.");
-      return;
-    }
-
-    if (password !== confirmPassword) {
+      hasError = true;
+    } else if (password !== confirmPassword) {
       setPasswordMatchError("Passwords do not match.");
-      return;
+      hasError = true;
+    } else {
+      setPasswordMatchError("");
     }
-
+  
+    if (hasError) return;
+  
     try {
       const url = `${API_BASE_URL}/users/reset-password/${token}`;
       const response = await fetch(url, {
@@ -75,14 +80,14 @@ function Forgotresetpassword() {
         },
         body: JSON.stringify({ password }),
       });
-
+  
       const data = await response.json();
-
+  
       if (!response.ok) {
         alert(data.message || "Failed to reset password.");
         return;
       }
-
+  
       alert(data.message);
       navigate("/login");
     } catch (error) {
@@ -90,6 +95,7 @@ function Forgotresetpassword() {
       alert("Something went wrong. Please try again later.");
     }
   };
+  
 
   return (
     <div className="login-container">
@@ -124,8 +130,8 @@ function Forgotresetpassword() {
                 </span>
               </div>
               {submitted && passwordError && (
-                <p className="error-text">{passwordError}</p>
-              )}
+  <p className="error-text">{passwordError}</p>
+)}
             </div>
 
             {/* Confirm Password */}
@@ -146,15 +152,17 @@ function Forgotresetpassword() {
                 </span>
               </div>
               {submitted && passwordMatchError && (
-                <p className="error-text">{passwordMatchError}</p>
-              )}
+  <p className="error-text">{passwordMatchError}</p>
+)}
+
+
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
               className="submit-buttonresetpas"
-              disabled={!password || !confirmPassword}
+              visible={!password || !confirmPassword}
             >
               Submit
             </button>

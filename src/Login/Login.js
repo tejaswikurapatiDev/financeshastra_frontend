@@ -229,7 +229,7 @@ function Login() {
         <img
           src={logoimg}
           onClick={() => navigate("/")}
-          className={darkMode ? "logoforgtdarkmode" : "logoforgt"}
+          className={darkMode ? "logoforgtdarkmode" : "logoforgtsign"}
         />
       </div>
       <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
@@ -403,7 +403,7 @@ function Login() {
                       style={{
                         cursor: "pointer",
                         position: "absolute",
-                        right: "28px",
+                        right: "33px",
                         top: "50%",
                         transform: "translateY(-50%)",
                       }}
