@@ -23,7 +23,7 @@ const FooterForAllPage = () => {
   const footerData = [
     { title: "Stocks", links: ["Stock Screener", "High Growth Stocks", "Nifty 50 Companies", "Small Cap Stocks", "Mid Cap Stocks","Large Cap Stocks"] },
     { title: "Mutual Fund", links: ["Fund Screener", "Best Small Cap Fund", "Best Growth Fund", "Best Flexi Cap Fund", "Best ETF Fund"] },
-    { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs", "Market Insights", "Quarterly Earnings", "Learn"] },
+    { title: "Market", links: ["Stock News", "IPO Details","Blogs", "Market Insights", "Quarterly Earnings", "Learn"] },
     { title: "Quick Links", links: ["Plan & Pricing", "Talk to Us", "Disclaimer", "Refund Policy", "Careers"] },
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
@@ -80,7 +80,7 @@ const FooterForAllPage = () => {
       <footer className={darkMode ? "FooterForAllPagedarkfooter" : "FooterForAllPage-footer"}>
         <div className="FooterForAllPage-top-section">
           <div className="FooterForAllPage-stock-list">
-            
+
           </div>
         </div>
 

@@ -10,12 +10,14 @@ import "./StockThemesSectorPages.css";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
 import ClipLoader from "react-spinners/ClipLoader";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
 };
 const stockThemesData = [
-  
+
   {
     sector: "Bank",
     marketCap: "4,794,099 (0.71%)",
@@ -26,7 +28,7 @@ const stockThemesData = [
     stocks: "12",
     sectorUrl: "/bankSectorStockTheme", // Add the URL for navigation
   },
-  
+
   {
     sector: "IT Services",
     marketCap: "4,688,173 (2.68%)",
@@ -35,7 +37,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "18",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Finance",
@@ -55,7 +57,7 @@ const stockThemesData = [
     earningsYOY: "32,632 (11.23%)",
     industries: "7",
     stocks: "6",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Healthcare",
@@ -65,7 +67,7 @@ const stockThemesData = [
     earningsYOY: "4,720 (22.85%)",
     industries: "5",
     stocks: "15",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Capital Goods",
@@ -75,7 +77,7 @@ const stockThemesData = [
     earningsYOY: "2,083 (22.44%)",
     industries: "9",
     stocks: "8",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Power",
@@ -85,7 +87,7 @@ const stockThemesData = [
     earningsYOY: "9,466 (8.12%)",
     industries: "1",
     stocks: "20",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Energy (Oil & Gas)",
@@ -95,7 +97,7 @@ const stockThemesData = [
     earningsYOY: "31,846 (-4%)",
     industries: "2",
     stocks: "17",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "FMCG",
@@ -105,7 +107,7 @@ const stockThemesData = [
     earningsYOY: "4,651 (12.75%)",
     industries: "5",
     stocks: "7",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Metals & Mining",
@@ -115,7 +117,7 @@ const stockThemesData = [
     earningsYOY: "14,692 (-15.46%)",
     industries: "10",
     stocks: "11",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Media & Entertainment",
@@ -125,7 +127,7 @@ const stockThemesData = [
     earningsYOY: "-1,398 (-74.51%)",
     industries: "4",
     stocks: "14",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Construction & Materials",
@@ -135,7 +137,7 @@ const stockThemesData = [
     earningsYOY: "5,464 (34.99%)",
     industries: "7",
     stocks: "12",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Aviation",
@@ -145,7 +147,7 @@ const stockThemesData = [
     earningsYOY: "2,449 (-18.32%)",
     industries: "2",
     stocks: "17",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Real Estate",
@@ -155,7 +157,7 @@ const stockThemesData = [
     earningsYOY: "2,680 (50.9%)",
     industries: "4",
     stocks: "13",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Telecom",
@@ -165,7 +167,7 @@ const stockThemesData = [
     earningsYOY: "4,245 (134.79%)",
     industries: "4",
     stocks: "10",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Consumer Durables",
@@ -175,7 +177,7 @@ const stockThemesData = [
     earningsYOY: "695 (102.78%)",
     industries: "5",
     stocks: "54",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Textiles",
@@ -185,7 +187,7 @@ const stockThemesData = [
     earningsYOY: "361 (-4.4%)",
     industries: "6",
     stocks: "9",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Agriculture",
@@ -195,7 +197,7 @@ const stockThemesData = [
     earningsYOY: "1,464 (-4.4%)",
     industries: "2",
     stocks: "18",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Logistics",
@@ -205,7 +207,7 @@ const stockThemesData = [
     earningsYOY: "3,214 (19.8%)",
     industries: "3",
     stocks: "11",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
   {
     sector: "Chemicals",
@@ -215,12 +217,13 @@ const stockThemesData = [
     earningsYOY: "7,620 (15.4%)",
     industries: "6",
     stocks: "22",
-     sectorUrl: "/bankSectorStockTheme"
+    sectorUrl: "/bankSectorStockTheme"
   },
-  
+
 ];
 
 export default function StockThemesSectorPages() {
+  const location = useLocation();
   const [isLoading, setisLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -228,29 +231,29 @@ export default function StockThemesSectorPages() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    
-        const fetchfun = async () => {
-          const url = `${API_BASE_URL}/stocks/stockstheme`;
-          const response = await fetch(url);
-          const data= await response.json()
-          console.log(data)
-          const formatedData= data.map(e => ({
-              sector: e.Sector,
-              marketCap: e.M_cap,
-              M_cap_percentage: e.M_cap_percentage,
-              adv: e.adv,
-              decline: e.decline,
-              sectorPE: e.sector_PE,
-              earningsYOY: e.sector_earnings_yoy,
-              earningsYOYper: e.sector_earnings_yoy_per,
-              industries: e.Industries,
-              stocks: e.Stocks,
-          }))
-          setFilteredData(formatedData)
-          console.log(formatedData)
-        };
-        setisLoading(false)
-        fetchfun();
+
+    const fetchfun = async () => {
+      const url = `${API_BASE_URL}/stocks/stockstheme`;
+      const response = await fetch(url);
+      const data = await response.json()
+      console.log(data)
+      const formatedData = data.map(e => ({
+        sector: e.Sector,
+        marketCap: e.M_cap,
+        M_cap_percentage: e.M_cap_percentage,
+        adv: e.adv,
+        decline: e.decline,
+        sectorPE: e.sector_PE,
+        earningsYOY: e.sector_earnings_yoy,
+        earningsYOYper: e.sector_earnings_yoy_per,
+        industries: e.Industries,
+        stocks: e.Stocks,
+      }))
+      setFilteredData(formatedData)
+      console.log(formatedData)
+    };
+    setisLoading(false)
+    fetchfun();
   }, []);
 
 
@@ -268,119 +271,120 @@ export default function StockThemesSectorPages() {
       setFilteredData(filteredList);
     }
   };
- 
+
   return (
     <div>
-    <>
-  {isLoading ? 
-    <div className='loader-cont'><ClipLoader
-        cssOverride={override}
-        size={35}
-        data-testid="loader"
-        loading={isLoading}
-        speedMultiplier={1}
-        color="green"
-      /></div> 
-    :
-    <div className="StockThemesSectorPages-themes-container">
-      <h1 className="StockThemesSectorPages-themes-title">Stocks Themes</h1>
-      <p className="StockThemesSectorPages-themes-description">
-        Evaluate sector results, classifications, financial outcomes, growth trends, and other factors to make well-informed choices.
-      </p>
-      <div className="search-wrapper" style={{ position: "relative" }}>
-        <input
-          type="text"
-          className="banksectorsearchstock"
-          placeholder="Search by sector name"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          onFocus={() => setShowSuggestions(true)}
-          onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
-          style={{ paddingLeft: "30px" }}
-        />
-        <CiSearch
-          style={{
-            position: "absolute",
-            left: "10px",
-            top: "72%",
-            transform: "translateY(-50%)",
-          }}
-        />
-      </div>
-      <div className="StockThemesSectorPages-themes-list">
-      {filteredData.map((item, index) => (
-          <div key={index} className="StockThemesSectorPages-themes-card">
-            <div className="StockThemesSectorPages-themes-card-header">
-            <h2
-            className="StockThemesSectorPages-themes-sector"
-            onClick={() => navigate(item.sectorUrl)} // Navigate to the URL for the sector
-            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
-          >
-            {item.sector.split(" & ").map((text, index) => (
-              <React.Fragment key={index}>
-                {text}
-                {index === 0 && <br />}
-              </React.Fragment>
-            ))}
-          </h2>
-  <p className="StockThemesSectorPages-themes-status">
-    <FiTrendingDown className="StockThemesSectorPages-bearish-icon" /> Bearish
-  </p>
-</div>
-
-            <div className="StockThemesSectorPages-themes-details">
-            <p>
-  <strong style={{ color: "#333",fontWeight:"normal" }}>M.Cap (₹ Cr.):</strong> <br />
-  <span style={{ fontWeight: "bold", color: "#333" }}>
-    {item.marketCap}
-  </span>{" "}
-  <span style={{ color: "#24b676",fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
-</p>
-
-<p className="StockThemesSectorPages-themespara">
-  <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
-  <br />
-  <span style={{ color: "#24b676", fontWeight: "bold" }}>
-    {item.adv}
-  </span>{" "}
-  |{" "}
-  <span style={{ color: "red", fontWeight: "bold" }}>
-    {item.decline}
-  </span>
-</p>
-
-              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br/>  <span style={{ fontWeight: "bold", color: "#333" }}>
-                {item.sectorPE}</span></p>
-              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br/>
-              
-              {item.earningsYOY}</span>{" "}
-              <span style={{ color: "#24b676",fontWeight: "bold" }}>
-              {item.earningsYOYper}</span>
-              </p>
-              <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
-
-              </span></p>
-              <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br/><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
+      <Meta path={location.pathname} />
+      <>
+        {isLoading ?
+          <div className='loader-cont'><ClipLoader
+            cssOverride={override}
+            size={35}
+            data-testid="loader"
+            loading={isLoading}
+            speedMultiplier={1}
+            color="green"
+          /></div>
+          :
+          <div className="StockThemesSectorPages-themes-container">
+            <h1 className="StockThemesSectorPages-themes-title">Stocks Themes</h1>
+            <p className="StockThemesSectorPages-themes-description">
+              Evaluate sector results, classifications, financial outcomes, growth trends, and other factors to make well-informed choices.
+            </p>
+            <div className="search-wrapper" style={{ position: "relative" }}>
+              <input
+                type="text"
+                className="banksectorsearchstock"
+                placeholder="Search by sector name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 100)}
+                style={{ paddingLeft: "30px" }}
+              />
+              <CiSearch
+                style={{
+                  position: "absolute",
+                  left: "10px",
+                  top: "72%",
+                  transform: "translateY(-50%)",
+                }}
+              />
             </div>
-            <ChevronRight
-  className="StockThemesSectorPages-themes-icon"
-  onClick={() => navigate("/bankSectorStockTheme")}
-    // Add navigation on click for the ChevronRight icon
-  style={{ cursor: 'pointer' }} // Optional: Add pointer cursor for better UX
-/>
+            <div className="StockThemesSectorPages-themes-list">
+              {filteredData.map((item, index) => (
+                <div key={index} className="StockThemesSectorPages-themes-card">
+                  <div className="StockThemesSectorPages-themes-card-header">
+                    <h2
+                      className="StockThemesSectorPages-themes-sector"
+                      onClick={() => navigate(item.sectorUrl)} // Navigate to the URL for the sector
+                      style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
+                    >
+                      {item.sector.split(" & ").map((text, index) => (
+                        <React.Fragment key={index}>
+                          {text}
+                          {index === 0 && <br />}
+                        </React.Fragment>
+                      ))}
+                    </h2>
+                    <p className="StockThemesSectorPages-themes-status">
+                      <FiTrendingDown className="StockThemesSectorPages-bearish-icon" /> Bearish
+                    </p>
+                  </div>
+
+                  <div className="StockThemesSectorPages-themes-details">
+                    <p>
+                      <strong style={{ color: "#333", fontWeight: "normal" }}>M.Cap (₹ Cr.):</strong> <br />
+                      <span style={{ fontWeight: "bold", color: "#333" }}>
+                        {item.marketCap}
+                      </span>{" "}
+                      <span style={{ color: "#24b676", fontWeight: "bold" }}>({item.M_cap_percentage} %)</span>
+                    </p>
+
+                    <p className="StockThemesSectorPages-themespara">
+                      <strong style={{ color: "#333", fontWeight: "normal" }}>Adv/Decline:</strong>
+                      <br />
+                      <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                        {item.adv}
+                      </span>{" "}
+                      |{" "}
+                      <span style={{ color: "red", fontWeight: "bold" }}>
+                        {item.decline}
+                      </span>
+                    </p>
+
+                    <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Sector PE:</strong><br />  <span style={{ fontWeight: "bold", color: "#333" }}>
+                      {item.sectorPE}</span></p>
+                    <p><strong style={{ color: "#333", fontWeight: "normal" }}>Sector earnings YOY:</strong><span style={{ fontWeight: "bold", color: "#333" }}> <br />
+
+                      {item.earningsYOY}</span>{" "}
+                      <span style={{ color: "#24b676", fontWeight: "bold" }}>
+                        {item.earningsYOYper}</span>
+                    </p>
+                    <p className="StockThemesSectorPages-themespara"><strong style={{ color: "#333", fontWeight: "normal" }}>Industries:</strong><br /><span style={{ fontWeight: "bold", color: "#333" }}> {item.industries}
+
+                    </span></p>
+                    <p><strong style={{ color: "#333", fontWeight: "normal" }}>Stocks:</strong><br /><span style={{ fontWeight: "bold", color: "#333" }}> {item.stocks} </span></p>
+                  </div>
+                  <ChevronRight
+                    className="StockThemesSectorPages-themes-icon"
+                    onClick={() => navigate("/bankSectorStockTheme")}
+                    // Add navigation on click for the ChevronRight icon
+                    style={{ cursor: 'pointer' }} // Optional: Add pointer cursor for better UX
+                  />
+
+                </div>
+              ))}
+            </div>
+
+            <Navbar />
+
 
           </div>
-        ))}
-      </div>
-      
-      <Navbar/>
-     
-      
-    </div>
-    
-    }
-    </>
-    <div className="foooterpagesaupdate">
+
+        }
+      </>
+      <div className="foooterpagesaupdate">
         <FooterForAllPage />
       </div>
     </div>

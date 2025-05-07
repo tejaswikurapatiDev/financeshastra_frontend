@@ -320,7 +320,7 @@ const Nifty50headerunlock = () => {
           <li className="learn-dropdown" ref={learnDropdownRef} onMouseEnter={() => setLearnDropdownOpen(true)}
             onMouseLeave={() => setLearnDropdownOpen(false)}>
             <Link to="#" onClick={togglelearnDropdown}>
-              Learn & Insights
+              Markets
               <FaChevronDown onClick={togglelearnDropdown} className="chevron-icon" />
             </Link>
             {learnDropdownOpen && renderlearnDropdown()}

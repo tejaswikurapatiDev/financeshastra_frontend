@@ -12,13 +12,15 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import { API_BASE_URL } from "../../config";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
 };
 
 const Smallcap = () => {
+  const location = useLocation();
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [isloading, setisloading] = useState(true);
   const [isSubed, setisSubed] = useState(false);
@@ -1253,6 +1255,7 @@ const Smallcap = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">List of Top Small Cap Companies</h1>
         <div className="screener-filters">

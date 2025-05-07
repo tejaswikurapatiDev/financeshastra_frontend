@@ -817,7 +817,7 @@ const Landingnavbar = () => {
             }
           >
             <Link to="#" onClick={() => toggleDropdown("learn")}>
-              Learn & Insights
+              Markets
               <FaChevronDown className="chevron-icon" />
             </Link>
             {dropdowns.learn && <LearnDropdownMenu />}

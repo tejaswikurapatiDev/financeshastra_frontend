@@ -8,8 +8,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import ReactDatePicker from 'react-datepicker';
 import { FaRegCalendarAlt } from "react-icons/fa";
 import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
+import Meta from "../../../Meta";
+import { useLocation } from "react-router-dom";
 
 const EarningsInsightLearn = () => {
+    const location = useLocation();
     const earningsData = [
             { 
                 srNo: 1,
@@ -469,6 +472,7 @@ const EarningsInsightLearn = () => {
         return (
         
             <div className="customDropdown" ref={dropdownRef}>
+                <Meta path={location.pathname} />
                 <label className="dropdownLabel">{label}</label>
                 <div className="dropdownSelect" onClick={() => setIsOpen(!isOpen)}>
                     {selectedOption}

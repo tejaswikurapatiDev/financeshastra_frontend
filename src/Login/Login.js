@@ -19,6 +19,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 import { requestNotificationPermission } from "../firebase/firebaseMessaging"; // Import FCM function
 
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
+import Meta from "../Meta";
+
 const override = {
   display: "block",
   textAlign: "center",
@@ -225,6 +227,7 @@ function Login() {
 
   return (
     <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
+      <Meta path="/login" />
       <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
         <img
           src={logoimg}

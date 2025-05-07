@@ -4,8 +4,11 @@ import "./StockNewsComponent.css";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 const StockNewsComponent = () => {
+  const location = useLocation();
   const [newsArticles, setNewsArticles] = useState([]);
 
   const getNews = async () => {
@@ -35,6 +38,7 @@ const StockNewsComponent = () => {
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="stockNewsContainer">
         <h2 className="stockNewsTitle">Stock News</h2>
         <div className="stockNewsList">
@@ -46,9 +50,8 @@ const StockNewsComponent = () => {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
-                className={`stockNewsItem ${
-                  article.id === 15 ? "highlightedNews" : ""
-                }`}
+                className={`stockNewsItem ${article.id === 15 ? "highlightedNews" : ""
+                  }`}
               >
                 <img
                   src={article.image_url}

@@ -11,7 +11,8 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
@@ -28,6 +29,7 @@ const Beststock = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] =
     useState(false);
+    const location = useLocation();
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
     pe: [], // Initialize as an empty array
@@ -1280,6 +1282,7 @@ const Beststock = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">Best Stocks</h1>
         <div className="screener-filters">

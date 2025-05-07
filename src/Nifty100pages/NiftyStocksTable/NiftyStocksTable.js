@@ -13,13 +13,15 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
 };
 
 const Netify100 = () => {
+  const location = useLocation();
   const [stocks, setStocks] = useState(screenerStockListData);
   const [isSubed, setisSubed] = useState(false);
   const [isloading, setisloading] = useState(true);
@@ -1289,6 +1291,7 @@ const Netify100 = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">List of Nifty 100 company</h1>
         <div className="screener-filters">
