@@ -160,7 +160,7 @@ const StockDropdownMenu = () => (
           </Link>
         </li>
         <li>
-          <Link
+          {/*<Link
             to="/stock-themes"
             className="dropdown-item"
             style={{
@@ -170,7 +170,7 @@ const StockDropdownMenu = () => (
           >
             Stock Themes
             <p>Research is key before buying any stock</p>
-          </Link>
+          </Link>*/}
         </li>
       </ul>
     </div>
@@ -231,7 +231,7 @@ const LearnDropdownMenu = () => (
       <p>Discover what's happening in the stock markets in real-time</p>
     </Link>
 
-    <Link
+    {/*<Link
       to="/blogs"
       className="dropdown-item"
       style={{
@@ -241,7 +241,7 @@ const LearnDropdownMenu = () => (
     >
       Blogs
       <p>Investment Knowledge Hub</p>
-    </Link>
+    </Link>*/}
 
     <Link
       to="/markets/ipo-details"
@@ -267,7 +267,7 @@ const LearnDropdownMenu = () => (
       <p>Monitor thorough quarterly earnings summaries</p>
     </Link>
 
-    <Link
+    {/*<Link
       to="/learncard"
       className="dropdown-item"
       style={{
@@ -277,7 +277,7 @@ const LearnDropdownMenu = () => (
     >
       Learn
       <p> Knowledge is the key to successful trading—learn, adapt, and grow</p>
-    </Link>
+    </Link>*/}
   </div>
 );
 const MutualFundsDropdownMenu = () => (
@@ -323,7 +323,7 @@ const MutualFundsDropdownMenu = () => (
             <p>Strong returns by investing in high-growth opportunities.</p>
           </Link>
 
-          <Link
+          {/*<Link
             to="/market"
             className="dropdown-item"
             style={{
@@ -332,7 +332,7 @@ const MutualFundsDropdownMenu = () => (
             }}
           >
             Equity (ETFs)
-          </Link>
+          </Link>*/}
         </li>
       </ul>
     </div>
@@ -378,7 +378,7 @@ const MutualFundsDropdownMenu = () => (
           </Link>
 
           <div>
-            <Link
+            {/*<Link
               to="/gold"
               className="dropdown-item"
               style={{
@@ -387,7 +387,7 @@ const MutualFundsDropdownMenu = () => (
               }}
             >
               Gold (ETFs)
-            </Link>
+            </Link>*/}
           </div>
         </li>
       </ul>
