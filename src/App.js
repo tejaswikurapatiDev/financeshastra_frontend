@@ -526,7 +526,7 @@ function App() {
                 element={<EarningsInsightLearn />}
               />
               <Route
-                path="/quaterelyOverview"
+                path="/quarterly-overview"
                 element={<QuaterelyOverview />}
               />
               <Route path="/quaterlynewsList" element={<QuaterlynewsList />} />
