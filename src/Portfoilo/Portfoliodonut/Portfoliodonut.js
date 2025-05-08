@@ -53,11 +53,11 @@ const Portfoliodonut = ({total_investment}) => {
     <div className="networth-tabs">
       <Link to="/portfolio-management-dashboard">
         <button className="networth-tab ">Dashboard</button></Link>
-        <Link to="/portfoliostockaccount">
+        <Link to="/portfolio-management-stocks">
         <button className="networth-tabact">Stocks</button></Link>
-        <Link to="/mutualaccount">
+        <Link to="/portfolio-management-mutual-funds">
         <button className="networth-tab">Mutual Fund</button></Link>
-        <Link to="/portfoliogoldtoppage">
+        <Link to="/portfolio-management-gold">
         <button className="networth-tab">Gold</button></Link>
       </div>
 

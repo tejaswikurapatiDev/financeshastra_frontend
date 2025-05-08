@@ -16,7 +16,7 @@ const Mutualsector = () => {
     const navigate = useNavigate();
   
     const [isDropdownOpen, setIsDropdownOpen] = useState(
-      location.pathname === "/portfoliostockaccount"
+      location.pathname === "/portfolio-management-stocks"
     );
   
     const toggleDropdown = () => {
@@ -148,7 +148,7 @@ const Mutualsector = () => {
     }}
   >
     <Link
-      to="/mutualaccount"
+      to="/portfolio-management-mutual-funds"
       style={{ textDecoration: 'none', color: 'black' }}
     >
       Transaction History

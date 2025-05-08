@@ -81,14 +81,14 @@ function Nifty50topheader() {
         </span>
 
         <span
-          onClick={() => handleNavigationWithActive("/SectorWeightageTableniffty50", "stockxray")}
+          onClick={() => handleNavigationWithActive("/nifty50-sector-weightage", "stockxray")}
           className={activeTab === "stockxray" ? "active-span" : ""}
         >
           Sectors
         </span>
 
         <span
-          onClick={() => handleNavigationWithActive("/nifty50screenerStockList", "stockearning")}
+          onClick={() => handleNavigationWithActive("/nifty50-screener-stocks", "stockearning")}
           className={activeTab === "stockearning" ? "active-span" : ""}
         >
           Companies

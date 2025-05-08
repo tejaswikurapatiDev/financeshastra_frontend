@@ -101,7 +101,7 @@ const AddTransactiongold = ({children}) => {
                 throw new Error(errorData.error || "Failed to add transaction");
             }
 
-            navigate("/portfoliostockaccount", {
+            navigate("/portfolio-management-stocks", {
                 state: { updatedTransactions: transactions },
             });
         } catch (error) {

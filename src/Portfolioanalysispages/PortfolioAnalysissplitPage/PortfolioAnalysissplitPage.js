@@ -8,7 +8,6 @@ import varun from "../../assest/varunimg.png";
 const PortfolioAnalysissplitPage = () => {
     const navigate = useNavigate();
     
-  const [activeTab, setActiveTab] = useState("Splits");
   const [isHistoric, setIsHistoric] = useState(false);
 
   const PortfolioAnalysissplitPagedata = [
@@ -35,50 +34,7 @@ const PortfolioAnalysissplitPage = () => {
       },
   ];
 
-  const PortfolioAnalysisCorporatePagetabs = [
-    { label: "Board - Meetings", navigationPath: "/portfolio-analysis-tool"},
-    { label: "Dividends", navigationPath: "/portfolioanalysisdividendcall"},
-    { label: "Bonus", navigationPath: "/portfoliobonuscall" },
-    { label: "Splits", navigationPath: "/portfoliosplitcall" },
-    { label: "Rights - Issue", navigationPath: "/portfolioanalysisrightscall" },
-    { label: "AGM / EGM", navigationPath: "/portfolioAGMcall" },
-  ];
-
   return (
- 
-    <div className="portfolianalysiscorporatepage-container">
-      <div className="portfolianalysiscorporatepage-header">
-        <h2>Corporate Action</h2>
-        <div className="portfolianalysiscorporatepage-toggle">
-        <label className="portfolianalysiscorporatepageswitch">
-    <input
-      type="checkbox"
-      checked={isHistoric}
-      onChange={() =>  setIsHistoric(!isHistoric)}
-    />
-    <span className="portfolianalysiscorporatepageslider"></span>
-  </label>
-  <span>Historic</span>
-  
-</div>
-
-      </div>
-      <div className="portfolianalysiscorporatepage-tabs">
-      {PortfolioAnalysisCorporatePagetabs.map((tab) => (
-        <div
-          key={tab.label}
-          className={`portfolianalysiscorporatepage-tab ${
-            activeTab === tab.label ? "active" : ""
-          }`}
-          onClick={() => {
-            setActiveTab(tab.label);
-            navigate(tab.navigationPath);
-          }}
-        >
-          {tab.label}
-        </div>
-      ))}
-    </div>
     <div className="portfolianalysiscorporatepage-table-wrapper">
     <div className="portfolianalysiscorporatepage-table">
       <table>
@@ -106,8 +62,6 @@ const PortfolioAnalysissplitPage = () => {
       </table>
     </div>
 </div>
-    </div>
-  
   );
 };
 

@@ -24,7 +24,7 @@ const MutualAccountStock = () => {
   console.log("Trans data: ", mutualTransactions)
   // State management
   const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
+    location.pathname === "/portfolio-management-stocks"
   );
 
   const [showPopup, setShowPopup] = useState(false);

@@ -220,11 +220,6 @@ import PortfolioHoldingdetailPage from "./Portfolioanalysispages/PortfolioHoldin
 
 import Porfolioanalysisallpagecall from "./Portfolioanalysispages/Porfolioanalysisallpagecall/Porfolioanalysisallpagecall";
 import AnalysisResearchReportblur from "./Portfolioanalysispages/Portfolioanysisstockresearcgblur/Portfolioanysisstockresearcgblur";
-import Portfolioanalysisdividendcall from "./Portfolioanalysispages/Portfolioanalysisdividendcall/Portfolioanalysisdividendcall";
-import Portfoliobonuscall from "./Portfolioanalysispages/Portfoliobonuscall/Portfoliobonuscall";
-import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Portfoliosplitcall";
-import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
-import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
 import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
 
 //Context
@@ -324,7 +319,7 @@ function App() {
               />
               <Route path="/portfoliodonut" element={<Portfoliodonut />} />
               <Route
-                path="/portfoliostockaccount"
+                path="/portfolio-management-stocks"
                 element={
                   <PortfolioDashboardProvider>
                     <PortfolioStockProvider>
@@ -381,7 +376,7 @@ function App() {
               <Route path="/mutualnone" element={<Mutualnone />} />
               <Route path="/mutualtype" element={<Mutualtypefund />} />
               <Route
-                path="/mutualaccount"
+                path="/portfolio-management-mutual-funds"
                 element={
                   <PortfolioMutualsProvider>
                     <MutualAccountStock />
@@ -420,13 +415,13 @@ function App() {
                 path="/mutualfunddirect"
                 element={<TopRatedFundsdirect />}
               />
-              <Route path="/goldWatchlistall" element={<GoldWatchportall />} />
+              <Route path="/gold-watchlist" element={<GoldWatchportall />} />
               <Route
-                path="/portfoliogoldtoppage"
+                path="/portfolio-management-gold"
                 element={<Portfoliogoldaccount />}
               />
 
-              <Route path="/mutualwatchlist" element={<MutualWatchlist />} />
+              <Route path="/mutual-fund-watchlist" element={<MutualWatchlist />} />
               <Route
                 path="/mutualwatchlisttype"
                 element={<MutualWatchtypefundlist />}
@@ -463,11 +458,11 @@ function App() {
                 element={<ScreenerStockList />}
               />
               <Route
-                path="/ScreenerStockvaluation"
+                path="/stock-screener-valuation"
                 element={<ScreenerStockvaluation />}
               />
               <Route
-                path="/IncomeStatement"
+                path="/stocks-screener-incomestatement"
                 element={<ScreenerStockincome />}
               />
 
@@ -508,7 +503,7 @@ function App() {
                 element={<IpoDetailsubscribe />}
               />
               <Route
-                path="/nifty50screenerStockList"
+                path="/nifty50-screener-stocks"
                 element={<Nifty50screenerStockList />}
               />
 
@@ -544,7 +539,7 @@ function App() {
               />
               <Route path="/quarterlyratio" element={<Quarterlyratio />} />
               <Route
-                path="/sectorWeightageTableniffty50"
+                path="/nifty50-sector-weightage"
                 element={<SectorWeightageTableniffty50 />}
               />
               <Route
@@ -568,48 +563,48 @@ function App() {
               <Route path="/homestockanalyst" element={<Homestockanalyst />} />
 
               <Route
-                path="/bestStockvaluation"
+                path="/stocks/best-stocks-valuation"
                 element={<BestStockvaluation />}
               />
               <Route
-                path="/bestStockIncomeStatement"
+                path="/stocks/best-stocks-incomestatement"
                 element={<BestStockIncomeStatement />}
               />
               <Route
-                path="/highstockvaluation"
+                path="/stocks/high-growth-stocks-valuation"
                 element={<Highstockvaluation />}
               />
               <Route
-                path="/highgrowthStockIncomeStatement"
+                path="/stocks/high-growth-stocks-incomestatement"
                 element={<HighStockIncomeStatement />}
               />
               <Route
-                path="/netify100valuation"
+                path="/nifty-100-stocks-valuation"
                 element={<Netify100valuation />}
               />
               <Route
-                path="/netify100IncomeStatement"
+                path="/nifty-100-stocks-incomestatement"
                 element={<Netify100IncomeStatement />}
               />
               <Route
-                path="/smallcapvaluation"
+                path="/small-cap-valuation-stocks"
                 element={<Smallcapvaluation />}
               />
               <Route
-                path="/smallcapIncomeStatement"
+                path="/small-cap-incomestatement-stocks"
                 element={<SmallcapIncomeStatement />}
               />
-              <Route path="/midcapvaluation" element={<Midcapvaluation />} />
+              <Route path="/mid-cap-stocks-valuation" element={<Midcapvaluation />} />
               <Route
-                path="/midcapIncomeStatement"
+                path="/mid-cap-stocks-incomestatement"
                 element={<MidcapIncomeStatement />}
               />
               <Route
-                path="/largecapvaluation"
+                path="/large-cap-stocks-valuation"
                 element={<Largecapvaluation />}
               />
               <Route
-                path="/largecapIncomeStatement"
+                path="/large-cap-stocks-incomestatement"
                 element={<LargecapIncomeStatement />}
               />
               <Route
@@ -849,7 +844,7 @@ function App() {
               />
 
               <Route
-                path="/portfolioHoldingdetailPage"
+                path="/portfolio-trade-records"
                 element={<PortfolioHoldingdetailPage />}
               />
               <Route
@@ -860,23 +855,6 @@ function App() {
                 path="/analysisResearchReportblur"
                 element={<AnalysisResearchReportblur />}
               />
-              <Route
-                path="/portfolioanalysisdividendcall"
-                element={<Portfolioanalysisdividendcall />}
-              />
-              <Route
-                path="/portfoliobonuscall"
-                element={<Portfoliobonuscall />}
-              />
-              <Route
-                path="/portfoliosplitcall"
-                element={<Portfoliosplitcall />}
-              />
-              <Route
-                path="/portfolioanalysisrightscall"
-                element={<Portfolioanalysisrightscall />}
-              />
-              <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
               <Route
                 path="/forgotresetpassword/:token"
                 element={<Forgotresetpassword />}

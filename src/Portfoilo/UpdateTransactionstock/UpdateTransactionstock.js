@@ -56,14 +56,14 @@ const UpdateTransaction = ({children}) => {
 
   // Handle save action
   const handleSave = () => {
-    navigate("/portfoliostockaccount", {
+    navigate("/portfolio-management-stocks", {
       state: { updatedTransaction: editedTransaction },
     });
   };
 
   // Handle cancel action
   const handleCancel = () => {
-    navigate("/portfoliostockaccount");
+    navigate("/portfolio-management-stocks");
   };
 
   // Toggle SIP form visibility

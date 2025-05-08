@@ -2154,7 +2154,7 @@ const Netify100IncomeStatement = () => {
             className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/netify100valuation'); // Navigate to the ScreenerStockvaluation page
+              navigate('/nifty-100-stocks-valuation'); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2164,7 +2164,7 @@ const Netify100IncomeStatement = () => {
             className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/netify100IncomeStatement'); // Add a route for Income Statement if needed
+              navigate('/nifty-100-stocks-incomestatement'); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

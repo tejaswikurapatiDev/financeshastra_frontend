@@ -25,7 +25,7 @@ const Sidebar = () => {
                     href="/portfolio-analysis-tool" 
                   
                     className={`sidebar-item ${["/porfolioanalysisallpagecall", "/portfolioanalysisdividendcall","/portfoliobonuscall","/portfoliosplitcall","/portfolioanalysisrightscall"
-                        ,"/portfolioAGMcall","/portfolioHoldingdetailPage"
+                        ,"/portfolioAGMcall","/portfolio-trade-records"
                     ].includes(location.pathname) ? "active" : ""}`}
                 >
                     <GrAnalytics className="sideicon"/> Portfolio Analysis
@@ -33,7 +33,7 @@ const Sidebar = () => {
 
                 <a 
     href="/stock-watchlist" 
-    className={`sidebar-item ${["/stockWatchlist", "/mutualWatchlist","/goldWatchlistall","/stockwatchlistsector","/stockwatchlistmcap"
+    className={`sidebar-item ${["/stockWatchlist", "/mutual-fund-watchlist","/gold-watchlist","/stockwatchlistsector","/stockwatchlistmcap"
         ,"/mutualwatchlistsector","/mutualwatchlisttype"
     ].includes(location.pathname) ? "active" : ""}`} 
 >

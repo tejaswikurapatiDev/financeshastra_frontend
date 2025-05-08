@@ -20,7 +20,7 @@ const OverviewPortfolioManager = () => {
   const {stockTransactions} = useContext(PortfolioStocksContext)
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
+    location.pathname === "/portfolio-management-stocks"
   );
   
   const toggleDropdown = () => {
@@ -202,7 +202,7 @@ const OverviewPortfolioManager = () => {
                                 <thead>
                                   <tr>
                                     <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                                      <Link to="/portfoliostockaccount" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
+                                      <Link to="/portfolio-management-stocks" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
                                     </th>
                                     <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
                                       <Link to="/overview" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>

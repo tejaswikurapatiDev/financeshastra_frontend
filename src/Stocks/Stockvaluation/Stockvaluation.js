@@ -2208,7 +2208,7 @@ const ScreenerStockvaluation = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stock-screener-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2220,7 +2220,7 @@ const ScreenerStockvaluation = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/IncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks-screener-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

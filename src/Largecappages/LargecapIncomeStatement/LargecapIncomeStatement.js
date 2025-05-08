@@ -2168,7 +2168,7 @@ const LargecapIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/largecapvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/large-cap-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2180,7 +2180,7 @@ const LargecapIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/largecapIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/large-cap-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

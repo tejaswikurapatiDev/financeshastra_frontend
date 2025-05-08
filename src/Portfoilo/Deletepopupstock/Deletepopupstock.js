@@ -22,7 +22,7 @@ const Deletepopupstock = () => {
   const handleDeleteTransactions = () => {
     setTransactions([]);
     setOpenModal(false);
-    navigate('/portfoliostockaccount');
+    navigate('/portfolio-management-stocks');
   };
 
   return (

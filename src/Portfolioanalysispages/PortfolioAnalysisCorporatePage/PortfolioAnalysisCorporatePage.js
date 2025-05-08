@@ -6,9 +6,13 @@ import tcs from '../../assest/tcs.png';
 import hdfc from "../../assest/hdfcbank.png";
 import varun from "../../assest/varunimg.png";
 import adani from "../../assest/adaniimg.png";
+import PortfolioAnalysisdividentPage from "../PortfolioAnalysisdividentPage/PortfolioAnalysisdividentPage";
+import PortfolioAnalysisbonusPage from "../PortfolioAnalysisbonusPage/PortfolioAnalysisbonusPage";
+import PortfolioAnalysissplitPage from "../PortfolioAnalysissplitPage/PortfolioAnalysissplitPage";
+import PortfolioAnalysisrightissusePage from "../PortfolioAnalysisrightissusePage/PortfolioAnalysisrightissusePage";
+import PortfolioAnalysisAGMPage from "../PortfolioAnalysisAGMPage/PortfolioAnalysisAGMPage";
 
 const PortfolioAnalysisCorporatePage = () => {
-  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Board - Meetings");
   const [isUpcoming, setIsUpcoming] = useState(true);
 
@@ -46,79 +50,87 @@ const PortfolioAnalysisCorporatePage = () => {
   ];
 
   const PortfolioAnalysisCorporatePagetabs = [
-    { label: "Board - Meetings", navigationPath: "/portfolio-analysis-tool"},
-    { label: "Dividends", navigationPath: "/portfolioanalysisdividendcall"},
+    { label: "Board - Meetings", navigationPath: "/portfolio-analysis-tool" },
+    { label: "Dividends", navigationPath: "/portfolioanalysisdividendcall" },
     { label: "Bonus", navigationPath: "/portfoliobonuscall" },
     { label: "Splits", navigationPath: "/portfoliosplitcall" },
     { label: "Rights - Issue", navigationPath: "/portfolioanalysisrightscall" },
     { label: "AGM / EGM", navigationPath: "/portfolioAGMcall" },
-  
+
   ];
 
   return (
- 
+
     <div className="portfolianalysiscorporatepage-container">
       <div className="portfolianalysiscorporatepage-header">
         <h2>Corporate Action</h2>
         <div className="portfolianalysiscorporatepage-toggle">
-        <label className="portfolianalysiscorporatepageswitch">
-    <input
-      type="checkbox"
-      checked={isUpcoming}
-      onChange={() => setIsUpcoming(!isUpcoming)}
-    />
-    <span className="portfolianalysiscorporatepageslider"></span>
-  </label>
-  <span>Upcoming</span>
-  
-</div>
+          <label className="portfolianalysiscorporatepageswitch">
+            <input
+              type="checkbox"
+              checked={isUpcoming}
+              onChange={() => setIsUpcoming(!isUpcoming)}
+            />
+            <span className="portfolianalysiscorporatepageslider"></span>
+          </label>
+          <span>Upcoming</span>
+
+        </div>
 
       </div>
       <div className="portfolianalysiscorporatepage-tabs">
-      {PortfolioAnalysisCorporatePagetabs.map((tab) => (
-        <div
-          key={tab.label}
-          className={`portfolianalysiscorporatepage-tab ${
-            activeTab === tab.label ? "active" : ""
-          }`}
-          onClick={() => {
-            setActiveTab(tab.label);
-            navigate(tab.navigationPath);
-          }}
-        >
-          {tab.label}
-        </div>
-      ))}
+        {PortfolioAnalysisCorporatePagetabs.map((tab) => (
+          <div
+            key={tab.label}
+            className={`portfolianalysiscorporatepage-tab ${activeTab === tab.label ? "active" : ""
+              }`}
+            onClick={() => {
+              setActiveTab(tab.label);
+            }}
+          >
+            {tab.label}
+          </div>
+        ))}
+      </div>{activeTab === "Board - Meetings" &&
+        <div className="portfolianalysiscorporatepage-table-wrapper">
+          <div className="portfolianalysiscorporatepage-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Ex - Date</th>
+                  <th>Agenda</th>
+                </tr>
+              </thead>
+              <tbody>
+                {PortfolioAnalysisCorporatePagedata.map((item, index) => (
+                  <tr key={index}>
+                    <td className="portfolianalysiscorporatepage-company">
+                      <img src={item.logo} alt="Logo" />
+                      <span>{item.company}</span>
+                    </td>
+                    <td>{item.date}</td>
+                    <td>
+                      {item.agenda} <a href="">Read more</a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>}{
+        activeTab === "Dividends" && <PortfolioAnalysisdividentPage />
+      }{
+        activeTab === "Bonus" && <PortfolioAnalysisbonusPage />
+      }{
+        activeTab === "Splits" && <PortfolioAnalysissplitPage />
+      }{
+        activeTab === "Rights - Issue" && <PortfolioAnalysisrightissusePage />
+      }{
+        activeTab === "AGM / EGM" && <PortfolioAnalysisAGMPage />
+      }
     </div>
-    <div className="portfolianalysiscorporatepage-table-wrapper">
-      <div className="portfolianalysiscorporatepage-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Ex - Date</th>
-              <th>Agenda</th>
-            </tr>
-          </thead>
-          <tbody>
-            {PortfolioAnalysisCorporatePagedata.map((item, index) => (
-              <tr key={index}>
-                <td className="portfolianalysiscorporatepage-company">
-                  <img src={item.logo} alt="Logo" />
-                  <span>{item.company}</span>
-                </td>
-                <td>{item.date}</td>
-                <td>
-                  {item.agenda} <a href="">Read more</a>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      </div>
-    </div>
-  
+
   );
 };
 
