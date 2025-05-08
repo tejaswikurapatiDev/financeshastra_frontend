@@ -1254,7 +1254,7 @@ const Navbar = () => {
             href=""
             onClick={toggleFooterlearnDropdown}
             className="footer-link"
-          >d
+          >
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />
