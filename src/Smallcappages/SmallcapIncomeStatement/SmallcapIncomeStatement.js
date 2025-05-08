@@ -2169,7 +2169,7 @@ const SmallcapIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/smallcapvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/small-cap-valuation-stocks"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2181,7 +2181,7 @@ const SmallcapIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/smallcapIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/small-cap-incomestatement-stocks"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

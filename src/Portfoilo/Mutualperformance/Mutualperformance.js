@@ -132,7 +132,7 @@ const Accountmutualperformance = () => {
                           }}
                         >
                           <Link
-                            to="/mutualaccount"
+                            to="/portfolio-management-mutual-funds"
                             style={{ textDecoration: 'none', color: 'black' }}
                           >
                             Transaction History

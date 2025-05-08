@@ -153,7 +153,7 @@ const AddTransactionstock = ({children}) => {
       ]);
 
       // Navigate after successful save
-      navigate("/portfoliostockaccount", {
+      navigate("/portfolio-management-stocks", {
         state: { updatedTransaction: result.data },
       });
     } catch (error) {
@@ -163,7 +163,7 @@ const AddTransactionstock = ({children}) => {
   };
 
   // Handle cancel action
-  const handleCancel = () => navigate("/portfoliostockaccount");
+  const handleCancel = () => navigate("/portfolio-management-stocks");
 
   // Toggle SIP form visibility
   const handleToggleSIP = () => {

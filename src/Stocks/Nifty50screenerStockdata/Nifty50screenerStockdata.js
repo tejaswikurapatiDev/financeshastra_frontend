@@ -201,7 +201,7 @@ const Nifty50screenerStockdatatable = () => {
        <div className="screenerheadercontainer">
     <h2 className="screenerheader">Nifty 50 Companies</h2>
     <button
-      onClick={() => navigate('/nifty50screenerStockList')}
+      onClick={() => navigate('/nifty50-screener-stocks')}
       className="screenerheaderexplorebtn">
       Explore the Nifty 50 companies
     </button>

@@ -155,12 +155,12 @@ const StockWatchsectormcap= ({children}) => {
       Stocks
     </button>
   </Link>
-  <Link to="/mutualWatchlist">
+  <Link to="/mutual-fund-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Mutual Fund
     </button>
   </Link>
-  <Link to="/goldWatchlistall">
+  <Link to="/gold-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Gold
     </button>
