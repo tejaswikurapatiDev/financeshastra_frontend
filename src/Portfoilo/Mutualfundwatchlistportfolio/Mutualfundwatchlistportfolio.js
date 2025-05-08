@@ -577,7 +577,7 @@ const MutualWatchlist = ({ children }) => {
 
       {/* Navigation tabs */}
       <div className="networth-tabswatclist">
-        <Link to="/stockWatchlist">
+        <Link to="/stock-watchlist">
           <button
             className="networth-tab"
             style={{ background: "white", color: "black" }}
@@ -585,7 +585,7 @@ const MutualWatchlist = ({ children }) => {
             Stocks
           </button>
         </Link>
-        <Link to="/mutualWatchlist">
+        <Link to="/mutual-fund-watchlist">
           <button
             className="networth-tab"
             style={{ background: "#24b676", color: "white" }}
@@ -593,7 +593,7 @@ const MutualWatchlist = ({ children }) => {
             Mutual Fund
           </button>
         </Link>
-        <Link to="/goldWatchlistall">
+        <Link to="/gold-watchlist">
           <button
             className="networth-tab"
             style={{ background: "white", color: "black" }}
@@ -752,7 +752,7 @@ const MutualWatchlist = ({ children }) => {
               type="radio"
               name="groupBywatchlist"
               value="nonewatchlist"
-              onClick={() => navigate("/mutualWatchlist")}
+              onClick={() => navigate("/mutual-fund-watchlist")}
               defaultChecked
               style={{
                 width: "14px",

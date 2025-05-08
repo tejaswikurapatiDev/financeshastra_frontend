@@ -60,7 +60,7 @@ const AccountStockalert = () => {
                     name="groupBy"
                     value="none"
                     defaultChecked
-                    onClick={() => navigate("/portfoliostockaccount")}
+                    onClick={() => navigate("/portfolio-management-stocks")}
                   />{" "}
                   None
                   <input
@@ -144,7 +144,7 @@ const AccountStockalert = () => {
                               }}
                             >
                               <Link
-                                to="/portfoliostockaccount"
+                                to="/portfolio-management-stocks"
                                 style={{ textDecoration: 'none', color: 'black' }}
                               >
                                 Transaction History

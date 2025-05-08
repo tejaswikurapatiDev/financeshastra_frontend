@@ -12,7 +12,7 @@ const fundDataregularflex = [
   {
     name: "Parag Parikh Flexi Cap Fund",
     nav: "₹90.00",  // New NAV value
-    url: "/mutualfund",
+    url: "/mutual-funds/top-rated-mutual-funds",
     aum: "₹84,640.59",
     sip: "₹1,000",
     expenseRatio: "1.50%",  // New expense ratio

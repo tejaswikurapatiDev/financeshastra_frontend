@@ -131,7 +131,7 @@ const BlogsComponent = () => {
               <h4 className="blogTitle">{blog.title}</h4>
               <span className="blogCategory">{blog.category}</span>
               <a
-                href="#"
+                href=""
                 className={`readMoreblogs ${
                   blog.id === 3 ? "marginLeftReadMore" : ""
                 }`}

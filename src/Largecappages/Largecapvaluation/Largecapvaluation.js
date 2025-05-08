@@ -2115,7 +2115,7 @@ const Largecapvaluation = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/largecap");
+              navigate("/large-cap-stocks");
             }}
           >
             Overview
@@ -2125,7 +2125,7 @@ const Largecapvaluation = () => {
             className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/largecapvaluation'); // Navigate to the ScreenerStockvaluation page
+              navigate('/large-cap-stocks-valuation'); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2135,7 +2135,7 @@ const Largecapvaluation = () => {
             className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/largecapIncomeStatement'); // Add a route for Income Statement if needed
+              navigate('/large-cap-stocks-incomestatement'); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

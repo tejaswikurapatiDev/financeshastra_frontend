@@ -2158,7 +2158,7 @@ const HighStockIncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/highgrowthstocks");
+              navigate("/stocks/high-growth-stocks");
             }}
           >
             Overview
@@ -2170,7 +2170,7 @@ const HighStockIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/highstockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stocks/high-growth-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2182,7 +2182,7 @@ const HighStockIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/highgrowthStockIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks/high-growth-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

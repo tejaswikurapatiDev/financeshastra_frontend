@@ -44,7 +44,7 @@ const StockNewsComponent = () => {
         <div className="stockNewsList">
           {newsArticles.map((article) => (
             <Link
-              to={`/stocknews/details?id=${article.id}`}
+              to={`/stock-market-news/details?id=${article.id}`}
               key={article.id}
               className="stockNewsItemLink"
               style={{ textDecoration: "none", color: "inherit" }}

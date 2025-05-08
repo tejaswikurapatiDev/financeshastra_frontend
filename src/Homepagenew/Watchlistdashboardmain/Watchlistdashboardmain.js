@@ -83,7 +83,7 @@ const Watchlistdashboardmain = () => {
     <div className="Watchlistdashboardmain-container">
       <div className="Watchlistdashboardmain-header">
         <h2 className="Watchlistdashboardmain-title">Watchlist</h2>
-        <button className="Watchlistdashboardmain-add-button" onClick={() => navigate('/stockWatchlist')}>Add New</button>
+        <button className="Watchlistdashboardmain-add-button" onClick={() => navigate('/stock-watchlist')}>Add New</button>
       </div>
       <ul className="Watchlistdashboardmain-items">
         {watchlistdashboardmainData.map((item) => (

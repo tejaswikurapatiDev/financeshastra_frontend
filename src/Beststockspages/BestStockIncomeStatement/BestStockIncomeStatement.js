@@ -2155,7 +2155,7 @@ const BestStockIncomeStatement = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/beststock");
+              navigate("/stocks/best-stock");
             }}
           >
             Overview
@@ -2167,7 +2167,7 @@ const BestStockIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/bestStockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stocks/best-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2179,7 +2179,7 @@ const BestStockIncomeStatement = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/bestStockIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks/best-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

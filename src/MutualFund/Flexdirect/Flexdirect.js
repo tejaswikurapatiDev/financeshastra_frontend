@@ -8,7 +8,7 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const fundDataflex = [
     {
       name: "Parag Parikh Flexi Cap Fund",
-      url: "/mutualfund",
+      url: "/mutual-funds/top-rated-mutual-funds",
       nav: "₹81.81",
       aum: "₹84,640.59",
       sip: "₹1,000",

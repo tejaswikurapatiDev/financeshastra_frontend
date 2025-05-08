@@ -150,17 +150,17 @@ const StockWatchsectormcap= ({children}) => {
   Stock Watchlist
 </h2>
 <div className="networth-tabswatclist" >
-  <Link to="/stockWatchlist">
+  <Link to="/stock-watchlist">
     <button className="networth-tab" style={{ background: "#24b676", color: "white" }}>
       Stocks
     </button>
   </Link>
-  <Link to="/mutualWatchlist">
+  <Link to="/mutual-fund-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Mutual Fund
     </button>
   </Link>
-  <Link to="/goldWatchlistall">
+  <Link to="/gold-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Gold
     </button>
@@ -263,7 +263,7 @@ const StockWatchsectormcap= ({children}) => {
         name="groupBywatchlist"
         value="nonewatchlist"
         checked={selectedValue === "nonewatchlist"}
-        onChange={() => handleChange("nonewatchlist", "/stockwatchlist")}
+        onChange={() => handleChange("nonewatchlist", "/stock-watchlist")}
         style={{
           width: "14px",
           height: "14px",

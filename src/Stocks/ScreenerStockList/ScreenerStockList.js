@@ -2165,7 +2165,7 @@ const ScreenerStockList = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/StockScreener"); // Navigate to the StockScreenerList page
+              navigate("/Stock-Screener"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
@@ -2176,7 +2176,7 @@ const ScreenerStockList = () => {
               }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stock-screener-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2187,7 +2187,7 @@ const ScreenerStockList = () => {
               }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/IncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks-screener-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

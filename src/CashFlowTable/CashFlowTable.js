@@ -65,7 +65,7 @@ const CashFlowTable = () => {
     <div>
       <h2 className="cashhead">Cash Flow</h2>
       <p className="cashpara">
-        Consolidated Figures in ₹ Crores / <a href="#">View Standalone</a>
+        Consolidated Figures in ₹ Crores / <a href="">View Standalone</a>
       </p>
 
       <div className="cash-flow-table">

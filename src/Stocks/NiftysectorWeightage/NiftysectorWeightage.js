@@ -49,7 +49,7 @@ const NiftySectorWeightage = () => {
     setSortDirection(!sortDirection); // Toggle sort direction
   };
   const handleExploreSectors = () => {
-    navigate("/SectorWeightageTableniffty50");
+    navigate("/nifty50-sector-weightage");
   };
 
   return (

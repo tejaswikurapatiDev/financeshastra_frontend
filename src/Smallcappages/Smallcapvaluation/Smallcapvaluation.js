@@ -2112,7 +2112,7 @@ const Smallcapvaluation = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate('/smallcap'); // Navigate to the StockScreenerList page
+              navigate('/small-cap-stocks'); // Navigate to the StockScreenerList page
             }}
           >
             Overview
@@ -2122,7 +2122,7 @@ const Smallcapvaluation = () => {
             className={`tab-button ${activeTab === "Valuation" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate('/smallcapvaluation'); // Navigate to the ScreenerStockvaluation page
+              navigate('/small-cap-valuation-stocks'); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2132,7 +2132,7 @@ const Smallcapvaluation = () => {
             className={`tab-button ${activeTab === "Income Statement" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate('/smallcapIncomeStatement'); // Add a route for Income Statement if needed
+              navigate('/small-cap-incomestatement-stocks'); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

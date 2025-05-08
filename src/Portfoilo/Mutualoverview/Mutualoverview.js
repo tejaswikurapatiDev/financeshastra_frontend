@@ -22,7 +22,7 @@ const OverviewMutual = () => {
   const [expandedRows, setExpandedRows] = useState(() => ({}));
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
+    location.pathname === "/portfolio-management-stocks"
   );
   
   const toggleDropdown = (stock_name) => {
@@ -221,7 +221,7 @@ const OverviewMutual = () => {
                           <tr>
                             <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
                             <Link
-          to="/mutualaccount"
+          to="/portfolio-management-mutual-funds"
           style={{ textDecoration: 'none', color: 'black' }}
         >
           Transaction History

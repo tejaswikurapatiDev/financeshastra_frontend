@@ -338,5 +338,39 @@ color: red;
   width: 100%;
   border-collapse: collapse;
 }
+.portfolio-account-stock-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  margin-top: 10px;
+  justify-content: flex-start; /* Align to left */
+  margin-right: 0; /* Remove right margin */
+  margin-left: 10px; /* Optional: small left margin */
+}
 
+.portfolio-account-stock-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start; /* Align to left */
+  align-items: center;
+  margin-top: 10px;
+  margin-right: 0; /* Remove right margin */
+  margin-left: 10px; /* Optional: small left margin */
+}
+
+.portfolio-account-stock-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: black;
+  margin-left: 10px; /* Replace negative margin with small positive one */
+}
+.portfolio-account-stock-controls {
+  display: flex
+;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
 }

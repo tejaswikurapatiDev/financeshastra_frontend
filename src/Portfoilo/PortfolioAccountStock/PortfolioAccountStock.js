@@ -191,7 +191,7 @@ const PortfolioAccountStock = () => {
                     name="groupBy"
                     value="none"
                     defaultChecked
-                    onClick={() => navigate("/portfoliostockaccount")}
+                    onClick={() => navigate("/portfolio-management-stocks")}
                   />{" "}
                   None
                   <input

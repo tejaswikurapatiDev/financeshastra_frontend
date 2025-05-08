@@ -21,27 +21,27 @@ const FooterForhomeAllPage = () => {
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
   const stockRoutes = {
-    "Stock Screener": "/StockScreener",
-    "High Growth Stocks": "/highgrowthstocks",
-    "Nifty 50 Companies": "/nifty50stocks",
-    "Small Cap Stocks": "/smallcap",
-    "Mid Cap Stocks": "/midcap",
-    "Large Cap Stocks":"/largecap"
+    "Stock Screener": "/Stock-Screener",
+    "High Growth Stocks": "/stocks/high-growth-stocks",
+    "Nifty 50 Companies": "/nifty-50-stocks-list/",
+    "Small Cap Stocks": "/small-cap-stocks",
+    "Mid Cap Stocks": "/mid-cap-stocks",
+    "Large Cap Stocks":"/large-cap-stocks"
   };
   const mutualRoutes = {
-    "Top Rated Funds": "/mutualfund",
-    "Fund Screener": "/fundscreener",
-    "Best Small Cap Fund": "/bestsmallcaps",
-    "Best Growth Fund": "/Bestgrowthfunds",
+    "Top Rated Funds": "/mutual-funds/top-rated-mutual-funds",
+    "Fund Screener": "/mutual-funds/fund-screener",
+    "Best Small Cap Fund": "/mutual-funds/best-small-cap-fund",
+    "Best Growth Fund": "/mutual-funds/best-growth-funds",
     "Best Flexi Cap Fund": "/flexregular",
-    "Best ETF Fund": "/etf",
+    "Best ETF Fund": "/mutual-funds/exchange-traded-funds",
   };
   const learnRoutes = {
-    "Stock News": "/stockNews",
-    "IPO Details": "/ipoDetails",
+    "Stock News": "/stock-market-news",
+    "IPO Details": "/markets/ipo-details",
     "Blogs": "/blogs",
     "Market Insights": "/marketinsights",
-    "Quarterly Earnings": "/earningsInsightLearn",
+    "Quarterly Earnings": "/markets/earnings",
     "Learn": "/learncard",
   };
   
@@ -77,11 +77,11 @@ const FooterForhomeAllPage = () => {
               <img src={finanlog} alt="FinanceShastra Logo" onClick={() => navigate("/")} style={{cursor:"pointer"}} className="FooterForAllPage-logo-img" />
             </div>
             <div className="FooterForAllPage-social-iconss">
-              <a href="#" className="FooterForAllPage-social-icon"><FaFacebookF /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaTwitter /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><AiFillInstagram /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaLinkedinIn /></a>
-              <a href="#" className="FooterForAllPage-social-icon"><FaYoutube /></a>
+              <a href="" className="FooterForAllPage-social-icon"><FaFacebookF /></a>
+              <a href="" className="FooterForAllPage-social-icon"><FaTwitter /></a>
+              <a href="" className="FooterForAllPage-social-icon"><AiFillInstagram /></a>
+              <a href="" className="FooterForAllPage-social-icon"><FaLinkedinIn /></a>
+              <a href="" className="FooterForAllPage-social-icon"><FaYoutube /></a>
             </div>
           </div>
 
@@ -121,8 +121,8 @@ const FooterForhomeAllPage = () => {
         <div className="FooterForAllPage-bottom-section">
           <p className="FooterForAllPage-copyright">
             Copyright © 2024 FinanceShastra <br /> All Rights Reserved |{" "}
-            <a href="#" className="FooterForAllPage-link">Terms and Conditions</a> |{" "}
-            <a href="#" className="FooterForAllPage-link">Privacy Policy</a>
+            <a href="" className="FooterForAllPage-link">Terms and Conditions</a> |{" "}
+            <a href="" className="FooterForAllPage-link">Privacy Policy</a>
           </p>
         </div>
       </footer>
@@ -175,11 +175,11 @@ const FooterForhomeAllPage = () => {
           </div>
 
           <div className="footermobileviewpages-social-icons">
-            <a href="#" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaTwitter /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
-            <a href="#" className="footermobileviewpages-social-icon"><FaYoutube /></a>
+            <a href="" className="footermobileviewpages-social-icon"><FaFacebookF /></a>
+            <a href="" className="footermobileviewpages-social-icon"><FaTwitter /></a>
+            <a href="" className="footermobileviewpages-social-icon"><AiFillInstagram /></a>
+            <a href="" className="footermobileviewpages-social-icon"><FaLinkedinIn /></a>
+            <a href="" className="footermobileviewpages-social-icon"><FaYoutube /></a>
           </div>
           <div className="footermobileviewpages-bottom-section">
   <p className="footermobileviewpages-copyright">
@@ -187,8 +187,8 @@ const FooterForhomeAllPage = () => {
     <br />
     <span className="rights-text">
       All Rights Reserved |{" "}
-      <a href="#" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
-      <a href="#" className="footermobileviewpages-link">Privacy Policy</a>
+      <a href="" className="footermobileviewpages-link">Terms and Conditions</a> |{" "}
+      <a href="" className="footermobileviewpages-link">Privacy Policy</a>
     </span>
   </p>
 </div>

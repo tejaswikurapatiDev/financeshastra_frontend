@@ -220,11 +220,6 @@ import PortfolioHoldingdetailPage from "./Portfolioanalysispages/PortfolioHoldin
 
 import Porfolioanalysisallpagecall from "./Portfolioanalysispages/Porfolioanalysisallpagecall/Porfolioanalysisallpagecall";
 import AnalysisResearchReportblur from "./Portfolioanalysispages/Portfolioanysisstockresearcgblur/Portfolioanysisstockresearcgblur";
-import Portfolioanalysisdividendcall from "./Portfolioanalysispages/Portfolioanalysisdividendcall/Portfolioanalysisdividendcall";
-import Portfoliobonuscall from "./Portfolioanalysispages/Portfoliobonuscall/Portfoliobonuscall";
-import Portfoliosplitcall from "./Portfolioanalysispages/Portfoliosplitcall/Portfoliosplitcall";
-import Portfolioanalysisrightscall from "./Portfolioanalysispages/Portfolioanalysisrightscall/Portfolioanalysisrightscall";
-import PortfolioAGMcall from "./Portfolioanalysispages/PortfolioanalysisAGMcall/PortfolioanalysisAGMcall";
 import Forgotresetpassword from "./Forgotresetpassword/Forgotresetpassword";
 
 //Context
@@ -298,15 +293,15 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/stockhandle" element={<Overview />} />
               <Route path="/stockhandle/:id" element={<Overview/>}/>
-              <Route path="/nifty100stocks" element={<Netify100 />} />
-              <Route path="/smallcap" element={<Smallcap />} />
-              <Route path="/midcap" element={<Midcap />} />
-              <Route path="/largecap" element={<Largecap />} />
+              <Route path="/nifty-100-stocks-list" element={<Netify100 />} />
+              <Route path="/small-cap-stocks" element={<Smallcap />} />
+              <Route path="/mid-cap-stocks" element={<Midcap />} />
+              <Route path="/large-cap-stocks" element={<Largecap />} />
               <Route path="/niftystock" element={<NiftyStocks />} />
-              <Route path="/highgrowthstocks" element={<Highstock />} />
-              <Route path="/beststock" element={<Beststock />} />
+              <Route path="/stocks/high-growth-stocks" element={<Highstock />} />
+              <Route path="/stocks/best-stock" element={<Beststock />} />
               <Route
-                path="/portfolio"
+                path="/portfolio-management-dashboard"
                 element={
                   <PortfolioDashboardProvider>
                     <Portfolio />
@@ -324,7 +319,7 @@ function App() {
               />
               <Route path="/portfoliodonut" element={<Portfoliodonut />} />
               <Route
-                path="/portfoliostockaccount"
+                path="/portfolio-management-stocks"
                 element={
                   <PortfolioDashboardProvider>
                     <PortfolioStockProvider>
@@ -381,7 +376,7 @@ function App() {
               <Route path="/mutualnone" element={<Mutualnone />} />
               <Route path="/mutualtype" element={<Mutualtypefund />} />
               <Route
-                path="/mutualaccount"
+                path="/portfolio-management-mutual-funds"
                 element={
                   <PortfolioMutualsProvider>
                     <MutualAccountStock />
@@ -400,7 +395,7 @@ function App() {
                 path="/accountperformance"
                 element={<Accountmutualperformance />}
               />
-              <Route path="/stockwatchlist" element={<StockWatchlist />} />
+              <Route path="/stock-watchlist" element={<StockWatchlist />} />
               <Route
                 path="/stockwatchlistsector"
                 element={<StockWatchsectorlist />}
@@ -415,18 +410,18 @@ function App() {
               />
               <Route path="/pricehalf" element={<SubscriptionPlans />} />
               <Route path="/subscription" element={<SubscriptionannualPlans />} />
-              <Route path="/mutualfund" element={<TopRatedFunds />} />
+              <Route path="/mutual-funds/top-rated-mutual-funds" element={<TopRatedFunds />} />
               <Route
                 path="/mutualfunddirect"
                 element={<TopRatedFundsdirect />}
               />
-              <Route path="/goldWatchlistall" element={<GoldWatchportall />} />
+              <Route path="/gold-watchlist" element={<GoldWatchportall />} />
               <Route
-                path="/portfoliogoldtoppage"
+                path="/portfolio-management-gold"
                 element={<Portfoliogoldaccount />}
               />
 
-              <Route path="/mutualwatchlist" element={<MutualWatchlist />} />
+              <Route path="/mutual-fund-watchlist" element={<MutualWatchlist />} />
               <Route
                 path="/mutualwatchlisttype"
                 element={<MutualWatchtypefundlist />}
@@ -441,42 +436,38 @@ function App() {
               />
               <Route path="/mutualfundgrowth/:fundId" element={<Mutualfund />} />
               <Route
-                path="/bestsmallcaps"
+                path="/mutual-funds/best-small-cap-fund"
                 element={<Bestsmallcapregular />}
               />
               
               <Route path="/sip" element={<MutualFundsSipCalculator />} />
               <Route path="/risk" element={<RiskoMeter />} />
-              <Route path="/flexfunds" element={<Flexregular />} />
+              <Route path="/mutual-funds/best-flex-cap-fund" element={<Flexregular />} />
               <Route
-                path="/fundscreener"
+                path="/mutual-funds/fund-screener"
                 element={<Fundscreenerregular />}
               />
               <Route
-                path="/Bestgrowthfunds"
+                path="/mutual-funds/best-growth-funds"
                 element={<Bestgrowthregular />}
               />
 
-              <Route path="/etf" element={<Etfregular />} />
+              <Route path="/mutual-funds/exchange-traded-funds" element={<Etfregular />} />
               <Route
-                path="/stockNews"
-                element={<StockNewsComponent />}
-              />
-              <Route
-                path="/stockScreener"
+                path="/Stock-Screener"
                 element={<ScreenerStockList />}
               />
               <Route
-                path="/ScreenerStockvaluation"
+                path="/stock-screener-valuation"
                 element={<ScreenerStockvaluation />}
               />
               <Route
-                path="/IncomeStatement"
+                path="/stocks-screener-incomestatement"
                 element={<ScreenerStockincome />}
               />
 
               <Route
-                path="/earningsInsightLearn"
+                path="/markets/earnings"
                 element={<EarningsInsightLearn />}
               />
               <Route path="/blogs" element={<BlogsComponent />} />
@@ -493,26 +484,26 @@ function App() {
                 element={<LearnCourseDetails />}
               />
               <Route
-                path="/stockNews"
+                path="/stock-market-news"
                 element={<StockNewsComponent />}
               />
               <Route
                 path="/stocknewsAdanigroup/:id"
                 element={<StocknewsAdanigroup />}
               />
-              <Route path="/stocknews/details" element={<StockNewsCard />} />
+              <Route path="/stock-market-news/details" element={<StockNewsCard />} />
               <Route
                 path="/modulecourseDetails"
                 element={<ModulecourseDetails />}
               />
-              <Route path="/ipoDetails" element={<IpoComponent />} />
-              <Route path="/ipoDetails/:id" element={<IpoDetails />} />
+              <Route path="/markets/ipo-details" element={<IpoComponent />} />
+              <Route path="/markets/ipo-details/:id" element={<IpoDetails />} />
               <Route
-                path="/ipoDetailsubscribe"
+                path="/markets/ipo-detailsubscribe"
                 element={<IpoDetailsubscribe />}
               />
               <Route
-                path="/nifty50screenerStockList"
+                path="/nifty50-screener-stocks"
                 element={<Nifty50screenerStockList />}
               />
 
@@ -522,7 +513,7 @@ function App() {
               />
               <Route path="/quaterlygraphtop" element={<Quaterlygraphtop />} />
               <Route
-                path="/earningsInsightLearn"
+                path="/markets/earnings"
                 element={<EarningsInsightLearn />}
               />
               <Route
@@ -548,18 +539,18 @@ function App() {
               />
               <Route path="/quarterlyratio" element={<Quarterlyratio />} />
               <Route
-                path="/sectorWeightageTableniffty50"
+                path="/nifty50-sector-weightage"
                 element={<SectorWeightageTableniffty50 />}
               />
               <Route
                 path="/nifty50screenerStockunlockList"
                 element={<Nifty50screenerStockunlockList />}
               />
-              <Route path="/nifty50stocks" element={<Nifty50all />} />
+              <Route path="/nifty-50-stocks-list/" element={<Nifty50all />} />
 
               <Route path="/footerForAllPage" element={<FooterForAllPage />} />
               <Route path="/profilePage" element={<ProfilePage />} />
-              <Route path="/settingDashPanel" element={<SettingsDashboard />} />
+              <Route path="/user-settings-dashboard" element={<SettingsDashboard />} />
               <Route
                 path="/home"
                 element={
@@ -572,48 +563,48 @@ function App() {
               <Route path="/homestockanalyst" element={<Homestockanalyst />} />
 
               <Route
-                path="/bestStockvaluation"
+                path="/stocks/best-stocks-valuation"
                 element={<BestStockvaluation />}
               />
               <Route
-                path="/bestStockIncomeStatement"
+                path="/stocks/best-stocks-incomestatement"
                 element={<BestStockIncomeStatement />}
               />
               <Route
-                path="/highstockvaluation"
+                path="/stocks/high-growth-stocks-valuation"
                 element={<Highstockvaluation />}
               />
               <Route
-                path="/highgrowthStockIncomeStatement"
+                path="/stocks/high-growth-stocks-incomestatement"
                 element={<HighStockIncomeStatement />}
               />
               <Route
-                path="/netify100valuation"
+                path="/nifty-100-stocks-valuation"
                 element={<Netify100valuation />}
               />
               <Route
-                path="/netify100IncomeStatement"
+                path="/nifty-100-stocks-incomestatement"
                 element={<Netify100IncomeStatement />}
               />
               <Route
-                path="/smallcapvaluation"
+                path="/small-cap-valuation-stocks"
                 element={<Smallcapvaluation />}
               />
               <Route
-                path="/smallcapIncomeStatement"
+                path="/small-cap-incomestatement-stocks"
                 element={<SmallcapIncomeStatement />}
               />
-              <Route path="/midcapvaluation" element={<Midcapvaluation />} />
+              <Route path="/mid-cap-stocks-valuation" element={<Midcapvaluation />} />
               <Route
-                path="/midcapIncomeStatement"
+                path="/mid-cap-stocks-incomestatement"
                 element={<MidcapIncomeStatement />}
               />
               <Route
-                path="/largecapvaluation"
+                path="/large-cap-stocks-valuation"
                 element={<Largecapvaluation />}
               />
               <Route
-                path="/largecapIncomeStatement"
+                path="/large-cap-stocks-incomestatement"
                 element={<LargecapIncomeStatement />}
               />
               <Route
@@ -738,7 +729,7 @@ function App() {
                 element={<WhyFinadvanceeducationnn />}
               />
               <Route
-                path="/stockThemes"
+                path="/stock-themes"
                 element={<StockThemesSectorPages />}
               />
               <Route
@@ -823,7 +814,7 @@ function App() {
                 element={<Openemailforgotpass />}
               />
               <Route
-                path="/stockresearchpages"
+                path="/stock-research-reports"
                 element={<Stockresearchpages />}
               />
 
@@ -853,34 +844,17 @@ function App() {
               />
 
               <Route
-                path="/portfolioHoldingdetailPage"
+                path="/portfolio-trade-records"
                 element={<PortfolioHoldingdetailPage />}
               />
               <Route
-                path="/porfolioanalysisallpagecall"
+                path="/portfolio-analysis-tool"
                 element={<Porfolioanalysisallpagecall />}
               />
               <Route
                 path="/analysisResearchReportblur"
                 element={<AnalysisResearchReportblur />}
               />
-              <Route
-                path="/portfolioanalysisdividendcall"
-                element={<Portfolioanalysisdividendcall />}
-              />
-              <Route
-                path="/portfoliobonuscall"
-                element={<Portfoliobonuscall />}
-              />
-              <Route
-                path="/portfoliosplitcall"
-                element={<Portfoliosplitcall />}
-              />
-              <Route
-                path="/portfolioanalysisrightscall"
-                element={<Portfolioanalysisrightscall />}
-              />
-              <Route path="/portfolioAGMcall" element={<PortfolioAGMcall />} />
               <Route
                 path="/forgotresetpassword/:token"
                 element={<Forgotresetpassword />}

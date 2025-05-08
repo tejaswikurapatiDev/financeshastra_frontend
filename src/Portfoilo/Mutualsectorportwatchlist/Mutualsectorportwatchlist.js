@@ -133,17 +133,17 @@ const MutualWatchsectorlist= ({children}) => {
   Mutual Fund Watchlist
 </h2>
 <div className="networth-tabswatclist" >
-  <Link to="/stockWatchlist">
+  <Link to="/stock-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Stocks
     </button>
   </Link>
-  <Link to="/mutualWatchlist">
+  <Link to="/mutual-fund-watchlist">
     <button className="networth-tab" style={{ background: "#24b676", color: "white", }}>
       Mutual Fund
     </button>
   </Link>
-  <Link to="/goldWatchlistall">
+  <Link to="/gold-watchlist">
     <button className="networth-tab" style={{ background: "white", color: "black" }}>
       Gold
     </button>
@@ -246,7 +246,7 @@ const MutualWatchsectorlist= ({children}) => {
         name="groupBywatchlist"
         value="nonewatchlist"
         checked={selectedValue === "nonewatchlist"}
-        onChange={() => handleChange("nonewatchlist", "/mutualWatchlist")}
+        onChange={() => handleChange("nonewatchlist", "/mutual-fund-watchlist")}
         style={{
           width: "14px",
           height: "14px",

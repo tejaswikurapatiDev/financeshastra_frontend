@@ -243,7 +243,7 @@ const handleDeleteStock = (index) => {
       </div>
 
       <div className="PortfolioHoldingPagetradeRecords">
-        <a href="portfolioHoldingdetailPage">
+        <a href="portfolio-trade-records" target ="_blank">
           View all Trade Records <CiShare1 className="tradeRecordIcon" />
         </a>
       </div>

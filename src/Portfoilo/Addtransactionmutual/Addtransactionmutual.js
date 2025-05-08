@@ -107,7 +107,7 @@ const AddTransactionmutual = ({children}) => {
         throw new Error(errorData.error || "Failed to add transaction");
       }
 
-      navigate("/portfoliostockaccount", {
+      navigate("/portfolio-management-stocks", {
         state: { updatedTransactions: transactions },
       });
     } catch (error) {
@@ -184,7 +184,7 @@ const AddTransactionmutual = ({children}) => {
                 <input type="text" name="notes" value={transactionData.notes} onChange={(e) => handleInputChange(index, e)} className="transaction-inputnote" />
               </label>
               <div className="sip-linkmutual">
-                            <a href="#" onClick={() => handleToggleSIP(index)}>
+                            <a href="" onClick={() => handleToggleSIP(index)}>
                 Add SIP for this Stock
               </a>
             </div>

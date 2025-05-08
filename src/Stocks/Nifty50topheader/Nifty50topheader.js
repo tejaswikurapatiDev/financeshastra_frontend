@@ -74,21 +74,21 @@ function Nifty50topheader() {
         <Divider />
 
         <span
-          onClick={() => handleNavigationWithActive("/nifty50stocks", "overview")}
+          onClick={() => handleNavigationWithActive("/nifty-50-stocks-list/", "overview")}
           className={activeTab === "overview" ? "active-span" : ""}
         >
           Overview
         </span>
 
         <span
-          onClick={() => handleNavigationWithActive("/SectorWeightageTableniffty50", "stockxray")}
+          onClick={() => handleNavigationWithActive("/nifty50-sector-weightage", "stockxray")}
           className={activeTab === "stockxray" ? "active-span" : ""}
         >
           Sectors
         </span>
 
         <span
-          onClick={() => handleNavigationWithActive("/nifty50screenerStockList", "stockearning")}
+          onClick={() => handleNavigationWithActive("/nifty50-screener-stocks", "stockearning")}
           className={activeTab === "stockearning" ? "active-span" : ""}
         >
           Companies

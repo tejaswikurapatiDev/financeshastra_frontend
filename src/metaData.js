@@ -292,7 +292,7 @@ const metadata = {
         "stock tracking tools India",
       ],
     },
-    "/portfolio-analysis-tool": {
+    "/stock-watchlist": {
       title: "Portfolio Analysis Tool | Track & Optimize Investments | FinanceShastra",
       description:
         "Analyze and optimize your investment portfolio with FinanceShastra's Portfolio Analysis Tool. Get detailed insights, track performance, and make smarter investment decisions.",

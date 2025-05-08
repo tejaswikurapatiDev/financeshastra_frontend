@@ -439,7 +439,7 @@ const Navbar = () => {
         <ul>
           <li style={{ listStyle: "none" }}>
             <Link
-              to="/StockScreener"
+              to="/Stock-Screener"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -458,7 +458,7 @@ const Navbar = () => {
 
           <li style={{ listStyle: "none" }}>
             <Link
-              to="/beststock"
+              to="/stocks/best-stock"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -476,7 +476,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/highgrowthstocks"
+              to="/stocks/high-growth-stocks"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -494,7 +494,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/nifty50stocks"
+              to="/nifty-50-stocks-list/"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -516,7 +516,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link
-              to="/nifty100stocks"
+              to="/nifty-100-stocks-list"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -534,7 +534,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/smallcap"
+              to="/small-cap-stocks"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -549,7 +549,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/midcap"
+              to="/mid-cap-stocks"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -566,7 +566,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/largecap"
+              to="/large-cap-stocks"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -579,21 +579,22 @@ const Navbar = () => {
               <p>Focus on large, established companies with stable returns.</p>
             </Link>
           </li>
-          <li>
-            <Link
-              to="/stockThemes"
-              className={
+          {/*<li>
+              <Link to="/stockThemes"
+               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
                 textDecoration: "none",
-              }}
-            >
-              Stock Themes
-              <p>Research is key before buying any stock</p>
-            </Link>
-          </li>
+              
+               
+              }}>
+                Stock Themes
+                <p>Research is key before buying any stock</p>
+              </Link>
+           
+          </li>*/}
         </ul>
       </div>
     </div>
@@ -602,7 +603,7 @@ const Navbar = () => {
   const renderPortfolioDropdown = () => (
     <div className={darkMode ? "learn-menudarkerrrrmode" : "dropdown-menu"}>
       <Link
-        to="/portfolio"
+        to="/portfolio-management-dashboard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -626,7 +627,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/stockWatchlist"
+        to="/stock-watchlist"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -642,31 +643,32 @@ const Navbar = () => {
   const renderlearnDropdown = () => (
     <div className={darkMode ? "learn-menudarkerrrrmode" : "learn-menu"}>
       <Link
-        to="/stockNews"
+        to="/stock-market-news"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+          style={{
+            display: "block",
+            textDecoration: "none",
+          
+            
+          }}>
+         Stock News
+          <p>Discover what's happening in the stock markets in real-time</p>
+        </Link>
+     
+        {/*<Link to="/blogs"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
           textDecoration: "none",
-        }}
-      >
-        Stock News
-        <p>Discover what's happening in the stock markets in real-time</p>
-      </Link>
+         
+         
+        }}>
+          Blogs
+          <p>Investment Knowledge Hub</p>
+        </Link>*/}
 
       <Link
-        to="/blogs"
-        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
-        style={{
-          display: "block",
-          textDecoration: "none",
-        }}
-      >
-        Blogs
-        <p>Investment Knowledge Hub</p>
-      </Link>
-
-      <Link
-        to="/ipoDetails"
+        to="/markets/ipo-details"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -678,32 +680,34 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/earningsInsightLearn"
+        to="/markets/earnings"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        
+         
+        }}>
+          Quarterly Earnings
+          <p>Monitor thorough quarterly earnings summaries</p>
+        </Link>
+    
+     
+        {/*<Link to="/learncard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
           textDecoration: "none",
         }}
-      >
-        Quarterly Earnings
-        <p>Monitor thorough quarterly earnings summaries</p>
-      </Link>
-
-      <Link
-        to="/learncard"
-        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
-        style={{
-          display: "block",
-          textDecoration: "none",
-        }}
-      >
-        Learn
-        <p>
-          {" "}
-          Knowledge is the key to successful trading—learn, adapt, and grow
-        </p>
-      </Link>
-    </div>
+        >
+          Learn
+          <p>
+            {" "}
+            Knowledge is the key to successful trading—learn, adapt, and grow
+          </p>
+        </Link>*/}
+      </div>
+  
   );
 
   const renderhomeDropdown = () => (
@@ -720,7 +724,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/porfolioanalysisallpagecall"
+        to="/portfolio-analysis-tool"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -731,7 +735,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/stockWatchlist"
+        to="/stock-watchlist"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -742,7 +746,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/stockresearchpages"
+        to="/stock-research-reports"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -764,7 +768,7 @@ const Navbar = () => {
       </Link>
 
       <Link
-        to="/settingDashPanel"
+        to="/user-settings-dashboard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -818,7 +822,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link
-              to="/mutualfund"
+              to="/mutual-funds/top-rated-mutual-funds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -833,7 +837,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/fundscreener"
+              to="/mutual-funds/fund-screener"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -848,31 +852,28 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/bestsmallcaps"
+              to="/mutual-funds/best-small-cap-fund"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Best Small Cap Fund
-              <p>Strong returns by investing in high-growth opportunities.</p>
-            </Link>
-
-            <Link
-              to="/market"
+                textDecoration: "none",                
+              }}>
+                Best Small Cap Fund
+                <p>Strong returns by investing in high-growth opportunities.</p>
+              </Link>
+         
+             {/* <Link to="/market"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Equity (ETFs)
-            </Link>
+                textDecoration: "none",                
+              }}>
+                Equity (ETFs)</Link>*/}
+           
           </li>
         </ul>
       </div>
@@ -880,7 +881,7 @@ const Navbar = () => {
         <ul>
           <li>
             <Link
-              to="/Bestgrowthfunds"
+              to="/mutual-funds/best-growth-funds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -895,7 +896,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/flexfunds"
+              to="/mutual-funds/best-flex-cap-fund"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -910,32 +911,30 @@ const Navbar = () => {
           </li>
           <li>
             
-              <Link to="/etf"
+              <Link to="/mutual-funds/exchange-traded-funds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
-                textDecoration: "none",
-              }}
-            >
-              Best ETF Fund
-              <p>Diverse and cost-effective investment strategy.</p>
-            </Link>
-
-            <div>
-              <Link
-                to="/gold"
-                className={
-                  darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
-                }
-                style={{
-                  display: "block",
-                  textDecoration: "none",
-                }}
-              >
-                Gold (ETFs)
+                textDecoration: "none",                
+              }}>
+                Best ETF Fund
+                <p>Diverse and cost-effective investment strategy.</p>
               </Link>
+            
+            <div
+             
+            >
+              {/*<Link to="/gold"
+               className={
+                darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
+              }
+              style={{
+                display: "block",
+                textDecoration: "none",                
+              }}> 
+              Gold (ETFs)</Link>*/}
             </div>
           </li>
         </ul>
@@ -1188,7 +1187,7 @@ const Navbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >
@@ -1204,7 +1203,7 @@ const Navbar = () => {
         </li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterStockDropdown}
             className="footer-link"
           >
@@ -1220,7 +1219,7 @@ const Navbar = () => {
         </li>
         <li className="portfolio-dropdown" ref={footerportfolioDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterPortfolioDropdown}
             className="footer-link"
           >
@@ -1236,7 +1235,7 @@ const Navbar = () => {
         </li>
         <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterMutualFundsDropdown}
             className="footer-link"
           >
@@ -1252,10 +1251,10 @@ const Navbar = () => {
         </li>
         <li className="learn-dropdown" ref={footerLearnDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterlearnDropdown}
             className="footer-link"
-          >d
+          >
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />

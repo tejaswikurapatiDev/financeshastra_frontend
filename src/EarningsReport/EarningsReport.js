@@ -81,7 +81,7 @@ const QuarterlyEarningsReport = () => {
         Quarterly Earnings Report
       </h2>
       <p className="earningpara">
-        Consolidated Figures in ₹ Crores / <a href="#">View Standalone</a>
+        Consolidated Figures in ₹ Crores / <a href="">View Standalone</a>
       </p>
 
       <div className="earnings-report">

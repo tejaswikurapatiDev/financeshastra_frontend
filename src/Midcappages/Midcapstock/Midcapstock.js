@@ -2156,7 +2156,7 @@ const Midcap = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/midcap"); // Navigate to the StockScreenerList page
+              navigate("/mid-cap-stocks"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
@@ -2168,7 +2168,7 @@ const Midcap = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/midcapvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/mid-cap-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2180,7 +2180,7 @@ const Midcap = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/midcapIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/mid-cap-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

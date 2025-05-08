@@ -211,19 +211,19 @@ const ContactFormmanagealert = () => {
             <p className="joinuson">Join us on:</p>
           </div>
           <div className="contactprofilemanagealert-social">
-            <a href="#" className="sociallmanagealert-icon">
+            <a href="" className="sociallmanagealert-icon">
               <RiFacebookFill />
             </a>
-            <a href="#" className="sociallmanagealert-icon">
+            <a href="" className="sociallmanagealert-icon">
               <FaTwitter />
             </a>
-            <a href="#" className="sociallmanagealert-icon">
+            <a href="" className="sociallmanagealert-icon">
               <FaInstagram />
             </a>
-            <a href="#" className="sociallmanagealert-icon">
+            <a href="" className="sociallmanagealert-icon">
               <FaLinkedinIn />
             </a>
-            <a href="#" className="sociallmanagealert-icon">
+            <a href="" className="sociallmanagealert-icon">
               <FaYoutube />
             </a>
           </div>

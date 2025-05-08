@@ -65,7 +65,7 @@ const IpoComponent = () => {
   }, []);
 
   const handleArticleClick = (id) => {
-    navigate(`/ipoDetails/${id}`);
+    navigate(`/markets/ipo-details/${id}`);
   };
 
   if (isLoading) {

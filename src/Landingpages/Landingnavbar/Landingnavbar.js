@@ -37,7 +37,7 @@ const StockDropdownMenu = () => (
       <ul>
         <li style={{ listStyle: "none" }}>
           <Link
-            to="/StockScreener"
+            to="/Stock-Screener"
             className="dropdown-item"
             style={{
               display: "block",
@@ -54,7 +54,7 @@ const StockDropdownMenu = () => (
 
         <li style={{ listStyle: "none" }}>
           <Link
-            to="/beststock"
+            to="/stocks/best-stock"
             className="dropdown-item"
             style={{
               display: "block",
@@ -70,7 +70,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/highgrowthstocks"
+            to="/stocks/high-growth-stocks"
             className="dropdown-item"
             style={{
               display: "block",
@@ -86,7 +86,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/nifty50stocks"
+            to="/nifty-50-stocks-list/"
             className="dropdown-item"
             style={{
               display: "block",
@@ -106,7 +106,7 @@ const StockDropdownMenu = () => (
       <ul>
         <li>
           <Link
-            to="/nifty100stocks"
+            to="/nifty-100-stocks-list"
             className="dropdown-item"
             style={{
               display: "block",
@@ -122,7 +122,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/smallcap"
+            to="/small-cap-stocks"
             className="dropdown-item"
             style={{
               display: "block",
@@ -135,7 +135,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/midcap"
+            to="/mid-cap-stocks"
             className="dropdown-item"
             style={{
               display: "block",
@@ -148,7 +148,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/largecap"
+            to="/large-cap-stocks"
             className="dropdown-item"
             style={{
               display: "block",
@@ -160,8 +160,8 @@ const StockDropdownMenu = () => (
           </Link>
         </li>
         <li>
-          <Link
-            to="/stockThemes"
+          {/*<Link
+            to="/stock-themes"
             className="dropdown-item"
             style={{
               display: "block",
@@ -170,7 +170,7 @@ const StockDropdownMenu = () => (
           >
             Stock Themes
             <p>Research is key before buying any stock</p>
-          </Link>
+          </Link>*/}
         </li>
       </ul>
     </div>
@@ -204,7 +204,7 @@ const PortfolioDropdownMenu = () => (
     </Link>
 
     <Link
-      to="/stockWatchlist"
+      to="/stock-watchlist"
       className="dropdown-item"
       style={{
         display: "block",
@@ -220,7 +220,7 @@ const PortfolioDropdownMenu = () => (
 const LearnDropdownMenu = () => (
   <div className="learn-lanmenu">
     <Link
-      to="/stockNews"
+      to="/stock-market-news"
       className="dropdown-item"
       style={{
         display: "block",
@@ -231,7 +231,7 @@ const LearnDropdownMenu = () => (
       <p>Discover what's happening in the stock markets in real-time</p>
     </Link>
 
-    <Link
+    {/*<Link
       to="/blogs"
       className="dropdown-item"
       style={{
@@ -241,10 +241,10 @@ const LearnDropdownMenu = () => (
     >
       Blogs
       <p>Investment Knowledge Hub</p>
-    </Link>
+    </Link>*/}
 
     <Link
-      to="/ipoDetails"
+      to="/markets/ipo-details"
       className="dropdown-item"
       style={{
         display: "block",
@@ -256,7 +256,7 @@ const LearnDropdownMenu = () => (
     </Link>
 
     <Link
-      to="/earningsInsightLearn"
+      to="/markets/earnings"
       className="dropdown-item"
       style={{
         display: "block",
@@ -267,7 +267,7 @@ const LearnDropdownMenu = () => (
       <p>Monitor thorough quarterly earnings summaries</p>
     </Link>
 
-    <Link
+    {/*<Link
       to="/learncard"
       className="dropdown-item"
       style={{
@@ -277,7 +277,7 @@ const LearnDropdownMenu = () => (
     >
       Learn
       <p> Knowledge is the key to successful trading—learn, adapt, and grow</p>
-    </Link>
+    </Link>*/}
   </div>
 );
 const MutualFundsDropdownMenu = () => (
@@ -286,7 +286,7 @@ const MutualFundsDropdownMenu = () => (
       <ul>
         <li>
           <Link
-            to="/mutualfund"
+            to="/mutual-funds/top-rated-mutual-funds"
             className="dropdown-item"
             style={{
               display: "block",
@@ -299,7 +299,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/fundscreener"
+            to="/mutual-funds/fund-screener"
             className="dropdown-item"
             style={{
               display: "block",
@@ -312,7 +312,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/bestsmallcaps"
+            to="/mutual-funds/best-small-cap-fund"
             className="dropdown-item"
             style={{
               display: "block",
@@ -323,7 +323,7 @@ const MutualFundsDropdownMenu = () => (
             <p>Strong returns by investing in high-growth opportunities.</p>
           </Link>
 
-          <Link
+          {/*<Link
             to="/market"
             className="dropdown-item"
             style={{
@@ -332,7 +332,7 @@ const MutualFundsDropdownMenu = () => (
             }}
           >
             Equity (ETFs)
-          </Link>
+          </Link>*/}
         </li>
       </ul>
     </div>
@@ -340,7 +340,7 @@ const MutualFundsDropdownMenu = () => (
       <ul>
         <li>
           <Link
-            to="/Bestgrowthfunds"
+            to="/mutual-funds/best-growth-funds"
             className="dropdown-item"
             style={{
               display: "block",
@@ -353,7 +353,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/flexfunds"
+            to="/mutual-funds/best-flex-cap-fund"
             className="dropdown-item"
             style={{
               display: "block",
@@ -366,7 +366,7 @@ const MutualFundsDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/etf"
+            to="/mutual-funds/exchange-traded-funds"
             className="dropdown-item"
             style={{
               display: "block",
@@ -378,7 +378,7 @@ const MutualFundsDropdownMenu = () => (
           </Link>
 
           <div>
-            <Link
+            {/*<Link
               to="/gold"
               className="dropdown-item"
               style={{
@@ -387,7 +387,7 @@ const MutualFundsDropdownMenu = () => (
               }}
             >
               Gold (ETFs)
-            </Link>
+            </Link>*/}
           </div>
         </li>
       </ul>
@@ -409,7 +409,7 @@ const renderhomeDropdown = () => (
     </Link>
 
     <Link
-      to="/porfolioanalysisallpagecall"
+      to="/portfolio-analysis-tool"
       className="dropdown-item"
       style={{
         display: "block",
@@ -420,7 +420,7 @@ const renderhomeDropdown = () => (
     </Link>
 
     <Link
-      to="/stockWatchlist"
+      to="/stock-watchlist"
       className="dropdown-item"
       style={{
         display: "block",
@@ -431,7 +431,7 @@ const renderhomeDropdown = () => (
     </Link>
 
     <Link
-      to="/stockresearchpages"
+      to="/stock-research-reports"
       className="dropdown-item"
       style={{
         display: "block",
@@ -453,7 +453,7 @@ const renderhomeDropdown = () => (
     </Link>
 
     <Link
-      to="/settingDashPanel"
+      to="/user-settings-dashboard"
       className="dropdown-item"
       style={{
         display: "block",
@@ -782,7 +782,7 @@ const Landingnavbar = () => {
               setDropdowns((prev) => ({ ...prev, stock: false }))
             }
           >
-            <Link to="#" onClick={() => toggleDropdown("stock")}>
+            <Link to="" onClick={() => toggleDropdown("stock")}>
               Stocks
               <FaChevronDown className="chevron-icon" />
             </Link>
@@ -1001,7 +1001,7 @@ const Landingnavbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href="#"
+            href=""
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >
