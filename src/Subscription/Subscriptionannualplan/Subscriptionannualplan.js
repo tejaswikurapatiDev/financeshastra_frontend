@@ -15,7 +15,7 @@ const SubscriptionPlans = () => {
 
   const fetchSubscription = useCallback(async () => {
     try {
-      const response = await fetch(`${API_BASE_URL}/subscriptions/plans`);
+      const response = await fetch(`${API_BASE_URL}/plan`);
       if (!response.ok) throw new Error("Failed to fetch plan details");
       const data = await response.json();
       setPlans(data);
