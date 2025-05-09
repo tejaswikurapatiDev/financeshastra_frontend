@@ -52,10 +52,10 @@ const Footer = () => {
         {footerStockDropdownOpen && renderStockDropdown()}
       </li>
       <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-        <a href="javascript:void(0)" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+        <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
           <div className="footer-item selected">
             <i className="footer-icon"><GiPieChart /></i>
-            <span>Portfolio</span>
+            <span >Portfolio</span>
             <FaChevronDown className="chevron-icon" />
           </div>
         </a>
@@ -71,11 +71,11 @@ const Footer = () => {
         </a>
         {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
       </li>
-      <li>
+      <li style={{display: "none"}}>
         <a href="/learn" className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><SlBookOpen /></i>
-            <span>Learn</span>
+            <span>Markets</span>
           </div>
         </a>
       </li>
