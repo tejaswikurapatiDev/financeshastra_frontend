@@ -42,7 +42,7 @@ const Footer = () => {
         </a>
       </li>
       <li className="stock-dropdown" ref={footerStockDropdownRef}>
-        <a href="" onClick={toggleFooterStockDropdown} className="footer-link">
+        <a href="javascript:void(0)" onClick={toggleFooterStockDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><LuChartNoAxesCombined /></i>
             <span>Stocks</span>
@@ -52,17 +52,17 @@ const Footer = () => {
         {footerStockDropdownOpen && renderStockDropdown()}
       </li>
       <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-        <a href="" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+        <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
           <div className="footer-item selected">
             <i className="footer-icon"><GiPieChart /></i>
-            <span>Portfolio</span>
+            <span >Portfolio</span>
             <FaChevronDown className="chevron-icon" />
           </div>
         </a>
         {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
       </li>
       <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-        <a href="" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+        <a href="javascript:void(0)" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><RiFundsLine /></i>
             <span>MFs</span>
@@ -71,11 +71,11 @@ const Footer = () => {
         </a>
         {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
       </li>
-      <li>
+      <li style={{display: "none"}}>
         <a href="/learn" className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><SlBookOpen /></i>
-            <span>Learn</span>
+            <span>Markets</span>
           </div>
         </a>
       </li>

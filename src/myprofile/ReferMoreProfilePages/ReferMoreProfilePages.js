@@ -158,7 +158,7 @@ const ReferMoreProfilePages = () => {
               Assist your friends in their investment journey and reach
               financial independence faster.
             </h1>
-            <a href="" className="myreferalpagesss-benefits-link">
+            <a href="javascript:void(0)" className="myreferalpagesss-benefits-link">
               View benefits
             </a>
           </div>
@@ -178,13 +178,13 @@ const ReferMoreProfilePages = () => {
             </button>
             <button
               className="myreferalpagesss-button "
-              onClick={() => navigate("/earningCalculatorProfilePage")}
+              onClick={() => navigate("/earning-calculator-profile")}
             >
               Earning Calculator
             </button>
             <button
               className="myreferalpagesss-button"
-              onClick={() => navigate("/reffeerralProfilePageSSS")}
+              onClick={() => navigate("/referal-profile")}
             >
               My Referrals
             </button>

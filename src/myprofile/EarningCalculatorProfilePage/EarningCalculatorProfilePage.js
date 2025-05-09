@@ -60,14 +60,14 @@ const EarningCalculatorProfilePage = () => {
       <div className="myreferalpagesss-header">
       <div className="myreferalpagesss-header-row">
   <h1>Assist your friends in their investment journey and reach financial independence faster.</h1>
-  <a href="" className="myreferalpagesss-benefits-link">View benefits</a>
+  <a href="javascript:void(0)" className="myreferalpagesss-benefits-link">View benefits</a>
 </div>
 
         <div className="myreferalpagesss-buttons">
           <button className="myreferalpagesss-button "onClick={() => navigate("/myReferrals")}>Overview</button>
           <button className="myreferalpagesss-button"onClick={() => navigate("/referMore")}>Refer More</button>
-          <button className="myreferalpagesss-button active"onClick={() => navigate("/earningCalculatorProfilePage")}>Earning Calculator</button>
-          <button className="myreferalpagesss-button"onClick={() => navigate("/reffeerralProfilePageSSS")}>My Referrals</button>
+          <button className="myreferalpagesss-button active"onClick={() => navigate("/earning-calculator-profile")}>Earning Calculator</button>
+          <button className="myreferalpagesss-button"onClick={() => navigate("/referal-profile")}>My Referrals</button>
         </div>
       </div>
     <div className="earningcalculatorprofilepage-container">

@@ -288,6 +288,12 @@ a span {
   transition: transform 0.3s ease;
 
 }
+.porchevron-icon{
+  margin-left: 5px;
+  color: #fff;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
 
 /* Logo styling */
 .navbar-logo {
@@ -582,31 +588,6 @@ a span {
   font-family: 'calibri';
 }
 
-.footer-item.selected {
-  color: #fff;
-  /* Text color */
-  background-color: #24b676;
-  /* Highlighted background */
-  padding: 5px 5px;
-  /* Inner spacing */
-  border-radius: 50%;
-  /* Circular appearance */
-  margin-bottom: 10px;
-  /* Space below the selected item */
-  box-shadow: 0px 4px 6px #a9e8c2;
-  /* Add subtle shadow for depth */
-  border: 5px solid #a9e8c2;
-  /* Light color border */
-  display: flex;
-  /* Align icon and text */
-  flex-direction: column;
-  /* Stack icon and text */
-  align-items: center;
-  /* Center alignment */
-  gap: 0;
-  /* Remove any spacing between icon and text */
-  font-family: 'calibri';
-}
 
 
 
@@ -904,7 +885,14 @@ a span {
     /* Reduce icon size */
     transition: transform 0.3s ease;
   }
+.porchevron-icon{
+   margin-left: 4px;
+    color: #fff;
+    font-size: 11px;
+    /* Reduce icon size */
+    transition: transform 0.3s ease;
 
+}
   span.willamname {
     font-size: 14px !important;
     margin-right: 5px !important;
@@ -979,6 +967,10 @@ a span {
 
 
   }
+  .porchevron-icon{
+margin-left: 0px;
+    font-size: 12px;
+  }
 
   .mutualstockmenu {
     width: 900% !important;
@@ -1005,7 +997,7 @@ a span {
     font-size: 14px;
     transition: transform 0.3s ease;
   }
-
+  
   /* Dropdown menu for user profile */
   .dropdown-menu {
     min-width: 140px;
@@ -1178,7 +1170,21 @@ a span {
     width: 150px;
     /* Reduce logo size */
   }
-
+.footer-item.selected {
+    color: #fff;
+    background-color: #24b676;
+    padding: 5px 7px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 6px #a9e8c2;
+    border: 5px solid #a9e8c2;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    font-family: 'calibri';
+}
   .navbar-search input {
     width: 160px;
     /* Reduce input width */
@@ -1252,7 +1258,11 @@ a span {
     font-size: 12px;
     /* Smaller chevron icon */
   }
-
+ .porchevron-icon {
+    font-size: 12px;
+            margin-left: 0px;
+    /* Smaller chevron icon */
+  }
   /* Adjust footer nav layout */
   .footer-nav {
     font-size: 12px;
@@ -1654,6 +1664,15 @@ a span {
 
 }
 
+/* Chevron Icon */
+.porchevron-icon {
+  margin-left: 5px;
+  color: #fff;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+
+}
+
 /* Navigation links */
 .navbar-linksdarkerrrrmode {
   display: flex;
@@ -1899,7 +1918,7 @@ a span {
   /* Text color */
   background-color: #24b676;
   /* Highlighted background */
-  padding: 5px 5px;
+  padding: 7px 10px;
   /* Inner spacing */
   border-radius: 50%;
   /* Circular appearance */
@@ -2178,6 +2197,13 @@ a span {
     transition: transform 0.3s ease;
 
   }
+  .porchevron-icon {
+    margin-left: 5px;
+    color: #fff;
+    font-size: 10px;
+    transition: transform 0.3s ease;
+
+  }
 
   .landingnavbar-buttonregister-button {
     background-color: transparent;
@@ -2336,7 +2362,12 @@ a span {
     font-size: 11px;
     transition: transform 0.3s ease;
   }
+.porchevron-icon {
+    margin-left: 0px;
 
+    font-size: 11px;
+    transition: transform 0.3s ease;
+  }
   /* Dropdown menu for user profile */
 
 
@@ -2612,6 +2643,11 @@ a span {
 
   .chevron-icon {
     font-size: 10px;
+    /* Smaller chevron icon */
+  }
+   .porchevron-icon {
+    font-size: 10px;
+    margin-left: 0px;
     /* Smaller chevron icon */
   }
 

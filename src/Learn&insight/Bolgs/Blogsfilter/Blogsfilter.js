@@ -11,6 +11,12 @@ import blog4 from "../../../assest/all4.jpeg";
 import blog5 from "../../../assest/all5.jpeg";
 import blog6 from "../../../assest/all6.jpeg";
 import { API_BASE_URL } from "../../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override={
+  display: "block",
+  textAlign: "center"
+}
 
 const BlogFilter = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -87,7 +93,16 @@ const BlogFilter = () => {
     return sortBy === "Latest" ? dateB - dateA : dateA - dateB;
   });
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="loader-cont">
+        <ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={loading}
+          speedMultiplier={1}
+          color="green"
+        />
+      </div>;
   if (error) return <div>Error: {error}</div>;
 
   return (

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./BalanceSheet.css";
 import { API_BASE_URL } from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const BalanceSheet = () => {
   // State for API data and loading/error handling
@@ -81,7 +86,16 @@ const BalanceSheet = () => {
 
   // Render loading or error states
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader-cont">
+                <ClipLoader
+                  cssOverride={override}
+                  size={35}
+                  data-testid="loader"
+                  loading={loading}
+                  speedMultiplier={1}
+                  color="green"
+                />
+              </div>;
   }
 
   if (error) {
@@ -93,7 +107,7 @@ const BalanceSheet = () => {
       <h2 className="sheethead">Balance Sheet</h2>
       <p className="sheetpara">
         Consolidated Figures in ₹ Crores /{" "}
-        <a className="sheeta" href="">
+        <a className="sheeta" href="javascript:void(0)">
           View Standalone
         </a>
       </p>
@@ -152,7 +166,16 @@ const Stockpeer = () => {
 
   // Render loading or error states
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader-cont">
+    <ClipLoader
+      cssOverride={override}
+      size={35}
+      data-testid="loader"
+      loading={loading}
+      speedMultiplier={1}
+      color="green"
+    />
+  </div>;
   }
 
   if (error) {

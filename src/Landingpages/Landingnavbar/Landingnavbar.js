@@ -1001,7 +1001,7 @@ const Landingnavbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href=""
+            href="javascript:void(0)"
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >
@@ -1043,7 +1043,7 @@ const Landingnavbar = () => {
                 <RiBriefcase4Line />
               </i>
               <span>Portfolio</span>
-              <FaChevronDown className="chevron-icon" />
+              <FaChevronDown className="porchevron-icon" />
             </div>
           </Link>
           {dropdowns.footerPortfolio && <PortfolioDropdownMenu />}

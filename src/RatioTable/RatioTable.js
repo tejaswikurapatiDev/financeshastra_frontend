@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./RatioTable.css";
 import { API_BASE_URL } from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center"
+}
 
 const RatioTable = () => {
   const [data, setData] = useState([]); // State to store transformed data
@@ -70,7 +76,16 @@ const RatioTable = () => {
 
   // Render loading or error states
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader-cont">
+      <ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={loading}
+        speedMultiplier={1}
+        color="green"
+      />
+    </div>;
   }
 
   if (error) {

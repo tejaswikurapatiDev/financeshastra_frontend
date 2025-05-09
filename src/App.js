@@ -517,7 +517,7 @@ function App() {
                 element={<EarningsInsightLearn />}
               />
               <Route
-                path="/quaterelyOverview"
+                path="/quarterly-overview"
                 element={<QuaterelyOverview />}
               />
               <Route path="/quaterlynewsList" element={<QuaterlynewsList />} />
@@ -635,11 +635,11 @@ function App() {
                 element={<ReferMoreProfilePages />}
               />
               <Route
-                path="/earningCalculatorProfilePage"
+                path="/earning-calculator-profile"
                 element={<EarningCalculatorProfilePage />}
               />
               <Route
-                path="/reffeerralProfilePageSSS"
+                path="/referal-profile"
                 element={<ReffeerralProfilePageSSS />}
               />
               <Route path="/fAQS" element={<FAQS />} />
@@ -719,7 +719,7 @@ function App() {
                 element={<Accountsipallpage />}
               />
 
-              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
+              <Route path="/smart-stocks-SIPs" element={<StocksSmartSIPPS />} />
 
               <Route path="/" element={<LandingPage />} />
 
@@ -808,7 +808,7 @@ function App() {
                 path="/portfolioanalyticchart"
                 element={<Portfolioanalyticchart />}
               />
-              <Route path="/forgetpassword" element={<Forgetpassword />} />
+              <Route path="/reset-password" element={<Forgetpassword />} />
               <Route
                 path="/openemailforgotpass"
                 element={<Openemailforgotpass />}
@@ -878,7 +878,7 @@ function App() {
               />
               <Route path="/contactus" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
+              <Route path="/smart-stocks-SIPs" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route path="/privacyPolicypage" element={<PrivacyPolicypage />} />
               <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment />} />

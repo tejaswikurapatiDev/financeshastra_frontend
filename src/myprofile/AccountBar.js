@@ -15,8 +15,8 @@ const tabs = [
     paths: [
       "/myReferrals",
       "/referMore",
-      "/earningCalculatorProfilePage",
-      "/reffeerralProfilePageSSS"
+      "/earning-calculator-profile",
+      "/referal-profile"
     ]
   }
 ];
