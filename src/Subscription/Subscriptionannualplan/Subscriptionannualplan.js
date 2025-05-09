@@ -6,6 +6,12 @@ import DealOfTheYearSection from "../DealOfTheYearSection/DealOfTheYearSection";
 import Navbar from '../../Navbar/Navbar';
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center"
+}
 
 const SubscriptionPlans = () => {
   const navigate = useNavigate();
@@ -35,7 +41,16 @@ const SubscriptionPlans = () => {
     window.scrollTo(0, 0);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="loader-cont">
+    <ClipLoader
+      cssOverride={override}
+      size={35}
+      data-testid="loader"
+      loading={loading}
+      speedMultiplier={1}
+      color="green"
+    />
+  </div>;
   if (error) return <div>Error: {error}</div>;
 
   const PlanFeatureItem = ({ feature, description }) => (
@@ -60,7 +75,7 @@ const SubscriptionPlans = () => {
 
   const parsePlanData = (apiPlan) => {
     const isPremium = apiPlan.plan === "Premium";
-    
+
     // Parse features
     const features = apiPlan.features.split('.').filter(Boolean).map(item => {
       const [feature, description] = item.split(':').map(part => part.trim());
@@ -80,8 +95,8 @@ const SubscriptionPlans = () => {
       duration: "12 Month",
       savings: isPremium ? "12,000" : "5,000", // Keeping your original savings display
       percentage: isPremium ? "66" : "55", // Keeping your original percentage display
-      description: isPremium 
-        ? "Invest smarter, invest confidently with the Premium Plan!" 
+      description: isPremium
+        ? "Invest smarter, invest confidently with the Premium Plan!"
         : "Empower your investment journey with the Elite Plan!",
       features,
       benefits,
@@ -117,7 +132,7 @@ const SubscriptionPlans = () => {
             <PlanSection title="Additional Benefits:" items={plan.benefits} />
           </div>
 
-          <button 
+          <button
             className={plan.buttonClass}
             onClick={() => handleNavigation(plan.path)}
           >
@@ -140,7 +155,7 @@ const SubscriptionPlans = () => {
         <div className="pricing-containertoggle">
           <div className="plans-wrapper">
             {elitePlan && renderPlanCard(elitePlan)}
-            
+
             {premiumPlan && (
               <div className="most-popular-container">
                 <h2 className="most-popular-text">Most Popular!</h2>

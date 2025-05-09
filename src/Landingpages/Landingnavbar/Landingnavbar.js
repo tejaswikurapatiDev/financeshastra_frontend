@@ -1001,7 +1001,7 @@ const Landingnavbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href=""
+            href="javascript:void(0)"
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >

@@ -81,7 +81,7 @@ const MutualFundsSchemeAllocation = () => {
       </div>
 
       <div className="view-holdings-container">
-        <a href="" className="view-holdings-link">
+        <a href="javascript:void(0)" className="view-holdings-link">
           View all Holdings &gt;
         </a>
       </div>

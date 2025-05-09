@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./EarningsReport.css";
 import ShareholdingChart from "../CircleChart/CircleChart";
 import { API_BASE_URL } from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+const override={
+  display: "block",
+  textAlign: "center",
+}
 
 const QuarterlyEarningsReport = () => {
   const [data, setData] = useState([]); // State to store transformed data
@@ -68,7 +73,16 @@ const QuarterlyEarningsReport = () => {
 
   // Render loading or error states
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader-cont">
+      <ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={loading}
+        speedMultiplier={1}
+        color="green"
+      />
+    </div>;
   }
 
   if (error) {
@@ -81,7 +95,7 @@ const QuarterlyEarningsReport = () => {
         Quarterly Earnings Report
       </h2>
       <p className="earningpara">
-        Consolidated Figures in ₹ Crores / <a href="">View Standalone</a>
+        Consolidated Figures in ₹ Crores / <a href="javascript:void(0)">View Standalone</a>
       </p>
 
       <div className="earnings-report">

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./CashFlowTable.css";
 import { API_BASE_URL } from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const CashFlowTable = () => {
   const [cashFlowData, setCashFlowData] = useState([]); // State to store transformed data
@@ -54,7 +59,16 @@ const CashFlowTable = () => {
 
   // Render loading or error states
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loader-cont">
+      <ClipLoader
+        cssOverride={override}
+        size={35}
+        data-testid="loader"
+        loading={loading}
+        speedMultiplier={1}
+        color="green"
+      />
+    </div>;
   }
 
   if (error) {
@@ -65,7 +79,7 @@ const CashFlowTable = () => {
     <div>
       <h2 className="cashhead">Cash Flow</h2>
       <p className="cashpara">
-        Consolidated Figures in ₹ Crores / <a href="">View Standalone</a>
+        Consolidated Figures in ₹ Crores / <a href="javascript:void(0)">View Standalone</a>
       </p>
 
       <div className="cash-flow-table">
