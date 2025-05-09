@@ -358,7 +358,7 @@ const AddTransactionstock = ({children}) => {
 
             {/* SIP Toggle */}
             <div className="sip-link">
-              <a href="" onClick={handleToggleSIP}>
+              <a href="javascript:void(0)" onClick={handleToggleSIP}>
                 Add SIP for this Stock
               </a>
             </div>

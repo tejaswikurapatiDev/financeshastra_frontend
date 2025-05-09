@@ -373,7 +373,7 @@ const Nifty50headerunlock = () => {
         </a>
       </li>
       <li className="stock-dropdown" ref={footerStockDropdownRef}>
-        <a href="" onClick={toggleFooterStockDropdown} className="footer-link">
+        <a href="javascript:void(0)" onClick={toggleFooterStockDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><LuChartNoAxesCombined /></i>
             <span>Stocks</span>
@@ -383,7 +383,7 @@ const Nifty50headerunlock = () => {
         {footerStockDropdownOpen && renderStockDropdown()}
       </li>
       <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-        <a href="" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+        <a href="javascript:void(0)" onClick={toggleFooterPortfolioDropdown} className="footer-link">
           <div className="footer-item selected">
             <i className="footerportfolio-icon"><RiBriefcase4Line /></i>
             <span>Portfolio</span>
@@ -393,7 +393,7 @@ const Nifty50headerunlock = () => {
         {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
       </li>
       <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-        <a href="" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+        <a href="javascript:void(0)" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><PiHandCoins /></i>
             <span>MFs</span>

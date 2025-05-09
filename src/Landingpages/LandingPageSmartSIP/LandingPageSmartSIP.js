@@ -52,7 +52,7 @@ const LandingPageSmartSIP = () => {
       <button
         className="landingpagesmartsip-button"
         onClick={() => {
-          navigate("/stocksSmartSIPS"); 
+          navigate("/smart-stocks-SIPs"); 
           window.scrollTo(0, 0); // Scroll to top after navigation
         }}
       >

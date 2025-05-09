@@ -117,7 +117,7 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  
+
   useEffect(() => {
     fetchNotifications();
   }, []);
@@ -371,12 +371,12 @@ const Navbar = () => {
     };
   }, []);
   useEffect(() => {
-      const storedUsername = localStorage.getItem("username");
-      if (storedUsername) {
-        setUsername(storedUsername);
-      }
-      
-    }, []);
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+
+  }, []);
 
   // Cleanup debounced function on unmount
   useEffect(() => {
@@ -645,17 +645,17 @@ const Navbar = () => {
       <Link
         to="/stock-market-news"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
-          style={{
-            display: "block",
-            textDecoration: "none",
-          
-            
-          }}>
-         Stock News
-          <p>Discover what's happening in the stock markets in real-time</p>
-        </Link>
-     
-        {/*<Link to="/blogs"
+        style={{
+          display: "block",
+          textDecoration: "none",
+
+
+        }}>
+        Stock News
+        <p>Discover what's happening in the stock markets in real-time</p>
+      </Link>
+
+      {/*<Link to="/blogs"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -685,15 +685,15 @@ const Navbar = () => {
         style={{
           display: "block",
           textDecoration: "none",
-        
-         
+
+
         }}>
-          Quarterly Earnings
-          <p>Monitor thorough quarterly earnings summaries</p>
-        </Link>
-    
-     
-        {/*<Link to="/learncard"
+        Quarterly Earnings
+        <p>Monitor thorough quarterly earnings summaries</p>
+      </Link>
+
+
+      {/*<Link to="/learncard"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
         style={{
           display: "block",
@@ -706,12 +706,13 @@ const Navbar = () => {
             Knowledge is the key to successful trading—learn, adapt, and grow
           </p>
         </Link>*/}
-      </div>
-  
+    </div>
+
   );
 
   const renderhomeDropdown = () => (
     <div className={darkMode ? "learn-homedarkerrrrmode" : "home-menu"}>
+      {console.log("renderhome")}
       <Link
         to="/home"
         className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
@@ -858,13 +859,13 @@ const Navbar = () => {
               }
               style={{
                 display: "block",
-                textDecoration: "none",                
+                textDecoration: "none",
               }}>
-                Best Small Cap Fund
-                <p>Strong returns by investing in high-growth opportunities.</p>
-              </Link>
-         
-             {/* <Link to="/market"
+              Best Small Cap Fund
+              <p>Strong returns by investing in high-growth opportunities.</p>
+            </Link>
+
+            {/* <Link to="/market"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
@@ -873,7 +874,7 @@ const Navbar = () => {
                 textDecoration: "none",                
               }}>
                 Equity (ETFs)</Link>*/}
-           
+
           </li>
         </ul>
       </div>
@@ -910,21 +911,21 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            
-              <Link to="/mutual-funds/exchange-traded-funds"
+
+            <Link to="/mutual-funds/exchange-traded-funds"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }
               style={{
                 display: "block",
-                textDecoration: "none",                
+                textDecoration: "none",
               }}>
-                Best ETF Fund
-                <p>Diverse and cost-effective investment strategy.</p>
-              </Link>
-            
+              Best ETF Fund
+              <p>Diverse and cost-effective investment strategy.</p>
+            </Link>
+
             <div
-             
+
             >
               {/*<Link to="/gold"
                className={
@@ -1046,9 +1047,8 @@ const Navbar = () => {
           {showDropdown && (
             <div
               ref={searchResultsRef}
-              className={`search-results-watchlist-sector ${
-                filterData.length > 0 ? "active" : ""
-              }`}
+              className={`search-results-watchlist-sector ${filterData.length > 0 ? "active" : ""
+                }`}
             >
               {filterData.length > 0 ? (
                 <ul>
@@ -1098,9 +1098,8 @@ const Navbar = () => {
                     onClick={() =>
                       !notif.is_read && markNotificationAsRead(notif.id)
                     }
-                    className={`notification-card ${
-                      notif.is_read ? "read" : "unread"
-                    }`}
+                    className={`notification-card ${notif.is_read ? "read" : "unread"
+                      }`}
                     style={{
                       backgroundColor: notif.is_read ? "#f0f0f0" : "#e0f7fa",
                       color: notif.is_read ? "#757575" : "#000",
@@ -1186,84 +1185,89 @@ const Navbar = () => {
 
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
-          <a
-            href=""
+          <button
+            type="button"
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
+            style={{ border: "none", backgroundColor: "transparent"}}
           >
             <div className="footer-item">
               <i className="footer-icon">
                 <RiHome5Fill />
               </i>
-              <span>Home</span>
+              <span style={{color: "#24b676"}}>Home</span>
               <FaChevronDown className="chevron-icon" />
             </div>
-          </a>
+          </button>
           {footerhomeDropdownOpen && renderhomeDropdown()}
         </li>
         <li className="stock-dropdown" ref={footerStockDropdownRef}>
-          <a
-            href=""
+          <button
+            type="button"
             onClick={toggleFooterStockDropdown}
             className="footer-link"
+            style={{ border: "none", backgroundColor: "transparent"}}
           >
             <div className="footer-item">
               <i className="footer-icon">
                 <LuChartNoAxesCombined />
               </i>
-              <span>Stocks</span>
+              <span style={{color: "#24b676"}}>Stocks</span>
               <FaChevronDown className="chevron-icon" />
             </div>
-          </a>
+          </button>
           {footerStockDropdownOpen && renderStockDropdown()}
         </li>
         <li className="portfolio-dropdown" ref={footerportfolioDropdownRef}>
-          <a
-            href=""
+          <button
+          type= "button"
             onClick={toggleFooterPortfolioDropdown}
             className="footer-link"
+            style={{ border: "none", backgroundColor: "transparent"}}
           >
             <div className="footer-item selected">
               <i className="footer-portfolio-icon">
                 <RiBriefcase4Line />
               </i>
-              <span>Portfolio</span>
+              <span style={{color: "#24b676"}}>Portfolio</span>
               <FaChevronDown className="chevron-icon" />
             </div>
-          </a>
+          </button>
           {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
         </li>
         <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-          <a
-            href=""
+          <button 
+          type="button"
             onClick={toggleFooterMutualFundsDropdown}
             className="footer-link"
+            style={{ border: "none", backgroundColor: "transparent"}}
           >
             <div className="footer-item">
               <i className="footer-icon">
                 <PiHandCoins />
               </i>
-              <span>MFs</span>
+              <span style={{color: "#24b676"}}>MFs</span>
               <FaChevronDown className="chevron-icon" />
             </div>
-          </a>
+          </button>
           {footerMutualFundsDropdownOpen && renderMutualFundsDropdown()}
         </li>
         <li className="learn-dropdown" ref={footerLearnDropdownRef}>
-          <a
-            href=""
+          <button
+          type="button"
             onClick={toggleFooterlearnDropdown}
             className="footer-link"
-          >d
+            style={{ border: "none", backgroundColor: "transparent"}}
+          >
             <div className="footer-item">
               <i className="footer-icon">
                 <SlBookOpen />
               </i>
-              <span>Learn</span>
+              <span style={{color: "#24b676"}}>Learn</span>
               <FaChevronDown className="chevron-icon" />
               {footerLearnDropdownOpen && renderlearnDropdown()}
             </div>
-          </a>
+          </button>
         </li>
       </ul>
     </>
