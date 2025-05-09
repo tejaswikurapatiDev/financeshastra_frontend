@@ -93,7 +93,7 @@ const BalanceSheet = () => {
       <h2 className="sheethead">Balance Sheet</h2>
       <p className="sheetpara">
         Consolidated Figures in ₹ Crores /{" "}
-        <a className="sheeta" href="#">
+        <a className="sheeta" href="">
           View Standalone
         </a>
       </p>

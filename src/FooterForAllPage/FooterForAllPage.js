@@ -23,32 +23,32 @@ const FooterForAllPage = () => {
   const footerData = [
     { title: "Stocks", links: ["Stock Screener", "High Growth Stocks", "Nifty 50 Companies", "Small Cap Stocks", "Mid Cap Stocks","Large Cap Stocks"] },
     { title: "Mutual Fund", links: ["Fund Screener", "Best Small Cap Fund", "Best Growth Fund", "Best Flexi Cap Fund", "Best ETF Fund"] },
-    { title: "Learn & Insights", links: ["Stock News", "IPO Details","Blogs", "Market Insights", "Quarterly Earnings", "Learn"] },
+    { title: "Market", links: ["Stock News", "IPO Details","Blogs", "Market Insights", "Quarterly Earnings", "Learn"] },
     { title: "Quick Links", links: ["Plan & Pricing", "Talk to Us", "Disclaimer", "Refund Policy", "Careers"] },
     { title: "About Us", links: ["Who We Are?", "Why FinanceShastra?", "Contact Us"] },
   ];
   const stockRoutes = {
-    "Stock Screener": "/StockScreener",
-    "High Growth Stocks": "/highgrowthstocks",
-    "Nifty 50 Companies": "/nifty50stocks",
-    "Small Cap Stocks": "/smallcap",
-    "Mid Cap Stocks": "/midcap",
-    "Large Cap Stocks":"/largecap"
+    "Stock Screener": "/Stock-Screener",
+    "High Growth Stocks": "/stocks/high-growth-stocks",
+    "Nifty 50 Companies": "/nifty-50-stocks-list/",
+    "Small Cap Stocks": "/small-cap-stocks",
+    "Mid Cap Stocks": "/mid-cap-stocks",
+    "Large Cap Stocks":"/large-cap-stocks"
   };
   const mutualRoutes = {
-    "Top Rated Funds": "/mutualfund",
-    "Fund Screener": "/fundscreenerregular",
-    "Best Small Cap Fund": "/bestsmallcapregular",
-    "Best Growth Fund": "/bestgrowthregular",
-    "Best Flexi Cap Fund": "/flexregular",
-    "Best ETF Fund": "/etfregular",
+    "Top Rated Funds": "/mutual-funds/top-rated-mutual-funds",
+    "Fund Screener": "/mutual-funds/fund-screener",
+    "Best Small Cap Fund": "/mutual-funds/best-small-cap-fund",
+    "Best Growth Fund": "/mutual-funds/best-growth-funds",
+    "Best Flexi Cap Fund": "/mutual-funds/best-flex-cap-fund",
+    "Best ETF Fund": "/mutual-funds/exchange-traded-funds",
   };
   const learnRoutes = {
-    "Stock News": "/stockNews",
-    "IPO Details": "/ipoDetails",
+    "Stock News": "/stock-market-news",
+    "IPO Details": "/markets/ipo-details",
     "Blogs": "/blogs",
    
-    "Quarterly Earnings": "/earningsInsightLearn",
+    "Quarterly Earnings": "/markets/earnings",
     "Learn": "/learncard",
   };
   
@@ -78,18 +78,7 @@ const FooterForAllPage = () => {
       {/* Desktop Footer */}
       
       <footer className={darkMode ? "FooterForAllPagedarkfooter" : "FooterForAllPage-footer"}>
-        <div className="FooterForAllPage-top-section">
-          <div className="FooterForAllPage-stock-list">
-            <div className="FooterForAllPage-stock-letters">
-              <span className="FooterForAllPage-stock-title">Stock List</span>
-              {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                <span key={letter} className="FooterForAllPage-letter">
-                  {letter}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+       
 
         <div className="FooterForAllPage-main-section">
           <div className="FooterForAllPage-logo-social">
@@ -97,11 +86,11 @@ const FooterForAllPage = () => {
               <img src={finanlog} alt="FinanceShastra Logo" onClick={() => navigate("/")}style={{cursor:"pointer"}} className="FooterForAllPage-logo-img" />
             </div>
             <div className="FooterForAllPage-social-icons">
-              <a  href="https://www.facebook.com/FinanceShastra/" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaFacebookF /></a>
-              <a href="https://x.com/FinanceShastra" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaTwitter /></a>
-              <a href="https://www.instagram.com/financeshastra_official" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><AiFillInstagram /></a>
-              <a href="https://www.linkedin.com/company/financeshastra/" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaLinkedinIn /></a>
-              <a   href="https://www.youtube.com/@FinanceShastra" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaYoutube /></a>
+              <a  href="https://www.facebook.com/FinanceShastra/" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaFacebookF /></a>
+              <a href="https://x.com/FinanceShastra" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaTwitter /></a>
+              <a href="https://www.instagram.com/financeshastra_official" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><AiFillInstagram /></a>
+              <a href="https://www.linkedin.com/company/financeshastra/" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaLinkedinIn /></a>
+              <a href="https://www.youtube.com/@FinanceShastra" target="_blank" className={darkMode ? "FooterForAllPage-social-darkicon" : "FooterForAllPage-social-icon"}><FaYoutube /></a>
             </div>
           </div>
 
@@ -188,12 +177,7 @@ const FooterForAllPage = () => {
 
           <div className="footermobileviewpages-stock-section">
             
-            <div className="footermobileviewpages-stock-letters">
-            <p className="footermobileviewpages-stock-title">Stock List</p>
-            {Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i)).map((letter) => (
-                <span key={letter} className="footermobileviewpages-letter">{letter}</span>
-              ))}
-            </div>
+          
           </div>
 
           <div className="footermobileviewpages-social-icons">

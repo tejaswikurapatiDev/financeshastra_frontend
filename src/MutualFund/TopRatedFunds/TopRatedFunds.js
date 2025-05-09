@@ -6,6 +6,9 @@ import "./TopRatedFunds.css";
 import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useTopRatedFunds from "../Hooks/useTopRatedFunds";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
+import TopRatedFundsdirect from "../TopRatedFundsdirect/TopRatedFundsdirect";
 
 const headers = [
   { key: "FundName", label: "Funds" },
@@ -22,6 +25,8 @@ const headers = [
 
 
 const TopRatedFunds = () => {
+  const location = useLocation();
+  const [activetab, setactivetab] = useState('regular')
   const navigate = useNavigate();
   const { topRatedFunds, loading, error } = useTopRatedFunds();
   const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
@@ -68,15 +73,16 @@ const TopRatedFunds = () => {
 
     return (
       <span className="sort-icons">
-      <FaCaretUp className={`icon-up ${isAscending ? "active" : "inactive"}`} />
-      <FaCaretDown className={`icon-down ${isDescending ? "active" : "inactive"}`} />
-    </span>
-    
+        <FaCaretUp className={`icon-up ${isAscending ? "active" : "inactive"}`} />
+        <FaCaretDown className={`icon-down ${isDescending ? "active" : "inactive"}`} />
+      </span>
+
     );
   };
 
   return (
     <div>
+      <Meta path={location.pathname} />
       <Navbar />
       <div className="funds-table-container">
         <div className="funds-header">
@@ -84,15 +90,15 @@ const TopRatedFunds = () => {
           <div className="topfundbutton-container">
             <button
               className="fund-button regular"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/mutualfund")}
+              style={activetab === 'regular' ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
+              onClick={() => setactivetab('regular')}
             >
               Regular
             </button>
             <button
               className="fund-button direct"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/mutualfunddirect")}
+              style={activetab === 'direct' ? { backgroundColor: "#24b676", color: "white" } : { backgroundColor: "white", color: "black" }}
+              onClick={() => setactivetab("direct")}
             >
               Direct
             </button>
@@ -105,61 +111,62 @@ const TopRatedFunds = () => {
           top-performing mutual funds across different categories helps you
           identify options that suit your financial objectives.
         </p>
-
-        {loading ? (
-          <div className="spinner"></div>
-        ) : error ? (
-          <p className="error-text">Error: {error}</p>
-        ) : (
-          <div className="table-wrapper">
-            <table className="funds-table">
-              <thead>
-                <tr className="funds-table-header">
-                  {headers.map(({ key, label }) => (
-                    <th key={key} onClick={() => handleSort(key)}>
-                      {label} {renderSortIcons(key)}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {currentData.map((fund, index) => (
-                  <tr key={index} className="funds-table-row">
-                    <td>
-                      <Link to={`/mutualfundgrowth/${fund.fund_id}`} className="fund-name-link">
-                        {fund.name}
-                      </Link>
-                    </td>
-                    <td>{fund.rating}★</td>
-                    <td>{fund.riskometer}</td>
-                    <td>{fund.nav ? `₹${fund.nav}` : "N/A"}</td>
-                    <td>{`₹${fund.current_aum_cr} Cr`}</td>
-                    <td>{`₹${fund.min_sip}`}</td>
-                    <td>{`${fund.expense_ratio}%`}</td>
-                    <td>{fund.return_1_year ? `${fund.return_1_year}%` : "N/A"}</td>
-                    <td>{fund.return_3_years ? `${fund.return_3_years}%` : "N/A"}</td>
-                    <td>{fund.return_5_years ? `${fund.return_5_years}%` : "N/A"}</td>
+        {activetab === 'regular' ? <div>
+          {loading ? (
+            <div className="spinner"></div>
+          ) : error ? (
+            <p className="error-text">Error: {error}</p>
+          ) : (
+            <div className="table-wrapper">
+              <table className="funds-table">
+                <thead>
+                  <tr className="funds-table-header">
+                    {headers.map(({ key, label }) => (
+                      <th key={key} onClick={() => handleSort(key)}>
+                        {label} {renderSortIcons(key)}
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          
-            <div className="pagination-topratedcontainer">
-            <div className="pagination-topratedwrapper">
-            <div className="pagination-topratedinfo">
-              {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${topRatedFunds.length} records`}
-            </div>
-            <div className="pagination-topratedcontainer-buttons">
-              <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
-              {[...Array(totalPages)].map((_, i) => (
-                <button key={i + 1} onClick={() => handlePageChange(i + 1)} className={currentPage === i + 1 ? "active" : ""}>{i + 1}</button>
-              ))}
-              <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
+                </thead>
+                <tbody>
+                  {currentData.map((fund, index) => (
+                    <tr key={index} className="funds-table-row">
+                      <td>
+                        <Link to={`/mutualfundgrowth/${fund.fund_id}`} className="fund-name-link">
+                          {fund.name}
+                        </Link>
+                      </td>
+                      <td>{fund.rating} ★</td>
+                      <td>{fund.riskometer}</td>
+                      <td>{fund.nav ? `₹${fund.nav}` : "N/A"}</td>
+                      <td>{`₹${fund.current_aum_cr} Cr`}</td>
+                      <td>{`₹${fund.min_sip}`}</td>
+                      <td>{`${fund.expense_ratio}%`}</td>
+                      <td>{fund.return_1_year ? `${fund.return_1_year}%` : "N/A"}</td>
+                      <td>{fund.return_3_years ? `${fund.return_3_years}%` : "N/A"}</td>
+                      <td>{fund.return_5_years ? `${fund.return_5_years}%` : "N/A"}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <div className="pagination-topratedcontainer">
+                <div className="pagination-topratedwrapper">
+                  <div className="pagination-topratedinfo">
+                    {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${topRatedFunds.length} records`}
+                  </div>
+                  <div className="pagination-topratedcontainer-buttons">
+                    <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>&lt;</button>
+                    {[...Array(totalPages)].map((_, i) => (
+                      <button key={i + 1} onClick={() => handlePageChange(i + 1)} className={currentPage === i + 1 ? "active" : ""}>{i + 1}</button>
+                    ))}
+                    <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>&gt;</button>
+                  </div>
+                </div>
               </div>
-              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div> : <TopRatedFundsdirect />}
       </div>
       <FooterForAllPage />
     </div>

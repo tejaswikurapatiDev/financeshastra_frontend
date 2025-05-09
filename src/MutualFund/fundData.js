@@ -13,7 +13,7 @@ export const fundData = [
   },
   {
     name: "Motilal Oswal Midcap Fund",
-    url: "/mutualfund/motilal-oswal-midcap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/motilal-oswal-midcap-fund",
     rating: "5 ★",
     riskometer: "Very High",
     nav: "₹210.60",
@@ -24,7 +24,7 @@ export const fundData = [
   },
   {
     name: "Mirae Asset ELSS Tax Saver Fund",
-    url: "/mutualfund/mirae-asset-elss-tax-saver-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/mirae-asset-elss-tax-saver-fund",
     rating: "5 ★",
     riskometer: "Very High",
     nav: "₹48.24",
@@ -35,7 +35,7 @@ export const fundData = [
   },
   {
     name: "Bandhan ELSS Tax Saver Fund",
-    url: "/mutualfund/bandhan-elss-tax-saver-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/bandhan-elss-tax-saver-fund",
     rating: "5 ★",
     riskometer: "Very High",
     nav: "₹152.22",
@@ -46,7 +46,7 @@ export const fundData = [
   },
   {
     name: "Canara Robeco Bluechip Equity Fund",
-    url: "/mutualfund/canara-robeco-bluechip-equity-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/canara-robeco-bluechip-equity-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹62.09",
@@ -57,7 +57,7 @@ export const fundData = [
   },
   {
     name: "Kotak Multicap Fund",
-    url: "/mutualfund/kotak-multicap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/kotak-multicap-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹19.46",
@@ -68,7 +68,7 @@ export const fundData = [
   },
   {
     name: "Axis Small Cap Fund",
-    url: "/mutualfund/axis-small-cap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/axis-small-cap-fund",
     rating: "4 ★",
     riskometer: "Moderate",
     nav: "₹108.47",
@@ -79,7 +79,7 @@ export const fundData = [
   },
   {
     name: "Aditya Birla Sun Life Tax Relief Fund",
-    url: "/mutualfund/aditya-birla-sun-life-tax-relief-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/aditya-birla-sun-life-tax-relief-fund",
     rating: "5 ★",
     riskometer: "High",
     nav: "₹137.98",
@@ -90,7 +90,7 @@ export const fundData = [
   },
   {
     name: "HDFC Mid Cap Opportunities Fund",
-    url: "/mutualfund/hdfc-mid-cap-opportunities-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/hdfc-mid-cap-opportunities-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹191.91",
@@ -101,7 +101,7 @@ export const fundData = [
   },
   {
     name: "Edelweiss Mid Cap Fund",
-    url: "/mutualfund/edelweiss-mid-cap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/edelweiss-mid-cap-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹101.52",
@@ -112,7 +112,7 @@ export const fundData = [
   },
   {
     name: "HSBC Tax Saver Equity Fund",
-    url: "/mutualfund/hsbc-tax-saver-equity-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/hsbc-tax-saver-equity-fund",
     rating: "5 ★",
     riskometer: "Moderate",
     nav: "₹26.47",
@@ -123,7 +123,7 @@ export const fundData = [
   },
   {
     name: "Canara Robeco Bluechip Equity Fund",
-    url: "/mutualfund/canara-robeco-bluechip-equity-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/canara-robeco-bluechip-equity-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹62.09",
@@ -134,7 +134,7 @@ export const fundData = [
   },
   {
     name: "Nippon India Growth Fund Direct Growth",
-    url: "/mutualfund/nippon-india-growth-fund-direct-growth",
+    url: "/mutual-funds/top-rated-mutual-funds/nippon-india-growth-fund-direct-growth",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹4,516.25",
@@ -145,7 +145,7 @@ export const fundData = [
   },
   {
     name: "SBI Small Cap Fund",
-    url: "/mutualfund/sbi-small-cap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/sbi-small-cap-fund",
     rating: "3 ★",
     riskometer: "Very High",
     nav: "₹229.64",
@@ -156,7 +156,7 @@ export const fundData = [
   },
   {
     name: "Aditya Birla Sun Life Tax Relief Fund",
-    url: "/mutualfund/aditya-birla-sun-life-tax-relief-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/aditya-birla-sun-life-tax-relief-fund",
     rating: "5 ★",
     riskometer: "High",
     nav: "₹137.98",
@@ -167,7 +167,7 @@ export const fundData = [
   },
   {
     name: "HDFC Mid Cap Opportunities Fund",
-    url: "/mutualfund/hdfc-mid-cap-opportunities-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/hdfc-mid-cap-opportunities-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹191.91",
@@ -178,7 +178,7 @@ export const fundData = [
   },
   {
     name: "Edelweiss Mid Cap Fund",
-    url: "/mutualfund/edelweiss-mid-cap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/edelweiss-mid-cap-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹101.52",
@@ -189,7 +189,7 @@ export const fundData = [
   },
   {
     name: "Kotak Multicap Fund",
-    url: "/mutualfund/kotak-multicap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/kotak-multicap-fund",
     rating: "4 ★",
     riskometer: "Very High",
     nav: "₹19.46",
@@ -200,7 +200,7 @@ export const fundData = [
   },
   {
     name: "Axis Small Cap Fund",
-    url: "/mutualfund/axis-small-cap-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/axis-small-cap-fund",
     rating: "4 ★",
     riskometer: "Moderate",
     nav: "₹108.47",
@@ -211,7 +211,7 @@ export const fundData = [
   },
   {
     name: "Tata Infrastructure Fund",
-    url: "/mutualfund/tata-infrastructure-fund",
+    url: "/mutual-funds/top-rated-mutual-funds/tata-infrastructure-fund",
     rating: "3 ★",
     riskometer: "Low to Moderate",
     nav: "₹189.02",

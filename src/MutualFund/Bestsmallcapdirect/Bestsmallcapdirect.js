@@ -119,7 +119,7 @@ const Bestsmallcapdirect = () => {
                         </Link>
                       )}
                     </td>
-                    <td>{fund.Rating.split(" ")[0]}</td>
+                    <td>{fund.Rating.split(" ")[0]} ★</td>
                     <td>{fund.Riskometer}</td>
                     <td>{fund.NAV_Direct ? `₹${fund.NAV_Direct}` : "N/A"}</td>
                     <td>{`₹${fund.AUM} Cr`}</td>

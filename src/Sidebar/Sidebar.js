@@ -22,18 +22,18 @@ const Sidebar = () => {
                 </a>
 
                 <a 
-                    href="/porfolioanalysisallpagecall" 
+                    href="/portfolio-analysis-tool" 
                   
                     className={`sidebar-item ${["/porfolioanalysisallpagecall", "/portfolioanalysisdividendcall","/portfoliobonuscall","/portfoliosplitcall","/portfolioanalysisrightscall"
-                        ,"/portfolioAGMcall","/portfolioHoldingdetailPage"
+                        ,"/portfolioAGMcall","/portfolio-trade-records"
                     ].includes(location.pathname) ? "active" : ""}`}
                 >
                     <GrAnalytics className="sideicon"/> Portfolio Analysis
                 </a>
 
                 <a 
-    href="/stockWatchlist" 
-    className={`sidebar-item ${["/stockWatchlist", "/mutualWatchlist","/goldWatchlistall","/stockwatchlistsector","/stockwatchlistmcap"
+    href="/stock-watchlist" 
+    className={`sidebar-item ${["/stockWatchlist", "/mutual-fund-watchlist","/gold-watchlist","/stockwatchlistsector","/stockwatchlistmcap"
         ,"/mutualwatchlistsector","/mutualwatchlisttype"
     ].includes(location.pathname) ? "active" : ""}`} 
 >
@@ -42,7 +42,7 @@ const Sidebar = () => {
 
 
                 <a 
-                    href="/stockresearchpages" 
+                    href="/stock-research-reports" 
                     className={`sidebar-item ${location.pathname === "/stockresearchpages" ? "active" : ""}`} 
                 >
                     <LiaSearchengin className="sideicon"/> Research
@@ -56,7 +56,7 @@ const Sidebar = () => {
                 </a>
 
                 <a 
-                    href="/settingDashPanel" 
+                    href="/user-settings-dashboard" 
                     className={`sidebar-item ${location.pathname === "/settingDashPanel" ? "active" : ""}`} 
                 >
                     <IoSettingsOutline className="sideicon" /> Setting

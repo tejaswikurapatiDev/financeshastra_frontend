@@ -6,6 +6,7 @@ import { setSearchData } from "../../Store/Slices/searchDataSlice";
 import { debounce } from "lodash";
 import { API_BASE_URL } from "../../config";
 import { DarkModeContext } from "../../Portfoilo/context/DarkModeContext";
+import { useNavigate } from "react-router-dom";
 
 const LandingPageUnlockInvest = () => {
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
@@ -14,6 +15,7 @@ const LandingPageUnlockInvest = () => {
   //state for search suggestion dropdown
   const [showDropdown, setShowDropdown] = useState(false);
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   // getting data from redux store
   const getDataFromStore = useSelector((store) => store.searchData.searchData);
@@ -84,6 +86,21 @@ const LandingPageUnlockInvest = () => {
     setFilterData([]);
   };
 
+  const handleSearchItemClick = (data) => {
+    setSearchInputText(data.name || data.Scheme_Name);
+    setFilterData([]);
+    setShowDropdown(false);
+    if (data.id || data.symbol) {
+      navigate(`/stockhandle/${data.id || data.symbol}`, {
+        state: { item: data },
+      });
+    } else if (data.ID) {
+      navigate(`/mutualfundgrowth/${data.ID}`, {
+        state: { item: data },
+      });
+    }
+  };
+
   return (
     <div
       className={
@@ -124,11 +141,7 @@ const LandingPageUnlockInvest = () => {
                           <li
                             key={data.id}
                             onClick={() => {
-                              handleSearchInputText(
-                                data.name || data.Scheme_Name
-                              );
-                              setFilterData([]);
-                              setShowDropdown(false);
+                              handleSearchItemClick(data);
                             }}
                           >
                             {data.name} {data.Scheme_Name} {data.sector}{" "}

@@ -1,22 +1,135 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
-
 import DealOfTheYearSection from "../DealOfTheYearSection/DealOfTheYearSection";
 import Navbar from '../../Navbar/Navbar';
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
+import { API_BASE_URL } from "../../config";
 
 const SubscriptionPlans = () => {
-  const [isAnnually, setIsAnnually] = useState(false);
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
+  const [plans, setPlans] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const handleToggle = () => {
-    setIsAnnually(!isAnnually);
-    if (!isAnnually) {
-      navigate("/subscription"); // Navigate to the annual plan page
+  const fetchSubscription = useCallback(async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/plan`);
+      if (!response.ok) throw new Error("Failed to fetch plan details");
+      const data = await response.json();
+      setPlans(data);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
+  }, []);
+
+  useEffect(() => {
+    fetchSubscription();
+  }, [fetchSubscription]);
+
+  const handleNavigation = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  const PlanFeatureItem = ({ feature, description }) => (
+    <li className="plan-featuresli">
+      <span className="plan-featuresspan">{feature}</span>
+      <span className="plan-featuresp">{description}</span>
+    </li>
+  );
+
+  const PlanSection = ({ title, items }) => (
+    <>
+      <h4 className="plan-featuresh4">
+        <FontAwesomeIcon icon={faCircleCheck} /> {title}
+      </h4>
+      <ul className="plan-featuresul">
+        {items.map((item, index) => (
+          <PlanFeatureItem key={index} {...item} />
+        ))}
+      </ul>
+    </>
+  );
+
+  const parsePlanData = (apiPlan) => {
+    const isPremium = apiPlan.plan === "Premium";
+    
+    // Parse features
+    const features = apiPlan.features.split('.').filter(Boolean).map(item => {
+      const [feature, description] = item.split(':').map(part => part.trim());
+      return { feature, description: description ? `: ${description}` : '' };
+    });
+
+    // Parse additional benefits
+    const benefits = apiPlan.additional_benefits.split('\n').filter(Boolean).map(item => {
+      const [feature, description] = item.split(':').map(part => part.trim());
+      return { feature, description: description ? `: ${description}` : '' };
+    });
+
+    return {
+      title: apiPlan.plan,
+      price: isPremium ? "7,999" : "3,999", // Keeping your original pricing display
+      originalPrice: isPremium ? "19,999" : "8,999", // Keeping your original pricing display
+      duration: "12 Month",
+      savings: isPremium ? "12,000" : "5,000", // Keeping your original savings display
+      percentage: isPremium ? "66" : "55", // Keeping your original percentage display
+      description: isPremium 
+        ? "Invest smarter, invest confidently with the Premium Plan!" 
+        : "Empower your investment journey with the Elite Plan!",
+      features,
+      benefits,
+      buttonClass: isPremium ? "pay-now-btnfooter" : "pay-now-btn",
+      path: `/subscribe-${apiPlan.plan}`
+    };
+  };
+
+  const renderPlanCard = (plan, isPopular = false) => (
+    <div className={`plan-card ${isPopular ? 'permium-plan' : 'elite-plan'}`}>
+      <div className="plan-header">
+        <div className="plan-header-content">
+          <h2 className={`plan-header-title${isPopular ? '' : 'elite'}`}>{plan.title}</h2>
+          <p className="plan-description">{plan.description}</p>
+
+          <div className="ribbon-price">
+            <span className="price-value">₹{plan.price}</span>
+            <span className="price-valuemonth"> / {plan.duration}</span>
+            <span className={`ribbon-price-detail${isPopular ? '' : 'elite'}`}> ₹{plan.originalPrice}</span>
+            <div className={isPopular ? "text-blacks" : "text-black"}>
+              You save
+              <span className="text-highlight"> ₹{plan.savings}</span>
+              <span className="text-highlight"> ({plan.percentage}%)</span>
+              <span className={isPopular ? "text-blacks" : "text-blackyear"}> a year</span>
+            </div>
+          </div>
+
+          <div className="plan-features">
+            <PlanSection title="Features:" items={plan.features} />
+          </div>
+
+          <div className="plan-additional-benefits">
+            <PlanSection title="Additional Benefits:" items={plan.benefits} />
+          </div>
+
+          <button 
+            className={plan.buttonClass}
+            onClick={() => handleNavigation(plan.path)}
+          >
+            Subscribe
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
+  const elitePlan = parsePlanData(plans.find(plan => plan.plan === "Elite"));
+  const premiumPlan = parsePlanData(plans.find(plan => plan.plan === "Premium"));
 
   return (
     <div>
@@ -25,202 +138,15 @@ const SubscriptionPlans = () => {
       <div className="subscription-container">
         <h1 className='subscriptionh2'>Choose a plan that aligns with trading goals !</h1>
         <div className="pricing-containertoggle">
-        
           <div className="plans-wrapper">
-            {/* Elite Plan */}
-            <div className="plan-card elite-plan">
-              <div className="plan-header">
-                <div className="plan-header-content">
-                  <h2 className="plan-header-titleelite">Elite</h2>
-
-                  <p className="plan-description">Empower your investment journey with the Elite Plan!</p>
-
-
-
-                  <div className="ribbon-price">
-                    <span className="price-value" >₹3,999</span>
-                    <span className="price-valuemonth"> / 12 Month</span>
-                    <span className="ribbon-price-detailelite">   ₹8,999</span>
-
-                    <div className="text-black">You save
-                      <span className="text-highlight"> ₹5,000</span>
-                      <span className="text-highlight"> (55%)</span>
-                      <span className="text-blackyear"> a year</span>
-                    </div>
-
-                  </div>
-                  <div class="plan-features">
-                    <h4 className='plan-featuresh4'>
-                      <FontAwesomeIcon icon={faCircleCheck} />Features:
-                    </h4>
-
-                    <ul className="plan-featuresul">
-                      <li className="plan-featuresli">
-                        <span className='plan-featuresspan'> 50 Stock Recommendations</span>
-                        <span className='plan-featuresp'> : Expert recommendations to build a focused and profitable portfolio.</span>
-                      </li>
-                      <li className="plan-featuresli">
-                        <span>Stocks Screener </span>
-                        <span className='plan-featuresp'> : Access essential tools to analyze and screen stocks effectively.</span>
-                      </li>
-                      <li className="plan-featuresli">
-                        <span> Research Tool </span>
-                        <span className='plan-featuresp'> : Utilize advanced resources for in-depth stock research.</span>
-                      </li>
-                      <li className="plan-featuresli">
-                        <span>  Discover Top-rated Stocks</span>
-                        <span className='plan-featuresp'> : Easily find the best-performing stocks.</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="plan-additional-benefits">
-                    <h4 className='plan-featuresh4'> <FontAwesomeIcon icon={faCircleCheck} />Features: Additional Benefits:</h4>
-                    <ul className="plan-featuresul">
-                      <li className="plan-featuresli">
-                        <span className='plan-featuresspan'> Stock of the Month</span>
-                        <span className='plan-featuresp'> : One carefully selected stock handpicked by our investment committee every month.</span>
-                      </li>
-                      <li className="plan-featuresli">
-                        <span className='plan-featuresspan'>Research Reports </span>
-                        <span className='plan-featuresp'> : Access the real-time research report on any stock.</span>
-                      </li>
-                      <li className="plan-featuresli">
-                        <span className='plan-featuresspan'>Momentum Stocks </span>
-                        <span className='plan-featuresp'> :Identify and capitalize on the best momentum stocks for any market phase.</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <button className="pay-now-btn" 
-                     onClick={() => {
-                      navigate("/subscribe-Elite"); 
-                      window.scrollTo(0, 0); // Scroll to top after navigation
-                    }}>
-                    Subscribe
-                  </button>
-                </div>
-
+            {elitePlan && renderPlanCard(elitePlan)}
+            
+            {premiumPlan && (
+              <div className="most-popular-container">
+                <h2 className="most-popular-text">Most Popular!</h2>
+                {renderPlanCard(premiumPlan, true)}
               </div>
-            </div>
-
-            {/* Most Popular Container */}
-            <div className="most-popular-container">
-              <h2 className="most-popular-text">Most Popular!</h2>
-
-
-              {/* Premium Plan */}
-              <div className="plan-card permium-plan">
-                <div className="plan-header">
-                  <div className="plan-header-content">
-                    <h2 className="plan-header-title">Premium</h2>
-                    <p className="plan-description">
-                      Invest smarter, invest confidently with the Premium Plan!
-                    </p>
-                    <div className="ribbon-price">
-                      <span className="price-value">₹7,999</span>
-                      <span className="price-valuemonth"> / 12 Months</span>
-                      <span className="ribbon-price-detail"> ₹19,999 </span>
-                      <div className="text-black">
-                        You save
-                        <span className="text-highlight"> ₹12,000</span>
-                        <span className="text-highlight"> (66%)</span>
-                        <span className="text-blacks"> a year</span>
-                      </div>
-                    </div>
-
-                    <div className="plan-features">
-                      <h4 className="plan-featuresh4">
-                        <FontAwesomeIcon icon={faCircleCheck} /> Features:
-                      </h4>
-
-                      <ul className="plan-featuresul">
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">150 Stock Recommendations</span>
-                          <span className="plan-featuresp">
-                            : Expert recommendations on 150 to optimize your portfolio.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">StockSIP</span>
-                          <span className="plan-featuresp">
-                            : Automate your investments with StockSIP for consistent wealth creation.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Premium Screener</span>
-                          <span className="plan-featuresp">
-                            : Access advanced tools to filter and analyze stocks tailored to your specific investment strategy.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Q&A Feature</span>
-                          <span className="plan-featuresp">
-                            : Get personalized investment advice from our experts.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Discover Top-rated Stocks</span>
-                          <span className="plan-featuresp">
-                            : Identify the best-performing stocks based on comprehensive research and analysis.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Premium Actionable Insights</span>
-                          <span className="plan-featuresp">
-                            : Stay ahead of the market with exclusive updates and analysis on market trends.
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="plan-additional-benefits">
-                      <h4 className="plan-featuresh4">
-                        <FontAwesomeIcon icon={faCircleCheck} /> Additional Benefits:
-                      </h4>
-                      <ul className="plan-featuresul">
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Stock Research</span>
-                          <span className="plan-featuresp">
-                            : Receive detailed buy/sell/hold recommendations on all stocks, backed by deep, data-driven research.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Stock of the Week</span>
-                          <span className="plan-featuresp">
-                            : Gain access to a high-potential stock, carefully handpicked and recommended by our research team.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Research Reports</span>
-                          <span className="plan-featuresp">
-                            : Access the real-time research reports on any stock to help you make informed decisions.
-                          </span>
-                        </li>
-                        <li className="plan-featuresli">
-                          <span className="plan-featuresspan">Momentum Stocks</span>
-                          <span className="plan-featuresp">
-                            : Identify and capitalize on the best momentum stocks across any market phase, enhancing your portfolio's growth potential.
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <button
-                      className="pay-now-btnfooter"
-                    
-                      onClick={() => {
-                        navigate("/subscribe-Premium") 
-                        window.scrollTo(0, 0); // Scroll to top after navigation
-                      }}
-                    >
-                      Subscribe
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
+            )}
           </div>
         </div>
       </div>
@@ -228,9 +154,6 @@ const SubscriptionPlans = () => {
         <FooterForAllPage />
       </div>
     </div>
-
-
-
   );
 };
 

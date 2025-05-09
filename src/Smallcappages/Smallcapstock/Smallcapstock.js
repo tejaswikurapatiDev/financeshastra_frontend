@@ -12,13 +12,15 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import { API_BASE_URL } from "../../config";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
 };
 
 const Smallcap = () => {
+  const location = useLocation();
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [isloading, setisloading] = useState(true);
   const [isSubed, setisSubed] = useState(false);
@@ -1253,6 +1255,7 @@ const Smallcap = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">List of Top Small Cap Companies</h1>
         <div className="screener-filters">
@@ -2153,7 +2156,7 @@ const Smallcap = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/smallcap"); // Navigate to the StockScreenerList page
+              navigate("/small-cap-stocks"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
@@ -2165,7 +2168,7 @@ const Smallcap = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/smallcapvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/small-cap-valuation-stocks"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2177,7 +2180,7 @@ const Smallcap = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/smallcapIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/small-cap-incomestatement-stocks"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

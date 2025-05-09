@@ -16,7 +16,7 @@ const PortfolioStocksector = () => {
     const navigate = useNavigate();
   
     const [isDropdownOpen, setIsDropdownOpen] = useState(
-      location.pathname === "/portfoliostockaccount"
+      location.pathname === "/portfolio-management-stocks"
     );
   
     const toggleDropdown = () => {
@@ -52,7 +52,7 @@ const PortfolioStocksector = () => {
                     name="groupBy"
                     value="none"
                     defaultChecked
-                    onClick={() => navigate("/portfoliostockaccount")}
+                    onClick={() => navigate("/portfolio-management-stocks")}
                   />{" "}
                   None
                   <input
@@ -147,7 +147,7 @@ const PortfolioStocksector = () => {
     }}
   >
     <Link
-      to="/portfoliostockaccount"
+      to="/portfolio-management-stocks"
       style={{ textDecoration: 'none', color: 'black' }}
     >
       Transaction History

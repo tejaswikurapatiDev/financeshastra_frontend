@@ -12,6 +12,8 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 const override = {
   display: "block",
@@ -19,6 +21,7 @@ const override = {
 };
 
 const Largecap = () => {
+  const location = useLocation();
   const [stocks, setStocks] = useState(screenerStockListData);
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [isloading, setisloading] = useState(true);
@@ -1253,6 +1256,7 @@ const Largecap = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">List of Top Large Cap Companies</h1>
         <div className="screener-filters">
@@ -2153,7 +2157,7 @@ const Largecap = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/largecap");
+              navigate("/large-cap-stocks");
             }}
           >
             Overview
@@ -2165,7 +2169,7 @@ const Largecap = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/largecapvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/large-cap-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2177,7 +2181,7 @@ const Largecap = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/largecapIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/large-cap-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

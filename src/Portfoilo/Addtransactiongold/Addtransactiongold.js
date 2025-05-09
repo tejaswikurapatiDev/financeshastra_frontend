@@ -101,7 +101,7 @@ const AddTransactiongold = ({children}) => {
                 throw new Error(errorData.error || "Failed to add transaction");
             }
 
-            navigate("/portfoliostockaccount", {
+            navigate("/portfolio-management-stocks", {
                 state: { updatedTransactions: transactions },
             });
         } catch (error) {
@@ -190,7 +190,7 @@ const AddTransactiongold = ({children}) => {
                                 <input type="text" name="notes" value={transactionData.notes} onChange={(e) => handleInputChange(index, e)} className="transaction-input" />
                             </label>
                             <div className="sip-link">
-                                <a href="#" onClick={() => handleToggleSIP(index)}>
+                                <a href="" onClick={() => handleToggleSIP(index)}>
                                     Add SIP for this Stock
                                 </a>
                             </div>

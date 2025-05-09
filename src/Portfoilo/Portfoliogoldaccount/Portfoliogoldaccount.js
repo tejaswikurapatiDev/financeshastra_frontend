@@ -16,7 +16,7 @@ const Portfoliogoldaccount = () => {
   const navigate = useNavigate();
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
+    location.pathname === "/portfolio-management-stocks"
   );
   const [transactions, setTransactions] = useState([
     {
@@ -195,7 +195,7 @@ const Portfoliogoldaccount = () => {
                 }}
               >
                 <Link
-                  to="/portfoliogoldtoppage"
+                  to="/portfolio-management-gold"
                   style={{ textDecoration: 'none', color: 'black' }}
                 >
                   Transaction History

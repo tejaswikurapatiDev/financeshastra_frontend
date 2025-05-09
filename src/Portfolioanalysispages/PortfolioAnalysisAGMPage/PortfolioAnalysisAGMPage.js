@@ -62,52 +62,7 @@ const PortfolioAnalysisAGMPage = () => {
     },
   ];
 
-
-  const PortfolioAnalysisCorporatePagetabs = [
-    { label: "Board - Meetings", navigationPath: "/porfolioanalysisallpagecall"},
-    { label: "Dividends", navigationPath: "/portfolioanalysisdividendcall"},
-    { label: "Bonus", navigationPath: "/portfoliobonuscall" },
-    { label: "Splits", navigationPath: "/portfoliosplitcall" },
-    { label: "Rights - Issue", navigationPath: "/portfolioanalysisrightscall" },
-    { label: "AGM / EGM", navigationPath: "/portfolioAGMcall" },
-  
-  ];
-
   return (
- 
-    <div className="portfolianalysiscorporatepage-container">
-      <div className="portfolianalysiscorporatepage-header">
-        <h2>Corporate Action</h2>
-        <div className="portfolianalysiscorporatepage-toggle">
-        <label className="portfolianalysiscorporatepageswitch">
-    <input
-      type="checkbox"
-      checked={isUpcoming}
-      onChange={() => setIsUpcoming(!isUpcoming)}
-    />
-    <span className="portfolianalysiscorporatepageslider"></span>
-  </label>
-  <span>Upcoming</span>
-  
-</div>
-
-      </div>
-      <div className="portfolianalysiscorporatepage-tabs">
-      {PortfolioAnalysisCorporatePagetabs.map((tab) => (
-        <div
-          key={tab.label}
-          className={`portfolianalysiscorporatepage-tab ${
-            activeTab === tab.label ? "active" : ""
-          }`}
-          onClick={() => {
-            setActiveTab(tab.label);
-            navigate(tab.navigationPath);
-          }}
-        >
-          {tab.label}
-        </div>
-      ))}
-    </div>
     <div className="portfolianalysiscorporatepage-table-wrapper">
     <div className="portfolianalysiscorporatepage-table">
       <table>
@@ -127,14 +82,13 @@ const PortfolioAnalysisAGMPage = () => {
               </td>
               <td>{item.exDate}</td>
               <td>
-                  {item.agenda} <a href="#">Read more</a>
+                  {item.agenda} <a href="">Read more</a>
                 </td>
               
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
     </div>
     </div>
   

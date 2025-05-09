@@ -9,17 +9,20 @@ import { useSelector } from "react-redux";
 import { debounce } from "lodash";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Sidebar from "../../Sidebar/Sidebar";
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 
 const StockWatchlist = ({ children }) => {
+  const location = useLocation();
   const navigate = useNavigate();
-  useEffect(()=>{
+  useEffect(() => {
     const token = Cookies.get("jwtToken");
-        if (!token) {
-          navigate("/login");
-          return;
-        }else{
-          fetchWatchlists();
-        }
+    if (!token) {
+      navigate("/login");
+      return;
+    } else {
+      fetchWatchlists();
+    }
   }, [])
 
   const getStockData = useSelector(
@@ -119,10 +122,10 @@ const StockWatchlist = ({ children }) => {
         ...prev,
         filterResults: searchText
           ? getStockData.filter(
-              (item) =>
-                item.name?.toLowerCase().includes(searchText.toLowerCase()) ||
-                item.symbol?.toLowerCase().includes(searchText.toLowerCase())
-            )
+            (item) =>
+              item.name?.toLowerCase().includes(searchText.toLowerCase()) ||
+              item.symbol?.toLowerCase().includes(searchText.toLowerCase())
+          )
           : [],
       }));
     }, 300),
@@ -447,7 +450,7 @@ const StockWatchlist = ({ children }) => {
   };
 
   // Effects
- 
+
 
   useEffect(() => {
     debounceSearch(stockInput.name);
@@ -513,6 +516,7 @@ const StockWatchlist = ({ children }) => {
 
     return (
       <div className="popup-overlay">
+        <Meta path={location.pathname} />
         <div className="popup-container" ref={renamePopupRef}>
           <h3>Rename Watchlist</h3>
           <input
@@ -587,7 +591,7 @@ const StockWatchlist = ({ children }) => {
 
       {/* Navigation tabs */}
       <div className="networth-tabswatclist">
-        <Link to="/stockwatchlist">
+        <Link to="/stock-watchlist">
           <button
             className="networth-tab"
             style={{ background: "#24b676", color: "white" }}
@@ -595,7 +599,7 @@ const StockWatchlist = ({ children }) => {
             Stocks
           </button>
         </Link>
-        <Link to="/mutualWatchlist">
+        <Link to="/mutual-fund-watchlist">
           <button
             className="networth-tab"
             style={{ background: "white", color: "black" }}
@@ -603,7 +607,7 @@ const StockWatchlist = ({ children }) => {
             Mutual Fund
           </button>
         </Link>
-        <Link to="/goldWatchlistall">
+        <Link to="/gold-watchlist">
           <button
             className="networth-tab"
             style={{ background: "white", color: "black" }}
@@ -698,9 +702,8 @@ const StockWatchlist = ({ children }) => {
                 {/* Search results */}
                 {stockInput.name && (
                   <div
-                    className={`search-resultswatchlistsector ${
-                      stockInput.filterResults.length > 0 ? "active" : ""
-                    }`}
+                    className={`search-resultswatchlistsector ${stockInput.filterResults.length > 0 ? "active" : ""
+                      }`}
                   >
                     {stockInput.filterResults.length > 0 ? (
                       <ul>
@@ -759,7 +762,7 @@ const StockWatchlist = ({ children }) => {
                 type="radio"
                 name="groupBywatchlist"
                 value="nonewatchlist"
-                onClick={() => navigate("/stockwatchlist")}
+                onClick={() => navigate("/stock-watchlist")}
                 defaultChecked
                 style={{
                   width: "14px",
@@ -853,7 +856,7 @@ const StockWatchlist = ({ children }) => {
         <div className="main-contentover">
           <div className="contentover">{children}</div>
           <div className="oversidefooter">
-          <FooterForAllPage />
+            <FooterForAllPage />
           </div>
         </div>
       </div>

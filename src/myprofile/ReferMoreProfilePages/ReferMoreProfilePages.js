@@ -158,7 +158,7 @@ const ReferMoreProfilePages = () => {
               Assist your friends in their investment journey and reach
               financial independence faster.
             </h1>
-            <a href="#" className="myreferalpagesss-benefits-link">
+            <a href="" className="myreferalpagesss-benefits-link">
               View benefits
             </a>
           </div>

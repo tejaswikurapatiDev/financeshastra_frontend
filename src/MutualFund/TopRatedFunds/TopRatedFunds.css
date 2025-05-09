@@ -157,9 +157,10 @@ margin-top: -5px;
 
 .pagination-topratedwrapper {
     display: flex;
-    justify-content: space-between; /* Ensures left and right spacing */
+  
+    gap: 970px;
     align-items: center;
-    width: 100%; /* Adjusts width for better alignment */
+    width: 58%; /* Adjusts width for better alignment */
     max-width: 1700px; /* Prevents stretching on larger screens */
     margin-top: -90px;
 }
@@ -213,6 +214,15 @@ margin-top: -5px;
   .funds-header {
     margin-top: -80px;
   }
+  .pagination-topratedwrapper {
+    display: flex;
+    gap: 930px;
+    align-items: center;
+    width: 100%; /* Adjusts width for better alignment */
+    max-width: 1700px; /* Prevents stretching on larger screens */
+    margin-top: -90px;
+}
+
 }
 
 @media (min-width: 1024px) and (max-width: 1279px)  {
@@ -224,7 +234,14 @@ margin-top: -5px;
     color: white;
     font-size: 11px;
 }
-  
+.pagination-topratedwrapper {
+  display: flex;
+  gap: 550px;
+  align-items: center;
+  width: 100%; /* Adjusts width for better alignment */
+  max-width: 1700px; /* Prevents stretching on larger screens */
+  margin-top: -90px;
+}
 .sort-icons .icon-up,
 .sort-icons .icon-down {
   font-size: 10px
@@ -260,6 +277,14 @@ margin-top: -5px;
       gap: 5px;
       margin-left: 520px;
   }
+  .pagination-topratedwrapper {
+    display: flex;
+    gap: 350px;
+    align-items: center;
+    width: 100%; /* Adjusts width for better alignment */
+    max-width: 1700px; /* Prevents stretching on larger screens */
+    margin-top: -90px;
+  }
 
   .fund-button {
       width: 100%;
@@ -287,6 +312,15 @@ margin-top: -5px;
   .funds-table-container {
       width: 90%;
       margin-top: 30px;
+  }
+  .pagination-topratedwrapper {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Adjusts width for better alignment */
+    max-width: 1700px; /* Prevents stretching on larger screens */
+    margin-top: -90px;
   }
 
   .funds-header {

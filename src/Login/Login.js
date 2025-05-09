@@ -19,6 +19,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa"; // Import eye icons
 import { requestNotificationPermission } from "../firebase/firebaseMessaging"; // Import FCM function
 
 import { UserProfileContext } from "../Portfoilo/context/UserProfileContext";
+import Meta from "../Meta";
+
 const override = {
   display: "block",
   textAlign: "center",
@@ -225,11 +227,12 @@ function Login() {
 
   return (
     <div className={darkMode ? "login-containerdarkmode" : "login-container"}>
+      <Meta path="/login" />
       <div className={darkMode ? "login-leftdarkmode" : "login-left"}>
         <img
           src={logoimg}
           onClick={() => navigate("/")}
-          className={darkMode ? "logoforgtdarkmode" : "logoforgt"}
+          className={darkMode ? "logoforgtdarkmode" : "logoforgtsign"}
         />
       </div>
       <div className={darkMode ? "login-rightdarkmode" : "login-right"}>
@@ -403,7 +406,7 @@ function Login() {
                       style={{
                         cursor: "pointer",
                         position: "absolute",
-                        right: "28px",
+                        right: "33px",
                         top: "50%",
                         transform: "translateY(-50%)",
                       }}
@@ -448,7 +451,7 @@ function Login() {
                 </div>
                 <div>
                   <a
-                    href="#"
+                    href=""
                     onClick={(e) => {
                       e.preventDefault();
                       navigate("/forgetpassword");
@@ -510,7 +513,7 @@ function Login() {
                 {" "}
                 Terms & Conditions
               </a>
-              <a href="#" className="registerContglblack-text">
+              <a href="" className="registerContglblack-text">
                 {" "}
                 and
               </a>
@@ -525,7 +528,7 @@ function Login() {
           <div className="register-link">
             <p className="register-linkp">
               Don't have an account?{" "}
-              <a href="#" onClick={handleRegisterClick}>
+              <a href="" onClick={handleRegisterClick}>
                 Register
               </a>
             </p>

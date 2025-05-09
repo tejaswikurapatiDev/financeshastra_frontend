@@ -11,7 +11,8 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
@@ -28,6 +29,7 @@ const Beststock = () => {
   const [activeTab, setActiveTab] = useState("Overview");
   const [isDivYieldDropdownVisible, setDivYieldDropdownVisible] =
     useState(false);
+    const location = useLocation();
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
     pe: [], // Initialize as an empty array
@@ -1280,6 +1282,7 @@ const Beststock = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">Best Stocks</h1>
         <div className="screener-filters">
@@ -2180,7 +2183,7 @@ const Beststock = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/beststock");
+              navigate("/stocks/best-stock");
             }}
           >
             Overview
@@ -2192,7 +2195,7 @@ const Beststock = () => {
             }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/bestStockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stocks/best-stocks-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2204,7 +2207,7 @@ const Beststock = () => {
             }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/bestStockIncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks/best-stocks-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

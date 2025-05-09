@@ -56,14 +56,14 @@ const UpdateTransaction = ({children}) => {
 
   // Handle save action
   const handleSave = () => {
-    navigate("/portfoliostockaccount", {
+    navigate("/portfolio-management-stocks", {
       state: { updatedTransaction: editedTransaction },
     });
   };
 
   // Handle cancel action
   const handleCancel = () => {
-    navigate("/portfoliostockaccount");
+    navigate("/portfolio-management-stocks");
   };
 
   // Toggle SIP form visibility
@@ -223,7 +223,7 @@ const UpdateTransaction = ({children}) => {
 
             {/* SIP Toggle */}
             <div className="sip-link">
-              <a href="#" onClick={toggleSIPForm}>
+              <a href="" onClick={toggleSIPForm}>
                 Add SIP for this Stock
               </a>
             </div>

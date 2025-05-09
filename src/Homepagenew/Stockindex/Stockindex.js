@@ -280,7 +280,7 @@ const Dashboardstockindex = () => {
                 <td>{row.stock_index}</td>
                 <td>{row.pe}</td>
                 <td>
-                  <a href="#" className="clarification-link">
+                  <a href="" className="clarification-link">
                     Know more
                   </a>
                 </td>

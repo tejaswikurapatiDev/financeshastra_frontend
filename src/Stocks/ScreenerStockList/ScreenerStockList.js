@@ -12,7 +12,8 @@ import Navbar from "../../Navbar/Navbar";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
 import ClipLoader from "react-spinners/ClipLoader";
-
+import Meta from "../../Meta";
+import { useLocation } from "react-router-dom";
 const override = {
   display: "block",
   textAlign: "center",
@@ -26,6 +27,7 @@ const ScreenerStockList = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Overview");
   const [currentPage, setCurrentPage] = useState(1);
+  const location = useLocation();
   const [filters, setFilters] = useState({
     epsDilGrowth: [], // Initialize as an empty array
     pe: [], // Initialize as an empty array
@@ -1256,6 +1258,7 @@ const ScreenerStockList = () => {
   };
   return (
     <div>
+      <Meta path={location.pathname} />
       <div className="screener-container">
         <h1 className="screener-header">Stocks Screener</h1>
         <div className="screener-filters">
@@ -2162,7 +2165,7 @@ const ScreenerStockList = () => {
             className={`tab-button ${activeTab === "Overview" ? "active" : ""}`}
             onClick={() => {
               setActiveTab("Overview");
-              navigate("/StockScreener"); // Navigate to the StockScreenerList page
+              navigate("/Stock-Screener"); // Navigate to the StockScreenerList page
             }}
           >
             Overview
@@ -2173,7 +2176,7 @@ const ScreenerStockList = () => {
               }`}
             onClick={() => {
               setActiveTab("Valuation");
-              navigate("/ScreenerStockvaluation"); // Navigate to the ScreenerStockvaluation page
+              navigate("/stock-screener-valuation"); // Navigate to the ScreenerStockvaluation page
             }}
           >
             Valuation
@@ -2184,7 +2187,7 @@ const ScreenerStockList = () => {
               }`}
             onClick={() => {
               setActiveTab("Income Statement");
-              navigate("/IncomeStatement"); // Add a route for Income Statement if needed
+              navigate("/stocks-screener-incomestatement"); // Add a route for Income Statement if needed
             }}
           >
             Income Statement

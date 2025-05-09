@@ -102,25 +102,25 @@ const Nifty50headerunlock = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/StockScreener">Stock Screener
+              <Link to="/Stock-Screener">Stock Screener
                 <p>Discover stocks based on various filters and criteria to make informed decisions.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/beststock">Best Stock
+              <Link to="/stocks/best-stock">Best Stock
                 <p>Explore the best stocks for investment based on analysis and trends.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/highgrowthstocks">High Growth Stocks
+              <Link to="/stocks/high-growth-stocks">High Growth Stocks
                 <p>Find stocks that are expected to grow rapidly in the upcoming years.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/nifty50stocks">Nifty 50 Companies
+              <Link to="/nifty-50-stocks-list/">Nifty 50 Companies
                 <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>
@@ -130,25 +130,25 @@ const Nifty50headerunlock = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/nifty100stocks">Nifty 100 Companies
+              <Link to="/nifty-100-stocks-list">Nifty 100 Companies
                 <p>Explore all 500 companies listed on the Nifty index to diversify your portfolio.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/smallcap">Small Cap
+              <Link to="/small-cap-stocks">Small Cap
                 <p>Invest in smaller companies with high potential for growth.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/midcap">Mid Cap
+              <Link to="/mid-cap-stocks">Mid Cap
                 <p>Discover mid-sized companies with a strong growth trajectory.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/largecap">Large Cap
+              <Link to="/large-cap-stocks">Large Cap
                 <p>Focus on large, established companies with stable returns.</p></Link>
             </div>
           </li>
@@ -160,7 +160,7 @@ const Nifty50headerunlock = () => {
   const renderPortfolioDropdown = () => (
     <div className="dropdown-menu">
       <div className="dropdown-item">
-        <Link to="/portfolio">My Portfolio
+        <Link to="/portfolio-management-dashboard">My Portfolio
           <p>Your financial navigator</p></Link>
       </div>
       <div className="dropdown-item">
@@ -168,7 +168,7 @@ const Nifty50headerunlock = () => {
           <p>Risk evaluation and insights</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/stockwatchlist">Watchlist
+        <Link to="/stock-watchlist">Watchlist
           <p>Monitor, assess, and improve</p></Link>
       </div>
     </div>
@@ -176,7 +176,7 @@ const Nifty50headerunlock = () => {
   const renderlearnDropdown = () => (
     <div className="learn-menu">
       <div className="dropdown-item">
-        <Link to="/stockNews">Stock News
+        <Link to="/stock-market-news">Stock News
           <p>Discover what's happening in the stock markets in real-time</p></Link>
       </div>
       <div className="dropdown-item">
@@ -184,15 +184,15 @@ const Nifty50headerunlock = () => {
           <p>Investment Knowledge Hub</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/ipoDetails">IPO Details
+        <Link to="/markets/ipo-details">IPO Details
           <p>Key Information on the Latest IPO Trends</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/stockwatchlist">Market Insights
+        <Link to="/stock-watchlist">Market Insights
           <p>Keep up with in-depth market insights</p></Link>
       </div>
       <div className="dropdown-item">
-        <Link to="/earningsInsightLearn">Quarterly Earnings
+        <Link to="/markets/earnings">Quarterly Earnings
           <p>Monitor thorough quarterly earnings summaries</p></Link>
       </div>
       <div className="dropdown-item">
@@ -227,21 +227,21 @@ const Nifty50headerunlock = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/mutualfund">Top Rated Funds
+              <Link to="/mutual-funds/top-rated-mutual-funds">Top Rated Funds
                 <p>Focus on risk management and long-term growth.</p>
               </Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/fundscreenerregular">Fund Screener
+              <Link to="/mutual-funds/fund-screener">Fund Screener
                 <p>Efficient filter and compare investment options.</p></Link>
             </div>
           </li>
           <li>
             <div className="dropdown-item">
 
-              <Link to="/bestsmallcapregular">Best Small Cap Fund
+              <Link to="/mutual-funds/best-small-cap-fund">Best Small Cap Fund
                 <p>Strong returns by investing in high-growth opportunities.</p></Link>
             </div>
             <div className="dropdown-item">
@@ -256,7 +256,7 @@ const Nifty50headerunlock = () => {
         <ul>
           <li>
             <div className="dropdown-item">
-              <Link to="/bestgrowthregular">Best Growth Fund
+              <Link to="/mutual-funds/best-growth-funds">Best Growth Fund
                 <p>Focus on high-potential growth.</p></Link>
             </div>
           </li>
@@ -268,7 +268,7 @@ const Nifty50headerunlock = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/etfregular">Best ETF Fund
+              <Link to="/mutual-funds/exchange-traded-funds">Best ETF Fund
                 <p>Diverse and cost-effective investment strategy.</p></Link>
             </div>
             <div className="dropdown-item">
@@ -320,7 +320,7 @@ const Nifty50headerunlock = () => {
           <li className="learn-dropdown" ref={learnDropdownRef} onMouseEnter={() => setLearnDropdownOpen(true)}
             onMouseLeave={() => setLearnDropdownOpen(false)}>
             <Link to="#" onClick={togglelearnDropdown}>
-              Learn & Insights
+              Markets
               <FaChevronDown onClick={togglelearnDropdown} className="chevron-icon" />
             </Link>
             {learnDropdownOpen && renderlearnDropdown()}
@@ -373,7 +373,7 @@ const Nifty50headerunlock = () => {
         </a>
       </li>
       <li className="stock-dropdown" ref={footerStockDropdownRef}>
-        <a href="#" onClick={toggleFooterStockDropdown} className="footer-link">
+        <a href="" onClick={toggleFooterStockDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><LuChartNoAxesCombined /></i>
             <span>Stocks</span>
@@ -383,7 +383,7 @@ const Nifty50headerunlock = () => {
         {footerStockDropdownOpen && renderStockDropdown()}
       </li>
       <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-        <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+        <a href="" onClick={toggleFooterPortfolioDropdown} className="footer-link">
           <div className="footer-item selected">
             <i className="footerportfolio-icon"><RiBriefcase4Line /></i>
             <span>Portfolio</span>
@@ -393,7 +393,7 @@ const Nifty50headerunlock = () => {
         {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
       </li>
       <li className="mutualfunds-dropdown" ref={footerMutualFundsDropdownRef}>
-        <a href="#" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
+        <a href="" onClick={toggleFooterMutualFundsDropdown} className="footer-link">
           <div className="footer-item">
             <i className="footer-icon"><PiHandCoins /></i>
             <span>MFs</span>

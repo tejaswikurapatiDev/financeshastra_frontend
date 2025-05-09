@@ -14,6 +14,8 @@ import logo from "../assest/Logo design (1).png";
 import { API_BASE_URL } from "../config";
 import Cookies from "js-cookie";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Meta from "../Meta";
+import { useLocation } from "react-router-dom";
 
 const override = {
   display: "block",
@@ -33,6 +35,7 @@ function Register() {
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams] = useSearchParams();
   const referralCode = searchParams.get("referralCode");
+  const location = useLocation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -158,12 +161,14 @@ function Register() {
   };
 
   return (
+    
     <div className="login-container">
+      <Meta path={location.pathname} />
       <div className="login-left">
         <img
           src={logoimg}
           onClick={() => navigate("/")}
-          className="logoforgt"
+          className="logoforgtsign"
         />
       </div>
       <div className="login-right">
@@ -212,7 +217,7 @@ function Register() {
                   style={{
                     cursor: "pointer",
                     position: "absolute",
-                    right: "28px",
+                    right: "32px",
                     top: "50%",
                     transform: "translateY(-50%)",
                   }}
@@ -266,7 +271,7 @@ function Register() {
                 {" "}
                 Terms & Conditions
               </a>
-              <a href="#" className="registerContglblack-text">
+              <a href="" className="registerContglblack-text">
                 {" "}
                 and
               </a>
@@ -280,7 +285,7 @@ function Register() {
           <div className="register-link">
             <p className="register-linkp">
               Already registered?{" "}
-              <a href="#" onClick={handleSignInClick} className="sign-in-link">
+              <a href="" onClick={handleSignInClick} className="sign-in-link">
                 Sign in
               </a>
             </p>

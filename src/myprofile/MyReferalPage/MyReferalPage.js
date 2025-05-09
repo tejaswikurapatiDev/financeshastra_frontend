@@ -30,7 +30,7 @@ const MyReferalPage = () => {
             <h1>
               Share the gift of investment success with your friends and family.
             </h1>
-            <a href="#" className="myreferalpagesss-benefits-link">
+            <a href="" className="myreferalpagesss-benefits-link">
               View benefits
             </a>
           </div>

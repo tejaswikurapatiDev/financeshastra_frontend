@@ -8,7 +8,7 @@ import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 const fundDataflex = [
     {
       name: "Parag Parikh Flexi Cap Fund",
-      url: "/mutualfund",
+      url: "/mutual-funds/top-rated-mutual-funds",
       nav: "₹81.81",
       aum: "₹84,640.59",
       sip: "₹1,000",
@@ -240,34 +240,7 @@ const Flexdirect = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="funds-table-container">
-        <div className="funds-header">
-          <h2 className="funds-table-title">Best Flex Cap Fund</h2>
-          <div className="topfundbutton-container">
-            <button
-              className="fund-button regular"
-              style={{ backgroundColor: "white", color: "black" }}
-              onClick={() => navigate("/flexregular")}
-            >
-              Regular
-            </button>
-            <button
-              className="fund-button direct"
-              style={{ backgroundColor: "#24b676", color: "white" }}
-              onClick={() => navigate("/flexdirect")}
-            >
-              Direct
-            </button>
-          </div>
-        </div>
-
-        <p className="funds-table-description">
-          Looking for the best mutual funds to build your wealth? At Value
-          Research, we’ve simplified the process for you. Our detailed guide to<br/>
-          top-performing mutual funds across different categories helps you
-          identify options that suit your financial objectives.
-        </p>
+      
 
         <table className="funds-table">
           <thead>
@@ -337,8 +310,7 @@ const Flexdirect = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <FooterForAllPage />
+            
           </div>
         );
       };

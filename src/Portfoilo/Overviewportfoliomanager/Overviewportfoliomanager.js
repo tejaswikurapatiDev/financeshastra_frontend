@@ -18,7 +18,7 @@ const OverviewPortfolioManagergold = () => {
   const location = useLocation();
   
   const [isDropdownOpen, setIsDropdownOpen] = useState(
-    location.pathname === "/portfoliostockaccount"
+    location.pathname === "/portfolio-management-stocks"
   );
   
   const toggleDropdown = () => {
@@ -193,7 +193,7 @@ const OverviewPortfolioManagergold = () => {
                       <thead>
                         <tr>
                           <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
-                            <Link to="/portfoliogoldtoppage" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
+                            <Link to="/portfolio-management-gold" style={{ textDecoration: 'none', color: 'black' }}>Transaction History</Link>
                           </th>
                           <th className="hover-effect" style={{ backgroundColor: 'white', color: 'black', textAlign: 'center', borderRight: '1px solid #ccc', padding: '10px' }}>
                             <Link to="/overviewPortfolioManager" style={{ textDecoration: 'none', color: 'black' }}>Overview</Link>
