@@ -1229,8 +1229,8 @@ const Navbar = () => {
               <i className="footer-portfolio-icon">
                 <RiBriefcase4Line />
               </i>
-              <span style={{color: "#24b676"}}>Portfolio</span>
-              <FaChevronDown className="chevron-icon" />
+              <span>Portfolio</span>
+              <FaChevronDown className="porchevron-icon" />
             </div>
           </button>
           {footerPortfolioDropdownOpen && renderPortfolioDropdown()}
