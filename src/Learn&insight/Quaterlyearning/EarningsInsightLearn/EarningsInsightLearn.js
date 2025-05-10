@@ -53,12 +53,18 @@ const EarningsInsightLearn = () => {
                 }
             }));
 
-            setEarningData(transformedData);
-            setSortedData(transformedData);
-        } catch (error) {
-            console.error(error);
-        }
-    }, []);
+        // Sort by tentativeTime in descending order
+        const sortedData = transformedData.sort((a, b) => {
+            return new Date(b.tentativeTime) - new Date(a.tentativeTime); // Descending order
+        });
+
+        setEarningData(sortedData);
+        setSortedData(sortedData);
+    } catch (error) {
+        console.error("Failed to fetch Quarterly Earnings list:", error);
+    }
+}, []);
+
 
     useEffect(() => {
         fetchQuarterlyEarnings();
@@ -186,8 +192,9 @@ const EarningsInsightLearn = () => {
             </div>
         );
     });
+    
 
-    const earningsTabs = ["Yesterday", "Today", "Tomorrow", "This Week", "Next Week"];
+    const earningsTabs = ["Yesterday", "Today", "This Week"];
     const filterOptions = ["All", "Upcoming Results", "Declared Results", "Sector Analysis"];
     const mcapOptions = ["Market Cap", "Name", "Change%", "Last Price"];
 
@@ -197,8 +204,8 @@ const EarningsInsightLearn = () => {
                 <Meta path={location.pathname} />
 
                 <header className="earnings-insight-learn-header">
-                    <h1>Quarterly Earning Results</h1>
-                    <p>
+                    <h1 className="earnings-insight-learnh1">Quarterly Earning Results</h1>
+                    <p className="earnings-insight-learnp">
                         Looking for the best growth funds to accelerate your wealth creation? At Value Research, we've made the process easier for you. Our in-depth guide to top-performing growth funds
                         <br />
                         across different categories helps you find options that align with your long-term financial goals and maximize your potential for growth.
@@ -220,30 +227,33 @@ const EarningsInsightLearn = () => {
                                 ))}
                             </div>
 
-                            <div className="earnings-insight-learn-date-picker">
-                                <div className="dateinsight">
-                                    <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>
-                                    <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)}>
-                                        <FaRegCalendarAlt />
-                                    </div>
-                                </div>
-                                {calendarOpen && (
-                                    <div className="calendar-container">
-                                        <ReactDatePicker
-                                            selected={startDate}
-                                            onChange={handleDateChange}
-                                            startDate={startDate}
-                                            endDate={endDate}
-                                            selectsRange
-                                            inline
-                                            dateFormat="yyyy-MM-dd"
-                                            className="custom-date-picker"
-                                            calendarClassName="customdattcalendar"
-                                            onClickOutside={() => setCalendarOpen(false)}
-                                        />
-                                    </div>
-                                )}
-                            </div>
+                           {/*
+  <div className="earnings-insight-learn-date-picker">                                 
+    <div className="dateinsight">                                     
+      <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>                                     
+      <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)}>                                         
+        <FaRegCalendarAlt />                                     
+      </div>                                 
+    </div>                                 
+    {calendarOpen && (                                     
+      <div className="calendar-container">                                         
+        <ReactDatePicker
+          selected={startDate}
+          onChange={handleDateChange}
+          startDate={startDate}
+          endDate={endDate}
+          selectsRange
+          inline
+          dateFormat="yyyy-MM-dd"
+          className="custom-date-picker"
+          calendarClassName="customdattcalendar"
+          onClickOutside={() => setCalendarOpen(false)}
+        />                                     
+      </div>                                 
+    )}                             
+  </div>
+*/}
+
                         </div>
 
                         <div className="allheaedrearnun">
@@ -254,13 +264,16 @@ const EarningsInsightLearn = () => {
                                     options={mcapOptions}
                                 />
                             </div>
-                            <div className="earnings-insight-learn-dropdown">
-                                <CustomDropdown
-                                    value={selectedFilter}
-                                    onChange={handleFilterChange}
-                                    options={filterOptions}
-                                />
-                            </div>
+                           {/*
+  <div className="earnings-insight-learn-dropdown">
+    <CustomDropdown
+      value={selectedFilter}
+      onChange={handleFilterChange}
+      options={filterOptions}
+    />
+  </div>
+*/}
+
                         </div>
                     </div>
                 </div>
@@ -286,7 +299,7 @@ const EarningsInsightLearn = () => {
                                 Change % {renderSortIcon()}
                             </th>
                             <th onClick={() => handleSort("tentativeTime")} style={{ cursor: "pointer" }}>
-                                Tentative Time {renderSortIcon()}
+                                Publish Date {renderSortIcon()}
                             </th>
                             <th onClick={() => handleSort("grossProfit")} style={{ cursor: "pointer" }}>
                                 Gross Profit (Cr.) {renderSortIcon()}

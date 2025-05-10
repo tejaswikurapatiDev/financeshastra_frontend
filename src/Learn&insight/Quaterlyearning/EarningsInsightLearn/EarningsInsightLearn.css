@@ -33,14 +33,14 @@
 .earnings-insight-learn-header-row {
     display: flex;
     align-items: center;
-    
+    gap: 50px;
 }
 
 /* Styling for Tabs (Yesterday, Today, etc.) */
 .earnings-insight-learn-tabs {
     display: flex;
     gap: 10px;
-   
+   margin-left: 10px;
 }
 
 .earnings-insight-learn-tab-button {
@@ -141,7 +141,7 @@
 }
 .earningquterlyrowall {
     display: flex;
-    width: 940px;
+    width: 840px;
     margin-left: 40px;
     gap: 210px;
     margin-bottom: 20px;
@@ -271,11 +271,26 @@
 }
 /* Table Styling */
 .earnings-insight-learn-table {
-    width: 96%;
-  
+    width: 95%;
+  overflow-x: auto;
     margin-left: 13px;
     border-collapse: collapse;
 }
+.earnings-insight-learn-table th{
+font-size: 12px;
+
+}
+.earnings-insight-learn-table td{
+font-size: 12px;
+}
+.earnings-insight-learn-header-row {
+    display: flex
+;
+    align-items: center;
+    gap: 50px;
+    margin-right: 40px;
+}
+
 }
 
 /* Responsive styling for tablets and smaller devices */
@@ -306,12 +321,13 @@
         display: block; /* Make table behave as a block element */
         margin-bottom: 100px;
         height: 400px;
+        margin-left: 20px;
     }
 
     .earnings-insight-learn-table th, 
     .earnings-insight-learn-table td {
         padding: 6px; /* Reduce padding for smaller screens */
-        font-size: 14px; /* Adjust font size for readability */
+        font-size: 12px; /* Adjust font size for readability */
     }
 
     .earnings-insight-learn-table th {
@@ -353,14 +369,18 @@
         display: flex;
         gap: 60px; /* Adjust gap between header elements */
         justify-content: space-evenly;
-        margin-left: -25px;
+              margin-left: -105px;
+        margin-right: 700px;
     }
 
     .earnings-insight-learn-dropdown {
         width: 40px; /* Adjust width */
         margin-right: 40px;
     }
-  
+  .earnings-insight-learn-table th{
+font-size: 12px;
+
+}
     
     .dateinsight {
         display: flex;
@@ -396,6 +416,14 @@
         display: flex;
         gap: 20px;
         margin-left: -70px;
+    }
+      .earnings-insight-learn-header-row{
+        display: flex
+;
+        gap: 60px;
+        justify-content: space-evenly;
+        margin-left: -105px;
+        margin-right: 250px;
     }
     .dateinsight {
         display: flex
@@ -513,5 +541,12 @@
         display: flex;
         gap: 1px;
     }
- 
+     .earnings-insight-learn-header-row{
+        display: flex
+;
+        gap: 60px;
+        justify-content: space-evenly;
+        margin-left: -105px;
+        margin-right: 200px;
+    }
 }

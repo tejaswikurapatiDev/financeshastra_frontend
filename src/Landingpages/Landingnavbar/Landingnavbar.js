@@ -1042,7 +1042,7 @@ const Landingnavbar = () => {
                 <RiBriefcase4Line />
               </i>
               <span>Portfolio</span>
-              <FaChevronDown className="chevron-icon" />
+              <FaChevronDown className="porchevron-icon" />
             </div>
           </Link>
           {dropdowns.footerPortfolio && <PortfolioDropdownMenu />}

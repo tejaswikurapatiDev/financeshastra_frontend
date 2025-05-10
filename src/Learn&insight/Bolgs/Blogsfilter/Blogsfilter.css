@@ -632,7 +632,7 @@ font-weight: bold;
 }
 
 .dropdownSelect {
-  width: 130%;
+ /* width: 130%;*/
   max-width: 320px;
   padding: 8px;
   font-size: 12px;
@@ -658,7 +658,7 @@ font-weight: bold;
 }
 @media (max-width: 320px) {
   .dropdownSelect {
-      width: 100%;
+     
       max-width: 320px;
       padding: 8px;
       font-size: 12px;
