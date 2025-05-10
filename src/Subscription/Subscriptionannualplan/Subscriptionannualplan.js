@@ -116,7 +116,7 @@ const SubscriptionPlans = () => {
             <span className="price-value">₹{plan.price}</span>
             <span className="price-valuemonth"> / {plan.duration}</span>
             <span className={`ribbon-price-detail${isPopular ? '' : 'elite'}`}> ₹{plan.originalPrice}</span>
-            <div className={isPopular ? "text-blacks" : "text-black"}>
+            <div className={isPopular ? "textblack" : "text-black"}>
               You save
               <span className="text-highlight"> ₹{plan.savings}</span>
               <span className="text-highlight"> ({plan.percentage}%)</span>
