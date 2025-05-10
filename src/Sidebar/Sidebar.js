@@ -24,7 +24,7 @@ const Sidebar = () => {
                 <a 
                     href="/portfolio-analysis-tool" 
                   
-                    className={`sidebar-item ${["/porfolioanalysisallpagecall", "/portfolioanalysisdividendcall","/portfoliobonuscall","/portfoliosplitcall","/portfolioanalysisrightscall"
+                    className={`sidebar-item ${["/portfolio-analysis-tool", "/portfolioanalysisdividendcall","/portfoliobonuscall","/portfoliosplitcall","/portfolioanalysisrightscall"
                         ,"/portfolioAGMcall","/portfolio-trade-records"
                     ].includes(location.pathname) ? "active" : ""}`}
                 >
@@ -33,7 +33,7 @@ const Sidebar = () => {
 
                 <a 
     href="/stock-watchlist" 
-    className={`sidebar-item ${["/stockWatchlist", "/mutual-fund-watchlist","/gold-watchlist","/stockwatchlistsector","/stockwatchlistmcap"
+    className={`sidebar-item ${["/stock-watchlist", "/mutual-fund-watchlist","/gold-watchlist","/stockwatchlistsector","/stockwatchlistmcap"
         ,"/mutualwatchlistsector","/mutualwatchlisttype"
     ].includes(location.pathname) ? "active" : ""}`} 
 >
@@ -43,7 +43,7 @@ const Sidebar = () => {
 
                 <a 
                     href="/stock-research-reports" 
-                    className={`sidebar-item ${location.pathname === "/stockresearchpages" ? "active" : ""}`} 
+                    className={`sidebar-item ${location.pathname === "/stock-research-reports" ? "active" : ""}`} 
                 >
                     <LiaSearchengin className="sideicon"/> Research
                 </a>
@@ -57,7 +57,7 @@ const Sidebar = () => {
 
                 <a 
                     href="/user-settings-dashboard" 
-                    className={`sidebar-item ${location.pathname === "/settingDashPanel" ? "active" : ""}`} 
+                    className={`sidebar-item ${location.pathname === "/user-settings-dashboard" ? "active" : ""}`} 
                 >
                     <IoSettingsOutline className="sideicon" /> Setting
                 </a>

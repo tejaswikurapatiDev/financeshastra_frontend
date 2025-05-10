@@ -27,37 +27,43 @@ const EarningsInsightLearn = () => {
     
 
     const fetchQuarterlyEarnings = useCallback(async () => {
-        try {
-            const response = await fetch(`${API_BASE_URL}/quaterlyEarnings/`, {
-                method: "GET",
-                headers: { "Content-Type": "application/json" },
-            });
-            const data = await response.json();
+    try {
+        const response = await fetch(`${API_BASE_URL}/quaterlyEarnings/`, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+        });
+        const data = await response.json();
 
-            const transformedData = data.map(item => ({
-                company_id: item.company_id,
-                company: item.company_name,
-                Type: item.result_type.includes("Q") ? "Declared Results" : "Upcoming Results",
-                ltp: `₹${item.ltp_rs}`,
-                mcap: item.market_cap,
-                revenue: `₹${item.revenue_cr}`,
-                change: `${item.change_percent}%`,
-                tentativeTime: dayjs(item.tentative_date).format('YYYY-MM-DD'),
-                grossProfit: `${item.gross_profit_percent}%`,
-                netProfit: `${item.net_profit_percent}%`,
-                tag: item.tag, // Add this line
-                seeFinancial: {
-                    url: "#",
-                    icon: <LuShare2 />
-                }
-            }));
+        const transformedData = data.map(item => ({
+            company_id: item.company_id,
+            company: item.company_name,
+            Type: item.result_type.includes("Q") ? "Declared Results" : "Upcoming Results",
+            ltp: `₹${item.ltp_rs}`,
+            mcap: item.market_cap,
+            revenue: `₹${item.revenue_cr}`,
+            change: `${item.change_percent}%`,
+            tentativeTime: dayjs(item.tentative_date).format('YYYY-MM-DD'),
+            grossProfit: `${item.gross_profit_percent}%`,
+            netProfit: `${item.net_profit_percent}%`,
+            tag: item.tag,
+            seeFinancial: {
+                url: "#",
+                icon: <LuShare2 />
+            }
+        }));
 
-            setEarningData(transformedData);
-            setSortedData(transformedData);
-        } catch (error) {
-            console.error("Failed to fetch Quarterly Earnings list:", error);
-        }
-    }, []);
+        // Sort by tentativeTime in descending order
+        const sortedData = transformedData.sort((a, b) => {
+            return new Date(b.tentativeTime) - new Date(a.tentativeTime); // Descending order
+        });
+
+        setEarningData(sortedData);
+        setSortedData(sortedData);
+    } catch (error) {
+        console.error("Failed to fetch Quarterly Earnings list:", error);
+    }
+}, []);
+
 
     useEffect(() => {
         fetchQuarterlyEarnings();
@@ -185,8 +191,9 @@ const EarningsInsightLearn = () => {
             </div>
         );
     });
+    
 
-    const earningsTabs = ["Yesterday", "Today", "Tomorrow", "This Week", "Next Week"];
+    const earningsTabs = ["Yesterday", "Today", "This Week"];
     const filterOptions = ["All", "Upcoming Results", "Declared Results", "Sector Analysis"];
     const mcapOptions = ["Market Cap", "Name", "Change%", "Last Price"];
 
@@ -196,8 +203,8 @@ const EarningsInsightLearn = () => {
                 <Meta path={location.pathname} />
 
                 <header className="earnings-insight-learn-header">
-                    <h1>Quarterly Earning Results</h1>
-                    <p>
+                    <h1 className="earnings-insight-learnh1">Quarterly Earning Results</h1>
+                    <p className="earnings-insight-learnp">
                         Looking for the best growth funds to accelerate your wealth creation? At Value Research, we've made the process easier for you. Our in-depth guide to top-performing growth funds
                         <br />
                         across different categories helps you find options that align with your long-term financial goals and maximize your potential for growth.
@@ -219,30 +226,33 @@ const EarningsInsightLearn = () => {
                                 ))}
                             </div>
 
-                            <div className="earnings-insight-learn-date-picker">
-                                <div className="dateinsight">
-                                    <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>
-                                    <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)}>
-                                        <FaRegCalendarAlt />
-                                    </div>
-                                </div>
-                                {calendarOpen && (
-                                    <div className="calendar-container">
-                                        <ReactDatePicker
-                                            selected={startDate}
-                                            onChange={handleDateChange}
-                                            startDate={startDate}
-                                            endDate={endDate}
-                                            selectsRange
-                                            inline
-                                            dateFormat="yyyy-MM-dd"
-                                            className="custom-date-picker"
-                                            calendarClassName="customdattcalendar"
-                                            onClickOutside={() => setCalendarOpen(false)}
-                                        />
-                                    </div>
-                                )}
-                            </div>
+                           {/*
+  <div className="earnings-insight-learn-date-picker">                                 
+    <div className="dateinsight">                                     
+      <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>                                     
+      <div className="calendar-icon" onClick={() => setCalendarOpen(!calendarOpen)}>                                         
+        <FaRegCalendarAlt />                                     
+      </div>                                 
+    </div>                                 
+    {calendarOpen && (                                     
+      <div className="calendar-container">                                         
+        <ReactDatePicker
+          selected={startDate}
+          onChange={handleDateChange}
+          startDate={startDate}
+          endDate={endDate}
+          selectsRange
+          inline
+          dateFormat="yyyy-MM-dd"
+          className="custom-date-picker"
+          calendarClassName="customdattcalendar"
+          onClickOutside={() => setCalendarOpen(false)}
+        />                                     
+      </div>                                 
+    )}                             
+  </div>
+*/}
+
                         </div>
 
                         <div className="allheaedrearnun">
@@ -253,13 +263,16 @@ const EarningsInsightLearn = () => {
                                     options={mcapOptions}
                                 />
                             </div>
-                            <div className="earnings-insight-learn-dropdown">
-                                <CustomDropdown
-                                    value={selectedFilter}
-                                    onChange={handleFilterChange}
-                                    options={filterOptions}
-                                />
-                            </div>
+                           {/*
+  <div className="earnings-insight-learn-dropdown">
+    <CustomDropdown
+      value={selectedFilter}
+      onChange={handleFilterChange}
+      options={filterOptions}
+    />
+  </div>
+*/}
+
                         </div>
                     </div>
                 </div>
@@ -285,7 +298,7 @@ const EarningsInsightLearn = () => {
                                 Change % {renderSortIcon()}
                             </th>
                             <th onClick={() => handleSort("tentativeTime")} style={{ cursor: "pointer" }}>
-                                Tentative Time {renderSortIcon()}
+                                Publish Date {renderSortIcon()}
                             </th>
                             <th onClick={() => handleSort("grossProfit")} style={{ cursor: "pointer" }}>
                                 Gross Profit (Cr.) {renderSortIcon()}
