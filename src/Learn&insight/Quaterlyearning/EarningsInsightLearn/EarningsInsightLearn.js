@@ -33,6 +33,7 @@ const EarningsInsightLearn = () => {
                 headers: { "Content-Type": "application/json" },
             });
             const data = await response.json();
+            console.log(data)
 
             const transformedData = data.map(item => ({
                 company_id: item.company_id,
@@ -43,8 +44,8 @@ const EarningsInsightLearn = () => {
                 revenue: `₹${item.revenue_cr}`,
                 change: `${item.change_percent}%`,
                 tentativeTime: dayjs(item.tentative_date).format('YYYY-MM-DD'),
-                grossProfit: `${item.gross_profit_percent}%`,
-                netProfit: `${item.net_profit_percent}%`,
+                grossProfit: `${item.gross_profit_Cr}%`,
+                netProfit: `${item.net_profit_Cr}%`,
                 tag: item.tag, // Add this line
                 seeFinancial: {
                     url: "#",
@@ -55,7 +56,7 @@ const EarningsInsightLearn = () => {
             setEarningData(transformedData);
             setSortedData(transformedData);
         } catch (error) {
-            console.error("Failed to fetch Quarterly Earnings list:", error);
+            console.error(error);
         }
     }, []);
 
