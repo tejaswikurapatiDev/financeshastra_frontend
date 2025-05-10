@@ -196,8 +196,8 @@ const EarningsInsightLearn = () => {
                 <Meta path={location.pathname} />
 
                 <header className="earnings-insight-learn-header">
-                    <h1>Quarterly Earning Results</h1>
-                    <p>
+                    <h1 className="earnings-insight-learnh1">Quarterly Earning Results</h1>
+                    <p className="earnings-insight-learnp">
                         Looking for the best growth funds to accelerate your wealth creation? At Value Research, we've made the process easier for you. Our in-depth guide to top-performing growth funds
                         <br />
                         across different categories helps you find options that align with your long-term financial goals and maximize your potential for growth.
