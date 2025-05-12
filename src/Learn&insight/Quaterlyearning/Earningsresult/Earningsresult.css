@@ -1,0 +1,251 @@
+/* AdaniEnterprisesReport.css */
+
+.adnaieaeninqrsult {
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  font-family: 'calibri';
+  margin-top: 70px;
+  margin-bottom: 80px;
+}
+
+.investblog-metaresult{
+      font-size: 16px;
+  color:black;
+  margin-bottom: 20px;
+  display: flex;
+  margin-left: -99px;
+}
+
+ .adnairsultreport-title {
+  font-size: 20px;
+ font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  
+}
+.adnairsultreport-header{
+    font-size: 26px;
+}
+.report-image {
+  width: 89%;
+  height:400px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.adnairsultreportsection{
+  font-size: 20px;
+  font-weight: 600;
+  color: #0349A8;
+margin-bottom: -1px;
+}
+
+.adnaieaeninqrsult section p,
+.adnaieaeninqrsult section ol {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+ 
+}
+
+.adnaieaeninqrsult ol {
+  padding-left: 20px;
+   color: black;
+}
+
+.adnaieaeninqrsult ol li {
+  margin-bottom: 5px;
+  list-style-type: number;
+}
+
+
+.financial-containerearesult {
+  padding: 24px;
+  max-width: 960px;
+  margin: auto;
+  font-family: 'calibri';
+}
+
+.financial-headingearesult {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+
+.financial-tableearesult {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout: fixed;
+}
+
+/* Remove all borders from cells initially */
+.financial-tableearesult th,
+.financial-tableearesult td {
+  padding: 12px;
+  text-align: center;
+  border: none;
+}
+
+/* Add top border to thead and bottom border to tbody */
+.financial-tableearesult thead tr:first-child th {
+  border-top:  2px solid #0349A8;
+  border-bottom:  2px solid #0349A8;
+  
+}
+
+.financial-tableearesult tbody tr:last-child td {
+  border-bottom:  2px solid #0349A8;
+}
+
+/* First column vertical border */
+.financial-tableearesult th:first-child,
+.financial-tableearesult td:first-child {
+  border-left:  2px solid #0349A8;
+}
+
+/* Last column vertical border */
+.financial-tableearesult th:last-child,
+.financial-tableearesult td:last-child {
+  border-right: 2px solid #0349A8;
+}
+
+/* Header background */
+.financial-tableearesult thead {
+  background-color:white;
+  color: black;
+}
+
+/* Even row shading (optional) */
+.financial-tableearesult tbody tr:nth-child(even) {
+  background-color:#F5F4FA;
+}
+
+/* Tags styling */
+.tagsearesult {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tagearesult {
+  background-color: #24b676;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+
+
+@media (max-width: 768px) {
+  .adnaieaeninqrsult {
+  max-width: 1000px;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  font-family: 'calibri';
+  margin-top: 0px;
+  margin-bottom: 80px;
+}
+.financial-containerearesult {
+    padding: 24px;
+    width: 105%;
+    margin: auto;
+    font-family: 'calibri';
+    margin-left: -40px;
+}
+.tagearesult {
+    background-color: #24b676;
+    color: white;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.investblog-metaresult {
+    font-size: 16px;
+    color: black;
+    margin-bottom: 20px;
+    display: flex
+;
+    margin-left: -0px;
+}
+.report-image {
+    width: 99%;
+    height: 400px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+  .adnaieaeninqrsult .report-title {
+    font-size: 1.4rem;
+  }
+
+  .adnaieaeninqrsult .section-title {
+    font-size: 1.2rem;
+  }
+
+  .adnaieaeninqrsult section p,
+  .adnaieaeninqrsult section ul {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+      .report-image {
+        width: 99%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .adnaieaeninqrsult {
+        max-width: 1000px;
+        width: 90%;
+        margin: auto;
+        padding: 20px;
+        background-color: #fff;
+        color: #333;
+        box-sizing: border-box;
+        font-family: 'calibri';
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+    .adnairsultreport-header {
+    font-size: 22px;
+}
+.adnairsultreport-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+.financial-tableearesult th,
+.financial-tableearesult td {
+  font-size: 12px;
+}
+.financial-tableearesult {
+  margin-left: 10px;
+}
+.tagsearesult {
+    display: flex
+;
+
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 10px;
+}
+    .tagearesult {
+        background-color: #24b676;
+        color: white;
+        padding: 10px 4px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
+}
