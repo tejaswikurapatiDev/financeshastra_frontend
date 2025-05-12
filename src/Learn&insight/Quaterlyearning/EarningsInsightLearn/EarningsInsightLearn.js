@@ -12,6 +12,12 @@ import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 import Meta from "../../../Meta";
 import { API_BASE_URL } from "../../../config";
 import { Link, useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+    display: "block",
+    textAlign: "center",
+};
 
 const EarningsInsightLearn = () => {
     const location = useLocation();
@@ -24,7 +30,8 @@ const EarningsInsightLearn = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [calendarOpen, setCalendarOpen] = useState(false);
-    
+    const [isloading, setisLoading] = useState(true)
+
 
     const fetchQuarterlyEarnings = useCallback(async () => {
         try {
@@ -38,7 +45,8 @@ const EarningsInsightLearn = () => {
             const transformedData = data.map(item => ({
                 company_id: item.company_id,
                 company: item.company_name,
-                Type: item.result_type.includes("Q") ? "Declared Results" : "Upcoming Results",
+                //Type: item.result_type.includes("Q") ? "Declared Results" : "Upcoming Results",
+                Type: "Declared Results",
                 ltp: `₹${item.ltp_rs}`,
                 mcap: item.market_cap,
                 revenue: `₹${item.revenue_cr}`,
@@ -53,17 +61,19 @@ const EarningsInsightLearn = () => {
                 }
             }));
 
-        // Sort by tentativeTime in descending order
-        const sortedData = transformedData.sort((a, b) => {
-            return new Date(b.tentativeTime) - new Date(a.tentativeTime); // Descending order
-        });
+            // Sort by tentativeTime in descending order
+            const sortedData = transformedData.sort((a, b) => {
+                return new Date(b.tentativeTime) - new Date(a.tentativeTime); // Descending order
+            });
 
-        setEarningData(sortedData);
-        setSortedData(sortedData);
-    } catch (error) {
-        console.error("Failed to fetch Quarterly Earnings list:", error);
-    }
-}, []);
+
+            setEarningData(sortedData);
+            setSortedData(sortedData);
+        } catch (error) {
+            console.error("Failed to fetch Quarterly Earnings list:", error);
+        }
+        setisLoading(false)
+    }, []);
 
 
     useEffect(() => {
@@ -149,6 +159,23 @@ const EarningsInsightLearn = () => {
         }
     }, [earningsData]);
 
+    const navigatetoarticle = async (comp_id) => {
+        try {
+            const url = `${API_BASE_URL}/quaterlyEarnings/article/${comp_id}`
+            const response = await fetch(url, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" },
+            })
+            if (response.ok === true) {
+                const data = await response.json()
+                console.log(data)
+            }
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
+
     const CustomDropdown = React.memo(({ label, options, value, onChange }) => {
         const [isOpen, setIsOpen] = useState(false);
         const dropdownRef = useRef(null);
@@ -192,7 +219,7 @@ const EarningsInsightLearn = () => {
             </div>
         );
     });
-    
+
 
     const earningsTabs = ["Yesterday", "Today", "This Week"];
     const filterOptions = ["All", "Upcoming Results", "Declared Results", "Sector Analysis"];
@@ -227,7 +254,7 @@ const EarningsInsightLearn = () => {
                                 ))}
                             </div>
 
-                           {/*
+                            {/*
   <div className="earnings-insight-learn-date-picker">                                 
     <div className="dateinsight">                                     
       <label htmlFor="dateRange" className="date-picker-label">Select Date : </label>                                     
@@ -264,7 +291,7 @@ const EarningsInsightLearn = () => {
                                     options={mcapOptions}
                                 />
                             </div>
-                           {/*
+                            {/*
   <div className="earnings-insight-learn-dropdown">
     <CustomDropdown
       value={selectedFilter}
@@ -277,68 +304,81 @@ const EarningsInsightLearn = () => {
                         </div>
                     </div>
                 </div>
-
-                <table className="earnings-insight-learn-table">
-                    <thead>
-                        <tr>
-                            <th>Sr.No.</th>
-                            <th>Company</th>
-                            <th onClick={() => handleSort("Type")} style={{ cursor: "pointer" }}>
-                                Result Type {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("ltp")} style={{ cursor: "pointer" }}>
-                                LTP ₹ {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("mcap")} style={{ cursor: "pointer" }}>
-                                M.CAP (Cr.) {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("revenue")} style={{ cursor: "pointer" }}>
-                                Revenue (Cr.) {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("change")} style={{ cursor: "pointer" }}>
-                                Change % {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("tentativeTime")} style={{ cursor: "pointer" }}>
-                                Publish Date {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("grossProfit")} style={{ cursor: "pointer" }}>
-                                Gross Profit (Cr.) {renderSortIcon()}
-                            </th>
-                            <th onClick={() => handleSort("netProfit")} style={{ cursor: "pointer" }}>
-                                Net Profit (Cr.) {renderSortIcon()}
-                            </th>
-                            <th>See Financials</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {sortedData.map((row, index) => (
-                            <tr key={`${row.company_id}-${index}`}>
-                                <td>{row.company_id}</td>
-                                <td>
-                                    <Link
-                                        to={{
-                                            pathname: "/quarterly-overview",
-                                            search: `?company_id=${row.company_id}&company_name=${encodeURIComponent(row.company)}/${row.tag}`
-                                        }}
-                                    >
-                                        {row.company}
-                                    </Link>
-                                </td>
-                                <td>{row.Type}</td>
-                                <td>{row.ltp}</td>
-                                <td>{row.mcap}</td>
-                                <td>{row.revenue}</td>
-                                <td>{row.change}</td>
-                                <td>{row.tentativeTime}</td>
-                                <td>{row.grossProfit}</td>
-                                <td>{row.netProfit}</td>
-                                <td>
-                                    <a href={row.seeFinancial.url}>{row.seeFinancial.icon}</a>
-                                </td>
+                {isloading ? <div className='loader-cont'><ClipLoader
+                    cssOverride={override}
+                    size={35}
+                    data-testid="loader"
+                    loading={isloading}
+                    speedMultiplier={1}
+                    color="green"
+                /></div> :
+                    <table className="earnings-insight-learn-table">
+                        <thead>
+                            <tr>
+                                <th>Sr.No.</th>
+                                <th>Company</th>
+                                <th onClick={() => handleSort("Type")} style={{ cursor: "pointer" }}>
+                                    Result Type {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("ltp")} style={{ cursor: "pointer" }}>
+                                    LTP ₹ {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("mcap")} style={{ cursor: "pointer" }}>
+                                    M.CAP (Cr.) {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("revenue")} style={{ cursor: "pointer" }}>
+                                    Revenue (Cr.) {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("change")} style={{ cursor: "pointer" }}>
+                                    Change % {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("tentativeTime")} style={{ cursor: "pointer" }}>
+                                    Publish Date {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("grossProfit")} style={{ cursor: "pointer" }}>
+                                    Gross Profit (Cr.) {renderSortIcon()}
+                                </th>
+                                <th onClick={() => handleSort("netProfit")} style={{ cursor: "pointer" }}>
+                                    Net Profit (Cr.) {renderSortIcon()}
+                                </th>
+                                <th>See Financials</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                            {sortedData.map((row, index) => (
+                                <tr key={`${row.company_id}-${index}`}>
+                                    <td>{row.company_id}</td>
+                                    <td>
+                                        <Link
+                                            to={{
+                                                pathname: "/quarterly-overview",
+                                                search: `?company_id=${row.company_id}&company_name=${encodeURIComponent(row.company)}/${row.tag}`
+                                            }}
+                                        >
+                                            {row.company}
+                                        </Link>
+                                    </td>
+                                    <td>{row.Type}</td>
+                                    <td>{row.ltp}</td>
+                                    <td>{row.mcap}</td>
+                                    <td>{row.revenue}</td>
+                                    <td>{row.change}</td>
+                                    <td>{row.tentativeTime}</td>
+                                    <td>{row.grossProfit}</td>
+                                    <td>{row.netProfit}</td>
+                                    <td>
+                                        <button
+                                            onClick={() => navigatetoarticle(row.company_id)}
+                                            type="button"
+                                            style={{backgroundColor: "transparent", border: "none", cursor: "pointer"}}
+                                        >
+                                            {row.seeFinancial.icon}</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>}
 
                 <Navbar />
             </div>
