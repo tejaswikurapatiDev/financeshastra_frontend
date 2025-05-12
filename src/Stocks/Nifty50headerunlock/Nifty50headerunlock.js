@@ -383,7 +383,7 @@ const Nifty50headerunlock = () => {
         {footerStockDropdownOpen && renderStockDropdown()}
       </li>
       <li className="portfolio-dropdown" ref={footerPortfolioDropdownRef}>
-        <a href="javascript:void(0)" onClick={toggleFooterPortfolioDropdown} className="footer-link">
+        <a href="#" onClick={toggleFooterPortfolioDropdown} className="footer-link">
           <div className="footer-item selected">
             <i className="footerportfolio-icon"><RiBriefcase4Line /></i>
             <span>Portfolio</span>
