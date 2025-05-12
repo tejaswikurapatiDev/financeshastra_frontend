@@ -2337,8 +2337,8 @@ margin-left: 0px;
   .learn-menu {
     min-width: 180px;
     padding: 10px 0;
-    margin-top: -311px;
-    margin-left: -50px;
+    margin-top: -309px;
+    margin-left: -20px;
 }
 .home-menu {
   min-width: 180px;
@@ -2613,7 +2613,7 @@ margin-left: 0px;
     min-width: 180px;
     padding: 10px 0;
     margin-top: -288px;
-    margin-left: -140px;
+    margin-left: -100px;
   }
 .home-menu {
   min-width: 180px;
@@ -2803,17 +2803,17 @@ margin-left: 0px;
   }
 
   /* Stock dropdown menu adjustments */
-  .stockmenu {
-    position: absolute;
-    top: -252px;
-    bottom: 60px;
-    left: 10px;
-    right: 10px;
-    width: auto;
-    height: 250px;
-    overflow-y: hidden;
-    padding: 15px;
-  }
+      .stockmenu {
+        position: absolute;
+        top: -206px;
+        bottom: 60px;
+        left: 60px;
+        right: 10px;
+        width: auto;
+        overflow-y: hidden;
+        padding: 15px;
+        height: 190px;
+    }
 
   .dropdown-item {
     padding: 10px 10px;
@@ -2850,7 +2850,7 @@ margin-left: 0px;
     min-width: 180px;
     padding: 10px 0;
     margin-top: -205px;
-    margin-left: -140px;
+    margin-left: -100px;
   }
 
   /* Dropdown menu adjustments */
@@ -2987,9 +2987,16 @@ margin-left: 0px;
     width: 200px;
   }
 .stockmenu {
+        position: absolute;
+       top: -192px;
+        bottom: 60px;
+        /* left: 10px; */
+        right: 10px;
+        width: 150px;
+        overflow-y: hidden;
+        padding: 1px;
+        height: 200px;
     
-        left: 40px;
-       
     }
     .mutualstockmenu {
      
