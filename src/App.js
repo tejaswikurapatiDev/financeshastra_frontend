@@ -258,6 +258,7 @@ import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboar
 import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistory";
 import IpoRecommendationsubscribe from "./Learn&insight/Ipo/IpoRecommendationsubscribe/IpoRecommendationsubscribe";
 import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
+import Earningsresult from "./Learn&insight/Quaterlyearning/Earningsresult/Earningsresult";
 
 
 function App() {
@@ -890,6 +891,7 @@ function App() {
               <Route path="/billingInfoHistory" element={<BillingInfoHistory />} />
               <Route path="/ipoRecommendationsubscribe" element={<IpoRecommendationsubscribe />} />
               <Route path="/invoicePage" element={<InvoicePage />} />
+              <Route path="/earningsresult" element={<Earningsresult/>} />
 
 
 
