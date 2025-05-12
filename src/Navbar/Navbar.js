@@ -1263,7 +1263,7 @@ const Navbar = () => {
               <i className="footer-icon">
                 <SlBookOpen />
               </i>
-              <span style={{color: "#24b676"}}>Learn</span>
+              <span style={{color: "#24b676"}}>Markets</span>
               <FaChevronDown className="chevron-icon" />
               {footerLearnDropdownOpen && renderlearnDropdown()}
             </div>

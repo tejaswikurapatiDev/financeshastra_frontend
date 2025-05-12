@@ -231,18 +231,6 @@ const LearnDropdownMenu = () => (
       <p>Discover what's happening in the stock markets in real-time</p>
     </Link>
 
-    {/*<Link
-      to="/blogs"
-      className="dropdown-item"
-      style={{
-        display: "block",
-        textDecoration: "none",
-      }}
-    >
-      Blogs
-      <p>Investment Knowledge Hub</p>
-    </Link>*/}
-
     <Link
       to="/markets/ipo-details"
       className="dropdown-item"
@@ -267,17 +255,6 @@ const LearnDropdownMenu = () => (
       <p>Monitor thorough quarterly earnings summaries</p>
     </Link>
 
-    {/*<Link
-      to="/learncard"
-      className="dropdown-item"
-      style={{
-        display: "block",
-        textDecoration: "none",
-      }}
-    >
-      Learn
-      <p> Knowledge is the key to successful trading—learn, adapt, and grow</p>
-    </Link>*/}
   </div>
 );
 const MutualFundsDropdownMenu = () => (
@@ -1070,7 +1047,7 @@ const Landingnavbar = () => {
 
         <li>
           <Link
-            to="/#"
+            to="#"
             onClick={() => toggleDropdown("learn")}
             className="footer-link"
           >
@@ -1078,7 +1055,7 @@ const Landingnavbar = () => {
               <i className="footer-icon">
                 <SlBookOpen />
               </i>
-              <span>Learn</span>
+              <span>Markets</span>
               <FaChevronDown className="chevron-icon" />
             </div>
           </Link>

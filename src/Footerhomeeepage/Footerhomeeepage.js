@@ -42,7 +42,7 @@ const FooterForhomeAllPage = () => {
     "Blogs": "/blogs",
     "Market Insights": "/marketinsights",
     "Quarterly Earnings": "/markets/earnings",
-    "Learn": "/learncard",
+    "Markets": "/learncard",
   };
   
   // Mapping object for Quick Links routes
