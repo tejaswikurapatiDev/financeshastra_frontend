@@ -102,15 +102,15 @@ const LandingPagePremiumElite = () => {
 
       <div className={darkMode ? "landingpageelite-darkcard" : "landingpageelite-card"}>
         <h3 className="landingpagepremiumelite-plan-title">Elite</h3>
-        <p className="landingpagepremiumelite-plan-description">
+        <p className="landingpageelite-plan-description">
           Empower your investment journey with the Elite Plan!
         </p>
         <div className="landingpagepremiumelite-content-row">
           <div className="landingpagepremiumelite-price">
-            <span className="landingpagepremiumelite-price-amount">₹3,999/</span>
+            <span className="landingpageelite-price-amount">₹3,999/</span>
             <span className={darkMode ? "landingpagepremiumelite-darkyear" : "landingpagepremiumelite-year"}>Year</span>
             <span className={darkMode ? "landingpagepremiumelite-original-darkprice" : "landingpagepremiumelite-original-price"}>  ₹8,999/-</span><br />
-            <span className={darkMode ? "landingpagepremiumelite-darkdiscount" : "landingpagepremiumelite-discount"}>You save</span>
+            <span className={darkMode ? "landingpagepremiumelite-darkdiscount" : "landingpageelite-discount"}>You save</span>
             <span className="landingpagepremiumelitediscountt">₹6,000 (68%)</span>
             <span className={darkMode ? "landingpagepremiumelitedarkdiscounttt" : "landingpagepremiumelitediscounttt"}>a year</span><br/>
             <button className={darkMode ? "landingpageelitedarkbutton" : "landingpageelite-button"}
