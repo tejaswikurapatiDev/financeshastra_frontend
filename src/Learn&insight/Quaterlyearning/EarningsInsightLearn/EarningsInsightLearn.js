@@ -13,6 +13,7 @@ import Meta from "../../../Meta";
 import { API_BASE_URL } from "../../../config";
 import { Link, useNavigate } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
+import Earningsresult from "../Earningsresult/Earningsresult";
 
 const override = {
     display: "block",
@@ -20,6 +21,7 @@ const override = {
 };
 
 const EarningsInsightLearn = () => {
+    const navigate= useNavigate()
     const location = useLocation();
     const [earningsData, setEarningData] = useState([]);
     const [selectedEarningsTab, setSelectedEarningsTab] = useState("Today");
@@ -166,15 +168,22 @@ const EarningsInsightLearn = () => {
                 method: "GET",
                 headers: { "Content-Type": "application/json" },
             })
+            console.log(response)
             if (response.ok === true) {
                 const data = await response.json()
                 console.log(data)
+                const {quaterlyarticles}= data 
+                if (quaterlyarticles[0]){
+                    const {title}= quaterlyarticles[0]
+                    navigate(`/earningsresult/${title}`, { state: { articleData: data } })
+                }
             }
         } catch (e) {
             console.log(e)
         }
 
     }
+
 
     const CustomDropdown = React.memo(({ label, options, value, onChange }) => {
         const [isOpen, setIsOpen] = useState(false);
@@ -371,7 +380,7 @@ const EarningsInsightLearn = () => {
                                         <button
                                             onClick={() => navigatetoarticle(row.company_id)}
                                             type="button"
-                                            style={{backgroundColor: "transparent", border: "none", cursor: "pointer"}}
+                                            style={{ backgroundColor: "transparent", border: "none", cursor: "pointer" }}
                                         >
                                             {row.seeFinancial.icon}</button>
                                     </td>
