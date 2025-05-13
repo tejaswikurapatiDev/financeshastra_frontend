@@ -122,6 +122,12 @@
   color: #24b676;
   margin: 10px 0 20px 0;
 }
+.landingpageelite-plan-description{
+   font-size: 16px;
+  font-weight: 600;
+  color: #24b676;
+  margin: 10px 0 20px 0;
+}
 
 /* Price section styling */
 .landingpagepremiumelite-price {
@@ -137,6 +143,12 @@
   margin-left: 30px;
 }
 
+.landingpageelite-price-amount {
+  font-size: 25px;
+  font-weight: bold;
+  color: #27ae60;
+  margin-left: 30px;
+}
 .landingpagepremiumelite-year {
   font-size: 17px;
   font-weight: bold;
@@ -155,6 +167,15 @@
 }
 
 .landingpagepremiumelite-discount {
+  flex: 1;
+  /* Same size as price */
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  margin-left: 30px;
+
+}
+.landingpageelite-discount {
   flex: 1;
   /* Same size as price */
   font-size: 14px;
@@ -907,7 +928,7 @@
     margin-top: 20px;
     transition: background 0.3s ease;
     width: 50%;
-    margin-left: 170px;
+    margin-left: 200px;
   }
 
   .landingpagepremiumelite-plan-description {
@@ -917,7 +938,13 @@
     margin: 10px 0 20px 0;
     margin-left: 80px;
   }
-
+.landingpageelite-plan-description {
+    font-size: 16px;
+    font-weight: 600;
+    color: #24b676;
+    margin: 10px 0 20px 0;
+    margin-left: 110px;
+  }
   /* Price section styling */
   .landingpagepremiumelite-price {
     font-size: 18px;
@@ -931,7 +958,12 @@
     color: #27ae60;
     margin-left: 170px;
   }
-
+.landingpageelite-price-amount {
+    font-size: 25px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-left: 200px;
+  }
   .landingpagepremiumelite-year {
     font-size: 17px;
     font-weight: bold;
@@ -956,7 +988,14 @@
     font-weight: 600;
     margin-left: 170px;
   }
-
+ .landingpageelite-discount {
+    flex: 1;
+    /* Same size as price */
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    margin-left: 210px;
+  }
   .landingpagepremiumelitediscountt {
     font-size: 14px;
     color: #24b676;
@@ -1198,6 +1237,12 @@
     color: #24b676;
     margin: 10px 0 20px 0;
   }
+  .landingpageelite-plan-description {
+    font-size: 16px;
+    font-weight: 600;
+    color: #24b676;
+    margin: 10px 0 20px 0;
+  }
 
   /* Price section styling */
   .landingpagepremiumelite-price {
@@ -1207,6 +1252,12 @@
   }
 
   .landingpagepremiumelite-price-amount {
+    font-size: 25px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-left: 30px;
+  }
+  .landingpageelite-price-amount {
     font-size: 25px;
     font-weight: bold;
     color: #27ae60;
@@ -1230,6 +1281,14 @@
   }
 
   .landingpagepremiumelite-discount {
+    flex: 1;
+    /* Same size as price */
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    margin-left: 30px;
+  }
+  .landingpageelite-discount {
     flex: 1;
     /* Same size as price */
     font-size: 14px;
@@ -1383,6 +1442,9 @@
   }
 
   .landingpagepremiumelite-price-amount {
+    font-size: 20px;
+  }
+  .landingpageelite-price-amount {
     font-size: 20px;
   }
 
