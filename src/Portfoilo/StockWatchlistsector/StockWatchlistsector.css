@@ -440,7 +440,7 @@ width: 100%;
       padding: 10px;
       width: auto; /* Full-width on smaller devices */
       border-radius: 8px;
-      height: 250px;
+      height: 200px;
       margin-bottom: 500px;
     }
   
@@ -487,10 +487,6 @@ width: 100%;
       font-size: 18px;
     }
   
-    .watchlist-header {
-      flex-direction: column; /* Stack inputs vertically */
-      gap: 15px;
-    }
   
     
     .newwmutual{
@@ -500,11 +496,6 @@ width: 100%;
       
     }
   
-    .add-btnwatchlist {
-      font-size: 14px;
-      padding: 8px 12px;
-      width: 40%; /* Full-width for easy tapping */
-    }
   
     .watchlist-management {
       display: flex;
@@ -513,21 +504,32 @@ width: 100%;
       gap: 10px; /* Maintain spacing between items */
       padding: 10px 0; /* Add spacing around the row */
     }
+     .menu-dropdownwatchlist {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
   
     .watchlist-item {
-      flex: 0 0 auto; /* Prevent items from shrinking */
-      width: auto; /* Adjust width dynamically */
-      min-width: 120px; /* Set a minimum width for the items */
-      padding: 10px;
-      background-color: #f9f9f9;
-      border-radius: 5px;
-      text-align: center;
-    }
+    flex: 0 0 auto;
+    /* Prevent items from shrinking */
+   
+    /* Set a minimum width for the items */
+   padding: 7px 16px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    text-align: center;
+  }
   
     .menu-iconwatchlist {
       font-size: 16px;
     }
   
+    .menu-wrapper{
+       position: relative;
+        overflow: visible !important;
+    }
     .scheme-exchange-container {
       display: flex;
       align-items: center; /* Align items vertically centered */
@@ -574,7 +576,7 @@ width: 100%;
       padding: 10px;
       border-radius: 6px;
 margin-top: 20px;
-      height: 290px;
+      height: 220px;
  
     }
     .newwmutual{
@@ -652,10 +654,15 @@ margin-top: 20px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-    .add-btnwatchlist {
-      font-size: 12px;
-     
+}    
+.add-btnwatchlist {
+        font-size: 12px;
+        margin-top: 46px;
+        width: 20%;
+        /* left: -190px; */
+        /* left: 20%; */
+        margin-left: -190px;
+       
     }
     .input-groupwatchlistt label {
       font-size: 16px;
@@ -803,14 +810,12 @@ margin-top: 20px;
       border: none;
     }
   
-    .create-watchlist {
-    
-   
- 
-   
-      cursor: pointer;
-      width: 50%;
-      text-align: center;
+        .create-watchlist {
+        cursor: pointer;
+        /* width: 40%; */
+        text-align: center;
+        padding: 10px;
+        font-size: 12px;
     }
     .newwmutual{
       margin-left:30px ;
@@ -863,5 +868,24 @@ margin-top: 20px;
   .input-groupwatchlist input {
     width: 130px;
   }
+  .input-groupwatchhllist {
+    width: 130px;
+  }
+  .add-btnwatchlist {
+        font-size: 12px;
+        margin-top: 46px;
+        width: 25%;
+        /* left: -190px; */
+        /* left: 20%; */
+        margin-left: -120px;
+       
+    }
+        .create-watchlist {
+        cursor: pointer;
+        /* width: 40%; */
+        text-align: center;
+        padding: 4px;
+        font-size: 12px;
+    }
   }
   
