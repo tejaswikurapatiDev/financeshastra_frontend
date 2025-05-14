@@ -8,6 +8,9 @@ import { API_BASE_URL } from "../../config";
 import { jwtDecode } from "jwt-decode";
 import Cookies from 'js-cookie'
 import upilogoo from "../../assest/UPIColor.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { faShieldAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 const AnnuallyUPIPage = () => {
   const [upiId, setUpiId] = useState("");
@@ -182,6 +185,16 @@ const AnnuallyUPIPage = () => {
           </div>
         </div>
       )}
+        {showPopup && (
+                    <div className="payment-popup">
+                      <div className="payment-popup-content">
+                        <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+                        <h2>Payment Successful!</h2>
+                        <p className="amount-paid">Amount Paid: ₹3999/-</p>
+                        <p className="payment-plan">Plan: Elite (Annually)</p>
+                      </div>
+                    </div>
+                  )}
       </div>
 );
 }

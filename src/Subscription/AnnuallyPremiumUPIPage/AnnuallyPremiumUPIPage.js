@@ -9,7 +9,9 @@ import Cookies from 'js-cookie'
 import { jwtDecode } from "jwt-decode";
 import upiLogoimg from '../../assest/upi.webp';
 import upilogoo from "../../assest/UPIColor.png";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { faShieldAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 const AnnuallyPremiumUPIPage = () => {
   const [upiId, setUpiId] = useState("");
   const [errors, setErrors] = useState({});
@@ -70,7 +72,7 @@ const AnnuallyPremiumUPIPage = () => {
         setTimeout(() => {
           setShowPopup(false); // Automatically close the popup after 5 seconds
           // Add your actual redirect or API call logic here if needed
-        }, 3000); // Popup duration set to 5 seconds
+        }, 20000); // Popup duration set to 5 seconds
       }
     }
   };
@@ -180,6 +182,17 @@ const AnnuallyPremiumUPIPage = () => {
           </div>
         </div>
       )}
+
+           {showPopup && (
+                    <div className="payment-popup">
+                      <div className="payment-popup-content">
+                        <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+                        <h2>Payment Successful!</h2>
+                        <p className="amount-paid">Amount Paid: ₹7999/-</p>
+                        <p className="payment-plan">Plan: Premium (Annually)</p>
+                      </div>
+                    </div>
+                  )}
       
     </div>
   );
