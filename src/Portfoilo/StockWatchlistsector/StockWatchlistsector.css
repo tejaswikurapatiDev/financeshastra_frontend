@@ -696,6 +696,18 @@ margin-top: 20px;
       top: 25px; /* Adjust for smaller spacing */
     }
   
+      .menu-dropdownwatchlist {
+    position: relative;
+display: flex;
+flex-direction: column;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
     .create-watchlist {
       font-size: 12px;
       padding: 6px 10px;

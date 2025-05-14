@@ -617,6 +617,7 @@ margin-top: 20px;
     overflow-x: auto; /* Enable horizontal scrolling */
     gap: 8px;
     padding: 8px 0;
+    overflow-y: hidden;
   }
 
   .watchlist-item {
@@ -633,6 +634,16 @@ margin-top: 20px;
     top: 25px; /* Adjust for smaller spacing */
   }
 
+  .menu-dropdownwatchlist {
+  position: absolute;
+
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
   .create-watchlist {
     font-size: 12px;
     padding: 6px 10px;
