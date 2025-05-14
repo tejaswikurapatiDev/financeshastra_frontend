@@ -175,7 +175,9 @@ const EarningsInsightLearn = () => {
                 const {quaterlyarticles}= data 
                 if (quaterlyarticles[0]){
                     const {title}= quaterlyarticles[0]
-                    navigate(`/earningsresult/${title}`, { state: { articleData: data } })
+                    const encodedTitle = encodeURIComponent(title);
+                    console.log(encodedTitle)
+                    navigate(`/earningsresult/${encodedTitle}`, { state: { articleData: data } })
                 }
             }
         } catch (e) {

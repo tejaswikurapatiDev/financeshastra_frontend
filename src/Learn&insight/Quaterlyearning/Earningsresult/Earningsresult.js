@@ -107,7 +107,7 @@ const Earningsresult = () => {
           className="report-image"
         />
 
-        <section>
+        
           {articledata.MainContent}
           {/*<h2 className="adnairsultreportsection">Business and Industry Overview:</h2>
           <p>
@@ -120,7 +120,7 @@ const Earningsresult = () => {
           <p>
             On May 1, 2025, Adani Enterprises shared its Q4 results (January to March 2025). The company made a net profit of ₹3,845 crore. This happened because the company sold part of its shares in Adani Wilmar. The one-time gain was ₹3,946 crore. The company’s total revenue was ₹26,966 crore. Revenue went down by 7.6% from last year.  The coal trading business made less profit.  Profit from coal fell by 47% to ₹833 crore. But the green energy business did well.  It made a profit of ₹994 crore.  This is 92% more than last year.  Green energy gave 13.5% of the company’s total revenue. After this news, the stock stayed stable. Investors liked the company’s focus on clean energy and new plans.
           </p>*/}
-        </section>
+        
 
         <section>
           <h2 className="adnairsultreportsection">Segmental Information</h2>
