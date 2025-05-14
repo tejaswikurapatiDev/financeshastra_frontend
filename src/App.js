@@ -891,7 +891,7 @@ function App() {
               <Route path="/billingInfoHistory" element={<BillingInfoHistory />} />
               <Route path="/ipoRecommendationsubscribe" element={<IpoRecommendationsubscribe />} />
               <Route path="/invoicePage" element={<InvoicePage />} />
-              <Route path="/earningsresult" element={<Earningsresult/>} />
+              <Route path="/earningsresult/:title" element={<Earningsresult/>} />
 
 
 

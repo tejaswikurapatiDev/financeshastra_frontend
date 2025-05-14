@@ -560,6 +560,16 @@ width: 100%;
        margin-left: -3px;
     
     }
+    .create-watchlist {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+    width: 160px;
+}
     .top-sectionswatchlistmutual{
       display: flex;
       align-items: center;
@@ -692,6 +702,18 @@ margin-top: 20px;
     .menu-dropdownwatchlist {
       top: 25px; /* Adjust for smaller spacing */
     }
+  
+      .menu-dropdownwatchlist {
+    position: relative;
+display: flex;
+flex-direction: column;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
   
     .create-watchlist {
       font-size: 12px;
