@@ -671,7 +671,7 @@
     /* Enable horizontal scrolling */
     gap: 8px;
     padding: 8px 0;
-    overflow-y: hidden;
+  
   }
 
   .watchlist-item {
