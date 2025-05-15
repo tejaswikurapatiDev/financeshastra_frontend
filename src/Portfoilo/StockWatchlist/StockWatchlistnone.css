@@ -1,19 +1,21 @@
 .stock-watchlist {
   font-family: 'Calibri';
   margin: 20px;
-  box-shadow: 0 3px 5px rgb(127, 171, 225);;
+  box-shadow: 0 3px 5px rgb(127, 171, 225);
+  ;
   border: 1px solid rgb(127, 171, 225);
- width:900px;
- height: auto;
- border-radius: 5px;
- margin-left: 300px;
+  width: 900px;
+  height: auto;
+  border-radius: 5px;
+  margin-left: 300px;
 
 
 }
+
 .input-groupwatchlist {
   position: relative;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -23,6 +25,14 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.input-groupwatchhllist input {
+
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 
 .search-resultswatchlistsector {
   position: absolute;
@@ -36,15 +46,17 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  display: none; /* By default hidden */
+  display: none;
+  /* By default hidden */
   font-size: 14px;
   font-family: 'calibri';
-  font-weight:500;
+  font-weight: 500;
   color: black;
 }
 
 .search-resultswatchlistsector.active {
-  display: block; /* Show only when there are results */
+  display: block;
+  /* Show only when there are results */
 }
 
 .search-resultswatchlistsector ul {
@@ -60,7 +72,7 @@
 }
 
 .search-resultswatchlistsector ul li:hover {
-  background:#24b676;
+  background: #24b676;
   color: white;
 }
 
@@ -70,13 +82,14 @@
 
 
 
-.scheme-exchange-cell{
-display: flex;
+.scheme-exchange-cell {
+  display: flex;
 }
 
-.filters-sectionwatchlist{
+.filters-sectionwatchlist {
   font-family: 'calibri';
 }
+
 .watchlist-title {
   text-align: left;
   color: black;
@@ -86,10 +99,11 @@ display: flex;
 /* Header Section */
 .watchlist-header {
   display: flex;
-  gap: 20px; /* Adds gap between input groups */
+  gap: 20px;
+  /* Adds gap between input groups */
   align-items: center;
   justify-content: flex-start;
- 
+
 }
 
 .input-groupwatchlist {
@@ -103,7 +117,8 @@ display: flex;
 .input-groupwatchlist label {
   font-size: 16px;
   color: #333;
-  white-space: nowrap; /* Prevent wrapping */
+  white-space: nowrap;
+  /* Prevent wrapping */
   font-weight: bold;
 }
 
@@ -119,7 +134,7 @@ display: flex;
 
 /* Stock Table Styling */
 .stock-tablewatchlist {
-width: 100%;
+  width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   font-family: 'calibri';
@@ -146,17 +161,19 @@ width: 100%;
 /* Watchlist Management Section */
 .watchlist-management {
   display: flex;
-  flex-wrap: wrap; /* Ensures responsiveness */
+  flex-wrap: wrap;
+  /* Ensures responsiveness */
   gap: 10px;
   margin: 20px 0;
   align-items: center;
- 
+
 }
 
 .watchlist-item {
   display: flex;
   align-items: center;
-  position: relative; /* For dropdown positioning */
+  position: relative;
+  /* For dropdown positioning */
   background-color: white;
   color: black;
   border: 1px solid black;
@@ -165,7 +182,7 @@ width: 100%;
   cursor: pointer;
   width: 130px;
   justify-content: space-between;
- margin-left: 10px;
+  margin-left: 10px;
 }
 
 /* Menu Dropdown for Watchlist */
@@ -197,13 +214,14 @@ width: 100%;
   width: 100%;
   color: black;
 }
+
 .networth-tabswatclist {
-  display: flex
-;
+  display: flex;
   gap: 10px;
   margin-left: 300px;
   margin-top: 20px;
 }
+
 .menu-itemwatchlist:hover {
   background-color: #f0f0f0;
 }
@@ -269,16 +287,18 @@ width: 100%;
 }
 
 .content-containerwatchlist {
-margin-top: 50px;
-padding: 10px;
-box-shadow: 0 3px 5px rgb(127, 171, 225);;
-border: 1px solid rgb(127, 171, 225);
-border-radius: 8px;
-margin-left:300px;
-width:70%;
-font-family: 'calibri';
-margin-bottom: 100px;
+  margin-top: 50px;
+  padding: 10px;
+  box-shadow: 0 3px 5px rgb(127, 171, 225);
+  ;
+  border: 1px solid rgb(127, 171, 225);
+  border-radius: 8px;
+  margin-left: 300px;
+  width: 70%;
+  font-family: 'calibri';
+  margin-bottom: 100px;
 }
+
 /* Delete Button */
 .delete-btnwatchlist {
   background: none;
@@ -295,8 +315,10 @@ margin-bottom: 100px;
 }
 
 .delete-btnwatchlist:hover i {
-  color: #24b676;}
-  /* Mobile View (up to 480px) */
+  color: #24b676;
+}
+
+/* Mobile View (up to 480px) */
 /* Media query for devices <= 768px */
 /* Media query for devices <= 768px */
 
@@ -337,6 +359,7 @@ margin-bottom: 100px;
     opacity: 0;
     transform: scale(0.9);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -349,7 +372,7 @@ margin-bottom: 100px;
   font-weight: bold;
   margin-bottom: 15px;
   color: #333;
- 
+
 }
 
 /* Input Field */
@@ -407,37 +430,40 @@ margin-bottom: 100px;
 }
 
 
-.allh2{
+.allh2 {
   font-size: 20px;
   margin-left: 20px;
 }
 
 
 
-@media (min-width: 1024px) and (max-width: 1279px)  {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .content-containerwatchlist {
     margin-top: 50px;
     padding: 10px;
-    box-shadow: 0 3px 5px rgb(127, 171, 225);;
+    box-shadow: 0 3px 5px rgb(127, 171, 225);
+    ;
     border: 1px solid rgb(127, 171, 225);
     border-radius: 8px;
-    margin-left:280px;
-    width:68%;
+    margin-left: 280px;
+    width: 68%;
     font-family: 'calibri';
     margin-bottom: 100px;
-    }
-    .stock-watchlist {
-      font-family: 'Calibri';
-      margin: 20px;
-      box-shadow: 0 3px 5px rgb(127, 171, 225);;
-      border: 1px solid rgb(127, 171, 225);
-     width:700px;
-     height: auto;
-     border-radius: 5px;
-     margin-left: 280px;
-    
-    
-    }
+  }
+
+  .stock-watchlist {
+    font-family: 'Calibri';
+    margin: 20px;
+    box-shadow: 0 3px 5px rgb(127, 171, 225);
+    ;
+    border: 1px solid rgb(127, 171, 225);
+    width: 700px;
+    height: auto;
+    border-radius: 5px;
+    margin-left: 280px;
+
+
+  }
 }
 
 
@@ -446,56 +472,59 @@ margin-bottom: 100px;
   .stock-watchlist {
     margin: 10px;
     padding: 10px;
-    width: auto; /* Full-width on smaller devices */
+    width: auto;
+    /* Full-width on smaller devices */
     border-radius: 8px;
   }
+
   .filters-sectionwatchlist {
-    display: flex; /* Enable flexbox for responsive layout */
+    display: flex;
+    /* Enable flexbox for responsive layout */
     /* Slightly larger font size for tablets */
   }
 
   .group-by-sectionwatchlist {
-    display: flex; /* Enable flexbox for responsive layout */
+    display: flex;
+    /* Enable flexbox for responsive layout */
     margin-left: 0px;
-    gap:5px
+    gap: 5px
   }
 
   .watchlist-title {
     margin: 10px 0;
-    text-align: center; /* Center-align title for mobile */
+    text-align: center;
+    /* Center-align title for mobile */
     font-size: 18px;
   }
 
   .watchlist-header {
-    flex-direction: column; /* Stack inputs vertically */
+    flex-direction: row;
+    /* Stack inputs vertically */
     gap: 15px;
   }
 
-  
+
 
   .add-btnwatchlist {
     font-size: 14px;
     padding: 8px 12px;
-    width: 40%; /* Full-width for easy tapping */
+    width: 10%;
+    /* Full-width for easy tapping */
   }
 
   .watchlist-management {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
-    gap: 10px; /* Maintain spacing between items */
-    padding: 10px 0; /* Add spacing around the row */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    overflow-x: auto;
+    /* Enable horizontal scrolling if needed */
+    gap: 10px;
+    /* Maintain spacing between items */
+    padding: 10px 0;
+    /* Add spacing around the row */
   }
 
-  .watchlist-item {
-    flex: 0 0 auto; /* Prevent items from shrinking */
-    width: auto; /* Adjust width dynamically */
-    min-width: 120px; /* Set a minimum width for the items */
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    text-align: center;
-  }
+  
 
   .menu-iconwatchlist {
     font-size: 16px;
@@ -503,8 +532,10 @@ margin-bottom: 100px;
 
   .content-containerwatchlist {
     margin-bottom: 400px;
-    overflow-x: auto; /* 'auto' is usually more user-friendly than 'scroll' */
-    white-space: nowrap; /* Ensures content doesn't wrap, useful for horizontal scrolling */
+    overflow-x: auto;
+    /* 'auto' is usually more user-friendly than 'scroll' */
+    white-space: nowrap;
+    /* Ensures content doesn't wrap, useful for horizontal scrolling */
     overflow-x: hide;
     width: 710px;
 
@@ -512,10 +543,10 @@ margin-bottom: 100px;
     margin-bottom: 130px;
     margin-left: 10px;
   }
-  
+
   .stock-tablewatchlist {
     font-size: 12px;
- 
+
   }
 
   .stock-tablewatchlist th,
@@ -527,11 +558,16 @@ margin-bottom: 100px;
   .create-watchlist {
     font-size: 14px;
     padding: 8px 12px;
-    width: 100%;
+
   }
+
+  .scheme-exchange-cell {
+    display: flex;
+    
+  }
+
   .networth-tabswatclist {
-    display: flex
-  ;
+    display: flex;
     gap: 10px;
     margin-left: 10px;
     margin-top: 20px;
@@ -539,43 +575,56 @@ margin-bottom: 100px;
   }
 }
 
-@media (max-width: 374px) { 
+@media (max-width: 374px) {
   .stock-watchlist {
     margin: 5px;
     padding: 10px;
     border-radius: 6px;
-margin-top: 20px;
+    margin-top: 20px;
     height: 300px;
     width: auto;
     width: 278px;
     margin-left: 10px;
   }
-  .content-containerwatchlist{
+
+  .content-containerwatchlist {
     width: 280px;
     margin-bottom: 50px;
   }
 
 }
+
 /* Media query for devices <= 480px */
-@media (max-width: 480px) and (min-width: 375px)  {
+@media (max-width: 480px) and (min-width: 375px) {
   .stock-watchlist {
     margin: 5px;
     padding: 10px;
     border-radius: 6px;
-margin-top: 20px;
+    margin-top: 20px;
     height: 300px;
     width: auto;
-   max-width: 360px;
+    max-width: 360px;
     margin-left: 20px;
   }
+  .popup-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'calibri';
+}
+
   .networth-tabswatclist {
-    display: flex
-  ;
+    display: flex;
     gap: 10px;
     margin-left: 20px;
     margin-top: 20px;
     margin-bottom: 10px;
   }
+
   .watchlist-title {
     font-size: 16px;
     margin: 10px 0;
@@ -587,22 +636,25 @@ margin-top: 20px;
 
   .content-containerwatchlist {
     margin: 20px 0;
-      padding: 10px;
-     margin-top: 50px;
-      overflow-x: scroll/* Adjust container width */;
-      width: -webkit-fill-available;
-      margin-bottom: 50px;
-      width: 360px;
-     
-      margin-left: 20px;
-       
+    padding: 10px;
+    margin-top: 50px;
+    overflow-x: scroll
+      /* Adjust container width */
+    ;
+    width: -webkit-fill-available;
+    margin-bottom: 50px;
+    width: 360px;
+
+    margin-left: 20px;
+
   }
 
   .input-groupwatchlist {
     font-size: 14px;
     display: flex;
-  
-    gap: 20px; /* Add spacing between scheme name and exchange */
+
+    gap: 20px;
+    /* Add spacing between scheme name and exchange */
     padding: 5px;
   }
 
@@ -613,26 +665,43 @@ margin-top: 20px;
 
   .watchlist-management {
     display: flex;
-    flex-wrap: nowrap; /* Prevent wrapping */
-    overflow-x: auto; /* Enable horizontal scrolling */
+    flex-wrap: nowrap;
+    /* Prevent wrapping */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
     gap: 8px;
     padding: 8px 0;
+  
   }
 
   .watchlist-item {
-    flex: 0 0 auto; /* Prevent shrinking */
-    min-width: 100px; /* Minimum width for smaller screens */
+    flex: 0 0 auto;
+    /* Prevent shrinking */
+    min-width: 100px;
+    /* Minimum width for smaller screens */
     padding: 8px;
     font-size: 12px;
   }
+
   .menu-iconwatchlist {
     font-size: 14px;
   }
 
   .menu-dropdownwatchlist {
-    top: 25px; /* Adjust for smaller spacing */
+    top: 25px;
+    /* Adjust for smaller spacing */
   }
 
+  .menu-dropdownwatchlist {
+  position: absolute;
+
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
   .create-watchlist {
     font-size: 12px;
     padding: 6px 10px;
@@ -650,80 +719,122 @@ margin-top: 20px;
   .delete-btnwatchlist {
     font-size: 12px;
   }
+
   .scheme-exchange-container {
     display: flex;
-    align-items: center; /* Align items vertically centered */
-    justify-content: space-between; /* Space items out horizontally */
-    gap: 10px; /* Add spacing between scheme name and exchange */
-    padding: 5px; /* Optional padding around the container */
+    align-items: center;
+    /* Align items vertically centered */
+    justify-content: space-between;
+    /* Space items out horizontally */
+    gap: 10px;
+    /* Add spacing between scheme name and exchange */
+    padding: 5px;
+    /* Optional padding around the container */
   }
-  
+
   /* Styling for scheme name */
   .scheme-name {
     font-size: 16px;
     font-weight: bold;
-    color: #333; /* Dark text color */
-    flex: 1; /* Allow the scheme name to take more space */
-    white-space: nowrap; /* Prevent text wrapping */
-    overflow: hidden; /* Hide overflow text */
-    text-overflow: ellipsis; /* Add ellipsis for overflow */
+    color: #333;
+    /* Dark text color */
+    flex: 1;
+    /* Allow the scheme name to take more space */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    overflow: hidden;
+    /* Hide overflow text */
+    text-overflow: ellipsis;
+    /* Add ellipsis for overflow */
   }
-  
+
   /* Styling for exchange */
   .exchange {
     font-size: 14px;
-    color: #555; /* Lighter text color */
-    white-space: nowrap; /* Prevent wrapping */
+    color: #555;
+    /* Lighter text color */
+    white-space: nowrap;
+    /* Prevent wrapping */
   }
+
   .stock-tablewatchlist td {
-    display: flex; /* Display items in a single row */
-    flex-direction: column; /* Stack content vertically */
-    align-items: flex-start; /* Align items to the left */
-    gap: 4px; /* Add space between elements */
+    display: flex;
+    /* Display items in a single row */
+    flex-direction: column;
+    /* Stack content vertically */
+    align-items: flex-start;
+    /* Align items to the left */
+    gap: 4px;
+    /* Add space between elements */
   }
 
   .scheme-exchange-cell {
-    display: flex; /* Ensure items are on one row */
-    flex-direction: row; /* Align horizontally */
-    justify-content: space-between; /* Space out name and exchange */
-    align-items: center; /* Center vertically */
-    width: 100%; /* Take up full width */
+    display: flex;
+    /* Ensure items are on one row */
+    flex-direction: row;
+    /* Align horizontally */
+    justify-content: space-between;
+    /* Space out name and exchange */
+    align-items: center;
+    /* Center vertically */
+    width: 100%;
+    /* Take up full width */
   }
 
   .stockname {
-    font-size: 16px; /* Adjust font size for better readability */
+    font-size: 16px;
+    /* Adjust font size for better readability */
     font-weight: bold;
-    flex: 1; /* Allow the name to occupy more space */
-    text-overflow: ellipsis; /* Truncate text if it overflows */
+    flex: 1;
+    /* Allow the name to occupy more space */
+    text-overflow: ellipsis;
+    /* Truncate text if it overflows */
     overflow: hidden;
-    white-space: nowrap; /* Prevent wrapping */
+    white-space: nowrap;
+    /* Prevent wrapping */
   }
 
   .exchange {
-    font-size: 14px; /* Smaller font size for the exchange */
+    font-size: 14px;
+    /* Smaller font size for the exchange */
     color: #888;
-    text-align: right; /* Align to the right side */
-    margin-left: 10px; /* Add space between the name and exchange */
+    text-align: right;
+    /* Align to the right side */
+    margin-left: 10px;
+    /* Add space between the name and exchange */
   }
 
   /* Adjust table layout for better readability */
   .stock-tablewatchlist {
-    font-size: 14px; /* Smaller font size for mobile */
+    font-size: 14px;
+    /* Smaller font size for mobile */
   }
 
   .filters-sectionwatchlist {
-    display: flex; /* Use flex layout for responsiveness */
-     /* Adjust font size for mobile view */
+    display: flex;
+    /* Use flex layout for responsiveness */
+    /* Adjust font size for mobile view */
   }
+
   .group-by-sectionwatchlist {
-    display: flex; /* Enable flexbox for responsive layout */
+    display: flex;
+    /* Enable flexbox for responsive layout */
     margin-left: 520px;
   }
 
 
 
-  
+
 }
-
-
-  
+@media (max-width: 320px) { 
+      .popup-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        width: 250px;
+        text-align: center;
+        animation: fadeIn 0.3s ease-in-out;
+        font-family: 'calibri';
+    }
+}

@@ -338,7 +338,7 @@ font-family: 'calibri';
 
 .payment-popup-content {
 background-color: #fff;
-padding: 20px 40px;
+padding: 20px 80px;
 border-radius: 8px;
 text-align: center;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -530,6 +530,7 @@ color: #333;
     margin-left: 10px;
     margin-right: 10px;
 }
+
 .payment-option-content span {
   margin-top: 8px;
   font-size: 10px;

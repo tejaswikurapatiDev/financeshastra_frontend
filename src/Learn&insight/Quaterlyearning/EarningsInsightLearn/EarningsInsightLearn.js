@@ -253,18 +253,20 @@ const EarningsInsightLearn = () => {
                 <div className="earnings-insight-learn-controls">
                     <div className="earnings-insight-learn-header-row">
                         <div className="earningquterlyrowall">
-                            <div className="earnings-insight-learn-tabs">
-                                {earningsTabs.map(tab => (
-                                    <button
-                                        key={tab}
-                                        className={`earnings-insight-learn-tab-button ${selectedEarningsTab === tab ? "active" : ""}`}
-                                        onClick={() => handleEarningsTabChange(tab)}
-                                    >
-                                        {tab}
-                                    </button>
-                                ))}
-                            </div>
+                            {/* Desktop Tabs */}
+  <div className="earnings-insight-learn-tabs">
+    {earningsTabs.map(tab => (
+      <button
+        key={tab}
+        className={`earnings-insight-learn-tab-button ${selectedEarningsTab === tab ? "active" : ""}`}
+        onClick={() => handleEarningsTabChange(tab)}
+      >
+        {tab}
+      </button>
+    ))}
+  </div>
 
+ 
                             {/*
   <div className="earnings-insight-learn-date-picker">                                 
     <div className="dateinsight">                                     
@@ -313,8 +315,21 @@ const EarningsInsightLearn = () => {
 */}
 
                         </div>
+                                             {/* Mobile Dropdown */}
+  <div className="earnings-dropdown-mobile">
+    <select
+      value={selectedEarningsTab}
+      onChange={(e) => handleEarningsTabChange(e.target.value)}
+    >
+      {earningsTabs.map(tab => (
+        <option key={tab} value={tab}>{tab}</option>
+      ))}
+    </select>
+  </div>
                     </div>
+   
                 </div>
+             
                 {isloading ? <div className='loader-cont'><ClipLoader
                     cssOverride={override}
                     size={35}
