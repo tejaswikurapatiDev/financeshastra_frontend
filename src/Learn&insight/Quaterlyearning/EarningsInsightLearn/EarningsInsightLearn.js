@@ -373,11 +373,11 @@ const EarningsInsightLearn = () => {
                                     <td>{row.Type}</td>
                                     <td>{row.ltp}</td>
                                     <td>{row.mcap}</td>
-                                    <td>{row.revenue}</td>
+                                    <td>{row.revenue === "null" ? "-": row.revenue}</td>
                                     <td>{row.change}</td>
                                     <td>{row.tentativeTime}</td>
-                                    <td>{row.grossProfit}</td>
-                                    <td>{row.netProfit}</td>
+                                    <td>{row.grossProfit === "null" ? "-": row.grossProfit}</td>
+                                    <td>{row.netProfit === "null" ? "-": row.netProfit}</td>
                                     <td>
                                         <button
                                             onClick={() => navigatetoarticle(row.company_id)}
