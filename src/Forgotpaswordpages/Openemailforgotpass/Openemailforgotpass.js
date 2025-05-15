@@ -270,7 +270,7 @@ function Openemailforgotpass() {
             className="signbtnopengamail"
             onClick={() => window.open("https://mail.google.com/", "_blank")}
           >
-            Open Gmail
+            Open Email
           </button>
 
           <p className="paragraphforgett">

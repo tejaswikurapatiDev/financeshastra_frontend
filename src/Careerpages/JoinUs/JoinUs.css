@@ -1,0 +1,86 @@
+.join-us-section {
+  position: relative;
+  background: linear-gradient(to bottom right, #d6dadc, #5c8595);
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Calibri';
+  background-image: url('../../assest/backgroundimgg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.join-us-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(213, 230, 233, 0.6); /* White overlay, adjust opacity */
+  z-index: 0;
+}
+
+.join-us-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.join-heading {
+  color: #24b676;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.join-description {
+  font-size: 16px;
+  color: #000;
+  margin: 10px 0;
+}
+
+.email-linkjobcard {
+  text-decoration: none;
+    background: linear-gradient(90deg, #24B676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+.linkedin-link {
+  color: #1ca87b;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.join-buttonsjob {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.subscribe-btnjob {
+  background-color: #24b676;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+    font-weight: bold;
+  font-size: 14px;
+}
+
+.contact-btnjob {
+  background-color: transparent;
+  color: #24b676;
+  border: 1px solid #24b676;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}

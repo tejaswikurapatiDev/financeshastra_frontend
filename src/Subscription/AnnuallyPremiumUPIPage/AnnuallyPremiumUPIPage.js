@@ -76,11 +76,18 @@ const AnnuallyPremiumUPIPage = () => {
               window.location.reload(); // Reload page
             }, 3000);
 
+<<<<<<< HEAD
           })
           .catch(error => {
             console.error("Payment error:", error);
             // Optionally show an error popup
           })
+=======
+        setTimeout(() => {
+          setShowPopup(false); // Automatically close the popup after 5 seconds
+          // Add your actual redirect or API call logic here if needed
+        }, 3000); // Popup duration set to 5 seconds
+>>>>>>> f468ca89a935cd4ce9153756a2f7422a36e2fa33
       }
     }
   };
