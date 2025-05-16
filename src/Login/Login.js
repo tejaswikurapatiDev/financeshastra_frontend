@@ -451,10 +451,10 @@ function Login() {
                 </div>
                 <div>
                   <a
-                    href=""
+                    href="javascript:void(0)"
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate("/forgetpassword");
+                      navigate("/reset-password");
                     }}
                     className={
                       darkMode
@@ -513,7 +513,7 @@ function Login() {
                 {" "}
                 Terms & Conditions
               </a>
-              <a href="" className="registerContglblack-text">
+              <a href="javascript:void(0)" className="registerContglblack-text">
                 {" "}
                 and
               </a>
@@ -528,7 +528,7 @@ function Login() {
           <div className="register-link">
             <p className="register-linkp">
               Don't have an account?{" "}
-              <a href="" onClick={handleRegisterClick}>
+              <a href="javascript:void(0)" onClick={handleRegisterClick}>
                 Register
               </a>
             </p>

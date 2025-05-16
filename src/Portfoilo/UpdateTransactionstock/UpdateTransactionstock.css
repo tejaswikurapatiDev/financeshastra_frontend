@@ -209,6 +209,11 @@ select.transaction-input {
     text-align: left;
     margin-left: 20px;
   }
+  .transaction-form {
+    padding: 20px;
+    font-family: 'calibri';
+    margin-top: -20px;
+}
 
   .transaction-row-wrapper {
     padding: 10px; /* Reduce padding */
@@ -294,7 +299,11 @@ select.transaction-input {
   }
 
   
-
+  .transaction-form {
+    padding: 20px;
+    font-family: 'calibri';
+    margin-top: 40px;
+}
   .form-buttons {
     margin-top: 20px;
     display: flex

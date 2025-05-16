@@ -258,6 +258,7 @@ import ProfileScreenRiskReport from "./myprofile/ProfileScreenRiskReportDashboar
 import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistory";
 import IpoRecommendationsubscribe from "./Learn&insight/Ipo/IpoRecommendationsubscribe/IpoRecommendationsubscribe";
 import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
+import Earningsresult from "./Learn&insight/Quaterlyearning/Earningsresult/Earningsresult";
 
 
 function App() {
@@ -635,11 +636,11 @@ function App() {
                 element={<ReferMoreProfilePages />}
               />
               <Route
-                path="/earningCalculatorProfilePage"
+                path="/earning-calculator-profile"
                 element={<EarningCalculatorProfilePage />}
               />
               <Route
-                path="/reffeerralProfilePageSSS"
+                path="/referal-profile"
                 element={<ReffeerralProfilePageSSS />}
               />
               <Route path="/fAQS" element={<FAQS />} />
@@ -719,7 +720,7 @@ function App() {
                 element={<Accountsipallpage />}
               />
 
-              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
+              <Route path="/smart-stocks-SIPs" element={<StocksSmartSIPPS />} />
 
               <Route path="/" element={<LandingPage />} />
 
@@ -808,7 +809,7 @@ function App() {
                 path="/portfolioanalyticchart"
                 element={<Portfolioanalyticchart />}
               />
-              <Route path="/forgetpassword" element={<Forgetpassword />} />
+              <Route path="/reset-password" element={<Forgetpassword />} />
               <Route
                 path="/openemailforgotpass"
                 element={<Openemailforgotpass />}
@@ -878,7 +879,7 @@ function App() {
               />
               <Route path="/contactus" element={<ContactUsnew />} />
               <Route path="/contactCards" element={<ContactCards />} />
-              <Route path="/stocksSmartSIPS" element={<StocksSmartSIPPS />} />
+              <Route path="/smart-stocks-SIPs" element={<StocksSmartSIPPS />} />
               <Route path="/dashboardall" element={<Dashboardall />} />
               <Route path="/privacyPolicypage" element={<PrivacyPolicypage />} />
               <Route path="/profileRiskReportInvestment" element={<ProfileRiskReportInvestment />} />
@@ -890,6 +891,7 @@ function App() {
               <Route path="/billingInfoHistory" element={<BillingInfoHistory />} />
               <Route path="/ipoRecommendationsubscribe" element={<IpoRecommendationsubscribe />} />
               <Route path="/invoicePage" element={<InvoicePage />} />
+              <Route path="/earningsresult/:title" element={<Earningsresult/>} />
 
 
 

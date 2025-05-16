@@ -5,6 +5,11 @@ import { FaCaretUp, FaCaretDown } from "react-icons/fa";
 import Navbar from '../../Navbar/Navbar';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import { API_BASE_URL } from "../../config";
+import ClipLoader from 'react-spinners/ClipLoader';
+const override = {
+  display: "block",
+  textAlign: "center"
+}
 
 const StockNewsCard = () => {
   const [searchParams] = useSearchParams();
@@ -55,17 +60,25 @@ const StockNewsCard = () => {
   }, [stockPrice]);
 
   console.log(article?.created_at)
-  const rawDate=article?.created_at;
-  const currentDate =rawDate ? new Date().toLocaleString('en-GB', {
+  const rawDate = article?.created_at;
+  const currentDate = rawDate ? new Date().toLocaleString('en-GB', {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
     hour: '2-digit',
     minute: '2-digit',
     hour12: false
-  }): "Date is not available";
+  }) : "Date is not available";
 
-  if (!article) return <div className="stocknewsss"><p>Loading...</p></div>;
+  if (!article) return <div className="stocknewsss"><div className="loader-cont">
+    <ClipLoader
+      cssOverride={override}
+      size={35}
+      data-testid="loader"
+      speedMultiplier={1}
+      color="green"
+    />
+  </div></div>;
 
   return (
     <div>
@@ -89,7 +102,7 @@ const StockNewsCard = () => {
             <div>
               <div className='newsscolumnn'>
                 <p className="stocknewsss-stock-price">
-                  ₹ {article.current_price !==null ? article.current_price.toLocaleString() : "N/A"}
+                  ₹ {article.current_price !== null ? article.current_price.toLocaleString() : "N/A"}
                   {change.value >= 0 ? <FaCaretUp className="iconnewss" /> : <FaCaretDown className="iconnewss down" />}
                 </p>
                 <p className={`stocknewsss-change ${change.value >= 0 ? 'positive' : 'negative'}`}>

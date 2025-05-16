@@ -70,7 +70,7 @@
        color: #333;
        outline: none;
        background-color: #f9f9f9;
-       width: 300px;
+       width: 400px;
      }
      .ipocomment-group textarea {
        resize: none;
@@ -109,7 +109,7 @@
      
      
      .ipocomment-button {
-       background-color: #4caf50;
+       background-color: #24b676;
        color: white;
        border: none;
        border-radius: 5px;

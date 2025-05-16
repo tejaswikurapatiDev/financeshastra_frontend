@@ -231,18 +231,6 @@ const LearnDropdownMenu = () => (
       <p>Discover what's happening in the stock markets in real-time</p>
     </Link>
 
-    {/*<Link
-      to="/blogs"
-      className="dropdown-item"
-      style={{
-        display: "block",
-        textDecoration: "none",
-      }}
-    >
-      Blogs
-      <p>Investment Knowledge Hub</p>
-    </Link>*/}
-
     <Link
       to="/markets/ipo-details"
       className="dropdown-item"
@@ -267,17 +255,6 @@ const LearnDropdownMenu = () => (
       <p>Monitor thorough quarterly earnings summaries</p>
     </Link>
 
-    {/*<Link
-      to="/learncard"
-      className="dropdown-item"
-      style={{
-        display: "block",
-        textDecoration: "none",
-      }}
-    >
-      Learn
-      <p> Knowledge is the key to successful trading—learn, adapt, and grow</p>
-    </Link>*/}
   </div>
 );
 const MutualFundsDropdownMenu = () => (
@@ -464,6 +441,75 @@ const renderhomeDropdown = () => (
     </Link>
   </div>
 );
+ const renderlearnDropdown = (darkMode) => (
+  <div className={darkMode ? "learn-menudarkerrrrmode" : "learn-menu"}>
+      <Link
+        to="/stock-market-news"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+
+
+        }}>
+        Stock News
+        <p>Discover what's happening in the stock markets in real-time</p>
+      </Link>
+
+      {/*<Link to="/blogs"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+         
+         
+        }}>
+          Blogs
+          <p>Investment Knowledge Hub</p>
+        </Link>*/}
+
+      <Link
+        to="/markets/ipo-details"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        }}
+      >
+        IPO Details
+        <p>Key Information on the Latest IPO Trends</p>
+      </Link>
+
+      <Link
+        to="/markets/earnings"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+
+
+        }}>
+        Quarterly Earnings
+        <p>Monitor thorough quarterly earnings summaries</p>
+      </Link>
+
+
+      {/*<Link to="/learncard"
+        className={darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"}
+        style={{
+          display: "block",
+          textDecoration: "none",
+        }}
+        >
+          Learn
+          <p>
+            {" "}
+            Knowledge is the key to successful trading—learn, adapt, and grow
+          </p>
+        </Link>*/}
+    </div>
+
+  );
 
 const UserDropdownMenu = () => (
   <div className="user-menu">
@@ -503,6 +549,7 @@ const Landingnavbar = () => {
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
   const [storedName, setUsername] = useState("");
+   
 
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
@@ -516,8 +563,10 @@ const Landingnavbar = () => {
   const [loading, setLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
   //state for search suggestion dropdown
+  const footerLearnDropdownRef = useRef(null);
   const footerhomeDropdownRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
+   const [footerLearnDropdownOpen, setFooterLearnDropdownOpen] = useState(false);
   const [footerhomeDropdownOpen, setFooterhomeDropdownOpen] = useState(false);
   // Refs for handling click outside
   const dropdownRefs = {
@@ -547,6 +596,10 @@ const Landingnavbar = () => {
   const toggleFooterhomeDropdown = () => {
     setFooterhomeDropdownOpen(!footerhomeDropdownOpen);
   };
+   const toggleFooterlearnDropdown = () => {
+    setFooterLearnDropdownOpen(!footerLearnDropdownOpen);
+  };
+
   // API Call for search data
   const getAllData = async () => {
     try {
@@ -694,6 +747,12 @@ const Landingnavbar = () => {
       ) {
         setUserDropdownOpen(false);
       }
+       if (
+        footerLearnDropdownRef.current &&
+        !footerLearnDropdownRef.current.contains(event.target)
+      ) {
+        setFooterLearnDropdownOpen(false);
+      }
       if (
         footerhomeDropdownRef.current &&
         !footerhomeDropdownRef.current.contains(event.target)
@@ -755,7 +814,6 @@ const Landingnavbar = () => {
     setFilterData([]);
   };
 
-  console.log("filterData", filterData);
   return (
     <>
       <nav className={darkMode ? "darkmodenavbar" : "navbar"}>
@@ -1001,7 +1059,7 @@ const Landingnavbar = () => {
       <ul className="footer-nav">
         <li className="learn-dropdown" ref={footerhomeDropdownRef}>
           <a
-            href=""
+            href="javascript:void(0)"
             onClick={toggleFooterhomeDropdown}
             className="footer-link"
           >
@@ -1043,7 +1101,7 @@ const Landingnavbar = () => {
                 <RiBriefcase4Line />
               </i>
               <span>Portfolio</span>
-              <FaChevronDown className="chevron-icon" />
+              <FaChevronDown className="porchevron-icon" />
             </div>
           </Link>
           {dropdowns.footerPortfolio && <PortfolioDropdownMenu />}
@@ -1069,22 +1127,23 @@ const Landingnavbar = () => {
           {dropdowns.footerMutualFunds && <MutualFundsDropdownMenu />}
         </li>
 
-        <li>
-          <Link
-            to="/#"
-            onClick={() => toggleDropdown("learn")}
-            className="footer-link"
-          >
-            <div className="footer-item">
-              <i className="footer-icon">
-                <SlBookOpen />
-              </i>
-              <span>Learn</span>
-              <FaChevronDown className="chevron-icon" />
-            </div>
-          </Link>
-          {dropdowns.learn && <LearnDropdownMenu />}
-        </li>
+        <li className="learn-dropdown" ref={footerLearnDropdownRef}>
+                 <button
+                 type="button"
+                   onClick={toggleFooterlearnDropdown}
+                   className="footer-link"
+                   style={{ border: "none", backgroundColor: "transparent"}}
+                 >
+                   <div className="footer-item">
+                     <i className="footer-icon">
+                       <SlBookOpen />
+                     </i>
+                     <span style={{color: "#24b676"}}>Markets</span>
+                     <FaChevronDown className="chevron-icon" />
+                     {footerLearnDropdownOpen && renderlearnDropdown()}
+                   </div>
+                 </button>
+               </li>
       </ul>
     </>
   );

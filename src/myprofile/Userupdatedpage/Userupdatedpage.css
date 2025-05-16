@@ -348,6 +348,22 @@ text-align: center;
     margin-left: 480px;
 }
 }
+ @media (min-width: 1280px) and (max-width: 1535px) {
+  .allpersonal {
+    display: flex
+;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid rgb(208, 206, 206);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 750px;
+    gap: 0px;
+    box-shadow: 0px 4px 8px rgb(208, 206, 206);
+}
+ }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .profilepage-tabsorderusers {
     text-align: center;
@@ -778,4 +794,21 @@ margin-left: -20px;
   font-size: 11px;
   margin-left: -16px;
 }
+.detailRow {
+    display: flex
+;
+    align-items: center;
+    margin-bottom: 1px;
+    margin: 5px 0px;
+    width: 230px;
+}
+    .editiconprofileee {
+        color: #24b676;
+
+        margin-left: -40px;
+    }
+        .editiconprofilee {
+        color: #24b676;
+        margin-left: -10px;
+    }
 }

@@ -228,7 +228,7 @@ const ProfileScreenRiskReport = () => {
           </div>
         ))}
       </div>
-      <a href="" className="analysisnoteriskprofilereport-viewmore">
+      <a href="javascript:void(0)" className="analysisnoteriskprofilereport-viewmore">
         View more
       </a>
     </div>
@@ -272,7 +272,7 @@ const ProfileScreenRiskReport = () => {
             </ul>
             <div className="viewmorearrowriskall">
         <div>
-            <a href="" className="popularscreenriskreport-view-more">
+            <a href="javascript:void(0)" className="popularscreenriskreport-view-more">
               View more companies 
             </a></div>
             <div>
@@ -304,7 +304,7 @@ const ProfileScreenRiskReport = () => {
       </div>
     ))}
   </div>
-  <a href="" className="analysisnoteriskprofilereport-viewmore">
+  <a href="javascript:void(0)" className="analysisnoteriskprofilereport-viewmore">
   View all visited stocks
   </a>
   <div className="analysisnoteriskprofilereport-list">
@@ -325,7 +325,7 @@ const ProfileScreenRiskReport = () => {
       </div>
     ))}
   </div>
-  <a href="" className="analysisnoteriskprofilereport-viewmore">
+  <a href="javascript:void(0)" className="analysisnoteriskprofilereport-viewmore">
   View all visited stocks
   </a>
 </div>

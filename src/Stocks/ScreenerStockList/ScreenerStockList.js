@@ -20,6 +20,20 @@ const override = {
 };
 
 const ScreenerStockList = () => {
+
+  const indexDropdownRef = useRef(null);
+  const priceDropdownRef = useRef(null);
+  const changeDropdownRef = useRef(null);
+  const marketCapDropdownRef = useRef(null);
+  const peDropdownRef = useRef(null);
+  const epsDropdownRef = useRef(null);
+  const divYieldDropdownRef = useRef(null);
+  const sectorDropdownRef = useRef(null);
+  const performanceDropdownRef = useRef(null);
+  const revenueDropdownRef = useRef(null);
+  const pegDropdownRef = useRef(null);
+  const roeDropdownRef = useRef(null);
+
   const [stocks, setStocks] = useState(screenerStockListData);
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [isloading, setisloading] = useState(true)
@@ -158,6 +172,50 @@ const ScreenerStockList = () => {
     index: false,
     sector: false,
   });
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const isOutsideAll = Object.entries({
+        index: indexDropdownRef,
+        price: priceDropdownRef,
+        change: changeDropdownRef,
+        marketcap: marketCapDropdownRef,
+        pe: peDropdownRef,
+        eps: epsDropdownRef,
+        divYield: divYieldDropdownRef,
+        sector: sectorDropdownRef,
+        performance: performanceDropdownRef,
+        revenue: revenueDropdownRef,
+        peg: pegDropdownRef,
+        roe: roeDropdownRef,
+      }).every(([key, ref]) => {
+        return !dropdowns[key] || (ref.current && !ref.current.contains(event.target));
+      });
+
+      if (isOutsideAll) {
+        setDropdowns({
+          index: false,
+          price: false,
+          change: false,
+          marketcap: false,
+          pe: false,
+          eps: false,
+          divYield: false,
+          sector: false,
+          performance: false,
+          revenue: false,
+          peg: false,
+          roe: false,
+        });
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdowns]);
+
   const toggleDropdown = (key) => {
     setDropdowns((prev) => {
       // Create a new object where all dropdowns are closed except the one being toggled
@@ -1265,7 +1323,7 @@ const ScreenerStockList = () => {
           {/* Filter for each parameter */}
           <div
             className="indexscreenerbuttonstockcontainar"
-
+            ref={indexDropdownRef}
           >
             {/* Dropdown Button */}
             <button
@@ -1345,7 +1403,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div >
+              <div ref={priceDropdownRef} >
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1416,7 +1474,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={changeDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1490,7 +1548,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={marketCapDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1564,7 +1622,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={peDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1638,7 +1696,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div >
+              <div ref={epsDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1712,7 +1770,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={divYieldDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1782,7 +1840,7 @@ const ScreenerStockList = () => {
           {/* Sector Dropdown */}
           <div
             className="indexscreenerbuttonstockcontainar"
-
+            ref={sectorDropdownRef}
           >
             <button
               className="indexscreenerbuttonstock"
@@ -1859,7 +1917,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div >
+              <div ref={performanceDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -1934,7 +1992,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div >
+              <div ref={revenueDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2011,7 +2069,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={pegDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"
@@ -2086,7 +2144,7 @@ const ScreenerStockList = () => {
           <div className="market-cap-filter">
             <div className="dropdown-market-cap-wrapper">
               {/* Filter for each parameter */}
-              <div>
+              <div ref={roeDropdownRef}>
                 {/* Dropdown Button */}
                 <button
                   className="dropdown-market-cap-toggle"

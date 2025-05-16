@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./ProfitLossTable.css";
 import { API_BASE_URL } from "../config";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+  display: "block",
+  textAlign: "center"
+}
+
 const ProfitLossTable = () => {
   const [stockData, setStockData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,7 +34,16 @@ const ProfitLossTable = () => {
     fetchfun();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <div className="loader-cont">
+    <ClipLoader
+      cssOverride={override}
+      size={35}
+      data-testid="loader"
+      loading={loading}
+      speedMultiplier={1}
+      color="green"
+    />
+  </div>;
 
   return (
     <div>
@@ -43,7 +58,7 @@ const ProfitLossTable = () => {
             <tr>
               <th>Metric</th>
               {stockData.map((item, index) => (
-                <th key={index}>{"March "+item.fiscal_year}</th>
+                <th key={index}>{"March " + item.fiscal_year}</th>
               ))}
             </tr>
           </thead>

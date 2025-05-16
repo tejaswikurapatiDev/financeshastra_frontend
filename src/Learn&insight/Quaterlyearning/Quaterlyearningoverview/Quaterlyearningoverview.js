@@ -28,7 +28,6 @@ function QuaterelyOverview() {
   const companyName = queryParams.get('company_name');
   const [quarterlyReport, setQuarterlyReport] = useState([])
   const [shareHolding, setShareHolding] = useState([])
-  const [ balanceSheet, setBalanceSheet] = useState([])
 
   const fetchQuarterlyEarningsDetails = async() => {
     try {
@@ -40,7 +39,6 @@ function QuaterelyOverview() {
       console.log(data)
       setQuarterlyReport(data.quaterResults)
       setShareHolding(data.shareholder)
-      setBalanceSheet(data.balanceSheet)
     } catch (error) {
       console.error("Failed to fetch Quarterly Earnings list:", error);
     }
@@ -120,12 +118,17 @@ function QuaterelyOverview() {
         </Element>
         {/* Section: Stock X-Ray */}
         <Element name="financials">
-          <QuarterlyEarningsReport quarterlyReport={quarterlyReport} shareHolding={shareHolding} />
+          <QuarterlyEarningsReport />
+        </Element>
+
+        {/* Section: Quarterly Earnings Report */}
+        <Element name="income">
+          <QuarterlyEarningdetailincome quarterlyReport={quarterlyReport}/>
         </Element>
 
         {/* Section: Valuation */}
         <Element name="valuation">
-          <Quarterlybalancesheet balanceSheet={balanceSheet} />
+          <Quarterlybalancesheet />
         </Element>
 
         {/* Section: Financial Dashboard */}
