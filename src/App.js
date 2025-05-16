@@ -259,6 +259,7 @@ import BillingInfoHistory from "./myprofile/BillingInfoHistory/BillingInfoHistor
 import IpoRecommendationsubscribe from "./Learn&insight/Ipo/IpoRecommendationsubscribe/IpoRecommendationsubscribe";
 import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
 import Earningsresult from "./Learn&insight/Quaterlyearning/Earningsresult/Earningsresult";
+import CareerHiringPage from "./Careerpages/CareerHiringPage/CareerHiringPage";
 import JobCard from "./Careerpages/JobCard/JobCard";
 
 
@@ -893,6 +894,8 @@ function App() {
               <Route path="/ipoRecommendationsubscribe" element={<IpoRecommendationsubscribe />} />
               <Route path="/invoicePage" element={<InvoicePage />} />
               <Route path="/earningsresult/:title" element={<Earningsresult/>} />
+              <Route path="/career" element={<CareerHiringPage/>} />
+
                <Route path="/jobCard" element={<JobCard/>} />
 
 
