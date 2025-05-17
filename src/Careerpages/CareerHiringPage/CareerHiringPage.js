@@ -8,7 +8,9 @@ import Navbar from "../../Navbar/Navbar";
 
 export default function CareerHiringPage() {
   return (
+    <div>
   <div className="careerhiringpage-container">
+   
       {/* Header Section */}
       <div className="careerhiringpage-header">
        
@@ -89,7 +91,9 @@ export default function CareerHiringPage() {
 </div>
 
       </div>
-      <Navbar/>
+     
+    </div>
+    <Navbar/>
     </div>
   );
 }

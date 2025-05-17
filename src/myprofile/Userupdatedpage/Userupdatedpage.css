@@ -70,6 +70,13 @@
   margin: 5px 0px;
 }
 
+.detailRoww {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1px;
+  margin: 5px 0px;
+  gap: 40px;
+}
 .labelprofiledetail {
   width: 150px; /* Set a fixed width for labels */
   font-weight: bold;
@@ -82,6 +89,10 @@
 }
 
 .detailRow strong {
+  color: #000000;
+  font-size: 15px;
+}
+.detailRoww strong {
   color: #000000;
   font-size: 15px;
 }
@@ -363,6 +374,10 @@ text-align: center;
     gap: 0px;
     box-shadow: 0px 4px 8px rgb(208, 206, 206);
 }
+    .detailRoww {
+
+gap: 40px;
+}
  }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .profilepage-tabsorderusers {
@@ -423,6 +438,10 @@ text-align: center;
   width: 750px;
   margin-left: 100px;
   box-shadow: 0px 4px 8px rgb(208, 206, 206);
+}
+    .detailRoww {
+
+gap: 40px;
 }
 }
 @media (max-width: 768px) {
@@ -542,7 +561,10 @@ text-align: center;
       align-items: center;
       margin-left: 8px;
     }
-    
+    .detailRoww {
+
+gap: 40px;
+}
     .allpersonal {
       display: flex;
       flex-direction: row; /* Aligns child elements vertically */
@@ -758,13 +780,28 @@ margin-left: -20px;
   font-size: 12px;
 }
 
+.detailRoww strong {
+  color: #000000;
+  font-size: 12px;
+}
 .labelprofiledetail {
   width: 108px; /* Set a fixed width for labels */
   font-weight: bold;
   color: #000000;
 }
 
+.detailRoww {
 
+gap: 40px;
+}
+    .value {
+  display: inline-block;
+  max-width: 100%; /* Adjust based on layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
 }
 
 
@@ -792,11 +829,20 @@ margin-left: -20px;
 }
 .value, .current-value {
   font-size: 11px;
-  margin-left: -16px;
+  margin-left: 0px;
 }
 .detailRow {
     display: flex
 ;
+    align-items: center;
+    margin-bottom: 1px;
+    margin: 5px 0px;
+    width: 230px;
+}
+.detailRoww {
+    display: flex
+;
+gap: 40px;
     align-items: center;
     margin-bottom: 1px;
     margin: 5px 0px;
@@ -811,4 +857,13 @@ margin-left: -20px;
         color: #24b676;
         margin-left: -10px;
     }
+    .value {
+  display: inline-block;
+  max-width: 100%; /* Adjust based on layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+
 }
