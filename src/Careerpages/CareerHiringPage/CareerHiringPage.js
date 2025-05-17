@@ -129,7 +129,7 @@ export default function CareerHiringPage() {
               <div className='allimgg'>
                 <div><img src={img5} className='imgjob'/></div><div><h2>Research Analyst</h2>
               <div className="locationjobcard">Location: Remote (India)</div></div></div>
-              <div className="typejobcard">Type: Full-Time | Entry to Mid-Level</div>
+              <div className="typejobcardhir">Type: Full-Time | Entry to Mid-Level</div>
             </div>
     <div>
             <a 
