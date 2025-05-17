@@ -117,6 +117,7 @@ margin-top: 60px;
   padding: 20px;
   text-align: center;
   background-color: #f9f9f9;
+      height: 180px;
 }
 
 .careerhiringpage-card img {
@@ -140,6 +141,7 @@ margin-top: 60px;
   padding: 20px;
   text-align: center;
   background-color: #f9f9f9;
+      height: 180px;
 }
 
 .careerhiringpage-carddd img {
@@ -194,4 +196,191 @@ margin-top: 60px;
 .careerhiringpage-filters input:focus {
   outline: none;
   border-color: #0aa384;
+}
+.job-hircard {
+  max-width: 63%;
+  margin: 40px auto;
+  padding: 20px 24px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Medium-light shadow */
+  border-radius: 12px;
+  font-family: 'calibri';
+  color: black;
+  margin-top: -200px;
+}
+.sectionjobcarddhir {
+  margin-bottom: 24px;
+  margin-left: 60px;
+ 
+}
+
+.sectionjobcarddhir h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: black;
+  text-align: left;
+}
+
+.sectionjobcarddhir p {
+  font-size: 15px;
+  line-height: 1.6;
+  color:black;
+    font-weight: 500;
+     text-align: left;
+}
+.show-more-containerhir {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 40px;
+}
+
+.show-more-texthir {
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.show-more-iconhiring {
+  color: black;
+  box-shadow: 0 2px 8px rgba(203, 201, 201, 0.879);
+  border: 1px solid rgb(174, 170, 170);
+  border-radius: 50%;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  font-size: 10px; /* icon size */
+}
+
+.apply-linkjobcardhir {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 90px;
+
+  background: linear-gradient(90deg, #24B676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .job-hircard {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-family: 'calibri';
+    color: black;
+    margin-top: -200px;
+}
+.careerhiringpage-carddd {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+.careerhiringpage-card {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+}
+@media (max-width: 768px) {
+  .job-hircard {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-family: 'calibri';
+    color: black;
+    margin-top: -200px;
+}
+.apply-linkjobcardhir {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    /* margin-top: -40px; */
+    background: linear-gradient(90deg, #24B676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 530px;
+}
+
+.apply-linkjobcardhird:hover {
+  text-decoration: underline;
+}
+}
+@media (max-width: 480px) {
+      .job-hircard {
+        max-width: 80%;
+        margin: 40px auto;
+        padding: 20px 24px;
+        background-color: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        font-family: 'calibri';
+        color: black;
+        margin-top: -200px;
+    }
+   .apply-linkjobcardhir {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-top: 90px;
+    margin-left: 200px;
+    background: linear-gradient(90deg, #24B676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sectionjobcarddhir {
+    margin-bottom: 24px;
+    margin-left: 10px;
+}
+.sectionjobcarddhir p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: black;
+    font-weight: 500;
+}
+.careerhiringpage-whycards {
+    display: grid
+;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.careerhiringpage-card {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+.careerhiringpage-carddd {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
 }
