@@ -1,0 +1,402 @@
+/* CareerHiringPage.css */
+
+.careerhiringpage-container {
+  font-family: 'calibri';
+  color: #333;
+  line-height: 1.6;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* Header */
+.careerhiringpage-header {
+  background: url('./../../assest/careerhiringimg.png') no-repeat center center/cover;
+ 
+margin-top: 60px;
+  height: 400px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.typejobcardhir {
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+.typejobcardhir{
+  margin-left: 60px;
+}
+
+.careerhiringpage-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.careerhiringpage-textbox {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.careerhiringpage-textbox h1 {
+  font-size: 48px;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+.careerhiringpage-textbox p {
+  font-size: 20px;
+  margin: 10px 0 0 0;
+  letter-spacing: 2px;
+}
+
+.careerhiringpage-jobbutton {
+  margin-top: 300px;
+    background: linear-gradient(90deg, #24b676, #238486);
+  color: white;
+  padding: 10px 35px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2;
+  position: relative;
+}
+
+.careerhiringpage-jobbutton:hover {
+  background-color: #08876e;
+}
+
+/* Intro Section */
+.careerhiringpage-intro {
+  max-width: 800px;
+  margin: 60px auto 40px;
+}
+
+.careerhiringpage-intro h2 {
+ background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.careerhiringpage-intro p {
+  color: #333;
+  font-size: 16px;
+  padding: 0 20px;
+  font-weight: 600;
+  
+}
+
+/* Why Section */
+.careerhiringpage-why {
+  margin-top: 40px;
+  padding: 0 20px 60px;
+}
+
+.careerhiringpage-why h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.careerhiringpage-whycards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 fixed columns */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.careerhiringpage-card {
+  border: 2px solid #0aa384;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+      height: 180px;
+}
+
+.careerhiringpage-card img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.careerhiringpage-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.careerhiringpage-card p {
+  font-size: 14px;
+  color: #333;
+}
+.careerhiringpage-carddd {
+  border: 2px solid #0aa384;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+      height: 180px;
+}
+
+.careerhiringpage-carddd img {
+  height: 70px;
+  margin-bottom: 10px;
+}
+
+.careerhiringpage-carddd h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.careerhiringpage-carddd p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Explore Filters */
+.careerhiringpage-explore {
+ 
+  padding: 40px 20px;
+ 
+}
+
+.careerhiringpage-explore h3 {
+   background: linear-gradient(90deg, #24b676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: -60px;
+  margin-bottom: 20px;
+}
+
+.careerhiringpage-filters {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 200px;
+}
+
+.careerhiringpage-filters select,
+.careerhiringpage-filters input {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 200px;
+  font-size: 14px;
+}
+
+.careerhiringpage-filters select:focus,
+.careerhiringpage-filters input:focus {
+  outline: none;
+  border-color: #0aa384;
+}
+.job-hircard {
+  max-width: 63%;
+  margin: 40px auto;
+  padding: 20px 24px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Medium-light shadow */
+  border-radius: 12px;
+  font-family: 'calibri';
+  color: black;
+  margin-top: -200px;
+}
+.sectionjobcarddhir {
+  margin-bottom: 24px;
+  margin-left: 60px;
+ 
+}
+
+.sectionjobcarddhir h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: black;
+  text-align: left;
+}
+
+.sectionjobcarddhir p {
+  font-size: 15px;
+  line-height: 1.6;
+  color:black;
+    font-weight: 500;
+     text-align: left;
+}
+.show-more-containerhir {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 40px;
+}
+
+.show-more-texthir {
+  color: #000;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.show-more-iconhiring {
+  color: black;
+  box-shadow: 0 2px 8px rgba(203, 201, 201, 0.879);
+  border: 1px solid rgb(174, 170, 170);
+  border-radius: 50%;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  font-size: 10px; /* icon size */
+}
+
+.apply-linkjobcardhir {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 90px;
+
+  background: linear-gradient(90deg, #24B676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .job-hircard {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-family: 'calibri';
+    color: black;
+    margin-top: -200px;
+}
+.careerhiringpage-carddd {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+.careerhiringpage-card {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+}
+@media (max-width: 768px) {
+  .job-hircard {
+    max-width: 90%;
+    margin: 40px auto;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    font-family: 'calibri';
+    color: black;
+    margin-top: -200px;
+}
+.apply-linkjobcardhir {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    /* margin-top: -40px; */
+    background: linear-gradient(90deg, #24B676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 530px;
+}
+
+.apply-linkjobcardhird:hover {
+  text-decoration: underline;
+}
+}
+@media (max-width: 480px) {
+      .job-hircard {
+        max-width: 80%;
+        margin: 40px auto;
+        padding: 20px 24px;
+        background-color: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        border-radius: 12px;
+        font-family: 'calibri';
+        color: black;
+        margin-top: -200px;
+    }
+   .apply-linkjobcardhir {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    text-decoration: none;
+    margin-top: 90px;
+    margin-left: 200px;
+    background: linear-gradient(90deg, #24B676, #238486);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sectionjobcarddhir {
+    margin-bottom: 24px;
+    margin-left: 10px;
+}
+.sectionjobcarddhir p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: black;
+    font-weight: 500;
+}
+.careerhiringpage-whycards {
+    display: grid
+;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.careerhiringpage-card {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+.careerhiringpage-carddd {
+    border: 2px solid #0aa384;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    height: 180px;
+}
+}
+
+ @media (max-width: 320px) {
+  .typejobcardhir {
+  font-size: 13px;
+  color: black;
+  font-weight: 500;
+}
+ }

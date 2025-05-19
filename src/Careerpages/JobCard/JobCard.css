@@ -1,0 +1,255 @@
+.job-card {
+  max-width: 63%;
+  margin: 40px auto;
+  padding:20px 24px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: 'calibri';
+  color:black;
+  margin-top: 90px;
+}
+.allimgg{
+  display: flex;
+  gap: 10px;
+}
+.headerjobcard {
+    margin-top: 20px;
+  display: flex;
+margin-left: -3px;
+  align-items: flex-start;
+  gap: 55%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.imgjob{
+ width: 50px;
+ margin-top: 5px;
+}
+.headerjobcard h2 {
+  margin: 0 0 6px;
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+.apply-linkjobcard {
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 90px;
+
+  background: linear-gradient(90deg, #24B676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.locationjobcard,
+.typejobcard {
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+.locationjobcard{
+margin-bottom: 5px;
+}
+.typejobcard{
+  margin-left: 60px;
+}
+
+
+.apply-linkjobcard:hover {
+  text-decoration: underline;
+}
+
+.sectionjobcard {
+  margin-bottom: 24px;
+  margin-left: 0px;
+  border: 1px solid rgb(232, 222, 222);
+  width: 100%;
+  border-radius: 8px;
+box-shadow: 0 2px 6px rgb(215, 212, 212);
+  padding: 1px;
+}
+
+
+.sectionjobcardd {
+  margin-bottom: 24px;
+  margin-left: 60px;
+ 
+}
+
+.sectionjobcard h3 {
+  font-size: 18px;
+  margin-bottom: -3px;
+  color: black;
+  margin-left: 60px;
+  
+}
+
+.sectionjobcard p {
+  font-size: 15px;
+  line-height: 1.6;
+  color:black;
+
+}
+
+.sectionjobcardd h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.sectionjobcardd p {
+  font-size: 15px;
+  line-height: 1.6;
+  color:black;
+    font-weight: 500;
+}
+
+.sectionjobcard ul {
+  list-style-type: disc;
+  padding-left: 90px;
+  font-size: 15px;
+  color: black;
+    font-weight: 500;
+}
+
+.sectionjobcard ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.iconlessjob {
+  display: flex;
+  align-items: center;     
+  justify-content: center; 
+  gap: 6px;                
+  color:black;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+.alljobiconn{
+    display: flex;
+    gap: 5px;
+    margin-left: 850px;
+}
+.iconless {
+  color: black;
+box-shadow: 0 2px 8px rgba(203, 201, 201, 0.879);
+  border: 1px solid rgb(174, 170, 170);
+  border-radius: 50%;
+  padding: 5px; /* controls size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 8px;
+  height: 7px;
+}
+
+ @media (min-width: 1280px) and (max-width: 1535px) {
+  .alljobiconn{
+    display: flex;
+    gap: 5px;
+    margin-left: 800px;
+}
+ }
+ @media (min-width: 1024px) and (max-width: 1279px)  {
+  .headerjobcard {
+    margin-top: 20px;
+  display: flex;
+margin-left: -3px;
+  align-items: flex-start;
+  gap: 39%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+  .alljobiconn{
+    display: flex;
+    gap: 5px;
+    margin-left: 540px;
+}
+ }
+ @media (min-width: 768px) and (max-width: 1023px) {
+  .job-card {
+    max-width: 83%;
+    margin: 40px auto;
+    padding: 20px 24px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    font-family: 'calibri';
+    color: black;
+    margin-top: 30px;
+}
+  .alljobiconn{
+    display: flex;
+    gap: 5px;
+    margin-left: 530px;
+}
+  .headerjobcard {
+    margin-top: 10px;
+  display: flex;
+margin-left: -3px;
+  align-items: flex-start;
+  gap: 35%;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+ }
+ @media (max-width: 480px) {
+  .headerjobcard {
+    margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+margin-left: -3px;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.sectionjobcardd {
+    margin-bottom: 24px;
+    margin-left: 10px;
+}
+.headerjobcard h2 {
+    margin: 0 0 6px;
+    font-size: 22px;
+    color: #1a1a1a;
+}
+.sectionjobcardd p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: black;
+    font-weight: 500;
+}
+.sectionjobcard ul {
+  list-style-type: disc;
+  padding-left: 40px;
+  font-size: 14px;
+  color: black;
+    font-weight: 500;
+}
+.sectionjobcard ul li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+.apply-linkjobcard {
+    font-size: 15px;
+}
+.alljobiconn {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    margin: 0 10px; /* optional, for spacing from the right edge */
+}
+
+ }
+ @media (max-width: 320px) {
+    .headerjobcard h2 {
+        margin: 0 0 6px;
+        font-size: 20px;
+        color: #1a1a1a;
+    }
+}

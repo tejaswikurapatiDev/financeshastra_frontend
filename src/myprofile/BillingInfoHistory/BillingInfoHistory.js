@@ -296,10 +296,10 @@ const BillingInfoHistory = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {ordersData.map(
+                        {[...ordersData].reverse().map(
                           (plan, index) => (
                             (
-                              <tr key={index}>
+                              <tr key={index} >
                                 <td>{plan.name}</td>
                                 <td>{plan.amount}</td>
                                 <td>{plan.purchase}</td>

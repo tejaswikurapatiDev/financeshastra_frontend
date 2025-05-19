@@ -5,7 +5,10 @@ import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { FaPaypal } from 'react-icons/fa';
 import { MdOutlineQrCodeScanner } from "react-icons/md";
 import { MdPayment } from 'react-icons/md';
+import upilogo from '../../assest/upilogo.png'
 import { jwtDecode } from "jwt-decode";
+import upiLogoimg from '../../assest/upi.webp';
+import upilogoo from "../../assest/UPIColor.png";
 import card1 from '../../assest/visa.png';
 import card2 from '../../assest/mastercard.png';
 import Cookies from 'js-cookie'
@@ -38,6 +41,7 @@ const AnnuallyPremiumSubscriptionPages = () => {
   const [errors, setErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const [showPopupforLogin, setShowPopupforLogin] = useState(false)
+  const [showPopupPaymentsuccess, setsuccesspopup]= useState(false)
   const [activepage, setactivepage] = useState('upi')
   const [userName, setUsername] = useState("");
 
@@ -75,6 +79,7 @@ const AnnuallyPremiumSubscriptionPages = () => {
   }
 
   const handlePaymentBillingDetailsPage = async () => {
+    setShowPopup(true);
     if (validateInputs()) {
       // All fields are valid, show the popup
       const localuserDetails = (Cookies.get("jwtToken"))
@@ -107,17 +112,22 @@ const AnnuallyPremiumSubscriptionPages = () => {
         const url = `${API_BASE_URL}/userPayment/paymentDetails1`
         const response = await fetch(url, options)
         console.log(response)
-        setShowPopup(true);
+        setTimeout(() => {
+        setShowPopup(false);
+
+      }, 5000);
+        setsuccesspopup(true)
         setCardNumber('')
         setExpiryDate(null)
         setCvc('')
       }
 
       // Simulate redirecting to PayPal or payment process
+       // Hide the popup after 3 seconds
       setTimeout(() => {
-        setShowPopup(false);
+        setsuccesspopup(false);
 
-      }, 5000); // Hide the popup after 3 seconds
+      }, 5000); 
     }
   };
 
@@ -252,6 +262,18 @@ const AnnuallyPremiumSubscriptionPages = () => {
               </div>
             )}
             {showPopup && (
+        <div className="paypal-popup">
+          <div className="paypal-popup-content">
+            <img
+              src={upilogo}
+              alt="UPI Logo"
+              className="paypal-logo"
+            />
+            <p>Verifying UPI ID...</p>
+          </div>
+        </div>
+      )}
+            {showPopupPaymentsuccess && (
               <div className="payment-popup">
                 <div className="payment-popup-content">
                   <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />

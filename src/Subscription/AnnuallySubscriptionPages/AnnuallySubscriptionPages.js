@@ -250,7 +250,7 @@ const AnnuallySubscriptionPages = () => {
                 </div>
               </div>
             )}
-            {showPopup && (
+            {/*showPopup && (
               <div className="payment-popup">
                 <div className="payment-popup-content">
                   <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
@@ -259,7 +259,7 @@ const AnnuallySubscriptionPages = () => {
                   <p className="payment-plan">Plan: Elite (Annually)</p>
                 </div>
               </div>
-            )}
+            )*/}
           </div>
         </div>
         <Navbar />

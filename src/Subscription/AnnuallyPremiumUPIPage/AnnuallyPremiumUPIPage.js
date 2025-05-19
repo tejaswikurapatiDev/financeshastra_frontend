@@ -9,7 +9,9 @@ import Cookies from 'js-cookie'
 import { jwtDecode } from "jwt-decode";
 import upiLogoimg from '../../assest/upi.webp';
 import upilogoo from "../../assest/UPIColor.png";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
+import { faShieldAlt, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 const AnnuallyPremiumUPIPage = () => {
   const [upiId, setUpiId] = useState("");
   const [errors, setErrors] = useState({});
@@ -18,6 +20,7 @@ const AnnuallyPremiumUPIPage = () => {
   const [showPopupPhonep, setShowPopupPhonep] = useState(false);
   const [showPopupPyt, setShowPopupPyt] = useState(false);
   const [showPopupforLogin, setShowPopupforLogin] = useState(false)
+  const [showPopupSUCCESS, setsuccesspopup] = useState(false)
   const navigate = useNavigate()
 
   const onlogin = () => {
@@ -41,12 +44,11 @@ const AnnuallyPremiumUPIPage = () => {
       const localuserDetails = (Cookies.get("jwtToken"))
       if (!localuserDetails) {
         setShowPopupforLogin(true)
-        console.log(localuserDetails)
       } else {
         const decodedToken = jwtDecode(localuserDetails);
         const { email } = decodedToken;
         setShowPopup(true); // Show the popup
-        console.log(localuserDetails)
+
         const userpaymentDetails = {
           'email': email,
           "planId": 2,
@@ -66,7 +68,19 @@ const AnnuallyPremiumUPIPage = () => {
         }
         fetch(url, options)
           .then(response => console.log(response))
+          .then(data => {
+            setShowPopup(false)
+            setsuccesspopup(true);
+            setTimeout(() => {
+              setsuccesspopup(false); // Close success popup after 3s
+              window.location.reload(); // Reload page
+            }, 3000);
 
+          })
+          .catch(error => {
+            console.error("Payment error:", error);
+            // Optionally show an error popup
+          })
         setTimeout(() => {
           setShowPopup(false); // Automatically close the popup after 5 seconds
           // Add your actual redirect or API call logic here if needed
@@ -95,69 +109,69 @@ const AnnuallyPremiumUPIPage = () => {
       // Google Pay ki actual URL
     }, 5000); // 2 seconds ke baad redirect hoga
   };
-  
+
   return (
-  <div>
-  <div className="upiallll">
-  <div>
+    <div>
+      <div className="upiallll">
+        <div>
           <h2 className="paypalprofilepage-title">Pay with UPI</h2></div>
         <div>
-                 <img src={upilogoo} alt="upi logo" className="upi-logo" />
-                 </div>
-                 </div>
-          <div className="upiprofilepage-icons">
-            <img src={phonepay} alt="PhonePe" onClick={handlePhPayClick} style={{ cursor: "pointer" }} />
-            {showPopupPhonep && (
-              <div className="paypal-popup">
-                <div className="paypal-popup-content">
-                  <img src={phonepay} alt="Google Pay Logo" className="paypal-logo" />
+          <img src={upilogoo} alt="upi logo" className="upi-logo" />
+        </div>
+      </div>
+      <div className="upiprofilepage-icons">
+        <img src={phonepay} alt="PhonePe" onClick={handlePhPayClick} style={{ cursor: "pointer" }} />
+        {showPopupPhonep && (
+          <div className="paypal-popup">
+            <div className="paypal-popup-content">
+              <img src={phonepay} alt="Google Pay Logo" className="paypal-logo" />
 
-                  <h2>Redirecting to PhonePay</h2>
-                </div>
-              </div>
-            )}
-            <img src={googlepay} alt="Google Pay" onClick={handleGPayClick} style={{ cursor: "pointer" }} />
-            {showPopupGp && (
-              <div className="paypal-popup">
-                <div className="paypal-popup-content">
-                  <img src={googlepay} alt="Google Pay Logo" className="paypal-logo" />
-
-                  <h2>Redirecting to Gpay</h2>
-                </div>
-              </div>
-            )}
-
-            <img src={patym} alt="Paytm" onClick={handlePytClick} style={{ cursor: "pointer" }} />
-            {showPopupPyt && (
-              <div className="paypal-popup">
-                <div className="paypal-popup-content">
-                  <img src={patym} alt="Google Pay Logo" className="paypal-logo" />
-
-                  <h2>Redirecting to Patym</h2>
-                </div>
-              </div>
-            )}
-          </div>
-          <div>
-         
-          </div>
-       
-          <form className="upiprofilepage-form">
-            <div className="upiprofilepage-field">
-              <input
-                type="text"
-                placeholder="Enter UPI ID"
-                value={upiId}
-                onChange={(e) => setUpiId(e.target.value)}
-                className={`upi-input ${errors.upiId ? "error-border" : ""}`}
-              />
-              {errors.upiId && <p className="upiprofilepage-error-text">{errors.upiId}</p>}
+              <h2>Redirecting to PhonePay</h2>
             </div>
+          </div>
+        )}
+        <img src={googlepay} alt="Google Pay" onClick={handleGPayClick} style={{ cursor: "pointer" }} />
+        {showPopupGp && (
+          <div className="paypal-popup">
+            <div className="paypal-popup-content">
+              <img src={googlepay} alt="Google Pay Logo" className="paypal-logo" />
 
-            <button className="upiprofilepage-verify-button" onClick={handleUPIVerifyAndProceed}>
-              Verify & Proceed
-            </button>
-          </form>
+              <h2>Redirecting to Gpay</h2>
+            </div>
+          </div>
+        )}
+
+        <img src={patym} alt="Paytm" onClick={handlePytClick} style={{ cursor: "pointer" }} />
+        {showPopupPyt && (
+          <div className="paypal-popup">
+            <div className="paypal-popup-content">
+              <img src={patym} alt="Google Pay Logo" className="paypal-logo" />
+
+              <h2>Redirecting to Patym</h2>
+            </div>
+          </div>
+        )}
+      </div>
+      <div>
+
+      </div>
+
+      <form className="upiprofilepage-form">
+        <div className="upiprofilepage-field">
+          <input
+            type="text"
+            placeholder="Enter UPI ID"
+            value={upiId}
+            onChange={(e) => setUpiId(e.target.value)}
+            className={`upi-input ${errors.upiId ? "error-border" : ""}`}
+          />
+          {errors.upiId && <p className="upiprofilepage-error-text">{errors.upiId}</p>}
+        </div>
+
+        <button className="upiprofilepage-verify-button" onClick={handleUPIVerifyAndProceed}>
+          Verify & Proceed
+        </button>
+      </form>
       {showPopupforLogin && (
         <div className="payment-popup">
           <div className="payment-popup-content">
@@ -180,9 +194,20 @@ const AnnuallyPremiumUPIPage = () => {
           </div>
         </div>
       )}
-      
+
+      {showPopupSUCCESS && (
+        <div className="payment-popup">
+          <div className="payment-popup-content">
+            <FontAwesomeIcon icon={faCheckCircle} className="success-icon" />
+            <h2>Payment Successful!</h2>
+            <p className="amount-paid">Amount Paid: ₹7999/-</p>
+            <p className="payment-plan">Plan: Premium (Annually)</p>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
 
-      export default AnnuallyPremiumUPIPage;
+export default AnnuallyPremiumUPIPage;
