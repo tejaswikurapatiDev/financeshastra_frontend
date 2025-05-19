@@ -58,7 +58,7 @@ const FooterForAllPage = () => {
     "Talk to Us": "/talktous",
     "Disclaimer": "/disclaimer",
     "Refund Policy": "/refundpolicy",
-    "Careers": "/careers",
+    "Careers": "/career",
   };
   const AboutRoutes = {
     "Who We Are?": "/aboutUs",

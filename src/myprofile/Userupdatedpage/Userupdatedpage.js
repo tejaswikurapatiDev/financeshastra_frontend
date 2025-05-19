@@ -443,7 +443,7 @@ const UserDetailsupdate = () => {
               <div className="allpersonal">
                 <div className="personalDetailAll">
                   {Object.entries(investmentDetails).map(([key, value]) => (
-                    <p key={key} className="detailRow">
+                    <p key={key} className="detailRoww">
                       <strong className="labelprofiledetail">
                         {key
                           .replace(/([A-Z])/g, " $1")
