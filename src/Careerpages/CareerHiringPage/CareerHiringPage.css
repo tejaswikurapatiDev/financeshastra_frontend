@@ -20,6 +20,14 @@ margin-top: 60px;
   justify-content: center;
   align-items: center;
 }
+.typejobcardhir {
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+.typejobcardhir{
+  margin-left: 60px;
+}
 
 .careerhiringpage-overlay {
   position: absolute;
@@ -384,3 +392,11 @@ margin-top: 60px;
     height: 180px;
 }
 }
+
+ @media (max-width: 320px) {
+  .typejobcardhir {
+  font-size: 13px;
+  color: black;
+  font-weight: 500;
+}
+ }
