@@ -178,7 +178,7 @@ width: 100%;
     padding: 7px 16px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 10px;
   }
   
   .create-watchlist:hover {
@@ -497,13 +497,7 @@ width: 100%;
     }
   
   
-    .watchlist-management {
-      display: flex;
-      flex-wrap: nowrap; /* Prevent wrapping */
-      overflow-x: auto; /* Enable horizontal scrolling if needed */
-      gap: 10px; /* Maintain spacing between items */
-      padding: 10px 0; /* Add spacing around the row */
-    }
+ 
      .menu-dropdownwatchlist {
     position: absolute;
     top: 100%;
@@ -567,7 +561,7 @@ width: 100%;
   padding: 9px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 10px;
     width: 160px;
 }
     .top-sectionswatchlistmutual{
@@ -605,6 +599,12 @@ margin-top: 20px;
     .watchlist-title {
       font-size: 16px;
       margin: 10px 0;
+    }
+       .watchlist-management {
+      display: flex;
+      flex-wrap: wrap; /* Prevent wrapping */
+      gap: 10px; /* Maintain spacing between items */
+      padding: 10px 0; /* Add spacing around the row */
     }
   
     .watchlist-header {
@@ -681,13 +681,7 @@ margin-top: 20px;
       font-weight: bold;
   }
   
-    .watchlist-management {
-      display: flex;
-      flex-wrap: nowrap; /* Prevent wrapping */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      gap: 8px;
-      padding: 8px 0;
-    }
+
   
     .watchlist-item {
       flex: 0 0 auto; /* Prevent shrinking */
@@ -718,6 +712,7 @@ flex-direction: column;
     .create-watchlist {
       font-size: 12px;
       padding: 6px 10px;
+      width: 150px;
     }
   
     .stock-tablewatchlist {
@@ -902,12 +897,31 @@ flex-direction: column;
         margin-left: -120px;
        
     }
-        .create-watchlist {
+   .create-watchlist {
         cursor: pointer;
-        /* width: 40%; */
+        width: 44%;
         text-align: center;
-        padding: 4px;
+        padding: 7px;
         font-size: 12px;
+        margin-left: 2px;
     }
+        .watchlist-item {
+    display: flex
+;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 110px;
+    justify-content: space-between;
+    margin-left: 1px;
+}
+.watchlist-label {
+    font-size: 11px;
+}
   }
   
