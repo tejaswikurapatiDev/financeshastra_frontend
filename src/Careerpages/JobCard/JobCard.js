@@ -41,7 +41,7 @@ const JobCard = () => {
             <h3>Who We're Looking For:</h3>
             <p>
               A curious and data-driven individual who can turn financial data into clear, actionable insights.
-              Someone who loves diving into balance <br/>sheets, tracking trends, and connecting dots in the Indian equity markets.
+              Someone who loves diving into balance sheets, tracking trends, and connecting dots in the Indian equity markets.
             </p>
           </section>
 
