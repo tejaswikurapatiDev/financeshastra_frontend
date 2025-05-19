@@ -180,7 +180,7 @@
   padding: 3px 8px;
   border-radius: 4px;
   cursor: pointer;
-  width: 130px;
+  width: 135px;
   justify-content: space-between;
   margin-left: 10px;
 }
@@ -196,7 +196,7 @@
 
 .menu-dropdownwatchlist {
   position: absolute;
-  top: 30px;
+  top: 31px;
   left: 0;
   background-color: #fff;
   border: 1px solid #ccc;
@@ -512,17 +512,6 @@
     /* Full-width for easy tapping */
   }
 
-  .watchlist-management {
-    display: flex;
-    flex-wrap: nowrap;
-    /* Prevent wrapping */
-    overflow-x: auto;
-    /* Enable horizontal scrolling if needed */
-    gap: 10px;
-    /* Maintain spacing between items */
-    padding: 10px 0;
-    /* Add spacing around the row */
-  }
 
   
 
@@ -597,15 +586,15 @@
 /* Media query for devices <= 480px */
 @media (max-width: 480px) and (min-width: 375px) {
   .stock-watchlist {
-    margin: 5px;
-    padding: 10px;
-    border-radius: 6px;
-    margin-top: 20px;
-    height: 300px;
-    width: auto;
-    max-width: 360px;
-    margin-left: 20px;
-  }
+        margin: 5px;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 20px;
+        height: auto;
+        width: auto;
+        max-width: 91%;
+        margin-left: 8px;
+    }
   .popup-container {
     background: white;
     padding: 20px;
@@ -663,16 +652,7 @@
     padding: 6px 10px;
   }
 
-  .watchlist-management {
-    display: flex;
-    flex-wrap: nowrap;
-    /* Prevent wrapping */
-    overflow-x: auto;
-    /* Enable horizontal scrolling */
-    gap: 8px;
-    padding: 8px 0;
-  
-  }
+
 
   .watchlist-item {
     flex: 0 0 auto;
@@ -837,4 +817,32 @@
         animation: fadeIn 0.3s ease-in-out;
         font-family: 'calibri';
     }
+          .stock-watchlist {
+        margin: 5px;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 20px;
+        height: auto;
+        width: 90%;
+        max-width: 360px;
+        margin-left: 5px;
+    }
+    .watchlist-item {
+    display: flex
+;
+    align-items: center;
+    position: relative;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 110px;
+    justify-content: space-between;
+    margin-left: 1px;
+}
+.watchlist-label {
+    font-size: 11px;
+}
 }

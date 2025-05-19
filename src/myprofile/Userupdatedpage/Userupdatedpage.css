@@ -818,7 +818,7 @@ gap: 40px;
     height: 399px;
   }
   .investment-itemalluser input[name="stocks"]{
-    width: 25px;
+    width: 50%;
   }
   .investment-itemalluser input[name="mutualfund"] {
     width: 30px;

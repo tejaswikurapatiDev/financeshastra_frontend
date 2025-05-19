@@ -66,7 +66,7 @@
 
 
 .most-popular-container {
-  background-color: #24b676;
+    background: linear-gradient(90deg, #24b676, #238486);
   /* Green background */
   border-radius: 35px;
   /* Rounded corners */
