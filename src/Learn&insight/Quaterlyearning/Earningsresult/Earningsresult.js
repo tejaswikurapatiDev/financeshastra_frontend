@@ -1,98 +1,52 @@
-
-import React, { useState } from 'react';
-import './Earningsresult.css';
-import imgg from '../../../assest/adaniiiimg.png'
+import React, { useState } from "react";
+import "./Earningsresult.css";
+import imgg from "../../../assest/adaniiiimg.png";
 import { MdDateRange } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
-import Quaterlycomment from '../Quaterlycomment/Quaterlycomment';
-import Navbar from '../../../Navbar/Navbar';
-import FooterForAllPage from '../../../FooterForAllPage/FooterForAllPage';
-import { useLocation } from 'react-router-dom';
+import Quaterlycomment from "../Quaterlycomment/Quaterlycomment";
+import Navbar from "../../../Navbar/Navbar";
+import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
+import { useLocation } from "react-router-dom";
+import sanitizeHtml from "sanitize-html";
+
 const Earningsresult = () => {
-  const location = useLocation()
-  const { articleData } = location.state || {}
-  const {quaterlyarticles}= articleData 
+  const location = useLocation();
+  const { articleData } = location.state || {};
+  const { quaterlyarticles } = articleData;
+  console.log(location.state);
 
-  const [articledata, setarticledata]= useState(quaterlyarticles[0] || {})
-  console.log(articledata)
+  const [articledata, setarticledata] = useState(quaterlyarticles[0] || {});
+  console.log(articledata);
 
-  const data = [
-    {
-      label: "Revenue",
-      Q4FY24: "29,780",
-      Q4FY25: "26,966",
-      FY24: "96,421",
-      FY25: "97,895",
+  const sanitizedContent = sanitizeHtml(articledata?.MainContent || "", {
+    allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
+    allowedAttributes: {
+      "*": [], // Keep this to ensure no other attributes are allowed by default
+      h2: ["style"],
+      p: ["style"],
+      ol: ["style"],
+      li: ["style"],
+      strong: ["style"],
+      table: ["style"],
+      tr: ["style"],
+      td: ["style"],
+      th: ["style"],
     },
-    {
-      label: "Expenses",
-      Q4FY24: "25,985",
-      Q4FY25: "23,256",
-      FY24: "85,044",
-      FY25: "83,643",
-    },
-    {
-      label: "EBITDA",
-      Q4FY24: "3,195",
-      Q4FY25: "3,710",
-      FY24: "11,317",
-      FY25: "14,252",
-    },
-    {
-      label: "OPM",
-      Q4FY24: "11%",
-      Q4FY25: "14%",
-      FY24: "12%",
-      FY25: "15%",
-    },
-    {
-      label: "Other Income",
-      Q4FY24: "-176",
-      Q4FY25: "4,582",
-      FY24: "1,146",
-      FY25: "6,403",
-    },
-    {
-      label: "Net Profit",
-      Q4FY24: "352.00",
-      Q4FY25: "4,015",
-      FY24: "4,926",
-      FY25: "10,466",
-    },
-    {
-      label: "NPM",
-      Q4FY24: "1.21",
-      Q4FY25: "14.89",
-      FY24: "5.11",
-      FY25: "10.69",
-    },
-    {
-      label: "EPS",
-      Q4FY24: "12.76",
-      Q4FY25: "33.31",
-      FY24: "28.42",
-      FY25: "61.51",
-    },
-  ];
-  const tags = [
-    "Adani Enterprises ltd",
-    "Adani Group",
-    "Green Energy",
-    "Hydrogen Economy",
-    "Infrastructure Development",
-  ];
+  });
+
   return (
     <div>
       <div className="adnaieaeninqrsult">
         <h1 className="adnairsultreport-header"> {articledata.title}</h1>
-        <p className="adnairsultreport-title">
+        {/* <p className="adnairsultreport-title">
           Adani Enterprises Q4 Results: Net Profit Soars 752% to ₹3,845 Cr on Exceptional Gain from Adani Wilmar Stake Sale
-        </p>
+        </p> */}
         <div className="investblog-metaresult">
           <span className="meta-item">
             <MdDateRange className="blogdate" />
-            Published Date:{articledata.created_date}{/*10 May 2025*/}
+            Published Date:{articledata.created_date}
+            {/*10 May 2025*/}
             <GoDotFill className="dotted" />
           </span>
           <span className="meta-item">
@@ -107,9 +61,12 @@ const Earningsresult = () => {
           className="report-image"
         />
 
-        
-          {articledata.MainContent}
-          {/*<h2 className="adnairsultreportsection">Business and Industry Overview:</h2>
+        <div
+          className="main-content"
+          dangerouslySetInnerHTML={{ __html: sanitizedContent }}
+        />
+        {/* {articledata.MainContent} */}
+        {/*<h2 className="adnairsultreportsection">Business and Industry Overview:</h2>
           <p>
             Adani Enterprises is part of the Adani Group. It started in 1988. The founder is Gautam Adani. The company is in Ahmedabad, India. Adani Enterprises starts new businesses. When the business grows, it becomes a separate company. Examples are Adani Ports, Adani Green Energy, and Adani Power. Now the company works in many areas. It runs airports, builds roads, makes clean energy, builds data centers, and works with digital apps. It also works in coal mining and defense. The company wants to focus more on green energy. It is working on green hydrogen, solar panels, and wind power. This helps reduce pollution. Adani is building a mobile app called Adani One. People can use it to book flights, shop, and get airport info. The company is also making many roads and highways. In 2025, Adani Enterprises sold part of its shares in Adani Wilmar. It made a big one-time profit from this. But its coal business made less money because coal prices went down. The company wants to grow in clean energy and digital services. It is helping build India’s future infrastructure.
           </p>
@@ -120,9 +77,8 @@ const Earningsresult = () => {
           <p>
             On May 1, 2025, Adani Enterprises shared its Q4 results (January to March 2025). The company made a net profit of ₹3,845 crore. This happened because the company sold part of its shares in Adani Wilmar. The one-time gain was ₹3,946 crore. The company’s total revenue was ₹26,966 crore. Revenue went down by 7.6% from last year.  The coal trading business made less profit.  Profit from coal fell by 47% to ₹833 crore. But the green energy business did well.  It made a profit of ₹994 crore.  This is 92% more than last year.  Green energy gave 13.5% of the company’s total revenue. After this news, the stock stayed stable. Investors liked the company’s focus on clean energy and new plans.
           </p>*/}
-        
 
-        <section>
+        {/* <section>
           <h2 className="adnairsultreportsection">Segmental Information</h2>
           <ol>
             <li><strong>Airports:  </strong>Adani runs 7 airports in India.  These are in Mumbai, Ahmedabad, Lucknow, Jaipur, Guwahati, Thiruvananthapuram, and Mangaluru. </li>
@@ -188,10 +144,9 @@ const Earningsresult = () => {
               </span>
             ))}
           </div>
-        </div>
+        </div> */}
         <Quaterlycomment />
         <Navbar />
-
       </div>
       <FooterForAllPage />
     </div>
