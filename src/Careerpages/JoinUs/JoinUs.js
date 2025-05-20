@@ -2,10 +2,13 @@ import React from 'react';
 import './JoinUs.css';
 import img from "../../assest/backgroundimgg.png"
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../../config';
+import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 
 
 const JoinUs = () => {
     const navigate = useNavigate();
+    const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
   return (
     <div className="join-us-section">
@@ -30,10 +33,10 @@ const JoinUs = () => {
       </p>
 
       <div className="join-buttonsjob">
-        <button className="subscribe-btnjob" onClick={() => {
+        {!isSubscribed && !isLoading && <button className="subscribe-btnjob" onClick={() => {
     navigate("/subscription"); 
     window.scrollTo(0, 0); // Scroll to top after navigation
-  }} >Subscribe</button>
+  }} >Subscribe</button>}
         <button className="contact-btnjob" onClick={() => {
     navigate("/contactus"); 
     window.scrollTo(0, 0); // Scroll to top after navigation

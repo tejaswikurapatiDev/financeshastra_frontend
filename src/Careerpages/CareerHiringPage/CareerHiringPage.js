@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import "./CareerHiringPage.css";
 import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-scroll';
@@ -13,9 +13,22 @@ import img5 from '../../assest/search.svg'
 import Navbar from "../../Navbar/Navbar";
 import JoinUs from "../JoinUs/JoinUs";
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
+import { API_BASE_URL } from '../../config';
 
-export default function CareerHiringPage() {
+const CareerHiringPage= () =>{
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    const fetchJobOpp= async ()=>{
+      const response= await fetch(`${API_BASE_URL}/jobopp/joboppties`, {
+        method: "get",
+      });
+      console.log(response)
+      const data= await response.json()
+      console.log(data)
+    }
+    fetchJobOpp()
+  }, [])
 
  const handleNavigate = () => {
     window.scrollTo(0, 0);        // Scrolls to the top
@@ -29,6 +42,7 @@ export default function CareerHiringPage() {
       jobCardRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
   return (
     <div>
     <div className="careerhiringpage-container">
@@ -171,3 +185,5 @@ export default function CareerHiringPage() {
     
   );
 }
+
+export default CareerHiringPage
