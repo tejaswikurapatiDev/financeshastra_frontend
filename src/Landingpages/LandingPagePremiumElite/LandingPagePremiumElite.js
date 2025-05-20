@@ -28,7 +28,7 @@ const LandingPagePremiumElite = () => {
 
             <div className="landingpagepremiumelite-content-row">
               {/* Price */}
-              <div className="landingpagepremiumelite-price">
+              <div className="landingpagepremiumelite-pricepop">
                 <span className="landingpagepremiumelite-price-amount">₹7,999/</span>
                 <span className={darkMode ? "landingpagepremiumelite-darkyear" : "landingpagepremiumelite-year"}>Year</span>
                 <span className={darkMode ? "landingpagepremiumelite-original-darkprice" : "landingpagepremiumelite-original-price"}>  ₹19,999/-</span><br />
