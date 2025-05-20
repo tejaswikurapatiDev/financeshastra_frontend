@@ -7,6 +7,20 @@
   text-align: center;
   background-color: #fff;
 }
+.apply-linkjobcareer{
+    font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  margin-top: 90px;
+
+  background: linear-gradient(90deg, #24B676, #238486);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.apply-linkjobcareer:hover {
+  text-decoration: underline;
+}
 
 /* Header */
 .careerhiringpage-header {
@@ -335,6 +349,12 @@ margin-top: 60px;
 }
 }
 @media (max-width: 480px) {
+  .apply-linkjobcareer{
+    font-size: 15px;
+     margin-left: 120px;   /* Equal margins */
+    margin-right: 120px;
+    width: calc(100% - 20px); /* Full width minus margins */
+}
       .job-hircard {
         max-width: 80%;
         margin: 40px auto;
@@ -398,5 +418,11 @@ margin-top: 60px;
   font-size: 13px;
   color: black;
   font-weight: 500;
+}
+  .apply-linkjobcareer{
+    font-size: 15px;
+     margin-left: 90px;   /* Equal margins */
+    margin-right: 90px;
+    width: calc(100% - 20px); /* Full width minus margins */
 }
  }

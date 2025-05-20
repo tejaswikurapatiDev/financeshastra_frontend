@@ -98,6 +98,7 @@ const SubscriptionPlans = () => {
       description: isPremium
         ? "Invest smarter, invest confidently with the Premium Plan!"
         : "Empower your investment journey with the Elite Plan!",
+        buttonClasss: isPremium ? "pay-now-btnfootertop" : "pay-now-btntop",
       features,
       benefits,
       buttonClass: isPremium ? "pay-now-btnfooter" : "pay-now-btn",
@@ -123,7 +124,12 @@ const SubscriptionPlans = () => {
               <span className={isPopular ? "text-blacks" : "text-blackyear"}> a year</span>
             </div>
           </div>
-
+  <button
+             className={plan.buttonClasss}
+            onClick={() => handleNavigation(plan.path)}
+          >
+            Subscribe
+          </button>
           <div className="plan-features">
             <PlanSection title="Features:" items={plan.features} />
           </div>

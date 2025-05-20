@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './JobCard.css';
+import { useNavigate } from 'react-router-dom';
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import JoinUs from '../JoinUs/JoinUs';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
@@ -7,9 +8,15 @@ import Navbar from '../../Navbar/Navbar';
  import img1 from '../../assest/search.svg'
 const JobCard = () => {
   const [expanded, setExpanded] = useState(true);
+    const navigate = useNavigate();
 
   const toggleDetails = () => {
     setExpanded(!expanded);
+  };
+   const handleNavigatejob = () => {
+    window.scrollTo(0, 0);
+         
+    navigate('/career');         
   };
 
   return (
@@ -80,28 +87,12 @@ const JobCard = () => {
         </>
       )}
       <div className='alljobiconn'>
-<div>
-      <p 
-  onClick={() => {
-    toggleDetails();         
-    window.scrollTo(0, 0);   
-  }}   className="iconlessjob"style={{ cursor: 'pointer' }}>
-        {expanded ? 'Show less' : 'Show more'}
-      </p>
-      </div>
-      <div>
-      <p 
-  onClick={() => {
-    toggleDetails();         
-    window.scrollTo(0, 0);   
-  }} 
-  className="iconless" 
-  style={{ cursor: 'pointer' }}
->
-  {expanded ? <FaAngleUp /> : <FaAngleDown />}
-</p>
+ 
+   <span  className="iconlessjob"style={{ cursor: 'pointer' }}onClick={handleNavigatejob}>
+        Show Less <FaAngleDown  className="iconless" 
+  style={{ cursor: 'pointer' }}/>
+      </span>
 
-       </div>
        </div>
     </div>
     <JoinUs/>
