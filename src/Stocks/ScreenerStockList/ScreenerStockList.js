@@ -118,7 +118,9 @@ const ScreenerStockList = () => {
           index: each.IndexName,
           roe: each.ROE,
           analystRating: each.Analyst_Rating,
+          iconUrl: each.icons
         }));
+        console.log("stocks list from stocks table:", formattedData)
         setStocks(formattedData);
       }
       setisloading(false)

@@ -97,10 +97,8 @@ function Register() {
       };
 
       const response = await fetch(url, options);
+      console.log("response Register: ", response)
       const data = await response.json();
-
-      
-
       if (response.status === 200) {
         alert(data.message);
         navigate("/");
