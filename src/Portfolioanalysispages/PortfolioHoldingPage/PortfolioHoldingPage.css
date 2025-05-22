@@ -261,7 +261,7 @@
 @media screen and (max-width: 768px) {
   .PortfolioHoldingPageContainer {
     width: 94%;
-    overflow-x: auto;
+    overflow-x: hidden;
     white-space: nowrap;
     padding: 4px;
     font-family: 'calibri';
