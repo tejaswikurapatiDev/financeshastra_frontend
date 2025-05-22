@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import React, { useRef, useEffect,useState } from 'react';
+import React, { useRef,useState } from 'react';
 import "./CareerHiringPage.css";
 import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-scroll';
@@ -13,8 +13,7 @@ import img5 from '../../assest/search.svg'
 import Navbar from "../../Navbar/Navbar";
 import JoinUs from "../JoinUs/JoinUs";
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
-import { API_BASE_URL } from '../../config';
-const jobs = [
+  const jobs = [
     {
       id: 1,
       title: 'Research Analyst',
@@ -23,31 +22,21 @@ const jobs = [
       location: 'Remote',
       type: 'Full-Time | Entry to Mid-Level',
       image: img5,
+      specification:'other',
       applyLink: 'https://mail.google.com/mail/?view=cm&fs=1&to=careers@financeshastra.com&su=Application%20for%20Research%20Analyst'
     },
     // Add more job objects here
   ];
-const CareerHiringPage= () =>{
-  const navigate = useNavigate();
 
-  const [filters, setFilters] = useState({
+
+export default function CareerHiringPage() {
+  
+  const navigate = useNavigate();
+const [filters, setFilters] = useState({
     profession: '',
     team: '',
     location: ''
-  });
-  
-  useEffect(()=>{
-    const fetchJobOpp= async ()=>{
-      const response= await fetch(`${API_BASE_URL}/jobopp/joboppties`, {
-        method: "get",
-      });
-      console.log(response)
-      const data= await response.json()
-      console.log(data)
-    }
-    fetchJobOpp()
-  }, [])
-
+  })
     const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters((prev) => ({ ...prev, [name]: value }));
@@ -56,7 +45,8 @@ const CareerHiringPage= () =>{
     return (
       (!filters.profession || job.profession === filters.profession) &&
       (!filters.team || job.team === filters.team) &&
-      (!filters.location || job.location === filters.location)
+      (!filters.location || job.location === filters.location) &&
+      (!filters.specification || job.specification === filters.specification)
     );
   });
 
@@ -72,7 +62,6 @@ const CareerHiringPage= () =>{
       jobCardRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <div>
     <div className="careerhiringpage-container">
@@ -127,7 +116,7 @@ const CareerHiringPage= () =>{
       {/* Explore Positions */}
       <div className="careerhiringpage-explore">
         <h3>Explore all open positions</h3>
-       <div className="careerhiringpage-filters">
+        <div className="careerhiringpage-filters">
   <select name="profession" value={filters.profession} onChange={handleFilterChange}>
     <option value="">Select what you do</option>
     <option>UI/UX Designer</option>
@@ -162,8 +151,9 @@ const CareerHiringPage= () =>{
       </div>
 
       {/* Job Card */}
+ 
 
-<div className="job-hircard" id="jobCardSection">
+      <div className="job-hircard" id="jobCardSection">
   {filteredJobs.length > 0 ? filteredJobs.map(job => (
     <div key={job.id} className="headerjobcard">
       <div>
@@ -174,7 +164,7 @@ const CareerHiringPage= () =>{
             <div className="locationjobcard">Location: {job.location} (India)</div>
           </div>
         </div>
-        <div className="typejobcardhir">Type: {job.type}</div>
+        <div className="typejobcardhir">Type: {job.type}</div><div style={{display:"none"}}>{job.team}</div>
       </div>
       <div>
         <a href={job.applyLink} target="_blank" rel="noopener noreferrer" className="apply-linkjobcareer">
@@ -212,5 +202,3 @@ const CareerHiringPage= () =>{
     
   );
 }
-
-export default CareerHiringPage

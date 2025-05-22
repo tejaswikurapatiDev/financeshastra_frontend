@@ -141,7 +141,7 @@ const Billingavailableplan = () => {
                   window.scrollTo(0, 0); // Scroll to top after navigation
                 }}
               >
-                Billing Details
+                Plan Details
               </button>
             </div>
 

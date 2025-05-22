@@ -106,8 +106,7 @@ const UserDetailsupdate = () => {
         };
 
         const response = await fetch(url, options);
-
-
+        
         if (response.ok) {
           try {
             const decode = decodingtoken(cookietoken);
@@ -185,10 +184,15 @@ const UserDetailsupdate = () => {
             setisLoading(false);
           }
         } else {
-          console.error(
-            "Failed to fetch user details. Status:",
-            response.status
-          );
+          if (response.status === 404) {
+            console.log("User details not found.")
+          } else {
+            console.error(
+              "Failed to fetch user details. Status:",
+              response
+            );
+          }
+
           setisLoading(false);
         }
       };
