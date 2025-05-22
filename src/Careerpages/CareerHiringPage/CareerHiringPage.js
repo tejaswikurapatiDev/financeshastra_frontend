@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import "./CareerHiringPage.css";
 import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-scroll';
@@ -17,22 +17,29 @@ import { API_BASE_URL } from '../../config';
 
 const CareerHiringPage= () =>{
   const navigate = useNavigate();
+  const [jobs, setJobs] = useState([]);
 
-  useEffect(()=>{
-    const fetchJobOpp= async ()=>{
-      const response= await fetch(`${API_BASE_URL}/jobopp/joboppties`, {
-        method: "get",
-      });
-      console.log(response)
-      const data= await response.json()
-      console.log(data)
+useEffect(() => {
+  const fetchJobOpp = async () => {
+    try {
+      const response = await fetch(`${API_BASE_URL}/jobOpportunities`);
+      console.log("RESPONSE: ", response)
+      if (!response.ok) throw new Error("Failed to fetch");
+      const data = await response.json(); 
+      setJobs(data.data);
+      console.log(data.data)
+    } catch (error) {
+      console.error("Fetch error:", error);
     }
-    fetchJobOpp()
-  }, [])
+  };
 
- const handleNavigate = () => {
+  fetchJobOpp();
+}, []);
+
+
+ const handleNavigate = (eachjob) => {
     window.scrollTo(0, 0);        // Scrolls to the top
-    navigate('/jobCard');         // Navigates to /jobCard
+    navigate('/jobCard', {jobData: eachjob});         // Navigates to /jobCard
   };
    const jobCardRef = useRef(null); // 1️⃣ Create a ref
 
@@ -133,7 +140,8 @@ const CareerHiringPage= () =>{
         </div>
       </div>
 
-      {/* Job Card */}
+      {
+      jobs.map((each)=> 
  <div className="job-hircard" id="jobCardSection">
 
 
@@ -141,16 +149,16 @@ const CareerHiringPage= () =>{
           <div className="headerjobcard">
             <div>
               <div className='allimgg'>
-                <div><img src={img5} className='imgjob'/></div><div><h2>Research Analyst</h2>
-              <div className="locationjobcard">Location: Remote (India)</div></div></div>
-              <div className="typejobcardhir">Type: Full-Time | Entry to Mid-Level</div>
+                <div><img src={img5} className='imgjob'/></div><div><h2>{each.role}</h2>
+              <div className="locationjobcard">Location: {each.location}</div></div></div>
+              <div className="typejobcardhir">Type: {each.type}</div>
             </div>
     <div>
             <a 
           href="https://mail.google.com/mail/?view=cm&fs=1&to=careers@financeshastra.com&su=Application%20for%20Research%20Analyst" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="apply-linkjobcard"
+          className="apply-linkjobcareer"
         >
           Apply Now →
         </a>
@@ -165,13 +173,13 @@ const CareerHiringPage= () =>{
   
   {/* Show More Button */}
   <div className="show-more-containerhir">
-   <span className="show-more-texthir" onClick={handleNavigate}>
+   <span className="show-more-texthir" onClick={()=>handleNavigate(each)}>
         Show More <FaAngleDown className="show-more-iconhiring" />
       </span>
   </div>
 </section>
 
-      </div>
+      </div>)}
 
       {/* Navbar at the bottom */}
       
