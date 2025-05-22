@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useMemo} from "react";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Sorting icon
 import Navbar from "../../Navbar/Navbar";
 import './Homestockanalyst.css';
@@ -165,6 +165,23 @@ const Homestockanalyst = () => {
   };
   
 
+  // Function to fetch data from the backend
+    const { startPage, endPage } = useMemo(() => {
+    const maxVisiblePages = 3;
+  
+    // Start near current page, centered if possible
+    let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let end = start + maxVisiblePages - 1;
+  
+    // Ensure we don't exceed totalPages
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxVisiblePages + 1);
+    }
+  
+    return { startPage: start, endPage: end };
+  }, [currentPage, totalPages]);
+  
 
   return (
     <div className="DashboardMainPagetable-container">
@@ -322,39 +339,67 @@ const Homestockanalyst = () => {
         {/* Pagination */}
       
       {/* Pagination Section */}
-<div className="pagination-containerreasearch">
-  <div className="pagination-info">
-    {`Showing ${indexOfFirstItem + 1} to ${
-      indexOfLastItem > stocks.length ? stocks.length : indexOfLastItem
-    } of ${stocks.length} records`}
-  </div>
-  <div className="pagination-slider">
-    <button
-      className="pagination-button"
-      disabled={currentPage === 1}
-      onClick={() => handlePageChange(currentPage - 1)}
-    >
-      &lt;
-    </button>
-    {Array.from({ length: totalPages }, (_, i) => (
-      <button
-        key={i + 1}
-        className={`pagination-button ${
-          currentPage === i + 1 ? "active-page" : ""
-        }`}
-        onClick={() => handlePageChange(i + 1)}
-      >
-        {i + 1}
-      </button>
-    ))}
-    <button
-      className="pagination-button"
-      disabled={currentPage === totalPages}
-      onClick={() => handlePageChange(currentPage + 1)}
-    >
-      &gt;
-    </button>
-  </div>
+<div className="pagination-containerreas">
+   <div className="pagination-infoore">
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              stocks.length
+            } records`}
+          </div>
+
+          <div className="pagination-sliderr">
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
+
+            {startPage > 1 && (
+              <>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
+                {startPage > 2 }
+                  {startPage > 1000 && <span>...</span>}
+              </>
+            )}
+
+            {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+              <button
+                key={startPage + i}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
+                onClick={() => handlePageChange(startPage + i)}
+              >
+                {startPage + i}
+              </button>
+            ))}
+
+            {endPage < totalPages && (
+              <>
+                {endPage < totalPages - 1 && <span>...</span>}
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
+              </>
+            )}
+
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
 </div>
        
 

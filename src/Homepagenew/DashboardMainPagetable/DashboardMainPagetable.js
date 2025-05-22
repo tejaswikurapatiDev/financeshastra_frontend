@@ -32,8 +32,9 @@ const DashboardMainPagetable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10; // Number of items per page
+  
 
-  // Function to fetch data from the backend
+  
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -106,6 +107,22 @@ const DashboardMainPagetable = () => {
     }
   };
 
+// Function to fetch data from the backend
+  const { startPage, endPage } = useMemo(() => {
+  const maxVisiblePages = 3;
+
+  // Start near current page, centered if possible
+  let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+  let end = start + maxVisiblePages - 1;
+
+  // Ensure we don't exceed totalPages
+  if (end > totalPages) {
+    end = totalPages;
+    start = Math.max(1, end - maxVisiblePages + 1);
+  }
+
+  return { startPage: start, endPage: end };
+}, [currentPage, totalPages]);
 
   // Render sort icons dynamically
   const renderSortIcon = (column) => {
@@ -276,41 +293,72 @@ const DashboardMainPagetable = () => {
           </tbody>
         </table>
       </div>
-      {/* Pagination Section */}
-      <div className="pagination-containerrsector">
-        <div className="pagination-info">
-          {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem > sortedData.length
-              ? sortedData.length
-              : indexOfLastItem
-            } of ${sortedData.length} records`}
-        </div>
-        <div className="pagination-slider">
-          <button
-            className="pagination-button"
-            disabled={currentPage === 1}
-            onClick={() => handlePageChange(currentPage - 1)}
-          >
-            &lt;
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => (
+  
+
+
+       {/* Pagination Section */}
+        <div className="pagination-containerrsectorr">
+          <div className="pagination-infoo">
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              sortedData.length
+            } records`}
+          </div>
+
+          <div className="pagination-sliderr">
             <button
-              key={i + 1}
-              className={`pagination-button ${currentPage === i + 1 ? "active-page" : ""
-                }`}
-              onClick={() => handlePageChange(i + 1)}
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
             >
-              {i + 1}
+              &lt;
             </button>
-          ))}
-          <button
-            className="pagination-button"
-            disabled={currentPage === totalPages}
-            onClick={() => handlePageChange(currentPage + 1)}
-          >
-            &gt;
-          </button>
+
+            {startPage > 1 && (
+              <>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
+                {startPage > 2 }
+                  {startPage > 1000 && <span>...</span>}
+              </>
+            )}
+
+            {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+              <button
+                key={startPage + i}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
+                onClick={() => handlePageChange(startPage + i)}
+              >
+                {startPage + i}
+              </button>
+            ))}
+
+            {endPage < totalPages && (
+              <>
+                {endPage < totalPages - 1 && <span>...</span>}
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
+              </>
+            )}
+
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
         </div>
-      </div>
     </div>
   );
 };

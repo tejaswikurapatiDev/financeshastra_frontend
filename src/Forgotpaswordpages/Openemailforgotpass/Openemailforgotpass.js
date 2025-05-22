@@ -264,14 +264,14 @@ function Openemailforgotpass() {
             <br />
             check your inbox
           </p>
-
-          <button
+   {/* <button
             type="submit"
             className="signbtnopengamail"
             onClick={() => window.open("https://mail.google.com/", "_blank")}
           >
             Open Email
           </button>
+*/}
 
           <p className="paragraphforgett">
             Didn’t received the email ?{" "}
