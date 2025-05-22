@@ -242,4 +242,16 @@
       flex-direction: column; /* Stack name/email inputs */
       gap: 10px; /* Smaller gap */
   }
+  .ipocommentt-group input,
+    .ipocommentt-group textarea {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        color: #333;
+        outline: none;
+        background-color: #f9f9f9;
+        width: 100%;
+        box-sizing: border-box;
+    }
 }
