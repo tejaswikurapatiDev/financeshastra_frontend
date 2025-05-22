@@ -236,6 +236,22 @@
   margin-top: 80px;
   margin-left: 20px;
 }
+.pay-now-btnfootertop {
+  display: inline-block;
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #24b676;
+  box-shadow: 0 4px 8px #24b676;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 180px;
+  margin-bottom: 10px;
+}
 
 .pay-now-btnfooter:hover {
   color: white;
@@ -257,7 +273,27 @@
   margin-top: 150px;
   margin-left: 20px;
 }
+.pay-now-btntop{
+    display: inline-block;
+  width: 30%;
+  padding: 10px ;
+  font-size: 16px;
+  font-weight: bold;
+  color: #24b676;
+  background-color: white;
+  box-shadow: 0 4px 8px #24b676;
+  border: 1px solid #24b676;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-right: 220px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 
+}
+.pay-now-btntop:hover{
+   color: white;
+  background: linear-gradient(90deg, #238486, #24b676);
+}
 .plan-featuresli {
   color: #24b676;
 }
@@ -619,7 +655,7 @@
     border: 1px solid #24b676;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 200px;
+    margin-top: 190px;
     margin-left: 20px;
   }
 
@@ -635,7 +671,7 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 60px;
+    margin-top: 50px;
     margin-left: 20px;
   }
 
@@ -673,7 +709,25 @@
     font-weight: bold;
     font-size: 24px;
   }
-
+.pay-now-btnfootertop {
+  display: inline-block;
+  width: 32%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #24b676;
+  box-shadow: 0 4px 8px #24b676;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 180px;
+  margin-bottom: 10px;
+}
+.pay-now-btntop{
+  font-size: 14px;
+}
   .subscriptionh4 {
     /* margin-right: -20px; */
     color: black;
@@ -906,8 +960,8 @@
 
   .pay-now-btnfooter {
     font-size: 14px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: -10px;
+    margin-bottom: 40px;
   }
 
   .toggle-switch-container {
@@ -968,7 +1022,39 @@
     margin-left: 0px;
     margin-top: 5px;
   }
+.pay-now-btntop{
+    display: inline-block;
+  width: 30%;
+  padding: 10px ;
+  font-size: 16px;
+  font-weight: bold;
+  color: #24b676;
+  background-color: white;
+  box-shadow: 0 4px 8px #24b676;
+  border: 1px solid #24b676;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-right: 250px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 
+}
+.pay-now-btnfootertop {
+  display: inline-block;
+  width: 30%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #24b676;
+  box-shadow: 0 4px 8px #24b676;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 210px;
+  margin-bottom: 10px;
+}
   .plan-description {
     font-size: 1rem;
     color: #24b676;
@@ -1010,7 +1096,39 @@
     width: 100%;
     /* Take full width on small screens */
   }
+.pay-now-btntop{
+    display: inline-block;
+  width: 35%;
+  padding: 10px ;
+  font-size: 14px;
+  font-weight: bold;
+  color: #24b676;
+  background-color: white;
+  box-shadow: 0 4px 8px #24b676;
+  border: 1px solid #24b676;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-right: 130px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 
+}
+.pay-now-btnfootertop {
+  display: inline-block;
+  width: 45%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #24b676;
+  box-shadow: 0 4px 8px #24b676;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 100px;
+  margin-bottom: 10px;
+}
   .subscriptionh2,
   .subscriptionh4 {
     font-size: 15px;
@@ -1041,7 +1159,7 @@
     margin: 0 auto 15px;
     color: #fff;
     width: 91%;
-    height: 1050px;
+    height: 1070px;
     min-height: 500px;
     box-shadow: 0 4px 8px #24b676;
     margin-left: 0px;
@@ -1066,7 +1184,7 @@
     width: 86%;
     margin-left: 0px;
     box-shadow: 0 4px 8px #24b676;
-    height: 970px;
+    height: 990px;
     min-height: 500px;
   }
 
@@ -1080,7 +1198,7 @@
   .pay-now-btnfooter {
 
     font-size: 12px;
-    margin-top: 30px;
+    margin-top: 0px;
     margin-left: 20px;
   }
 
@@ -1195,7 +1313,39 @@
     margin-left: 0px;
     margin-top: 30px;
   }
+.pay-now-btntop{
+    display: inline-block;
+  width: 45%;
+  padding: 10px ;
+  font-size: 14px;
+  font-weight: bold;
+  color: #24b676;
+  background-color: white;
+  box-shadow: 0 4px 8px #24b676;
+  border: 1px solid #24b676;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-right: 100px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 
+}
+.pay-now-btnfootertop {
+  display: inline-block;
+  width: 55%;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #24b676;
+  box-shadow: 0 4px 8px #24b676;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-right: 100px;
+  margin-bottom: 10px;
+}
   .plan-description {
     font-size: 12px;
     color: #24b676;
@@ -1283,7 +1433,7 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: -4px;
     margin-left: 20px;
   }
 

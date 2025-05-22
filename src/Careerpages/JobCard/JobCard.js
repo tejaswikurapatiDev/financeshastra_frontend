@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './JobCard.css';
+import { useNavigate } from 'react-router-dom';
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import JoinUs from '../JoinUs/JoinUs';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
@@ -13,9 +14,15 @@ const JobCard = () => {
   console.log(jobData)
   //const {Perks, Responsibilities, location, posted_date, requirements, role, type}= location.jobData || {};
   const [expanded, setExpanded] = useState(true);
+    const navigate = useNavigate();
 
   const toggleDetails = () => {
     setExpanded(!expanded);
+  };
+   const handleNavigatejob = () => {
+    window.scrollTo(0, 0);
+         
+    navigate('/career');         
   };
 
   return (
@@ -74,44 +81,28 @@ const JobCard = () => {
               </ul>
             </section>
 
-            <section className="sectionjobcard">
-              <h3>Perks:</h3>
-              <ul>
-                <li>Flexible hours</li>
-                <li>Opportunity to grow into a Senior Analyst or Product Strategist role</li>
-                <li>Performance-based bonuses</li>
-                <li>Be part of a fast-growing fintech startup shaping the future of investing in India</li>
-              </ul>
-            </section>
-          </>
-        )}
-        <div className='alljobiconn'>
-          <div>
-            <p
-              onClick={() => {
-                toggleDetails();
-                window.scrollTo(0, 0);
-              }} className="iconlessjob" style={{ cursor: 'pointer' }}>
-              {expanded ? 'Show less' : 'Show more'}
-            </p>
-          </div>
-          <div>
-            <p
-              onClick={() => {
-                toggleDetails();
-                window.scrollTo(0, 0);
-              }}
-              className="iconless"
-              style={{ cursor: 'pointer' }}
-            >
-              {expanded ? <FaAngleUp /> : <FaAngleDown />}
-            </p>
+          <section className="sectionjobcard">
+            <h3>Perks:</h3>
+            <ul>
+              <li>Flexible hours</li>
+              <li>Opportunity to grow into a Senior Analyst or Product Strategist role</li>
+              <li>Performance-based bonuses</li>
+              <li>Be part of a fast-growing fintech startup shaping the future of investing in India</li>
+            </ul>
+          </section>
+        </>
+      )}
+      <div className='alljobiconn'>
+ 
+   <span  className="iconlessjob"style={{ cursor: 'pointer' }}onClick={handleNavigatejob}>
+        Show Less <FaAngleDown  className="iconless" 
+  style={{ cursor: 'pointer' }}/>
+      </span>
 
-          </div>
-        </div>
-      </div>
-      <JoinUs />
-      <FooterForAllPage />
+       </div>
+    </div>
+    <JoinUs/>
+    <FooterForAllPage/>
     </div>
   );
 };

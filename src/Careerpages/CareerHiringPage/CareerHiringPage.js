@@ -158,7 +158,7 @@ useEffect(() => {
           href="https://mail.google.com/mail/?view=cm&fs=1&to=careers@financeshastra.com&su=Application%20for%20Research%20Analyst" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="apply-linkjobcard"
+          className="apply-linkjobcareer"
         >
           Apply Now →
         </a>

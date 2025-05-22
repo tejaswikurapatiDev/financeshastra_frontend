@@ -123,10 +123,10 @@ box-shadow: 0 2px 6px rgb(215, 212, 212);
   display: flex;
   align-items: center;     
   justify-content: center; 
-  gap: 6px;                
+  gap: 3px;                
   color:black;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 14px;
   cursor: pointer;
 }
 .alljobiconn{
@@ -139,13 +139,12 @@ box-shadow: 0 2px 6px rgb(215, 212, 212);
 box-shadow: 0 2px 8px rgba(203, 201, 201, 0.879);
   border: 1px solid rgb(174, 170, 170);
   border-radius: 50%;
-  padding: 5px; /* controls size */
+  padding: 4px; /* controls size */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 8px;
-  height: 7px;
+ 
 }
 
  @media (min-width: 1280px) and (max-width: 1535px) {
@@ -237,7 +236,11 @@ margin-left: -3px;
 }
 .apply-linkjobcard {
     font-size: 15px;
+     margin-left: 90px;   /* Equal margins */
+    margin-right: 90px;
+    width: calc(100% - 20px); /* Full width minus margins */
 }
+
 .alljobiconn {
     display: flex;
     gap: 5px;
@@ -252,4 +255,10 @@ margin-left: -3px;
         font-size: 20px;
         color: #1a1a1a;
     }
+    .apply-linkjobcard {
+    font-size: 15px;
+     margin-left: 60px;  
+    margin-right: 60px;
+    width: calc(100% - 20px); 
+}
 }
