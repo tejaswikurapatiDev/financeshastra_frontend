@@ -290,7 +290,7 @@
           box-sizing: border-box;
           width: 460px;
           transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
-          height: 400px;
+          height:auto;
       }
       
       /* Adding hover effect for better user experience */
@@ -312,10 +312,10 @@
         
         /* Individual option card style */
         .riskProfileFormAll .option-card {
-        
+        margin-bottom: -10px;
           padding: 10px;
           border-radius: 6px;
-      
+      font-size: 14px;
           display: flex;
           align-items: center;
           cursor: pointer;

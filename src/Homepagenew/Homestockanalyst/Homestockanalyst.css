@@ -12,7 +12,16 @@ padding: 0 10px; /* Optional: Add padding on left and right to create space */
 width: 70%; /* Ensure the container takes up full width */
 margin-top: 20px;
 }
+.pagination-containerreas{
 
+  display: flex;
+  justify-content: space-between;
+   max-width: 90%;
+   margin-left: 17px;
+   margin-top: 10px;
+
+
+}
 .pagination-containeranalyst{
   display: flex;
   gap: 850px;
@@ -65,13 +74,12 @@ cursor: pointer; /* Pointer cursor on hover */
   font-size: 14px;
   color: #555;
 }
-
 .pagination-slider {
   display: flex;
   align-items: center;
   gap: 5px;
+margin-right: auto;
 }
-
 .pagination-button {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -114,7 +122,7 @@ margin-top: 290px;
 }
 @media(min-width:1536px){
 .pagination-containerreasearch {
- gap: 780px;
+ gap: 660px;
 }
 .pagination-container {
   display: flex;
@@ -132,16 +140,27 @@ margin-top: 290px;
   gap: 1340px;
   margin-left: 15px;
 } 
+
 }
 
 @media (min-width: 1280px) and (max-width: 1535px){
   .DashboardMainPagetable-tableeee th {
     font-size: 14px;
   }
+  .pagination-containerreas{
+
+  display: flex;
+  justify-content: space-between;
+   max-width: 86%;
+   margin-left: 17px;
+   margin-top: 10px;
+
+
+}
   .pagination-containerreasearch{
     display: flex;
     padding: 10px;
-    gap: 720px;
+    gap: 600px;
     margin-left: 15px;
   } 
   .pagination-container {
@@ -154,7 +173,7 @@ margin-top: 290px;
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .pagination-containerreasearch {
-    gap: 680px;
+    gap: 500px;
   }
   .DashboardMainPagetable-tableeee th, .DashboardMainPagetable-tableeee td {
     font-size: 12px;
@@ -181,13 +200,29 @@ margin-top: 290px;
   cursor: pointer;
 
 }
+  .pagination-containerreas{
+
+  display: flex;
+  justify-content: space-between;
+   max-width: 56%;
+   margin-left: 5px;
+   margin-top: 10px;
+
+
+}
+.pagination-infoo{
+  font-size: 13px;
+}
 .tabsnifty50-containerdash {
   margin-left: -12px;
 }
 .pagination-containerreasearch {
   margin-left: -10px;
-  gap: 340px;
+  gap: 230px;
 }
+.pagination-infoore{
+  font-size: 13px;
+ }
 }
 @media (max-width: 768px) {
 
@@ -230,7 +265,7 @@ margin-top: 290px;
 .pagination-containerreasearch{
   display: flex;
   padding: 10px;
-  gap: 310px;
+  gap: 190px;
   margin-left: 25px;
   width: 1000px;
 }
@@ -241,6 +276,9 @@ margin-top: 290px;
   margin-top: 120px;
   font-family: "calibri";
 }
+.pagination-infoore{
+  font-size: 13px;
+ }
 }
 
 @media (max-width: 480px) {
@@ -291,7 +329,11 @@ margin-top: 290px;
     margin: 20px 0;
   
   }
-  .pagination-containerreasearch{
+ .pagination-infoore{
+  font-size: 13px;
+ }
+  
+    .pagination-containerreas{
     display: flex;
 
     gap: 10px;
@@ -332,8 +374,8 @@ margin-top: 290px;
   display: flex;
 
   gap: 10px;
-  margin-left: 40px;   /* Adjust as needed */
-  margin-right: 40px;
+  margin-left: 1px;   /* Adjust as needed */
+  margin-right: 1px;
   width: calc(100% - 100px); 
   flex-direction: column;
 

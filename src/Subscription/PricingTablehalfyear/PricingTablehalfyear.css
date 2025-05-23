@@ -196,6 +196,8 @@
   font-weight: bold;
   text-align: left;
 
+
+
 }
 
 .price-valuemonth {
@@ -233,12 +235,12 @@
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 80px;
+  margin-top: 40px;
   margin-left: 20px;
 }
 .pay-now-btnfootertop {
   display: inline-block;
-  width: 30%;
+  width: 40%;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -249,7 +251,7 @@
   border-radius: 15px;
   cursor: pointer;
   margin-top: 15px;
-  margin-right: 180px;
+  margin-right: 0px;
   margin-bottom: 10px;
 }
 
@@ -270,12 +272,12 @@
   border: 1px solid #24b676;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 150px;
+  margin-top: 50px;
   margin-left: 20px;
 }
 .pay-now-btntop{
     display: inline-block;
-  width: 30%;
+ width: 40%;
   padding: 10px ;
   font-size: 16px;
   font-weight: bold;
@@ -285,7 +287,7 @@
   border: 1px solid #24b676;
   border-radius: 15px;
   cursor: pointer;
-  margin-right: 220px;
+  margin-right: 20px;
   margin-top: 15px;
   margin-bottom: 10px;
 
@@ -310,9 +312,10 @@
 }
 
 .ribbon-price {
-
+ 
   font-size: 14px;
   font-weight: normal;
+  margin-left: 88px;
 }
 
 .ribbon-price-detail {
@@ -321,7 +324,7 @@
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 140px;
+  margin-right: 89px;
   margin-left: 5px;
   /* Added left margin */
   text-decoration: line-through;
@@ -337,7 +340,7 @@
   font-weight: normal;
   background-color: rgb(255, 239, 242);
   border-radius: 5px;
-  margin-right: 180px;
+  margin-right: 99px;
   margin-left: 5px;
   /* Added left margin */
   text-decoration: line-through;
@@ -372,7 +375,7 @@
   color: black;
   /* Ensure black color for non-highlighted parts */
   text-align: left;
-  margin-left: 60px;
+  margin-left: 45px;
 }
 
 /* Remove default margin or padding from the li */
@@ -536,7 +539,7 @@
   /* Align text to the left */
   margin-left: 40px;
   /* Left margin for alignment */
-  margin-top: 100px;
+  margin-top: 82px;
 }
 
 .plan-description {
@@ -570,13 +573,13 @@
   .text-black {
     color: black;
     text-align: left;
-    margin-left: 50px;
+    margin-left: 45px;
   }
 
   .textblack {
     color: black;
     text-align: left;
-    margin-left: 53px;
+    margin-left: 30px;
   }
 
   .most-popular-container {
@@ -655,8 +658,8 @@
     border: 1px solid #24b676;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 190px;
-    margin-left: 20px;
+    margin-top: 50px;
+    margin-left: 0px;
   }
 
   .pay-now-btnfooter {
@@ -671,7 +674,7 @@
     border: none;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 20px;
   }
 
@@ -688,7 +691,7 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 150px;
+    margin-right: 70px;
   }
 
   .ribbon-price-detail {
@@ -697,7 +700,7 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 100px;
+    margin-right: 60px;
   }
 }
 
@@ -711,7 +714,7 @@
   }
 .pay-now-btnfootertop {
   display: inline-block;
-  width: 32%;
+width: 42%;
   padding: 10px;
   font-size: 14px;
   font-weight: bold;
@@ -722,11 +725,12 @@
   border-radius: 15px;
   cursor: pointer;
   margin-top: 15px;
-  margin-right: 180px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
 .pay-now-btntop{
   font-size: 14px;
+  margin-right: 30px;
 }
   .subscriptionh4 {
     /* margin-right: -20px; */
@@ -800,19 +804,25 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 90px;
+    margin-right:10px;
+   
   }
+  .ribbon-price {
+    font-size: 14px;
+    font-weight: normal;
+    margin-left: 28px;
+}
 
   .text-black {
     color: black;
     text-align: left;
-    margin-left: 10px;
+    margin-left: 48px;
   }
 
   .textblack {
     color: black;
     text-align: left;
-    margin-left: 15px;
+    margin-left: 39px;
   }
 
   .plan-featuresul {
@@ -841,8 +851,8 @@
 
   .pay-now-btn {
 
-    margin-top: 160px;
-    margin-left: 20px;
+    margin-top: 40px;
+    margin-left: 0px;
   }
 
   .pay-now-btnfooter {
@@ -856,7 +866,7 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 140px;
+    margin-right: 40px;
   }
 
   .plan-header-titleelite {
@@ -866,7 +876,7 @@
     color: #24b676;
     text-align: left;
     margin-left: 0px;
-    margin-top: 100px;
+    margin-top: 85px;
   }
 }
 
@@ -876,7 +886,7 @@
     width: 90%;
     /* Adjust container width for smaller screens */
   }
-
+ 
   .subscriptionh2 {
     margin-left: 0;
     font-size: 20px;
@@ -917,7 +927,7 @@
   .textblack {
     color: black;
     text-align: left;
-    margin-left: 30px;
+    margin-left: 90px;
   }
 
   .plan-card.permium-plan {
@@ -994,12 +1004,15 @@
     font-size: 12px;
     /* Smaller font size for details */
     margin-top: 3px;
+    margin-left: 28px;
     /* Adjust spacing */
+
+
   }
 
   .ribbon-price-detail {
     font-size: 14px;
-    margin-right: 140px;
+    margin-right: 10px;
   }
 
   .plan-featuresul {
@@ -1034,14 +1047,14 @@
   border: 1px solid #24b676;
   border-radius: 15px;
   cursor: pointer;
-  margin-right: 250px;
+  margin-right: 30px;
   margin-top: 15px;
   margin-bottom: 10px;
 
 }
 .pay-now-btnfootertop {
   display: inline-block;
-  width: 30%;
+  width: 40%;
   padding: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -1052,7 +1065,7 @@
   border-radius: 15px;
   cursor: pointer;
   margin-top: 15px;
-  margin-right: 210px;
+  margin-right: 10px;
   margin-bottom: 10px;
 }
   .plan-description {
@@ -1079,13 +1092,13 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 210px;
+    margin-right: 30px;
   }
 
   .text-black {
     color: black;
     text-align: left;
-    margin-left: 30px;
+    margin-left: 115px;
   }
 }
 
@@ -1096,9 +1109,16 @@
     width: 100%;
     /* Take full width on small screens */
   }
+  .text-black {
+  color: black;
+  text-align: center;   /* Center the text inside */
+  margin: 0 auto;       /* Center the element itself */
+  display: block;       /* Ensure it's treated as a block element */
+}
+
 .pay-now-btntop{
     display: inline-block;
-  width: 35%;
+  width: 40%;
   padding: 10px ;
   font-size: 14px;
   font-weight: bold;
@@ -1108,27 +1128,27 @@
   border: 1px solid #24b676;
   border-radius: 15px;
   cursor: pointer;
-  margin-right: 130px;
+ 
   margin-top: 15px;
-  margin-bottom: 10px;
+  margin: 15px auto 10px auto; /* top, left/right (auto = center), bottom */
+
 
 }
 .pay-now-btnfootertop {
-  display: inline-block;
-  width: 45%;
-  padding: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  background-color: #24b676;
-  box-shadow: 0 4px 8px #24b676;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-right: 100px;
-  margin-bottom: 10px;
+    display: block;               /* Switch from inline-block to block for auto margins to work */
+    width: 45%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #24b676;
+    box-shadow: 0 4px 8px #24b676;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 15px auto 10px auto; /* top, left/right (auto = center), bottom */
 }
+
   .subscriptionh2,
   .subscriptionh4 {
     font-size: 15px;
@@ -1245,6 +1265,12 @@
 
 
   }
+  .ribbon-price {
+  font-size: 12px;
+  margin: 3px auto 0 auto; /* top: 3px, horizontal: auto, bottom: 0 */
+  display: block;
+}
+
 
   .ribbon-price {
     font-size: 10px;
@@ -1257,7 +1283,15 @@
     font-size: 12px;
     /* Smaller font size for details */
     margin-right: 0px;
+
   }
+  .textblack {
+  color: black;
+  text-align: center;   /* Center the text inside */
+  margin: 0 auto;        /* Center the element itself */
+  display: block;        /* Ensure it's a block element */
+}
+
 
   .ribbon-price-detailelite {
     font-size: 12px;
@@ -1265,14 +1299,12 @@
     font-weight: normal;
     background-color: rgb(255, 239, 242);
     border-radius: 5px;
-    margin-right: 50px;
+    margin-right: 0px;
   }
 
 }
 
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .toggle-switch-container {}
-}
+
 
 @media (max-width: 320px) {
 
@@ -1295,14 +1327,6 @@
     margin-left: -20px;
   }
 
-  .ribbon-price-detailelite {
-    font-size: 12px;
-    color: #333;
-    font-weight: normal;
-    background-color: rgb(255, 239, 242);
-    border-radius: 5px;
-    margin-right: 0px;
-  }
 
   .plan-header-titleelite {
     font-size: 1.5rem;
@@ -1314,37 +1338,15 @@
     margin-top: 30px;
   }
 .pay-now-btntop{
-    display: inline-block;
+
   width: 45%;
-  padding: 10px ;
-  font-size: 14px;
-  font-weight: bold;
-  color: #24b676;
-  background-color: white;
-  box-shadow: 0 4px 8px #24b676;
-  border: 1px solid #24b676;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-right: 100px;
-  margin-top: 15px;
-  margin-bottom: 10px;
+
 
 }
 .pay-now-btnfootertop {
-  display: inline-block;
+
   width: 55%;
-  padding: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
-  background-color: #24b676;
-  box-shadow: 0 4px 8px #24b676;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-right: 100px;
-  margin-bottom: 10px;
+
 }
   .plan-description {
     font-size: 12px;
@@ -1354,18 +1356,7 @@
     font-weight: bold;
   }
 
-  .textblack {
-    color: black;
-    text-align: left;
-    margin-left: -10px;
-  }
-
-  .text-black {
-    color: black;
-    text-align: left;
-    margin-left: 12px;
-  }
-
+ 
   .plans-wrapper {
     flex-direction: column;
     width: 88%;
@@ -1467,5 +1458,11 @@
     cursor: pointer;
     font-weight: bold;
     color: #666;
+  }
+    .ribbon-price-detail {
+    font-size: 12px;
+    /* Smaller font size for details */
+   margin-right: -15px;
+
   }
 }

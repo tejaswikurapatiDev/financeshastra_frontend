@@ -159,6 +159,22 @@
 }
 @media (max-width: 480px) {
   
+    .performanceportfolioanalysis-date-btn {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 10px 5px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex
+;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease;
+    font-family: 'calibri';
+    font-weight: 600;
+}
     .performanceportfolioanalysis-date-picker {
         margin-top: 10px;
         border: 1px solid #ccc;
@@ -189,7 +205,7 @@
     .date-pickerperfcontainer{
         position: absolute;
         top: 100%; /* Places it right below the button */
-        left: -220px;
+        left: -390px;
         z-index: 999;
         background: none;
         border: none;
@@ -204,7 +220,7 @@
     .date-pickerperfcontainer{
         position: absolute;
         top: 100%; /* Places it right below the button */
-        left: -245px;
+        left: -410px;
         z-index: 999;
         background: none;
         border: none;

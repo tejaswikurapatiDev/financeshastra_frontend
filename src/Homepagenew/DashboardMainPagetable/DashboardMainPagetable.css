@@ -10,9 +10,28 @@
 
 }
 
+.pagination-sliderr {
+  display: flex;
+  justify-content: center; /* or space-between if you have multiple buttons */
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+  flex-wrap: wrap; /* helps on small screens */
+  max-width: 100%;
+  box-sizing: border-box;
+ 
+}
+
+.pagination-containerrsectorr{
+  display: flex;
+  justify-content: space-between;
+   max-width: 91%;
+   margin-left: 15px;
+}
+
 .pagination-containerrsector {
   display: flex;
-  gap: 770px;
+  gap: 520px;
   align-items: center;
   margin: 20px 0;
   margin-left: 20px;
@@ -419,7 +438,7 @@ body {
 @media(min-width:1536px) {
   .pagination-containerrsector {
     display: flex;
-    gap: 780px;
+    gap: 660px;
     align-items: center;
     margin: 20px 0;
     margin-left: 20px;
@@ -428,6 +447,7 @@ body {
   .DashboardMainPagetable-card.custom-card-size {
     width: 145px;
   }
+
 
   .pagination-slider {
     margin-right: -1000px;
@@ -480,11 +500,16 @@ body {
 
   .pagination-containerrsector {
     display: flex;
-    gap: 721px;
+    gap: 601px;
     align-items: center;
     margin: 20px 0;
     margin-left: 20px;
   }
+  .pagination-containerrsectorr{
+  display: flex;
+  justify-content: space-between;
+   max-width: 87%;
+}
 }
 
 
@@ -515,12 +540,19 @@ body {
 
   .pagination-containerrsector {
     display: flex;
-    gap: 360px;
+    gap: 240px;
     align-items: center;
     margin: 20px 0;
     margin-left: -10px;
 
   }
+  .pagination-containerrsectorr{
+  display: flex;
+  justify-content: space-between;
+   max-width: 55%;
+   margin-left: 15px;
+}
+
 }
 
 
@@ -541,6 +573,12 @@ body {
     box-sizing: border-box;
     /* Include padding in width calculation */
   }
+    .pagination-containerrsectorr{
+  display: flex;
+  justify-content: space-between;
+   max-width: 100%;
+   margin-left: 39px;
+}
 
   body {
     overflow-x: hidden;
@@ -767,7 +805,7 @@ body {
 
   .pagination-containerrsector {
     display: flex;
-    gap: 280px;
+    gap: 160px;
     align-items: center;
     margin: 20px 0;
     margin-left: 40px;
@@ -1059,8 +1097,8 @@ body {
   .pagination-containerrsector {
     display: flex;
     flex-direction: column;
-    margin-left: 50px;   /* Equal margins */
-    margin-right: 50px;
+    margin-left: 40px;   /* Equal margins */
+    margin-right: 40px;
     width: calc(100% - 20px); /* Full width minus margins */
     gap: 10px;
     
@@ -1068,6 +1106,18 @@ body {
 
 
   }
+.pagination-containerrsectorr {
+ display: flex;
+    flex-direction: column;
+    margin-left: 40px;   /* Equal margins */
+    margin-right: 40px;
+    width: calc(100% - 20px); /* Full width minus margins */
+    gap: 10px;
+    
+}
+.pagination-sliderr{
+flex-wrap: nowrap;
+}
 
   .FooterForAllPage-footerrr {
     display: none;
@@ -1126,8 +1176,8 @@ body {
   .pagination-containerrsector {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;   /* Equal margins */
-    margin-right: 40px;
+    margin-left: 10px;   /* Equal margins */
+    margin-right: 10px;
     width: calc(100% - 20px); /* Full width minus margins */
     gap: 10px;
     

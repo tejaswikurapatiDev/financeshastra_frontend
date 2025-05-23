@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef,useState } from 'react';
 import "./CareerHiringPage.css";
 import { FaAngleDown } from 'react-icons/fa';
 import { Link } from 'react-scroll';
@@ -13,33 +13,46 @@ import img5 from '../../assest/search.svg'
 import Navbar from "../../Navbar/Navbar";
 import JoinUs from "../JoinUs/JoinUs";
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
-import { API_BASE_URL } from '../../config';
+  const jobs = [
+    {
+      id: 1,
+      title: 'Research Analyst',
+      team: 'Product',
+      profession: 'Research Analyst',
+      location: 'Remote',
+      type: 'Full-Time | Entry to Mid-Level',
+      image: img5,
+      specification:'other',
+      applyLink: 'https://mail.google.com/mail/?view=cm&fs=1&to=careers@financeshastra.com&su=Application%20for%20Research%20Analyst'
+    },
+    // Add more job objects here
+  ];
 
-const CareerHiringPage= () =>{
+
+export default function CareerHiringPage() {
+  
   const navigate = useNavigate();
-  const [jobs, setJobs] = useState([]);
-
-useEffect(() => {
-  const fetchJobOpp = async () => {
-    try {
-      const response = await fetch(`${API_BASE_URL}/jobOpportunities`);
-      console.log("RESPONSE: ", response)
-      if (!response.ok) throw new Error("Failed to fetch");
-      const data = await response.json(); 
-      setJobs(data.data);
-      console.log(data.data)
-    } catch (error) {
-      console.error("Fetch error:", error);
-    }
+const [filters, setFilters] = useState({
+    profession: '',
+    team: '',
+    location: ''
+  })
+    const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prev) => ({ ...prev, [name]: value }));
   };
+  const filteredJobs = jobs.filter(job => {
+    return (
+      (!filters.profession || job.profession === filters.profession) &&
+      (!filters.team || job.team === filters.team) &&
+      (!filters.location || job.location === filters.location) &&
+      (!filters.specification || job.specification === filters.specification)
+    );
+  });
 
-  fetchJobOpp();
-}, []);
-
-
- const handleNavigate = (eachjob) => {
+ const handleNavigate = () => {
     window.scrollTo(0, 0);        // Scrolls to the top
-    navigate('/jobCard', {jobData: eachjob});         // Navigates to /jobCard
+    navigate('/jobCard');         // Navigates to /jobCard
   };
    const jobCardRef = useRef(null); // 1️⃣ Create a ref
 
@@ -49,7 +62,6 @@ useEffect(() => {
       jobCardRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
   return (
     <div>
     <div className="careerhiringpage-container">
@@ -105,81 +117,78 @@ useEffect(() => {
       <div className="careerhiringpage-explore">
         <h3>Explore all open positions</h3>
         <div className="careerhiringpage-filters">
-          {/* Profession Dropdown */}
-          <select defaultValue="">
-            <option value="" disabled>Select what you do</option>
-            <option>UI/UX Designer</option>
-            <option>Back-end Developer</option>
-            <option>Frontend Developer</option>
-            <option>Project Manager</option>
-            <option>Product Manager</option>
-            <option>Research Analyst</option>
-            <option>Others</option>
-          </select>
+  <select name="profession" value={filters.profession} onChange={handleFilterChange}>
+    <option value="">Select what you do</option>
+    <option>UI/UX Designer</option>
+    <option>Back-end Developer</option>
+    <option>Frontend Developer</option>
+    <option>Project Manager</option>
+    <option>Product Manager</option>
+    <option>Research Analyst</option>
+    <option>Others</option>
+  </select>
 
-          {/* Team Dropdown */}
-          <select defaultValue="">
-            <option value="" disabled>e.g. Design</option>
-            <option>Design</option>
-            <option>Product</option>
-            <option>Frontend</option>
-            <option>Backend</option>
-            <option>Finance</option>
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Others</option>
-          </select>
+  <select name="team" value={filters.team} onChange={handleFilterChange}>
+    <option value="">e.g. Design</option>
+    <option>Design</option>
+    <option>Product</option>
+    <option>Frontend</option>
+    <option>Backend</option>
+    <option>Finance</option>
+    <option>Sales</option>
+    <option>Marketing</option>
+    <option>Others</option>
+  </select>
 
-          {/* Location Dropdown */}
-          <select defaultValue="">
-            <option value="" disabled>e.g. In - office</option>
-            <option>In - office</option>
-            <option>Hybrid</option>
-            <option>Remote</option>
-          </select>
-        </div>
+  <select name="location" value={filters.location} onChange={handleFilterChange}>
+    <option value="">e.g. In - office</option>
+    <option>In - office</option>
+    <option>Hybrid</option>
+    <option>Remote</option>
+  </select>
+</div>
+
       </div>
 
-      {
-      jobs.map((each)=> 
- <div className="job-hircard" id="jobCardSection">
+      {/* Job Card */}
+ 
 
-
-          
-          <div className="headerjobcard">
-            <div>
-              <div className='allimgg'>
-                <div><img src={img5} className='imgjob'/></div><div><h2>{each.role}</h2>
-              <div className="locationjobcard">Location: {each.location}</div></div></div>
-              <div className="typejobcardhir">Type: {each.type}</div>
-            </div>
-    <div>
-            <a 
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=careers@financeshastra.com&su=Application%20for%20Research%20Analyst" 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="apply-linkjobcareer"
-        >
+      <div className="job-hircard" id="jobCardSection">
+  {filteredJobs.length > 0 ? filteredJobs.map(job => (
+    <div key={job.id} className="headerjobcard">
+      <div>
+        <div className="allimgg">
+          <div><img src={job.image} className="imgjob" /></div>
+          <div>
+            <h2>{job.title}</h2>
+            <div className="locationjobcard">Location: {job.location} (India)</div>
+          </div>
+        </div>
+        <div className="typejobcardhir">Type: {job.type}</div><div style={{display:"none"}}>{job.team}</div>
+      </div>
+      <div>
+        <a href={job.applyLink} target="_blank" rel="noopener noreferrer" className="apply-linkjobcareer">
           Apply Now →
         </a>
-        </div>
       </div>
-        <section className="sectionjobcarddhir">
-  <h3>Who We're Looking For:</h3>
-  <p>
-    A curious and data-driven individual who can turn financial data into clear, actionable insights.
-    Someone who loves diving into balance <br/>sheets, tracking trends, and connecting dots in the Indian equity markets.
-  </p>
-  
-  {/* Show More Button */}
-  <div className="show-more-containerhir">
-   <span className="show-more-texthir" onClick={()=>handleNavigate(each)}>
-        Show More <FaAngleDown className="show-more-iconhiring" />
-      </span>
-  </div>
-</section>
+      <section className="sectionjobcarddhir">
+        <h3>Who We're Looking For:</h3>
+        <p>
+          A curious and data-driven individual who can turn financial data into clear, actionable insights.
+          Someone who loves diving into balance <br />sheets, tracking trends, and connecting dots in the Indian equity markets.
+        </p>
+        <div className="show-more-containerhir">
+          <span className="show-more-texthir" onClick={handleNavigate}>
+            Show More <FaAngleDown className="show-more-iconhiring" />
+          </span>
+        </div>
+      </section>
+    </div>
+  )) : (
+    <p>No matching jobs found.</p>
+  )}
+</div>
 
-      </div>)}
 
       {/* Navbar at the bottom */}
       
@@ -193,5 +202,3 @@ useEffect(() => {
     
   );
 }
-
-export default CareerHiringPage
