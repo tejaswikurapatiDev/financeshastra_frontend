@@ -90,9 +90,9 @@
     max-height: 500px;
     font-size: 14px;
     overflow-x: scroll; /* Always show horizontal scrollbar */
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    width: 96%;
-    margin-left: 20px;
+    overflow-y: auto; /* Hide vertical scrollbar */
+    width: 100%;
+    margin-left: 0px;
     scrollbar-color: #24b676 transparent; /* Scrollbar color */
     scrollbar-width: thin; /* Makes scrollbar thinner */
 }

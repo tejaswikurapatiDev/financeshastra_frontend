@@ -33,12 +33,13 @@ const MutualkeyIndicators = ({ fundDetails }) => {
         <Grid container spacing={2}>
           {indicators.map((indicator, index) => (
             <Grid item xs={6} key={index} className="indicator">
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="textSecondary"className='labelsec'>
                 {indicator.label}
               </Typography>
-              <Typography variant="body1" color="textPrimary">
-                {indicator.value}
-              </Typography>
+             <Typography variant="body1" color="textPrimary"  className='valuepriomary'>
+  {indicator.value}
+</Typography>
+
             </Grid>
           ))}
         </Grid>

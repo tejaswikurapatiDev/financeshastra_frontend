@@ -2,13 +2,20 @@
     border: 2px solid #a9c3e2;
     border-radius: 8px;
     box-shadow: 0 4px 12px black;
-    max-width: 600px;
+    max-width: 750px;
     margin: 20px auto;
     padding: 20px;
     height: 370px;
     font-family: "calibri";
   }
   
+
+.MuiTypography-root.valuepriomary {
+  font-size: 13px; /* or any desired size */
+}
+.MuiTypography-root.labelsec{
+  font-size: 13px;
+}
   .key{
     font-size: 23px;
     font-family:  "calibri";
@@ -30,14 +37,29 @@
   .indicator:nth-child(odd) {
     background-color: #f9f9f9;
   }
- 
+   @media (min-width: 1280px) and (max-width: 1535px) {
+    .key-indicators-card {
+    border: 2px solid #a9c3e2;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px black;
+    max-width: 750px;
+    margin: 20px auto;
+    padding: 20px;
+    height: 370px;
+    font-family: "calibri";
+  }
+  
+   }
   @media (max-width: 768px) {
     .key-indicators-card {
       max-width: 88%; /* Make the card take up more width */
       padding: 15px; /* Reduce padding for better fit */
       height: auto; /* Allow the height to adjust based on content */
     }
-  
+  .MuiTypography-root.valuepriomary {
+  font-size: 12px; /* or any desired size */
+
+}
     .key {
       font-size: 20px; /* Slightly smaller font size */
     }

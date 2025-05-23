@@ -291,7 +291,7 @@ const Dashboardstockindex = () => {
       </div>
       {/* Pagination Section */}
       <div className="pagination-containerrindex">
-        <div className="pagination-info">
+        <div className="pagination-infoindex">
           {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem > uniqueDashboardtableData.length
               ? uniqueDashboardtableData.length
               : indexOfLastItem

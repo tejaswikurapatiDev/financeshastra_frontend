@@ -364,7 +364,7 @@ const Stockcalender = () => {
           </div>
           {/* Pagination Section */}
           <div className="pagination-containercalen">
-            <div className="pagination-infoo">
+            <div className="pagination-infocal">
             {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
               sortedData.length
             } records`}
