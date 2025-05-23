@@ -16,6 +16,7 @@
   margin: 20px 0;
   margin-left: 3px;
 }
+
 .pagination-containercalen{
   display: flex;
   justify-content: space-between;
@@ -226,6 +227,9 @@ font-size: 12px;
  margin-left: 15px;
 
 }
+.pagination-infocal{
+  font-size: 13px;
+}
 }
     @media (max-width: 768px) {
   
@@ -333,8 +337,12 @@ font-size: 12px;
         border-radius: 5px;
         box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
       }
-      
- 
+  .pagination-infocal {
+  font-size: 12px;
+  margin: 0 auto;
+  width: fit-content; /* or a fixed width */
+}
+
         .DashboardMainPagetable-headerr{
           display: flex;
           gap: 10px;
@@ -390,12 +398,13 @@ font-size: 12px;
         width: calc(100% - 20px); /* Full width minus margins */
     
       }
-      .pagination-infoo{
-        font-size: 12px;
-                margin-left: 55px;   /* Equal margins */
-        margin-right: 55px;
-        width: calc(100% - 20px); /* Full width minus margins */
-      }
+       .pagination-infoo {
+        font-size: 13px;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+
       .DashboardMainPagetable-table-containercalen {
         overflow-x: auto;
         width: 155%;
@@ -436,15 +445,22 @@ font-size: 12px;
       flex-direction: column;
         gap: 10px;
    
-        margin-left: 80px;   /* Equal margins */
-        margin-right: 80px;
+        margin-left: 90px;   /* Equal margins */
+        margin-right: 90px;
         width: calc(100% - 20px); /* Full width minus margins */
     
       }
-        .pagination-infoo{
-        font-size: 12px;
-                margin-left: 35px;   /* Equal margins */
-        margin-right: 35px;
-        width: calc(100% - 20px); /* Full width minus margins */
-      }
+      .pagination-infoo {
+        font-size: 13px;
+  text-align: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+        .pagination-infocal {
+  font-size: 11px;
+  margin: 0 auto;
+  width: 150px; /* or a fixed width */
+  margin-left: -15px;
+}
       }

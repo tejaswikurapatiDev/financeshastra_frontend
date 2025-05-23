@@ -2662,13 +2662,13 @@ const Beststock = () => {
         )}
         {/* Pagination Section */}
         <div className="pagination-stockcontainer">
-          <div className="pagination-info">
+          <div className="pagination-infostock">
             {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
               stocks.length
             } records`}
           </div>
 
-          <div className="pagination-slider">
+          <div className="pagination-sliderr">
             <button
               className="pagination-button"
               disabled={currentPage === 1}
