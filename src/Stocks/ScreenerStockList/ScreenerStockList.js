@@ -94,6 +94,10 @@ const ScreenerStockList = () => {
       setCurrentPage(pageNumber);
     }
   };
+  const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
+
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
     const fetchfun = async () => {
@@ -107,7 +111,7 @@ const ScreenerStockList = () => {
           price: each.LastTradedPrice,
           change: each.ChangePercentage,
           volume: each.Volume,
-          marketCap: each.MarketCap,
+          marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
           epsDilGrowth: each.EPSGrowth,
@@ -703,700 +707,700 @@ const ScreenerStockList = () => {
   //  Reset filtered data to original list
   //setFilteredData(screenerStockListData);
   //};
-const handleApply = () => {
-  // Update the filters with selected indexes
-  setFilters((prevFilters) => ({
-    ...prevFilters,
-    index: selectedIndexes,
-  }));
+  const handleApply = () => {
+    // Update the filters with selected indexes
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      index: selectedIndexes,
+    }));
 
-  // If no index is selected, use default full data (stocks)
-  if (selectedIndexes.length === 0) {
-    setFilteredStocks(stocks); // show all data
-    setStocks(stocks);         // reset display list too if needed
-  } else {
-    // Filter from full list based on selected indexes
-    const updatedFilteredStocks = stocks.filter((stock) =>
-      selectedIndexes.some((selectedIndex) => stock.index === selectedIndex)
-    );
+    // If no index is selected, use default full data (stocks)
+    if (selectedIndexes.length === 0) {
+      setFilteredStocks(stocks); // show all data
+      setStocks(stocks);         // reset display list too if needed
+    } else {
+      // Filter from full list based on selected indexes
+      const updatedFilteredStocks = stocks.filter((stock) =>
+        selectedIndexes.some((selectedIndex) => stock.index === selectedIndex)
+      );
 
-    setFilteredStocks(updatedFilteredStocks);
-    setStocks(updatedFilteredStocks);
-  }
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    index: false,
-  }));
-
-  // Scroll to table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+      setFilteredStocks(updatedFilteredStocks);
+      setStocks(updatedFilteredStocks);
     }
-  }, 100);
-};
+
+    // Close dropdown
+    setDropdowns((prev) => ({
+      ...prev,
+      index: false,
+    }));
+
+    // Scroll to table
+    setTimeout(() => {
+      const tableElement = document.getElementById("stocks-table");
+      if (tableElement) {
+        tableElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   const handlesectorApply = () => {
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
 
-  // If no sector is selected, show the default stock list
-  if (selectedSectors.length === 0) {
-    setStocks(stocks); // Show default data (assumes `stocks` is your original unfiltered data)
+    // If no sector is selected, show the default stock list
+    if (selectedSectors.length === 0) {
+      setStocks(stocks); // Show default data (assumes `stocks` is your original unfiltered data)
+      setDropdowns((prev) => ({
+        ...prev,
+        sector: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    // Update selected filters
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      sector: selectedSectors,
+    }));
+
+    // Filter stocks by sector
+    const filteredStocks = screenerStockListData.filter((stock) =>
+      selectedSectors.includes(stock.sector)
+    );
+
+    // Update state
+    setStocks(filteredStocks);
+
     setDropdowns((prev) => ({
       ...prev,
       sector: false,
     }));
+
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
+  };
 
-  // Update selected filters
-  setFilters((prevFilters) => ({
-    ...prevFilters,
-    sector: selectedSectors,
-  }));
+  const handlemcapApply = () => {
+    // Update the filters state
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      marketCapCategory: selectedMcap,
+    }));
 
-  // Filter stocks by sector
-  const filteredStocks = screenerStockListData.filter((stock) =>
-    selectedSectors.includes(stock.sector)
-  );
-
-  // Update state
-  setStocks(filteredStocks);
-
-  setDropdowns((prev) => ({
-    ...prev,
-    sector: false,
-  }));
-
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+    // If no market cap is selected, show default data (stocks)
+    if (selectedMcap.length === 0) {
+      setStocks(stocks); // <-- use your default full data here
+      setDropdowns((prev) => ({
+        ...prev,
+        marketcap: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
 
- const handlemcapApply = () => {
-  // Update the filters state
-  setFilters((prevFilters) => ({
-    ...prevFilters,
-    marketCapCategory: selectedMcap,
-  }));
+    // Filter the stocks based on selected market cap categories
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
 
-  // If no market cap is selected, show default data (stocks)
-  if (selectedMcap.length === 0) {
-    setStocks(stocks); // <-- use your default full data here
+    const filteredStocks = screenerStockListData.filter((stock) =>
+      selectedMcap.includes(stock.marketCapCategory)
+    );
+
+    // Update the stocks state
+    setStocks(filteredStocks);
+
+    // Close the dropdown
     setDropdowns((prev) => ({
       ...prev,
       marketcap: false,
     }));
+
+    // Scroll to table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
+  };
 
-  // Filter the stocks based on selected market cap categories
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
 
-  const filteredStocks = screenerStockListData.filter((stock) =>
-    selectedMcap.includes(stock.marketCapCategory)
-  );
-
-  // Update the stocks state
-  setStocks(filteredStocks);
-
-  // Close the dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    marketcap: false,
-  }));
-
-  // Scroll to table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+  const handlePeApply = () => {
+    // If no P/E range selected, show default data
+    if (selectedPe.length === 0) {
+      setStocks(stocks); // default stock list
+      setDropdowns((prev) => ({
+        ...prev,
+        pe: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
 
+    // Filter stocks based on the selected P/E range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
 
-const handlePeApply = () => {
-  // If no P/E range selected, show default data
-  if (selectedPe.length === 0) {
-    setStocks(stocks); // default stock list
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockPe = parseFloat(stock.pToE);
+      return selectedPe.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockPe >= 50;
+          case "25-50":
+            return stockPe >= 25 && stockPe < 50;
+          case "15-25":
+            return stockPe >= 15 && stockPe < 25;
+          case "15-below":
+            return stockPe < 15;
+          case "0-above":
+            return stockPe >= 0;
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // Close dropdown
     setDropdowns((prev) => ({
       ...prev,
       pe: false,
     }));
+
+    // Scroll to stocks table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
+  };
 
-  // Filter stocks based on the selected P/E range
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockPe = parseFloat(stock.pToE);
-    return selectedPe.some((range) => {
-      switch (range) {
-        case "50-above":
-          return stockPe >= 50;
-        case "25-50":
-          return stockPe >= 25 && stockPe < 50;
-        case "15-25":
-          return stockPe >= 15 && stockPe < 25;
-        case "15-below":
-          return stockPe < 15;
-        case "0-above":
-          return stockPe >= 0;
-        default:
-          return false;
-      }
-    });
-  });
-
-  // Update stocks with the filtered data
-  setStocks(filteredStocks);
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    pe: false,
-  }));
-
-  // Scroll to stocks table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+  const handleEPSApply = () => {
+    // If no EPS filters selected, show default stocks
+    if (selectedeps.length === 0) {
+      setStocks(stocks); // default data
+      setDropdowns((prev) => ({
+        ...prev,
+        eps: false, // Close dropdown
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
 
- const handleEPSApply = () => {
-  // If no EPS filters selected, show default stocks
-  if (selectedeps.length === 0) {
-    setStocks(stocks); // default data
+    // Filter stocks based on selected EPS Dil Growth range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockEpsGrowth = parseFloat(stock.epsDilGrowth);
+      return selectedeps.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockEpsGrowth >= 50;
+          case "25-above":
+            return stockEpsGrowth >= 25;
+          case "10-below":
+            return stockEpsGrowth <= 10;
+          case "0-above":
+            return stockEpsGrowth >= 0;
+          case "0-below":
+            return stockEpsGrowth <= 0;
+          case "-25-below":
+            return stockEpsGrowth <= -25;
+          default:
+            return false;
+        }
+      });
+    });
+
+    setStocks(filteredStocks);
+
+    // Close dropdown
     setDropdowns((prev) => ({
       ...prev,
-      eps: false, // Close dropdown
+      eps: false,
     }));
+
+    // Scroll to table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  // Filter stocks based on selected EPS Dil Growth range
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockEpsGrowth = parseFloat(stock.epsDilGrowth);
-    return selectedeps.some((range) => {
-      switch (range) {
-        case "50-above":
-          return stockEpsGrowth >= 50;
-        case "25-above":
-          return stockEpsGrowth >= 25;
-        case "10-below":
-          return stockEpsGrowth <= 10;
-        case "0-above":
-          return stockEpsGrowth >= 0;
-        case "0-below":
-          return stockEpsGrowth <= 0;
-        case "-25-below":
-          return stockEpsGrowth <= -25;
-        default:
-          return false;
-      }
-    });
-  });
-
-  setStocks(filteredStocks);
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    eps: false,
-  }));
-
-  // Scroll to table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
-};
+  };
 
   const handleDivYieldApply = () => {
-  // If no Dividend Yield filters selected, show default stocks
-  if (selecteddivyield.length === 0) {
-    setStocks(stocks); // Show default data
+    // If no Dividend Yield filters selected, show default stocks
+    if (selecteddivyield.length === 0) {
+      setStocks(stocks); // Show default data
+      setDropdowns((prev) => ({
+        ...prev,
+        divYield: false, // Close dropdown
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    // Filter stocks based on the selected Dividend Yield range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockDivYield = parseFloat(stock.divYield);
+      return selecteddivyield.some((range) => {
+        switch (range) {
+          case "10-above":
+            return stockDivYield >= 10;
+          case "5-above":
+            return stockDivYield >= 5;
+          case "2-below":
+            return stockDivYield <= 2;
+          case "0-2":
+            return stockDivYield >= 0 && stockDivYield <= 2;
+          default:
+            return false;
+        }
+      });
+    });
+
+    setStocks(filteredStocks);
+
+    // Close dropdown
     setDropdowns((prev) => ({
       ...prev,
-      divYield: false, // Close dropdown
+      divYield: false,
     }));
+
+    // Scroll to stocks table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
+  };
 
-  // Filter stocks based on the selected Dividend Yield range
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockDivYield = parseFloat(stock.divYield);
-    return selecteddivyield.some((range) => {
-      switch (range) {
-        case "10-above":
-          return stockDivYield >= 10;
-        case "5-above":
-          return stockDivYield >= 5;
-        case "2-below":
-          return stockDivYield <= 2;
-        case "0-2":
-          return stockDivYield >= 0 && stockDivYield <= 2;
-        default:
-          return false;
-      }
-    });
-  });
-
-  setStocks(filteredStocks);
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    divYield: false,
-  }));
-
-  // Scroll to stocks table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+  const handleROEApply = () => {
+    // If no ROE filters selected, show default stocks
+    if (selectedroe.length === 0) {
+      setStocks(stocks); // Show default data
+      setDropdowns((prev) => ({
+        ...prev,
+        roe: false, // Close dropdown
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
 
- const handleROEApply = () => {
-  // If no ROE filters selected, show default stocks
-  if (selectedroe.length === 0) {
-    setStocks(stocks); // Show default data
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockROE = parseFloat(stock.roe);
+      return selectedroe.some((range) => {
+        switch (range) {
+          case "30":
+            return stockROE >= 30; // 30% and above
+          case "15":
+            return stockROE >= 15; // 15% and above
+          case "0-above":
+            return stockROE >= 0; // 0% and above
+          case "0-below":
+            return stockROE <= 0; // 0% and below
+          case "15-below":
+            return stockROE <= 15; // 15% and below
+          default:
+            return false;
+        }
+      });
+    });
+
+    setStocks(filteredStocks);
+
     setDropdowns((prev) => ({
       ...prev,
-      roe: false, // Close dropdown
+      roe: false,
     }));
+
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockROE = parseFloat(stock.roe);
-    return selectedroe.some((range) => {
-      switch (range) {
-        case "30":
-          return stockROE >= 30; // 30% and above
-        case "15":
-          return stockROE >= 15; // 15% and above
-        case "0-above":
-          return stockROE >= 0; // 0% and above
-        case "0-below":
-          return stockROE <= 0; // 0% and below
-        case "15-below":
-          return stockROE <= 15; // 15% and below
-        default:
-          return false;
-      }
-    });
-  });
-
-  setStocks(filteredStocks);
-
-  setDropdowns((prev) => ({
-    ...prev,
-    roe: false,
-  }));
-
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
-};
+  };
 
   const [pegDropdownVisible, setPegDropdownVisible] = useState(false);
 
   const handlePEGApply = () => {
-  // If no PEG filters selected, show default stocks
-  if (selectedpeg.length === 0) {
-    setStocks(stocks); // Show default data
+    // If no PEG filters selected, show default stocks
+    if (selectedpeg.length === 0) {
+      setStocks(stocks); // Show default data
+      setDropdowns((prev) => ({
+        ...prev,
+        peg: false, // Close dropdown
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    // Filter stocks based on the selected PEG range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockPEG = parseFloat(stock.peg);
+      return selectedpeg.some((range) => {
+        switch (range) {
+          case "2-above":
+            return stockPEG >= 2;
+          case "2-below":
+            return stockPEG <= 2;
+          case "1-above":
+            return stockPEG >= 1;
+          case "1-below":
+            return stockPEG <= 1;
+          case "0.9-1.1":
+            return stockPEG >= 0.9 && stockPEG <= 1.1;
+          case "0.5-below":
+            return stockPEG <= 0.5;
+          default:
+            return false;
+        }
+      });
+    });
+
+    setStocks(filteredStocks);
+
     setDropdowns((prev) => ({
       ...prev,
-      peg: false, // Close dropdown
+      peg: false,
     }));
+
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  // Filter stocks based on the selected PEG range
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockPEG = parseFloat(stock.peg);
-    return selectedpeg.some((range) => {
-      switch (range) {
-        case "2-above":
-          return stockPEG >= 2;
-        case "2-below":
-          return stockPEG <= 2;
-        case "1-above":
-          return stockPEG >= 1;
-        case "1-below":
-          return stockPEG <= 1;
-        case "0.9-1.1":
-          return stockPEG >= 0.9 && stockPEG <= 1.1;
-        case "0.5-below":
-          return stockPEG <= 0.5;
-        default:
-          return false;
-      }
-    });
-  });
-
-  setStocks(filteredStocks);
-
-  setDropdowns((prev) => ({
-    ...prev,
-    peg: false,
-  }));
-
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
-};
+  };
 
   const handleRevenueGrowthApply = () => {
-  // If no revenue growth filters selected, show default stocks
-  if (selectedrevenuegrowth.length === 0) {
-    setStocks(stocks); // Reset to default stock data
+    // If no revenue growth filters selected, show default stocks
+    if (selectedrevenuegrowth.length === 0) {
+      setStocks(stocks); // Reset to default stock data
+      setDropdowns((prev) => ({
+        ...prev,
+        revenue: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    // Filter stocks based on the selected Revenue Growth range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
+      return selectedrevenuegrowth.some((range) => {
+        switch (range) {
+          case "50-above":
+            return stockRevenueGrowth >= 50; // 50% and above
+          case "25-above":
+            return stockRevenueGrowth >= 25; // 25% and above
+          case "10-below":
+            return stockRevenueGrowth <= 10; // 10% and below
+          case "0-above":
+            return stockRevenueGrowth >= 0; // 0% and above
+          case "0-below":
+            return stockRevenueGrowth <= 0; // 0% and below
+          case "-25-below":
+            return stockRevenueGrowth <= -25; // -25% and below
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // Close the dropdown
     setDropdowns((prev) => ({
       ...prev,
       revenue: false,
     }));
+
+    // Scroll smoothly to the stocks table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  // Filter stocks based on the selected Revenue Growth range
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockRevenueGrowth = parseFloat(stock.revenueGrowth); // Assuming `revenueGrowth` is the field in the stock data
-    return selectedrevenuegrowth.some((range) => {
-      switch (range) {
-        case "50-above":
-          return stockRevenueGrowth >= 50; // 50% and above
-        case "25-above":
-          return stockRevenueGrowth >= 25; // 25% and above
-        case "10-below":
-          return stockRevenueGrowth <= 10; // 10% and below
-        case "0-above":
-          return stockRevenueGrowth >= 0; // 0% and above
-        case "0-below":
-          return stockRevenueGrowth <= 0; // 0% and below
-        case "-25-below":
-          return stockRevenueGrowth <= -25; // -25% and below
-        default:
-          return false;
-      }
-    });
-  });
-
-  // Update the stocks with the filtered data
-  setStocks(filteredStocks);
-
-  // Close the dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    revenue: false,
-  }));
-
-  // Scroll smoothly to the stocks table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
-};
+  };
 
   const handlePriceApply = () => {
-  // If no price filter is selected, reset to default full data
-  if (selectedprice.length === 0) {
-    setStocks(stocks); // <-- your default data
+    // If no price filter is selected, reset to default full data
+    if (selectedprice.length === 0) {
+      setStocks(stocks); // <-- your default data
+      setDropdowns((prev) => ({
+        ...prev,
+        price: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
+    }
+
+    // Otherwise, filter stocks based on the selected price range
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
+
+      return selectedprice.some((range) => {
+        switch (range) {
+          case "5000":
+            return stockPrice <= 5000;
+          case "1000":
+            return stockPrice <= 1000;
+          case "500":
+            return stockPrice <= 500;
+          case "100":
+            return stockPrice >= 100;
+          case "10-100":
+            return stockPrice >= 10 && stockPrice < 100;
+          case "10-below":
+            return stockPrice < 10 && stockPrice >= 5;
+          case "5-below":
+            return stockPrice < 5;
+          case "above-ema-50":
+            return stock.priceEMA50 && stockPrice > stock.priceEMA50;
+          case "below-ema-50":
+            return stock.priceEMA50 && stockPrice < stock.priceEMA50;
+          case "crosses-bb-upper":
+            return stock.bbUpper && stockPrice > stock.bbUpper;
+          case "crosses-bb-lower":
+            return stock.bbLower && stockPrice < stock.bbLower;
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update filtered stocks
+    setStocks(filteredStocks);
+
+    // Close dropdown
     setDropdowns((prev) => ({
       ...prev,
       price: false,
     }));
+
+    // Scroll to table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  // Otherwise, filter stocks based on the selected price range
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockPrice = parseFloat(stock.price.replace(/₹|,/g, ""));
-
-    return selectedprice.some((range) => {
-      switch (range) {
-        case "5000":
-          return stockPrice <= 5000;
-        case "1000":
-          return stockPrice <= 1000;
-        case "500":
-          return stockPrice <= 500;
-        case "100":
-          return stockPrice >= 100;
-        case "10-100":
-          return stockPrice >= 10 && stockPrice < 100;
-        case "10-below":
-          return stockPrice < 10 && stockPrice >= 5;
-        case "5-below":
-          return stockPrice < 5;
-        case "above-ema-50":
-          return stock.priceEMA50 && stockPrice > stock.priceEMA50;
-        case "below-ema-50":
-          return stock.priceEMA50 && stockPrice < stock.priceEMA50;
-        case "crosses-bb-upper":
-          return stock.bbUpper && stockPrice > stock.bbUpper;
-        case "crosses-bb-lower":
-          return stock.bbLower && stockPrice < stock.bbLower;
-        default:
-          return false;
-      }
-    });
-  });
-
-  // Update filtered stocks
-  setStocks(filteredStocks);
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    price: false,
-  }));
-
-  // Scroll to table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+  };
+  const handleChangeApply = () => {
+    // If no change filters selected, show default stock data
+    if (selectedchange.length === 0) {
+      setStocks(stocks); // default data
+      setDropdowns((prev) => ({
+        ...prev,
+        change: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
-const handleChangeApply = () => {
-  // If no change filters selected, show default stock data
-  if (selectedchange.length === 0) {
-    setStocks(stocks); // default data
+
+    // Proceed with filtering if options are selected
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockChangePercentage = parseFloat(
+        stock.change.replace(/%|₹|,/g, "")
+      );
+
+      return selectedchange.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockChangePercentage >= 30;
+          case "20-above":
+            return stockChangePercentage >= 20;
+          case "10-above":
+            return stockChangePercentage >= 10;
+          case "5-above":
+            return stockChangePercentage >= 5;
+          case "0-5":
+            return stockChangePercentage >= 0 && stockChangePercentage <= 5;
+          case "0-above":
+            return stockChangePercentage >= 0;
+          case "0-below":
+            return stockChangePercentage < 0;
+          case "-5-0":
+            return stockChangePercentage < 0 && stockChangePercentage >= -5;
+          case "-5-below":
+            return stockChangePercentage < -5;
+          case "-10-below":
+            return stockChangePercentage < -10;
+          case "-20-below":
+            return stockChangePercentage < -20;
+          case "-30-below":
+            return stockChangePercentage < -30;
+          default:
+            return false;
+        }
+      });
+    });
+
+    setStocks(filteredStocks);
+
+    // Close dropdown
     setDropdowns((prev) => ({
       ...prev,
       change: false,
     }));
+
+    // Scroll to stocks table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
+  };
 
-  // Proceed with filtering if options are selected
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockChangePercentage = parseFloat(
-      stock.change.replace(/%|₹|,/g, "")
-    );
-
-    return selectedchange.some((range) => {
-      switch (range) {
-        case "30-above":
-          return stockChangePercentage >= 30;
-        case "20-above":
-          return stockChangePercentage >= 20;
-        case "10-above":
-          return stockChangePercentage >= 10;
-        case "5-above":
-          return stockChangePercentage >= 5;
-        case "0-5":
-          return stockChangePercentage >= 0 && stockChangePercentage <= 5;
-        case "0-above":
-          return stockChangePercentage >= 0;
-        case "0-below":
-          return stockChangePercentage < 0;
-        case "-5-0":
-          return stockChangePercentage < 0 && stockChangePercentage >= -5;
-        case "-5-below":
-          return stockChangePercentage < -5;
-        case "-10-below":
-          return stockChangePercentage < -10;
-        case "-20-below":
-          return stockChangePercentage < -20;
-        case "-30-below":
-          return stockChangePercentage < -30;
-        default:
-          return false;
-      }
-    });
-  });
-
-  setStocks(filteredStocks);
-
-  // Close dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    change: false,
-  }));
-
-  // Scroll to stocks table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
+  const handleperfApply = () => {
+    // Show default data if no performance range is selected
+    if (selectedperf.length === 0) {
+      setStocks(stocks); // Show default stocks
+      setDropdowns((prev) => ({
+        ...prev,
+        performance: false,
+      }));
+      setTimeout(() => {
+        const tableElement = document.getElementById("stocks-table");
+        if (tableElement) {
+          tableElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+      return;
     }
-  }, 100);
-};
 
- const handleperfApply = () => {
-  // Show default data if no performance range is selected
-  if (selectedperf.length === 0) {
-    setStocks(stocks); // Show default stocks
+    if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
+
+    // Filter stocks based on the selected performance range
+    const filteredStocks = screenerStockListData.filter((stock) => {
+      const stockperf = stock.perf
+        ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
+        : 0;
+
+      return selectedperf.some((range) => {
+        switch (range) {
+          case "30-above":
+            return stockperf >= 30;
+          case "20-above":
+            return stockperf >= 20;
+          case "10-above":
+            return stockperf >= 10;
+          case "5-above":
+            return stockperf >= 5;
+          case "0-5":
+            return stockperf >= 0 && stockperf <= 5;
+          case "0-above":
+            return stockperf >= 0;
+          case "0-below":
+            return stockperf < 0;
+          case "-5-0":
+            return stockperf < 0 && stockperf >= -5;
+          case "-5-below":
+            return stockperf < -5;
+          case "-10-below":
+            return stockperf < -10;
+          case "-20-below":
+            return stockperf < -20;
+          case "-30-below":
+            return stockperf < -30;
+          default:
+            return false;
+        }
+      });
+    });
+
+    // Update the stocks with the filtered data
+    setStocks(filteredStocks);
+
+    // Close the dropdown
     setDropdowns((prev) => ({
       ...prev,
       performance: false,
     }));
+
+    // Scroll to the table
     setTimeout(() => {
       const tableElement = document.getElementById("stocks-table");
       if (tableElement) {
         tableElement.scrollIntoView({ behavior: "smooth" });
       }
     }, 100);
-    return;
-  }
-
-  if (!screenerStockListData || !Array.isArray(screenerStockListData)) return;
-
-  // Filter stocks based on the selected performance range
-  const filteredStocks = screenerStockListData.filter((stock) => {
-    const stockperf = stock.perf
-      ? parseFloat(stock.perf.replace(/%|₹|,/g, ""))
-      : 0;
-
-    return selectedperf.some((range) => {
-      switch (range) {
-        case "30-above":
-          return stockperf >= 30;
-        case "20-above":
-          return stockperf >= 20;
-        case "10-above":
-          return stockperf >= 10;
-        case "5-above":
-          return stockperf >= 5;
-        case "0-5":
-          return stockperf >= 0 && stockperf <= 5;
-        case "0-above":
-          return stockperf >= 0;
-        case "0-below":
-          return stockperf < 0;
-        case "-5-0":
-          return stockperf < 0 && stockperf >= -5;
-        case "-5-below":
-          return stockperf < -5;
-        case "-10-below":
-          return stockperf < -10;
-        case "-20-below":
-          return stockperf < -20;
-        case "-30-below":
-          return stockperf < -30;
-        default:
-          return false;
-      }
-    });
-  });
-
-  // Update the stocks with the filtered data
-  setStocks(filteredStocks);
-
-  // Close the dropdown
-  setDropdowns((prev) => ({
-    ...prev,
-    performance: false,
-  }));
-
-  // Scroll to the table
-  setTimeout(() => {
-    const tableElement = document.getElementById("stocks-table");
-    if (tableElement) {
-      tableElement.scrollIntoView({ behavior: "smooth" });
-    }
-  }, 100);
-};
+  };
 
   const handleCheckboxChange = (
     index,
@@ -2585,7 +2589,7 @@ const handleChangeApply = () => {
                         : stock.change}
                     </td>
                     <td>{stock.volume}</td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹ {stock.marketCap}</td>
                     <td>{stock.pToE}</td>
                     <td>{stock.eps}</td>
                     <td

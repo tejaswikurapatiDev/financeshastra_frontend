@@ -101,7 +101,7 @@ const Largecap = () => {
           price: each.LastTradedPrice,
           change: each.ChangePercentage,
           volume: each.Volume,
-          marketCap: each.MarketCap,
+          marketCap: each.MarketCap.replace("Ã‚Â", ""),
           pToE: each.CurrentPE,
           eps: each.EPS,
           epsDilGrowth: each.EPSGrowth,
@@ -2582,7 +2582,7 @@ const Largecap = () => {
                         : stock.change}
                     </td>
                     <td>{stock.volume}</td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹ {stock.marketCap}</td>
                     <td>{stock.pToE}</td>
                     <td>{stock.eps}</td>
                     <td

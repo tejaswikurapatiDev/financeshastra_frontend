@@ -85,6 +85,9 @@ const Smallcap = () => {
       setCurrentPage(pageNumber);
     }
   };
+  const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
 
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
@@ -100,7 +103,7 @@ const Smallcap = () => {
           price: each.LastTradedPrice,
           change: each.ChangePercentage,
           volume: each.Volume,
-          marketCap: each.MarketCap,
+          marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
           epsDilGrowth: each.EPSGrowth,
@@ -113,7 +116,6 @@ const Smallcap = () => {
           analystRating: each.Analyst_Rating,
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
-
         
         setStocks(formattedData);
       }
@@ -2582,7 +2584,7 @@ const Smallcap = () => {
                         : stock.change}
                     </td>
                     <td>{stock.volume}</td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹ {stock.marketCap}</td>
                     <td>{stock.pToE}</td>
                     <td>{stock.eps}</td>
                     <td

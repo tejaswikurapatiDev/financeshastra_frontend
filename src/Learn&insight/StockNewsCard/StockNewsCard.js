@@ -6,6 +6,7 @@ import Navbar from '../../Navbar/Navbar';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import { API_BASE_URL } from "../../config";
 import ClipLoader from 'react-spinners/ClipLoader';
+import sanitizeHtml from "sanitize-html";
 const override = {
   display: "block",
   textAlign: "center"
@@ -20,6 +21,7 @@ const StockNewsCard = () => {
   const [change, setChange] = useState({ value: 7.25, percentage: 0.41 });
 
   useEffect(() => {
+    console.log("StocksnewCard Useeffect")
     const fetchArticle = async () => {
       try {
         const response = await fetch(`${API_BASE_URL}/news/${id}`, {
@@ -28,7 +30,7 @@ const StockNewsCard = () => {
             "Content-Type": "application/json",
           },
         });
-        console.log(response)
+        console.log("stocksnewcard RESPONSE: ", response)
         if (!response.ok) {
           throw new Error("Failed to fetch article");
         }
@@ -59,7 +61,6 @@ const StockNewsCard = () => {
     return () => clearInterval(interval);
   }, [stockPrice]);
 
-  console.log(article?.created_at)
   const rawDate = article?.created_at;
   const currentDate = rawDate ? new Date().toLocaleString('en-GB', {
     day: '2-digit',
@@ -79,6 +80,22 @@ const StockNewsCard = () => {
       color="green"
     />
   </div></div>;
+
+   const sanitizedContent = sanitizeHtml(article?.content || "", {
+        allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
+        allowedAttributes: {
+          "*": [], // Keep this to ensure no other attributes are allowed by default
+          h2: ["style"],
+          p: ["style"],
+          ol: ["style"],
+          li: ["style"],
+          strong: ["style"],
+          table: ["style"],
+          tr: ["style"],
+          td: ["style"],
+          th: ["style"],
+        },
+      });
 
   return (
     <div>
@@ -116,9 +133,10 @@ const StockNewsCard = () => {
           </div>
         </div>
 
-        <p className="stocknewsss-description">
+        {/*<p className="stocknewsss-description">
           {article.content || `No detailed description available for this article.`}
-        </p>
+        </p>*/}
+        <div dangerouslySetInnerHTML={{ __html: sanitizedContent }}></div>
 
         <Navbar />
       </div>
