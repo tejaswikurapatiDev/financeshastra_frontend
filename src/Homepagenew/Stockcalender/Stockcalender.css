@@ -11,11 +11,19 @@
 }
 .pagination-containercalender {
   display: flex;
-  gap: 680px;
+  gap: 555px;
   
   margin: 20px 0;
   margin-left: 3px;
 }
+.pagination-containercalen{
+  display: flex;
+  justify-content: space-between;
+   max-width: 89%;
+   margin-left: 5px;
+   margin-top: 10px;
+}
+
 .DashboardMainPagetable-tablee {
     width: 89%;
     border-collapse: collapse;
@@ -126,7 +134,7 @@ width: 100%;
 @media(min-width:2000px){
   .pagination-containercalender {
     display: flex;
-    gap: 1220px;
+    gap: 1020px;
     align-items: center;
     margin: 20px 0;
     margin-left: 23px;
@@ -141,7 +149,7 @@ width: 100%;
 }
 .pagination-containercalender {
   display: flex;
-  gap: 710px;
+  gap: 610px;
   align-items: center;
   margin: 20px 0;
   margin-left: 20px;
@@ -157,6 +165,13 @@ width: 100%;
   margin-left: 20px;
   width: 93%;
 }
+.pagination-containercalen{
+  display: flex;
+  justify-content: space-between;
+   max-width: 93%;
+   margin-left: 19px;
+   margin-top: 10px;
+}
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .DashboardMainPagetable-table-container {
@@ -164,6 +179,13 @@ width: 100%;
     margin: 20px;
     width: 63%;
     margin-left: 0px;
+}
+.pagination-containercalen{
+  display: flex;
+  justify-content: space-between;
+   max-width: 60%;
+   margin-left: 8px;
+   margin-top: 10px;
 }
 .DashboardMainPagetable-table-containerrrrr {
   width: 94%;
@@ -199,7 +221,7 @@ font-size: 12px;
 }
 .pagination-containercalender {
   display: flex;
- gap: 320px;
+ gap: 200px;
   align-items: center;
  margin-left: 15px;
 
@@ -211,21 +233,38 @@ font-size: 12px;
     display: flex;
     border: 1px solid rgb(212, 209, 209);
     height: 40px;
-    margin-left: -145px;
+    margin-left: 5px;
     align-self: left;
    padding-right: 10px;
     margin-right: 0px;
     width: 140px;
     border-radius: 5px;
     box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
-    margin-top: -10px;
+    margin-top: 0px;
   }
   
   .DashboardMainPagetable-table-container {
 
     margin: 10px;
 }
+.pagination-containercalen{
+  display: flex;
+  justify-content: space-between;
+   max-width: 190%;
+   margin-left: 58px;
+   margin-top: 10px;
+}
+.pagination-sliderr {
+      flex-wrap: nowrap;
+    margin-right: -130px;
+  }
 
+.earnings-insight-learn-tab-button {
+    cursor: pointer;
+    font-family: 'calibri';
+font-size: 13px;
+    width: 78px;
+}
 .DashboardMainPagetable-table-container {
   overflow-x: hidden;
   margin: 20px;
@@ -239,13 +278,12 @@ font-size: 12px;
       margin-left: 0px;
     }
     .earningquterlyrowalll {
-      width: 70px;
-      border: none;
-      box-shadow: none;
+      width: 123%;
+     
       background-color: white;
       gap: 1px; /* Reduced gap for mobile */
-      margin-left: -12px;
-      margin-bottom: 0px;
+      margin-left: 48px;
+      margin-bottom: 15px;
    
   }
   .DashboardMainPagetable-headercalculator {
@@ -271,7 +309,7 @@ font-size: 12px;
 }
 .pagination-containercalender {
   display: flex;
- gap: 260px;
+ gap: 140px;
  
  margin-left: 45px;
  width: 1000px;
@@ -342,15 +380,21 @@ font-size: 12px;
           overflow-y: hidden;
           height: 520px;
       }
-      .pagination-containercalender {
+    .pagination-containercalen {
         display: flex;
       flex-direction: column;
         gap: 10px;
    
-        margin-left: 80px;   /* Equal margins */
-        margin-right: 80px;
+        margin-left: 90px;   /* Equal margins */
+        margin-right: 90px;
         width: calc(100% - 20px); /* Full width minus margins */
     
+      }
+      .pagination-infoo{
+        font-size: 12px;
+                margin-left: 55px;   /* Equal margins */
+        margin-right: 55px;
+        width: calc(100% - 20px); /* Full width minus margins */
       }
       .DashboardMainPagetable-table-containercalen {
         overflow-x: auto;
@@ -364,21 +408,21 @@ font-size: 12px;
       display: flex;
       border: 1px solid rgb(212, 209, 209);
       height: 40px;
-      margin-left: 100px;
+      margin-left: 255px;
       width: 140px;
       border-radius: 5px;
       box-shadow: 0 0 0 2px #efeeee; /* Blue outline when focused */
     }
     .react-datepicker {
       z-index: 100 !important;
-      margin-left: 70px;
+    
     }
-
+   
         }
         @media (max-width: 480px){
           .react-datepicker {
             z-index: 100 !important;
-            margin-left: 77px;
+            margin-left: 227px;
           }
         }
 
@@ -387,14 +431,20 @@ font-size: 12px;
           z-index: 100 !important;
           margin-left: -20px;
       }
-      .pagination-containercalender {
+      .pagination-containercalen {
         display: flex;
       flex-direction: column;
         gap: 10px;
    
-        margin-left: 40px;   /* Equal margins */
-        margin-right: 40px;
+        margin-left: 80px;   /* Equal margins */
+        margin-right: 80px;
         width: calc(100% - 20px); /* Full width minus margins */
     
+      }
+        .pagination-infoo{
+        font-size: 12px;
+                margin-left: 35px;   /* Equal margins */
+        margin-right: 35px;
+        width: calc(100% - 20px); /* Full width minus margins */
       }
       }

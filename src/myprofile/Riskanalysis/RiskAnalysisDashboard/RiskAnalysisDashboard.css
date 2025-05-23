@@ -264,14 +264,14 @@ max-width: 1000px;
   }
   .subscribe-footerrmanagealerttt {
     text-align: center;
-    margin-top: 40px;
+    margin-top: -50px;
     border: 1px solid rgb(238, 236, 236);
     height: 200px;
     border-radius: 10px;
     box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
     background-color: #24b676;
     width: 700px;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     margin-left: 5px;
   }
   .riskreportprofile-factor h2{
@@ -586,7 +586,7 @@ max-width: 1000px;
       box-shadow: 0 6px 10px rgba(213, 211, 211, 0.997);
       background-color: #24b676;
       width: calc(90% - 20px);
-      margin: 20px auto 100px;
+      margin: 20px auto 10px;
     }
   }
   @media (min-width: 1024px) and (max-width: 1279px) {

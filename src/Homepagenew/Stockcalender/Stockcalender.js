@@ -28,6 +28,24 @@ const Stockcalender = () => {
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
+  
+  // Function to fetch data from the backend
+    const { startPage, endPage } = useMemo(() => {
+    const maxVisiblePages = 3;
+  
+    // Start near current page, centered if possible
+    let start = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let end = start + maxVisiblePages - 1;
+  
+    // Ensure we don't exceed totalPages
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxVisiblePages + 1);
+    }
+  
+    return { startPage: start, endPage: end };
+  }, [currentPage, totalPages]);
+  
   // Memoized date formatting function
   const formatDate = useCallback((date) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
@@ -345,39 +363,68 @@ const Stockcalender = () => {
             </table>
           </div>
           {/* Pagination Section */}
-          <div className="pagination-containercalender">
-            <div className="pagination-info">
-              {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem > sortedData.length ? sortedData.length : indexOfLastItem
-                } of ${sortedData.length} records`}
-            </div>
-            <div className="pagination-slider">
-              <button
-                className="pagination-button"
-                disabled={currentPage === 1}
-                onClick={() => handlePageChange(currentPage - 1)}
-              >
-                &lt;
-              </button>
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i + 1}
-                  className={`pagination-button ${currentPage === i + 1 ? "active-page" : ""
-                    }`}
-                  onClick={() => handlePageChange(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              ))}
-              <button
-                className="pagination-button"
-                disabled={currentPage === totalPages}
-                onClick={() => handlePageChange(currentPage + 1)}
-              >
-                &gt;
-              </button>
-            </div>
+          <div className="pagination-containercalen">
+            <div className="pagination-infoo">
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem} of ${
+              sortedData.length
+            } records`}
           </div>
 
+          <div className="pagination-sliderr">
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              &lt;
+            </button>
+
+            {startPage > 1 && (
+              <>
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(1)}
+                >
+                  1
+                </button>
+                {startPage > 2 }
+                  {startPage > 1000 && <span>...</span>}
+              </>
+            )}
+
+            {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+              <button
+                key={startPage + i}
+                className={`pagination-button ${
+                  currentPage === startPage + i ? "active-page" : ""
+                }`}
+                onClick={() => handlePageChange(startPage + i)}
+              >
+                {startPage + i}
+              </button>
+            ))}
+
+            {endPage < totalPages && (
+              <>
+                {endPage < totalPages - 1 && <span>...</span>}
+                <button
+                  className="pagination-button"
+                  onClick={() => handlePageChange(totalPages)}
+                >
+                  {totalPages}
+                </button>
+              </>
+            )}
+
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
+</div>
         </div>
         
       </div>

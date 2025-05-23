@@ -550,7 +550,7 @@ const Landingnavbar = () => {
 
   const [storedName, setUsername] = useState("");
    
-
+  const { user } = useContext(UserProfileContext);
   const [searchInputText, setSearchInputText] = useState("");
   const [filterData, setFilterData] = useState([]);
   const [isLogedin, setIsLogedin] = useState(false);
@@ -651,6 +651,7 @@ const Landingnavbar = () => {
     if (storedUsername) {
       setUsername(storedUsername);
     }
+    setUsername(user);
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired

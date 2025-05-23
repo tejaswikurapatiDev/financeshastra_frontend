@@ -160,6 +160,9 @@ const Beststock = () => {
       setCurrentPage(pageNumber);
     }
   };
+  const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
 
   useEffect(() => {
     const fetchfun = async () => {
@@ -173,7 +176,7 @@ const Beststock = () => {
           price: each.LastTradedPrice,
           change: each.ChangePercentage,
           volume: each.Volume,
-          marketCap: each.MarketCap,
+          marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
           epsDilGrowth: each.EPSGrowth,
@@ -2612,7 +2615,7 @@ const Beststock = () => {
                         : stock.change}
                     </td>
                     <td>{stock.volume}</td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹ {stock.marketCap}</td>
                     <td>{stock.pToE}</td>
                     <td>{stock.eps}</td>
                     <td
