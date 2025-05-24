@@ -648,10 +648,10 @@ const Landingnavbar = () => {
   // Get all data on component mount
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
+    console.log(storedUsername)
     if (storedUsername) {
       setUsername(storedUsername);
     }
-    setUsername(user);
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired
