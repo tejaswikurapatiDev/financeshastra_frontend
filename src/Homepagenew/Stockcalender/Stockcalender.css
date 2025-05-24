@@ -23,6 +23,7 @@
    max-width: 89%;
    margin-left: 5px;
    margin-top: 10px;
+   align-items: center;
 }
 
 .DashboardMainPagetable-tablee {
@@ -259,10 +260,9 @@ font-size: 12px;
    margin-top: 10px;
 }
 .pagination-sliderr {
-      flex-wrap: nowrap;
-    margin-right: -130px;
-  }
-
+        flex-wrap: nowrap;
+        margin-right: -200px;
+    }
 .earnings-insight-learn-tab-button {
     cursor: pointer;
     font-family: 'calibri';
@@ -404,7 +404,10 @@ font-size: 12px;
   margin: 0 auto;
   width: fit-content;
 }
-
+.pagination-sliderr {
+        flex-wrap: nowrap;
+        margin-right: -0px;
+    }
       .DashboardMainPagetable-table-containercalen {
         overflow-x: auto;
         width: 155%;

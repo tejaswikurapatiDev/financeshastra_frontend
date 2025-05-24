@@ -19,6 +19,7 @@ margin-top: 20px;
    max-width: 90%;
    margin-left: 17px;
    margin-top: 10px;
+   align-items: center;
 
 
 }
@@ -80,6 +81,12 @@ cursor: pointer; /* Pointer cursor on hover */
   gap: 5px;
 margin-right: auto;
 }
+.pagination-sliderana {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+}
 .pagination-button {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -131,6 +138,13 @@ margin-top: 290px;
   margin: 20px 0;
   gap: 1000px;
 }
+ .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -0px;
+}
 }
 @media(min-width:2000px){
  
@@ -140,7 +154,13 @@ margin-top: 290px;
   gap: 1340px;
   margin-left: 15px;
 } 
-
+ .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -0px;
+}
 }
 
 @media (min-width: 1280px) and (max-width: 1535px){
@@ -170,6 +190,13 @@ margin-top: 290px;
     margin: 20px 0;
     gap: 920px;
   }
+   .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: 10px;
+}
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .pagination-containerreasearch {
@@ -187,6 +214,7 @@ margin-top: 290px;
   gap: 520px;
   margin-left: 20px;
 }
+
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
 .tabnifty50-buttondash {
@@ -211,7 +239,8 @@ margin-top: 290px;
 
 }
 .pagination-infoo{
-  font-size: 13px;
+  font-size: 14px;
+
 }
 .tabsnifty50-containerdash {
   margin-left: -12px;
@@ -223,9 +252,21 @@ margin-top: 290px;
 .pagination-infoore{
   font-size: 13px;
  }
+ .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -0px;
+}
 }
 @media (max-width: 768px) {
-
+.pagination-sliderana {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+margin-right: -180px;
+}
   .tabsnifty50-containerdash {
     display: flex; /* Flexbox layout to align buttons in a row */
  overflow-x: scroll;
@@ -279,6 +320,13 @@ margin-top: 290px;
 .pagination-infoore{
   font-size: 13px;
  }
+ .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -100px;
+}
 }
 
 @media (max-width: 480px) {
@@ -290,6 +338,12 @@ margin-top: 290px;
 .tabnifty50-buttondash {
   font-size: 10px; /* Ensure font is small enough for mobile */
   padding: 8px 12px; /* Adjust button padding for mobile */
+}
+.pagination-sliderana {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+margin-right: 0px;
 }
 .DashboardMainPagetable-headeranalyst{
  
@@ -334,7 +388,13 @@ margin-top: 290px;
   margin: 0 auto;
   width: fit-content; /* Or a specific width like 200px */
 }
-
+ .pagination-slider {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -0px;
+}
     .pagination-containerreas{
     display: flex;
 

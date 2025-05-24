@@ -261,6 +261,7 @@
 .additional-help p {
   font-size: 16px;
   color: black;
+text-align: center;
 
 }
 
@@ -400,6 +401,37 @@
   .contactus-financeshastra {
     max-width: 1200px;
   }
+  .additional-help p {
+  font-size: 16px;
+  color: black;
+text-align: center;
+margin-left: 80px;
+
+}
+.additional-help h2 {
+  font-size: 20px;
+  color: black;
+  margin-left: 40px;
+}
+.contactus-financeshastra .issue-resolution table {
+  width: 71%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  margin-left: 140px;
+}
+.contactus-financeshastra .additional-help button {
+    background-color: white;
+    color: #24b676;
+    padding: 10px 20px;
+    border: 1px solid #24b676;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    margin-bottom: 100px;
+    margin-left: 40px;
+}
+
 
 }
 
@@ -414,7 +446,28 @@
     margin-bottom: 20px;
     margin-left: 140px;
 }
-
+.additional-help p {
+    margin-left: 180px;
+    font-size: 16px;
+    color: black;
+}
+.additional-help h2 {
+  font-size: 20px;
+  color: black;
+  margin-left: 160px;
+}
+.contactus-financeshastra .additional-help button {
+    background-color: white;
+    color: #24b676;
+    padding: 10px 20px;
+    border: 1px solid #24b676;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-weight: bold;
+    margin-bottom: 100px;
+    margin-left: 150px;
+}
 }
 
 /* Medium Desktops (1024px - 1279px) */
@@ -430,6 +483,11 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 60px;
+}
+.additional-help p {
+    margin-left: 140px;
+    font-size: 15px;
+    color: black;
 }
 .contactus-financeshastra h1 {
   font-size: 24px;
@@ -593,11 +651,13 @@
 
 /* Small Mobile Devices (Below 480px) */
 @media (max-width: 480px) {
-  .contactus-financeshastra h1 {
-    font-size: 20px;
-    margin-left: 15%; /* more responsive */
-    margin-right: 15%;
+.contactus-financeshastra h1 {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px auto;
+  margin-left: 25px;
 }
+
 
 
 .contactus-financeshastra h3 {
@@ -688,4 +748,18 @@ body {
       margin-left: auto;
       margin-right: auto;
   }
+
+    .contactus-financeshastra .contact-form input, .contactus-financeshastra .contact-form textarea {
+        font-size: 16px;
+        width: 83%;
+    }
+.contactus-financeshastra .contactsubmit {
+        width: 50%;
+        margin-left: 56px;
+    }
+        .contactus-financeshastra .additional-help button {
+        margin-left: 0px;
+        margin-right: -130px;
+        font-size: 10px;
+    }
 }

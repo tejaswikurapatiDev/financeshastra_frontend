@@ -304,7 +304,7 @@ const DashboardMainPagetable = () => {
             } records`}
           </div>
 
-          <div className="pagination-sliderr">
+          <div className="pagination-slider">
             <button
               className="pagination-button"
               disabled={currentPage === 1}

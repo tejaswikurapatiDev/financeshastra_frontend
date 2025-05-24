@@ -290,14 +290,14 @@ const Dashboardstockindex = () => {
         </table>
       </div>
       {/* Pagination Section */}
-      <div className="pagination-containerrindex">
-        <div className="pagination-infoindex">
+      <div className="pagination-containerrin">
+        <div className="pagination-infostock">
           {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem > uniqueDashboardtableData.length
               ? uniqueDashboardtableData.length
               : indexOfLastItem
             } of ${uniqueDashboardtableData.length} records`}
         </div>
-        <div className="pagination-slider">
+        <div className="pagination-sliderrr">
           <button
             className="pagination-button"
             disabled={currentPage === 1}

@@ -1267,7 +1267,7 @@
 .pagination-stockcontainer {
   display: flex;
 justify-content: space-between;
-
+ align-items: center;
   margin-top: 20px;
 
 
@@ -1293,7 +1293,7 @@ justify-content: space-between;
 width: 100%;
 }
 .pagination-infostock{
-  font-size: 13px;
+  font-size: 14px;
 }
 }
 
@@ -1444,7 +1444,7 @@ width: 100%;
     left: 65%;
   }
 .pagination-stockcontainer {
-width: 82%;
+width: 72%;
 }
   .dropdown-roe-options {
     position: absolute;
@@ -1490,7 +1490,7 @@ width: 82%;
     margin-bottom: 100px;
   }
 .pagination-infostock{
-  font-size: 13px;
+  font-size: 14px;
 }
   
 }
@@ -1934,7 +1934,7 @@ flex-direction: column;
 
   .pagination-stockcontainer {
     display: flex;
-    gap: 620px;
+ 
     align-items: center;
     margin-top: 20px;
 
