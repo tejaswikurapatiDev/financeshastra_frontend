@@ -287,13 +287,13 @@ const StockResearchAnalysisPage = () => {
              </div>
 
       {/* Pagination Section */}
-      <div className="pagination-containeranalystreaserch">
-        <div className="pagination-info">
+      <div className="pagination-containeranalystre">
+        <div className="pagination-infoana">
           {`Showing ${indexOfFirstItem + 1} to ${
             indexOfLastItem > filteredstock.length ? filteredstock.length : indexOfLastItem
           } of ${filteredstock.length} records`}
         </div>
-        <div className="pagination-slider">
+        <div className="pagination-sliderrr">
           <button
             className="pagination-button"
             disabled={currentPage === 1}

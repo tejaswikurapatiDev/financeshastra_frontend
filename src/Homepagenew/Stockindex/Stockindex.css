@@ -17,6 +17,14 @@ margin-left: 10px;
 margin-top: 15px;
 margin-bottom: 30px;
 }
+.pagination-containerrin{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This ensures all items align in a straight line */
+  width: 89%;
+margin-top: 5px;
+  margin-left: 0px;
+}
 
 .DashboardMainPagetable-card {
   background-color: #fff;
@@ -125,6 +133,15 @@ margin-bottom: 30px;
     text-align: center;
     font-family: 'calibri';
   }  
+  .pagination-containerrin{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This ensures all items align in a straight line */
+  width: 89%;
+margin-top: 5px;
+  margin-left: 5px;
+}
+
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .pagination-containerrindex {
@@ -135,6 +152,14 @@ margin-bottom: 30px;
   margin-top: 15px;
   margin-bottom: 30px;
   }
+    .pagination-containerrin{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This ensures all items align in a straight line */
+  width: 56%;
+margin-top: 5px;
+  margin-left: 5px;
+}
   .DashboardMainPagetable-card {
     width: 110px;
     padding: 10px;
@@ -179,6 +204,14 @@ font-size: 13px;
     overflow-y: auto;
     height: 300px;
   }
+    .pagination-containerrin{
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* This ensures all items align in a straight line */
+  width: 113%;
+margin-top: -140px;
+  margin-left: 39px;
+}
   
   .DashboardMainPagetable-tableee th {
     position: sticky;
@@ -229,6 +262,8 @@ font-size: 13px;
     margin-top: 20px;
     margin-left: 50px;
 }
+
+
 .pagination-containerrindex {
   display: flex;
   gap: 400px;
@@ -280,11 +315,16 @@ font-size: 13px;
       margin-top: 20px;
       margin-left: 30px;
   }
-.pagination-infoindex {
-  font-size: 13px;
-  margin: 0 auto;
-  width: fit-content; /* or a specific width */
-  margin-left: -23px;
+.pagination-containerrin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* Center children inside */
+  margin: 15px auto 0 auto; /* Top margin + horizontal centering */
+     /* Better than fit-content for older browser support */
+  text-align: center;       /* If child text needs centering */
+  margin-left: 40px;   /* Equal margins */
+margin-right: 40px;
+width: calc(100% - 20px);
 }
 
   .pagination-containerrindex {
