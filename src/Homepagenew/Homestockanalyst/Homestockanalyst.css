@@ -329,10 +329,12 @@ margin-top: 290px;
     margin: 20px 0;
   
   }
- .pagination-infoore{
+.pagination-infoore {
   font-size: 13px;
- }
-  
+  margin: 0 auto;
+  width: fit-content; /* Or a specific width like 200px */
+}
+
     .pagination-containerreas{
     display: flex;
 
@@ -379,5 +381,11 @@ margin-top: 290px;
   width: calc(100% - 100px); 
   flex-direction: column;
 
+}
+.pagination-infoore {
+  font-size: 13px;
+  margin: 0 auto;
+  width:200px; /* Or a specific width like 200px */
+  margin-left: -16px;
 }
 }

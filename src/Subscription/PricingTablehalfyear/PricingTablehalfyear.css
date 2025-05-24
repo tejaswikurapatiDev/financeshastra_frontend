@@ -58,7 +58,7 @@
 
 
   /* Add height or min-height to increase card height */
-  height: 970px;
+  height: 920px;
   /* Adjust the value as needed */
   min-height: 500px;
   /* For flexibility */
@@ -82,7 +82,7 @@
 
   width: 50%;
   /* Decrease width */
-  height: 950px;
+  height: 905px;
   /* Adjust the value as needed */
   min-height: 500px;
   /* For flexibility */
@@ -104,7 +104,7 @@
   width: 93%;
   /* Increase width */
   box-shadow: 0 4px 8px #24b676;
-  height: 880px;
+  height: 830px;
   /* Adjust the value as needed */
   min-height: 500px;
   /* For flexibility */
@@ -235,7 +235,7 @@
   border: none;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-left: 20px;
 }
 .pay-now-btnfootertop {
@@ -272,7 +272,7 @@
   border: 1px solid #24b676;
   border-radius: 15px;
   cursor: pointer;
-  margin-top: 50px;
+  margin-top: 105px;
   margin-left: 20px;
 }
 .pay-now-btntop{
@@ -642,7 +642,7 @@
     border-radius: 35px;
     border: 2px solid #e3e0e0;
     margin-left: 30px;
-    height: 1015px;
+            height: 1030px;
     min-height: 500px;
   }
 
@@ -658,7 +658,7 @@
     border: 1px solid #24b676;
     border-radius: 15px;
     cursor: pointer;
-    margin-top: 50px;
+           margin-top: 185px;
     margin-left: 0px;
   }
 
@@ -760,7 +760,7 @@ width: 42%;
     margin: 0 auto 15px;
     color: #fff;
     width: 50%;
-    height: 1050px;
+    height: 1020px;
     min-height: 500px;
     box-shadow: 0 4px 8px #24b676;
     margin-left: 50px;
@@ -776,7 +776,7 @@ width: 42%;
     margin: 0 auto;
     width: 90%;
     box-shadow: 0 4px 8px #24b676;
-    height: 973px;
+    height: 945px;
     min-height: 500px;
     margin-left: -2px;
   }
@@ -845,18 +845,18 @@ width: 42%;
     border-radius: 35px;
     border: 2px solid #e3e0e0;
     margin-left: 30px;
-    height: 1062px;
+    height: 1030px;
     min-height: 500px;
   }
 
   .pay-now-btn {
 
-    margin-top: 40px;
+    margin-top: 150px;
     margin-left: 0px;
   }
 
   .pay-now-btnfooter {
-    margin-top: 45px;
+    margin-top: 15px;
     margin-left: 20px;
   }
 

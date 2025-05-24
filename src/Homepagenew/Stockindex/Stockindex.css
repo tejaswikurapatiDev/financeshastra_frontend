@@ -140,6 +140,9 @@ margin-bottom: 30px;
     padding: 10px;
     flex: 0 0 auto; /* Ensures items don't shrink */
 }
+.pagination-infoindex{
+font-size: 13px;
+}
 }
 @media (max-width: 768px) {
   .DashboardMainPagetable-headerr{
@@ -228,10 +231,10 @@ margin-bottom: 30px;
 }
 .pagination-containerrindex {
   display: flex;
-  gap: 320px;
+  gap: 400px;
   align-items: center;
 margin-left: 40px;
-margin-top: -75px;
+margin-top: -110px;
 margin-bottom: 30px;
 width: 1000px;
 }
@@ -242,6 +245,9 @@ width: 1000px;
       margin-left: 30px;
       margin-top: 20px;
  
+}
+.pagination-infoindex{
+font-size: 13px;
 }
 }
 @media (max-width: 480px) {
@@ -274,12 +280,19 @@ width: 1000px;
       margin-top: 20px;
       margin-left: 30px;
   }
+.pagination-infoindex {
+  font-size: 13px;
+  margin: 0 auto;
+  width: fit-content; /* or a specific width */
+  margin-left: -23px;
+}
+
   .pagination-containerrindex {
     display: flex;
     flex-direction: column;
 gap: 10px;
-margin-left: 50px;   /* Equal margins */
-margin-right: 50px;
+margin-left: 140px;   /* Equal margins */
+margin-right: 140px;
 width: calc(100% - 20px); /* Full width minus margins */
   margin-top: 15px;
   margin-bottom: 30px;
@@ -319,12 +332,18 @@ width: calc(100% - 20px); /* Full width minus margins */
     display: flex;
     flex-direction: column;
 gap: 10px;
-margin-left: 40px;   /* Equal margins */
-margin-right: 40px;
+margin-left: 100px;   /* Equal margins */
+margin-right: 100px;
 width: calc(100% - 20px); /* Full width minus margins */
   margin-top: 15px;
   margin-bottom: 30px;
 
   }
+  .pagination-infoindex {
+  font-size: 13px;
+  margin: 0 auto;
+  width: fit-content; /* or a specific width */
+  margin-left: -19px;
+}
 
 }

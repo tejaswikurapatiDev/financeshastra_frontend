@@ -30,8 +30,6 @@ function Overview() {
 
   const getSelectedStock = allStocks.find((stock) => String(stock?.id) === id);
 
-  console.log(getSelectedStock);
-
   const location = useLocation();
   const stockName = location?.state?.stock?.symbol;
   useEffect(() => {
