@@ -168,6 +168,15 @@
     z-index: 1000;
     background-color: #fff;
   }
+  .graphheader {
+    display: flex
+;
+    gap: 350px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
   .graphnavbar {
     overflow-x: scroll;
     white-space: nowrap;
@@ -184,7 +193,7 @@ margin-left: 280px;
     position: relative;
 }
 .graphheader h1 {
-  font-size: 22px;
+  font-size: 18px;
 margin-top: 30px;
 }
 }
