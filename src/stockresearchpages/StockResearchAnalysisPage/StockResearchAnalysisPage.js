@@ -26,10 +26,11 @@ import ntpc from "../../assest/ntpc.png";
 import Sidebar from '../../Sidebar/Sidebar';
 import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 import { API_BASE_URL } from '../../config';
-
+import Cookies from 'js-cookie'
 import lockimg from '../../assest/lock.png'
 import { useNavigate } from 'react-router-dom';
 import ClipLoader from "react-spinners/ClipLoader";
+import { format } from 'date-fns';
 
 const override = {
   display: "block",
@@ -63,7 +64,7 @@ const StockResearchAnalysisPage = () => {
     { date: "30-10-2024", symbol: "UltraTech Cement Ltd", price: "₹8,276.00", change: "-0.92%", marketCap: "₹3.45T", target: "₹6,890.00", action: "Target Achieved", rating: "Buy", profitBooked: "+19.75%", image: ultratech, pdfLink: "View"  },
     { date: "28-10-2024", symbol: "NTPC Ltd", price: "₹240.50", change: "+0.89%", marketCap: "₹3.42T", target: "₹185.00", action: "Book Profits", rating: "Buy", profitBooked: "+12.60%", image: ntpc, pdfLink: "View"  }
   ];
-  const [filteredstock, setFilteredstock] = useState(stockResearchData);
+  const [filteredstock, setFilteredstock] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sorttDirection, setSorttDirection] = useState(true);
   const [sortOption, setSortOption] = useState('Recent'); // Dropdown option state
@@ -77,13 +78,48 @@ const StockResearchAnalysisPage = () => {
 
   const totalPages = Math.ceil(filteredstock.length / itemsPerPage);
 
+  const [researchStocks, setresearchStocks]= useState([])
+
   useEffect(()=>{
     if (isSubscribed && isLoading){
       setisloading(false)
     }else{
       setisloading(false)
     }
+    
+    const cookietoke= Cookies.get("jwtToken")
+    console.log(cookietoke)
+    const fetchTableData= async ()=>{
+      const response= await fetch(`${API_BASE_URL}/researchstocks`, {
+        method: "get",
+        headers: {
+          "Authorization": `Bearer ${cookietoke}`
+        },
+        credentials: 'include',
+      });
+      const data= await response.json()
+      const stocks= data[0]
+      const formatedstocks= stocks.map((each)=>(
+        {
+          date: each.date.split("T")[0], 
+          symbol: each.symbol, 
+          price: each.price_raw, 
+          change: each.change_perc, 
+          marketCap: each.market_cap, 
+          target: each.target, 
+          action: each.upside_downside, 
+          rating: each.rating, 
+          profitBooked: each.profit_booked, 
+          image: each.icon,
+          pdfLink: "View"
+        }
+      ))
+      setresearchStocks(formatedstocks)
+      setFilteredstock(formatedstocks)
+    }
+    fetchTableData()
   }, [])
+
 
   // Handle page change
   const handlePageChange = (pageNumber) => {
@@ -151,23 +187,23 @@ const StockResearchAnalysisPage = () => {
   // Update filtered stock based on dropdown selection
   useEffect(() => {
     if (sortOption === 'Recent') {
-      const sortedData = [...stockResearchData];
+      const sortedData = [...researchStocks];
       setFilteredstock(sortedData); // Update based on your criteria
     }
     if (sortOption === 'Newest - Oldest') {
-      const sortedData = [...stockResearchData].sort((a, b) => new Date(b.date) - new Date(a.date));
+      const sortedData = [...researchStocks].sort((a, b) => new Date(b.date) - new Date(a.date));
       setFilteredstock(sortedData);
     }
     if (sortOption === 'Oldest - Newest') {
-      const sortedData = [...stockResearchData].sort((a, b) => new Date(a.date) - new Date(b.date));
+      const sortedData = [...researchStocks].sort((a, b) => new Date(a.date) - new Date(b.date));
       setFilteredstock(sortedData);
     }
     if (sortOption === 'Buy') {
-      const sortedData = [...stockResearchData].filter(stock => stock.rating === 'Buy');
+      const sortedData = [...researchStocks].filter(stock => stock.rating === 'Buy');
       setFilteredstock(sortedData);
     }
     if (sortOption === 'Sell') {
-      const sortedData = [...stockResearchData].filter(stock => stock.rating === 'Sell');
+      const sortedData = [...researchStocks].filter(stock => stock.rating === 'Sell');
       setFilteredstock(sortedData);
     }
   }, [sortOption]);
@@ -257,7 +293,7 @@ const StockResearchAnalysisPage = () => {
             <tr key={index}>
               <td>{stock.date}</td>
               <td  className='symiconalll'>
-                <img src={stock.image} alt={stock.symbol} className="bank-logo" /> {stock.symbol}
+                <img src={stock.image} className="bank-logo" /> {stock.symbol}
               </td>
               <td>{stock.price}</td>
               <td style={{ color: stock.change.includes('-') ? 'red' : '#24b676' }}>{stock.change}</td>
@@ -287,13 +323,13 @@ const StockResearchAnalysisPage = () => {
              </div>
 
       {/* Pagination Section */}
-      <div className="pagination-containeranalystreaserch">
-        <div className="pagination-info">
+      <div className="pagination-containeranalystre">
+        <div className="pagination-infoana">
           {`Showing ${indexOfFirstItem + 1} to ${
             indexOfLastItem > filteredstock.length ? filteredstock.length : indexOfLastItem
           } of ${filteredstock.length} records`}
         </div>
-        <div className="pagination-slider">
+        <div className="pagination-sliderrr">
           <button
             className="pagination-button"
             disabled={currentPage === 1}

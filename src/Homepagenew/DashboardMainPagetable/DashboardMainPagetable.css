@@ -27,6 +27,7 @@
   justify-content: space-between;
    max-width: 91%;
    margin-left: 15px;
+   align-items: center;
 }
 
 .pagination-containerrsector {
@@ -549,8 +550,8 @@ body {
   .pagination-containerrsectorr{
   display: flex;
   justify-content: space-between;
-   max-width: 55%;
-   margin-left: 15px;
+   max-width: 56%;
+   margin-left: 0px;
 }
 
 }
@@ -577,7 +578,7 @@ body {
   display: flex;
   justify-content: space-between;
    max-width: 100%;
-   margin-left: 39px;
+   margin-left: 40px;
 }
 
   body {

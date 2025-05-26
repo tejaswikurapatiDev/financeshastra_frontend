@@ -309,7 +309,7 @@
   }
 
   .buttonsRow {
-    margin-right: -300px;
+    margin-right: -410px;
     justify-content: center; /* Center the buttons */
     margin-left: 100px;
   }
@@ -354,14 +354,18 @@
     margin-left: 40px;
   }
 
-  .buttonsRow {
-    flex-direction: row; /* Stack buttons vertically */
-    gap: 5px; /* Reduce gap between buttons */
-    margin-left: 100px;
-    margin-right: -60px;
-  }
+.buttonsRow {
+  display: flex;            /* Required for flex layout */
+  flex-direction: row;      /* Horizontal layout */
+  justify-content: center;  /* Center the buttons horizontally */
+  gap: 5px;                 /* Space between buttons */
+  margin: 0 auto;           /* Center the whole container */
+  width: fit-content;       /* Shrink-wrap the button row */
+  margin-left: 32px;
+}
+
   .notificationsPanel{
-    max-width: 300px;
+    max-width: 130%;
   
     margin-left: 30px;
   }

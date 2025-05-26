@@ -346,7 +346,7 @@ const Homestockanalyst = () => {
             } records`}
           </div>
 
-          <div className="pagination-sliderr">
+          <div className="pagination-sliderana">
             <button
               className="pagination-button"
               disabled={currentPage === 1}
