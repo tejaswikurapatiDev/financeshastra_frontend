@@ -134,6 +134,15 @@ margin-left: 0px;
   font-size: 14px;
   /* No need for margin-left here, it's handled by flexbox */
 }
+@media (min-width: 1024px) and (max-width: 1279px)  {
+  .profit-loss-table {
+    width: 104%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: -20px;
+}
+}
 
  /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
@@ -143,14 +152,25 @@ margin-left: 0px;
   }
 
   .profit-loss-container p {
-    margin-left: 20px; /* Adjust margin for smaller screens */
-    font-size: 14px; /* Reduce font size for tablets */
+    margin-left: 20px; 
+    font-size: 14px; 
   }
 
   .profit-loss-table {
-    width: 100%; /* Full width for tables */
-    margin: 10px auto; /* Adjust margin for smaller screens */
+    width: 104%; 
+    margin: 10px auto; 
+    margin-left: -20px;
+        margin-top: 0px;
+  
   }
+  .profitlosshead {
+    font-family: 'calibri';
+    margin-top: 40px;
+    align-items: left;
+    color: #24b676;
+    font-size: 24px;
+    margin-left: 0px;
+}
 
   .profit-loss-table th, .profit-loss-table td {
     padding: 10px; /* Reduce padding for smaller screens */
@@ -196,12 +216,28 @@ margin-left: 0px;
     margin-left: 10px; /* Adjust margin */
     font-size: 12px; /* Smaller font size for mobile */
   }
+    .profitlosshead {
+        font-family: 'calibri';
+        margin-top: 40px;
+        align-items: left;
+        color: #24b676;
+        font-size: 20px;
+        margin-left: 20px;
 
-  .profit-loss-table {
-    width: 100%; /* Full width for tables */
-    margin: 10px auto; /* Center the table */
-  }
-
+    }
+    .profit-loss-table {
+        width: 105%;
+        margin: 10px auto;
+        margin-left: -10px;
+    }
+.profitlosspara {
+    color: #666;
+    margin-left: 0px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: 'calibri';
+    margin-left: 20px;
+}
   .profit-loss-table th, .profit-loss-table td {
     padding: 8px; /* Reduce padding for mobile screens */
   }

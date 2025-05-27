@@ -79,13 +79,37 @@ font-family: 'Calibri';
 .ratio-table td:first-child {
     text-align: left;
 }
+
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .ratio-table {
+    padding: 20px;
+    font-family: 'Calibri';
+    /* margin-left: 10px; */
+    width: 100%;
+}
+  }
+
 /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
     .ratio-table h2 {
       margin-left: 20px; /* Adjust margin for smaller screens */
       font-size: 1.3em; /* Reduce font size for tablets */
     }
-  
+  .ratioheader {
+    margin-top: 40px;
+    align-items: left;
+    color: #24b676;
+    font-size: 26px;
+    margin-left: 0px;
+    font-family: 'Calibri';
+}
+.ratio-table {
+    padding: 20px;
+    font-family: 'Calibri';
+    margin-left: -20px;
+    width: 100%;
+}
     .ratio-table p {
       margin-left: 20px; /* Adjust margin for smaller screens */
       font-size: 14px; /* Reduce font size for tablets */
@@ -120,7 +144,14 @@ font-family: 'Calibri';
       margin-left: 10px; /* Adjust margin for very small screens */
       font-size: 1.1em; /* Further reduce font size */
     }
-  
+      .ratioheader {
+        margin-top: 40px;
+        align-items: left;
+        color: #24b676;
+        font-size: 20px;
+        margin-left: 0px;
+        font-family: 'Calibri';
+    }
     .ratio-table p {
       margin-left: 10px; /* Adjust margin for very small screens */
       font-size: 12px; /* Further reduce font size */
@@ -143,6 +174,13 @@ font-family: 'Calibri';
     .ratio-table td {
       font-size: 11px; /* Smaller font size for table data */
     }
+    .ratiopara {
+    color: #666;
+    margin-left: 0px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: 'Calibri';
+}
   
     .ratio-table td:first-child {
       font-size: 10px; /* Adjust font size for the first column */

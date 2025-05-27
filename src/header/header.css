@@ -147,7 +147,7 @@
   .graphheader {
     display: flex
 ;
-    gap: 500px;
+    gap: 450px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -171,7 +171,7 @@
   .graphheader {
     display: flex
 ;
-    gap: 350px;
+    gap: 300px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -300,6 +300,7 @@ margin-top: 30px;
       margin-left: 0; 
       justify-content: space-between; 
       flex-wrap: wrap; 
+      width: 200px;
   }
 
   .graphnse, .graphsector {
@@ -313,12 +314,22 @@ margin-top: 30px;
   }
   .graphheader {
     display: flex;
- gap: 20px;
+ gap: 30px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
+ 
   }
   
 }
 
 
+@media (max-width: 320px) {
+    .graphheader {
+    display: flex;
+ gap: 0px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+}
