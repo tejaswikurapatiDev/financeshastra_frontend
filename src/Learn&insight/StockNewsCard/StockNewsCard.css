@@ -1,294 +1,336 @@
 .stocknewsss {
   margin-top: 90px;
-     padding: 10px;
-     border-radius: 10px;
- width: 1050px;
-     font-family: 'calibri';
-     background-color: #fff;
-     margin-left: auto;
-     margin-right: auto;
-   }
-   
-   .stocknewsss-headline {
-     font-size: 26px;
-     font-weight: bold;
-     margin-bottom: 10px;
-     margin-left: 60px;
-   }
-   
-   .stocknewsss-subtext {
-     color: #666;
-     margin-bottom: 15px;
- width: 780px;
-     font-size: 15px;
-    
-     box-shadow: 0px 4px 6px rgba(247, 245, 245, 0.973);
-     height: 30px;
-     margin-left: 45px;
-     text-align: center;
-   }
-   .stocknewsss-subtextt{
-     color: #666;
-     margin-bottom: 15px;
- width: 850px;
-     font-size: 15px;
-    
-     box-shadow: 0px 4px 6px rgba(247, 245, 245, 0.973);
-     height: 30px;
-     margin-left: 50px;
-     text-align: center;
-   }
-   .stocknewsss-image {
-     width: 700px;
-     border-radius: 8px;
- 
-     height: 350px;
-     margin-left: 100px;
-     margin-top: 10px;
-   }
-   
-   .stocknewsss-stock-section {
-    margin-left: 100px;
-   }
-   
-   .stocknewsss-company-name {
-     font-size: 20px;
-   }
-   .nsepara{
-     font-weight:bold;
-   }
-   
-   .stocknewsss-stock-price {
-     font-size: 15px;
-     color:black;
-   }
-   .iconnewss {
-     color: #28a745; /* Green for up */
-     margin-left: 5px;
-     vertical-align: middle;
-     font-size: 25px;
-   }
-   
-   .iconnewss.down {
-     color:red; /* Red for down */
-     font-size: 25px;
-   }
-   .stocknewsss-change {
-     color: #28a745;
-     font-size: 15px;
-   
-   }
-   .stocknewsss-trading-info {
-     display: flex; /* Use Flexbox to align columns in a row */
-     justify-content: space-between; /* Add space between columns */
-   max-width: 100%;
-     margin-right: 300px; /* Apply a right margin */
-      /* Add a grey border */
-     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Apply a subtle box shadow */
-     padding: 20px; /* Optional padding for spacing inside the container */
-     background-color: #fbf7f7; /* Optional background color */
-   }
-   .newsscolumnn{
-     display: flex;
-    
-   }
-   .stocknewsssheadone{
-     font-size: 24px;
-     margin-left: 60px;
-   }
-   
-   .stocknewsss-description {
-     font-family: 'calibri'; /* Use a clean, modern font */
-     font-size: 15px; /* Adjust text size for readability */
-     line-height: 1.4; /* Add proper spacing between lines */
-     color: #333; /* Use a dark gray for better readability */
-     margin: 20px 0; /* Add some vertical spacing */
-     padding: 10px 15px; /* Add padding around the text */
- 
-     /* Add a colored border for emphasis */
-     border-radius: 5px; /* Round the corners for a softer look */
-     margin-left: 80px;
-   }
-   
-   .negative{
- color: red;
-   }
-   @media (min-width: 2500px) {
-    .stocknewsss {
-      max-width: 1400px;
-    }
+  padding: 10px;
+  border-radius: 10px;
+  width: 1050px;
+  font-family: 'calibri';
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.stocknewsss-headline {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 60px;
+}
+
+.stocknewsss-subtext {
+  color: #666;
+  margin-bottom: 15px;
+  width: 780px;
+  font-size: 15px;
+
+  box-shadow: 0px 4px 6px rgba(247, 245, 245, 0.973);
+  height: 30px;
+  margin-left: 45px;
+  text-align: center;
+}
+
+.stocknewsss-subtextt {
+  color: #666;
+  margin-bottom: 15px;
+  width: 850px;
+  font-size: 15px;
+
+  box-shadow: 0px 4px 6px rgba(247, 245, 245, 0.973);
+  height: 30px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.stocknewsss-image {
+  width: 700px;
+  border-radius: 8px;
+
+  height: 350px;
+  margin-left: 100px;
+  margin-top: 10px;
+}
+
+.stocknewsss-stock-section {
+  margin-left: 100px;
+}
+
+.stocknewsss-company-name {
+  font-size: 20px;
+}
+
+.nsepara {
+  font-weight: bold;
+}
+
+.stocknewsss-stock-price {
+  font-size: 15px;
+  color: black;
+}
+
+.iconnewss {
+  color: #28a745;
+  /* Green for up */
+  margin-left: 5px;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
+.iconnewss.down {
+  color: red;
+  /* Red for down */
+  font-size: 25px;
+}
+
+.stocknewsss-change {
+  color: #28a745;
+  font-size: 15px;
+
+}
+
+.stocknewsss-trading-info {
+  display: flex;
+  /* Use Flexbox to align columns in a row */
+  justify-content: space-between;
+  /* Add space between columns */
+  max-width: 100%;
+  margin-right: 300px;
+  /* Apply a right margin */
+  /* Add a grey border */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Apply a subtle box shadow */
+  padding: 20px;
+  /* Optional padding for spacing inside the container */
+  background-color: #fbf7f7;
+  /* Optional background color */
+  margin-bottom: 30px;
+}
+
+.newsscolumnn {
+  display: flex;
+
+}
+
+.stocknewsssheadone {
+  font-size: 24px;
+  margin-left: 60px;
+}
+
+.stocknewsss-description {
+  font-family: 'calibri';
+  /* Use a clean, modern font */
+  font-size: 15px;
+  /* Adjust text size for readability */
+  line-height: 1.4;
+  /* Add proper spacing between lines */
+  color: #333;
+  /* Use a dark gray for better readability */
+  margin: 20px 0;
+  /* Add some vertical spacing */
+  padding: 10px 15px;
+  /* Add padding around the text */
+
+  /* Add a colored border for emphasis */
+  border-radius: 5px;
+  /* Round the corners for a softer look */
+  margin-left: 80px;
+}
+
+.negative {
+  color: red;
+}
+
+@media (min-width: 2500px) {
+  .stocknewsss {
+    max-width: 1400px;
   }
-  
-  /* Large Desktops (1280px - 1535px) */
-  @media (min-width: 1280px) and (max-width: 1535px) {
-    .stocknewsss {
-      max-width: 1200px;
-      margin-top: 60px;
-    }
+}
+
+/* Large Desktops (1280px - 1535px) */
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .stocknewsss {
+    max-width: 1200px;
+    margin-top: 60px;
   }
-  
-  /* Medium Desktops (1024px - 1279px) */
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .stocknewsss {
-      max-width: 1024px;
-      margin-left: 50px;
-      margin-top: 40px;
-    }
-    .stocknewsss-headline{
-      font-size: 22px;
-    }
-    .stocknewsss-description {
-      font-family: 'calibri';
-      font-size: 15px;
-      line-height: 1.4;
-      color: #333;
-      margin: 20px 0;
-      padding: 10px 15px;
-      border-radius: 5px;
-      margin-left: 80px;
-      width: 700px;
+}
+
+/* Medium Desktops (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .stocknewsss {
+    max-width: 900px;
+    margin-left: 50px;
+    margin-top: 40px;
   }
+
+  .stocknewsss-headline {
+    font-size: 22px;
+  }
+
+  .stocknewsss-description {
+    font-family: 'calibri';
+    font-size: 15px;
+    line-height: 1.4;
+    color: #333;
+    margin: 20px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-left: 80px;
+    width: 700px;
+  }
+
   .stocknewsss-trading-info {
-    display: flex
-;
+    display: flex;
     justify-content: space-between;
     max-width: 71%;
     margin-right: 120px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background-color: #fbf7f7;
+  }
 }
+
+/* Tablets (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stocknewsss {
+    max-width: 90%;
+    padding: 15px;
+
+    margin-top: -30px;
   }
-  
-  /* Tablets (768px - 1023px) */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .stocknewsss {
-      max-width: 95%;
-      padding: 15px;
-      margin-left: -20px;
-      margin-top: -30px;
-    }
-    .stocknewsss-image {
-      width: 80%;
-      height: auto;
-    }
-    .stocknewsss-subtext{
-width: 620px;
-margin-left: 40px;
-height: 35px;
-    }
-    .stocknewsss-headline{
-      font-size: 18px;
-    }
-    .stocknewsss-trading-info {
-      display: flex
-  ;
-      justify-content: space-between;
-      max-width: 100%;
-      width: 80%;
-      margin-right: 300px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      background-color: #fbf7f7;
+
+  .stocknewsss-image {
+    width: 80%;
+    height: auto;
+    margin-left: 70px;
   }
+
+  .stocknewsss-subtext {
+    width: 620px;
+    margin-left: 40px;
+    height: 35px;
   }
-  
-  /* Mobile Devices (Below 768px) */
-  @media (max-width: 767px) {
-    .stocknewsss {
-      width: 95%;
-      padding: 10px;
-    }
-    .stocknewsss-image {
-      width: 100%;
-      height: auto;
-    }
-    .stocknewsss-headline {
-      font-size: 18px;
-    }
-    .stocknewsss-subtext, .stocknewsss-subtextt {
-      font-size: 13px;
-      width: 100%;
-      text-align: left;
-    }
+
+  .stocknewsss-headline {
+    font-size: 18px;
   }
-  
-  
- 
- /* Mobile view for screens 480px and smaller */
- @media (max-width: 480px) {
-   .stocknewsss {
+
+  .stocknewsss-trading-info {
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 80%;
+    margin-right: 300px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fbf7f7;
+  }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 767px) {
+  .stocknewsss {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .stocknewsss-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .stocknewsss-headline {
+    font-size: 18px;
+  }
+
+  .stocknewsss-subtext,
+  .stocknewsss-subtextt {
+    font-size: 13px;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+
+/* Mobile view for screens 480px and smaller */
+@media (max-width: 480px) {
+  .stocknewsss {
     overflow-x: hidden;
-     padding: 10px;
-     width: 90%;
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     margin-left: 30px;
-   }
- 
-   .stocknewsss-description {
-     font-size: 12px;
+    padding: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 30px;
+  }
+
+  .stocknewsss-description {
+    font-size: 12px;
     margin-left: auto;
-     order: 5; /* Ensure the description comes last */
-     margin-left: -15px;
-     width: 330px;
- 
-   }
- 
-   .stocknewsss-image {
-     width: 90%;
-     height: 200px;
-     margin-left: 0;
-     order: 1; /* Ensure the image comes first */
-   }
- 
-   .stocknewsss-headline {
-     font-size: 16px;
-     margin-left: 0;
-     order: 2; /* Ensure this comes below the image */
-     margin-top: 10px;
-   }
- 
-   .stocknewsss-subtext {
-     width: 90%;
-     font-size: 13px;
-     margin-left: 0;
-     text-align: left;
-     order: 3; /* Ensure this comes below the headline */
-     margin-top: 5px;
-   }
- 
-   .stocknewsss-subtextt{
-     width: 100%;
-     font-size: 13px;
-     margin-left: 0;
-     text-align: left;
-     order: 3; /* Ensure this comes below the headline */
-     margin-top: 5px;
-   }
-   .stocknewsss-stock-section {
-     margin-left: 0;
-   }
- 
-   .stocknewsss-company-name {
-     font-size: 16px;
-   }
- 
-   .stocknewsss-stock-price {
-     font-size: 12px;
-   }
- 
-   .iconnewss {
-     font-size: 18px;
-   }
- 
-   .stocknewsss-trading-info {
-    width:69%;
+    order: 5;
+    /* Ensure the description comes last */
+    margin-left: -15px;
+    width: 330px;
+
+  }
+
+  .stocknewsss-image {
+    width: 100%;
+    height: 200px;
+    margin-left: 0;
+    order: 1;
+    /* Ensure the image comes first */
+  }
+
+  .stocknewsss-headline {
+    font-size: 16px;
+    margin-left: 0;
+    order: 2;
+    /* Ensure this comes below the image */
+    margin-top: 10px;
+  }
+
+  .stocknewsss-subtext {
+    width: 90%;
+    font-size: 13px;
+    margin-left: 0;
+    text-align: left;
+    order: 3;
+    /* Ensure this comes below the headline */
+    margin-top: 5px;
+  }
+
+  .stocknewsss-subtextt {
+    width: 100%;
+    font-size: 13px;
+    margin-left: 0;
+    text-align: left;
+    order: 3;
+    /* Ensure this comes below the headline */
+    margin-top: 5px;
+  }
+
+  .stocknewsss-stock-section {
+    margin-left: 0;
+  }
+
+  .stocknewsss-company-name {
+    font-size: 16px;
+  }
+
+  .stocknewsss-stock-price {
+    font-size: 12px;
+  }
+
+  .iconnewss {
+    font-size: 18px;
+  }
+
+  .stocknewsss-trading-info {
+    width: 69%;
     max-width: 100%;
     font-size: 12px;
-margin-left: -10px;
-   background: white;
+    margin-left: -10px;
+    background: white;
     text-align: left;
     box-shadow: none;
     order: 4;
@@ -299,38 +341,43 @@ margin-left: -10px;
     flex-wrap: wrap;
     justify-content: center;
   }
-   .stocknewsssheadone{
-margin-left: 10px;
-margin-right: auto;
-font-size: 18px;
-margin-top: -10px;
-margin-bottom: -1px;
-   }
- }
- @media (max-width: 320px) {
+
+  .stocknewsssheadone {
+    margin-left: 10px;
+    margin-right: auto;
+    font-size: 18px;
+    margin-top: -10px;
+    margin-bottom: -1px;
+  }
+}
+
+@media (max-width: 320px) {
   .stocknewsss {
     overflow-x: hidden;
-     padding: 10px;
-     width: 90%;
-     display: flex;
-     flex-direction: column;
-     align-items: flex-start;
-     margin-left: 15px;
-   }
-   .stocknewsss-description {
+    padding: 10px;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 15px;
+  }
+
+  .stocknewsss-description {
     font-size: 12px;
-   margin-left: auto;
-    order: 5; /* Ensure the description comes last */
+    margin-left: auto;
+    order: 5;
+    /* Ensure the description comes last */
     margin-left: -15px;
     width: 280px;
 
   }
+
   .stocknewsss-trading-info {
-    width:55%;
+    width: 55%;
     max-width: 100%;
     font-size: 14px;
-  margin-left: -5px;
-   
+    margin-left: -5px;
+
     text-align: left;
     box-shadow: none;
     order: 4;
@@ -341,4 +388,4 @@ margin-bottom: -1px;
     flex-wrap: wrap;
     justify-content: center;
   }
- }
+}
