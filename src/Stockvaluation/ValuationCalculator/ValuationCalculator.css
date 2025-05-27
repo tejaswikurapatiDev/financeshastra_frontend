@@ -143,6 +143,7 @@ margin-bottom: 100px;
   .valuationContainer {
     max-width: 100%; /* Make container width 100% on smaller screens */
     padding: 10px; /* Reduce padding */
+    margin-left: -2px;
   }
 
   .valuationRow {
@@ -152,9 +153,9 @@ margin-bottom: 100px;
   }
 
   .valuationHead {
-    font-size: 18px; /* Adjust font size for header */
-    margin-left: 0; /* Adjust left margin */
-    text-align: center; /* Center the header */
+    font-size: 22px; /* Adjust font size for header */
+    margin-left: 0px; /* Adjust left margin */
+   
   }
 
   .valuationColumn {
@@ -172,7 +173,7 @@ margin-bottom: 100px;
   }
 
   .inputSection .MuiTextField-root {
-    width: 100%; /* Make text field full width */
+    width: 50%; /* Make text field full width */
   }
 
   .saveButton {
@@ -202,9 +203,9 @@ margin-bottom: 100px;
     cursor: pointer;
   }
   .valuationHead {
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 10px;
-    text-align: center;
+  
   }
 .valuationContainer h6{
   font-size: 14px;

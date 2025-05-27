@@ -1,5 +1,6 @@
 import React from 'react';
-import { PieChart, Pie, Cell, Legend, Label } from 'recharts';
+import { PieChart, Pie, Cell, Legend, Tooltip } from 'recharts';
+
 
 const data = [
   { name: 'Promoters', value: 90, color: '#0055A5' },            // Blue
@@ -9,65 +10,61 @@ const data = [
 ];
 
 const ShareholdingChart = () => {
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const { name, value } = payload[0];
+      return (
+        <div style={{ backgroundColor: 'transparent', fontSize: '14px' }}>
+          <p style={{ margin: 0, fontWeight: 'bold', color: '#333' }}>{name}</p>
+          <p style={{ margin: 0, color: '#555' }}>{value.toFixed(2)}%</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
+
   return (
-    <div style={{ textAlign: 'left', fontFamily: 'calibri' }}>
-      <h3>Shareholding</h3>
-      <PieChart width={400} height={250}>
+    <div>
+       <h2 className='circlechartheader'>Shareholding</h2>
+    <div className="circlechart-wrapper">
+   
+  
+    <div className="circleearning">
+      
+  
+      <div className="circledataearning">
+        {data.map((entry, index) => (
+          <div className="legend-item" key={index}>
+            <div
+              className="legend-color-box"
+              style={{ backgroundColor: entry.color }}
+            ></div>
+            <span className="valueper">{entry.name} - {entry.value.toFixed(2)}%</span>
+          </div>
+        ))}
+      </div>
+      <PieChart width={250} height={250}>
         <Pie
           data={data}
           dataKey="value"
           nameKey="name"
           cx="50%"
           cy="50%"
-          outerRadius={90}      // Increase outer radius for better visibility
-          innerRadius={60}      // Creates a gap in the middle for donut effect
-          minAngle={15}         // Sets a minimum angle for visibility
+          outerRadius={90}
+          innerRadius={60}
+          minAngle={15}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={entry.color} />
           ))}
-          {/* Add Label to show value percentage inside the pie chart */}
-          <Label
-            position="center"
-            content={({ cx, cy, midAngle, innerRadius, outerRadius, value }) => {
-              const RADIAN = Math.PI / 180;
-              const radius = outerRadius - 10;  // Adjust radius to place text properly
-              const x = cx + radius * Math.cos(-midAngle * RADIAN);
-              const y = cy + radius * Math.sin(-midAngle * RADIAN);
-              return (
-                <text x={x} y={y} fill="white" textAnchor="middle" dominantBaseline="middle">
-                  {`${value}%`}  {/* Display percentage inside each slice */}
-                </text>
-              );
-            }}
-          />
         </Pie>
-
-        {/* Custom Legend with Square Icons */}
-        <Legend
-          layout="vertical"       // Display items vertically
-          align="left"            // Align legend items to the left
-          verticalAlign="top"     // Place the legend at the top
-          iconSize={0}            // Set icon size to 0 to remove the default legend square
-          formatter={(value, entry, index) => {
-            const { color, name } = entry;
-            const percentage = data[index].value.toFixed(2); // Display the value with two decimal places
-            return (
-              <div style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
-                {/* Custom square icon in the legend */}
-                <div style={{
-                  width: '15px',  // Square width
-                  height: '15px', // Square height
-                  backgroundColor: color, // Square color based on the legend color
-                  marginRight: '5px'  // Spacing between the square and text
-                }}></div>
-                <span>{value} - {percentage}%</span> {/* Display name and percentage */}
-              </div>
-            );
-          }}
-        />
+        <Tooltip content={<CustomTooltip />} />
       </PieChart>
     </div>
+  </div>
+  </div>
+  
   );
 };
 

@@ -53,6 +53,15 @@
   .news-item:last-child {
     margin-bottom: 0;
   }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .news-list {
+    font-family: 'Calibri';
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    margin-left: 10px;
+}
+  }
   /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
   .news-list {
@@ -60,10 +69,11 @@
     margin-left: 20px;
   }
 
-  .news-list h2 {
-    font-size: 1.3em; /* Adjust font size for tablets */
-    margin-left: 0; /* Remove left margin */
-  }
+     .news-list h2 {
+        font-size: 22px;
+        margin-left: -45px;
+        margin-top: 0px;
+    }
 
   .news-item {
     padding: 10px; /* Reduce padding in news items */
@@ -85,7 +95,8 @@
   }
 
   .news-list h2 {
-    font-size: 1.1em; /* Further reduce heading font size */
+    font-size: 20px;
+            margin-left: -30px;
    
   }
 

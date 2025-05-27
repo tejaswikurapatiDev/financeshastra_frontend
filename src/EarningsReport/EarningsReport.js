@@ -91,7 +91,7 @@ const QuarterlyEarningsReport = () => {
 
   return (
     <div>
-      <h2 className="earningheader" style={{ marginRight: "520px" }}>
+      <h2 className="earningheader" style={{ marginRight: "20px" }}>
         Quarterly Earnings Report
       </h2>
       <p className="earningpara">
@@ -120,10 +120,8 @@ const QuarterlyEarningsReport = () => {
           </tbody>
         </table>
 
-        <div className="shareholding-section">
-          <div className="shareholding-chart">
-            <ShareholdingChart /> {/* Use CircleChart component */}
-          </div>
+        <div className="shareholding-sectionn">
+         
           <div className="shareholding-history">
             <h3>Shareholding History</h3>
             <table>
@@ -182,6 +180,9 @@ const QuarterlyEarningsReport = () => {
                 </tr>
               </tbody>
             </table>
+          </div>
+           <div className="shareholding-chart">
+            <ShareholdingChart /> {/* Use CircleChart component */}
           </div>
         </div>
       </div>

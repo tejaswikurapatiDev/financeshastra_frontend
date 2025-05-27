@@ -68,8 +68,8 @@
 
   /* Title font size adjustment */
   .valuationTableTitle {
-    font-size: 18px; /* Further reduce font size */
-    text-align: center; /* Keep title centered */
+    font-size: 20px; /* Further reduce font size */
+    text-align: left;
     margin: 10px 0; /* Adjust margin */
   }
 
