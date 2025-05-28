@@ -73,6 +73,7 @@ const Navbar = () => {
   const [isSubed, setisSubed] = useState(false);
   //state for search suggestion dropdown
   const [showDropdown, setShowDropdown] = useState(false);
+    const searchContainerRef = useRef(null);
   //calling useSearch Hook
   useSearch();
 
@@ -238,6 +239,7 @@ const Navbar = () => {
   const learnDropdownRef = useRef(null);
 
   const searchResultsRef = useRef(null);
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -959,7 +961,19 @@ const Navbar = () => {
       });
     }
   };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target)
+      ) {
+        setShowDropdown(false);
+      }
+    };
 
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [])
   return (
     <>
       <nav className={darkMode ? "navbar-dark-mode" : "navbar"}>
@@ -1029,45 +1043,44 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div className="navbar-search">
-          <input
-            type="text"
-            placeholder="Search for Stocks, Mutual..."
-            value={searchInputText}
-            onChange={(e) => {
-              handleSearchInputChange(e);
-              setShowDropdown(true);
-            }}
-          />
-          <FaSearch
-            className={darkMode ? "search-dark-mode-icon" : "search-icon"}
-          />
+      <div className="navbar-search" ref={searchContainerRef}>
+      <input
+        type="text"
+        placeholder="Search for Stocks, Mutual..."
+        value={searchInputText}
+        onChange={(e) => {
+          handleSearchInputChange(e);
+          setShowDropdown(true);
+        }}
+      />
+      <FaSearch
+        className={darkMode ? "search-dark-mode-icon" : "search-icon"}
+      />
 
-          {/* Show results only when there is input */}
-          {showDropdown && (
-            <div
-              ref={searchResultsRef}
-              className={`search-results-watchlist-sector ${filterData.length > 0 ? "active" : ""
-                }`}
-            >
-              {filterData.length > 0 ? (
-                <ul>
-                  {filterData.map((data, index) => (
-                    <li
-                      key={data.id || index}
-                      onClick={() => handleSearchItemClick(data)}
-                    >
-                      {data.name || ""} {data.Scheme_Name || ""}{" "}
-                      {data.sector || ""} {data.symbol || ""}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No result found</p>
-              )}
-            </div>
+      {showDropdown && (
+        <div
+          className={`search-results-watchlist-sector ${
+            filterData.length > 0 ? 'active' : ''
+          }`}
+        >
+          {filterData.length > 0 ? (
+            <ul>
+              {filterData.map((data, index) => (
+                <li
+                  key={data.id || index}
+                  onClick={() => handleSearchItemClick(data)}
+                >
+                  {data.name || ''} {data.Scheme_Name || ''}{' '}
+                  {data.sector || ''} {data.symbol || ''}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            searchInputText && <p>No result found</p>
           )}
         </div>
+      )}
+    </div>
         {!isLoading && !isSubscribed && (
           <h4
             className="subscritebutton"
