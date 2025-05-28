@@ -110,6 +110,23 @@
     font-size: 14px;
     /* Slightly smaller text */
   }
+  .content-blur-box {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #24b676;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-left: -35px;
+}
+.analystinsightheader {
+    margin-bottom: 20px;
+    align-items: left;
+    color: #24b676;
+    font-size: 24px;
+    font-family: 'calibri';
+    margin-top: 0px;
+}
 }
 
 /* Mobile View for Small Devices (max-width: 480px) */
@@ -121,7 +138,24 @@
     padding: 8px;
     /* More compact padding */
   }
-
+    .content-blur-box {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border: 1px solid #24b676;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        margin-left: -5px;
+    }
+        .analystinsightheader {
+        margin-bottom: 20px;
+        align-items: left;
+        color: #24b676;
+        font-size: 20px;
+        font-family: 'calibri';
+        margin-top: 0px;
+        margin-left: 20px;
+    }
   /* Adjust Heading Font Size */
   .analyst-insights h2 {
     font-size: 18px;

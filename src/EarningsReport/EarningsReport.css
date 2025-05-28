@@ -32,8 +32,9 @@ font-family: 'calibri';
   overflow: hidden; /* Ensures rounded corners are visible */
  
 }
+
 .shareholding-history table {
-  width: 90%;
+  width: 80%;
   border-collapse: collapse;
   border-radius: 10px; /* Rounded corners for the table container */
 }
@@ -41,7 +42,8 @@ font-family: 'calibri';
 /* Apply border radius to the container holding the table */
 .shareholding-history {
   border-radius: 10px; /* Curved box around the table */
-  overflow: hidden;  /* Ensures child elements follow the rounded corners */
+ /* Ensures child elements follow the rounded corners */
+   width: 50%;
 }
 
 .earnings-table th,
@@ -92,6 +94,7 @@ font-family: 'calibri';
 .shareholding-section {
   display: flex;
   gap: 20px;
+  margin-top: 10px;
 }
 
 .shareholding-chart {
@@ -150,6 +153,16 @@ font-family: 'calibri';
     margin-left: -10px;
     width: 98%;
 }
+.shareholding-history th{
+  font-size: 12px;
+}
+.shareholding-history td{
+  font-size: 12px;
+}
+.shareholding-history {
+  width: 50%;
+  margin-top: 15px;
+}
     }
 /* Mobile View for Tablets (max-width: 768px) */
 @media (max-width: 768px) {
@@ -187,6 +200,7 @@ font-family: 'calibri';
   }
   .shareholding-history{
 margin-bottom: 40px;
+width: 100%;
   }
   .shareholding-chart {
     width: 100%; /* Make chart container take full width */
@@ -203,6 +217,14 @@ margin-bottom: 40px;
     height: 8px;
     margin-right: 3px;
   }
+  .earningheader {
+    margin-top: 80px;
+    align-items: left;
+    color: #24b676;
+    font-size: 20px;
+    margin-left: 29px;
+
+}
 }
 
 /* Mobile View for Small Devices (max-width: 480px) */
@@ -213,11 +235,31 @@ margin-bottom: 40px;
     font-size: 18px; /* Smaller font size */
     margin-top: 20px;
   }
+    .earningheader {
+        margin-top: 80px;
+        align-items: left;
+        color: #24b676;
+        font-size: 18px;
+        margin-left: 20px;
+    }
+        .shareholding-history {
+        margin-bottom: 0px;
+        width: 100%;
+            overflow: scroll;
+        /* margin-left: -30px; */
+    }
 
   .earnings-report p {
     margin-left: 10px; /* Adjust margin for smaller screens */
     font-size: 12px; /* Smaller font size */
   }
+  .earningpara {
+    color: #666;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'calibri';
+}
 
   .earnings-table,
   .shareholding-history table {

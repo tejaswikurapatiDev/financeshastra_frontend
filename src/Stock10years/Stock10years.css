@@ -168,6 +168,16 @@ margin-left: 790px;
   margin-top: 150px;
   font-size: 10px;
 }
+.button-container {
+    position: absolute;
+    top: 0;
+    margin-left: 680px;
+    display: flex
+;
+    gap: 15px;
+    padding: 40px;
+    margin-top: 1170px;
+}
 }
 
 @media (max-width: 768px) {
@@ -256,12 +266,15 @@ margin-left: 790px;
     overflow-x: auto;
   }
 .cagr-table{
-  width: 20%;
+  width: 10%;
+}
+.table-description{
+  font-size: 13px;
 }
   .financeheader {
     font-size: 16px; /* Smaller font size */
     margin-left: 15px;
-    margin-right: 55%; /* Adjust header positioning */
+    margin-right: 5%; /* Adjust header positioning */
   }
 
   .financepara {

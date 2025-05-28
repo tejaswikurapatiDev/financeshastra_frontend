@@ -112,6 +112,7 @@ font-family: 'calibri';
 }
 .shareholding-chart {
     flex: 1; /* Allow it to take up equal space */
+    margin-top: 10px;
 }
 @media (max-width: 768px) {
   /* Adjust table to allow horizontal scrolling */

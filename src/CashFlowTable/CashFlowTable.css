@@ -135,6 +135,20 @@ font-family: 'Calibri';
   .subcategory-row {
     font-size: 12px; /* Adjust font size for subcategory rows */
   }
+  .cashhead {
+    margin-top: 40px;
+    align-items: left;
+    color: #24b676;
+    font-size: 24px;
+    margin-left: 0px;
+    font-family: 'Calibri';
+}
+.cash-flow-table {
+    padding: 20px;
+    font-family: 'Calibri';
+    margin-left: -20px;
+    width: 100%;
+}
 }
 
 /* Mobile View for very small devices (max-width: 480px) */
@@ -143,7 +157,22 @@ font-family: 'Calibri';
     margin-left: 10px; /* Adjust margin for smaller screens */
     font-size: 1.1em; /* Further reduce font size */
   }
-
+    .cashhead {
+        margin-top: 40px;
+        align-items: left;
+        color: #24b676;
+        font-size: 20px;
+        margin-left: 0px;
+        font-family: 'Calibri';
+    }
+    .cashpara {
+    color: #666;
+    margin-left: 0px;
+    font-weight: bold;
+    font-size: 13px;
+    font-family: 'Calibri';
+    margin-bottom: -10px;
+}
   .cash-flow-table p {
     margin-left: 10px; /* Adjust margin */
     font-size: 12px; /* Smaller font size for mobile */
