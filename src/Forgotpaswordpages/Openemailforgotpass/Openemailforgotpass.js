@@ -256,7 +256,7 @@ function Openemailforgotpass() {
           }}/>
       </div>
       <div className="login-right">
-        <div className="login-boxforget">
+        <div className="login-boxforgetemail">
           <img src={inboximg} className="inboximgg" />
           <h2 className="h2loginpagefcheckinbox">Check Your Inbox</h2>
           <p className="paraforgot">
