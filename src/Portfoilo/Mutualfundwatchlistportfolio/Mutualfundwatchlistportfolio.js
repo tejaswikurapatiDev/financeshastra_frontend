@@ -19,6 +19,8 @@ const MutualWatchlist = ({ children }) => {
   const deletePopupRef = useRef(null);
   const deleteWatchlistPopupRef = useRef(null);
   const dropdownRefs = useRef([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
 
   // State management
   const [stockInput, setStockInput] = useState({
@@ -26,7 +28,7 @@ const MutualWatchlist = ({ children }) => {
     selected: null,
     filterResults: []
   });
-
+  const containerRef = useRef(null);
   const [watchlistState, setWatchlistState] = useState({
     list: [],
     selected: null,
@@ -43,6 +45,15 @@ const MutualWatchlist = ({ children }) => {
     deleteWatchlistPopup: false,
     activeFilter: "All"
   });
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (containerRef.current && !containerRef.current.contains(event.target)) {
+      setShowDropdown(false); // hide dropdown
+    }
+  };
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
 
   // Fetch watchlists
   const fetchWatchlists = async () => {
@@ -127,6 +138,7 @@ const MutualWatchlist = ({ children }) => {
       ...prev,
       name: event.target.value
     }));
+     setShowDropdown(true);
   };
 
   // Add stock to watchlist
@@ -678,25 +690,29 @@ const MutualWatchlist = ({ children }) => {
               />
 
               {/* Search results */}
-              {stockInput.name && (
-                <div className={`search-resultswatchlist ${stockInput.filterResults.length > 0 ? "active" : ""}`}>
-                  {stockInput.filterResults.length > 0 ? (
-                    <ul>
-                      {stockInput.filterResults.map((data) => (
-                        <li
-                          key={data.id}
-                          onClick={() => handleSelectStock(data)}
-                          style={{ cursor: "pointer", padding: "8px" }}
-                        >
-                          {data.Scheme_Name}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p style={{ padding: "8px" }}>No result found</p>
-                  )}
-                </div>
-              )}
+             {stockInput.name && showDropdown && (
+  <div
+    className={`search-resultswatchlist ${stockInput.filterResults.length > 0 ? "active" : ""}`}
+    ref={containerRef}
+  >
+    {stockInput.filterResults.length > 0 ? (
+      <ul>
+        {stockInput.filterResults.map((data) => (
+          <li
+            key={data.id}
+            onClick={() => handleSelectStock(data)}
+            style={{ cursor: "pointer", padding: "8px" }}
+          >
+            {data.Scheme_Name}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p style={{ padding: "8px" }}>No result found</p>
+    )}
+  </div>
+)}
+
             </div>
 
             <div className="input-groupwatchlist">
