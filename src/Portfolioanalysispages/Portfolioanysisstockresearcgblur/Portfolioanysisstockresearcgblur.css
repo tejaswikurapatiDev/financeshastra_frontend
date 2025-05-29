@@ -64,10 +64,11 @@ font-weight: bold;
 
 .lock-iconanalysi {
   width: 60px;
-  margin-bottom: 10px;
-margin-left: 40px;
- 
+  margin: 0 auto 10px auto;
+  display: block; /* required for auto margin to work */
+  margin-top: 130px;
 }
+
 .stockresearchanalysispagecontainerblur{
   margin-top: -180px;
   margin-left: -10px;
@@ -166,6 +167,14 @@ margin-top: 20px;
   border-bottom-right-radius: 17px;
   /* Rounded bottom-right corner */
 }
+ @media (min-width: 1280px) and (max-width: 1535px) {
+  .lock-iconanalysi {
+  width: 60px;
+  margin: 0 auto 10px auto;
+  display: block; /* required for auto margin to work */
+  margin-top: -30px;
+}
+ }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .allblursearchbutton {
     background-color: #24b676;
@@ -399,12 +408,12 @@ margin-bottom: -10px;
     flex-direction: column;
   }
   
-  .lock-iconanalysi {
-    width: 60px;
-    margin-bottom: 10px;
-margin-left: 40px;
-   
-  }
+.lock-iconanalysi {
+  width: 40px;
+  margin: 0 auto 10px auto;
+  display: block; /* required for auto margin to work */
+}
+
   .stockresearchanalysispagecontainerblur{
     margin-top: -180px;
     margin-left: -5px;
@@ -415,8 +424,8 @@ margin-left: 40px;
   .subscribe-btnblurone {
     background: #24b676;
     color: white;
-    padding: 12px 15px;
-    font-size: 16px;
+    padding: 10px 10px;
+    font-size: 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;

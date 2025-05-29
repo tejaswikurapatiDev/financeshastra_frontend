@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useContext } from "react";
+import React, { useCallback, useEffect, useState, useContext,useRef } from "react";
 import "./LandingPageUnlockInvest.css";
 import landingimg1 from "../../assest/landingimg1.jpeg";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,6 +14,7 @@ const LandingPageUnlockInvest = () => {
   const [filterData, setFilterData] = useState([]);
   //state for search suggestion dropdown
   const [showDropdown, setShowDropdown] = useState(false);
+  const containerRef = useRef(null);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -101,6 +102,20 @@ const LandingPageUnlockInvest = () => {
     }
   };
 
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
+
   return (
     <div
       className={
@@ -116,46 +131,44 @@ const LandingPageUnlockInvest = () => {
             <h1 className="landingpageunlockinvest-heading">
               Unlock your Investing with <span>Financeshastra.</span>
             </h1>
-            <div className="landingpageunlockinvest-searchbar">
-              <input
-                type="text"
-                placeholder="Search for Stocks, Mutual..."
-                value={searchInputText}
-                className={
-                  darkMode
-                    ? "landingpageunlockinvestdarkinput"
-                    : "landingpageunlockinvest-input"
-                }
-                onChange={(e) => {
-                  setSearchInputText(e.target.value);
-                  setShowDropdown(true);
-                }}
-              />
-              {/* to display result */}
-              {showDropdown && (
-                <div>
-                  {filterData.length > 0 ? (
-                    <ul>
-                      {filterData.map((data) => {
-                        return (
-                          <li
-                            key={data.id}
-                            onClick={() => {
-                              handleSearchItemClick(data);
-                            }}
-                          >
-                            {data.name} {data.Scheme_Name} {data.sector}{" "}
-                            {data.symbol}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : (
-                    searchInputText && <p>No result found</p>
-                  )}
-                </div>
-              )}
-            </div>
+           <div
+      className="landingpageunlockinvest-searchbar"
+      ref={containerRef}
+    >
+      <input
+        type="text"
+        placeholder="Search for Stocks, Mutual..."
+        value={searchInputText}
+        className={
+          darkMode
+            ? "landingpageunlockinvestdarkinput"
+            : "landingpageunlockinvest-input"
+        }
+        onChange={(e) => {
+          setSearchInputText(e.target.value);
+          setShowDropdown(true);
+        }}
+      />
+      {/* to display result */}
+      {showDropdown && (
+        <div>
+          {filterData.length > 0 ? (
+            <ul>
+              {filterData.map((data) => (
+                <li
+                  key={data.id}
+                  onClick={() => handleSearchItemClick(data)}
+                >
+                  {data.name} {data.Scheme_Name} {data.sector} {data.symbol}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            searchInputText && <p>No result found</p>
+          )}
+        </div>
+      )}
+    </div>
 
             <button className="landingpageunlockinvest-button">
               Explore now

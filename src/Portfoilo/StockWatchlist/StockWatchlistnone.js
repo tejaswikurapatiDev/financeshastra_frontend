@@ -13,8 +13,23 @@ import Meta from "../../Meta";
 import { useLocation } from "react-router-dom";
 
 const StockWatchlist = ({ children }) => {
+  
   const location = useLocation();
   const navigate = useNavigate();
+    const containerRef = useRef(null);
+
+
+     useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setStockInput((prev) => ({ ...prev, filterResults: [] }));
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   useEffect(() => {
     const token = Cookies.get("jwtToken");
     if (!token) {
@@ -514,6 +529,8 @@ const StockWatchlist = ({ children }) => {
       handleRenameConfirm(localName);
     };
 
+
+
     return (
       <div className="popup-overlay">
         <Meta path={location.pathname} />
@@ -583,6 +600,10 @@ const StockWatchlist = ({ children }) => {
       </div>
     );
   };
+
+
+
+  
 
   return (
     <div>
@@ -704,7 +725,7 @@ const StockWatchlist = ({ children }) => {
                   <div
                     className={`search-resultswatchlistsector ${stockInput.filterResults.length > 0 ? "active" : ""
                       }`}
-                  >
+                  ref={containerRef}>
                     {stockInput.filterResults.length > 0 ? (
                       <ul>
                         {stockInput.filterResults.map((data) => (
