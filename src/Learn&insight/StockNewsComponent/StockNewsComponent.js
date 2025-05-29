@@ -61,7 +61,7 @@ const StockNewsComponent = () => {
                 <div className="newsContent">
                   <h3 className="newsTitle">{article.title}</h3>
                   <p className="newsDescription">
-                    {new Date(article.created_at).toLocaleDateString()}
+                    {new Date(article.created_at.replace(" ", "T")).toLocaleDateString({ year: "numeric", month: "long", day: "numeric" })}
                   </p>
                 </div>
               </div>
