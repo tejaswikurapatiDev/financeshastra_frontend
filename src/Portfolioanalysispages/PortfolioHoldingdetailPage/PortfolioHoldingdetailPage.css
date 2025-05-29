@@ -180,7 +180,7 @@ justify-content: space-between;
     color: #fff;
     border: 2px solid #24b676;
     border-radius: 15px;
-    padding: 9px 10px;
+   
     display: inline-block;
     background-color: #24b676;
   }
@@ -190,7 +190,7 @@ justify-content: space-between;
     color: #fff;
     border: 2px solid #24b676;
     border-radius: 15px;
-    padding: 8px 19px;
+    
     display: inline-block;
     background-color: #24b676;
   }
@@ -198,7 +198,7 @@ justify-content: space-between;
   .overallholdingtable {
     margin-left: 5px;
     overflow-x: auto;
-    width: 150%;
+    width: 130%;
   }
 
 
@@ -225,7 +225,7 @@ justify-content: space-between;
     color: #fff;
     border: 2px solid #24b676;
     border-radius: 15px;
-    padding: 9px 10px;
+    
     display: inline-block;
     background-color: #24b676;
   }
