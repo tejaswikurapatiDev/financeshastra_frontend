@@ -1184,7 +1184,7 @@ width: 42%;
     box-shadow: 0 4px 8px #24b676;
     margin-left: 0px;
     margin-right: 0px;
-    margin-bottom: 80px;
+    margin-bottom: -30px;
   }
 
   .plans-wrapper {
@@ -1399,7 +1399,7 @@ width: 42%;
         box-shadow: 0 4px 8px #24b676;
         margin-left: -3px;
         margin-right: 0px;
-        margin-bottom: 0px;
+        margin-bottom: -50px;
     }
 
   .plan-header-title {
