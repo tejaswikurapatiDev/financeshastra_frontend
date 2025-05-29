@@ -579,7 +579,7 @@ const Landingnavbar = () => {
     mutualFunds: useRef(null),
     learn: useRef(null),
   };
-
+  const containerRef = useRef(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -814,6 +814,19 @@ const Landingnavbar = () => {
     setSearchInputText(item);
     setFilterData([]);
   };
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
 
   return (
     <>
@@ -900,7 +913,7 @@ const Landingnavbar = () => {
           </li>
         </ul>
 
-        <div className={darkMode ? "navbar-darksearch" : "navbar-search"}>
+        <div className={darkMode ? "navbar-darksearch" : "navbar-search"} ref={containerRef}>
           <input
             type="text"
             placeholder="Search for Stocks, Mutual..."
