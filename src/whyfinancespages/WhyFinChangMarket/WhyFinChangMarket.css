@@ -102,6 +102,10 @@
   .whyfinchangmarket-image {
       width: 100%;
   }
+    .whyfinchangmarket-image {
+        margin-left: 50px;  /* Adjust this value as needed */
+       /* Adjust this value as needed */
+    }
 }
 
 /* Small Mobile Devices (Below 480px) */

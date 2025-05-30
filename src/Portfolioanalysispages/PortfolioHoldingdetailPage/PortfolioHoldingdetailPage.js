@@ -377,7 +377,7 @@ const handleSearchChange = (e) => {
 
       {/* Pagination Section */}
       <div className="pagination-containerdetrailportfolio">
-        <div className="pagination-info">
+        <div className="pagination-inforesear">
           {`Showing ${indexOfFirstItem + 1} to ${
             indexOfLastItem > filteredstock.length ? filteredstock.length : indexOfLastItem
           } of ${filteredstock.length} records`}
