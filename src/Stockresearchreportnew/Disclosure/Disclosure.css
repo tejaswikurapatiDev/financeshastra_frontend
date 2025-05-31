@@ -1,0 +1,67 @@
+/* Disclosure.css */
+.disclosure-container {
+  max-width: 80%;
+  margin: 2rem auto;
+ 
+  font-family: 'calibri';
+  color: #333;
+}
+
+.disclosure-title {
+  color: #0349A8;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.disclosure-list {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.disclosure-list li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 15px;
+  color: black;
+}
+ @media (min-width: 1024px) and (max-width: 1279px)  {
+    .disclosure-list li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 14px;
+    color: black;
+}
+ }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .disclosure-title {
+    color: #0349A8;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.disclosure-list li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 14px;
+    color: black;
+}
+  }
+   @media (max-width: 480px) {
+    .disclosure-title {
+    color: #0349A8;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: -5px;
+}
+.disclosure-list li {
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 13px;
+    color: black;
+}
+.disclosure-container {
+    margin-bottom: 100px;
+}
+   }
