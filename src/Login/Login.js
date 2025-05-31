@@ -92,20 +92,23 @@ function Login() {
         console.warn("FCM token not available.");
       }
       /*fcm integration end*/
+      console.log("SEND FETCH")
       const url = `${API_BASE_URL}/users/signin`;
-      //const urllocal= 'http://localhost:3000/users/signin'
+      
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, fcmToken }),
+        credentials: "include",
       };
-
+console.log("URL TO FETCH: ", url)
       const response = await fetch(url, options);
+      console.log("LOGIN RESPONSE: ", response)
       const data = await response.json();
 
-      /*if (!response.ok) {
+      if (!response.ok) {
         throw new Error(data.message || "Login Failed");
-      }*/
+      }
       const { jwtToken, username, deviceId } = data;
 
       if (response.ok === true) {

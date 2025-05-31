@@ -294,7 +294,7 @@ function App() {
               <Route path="/profitloss" element={<ProfitLossTable />} />
               <Route path="/balance-sheet" element={<BalanceSheet />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/stockhandle" element={<Overview />} />
+              {/*<Route path="/stockhandle" element={<Overview />} />*/}
               <Route path="/stockhandle/:id" element={<Overview/>}/>
               <Route path="/nifty-100-stocks-list" element={<Netify100 />} />
               <Route path="/small-cap-stocks" element={<Smallcap />} />
