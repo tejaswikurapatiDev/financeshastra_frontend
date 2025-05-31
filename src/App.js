@@ -261,6 +261,7 @@ import InvoicePage from "./myprofile/InvoicePage/InvoicePage";
 import Earningsresult from "./Learn&insight/Quaterlyearning/Earningsresult/Earningsresult";
 import CareerHiringPage from "./Careerpages/CareerHiringPage/CareerHiringPage";
 import JobCard from "./Careerpages/JobCard/JobCard";
+import RiskConcernPage from "./Stockresearchreportnew/RiskConcernPage/RiskConcernPage";
 
 
 function App() {
@@ -897,6 +898,7 @@ function App() {
               <Route path="/career" element={<CareerHiringPage/>} />
 
                <Route path="/jobCard" element={<JobCard/>} />
+                <Route path="/riskConcernPage" element={<RiskConcernPage/>} />
 
 
 

@@ -1,0 +1,24 @@
+.cashflowriskconcernpage-summary {
+  background-color: #ffff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  font-family: 'calibri';
+  color: #333;
+  width: 100%; /* You can change this to a fixed value like 600px if preferred */
+  margin-top: -30px;
+  margin-left: -20px;
+}
+
+
+.cashflowriskconcernpage-summary h3 {
+  color: #0349A8;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.cashflowriskconcernpage-summary p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
