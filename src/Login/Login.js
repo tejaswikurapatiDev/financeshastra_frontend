@@ -100,6 +100,7 @@ function Login() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, fcmToken }),
         credentials: "include",
+        credentials: "include",
       };
 console.log("URL TO FETCH: ", url)
       const response = await fetch(url, options);
@@ -107,7 +108,9 @@ console.log("URL TO FETCH: ", url)
       const data = await response.json();
 
       if (!response.ok) {
+      if (!response.ok) {
         throw new Error(data.message || "Login Failed");
+      }
       }
       const { jwtToken, username, deviceId } = data;
 
@@ -133,7 +136,6 @@ console.log("URL TO FETCH: ", url)
          alert("Too many failed attempts, please try again later.")
       }
     } catch (error) {
-      console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password*");
     } finally {
       setIsLoading(false);
