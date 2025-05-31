@@ -2561,7 +2561,7 @@ const ScreenerStockList = () => {
                     <td
                       className="symbol-cell"
                       onClick={() => {
-                        navigate(stock.url, { state: { stock } });
+                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
                       }}
                     >
                       <img
