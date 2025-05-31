@@ -93,19 +93,18 @@ function Login() {
       }
       /*fcm integration end*/
       const url = `${API_BASE_URL}/users/signin`;
-      //const urllocal= 'http://localhost:3000/users/signin'
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, fcmToken }),
+        credentials: "include",
       };
-
       const response = await fetch(url, options);
       const data = await response.json();
 
-      /*if (!response.ok) {
+      if (!response.ok) {
         throw new Error(data.message || "Login Failed");
-      }*/
+      }
       const { jwtToken, username, deviceId } = data;
 
       if (response.ok === true) {
@@ -130,7 +129,6 @@ function Login() {
          alert("Too many failed attempts, please try again later.")
       }
     } catch (error) {
-      console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password*");
     } finally {
       setIsLoading(false);
