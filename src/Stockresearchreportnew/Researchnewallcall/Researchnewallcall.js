@@ -5,6 +5,7 @@ import Overviewresearch from '../Overviewresearch/Overviewresearch'
 import Navbar from '../../Navbar/Navbar'
 import Disclosure from '../Disclosure/Disclosure'
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage'
+import RiskConcernPage from '../RiskConcernPage/RiskConcernPage'
 
 function Researchnewallcall() {
   return (
@@ -13,6 +14,7 @@ function Researchnewallcall() {
         <StockCard/>
         <ResearchDashboard/>
         <Overviewresearch/>
+        <RiskConcernPage/>
         <Disclosure/>
         <FooterForAllPage/>
     </div>
