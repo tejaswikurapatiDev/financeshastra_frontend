@@ -11,6 +11,7 @@
     font-size: 14px;
     color:black;
     margin: 0;
+     gap: 3px;
   }
   
   .dateipo, .profileipo {
@@ -56,6 +57,7 @@
 
   .ipopara {
     font-size: 12px; /* Smaller font size for mobile screens */
+    gap: 3px;
   }
 
   .dateipo,

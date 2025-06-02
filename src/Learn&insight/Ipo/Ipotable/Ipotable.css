@@ -158,6 +158,7 @@
 @media (max-width: 480px) {
   .ipo-container {
     margin: 5px; /* Minimal margin for small screens */
+    width: 108%;
   }
 
   .ipo-details h2,

@@ -7,7 +7,7 @@
   border: 1px solid rgb(198, 190, 190);
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.982);
-  max-width: 520px;
+  max-width: 100%;
 
   height: 370px;
   font-family: 'calibri';
@@ -132,16 +132,22 @@ td {
 @media (max-width: 768px) {
 
   .speedometer-container {
-    max-width: 382px;
-    height: 380px;
-    padding: 8px;
-  }
+        width: 97%;
+        height: 380px;
+        padding: 8px;
+        margin-right: -100px;
+    }
 
   .speedometer-title {
     font-size: 16px;
     /* Adjust font size */
   }
-
+.speedometer-gauge {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    margin-top: 50px;
+}
   .speedometer-label {
     font-size: 14px;
     /* Adjust rating text */
@@ -177,29 +183,17 @@ td {
 
 
 
-
 /* Adjust width for screens smaller than 768px */
 @media (max-width:480px) {
 
+    .speedometer-container {
+        width: 85%;
+        height: 280px;
+        padding: 8px;
+        margin-right: 30px;
+        margin-left: 25px;
+    }
   
-  .speedometer-container {
-    display: flex
-;
-    flex-direction: column;
-    color: black;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid rgb(198, 190, 190);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.982);
-  
-    width: 85%;
-    margin-left: 20px;
-    height: 370px;
-    font-family: 'calibri';
-    margin-top: 20px;
-}
-
   .speedometer-title {
     font-size: 16px;
     /* Adjust font size */
@@ -210,9 +204,12 @@ td {
     /* Adjust rating text */
   }
 
+
+
   .table-contentspeedometerr {
     width: auto;
     /* Adjust table width */
+
   }
 
 
@@ -224,10 +221,12 @@ td {
   }
 
   .speedometer-gauge {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-  }
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+       margin-top: 30px;
+        height: 125px;
+    }
 
   .speedoparaheadall {
     display: flex;
@@ -252,7 +251,7 @@ td {
       box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.982);
       width: 85%;
       margin-left: 10px;
-      height: 370px;
+      height: 270px;
       font-family: 'calibri';
       margin-top: 20px;
   }
@@ -264,4 +263,11 @@ td {
     padding: 0px 0;
     margin-left: 10px;
 }
+.speedometer-gauge {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        margin-top: 30px;
+        height: 115px;
+    }
 }

@@ -195,7 +195,7 @@
 /* Mobile View at 480px */
 @media (max-width: 480px) {
   .upcomingipo-container {
-    margin-left: -0px;
+    margin-left: 5px;
     width: 100%;
     margin-bottom: 50px;
     margin-top: -60px;
@@ -231,6 +231,11 @@
 .upcomingipo-section{
   margin-left: -10px;
 
+}
+.upcomingipo-table {
+    width: 100%;
+    border-collapse: collapse;
+    height: 240px;
 }
 
 
