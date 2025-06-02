@@ -1,0 +1,167 @@
+.tata-containercompany {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family:'calibri';
+  color: #333;
+}
+
+.section-titlecompany {
+  color:#0349A8;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 1rem;
+list-style-type: disc;
+  padding-bottom: 0.25rem;
+}
+.bullet::before {
+  content: "• ";
+  color: #0349A8;
+  font-weight: bold;
+  font-size: 20px;
+}
+.tata-containercompany p{
+  font-size: 15px;
+}
+.section-blockcompany {
+  margin-bottom: 1.5rem;
+}
+
+.section-blockcompany h3 {
+  font-size: 18px;
+  color: #0349A8;
+  margin-bottom: -2px;
+}
+.section-blockcompany p{
+    font-size: 15px;
+    line-height: 1.4;
+}
+.growthrateimage {
+    width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 170px;
+}
+
+.growthrateimage:hover {
+    transform: scale(1.05);
+}
+.growthrcircleimage{
+   width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 170px;
+    margin-top: 30px;
+}
+.growthrcircleimage:hover{
+  transform: scale(1.05);
+}
+.growthpieimage{
+    width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 170px;
+    margin-top: 30px;
+}
+.growthpieimage:hover{
+  transform: scale(1.05);
+}
+ @media (min-width: 1024px) and (max-width: 1279px)  {
+  .tata-containercompany {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'calibri';
+    color: #333;
+    margin-left: 70px;
+}
+.section-blockcompany p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+.tata-containercompany p{
+  font-size: 14px;
+}
+.growthrateimage {
+    width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 130px;
+}
+.growthrcircleimage {
+    width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 130px;
+    margin-top: 30px;
+}
+.growthpieimage {
+    width: 70%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 130px;
+    margin-top: 30px;
+}
+ }
+   @media (min-width: 768px) and (max-width: 1023px) {
+    .section-blockcompany p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+.tata-containercompany p{
+  font-size: 14px;
+}
+.section-titlecompany {
+    color: #0349A8;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+    padding-bottom: 0.25rem;
+}
+.growthrateimage {
+    width: 80%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+    margin-left: 58px;
+}
+.growthrcircleimage ,.growthpieimage{
+   width: 80%;
+    margin-left: 58px;
+}
+   }
+     @media (max-width: 480px) {
+      .section-titlecompany {
+    color: #0349A8;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+    padding-bottom:0px ;
+    margin-left: -3px;
+}
+.tata-containercompany p {
+    font-size: 13px;
+}
+.section-blockcompany h3 {
+    font-size: 16px;
+    color: #0349A8;
+    margin-bottom: -2px;
+    margin-left: -3px;
+}
+.growthrateimage ,.growthrcircleimage,.growthpieimage{
+    width: 100%;
+    
+    margin-left: 2px;
+}
+.growthrcircleimage,.growthpieimage{
+  margin-top: 12px;
+}
+     }

@@ -1,0 +1,243 @@
+.researchnewtabledash-container {
+  display: flex;
+  gap: 20px;
+  max-width: 85%;
+  padding: 10px;
+  background-color: #fff;
+  font-family:'calibri';
+  font-size: 14px;
+  margin-left: 70px;
+}
+
+.researchnewtabledash-card {
+  flex: 1;
+  border: 2px solid #0349A826;
+  border-radius: 8px;
+  padding:  10px;
+  box-shadow: 0 2px 6px #0349A826;
+  height: 50%;
+ 
+}
+.researchnewtabledash-cardd {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  
+  height: 50%;
+  width: 10%;
+}
+
+.researchnewtabledash-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+.researchnewtabledash-titlee {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: -7px;
+  margin-top: 20px;
+}
+
+
+.researchnewtabledash-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.researchnewtabledash-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  height: 40px;
+  margin-top: 20px;
+  width: 120%;
+}
+
+.researchnewtabledash-table th {
+  background-color: #24b676;
+  color: white;
+  padding: 8px;
+  text-align: left;
+  
+  
+}
+.researchnewtabledash-table th,
+.researchnewtabledash-table td {
+  border-top: 1px solid #ddd;  /* horizontal border */
+  border-bottom: 1px solid #ddd; 
+  border-left: none;  /* no vertical left border */
+  border-right: none; /* no vertical right border */
+  padding: 10px;
+}
+
+.researchnewtabledash-table td {
+  padding: 9px 9px;
+}
+.financial-ratio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.financial-ratio-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+ 
+}
+
+.ratio-label {
+  font-weight: 500;
+  color: #333;
+}
+
+.ratio-value {
+  font-weight: 500;
+  color: #111;
+}
+.researchnewtabledash-table thead tr th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.researchnewtabledash-table thead tr th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.financial-ratio-list .financial-ratio-row {
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.financial-ratio-list .financial-ratio-row:first-child {
+  border-top: none;
+}
+ @media (min-width: 1024px) and (max-width: 1279px)  {
+  .researchnewtabledash-container {
+    display: flex
+;
+    gap: 20px;
+    max-width: 85%;
+    padding: 10px;
+    background-color: #fff;
+    font-family: 'calibri';
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+ }
+  @media (min-width: 768px) and (max-width: 1023px) {
+  .researchnewtabledash-container {
+    display: flex
+;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 85%;
+    padding: 10px;
+    background-color: #fff;
+    font-family: 'calibri';
+    font-size: 14px;
+    margin-left: 70px;
+}
+.researchnewtabledash-cardd {
+    flex: 1 1;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    height: 50%;
+    width: 80%;
+    margin-left: 30px;
+}
+.researchnewtabledash-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 40px;
+}
+.researchnewtabledash-titlee {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: -7px;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+ }
+ @media (max-width: 480px) {
+  .researchnewtabledash-container {
+    display: flex
+;
+    gap: 10px;
+    max-width: 85%;
+    padding: 10px;
+    background-color: #fff;
+    font-family: 'calibri';
+    font-size: 14px;
+    margin-left: 70px;
+    flex-direction: column;
+}
+.researchnewtabledash-cardd {
+    flex: 1 1;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    height: 50%;
+    width: 90%;
+    margin-left: -28px;
+}
+.researchnewtabledash-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    height: 40px;
+    margin-top: 20px;
+    width: 90%;
+    margin-left: -18px;
+    font-size: 13px;
+}
+.researchnewtabledash-titlee {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: -7px;
+    margin-top: 20px;
+    margin-left: -12px;
+}
+.researchnewtabledash-table td {
+    padding: 9px 9px;
+    font-size: 13px;
+}
+ }
+ @media (max-width: 320px) {
+    .researchnewtabledash-cardd {
+        flex: 1 1;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        height: 50%;
+        width: 110%;
+        margin-left: -55px;
+    }
+        .researchnewtabledash-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 10px;
+        height: 40px;
+        margin-top: 20px;
+        width: 110%;
+        margin-left: -43px;
+        font-size: 13px;
+    }
+    .researchnewtabledash-titlee {
+        font-weight: bold;
+        font-size: 18px;
+        margin-bottom: -7px;
+        margin-top: 20px;
+        margin-left: -38px;
+    }
+
+}
