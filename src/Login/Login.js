@@ -92,6 +92,7 @@ function Login() {
         console.warn("FCM token not available.");
       }
       /*fcm integration end*/
+      console.log("SEND FETCH")
       const url = `${API_BASE_URL}/users/signin`;
       const options = {
         method: "POST",
@@ -99,7 +100,9 @@ function Login() {
         body: JSON.stringify({ email, password, fcmToken }),
         credentials: "include",
       };
+console.log("URL TO FETCH: ", url)
       const response = await fetch(url, options);
+      console.log("LOGIN RESPONSE: ", response)
       const data = await response.json();
 
       if (!response.ok) {
@@ -129,6 +132,7 @@ function Login() {
          alert("Too many failed attempts, please try again later.")
       }
     } catch (error) {
+      console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password*");
     } finally {
       setIsLoading(false);
