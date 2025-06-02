@@ -203,7 +203,7 @@ const handleDeleteStock = (index) => {
                   Cur: ₹ {stock.current.toLocaleString()}
                 </span>
                 <div className="PortfolioHoldingPagecmpContainer">
-                  <span className="PortfolioHoldingPagecurrentValue" style={{ color: "#C0C0C0" }}>CMP: ₹ {stock.cmp.toLocaleString()}</span>
+                  <span className="PortfolioHoldingPagecurrentValue" style={{ color: "#C0C0C0" }}>CMP: ₹ {stock.cmp.toLocaleString()}</span><br/>
                   <span className={`PortfolioHoldingPagechange ${stock.change >= 0 ? "positive" : "negative"}`}>
                     {stock.change.toLocaleString()}
                   </span>
