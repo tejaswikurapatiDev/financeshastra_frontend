@@ -136,6 +136,7 @@ console.log("URL TO FETCH: ", url)
          alert("Too many failed attempts, please try again later.")
       }
     } catch (error) {
+      console.error("Error during login:", error);
       setPasswordError(error.message || "Invalid email or password*");
     } finally {
       setIsLoading(false);
