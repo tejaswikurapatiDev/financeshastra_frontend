@@ -7,6 +7,7 @@
   background-color: #fff;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 80px;
 }
 
 
@@ -159,6 +160,7 @@
     max-width: 900px;
     margin-left: 50px;
     margin-top: 40px;
+      margin-bottom: 50px;
   }
 
   .stocknewsss-headline {
@@ -261,6 +263,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-left: 30px;
+            margin-bottom: 30px;
   }
 
   .stocknewsss-description {
@@ -277,14 +280,14 @@
     width: 100%;
     height: 200px;
     margin-left: 0;
-    order: 1;
+
     /* Ensure the image comes first */
   }
 
   .stocknewsss-headline {
     font-size: 16px;
     margin-left: 0;
-    order: 2;
+
     /* Ensure this comes below the image */
     margin-top: 10px;
   }
@@ -294,7 +297,7 @@
     font-size: 13px;
     margin-left: 0;
     text-align: left;
-    order: 3;
+
     /* Ensure this comes below the headline */
     margin-top: 5px;
   }
@@ -318,37 +321,50 @@
   }
 
   .stocknewsss-stock-price {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .iconnewss {
     font-size: 18px;
   }
 
-  .stocknewsss-trading-info {
-    width: 69%;
-    max-width: 100%;
-    font-size: 12px;
-    margin-left: -10px;
-    background: white;
-    text-align: left;
-    box-shadow: none;
-    order: 4;
-    margin-top: 5px;
-    display: flex;
-    border-radius: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.stocknewsss-trading-info {
+  width: 69%;
+  max-width: 100%;
+  font-size: 15px;
+
+  /* Remove this to prevent shift to left */
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: center; /* Optional, if you want content centered */
+ 
+  order: 4;
+  margin-top: 5px;
+  display: flex;
+  border-radius: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
   .stocknewsssheadone {
-    margin-left: 10px;
+    margin-left: 0px;
     margin-right: auto;
     font-size: 18px;
     margin-top: -10px;
     margin-bottom: -1px;
   }
+  .newsscolumnn {
+    display: flex
+;
+    margin-top: -20px;
+    margin-bottom: -10px;
+}
+.nsepara {
+    font-weight: bold;
+    font-size: 15px;
+}
 }
 
 @media (max-width: 320px) {
@@ -372,20 +388,5 @@
 
   }
 
-  .stocknewsss-trading-info {
-    width: 55%;
-    max-width: 100%;
-    font-size: 14px;
-    margin-left: -5px;
 
-    text-align: left;
-    box-shadow: none;
-    order: 4;
-    margin-top: 5px;
-    display: flex;
-    border-radius: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }

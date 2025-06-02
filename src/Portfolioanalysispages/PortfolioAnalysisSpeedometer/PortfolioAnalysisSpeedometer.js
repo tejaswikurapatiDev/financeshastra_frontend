@@ -7,6 +7,7 @@ const PortfolioAnalysisSpeedometer = () => {
   const [showTable, setShowTable] = useState(false); // Toggle for Table View
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+  
   // Define positions & labels for each section
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 480);
@@ -119,7 +120,8 @@ const PortfolioAnalysisSpeedometer = () => {
           </div>
         </div>
       )}
-    </div>
+      </div>
+
   );
 };
 
