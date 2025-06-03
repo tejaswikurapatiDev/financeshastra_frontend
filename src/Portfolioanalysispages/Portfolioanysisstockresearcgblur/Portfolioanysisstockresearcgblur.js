@@ -133,6 +133,12 @@ const AnalysisResearchReportblur = () => {
           setFilteredstock(sortedData);
         }
       }, [sortOption]);
+       const handleViewClick = (pdfLink) => {
+    // Navigate to the page and scroll to top
+    navigate('/researchnewallcall', { state: { pdfLink } });
+    window.scrollTo(0, 0);
+  };
+
     
   return (
     <div >
@@ -223,9 +229,13 @@ const AnalysisResearchReportblur = () => {
                       <td style={{ color: stock.rating === 'Buy' ? '#24b676' : 'red' }}>{stock.rating}</td>
                       <td style={{ color: stock.profitBooked.includes('-') ? 'red' : '#24b676' }}>{stock.profitBooked}</td>
                       <td>
-                  <a href={stock.pdfLink} target="_blank" rel="noopener noreferrer" className="pdfstockresearch-link">
-                    View
-                  </a>
+                   <button
+              onClick={() => handleViewClick(stock.pdfLink)}
+              className="pdfstockresearch-link"
+              style={{ background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}
+            >
+              View
+            </button>
                 </td>
                     </tr>
                   ))}
