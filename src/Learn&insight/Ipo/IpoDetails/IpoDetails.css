@@ -524,7 +524,7 @@ html, body {
   .ipoContent p {
     font-size: 13px;
     /* Further reduce font size for mobile */
-    margin-left: 15px;
+    margin-left: 5px;
     /* Minimal left margin for compact layout */
     text-align: justify;
   }
@@ -567,20 +567,20 @@ html, body {
 }
   .investgg-paragraph {
     margin-left: 0px;
-    width: 340px;
+    width: 102%;
     font-size: 13px;
   }
 
   .ipodta {
     margin: 10px auto;
     margin-left: -0px;
-    width: 98%;
+    width: 102%;
     height: 100%;
   }
 
   .ipoContent {
     margin-top: 20px;
-    width: 98%;
+    width: 115%;
   }
 
   .ipoDetailItem {
@@ -637,24 +637,22 @@ html, body {
     margin-top: 0px;
 }
 .ipoDetails {
-  /* display: grid
-; */
-  grid-template-columns: repeat(1, 1fr);
-  column-gap: 20px;
-  margin-bottom: 20px;
-  width: 800px;
-  margin-left: 30px;
-  margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 20px;
+    margin-bottom: 20px;
+margin-right: -50px;
+
+    width: 215%;
+    
 }
+
 }
 
 
 
 @media (max-width: 320px) {
-.investgg-paragraph {
-  margin-left: 0px;
-  width: 280px;
-}
+
 .ipoDetails {
 /* display: grid
 ; */
@@ -662,8 +660,21 @@ grid-template-columns: repeat(1, 1fr);
 column-gap: 20px;
 margin-bottom: 20px;
 width: 660px;
-margin-left: 30px;
+margin-left: 35px;
 margin-top: 25px;
+
+}
+.ipoDetailValue {
+        color: #555;
+        font-weight: bold;
+        font-size: 12px;
+    }
+ 
+    .investgg-paragraph {
+        margin-left: 3px;
+        width: 102%;
+        font-size: 13px;
+
 }
 
   .ipoDetailsContainer {
