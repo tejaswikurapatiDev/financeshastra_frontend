@@ -318,8 +318,8 @@ const handleSearchChange = (e) => {
       {/* Render sorted holdings */}
       <div className="PortfolioHoldingPageholdingsList">
       {currentStocksresearch.map((stock, index) => (
-          <div key={index} className="PortfolioHoldingPageholdingCard">
-            <div className="PortfolioHoldingPageholdingDetails">
+          <div key={index} className="PortfolioHoldingPageholdingCarddd">
+            <div className="PortfolioHoldingPageholdingDetailssssss">
               <img src={stock.logo} alt={stock.name} className="PortfolioHoldingPagestockLogo" />
               <div>
                 <h3 className="PortfolioHoldingPagestockName">{stock.name}</h3>
@@ -331,7 +331,7 @@ const handleSearchChange = (e) => {
             </div>
 
             <div className="PortfolioHoldingPageholdingNumbers">
-              <div className="PortfolioHoldingPageholdingValues">
+              <div className="PortfolioHoldingPageholdingValuesdetail">
                 <span className="PortfolioHoldingPagelabel" style={{ color: "#333" }}>
                   Cur: ₹ {stock.current.toLocaleString()}
                 </span>
@@ -346,7 +346,7 @@ const handleSearchChange = (e) => {
                 </div>
               </div>
 
-              <div className="PortfolioHoldingPageholdingValuess">
+              <div className="PortfolioHoldingPageholdingValuessdetail">
                 <span className="PortfolioHoldingPagelabel">Inv: ₹ {stock.invested.toLocaleString()}</span>
                 <span className="PortfolioHoldingPageinvestedValue"style={{ color: "#C0C0C0" }}>avgPrice: ₹ {stock.avgPrice.toLocaleString()}</span>
               </div>

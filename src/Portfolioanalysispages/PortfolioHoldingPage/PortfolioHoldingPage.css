@@ -59,11 +59,12 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
 }
-
 .PortfolioHoldingPageholdingDetails {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    width: 50%; /* You can adjust this as needed */
 }
+
 .PortfolioHoldingPagestockLogo {
   width: 30px;
   height: 30px;
@@ -116,10 +117,13 @@
 }
 
 .PortfolioHoldingPageholdingValues {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200%;
+   
 }
+
 
 .PortfolioHoldingPagelabel {
   font-size: 12px;
@@ -188,6 +192,7 @@
 .PortfolioHoldingPagechange{
   font-size: 14px;
   font-weight: bold;
+      margin-left: 10px;
 }
 .PortfolioHoldingPagechangePercent{
   font-size: 14px;
@@ -197,9 +202,11 @@
   font-size: 14px;
   font-weight: bold;
 }
-.PortfolioHoldingPagecurrentValue{
-  font-size: 14px;
+.PortfolioHoldingPagecurrentValue {
+    font-size: 14px;
+   
 }
+
 .PortfolioHoldingPageholdingNumbers{
   margin-left: -10px;
 }
@@ -212,18 +219,22 @@
   color: lightgrey; /* Light grey */
   font-size: 14px; /* Adjust size if needed */
 }
-.PortfolioHoldingPageholdingValuess{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 30px;
+.PortfolioHoldingPageholdingValuess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+   width: 80%;
 }
-.PortfolioHoldingPageholdingprofitlossvalue{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 30px;
+
+.PortfolioHoldingPageholdingprofitlossvalue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+    width: 100%; /* You can adjust this value */
 }
+
 .PortfolioHoldingPageMoreIcon {
   font-size: 24px;
   color: #333;
