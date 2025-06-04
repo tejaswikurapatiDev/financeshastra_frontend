@@ -1,7 +1,7 @@
 .report-container {
   position: relative;
   width: 80%;
-  max-width: 1090px;
+  max-width: 1189px;
 font-family: 'calibri';
   padding: 20px;
   background: #fff;
@@ -10,7 +10,7 @@ font-family: 'calibri';
   box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
   overflow: hidden;
   height: 450px;
-  margin-left: 280px;
+  margin-left: 268px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
@@ -173,6 +173,22 @@ margin-top: 20px;
   margin: 0 auto 10px auto;
   display: block; /* required for auto margin to work */
   margin-top: -30px;
+}
+.report-container {
+    position: relative;
+    width: 80%;
+    max-width: 1092px;
+    font-family: 'calibri';
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    border: 3px solid rgb(223, 218, 218);
+    box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
+    overflow: hidden;
+    height: 450px;
+    margin-left: 268px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
  }
 @media (min-width: 1024px) and (max-width: 1279px)  {

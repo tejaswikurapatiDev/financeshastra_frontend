@@ -8,7 +8,7 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 75%;
+    width: 79%;
     margin-left: 270px;
   }
   
@@ -201,7 +201,19 @@
   .portfolianalysiscorporatepage-table a:hover {
     text-decoration:none; /* Optional: underline on hover for better UX */
   }
-  
+  @media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+    .portfolianalysiscorporatepage-container {
+    font-family: 'calibri';
+    margin: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 77%;
+    margin-left: 270px;
+}
+  }
   @media (max-width: 768px) {
    /* PortfolioAnalysisCorporatePage.css */
 

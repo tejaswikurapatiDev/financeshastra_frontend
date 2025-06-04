@@ -11,14 +11,53 @@
     margin-left: 180px;
 }
 
-
+.faq-itemport {
+    width: 100%; /* Ensure it adapts to container width */
+    max-width: 1000px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the items */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth animation */
+}
+.faq-itemport:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bigger shadow on hover */
+    transform: translateY(-3px); /* Lift the item slightly on hover */
+}
+@media (min-width: 1536px) {
+    .faq-itemport {
+    width: 100%; /* Ensure it adapts to container width */
+    max-width: 1230px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the items */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth animation */
+    margin-left: 90px;
+}
+}
+@media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+     .faq-itemport {
+    width: 100%; /* Ensure it adapts to container width */
+    max-width: 1130px; /* Limit the maximum width */
+    margin: 0 auto; /* Center the items */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth animation */
+    margin-left: 90px;
+}
+}
 @media (max-width: 768px) {
     .faq-titleportfoliooanalysis {
         background: linear-gradient(to right, #24B676, #238486);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 24px;
-        margin-left:70px;
+        margin-left:20px;
         margin-top: -100px;
     }
     .faqquestans-container{
@@ -26,7 +65,11 @@
         margin-left: 10px;
        margin-bottom: 150px;
     }
-    
+   .faq-itemport {
+        max-width: 96%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-left: 10px;
+    }
     
 }
 
@@ -45,7 +88,9 @@
         margin-left: 5px;
        margin-bottom: -30px;
     }
-    
+    .faq-itemport {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for smaller screens */
+    }
     
 }
 
@@ -56,4 +101,10 @@
       margin-left: 100px;
      
   }
+    .faq-itemport {
+        max-width: 85%;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: 90px;
+    }
   }
