@@ -115,7 +115,18 @@ margin-left: 280px;
   .portanalytioccclist-item strong{
     color:#0349A8;
   }
-  
+    @media (min-width: 1536px) {
+      .containerportanalytioccc {
+    max-width: 90%;
+    margin-left: 280px;
+    padding: 20px;
+    background-color: white;
+    line-height: 1.6;
+    border-radius: 8px;
+    font-family: 'calibri';
+    margin-bottom: -20px;
+}
+    }
   
   @media (max-width: 768px) {
     /* styles.css */

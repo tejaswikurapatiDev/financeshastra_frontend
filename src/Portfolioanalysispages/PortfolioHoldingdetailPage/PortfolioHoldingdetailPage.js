@@ -273,7 +273,7 @@ const handleSearchChange = (e) => {
   return (
     <div>
     <div className="PortfolioHoldingPageContainerdetaill">
-        <div className="PortfolioHoldingPageTradeRecordsHeader">
+        <div className="PortfolioHoldingPageTradeRecordsHeaderdetail">
   <h2 className="PortfolioHoldingPageTradeRecordsTitle">Trade Records</h2>
   <div className="PortfolioHoldingPageSearchBarContainer">
     <input
@@ -290,7 +290,7 @@ const handleSearchChange = (e) => {
   </div>
 </div>
 <div className="overallholdingtable">
-      <div className="PortfolioHoldingPageHeader">
+      <div className="PortfolioHoldingPageHeaderdetail">
         <h2 className="PortfolioHoldingPageh2">Holdings - {holdings.length}</h2>
 
         {/* Dropdown for Sorting */}
@@ -330,13 +330,13 @@ const handleSearchChange = (e) => {
               </div>
             </div>
 
-            <div className="PortfolioHoldingPageholdingNumbers">
+            <div className="PortfolioHoldingPageholdingNumberss">
               <div className="PortfolioHoldingPageholdingValuesdetail">
                 <span className="PortfolioHoldingPagelabel" style={{ color: "#333" }}>
                   Cur: ₹ {stock.current.toLocaleString()}
                 </span>
                 <div className="PortfolioHoldingPagecmpContainer">
-                  <span className="PortfolioHoldingPagecurrentValue" style={{ color: "#C0C0C0" }}>CMP: ₹ {stock.cmp.toLocaleString()}</span>
+                  <span className="PortfolioHoldingPagecurrentValue" style={{ color: "#C0C0C0" }}>CMP: ₹ {stock.cmp.toLocaleString()}</span><br/>
                   <span className={`PortfolioHoldingPagechange ${stock.change >= 0 ? "positive" : "negative"}`}>
                     {stock.change.toLocaleString()}
                   </span>
@@ -351,10 +351,10 @@ const handleSearchChange = (e) => {
                 <span className="PortfolioHoldingPageinvestedValue"style={{ color: "#C0C0C0" }}>avgPrice: ₹ {stock.avgPrice.toLocaleString()}</span>
               </div>
               <div className="PortfolioHoldingPageholdingprofitlossvalue">
-                <span className={`PortfolioHoldingPageprofitLoss ${stock.profitLoss < 0 ? "loss" : "gain"}`}>
+                <span className={`PortfolioHoldingPageprofitLosss ${stock.profitLoss < 0 ? "loss" : "gain"}`}>
                   {stock.profitLoss.toLocaleString()}
                 </span>
-                <span className={`PortfolioHoldingPageprofitLoss ${stock.profitLoss < 0 ? "loss" : "gain"}`}>
+                <span className={`PortfolioHoldingPageprofitLosss ${stock.profitLoss < 0 ? "loss" : "gain"}`}>
                   {stock.profitLossPercent.toLocaleString()}%
                 </span>
               </div>
