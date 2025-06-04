@@ -1,8 +1,20 @@
 import React from 'react';
 import './Companyname.css'; // Import your external CSS
 import { FaArrowDown } from "react-icons/fa6";
+import ResearchStocksData from '../ResearchStocksData';
 
 const StockCard = () => {
+  const {stock_research_stocks_data}= ResearchStocksData()
+  /*console.log(stock_balancesheet,
+        stock_R_D_investment,
+        stock_cash_flow,
+        stock_details,
+        stock_financeial_ratios,
+        stock_income_statement,
+        stock_key_metrics,
+        stock_performance_metrics,
+        stock_revenue_mix)*/
+    console.log(stock_research_stocks_data)
   return (
     <div className="companyresearchnew">
       <div className="stock-headercompanyres">

@@ -99,6 +99,7 @@ const StockResearchAnalysisPage = () => {
       });
       const data= await response.json()
       const stocks= data[0]
+      console.log(stocks)
       const formatedstocks= stocks.map((each)=>(
         {
           date: each.date.split("T")[0], 
@@ -111,7 +112,7 @@ const StockResearchAnalysisPage = () => {
           rating: each.rating, 
           profitBooked: each.profit_booked, 
           image: each.icon,
-          pdfLink: "View"
+          pdfLink: `researchnewallcall/${each.research_stock_id}`
         }
       ))
       setresearchStocks(formatedstocks)
