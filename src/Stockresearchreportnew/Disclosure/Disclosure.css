@@ -5,6 +5,7 @@
  
   font-family: 'calibri';
   color: #333;
+  margin-bottom: 150px;
 }
 
 .disclosure-title {
@@ -46,8 +47,12 @@
     font-size: 14px;
     color: black;
 }
+.disclosure-container {
+    margin-bottom: 70px;
+}
   }
    @media (max-width: 480px) {
+    
     .disclosure-title {
     color: #0349A8;
     font-size: 18px;
@@ -62,6 +67,6 @@
     color: black;
 }
 .disclosure-container {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
    }
