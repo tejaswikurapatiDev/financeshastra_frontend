@@ -143,7 +143,8 @@ const PerformancePortfolioAnalysis = () => {
                 {/* Display Selected Date */}
                 
             </div>
-            <table className="stockresearchanalysispage-table">
+            <div class="stockresearchanalysispagetablewrapperper">
+            <table className="stockresearchanalysispagetableper">
                 <thead>
                     <tr>
                         <th>Company</th>
@@ -211,6 +212,7 @@ const PerformancePortfolioAnalysis = () => {
                 "The figures shown are for the current quarter compared to the same
                 quarter in the previous year (YoY Change)."
             </p>
+        </div>
         </div>
     );
 };

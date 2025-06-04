@@ -90,14 +90,14 @@ transform: translateY(-50%);
 }
 
 .stockresearchanalysispage-table {
-  width: 93%;
+  width: 96.5%;
   max-width: 100%;
 border-collapse: collapse;
 background-color: white;
 border-radius: 10px;
 overflow: hidden;
 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-margin-left: 50px;
+margin-left: 40px;
 margin-bottom: 50px;
 
 
@@ -209,7 +209,17 @@ cursor: pointer;
   position: relative;
   margin-left: -290px;
 }
-
+.stockresearchanalysispage-table {
+    width: 95%;
+    max-width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 40px;
+    margin-bottom: 50px;
+}
 
 .stockresarch-search-icon {
 color: #333;
@@ -348,7 +358,7 @@ margin-top: 40px;
 
 .stockresearchanalysispage-table {
   margin-left: 0;
-  width: 95%;
+  width: 96%;
   overflow-x: auto;
   display: block;
   white-space: nowrap;
