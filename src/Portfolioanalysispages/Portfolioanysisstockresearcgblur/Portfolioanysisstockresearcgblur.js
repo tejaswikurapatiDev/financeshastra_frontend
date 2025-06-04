@@ -135,7 +135,7 @@ const AnalysisResearchReportblur = () => {
       }, [sortOption]);
        const handleViewClick = (pdfLink) => {
     // Navigate to the page and scroll to top
-    navigate('/researchnewallcall', { state: { pdfLink } });
+    navigate(`/${pdfLink}`, { state: { pdfLink } });
     window.scrollTo(0, 0);
   };
 
