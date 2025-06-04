@@ -123,7 +123,7 @@ const EarningCalculatorProfilePage = () => {
   </p>
       
       {/* Refer Now button */}
-      <button onClick={()=>{navigate('/referMoreProfilePages')}} className="earningcalculatorprofilepage-refer-button">Refer Now →</button>
+      <button onClick={()=>{navigate('/referMore'); window.scrollTo(0, 0);}} className="earningcalculatorprofilepage-refer-button">Refer Now →</button>
     </div>
     </div>
     <Navbar/>

@@ -436,7 +436,7 @@
   width: 650px;
 }
 .ipotable {
-  width: 80%; /* Slightly reduce width for better fit */
+  width: 90%; /* Slightly reduce width for better fit */
   margin-left: 10px;
 }
 .ipo-details h2, .key-ratios h2, .subscription-status h2, .financialIPO-history h2 {
@@ -472,7 +472,7 @@ width: 80%;
   flex-direction: column; /* Stack the sections vertically */
   margin-left: 21px;
   width: 85%;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   margin-top: -60px;
   height: 480px;
 /* Allow height to adjust */
@@ -487,7 +487,7 @@ margin-left: 20px;
 }
 .ipoContent {
   margin-top: 20px;
-  width: 650px;
+  width: 105%;
 }
 
 
