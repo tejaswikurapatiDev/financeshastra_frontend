@@ -1,28 +1,44 @@
 /*Light mode*/
 
 /* Global font application */
-.login-container, .login-left, .login-left h1, .login-left p, 
-.login-right, .login-box, .login-box h2, .input-container label, 
-.input-container input, .login-options a, .sign-in-btn, .google-login, 
-.linkedin-login, .register-link a, .error-text, .toggle-password , .cancel-btn , .forgot-password-link{
+.login-container,
+.login-left,
+.login-left h1,
+.login-left p,
+.login-right,
+.login-box,
+.login-box h2,
+.input-container label,
+.input-container input,
+.login-options a,
+.sign-in-btn,
+.google-login,
+.linkedin-login,
+.register-link a,
+.error-text,
+.toggle-password,
+.cancel-btn,
+.forgot-password-link {
   font-family: 'calibri';
 
 
-  
+
 
 }
+
 /* Remove built-in eye icon in Edge & Chrome */
 input[type="password"]::-ms-reveal,
 input[type="password"]::-webkit-contacts-auto-fill-button,
 input[type="password"]::-webkit-textfield-decoration-container {
-    display: none !important;
-    pointer-events: none;
+  display: none !important;
+  pointer-events: none;
 }
 
-.login-container{
-  background-color:#f8f6f6e8;
- 
+.login-container {
+  background-color: #f8f6f6e8;
+
 }
+
 .input-error {
   border: 2px solid red !important;
   outline: none;
@@ -39,45 +55,60 @@ input[type="password"]::-webkit-textfield-decoration-container {
 .login-container {
   display: flex;
 
-  align-items: stretch; /* Ensures both sections stretch equally */
+  align-items: stretch;
+  /* Ensures both sections stretch equally */
   overflow-x: hidden;
- 
+
 
 }
+
 .login-left {
-  flex: 1; /* Increase flex ratio to make it wider */
-    display: flex;
-    flex-direction: column;
-    background-image: 
-    url('../assest/loginimg.JPG'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #F2F2FF; /* Fallback color */
-    min-width: 57%; /* Ensure it takes more space */
+  flex: 1;
+  /* Increase flex ratio to make it wider */
+  display: flex;
+  flex-direction: column;
+  background-image:
+    url('../assest/loginimg.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #F2F2FF;
+  /* Fallback color */
+  min-width: 57%;
+  /* Ensure it takes more space */
 
-    height: 105vh;
-    padding-top: 10px; /* Prevent cropping */
+  height: 105vh;
+  padding-top: 10px;
+  /* Prevent cropping */
 
 }
+
 .logoforgtsign {
-  display: block; /* Ensures proper spacing */
-  max-width: 240px; /* Adjust size as needed */
-  width: 100%; /* Responsive scaling */
-  height: auto; /* Maintain aspect ratio */
-  background-color:#f8f6f6;
+  display: block;
+  /* Ensures proper spacing */
+  max-width: 240px;
+  /* Adjust size as needed */
+  width: 100%;
+  /* Responsive scaling */
+  height: auto;
+  /* Maintain aspect ratio */
+  background-color: #f8f6f6;
   margin-top: -10px;
   cursor: pointer;
 }
+
 .login-or {
   display: flex;
   align-items: center;
-  justify-content: center; /* Ensures full center alignment */
+  justify-content: center;
+  /* Ensures full center alignment */
   text-align: center;
-  color: #898989; /* Adjust color as needed */
+  color: #898989;
+  /* Adjust color as needed */
   font-weight: 600;
   font-size: 12px;
-  width: 100%; /* Ensures it spans the full width of the container */
+  width: 100%;
+  /* Ensures it spans the full width of the container */
   margin-bottom: -10px;
   margin-top: -10px;
 }
@@ -85,18 +116,24 @@ input[type="password"]::-webkit-textfield-decoration-container {
 .login-or::before,
 .login-or::after {
   content: "";
-  flex: 0.3; /* Adjusts the length of the lines */
+  flex: 0.3;
+  /* Adjusts the length of the lines */
   height: 1px;
-  background-color: #ccc; /* Adjust color as needed */
-  margin: 0 10px; /* Adjust spacing */
+  background-color: #ccc;
+  /* Adjust color as needed */
+  margin: 0 10px;
+  /* Adjust spacing */
 }
 
 .sociall-login {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centers the buttons */
-  gap: 10px; /* Adds spacing between buttons */
-  flex-wrap: wrap; /* Ensures responsiveness */
+  justify-content: center;
+  /* Centers the buttons */
+  gap: 10px;
+  /* Adds spacing between buttons */
+  flex-wrap: wrap;
+  /* Ensures responsiveness */
 }
 
 .login-left h1 {
@@ -119,9 +156,12 @@ input[type="password"]::-webkit-textfield-decoration-container {
 
 
   align-items: center;
-  padding: 10px; /* Reduce internal spacing */
-  margin: 0; /* Ensure no extra margin */
-  min-width: 50%; /* Adjust width if needed */
+  padding: 10px;
+  /* Reduce internal spacing */
+  margin: 0;
+  /* Ensure no extra margin */
+  min-width: 50%;
+  /* Adjust width if needed */
 }
 
 
@@ -137,9 +177,11 @@ input[type="password"]::-webkit-textfield-decoration-container {
   padding: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border-radius: 20px; /* Added border-radius for rounded corners */
-  overflow: hidden; /* Hides any overflowing content */
-  height:auto;
+  border-radius: 20px;
+  /* Added border-radius for rounded corners */
+  overflow: hidden;
+  /* Hides any overflowing content */
+  height: auto;
   background-color: #ffff;
 }
 
@@ -155,10 +197,10 @@ input[type="password"]::-webkit-textfield-decoration-container {
 }
 
 
-
 .input-container {
   margin-bottom: 20px;
   text-align: left;
+
 }
 
 .input-container label {
@@ -187,9 +229,10 @@ input[type="password"]::-webkit-textfield-decoration-container {
 
 .login-options {
   display: flex;
-gap: 100px;
- 
+  gap: 100px;
+
 }
+
 .loginpagepara {
   color: #111111;
   font-size: 12px;
@@ -203,15 +246,17 @@ gap: 100px;
   margin-top: 0px;
 }
 
-.signinall{
+.signinall {
   display: flex;
   gap: 3px;
   gap: 3px;
 }
+
 .allsignall {
   margin-top: -1px;
   margin-left: 35px;
 }
+
 .allsignall {
   margin-top: -1px;
   margin-left: 35px;
@@ -220,20 +265,24 @@ gap: 100px;
 .forgotpasswordlink {
   color: #0349A8;
 }
+
 .forgotpasswordlink {
   color: #0349A8;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  padding-top: -30px; /* Moves the link down */
-  display: inline-block; /* Ensures spacing applies */
+  padding-top: -30px;
+  /* Moves the link down */
+  display: inline-block;
+  /* Ensures spacing applies */
   margin-left: 40px;
 }
 
-.signinall{
+.signinall {
   display: flex;
   gap: 3px;
 }
+
 .allsignall {
   margin-top: -1px;
   margin-left: 35px;
@@ -244,8 +293,10 @@ gap: 100px;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  padding-top: -30px; /* Moves the link down */
-  display: inline-block; /* Ensures spacing applies */
+  padding-top: -30px;
+  /* Moves the link down */
+  display: inline-block;
+  /* Ensures spacing applies */
   margin-left: 40px;
 }
 
@@ -266,11 +317,13 @@ gap: 100px;
   font-weight: bold;
   align-self: center;
 }
+
 .sign-in-btn:hover {
   background-color: #24b676;
   color: #fff;
   cursor: pointer;
 }
+
 .social-login {
   display: flex;
   justify-content: center;
@@ -302,7 +355,8 @@ gap: 100px;
   font-size: 15px;
 }
 
-.google-login svg, .linkedin-login svg {
+.google-login svg,
+.linkedin-login svg {
   height: 5%;
   width: 5%;
 }
@@ -317,11 +371,13 @@ gap: 100px;
   font-weight: bold;
   font-size: 13px;
 }
-.register-linkp{
+
+.register-linkp {
   font-size: 13px;
   font-weight: 500;
   color: #111111;
 }
+
 .input-error {
   border: 1px solid red;
 }
@@ -354,9 +410,9 @@ gap: 100px;
   border-radius: 10px;
   border: 1px #dadce0 solid;
   width: 160px;
-  height:50px;
+  height: 50px;
   margin: 0.9rem 0;
-  font-size:2px ;
+  font-size: 2px;
 
 }
 
@@ -388,7 +444,7 @@ gap: 100px;
   color: #555;
 }
 
-.cancel-btn{
+.cancel-btn {
   width: 20%;
   padding: 12px;
   background-color: #028744;
@@ -396,21 +452,25 @@ gap: 100px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
- 
+
 }
 
 .forgot-password-link {
-  color: #0349A8; /* Link color */
-  color: #0349A8; /* Link color */
+  color: #0349A8;
+  /* Link color */
+  color: #0349A8;
+  /* Link color */
   cursor: pointer;
   text-decoration: none !important;
   margin-top: -10px;
 }
-.sociall-login .google-btn, 
+
+.sociall-login .google-btn,
 .sociall-login .linkedin-btn {
   width: 35%;
   height: 40px;
-  background-color: white !important;  /* Added !important */
+  background-color: white !important;
+  /* Added !important */
   color: #333 !important;
   border-radius: 8px;
   text-transform: none;
@@ -425,12 +485,16 @@ gap: 100px;
   font-size: 10px;
   cursor: pointer;
 }
+
 .btn-icon-small {
-  width: 18px; /* Decreased image size */
+  width: 18px;
+  /* Decreased image size */
   height: 18px;
 }
+
 .registerContgl {
-  width: 65%; /* Decreased width */
+  width: 65%;
+  /* Decreased width */
   margin: auto;
   text-align: center;
   line-height: 18px;
@@ -446,7 +510,7 @@ gap: 100px;
   color: #0349A8;
   text-decoration: none;
   font-weight: 500;
-  
+
 }
 
 .registerContglblack-text {
@@ -455,23 +519,40 @@ gap: 100px;
   font-weight: 500;
 }
 
-@media (min-width: 1024px) and (max-width: 1279px)  {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .login-right {
     margin-left: -10px;
   }
+
   .login-options {
-    display: flex
-;
+    display: flex;
     gap: 90px;
+  }
 }
-}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .login-container {
     flex-direction: row;
     align-items: center;
   }
-  
+
+  .signinall {
+    display: flex;
+    gap: 3px;
+    margin-left: -25px;
+  }
+
+  .forgotpasswordlink {
+    color: #0349A8;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    padding-top: -30px;
+    display: inline-block;
+    margin-left: 80px;
+  }
+
   .login-left {
     min-width: 50%;
     height: 100vh;
@@ -479,18 +560,25 @@ gap: 100px;
     background-color: #f8f6f6;
     background-image: none;
   }
-  
+
   .login-right {
     min-width: 50%;
   }
-  
+
+  .input-container {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: -30px;
+  }
+
   .login-box {
     width: 100%;
 
-  
-    height:580px;
+
+    height: 580px;
     padding: 20px;
   }
+
   .logoforgtsign {
     display: block;
     max-width: 300px;
@@ -498,14 +586,15 @@ gap: 100px;
     margin-top: -10px;
     margin-bottom: -20px;
     margin-left: 40px;
-}
-.registerContgl {
-  font-size: 13px;
-  color: #111111;
-  font-weight: 500;
-  margin-top: -3px;
-  margin-bottom: -5px;
-}
+  }
+
+  .registerContgl {
+    font-size: 13px;
+    color: #111111;
+    font-weight: 500;
+    margin-top: -3px;
+    margin-bottom: -5px;
+  }
 
 }
 
@@ -513,11 +602,11 @@ gap: 100px;
   .login-left h1 {
     font-size: 2rem;
   }
-  
+
   .login-left p {
     font-size: 15px;
   }
-  
+
   .login-box {
     width: auto;
     padding: 15px;
@@ -526,25 +615,29 @@ gap: 100px;
     height: 510px;
     margin-bottom: 100px;
   }
+
   .register-linkp {
     font-size: 13px;
     font-weight: 500;
     color: #111111;
     margin-top: -10px;
-}
+  }
+
   .input-container label {
     font-size: 12px;
     margin-left: 20px;
   }
-  
+
   .input-container input {
     width: 80%;
     margin-left: 20px;
   }
-  
-  .sociall-login .google-btn, .sociall-login .linkedin-btn {
+
+  .sociall-login .google-btn,
+  .sociall-login .linkedin-btn {
     width: 40%;
   }
+
   .login-left {
     background-image: none;
   }
@@ -553,65 +646,94 @@ gap: 100px;
 /*DarkMode CSS*/
 
 /* Global font application */
-.login-containerdarkmode, .login-leftdarkmode, .login-leftdarkmode h1, .login-leftdarkmode p, 
-.login-rightdarkmode, .login-boxdarkmode, .login-boxdarkmode h2, .input-containerdarkmode label, 
-.input-containerdarkmode input, .login-optionsdarkmode a, .sign-in-btndarkmode, .google-logindarkmode, 
-.linkedin-logindarkmode, .register-linkdarkmode a, .error-textdarkmode, .toggle-passworddarkmode , .cancel-btndarkmode , .forgot-password-linkdarkmode{
+.login-containerdarkmode,
+.login-leftdarkmode,
+.login-leftdarkmode h1,
+.login-leftdarkmode p,
+.login-rightdarkmode,
+.login-boxdarkmode,
+.login-boxdarkmode h2,
+.input-containerdarkmode label,
+.input-containerdarkmode input,
+.login-optionsdarkmode a,
+.sign-in-btndarkmode,
+.google-logindarkmode,
+.linkedin-logindarkmode,
+.register-linkdarkmode a,
+.error-textdarkmode,
+.toggle-passworddarkmode,
+.cancel-btndarkmode,
+.forgot-password-linkdarkmode {
   font-family: 'calibri';
   overflow-y: hidden;
 
   background-color: #292F42;
- 
+
 
 }
 
 .login-containerdarkmode {
   display: flex;
-  align-items: stretch; /* Ensures both sections stretch equally */
+  align-items: stretch;
+  /* Ensures both sections stretch equally */
   overflow-x: hidden;
   overflow-y: hidden;
 
- background-color: #292F42;
- margin-left: -8px;
- margin-top: -8px;
- margin-bottom: -30px;
+  background-color: #292F42;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-bottom: -30px;
 
- 
+
 
 }
+
 .login-leftdarkmode {
-  flex: 1; /* Increase flex ratio to make it wider */
-    display: flex;
-    flex-direction: column;
-    /*background-image: 
+  flex: 1;
+  /* Increase flex ratio to make it wider */
+  display: flex;
+  flex-direction: column;
+  /*background-image: 
     url('../../assest/logindarkimg.png'); */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #292F42; /* Fallback color */
-    min-width: 57%; /* Ensure it takes more space */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #292F42;
+  /* Fallback color */
+  min-width: 57%;
+  /* Ensure it takes more space */
 
-    height: 105vh;
-    padding-top: 10px; /* Prevent cropping */
+  height: 105vh;
+  padding-top: 10px;
+  /* Prevent cropping */
 
 }
+
 .logoforgtdarkmode {
-  display: block; /* Ensures proper spacing */
-  max-width: 240px; /* Adjust size as needed */
-  width: 100%; /* Responsive scaling */
-  height: auto; /* Maintain aspect ratio */
+  display: block;
+  /* Ensures proper spacing */
+  max-width: 240px;
+  /* Adjust size as needed */
+  width: 100%;
+  /* Responsive scaling */
+  height: auto;
+  /* Maintain aspect ratio */
   background-color: #292F42;
   margin-top: -10px;
 }
+
 .login-ordarkmode {
   display: flex;
   align-items: center;
-  justify-content: center; /* Ensures full center alignment */
+  justify-content: center;
+  /* Ensures full center alignment */
   text-align: center;
-  color: #898989; /* Adjust color as needed */
+  color: #898989;
+  /* Adjust color as needed */
   font-weight: 600;
   font-size: 12px;
-  width: 100%; /* Ensures it spans the full width of the container */
+  width: 100%;
+  /* Ensures it spans the full width of the container */
   margin-bottom: -10px;
   margin-top: 10px;
 }
@@ -619,18 +741,24 @@ gap: 100px;
 .login-ordarkmode::before,
 .login-ordarkmode::after {
   content: "";
-  flex: 0.3; /* Adjusts the length of the lines */
+  flex: 0.3;
+  /* Adjusts the length of the lines */
   height: 1px;
-  background-color: #ccc; /* Adjust color as needed */
-  margin: 0 10px; /* Adjust spacing */
+  background-color: #ccc;
+  /* Adjust color as needed */
+  margin: 0 10px;
+  /* Adjust spacing */
 }
 
 .sociall-logindarkmode {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centers the buttons */
-  gap: 10px; /* Adds spacing between buttons */
-  flex-wrap: wrap; /* Ensures responsiveness */
+  justify-content: center;
+  /* Centers the buttons */
+  gap: 10px;
+  /* Adds spacing between buttons */
+  flex-wrap: wrap;
+  /* Ensures responsiveness */
 }
 
 .login-leftdarkmode h1 {
@@ -646,17 +774,20 @@ gap: 100px;
 }
 
 .login-rightdarkmode {
-    flex: 1;
-    background: linear-gradient(to right, #292F42, #3B3F4F); /* Dark Blue Gradient */
-    display: flex;
-    align-items: center;
-   
-    margin: 0; /* Ensure no extra margin */
-    min-width: 50%; /* Adjust width if needed */
-    margin-right: 10px;
-    margin-left: -20px;
-  }
-  
+  flex: 1;
+  background: linear-gradient(to right, #292F42, #3B3F4F);
+  /* Dark Blue Gradient */
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+  /* Ensure no extra margin */
+  min-width: 50%;
+  /* Adjust width if needed */
+  margin-right: 10px;
+  margin-left: -20px;
+}
+
 
 
 
@@ -668,24 +799,28 @@ gap: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border: 2px solid rgba(0, 0, 0, 0.1);
   text-align: center;
-  border-radius: 20px; /* Added border-radius for rounded corners */
-  overflow: hidden; /* Hides any overflowing content */
+  border-radius: 20px;
+  /* Added border-radius for rounded corners */
+  overflow: hidden;
+  /* Hides any overflowing content */
   height: 57%;
   background-color: #292F42;
 }
 
 
 .h2loginpagedarkmode {
-    background: linear-gradient(to right, #24b676, #238486); /* Green to Teal */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Makes the gradient visible */
-    font-weight: bold;
-    font-size: 27px;
-    text-align: left;
-    margin-top: -10px;
-    margin-left: 35px;
-  }
-  
+  background: linear-gradient(to right, #24b676, #238486);
+  /* Green to Teal */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Makes the gradient visible */
+  font-weight: bold;
+  font-size: 27px;
+  text-align: left;
+  margin-top: -10px;
+  margin-left: 35px;
+}
+
 
 
 
@@ -720,9 +855,10 @@ gap: 100px;
 
 .login-optionsdarkmode {
   display: flex;
-gap: 100px;
- 
+  gap: 100px;
+
 }
+
 .loginpageparadarkmode {
   color: #ffff;
   font-size: 12px;
@@ -732,15 +868,17 @@ gap: 100px;
 
 
 
-.signinalldarkmode{
+.signinalldarkmode {
   display: flex;
   gap: 3px;
   gap: 3px;
 }
+
 .allsignalldarkmode {
   margin-top: -1px;
   margin-left: 35px;
 }
+
 .allsignalldarkmode {
   margin-top: -1px;
   margin-left: 35px;
@@ -751,13 +889,17 @@ gap: 100px;
   text-decoration: none;
   font-size: 12px;
   font-weight: 600;
-  padding-top: -30px; /* Moves the link down */
-  display: inline-block; /* Ensures spacing applies */
+  padding-top: -30px;
+  /* Moves the link down */
+  display: inline-block;
+  /* Ensures spacing applies */
   margin-left: 40px;
   font-size: 12px;
   font-weight: 600;
-  padding-top: -30px; /* Moves the link down */
-  display: inline-block; /* Ensures spacing applies */
+  padding-top: -30px;
+  /* Moves the link down */
+  display: inline-block;
+  /* Ensures spacing applies */
   margin-left: 40px;
 }
 
@@ -776,13 +918,15 @@ gap: 100px;
   cursor: pointer;
   font-size: 12px;
   font-weight: bold;
-  
+
 }
+
 .sign-in-btndarkmode:hover {
   background-color: #24b676;
   color: #fff;
   cursor: pointer;
 }
+
 .social-login {
   margin-top: 20px;
 
@@ -813,7 +957,8 @@ gap: 100px;
   font-size: 15px;
 }
 
-.google-logindarkmode svg, .linkedin-logindarkmode svg {
+.google-logindarkmode svg,
+.linkedin-logindarkmode svg {
   height: 5%;
   width: 5%;
 }
@@ -828,11 +973,13 @@ gap: 100px;
   font-weight: bold;
   font-size: 13px;
 }
-.register-linkpdarkmode{
+
+.register-linkpdarkmode {
   font-size: 13px;
   font-weight: 500;
   color: #ffff;
 }
+
 .input-errordarkmode {
   border: 1px solid red;
 }
@@ -865,9 +1012,9 @@ gap: 100px;
   border-radius: 10px;
   border: 1px #dadce0 solid;
   width: 160px;
-  height:50px;
+  height: 50px;
   margin: 0.9rem 0;
-  font-size:2px ;
+  font-size: 2px;
 
 }
 
@@ -906,7 +1053,7 @@ gap: 100px;
   color: #555;
 }
 
-.cancel-btndarkmode{
+.cancel-btndarkmode {
   width: 20%;
   padding: 12px;
   background-color: #028744;
@@ -914,21 +1061,25 @@ gap: 100px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
- 
+
 }
 
 .forgot-password-linkdarkmode {
-  color: #0349A8; /* Link color */
-  color: #0349A8; /* Link color */
+  color: #0349A8;
+  /* Link color */
+  color: #0349A8;
+  /* Link color */
   cursor: pointer;
   text-decoration: none !important;
   margin-top: -10px;
 }
-.sociall-logindarkmode .google-btndarkmode, 
+
+.sociall-logindarkmode .google-btndarkmode,
 .sociall-logindarkmode .linkedin-btndarkmode {
   width: 35%;
   height: 40px;
-  background-color: #292F42 !important;  /* Added !important */
+  background-color: #292F42 !important;
+  /* Added !important */
   color: #ffff !important;
   border-radius: 8px;
   text-transform: none;
@@ -943,12 +1094,16 @@ gap: 100px;
   font-size: 10px;
   cursor: pointer;
 }
+
 .btn-icon-smalldarkmode {
-  width: 18px; /* Decreased image size */
+  width: 18px;
+  /* Decreased image size */
   height: 18px;
 }
+
 .registerContgldarkmode {
-  width: 65%; /* Decreased width */
+  width: 65%;
+  /* Decreased width */
   margin: auto;
   text-align: center;
   line-height: 18px;
@@ -964,7 +1119,7 @@ gap: 100px;
   color: #24b676;
   text-decoration: none;
   font-weight: 500;
-  
+
 }
 
 .registerContglblack-textdarkmode {
@@ -984,41 +1139,43 @@ gap: 100px;
     padding: 0;
     overflow: hidden;
     height: 98vh;
-  
+
   }
 
   /* Left section: use full width and auto height */
- 
+
 
   /* Logo adjustments for mobile */
 
 
   .login-leftdarkmode {
-   display: none;
-  
+    display: none;
+
   }
- 
- .login-boxforgetcontaindarkmode{
-     width:auto;
-     max-width: 90%;
-     padding: 30px;
-     border: 3px solid #232633;
-     box-shadow: 0 4px 8px #161922;
-     text-align: center;
-     border-radius: 50px;
-     height: 65%;
-     background-color:#292F42;
- 
- }
+
+  .login-boxforgetcontaindarkmode {
+    width: auto;
+    max-width: 90%;
+    padding: 30px;
+    border: 3px solid #232633;
+    box-shadow: 0 4px 8px #161922;
+    text-align: center;
+    border-radius: 50px;
+    height: 65%;
+    background-color: #292F42;
+
+  }
 
   .signinalldarkmode {
-  margin-left: -20px;
+    margin-left: -20px;
   }
+
   /* Headings and paragraphs in the left section */
   .login-leftdarkmode h1 {
-   
+
     margin-top: 50px;
   }
+
   .login-leftdarkmode p {
     font-size: 1.2rem;
     text-align: center;
@@ -1029,15 +1186,14 @@ gap: 100px;
   .login-rightdarkmode {
     width: auto;
     min-width: 90%;
-   
+
     padding: 20px;
     background: linear-gradient(to right, #292F42, #3B3F4F);
-    display: flex
-;
+    display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 5px;
-}
+  }
 
 
   /* Login box: scale down width, adjust padding and margins */
@@ -1051,11 +1207,18 @@ gap: 100px;
     margin-top: -100px;
   }
 
+  .input-container {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: -10px;
+  }
+
   /* Input containers: center labels and inputs */
   .input-containerdarkmode {
     margin: 10px auto;
     text-align: center;
   }
+
   .input-containerdarkmode label {
     margin: 0 auto 5px;
     font-size: 14px;
@@ -1063,6 +1226,7 @@ gap: 100px;
     display: block;
     margin-left: 20px;
   }
+
   .input-containerdarkmode input {
     width: 90%;
     padding: 8px;
@@ -1093,6 +1257,7 @@ gap: 100px;
     margin: 10px 0;
     padding: 0 10px;
   }
+
   .login-ordarkmode::before,
   .login-ordarkmode::after {
     margin: 0 5px;
@@ -1111,32 +1276,62 @@ gap: 100px;
     width: 40%;
     margin: 10px auto;
   }
-  .sociall-logindarkmode .google-btndarkmode, .sociall-logindarkmode .linkedin-btndarkmode{
+
+  .sociall-logindarkmode .google-btndarkmode,
+  .sociall-logindarkmode .linkedin-btndarkmode {
     width: 45%;
     height: 40px;
   }
-  .login-optionsdarkmode{
-    display: flex
-    ;
-        gap: 30px;
-  }
-}
-@media(max-width: 320px) {
-.logoforgtsign {
-  display: block;
-  max-width: 230px;
-  background-color: #f8f6f6;
-  margin-top: -10px;
-  margin-bottom: -20px;
-  margin-left: 0px;
-}
-  .login-options
 
-{
-      display: flex
-;
-      gap: 0px;
-      margin-left: -20px;
-  
+  .login-optionsdarkmode {
+    display: flex;
+    gap: 30px;
+  }
+      .forgotpasswordlink {
+        color: #0349A8;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding-top: -30px;
+        display: inline-block;
+        margin-left: 100px;
+    }
 }
+
+@media(max-width: 320px) {
+  .logoforgtsign {
+    display: block;
+    max-width: 230px;
+    background-color: #f8f6f6;
+    margin-top: -10px;
+    margin-bottom: -20px;
+    margin-left: 0px;
+  }
+
+  .login-options {
+    display: flex;
+    gap: 0px;
+    margin-left: -20px;
+
+  }
+
+  .input-container {
+    margin-bottom: 20px;
+    text-align: left;
+    margin-left: -20px;
+  }
+
+  .login-options {
+    display: flex;
+    gap: 0px;
+  }
+      .forgotpasswordlink {
+        color: #0349A8;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 600;
+        padding-top: -30px;
+        display: inline-block;
+        margin-left: 70px;
+    }
 }

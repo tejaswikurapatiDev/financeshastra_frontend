@@ -903,7 +903,7 @@ function App() {
                <Route path="/jobCard" element={<JobCard/>} />
                 <Route path="/riskConcernPage" element={<RiskConcernPage/>} />
                <Route path="/stockCard" element={<StockCard/>} />
-                <Route path="/researchnewallcall" element={<Researchnewallcall/>} />
+                <Route path="/researchnewallcall/:id" element={<Researchnewallcall/>} />
 
 
 
