@@ -39,7 +39,7 @@ padding: 10px;
 margin-left: -360px;
 color: black;
 font-weight: bold;
-
+display: none;
 }
 .blurred-content {
   filter: blur(8px);
@@ -166,6 +166,20 @@ margin-top: 20px;
   /* Rounded top-right corner */
   border-bottom-right-radius: 17px;
   /* Rounded bottom-right corner */
+}
+@media (min-width: 1536px)  /* Large Desktops (1280px - 1535px) */ {
+.allblursearchbutton {
+  background-color: #24b676; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  padding: 9px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+ margin-left: 1085px;
+
+}
 }
 
  @media (min-width: 1280px) and (max-width: 1535px) {

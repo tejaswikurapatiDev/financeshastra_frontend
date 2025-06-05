@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Earningsresult.css";
 import imgg from "../../../assest/adaniiiimg.png";
 import { MdDateRange } from "react-icons/md";
@@ -10,14 +10,13 @@ import FooterForAllPage from "../../../FooterForAllPage/FooterForAllPage";
 import { useLocation } from "react-router-dom";
 import sanitizeHtml from "sanitize-html";
 
+
 const Earningsresult = () => {
   const location = useLocation();
   const { articleData } = location.state || {};
   const { quaterlyarticles } = articleData;
-  console.log(location.state);
-
   const [articledata, setarticledata] = useState(quaterlyarticles[0] || {});
-  console.log(articledata);
+  const [finalHtml, setFinalHtml] = useState("");
 
   const sanitizedContent = sanitizeHtml(articledata?.MainContent || "", {
   allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
@@ -88,15 +87,12 @@ const Earningsresult = () => {
   return (
     <div>
       <div className="adnaieaeninqrsult">
-        <h1 className="adnairsultreport-header"> {articledata.title}</h1>
-        {/* <p className="adnairsultreport-title">
-          Adani Enterprises Q4 Results: Net Profit Soars 752% to ₹3,845 Cr on Exceptional Gain from Adani Wilmar Stake Sale
-        </p> */}
+        <h1 className="adnairsultreport-header">{articledata.title}</h1>
+
         <div className="investblog-metaresult">
           <span className="meta-item">
             <MdDateRange className="blogdate" />
-            Published Date:{articledata.created_date}
-            {/*10 May 2025*/}
+            Published Date: {articledata.created_date}
             <GoDotFill className="dotted" />
           </span>
           <span className="meta-item">
@@ -105,12 +101,14 @@ const Earningsresult = () => {
             <GoDotFill className="dotted" />
           </span>
         </div>
+
         <img
           src={articledata.image_url}
           alt="Adani Enterprises Report"
           className="report-image"
         />
 
+        {/* Render processed HTML with custom table class */}
         <div
           className="main-contentt"
           dangerouslySetInnerHTML={{ __html: sanitizedContent }}

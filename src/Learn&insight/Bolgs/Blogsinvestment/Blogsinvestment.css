@@ -361,7 +361,7 @@ margin-left: 100px;
 
   /* Dotted separators */
   .dotted {
-    font-size: 11px; /* Reduced size for dots */
+    font-size: 18px; /* Reduced size for dots */
     color: green;
   }
 
@@ -405,11 +405,11 @@ margin-left: 100px;
   .meta-item {
     font-size: 13px; /* Adjusted font size for smaller screens */
     display: flex;
-    gap: 5px; /* Add spacing between elements */
+    gap: 0px; /* Add spacing between elements */
     margin-bottom: 10px; /* Spacing between meta items */
     margin-top: 10px;
     margin-right: auto;
-    margin-right: 30px;
+    margin-right: 10px;
   }
 
   /* Blog Date and Profile */
@@ -460,15 +460,15 @@ margin-left: 100px;
  
    width: 205px;
   }
-      .meta-item {
+        .meta-item {
         font-size: 13px;
         display: flex
 ;
-        gap: 5px;
+        gap: 0px;
         margin-bottom: 10px;
         margin-top: 10px;
         margin-right: auto;
-        margin-right: 0px;
+        margin-right: -4px;
     }
 }
 
