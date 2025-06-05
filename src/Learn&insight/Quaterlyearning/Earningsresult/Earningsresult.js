@@ -20,20 +20,70 @@ const Earningsresult = () => {
   console.log(articledata);
 
   const sanitizedContent = sanitizeHtml(articledata?.MainContent || "", {
-    allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
-    allowedAttributes: {
-      "*": [], // Keep this to ensure no other attributes are allowed by default
-      h2: ["style"],
-      p: ["style"],
-      ol: ["style"],
-      li: ["style"],
-      strong: ["style"],
-      table: ["style"],
-      tr: ["style"],
-      td: ["style"],
-      th: ["style"],
+  allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
+  allowedAttributes: {
+    h2: ["style"],
+    p: ["style"],
+    ol: ["style",],
+    li: ["style","class"],
+    strong: ["style"],
+    table: ["style", "class"], // ✅ allow class here
+    tr: ["style", "class"],    // ✅ allow class
+    td: ["style", "class"],    // ✅ allow class
+    th: ["style", "class"],    // ✅ allow class
+  },
+  transformTags: {
+    table: (tagName, attribs) => ({
+      tagName: "table",
+      attribs: {
+        ...attribs,
+        class: "customm-table",
+      },
+    }),
+    tr: (tagName, attribs) => ({
+      tagName: "tr",
+      attribs: {
+        ...attribs,
+        class: "customm-tr",
+      },
+    }),
+    td: (tagName, attribs) => ({
+      tagName: "td",
+      attribs: {
+        ...attribs,
+        class: "customm-td",
+      },
+    }),
+    th: (tagName, attribs) => ({
+      tagName: "th",
+      attribs: {
+        ...attribs,
+        class: "customm-th",
+      },
+    }),
+   li: (tagName, attribs) => ({
+    tagName: "li",
+    attribs: {
+      ...attribs,
+      class: "custommli",
     },
-  });
+  }),
+  h2: (tagName, attribs) => ({
+    tagName: "h2",
+    attribs: {
+      ...attribs,
+      class: "custommh2",
+    },
+  }),
+    ol: (tagName, attribs) => ({
+    tagName: "ol",
+    attribs: {
+      ...attribs,
+      class: "custommol",
+    },
+  }),
+  },
+});
 
   return (
     <div>
@@ -62,7 +112,7 @@ const Earningsresult = () => {
         />
 
         <div
-          className="main-content"
+          className="main-contentt"
           dangerouslySetInnerHTML={{ __html: sanitizedContent }}
         />
         {/* {articledata.MainContent} */}
