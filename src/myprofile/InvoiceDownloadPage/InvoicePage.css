@@ -1,5 +1,282 @@
 .invoice-container {
-    max-width: 800px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  height: 900px;
+  font-family: 'calibri';
+}
+
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.invoice-logo {
+  width: 150px;
+}
+
+.invoice-planpdftitle {
+  font-weight: bold;
+  margin-top: 20px;
+  color: #238486;
+  /* Ensures fallback is transparent */
+}
+
+.invoice-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.invoice-billed,
+.invoice-payment {
+  width: 45%;
+  font-size: 15px;
+}
+
+.invoice-payment {
+  margin-left: 200px;
+  margin-right: -200px;
+}
+
+.invoice-plan-title {
+  background: linear-gradient(90deg, #238486, #24b676);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.invoice-table th,
+.invoice-table td {
+  border-top: 1px solid #cecece;
+  /* Keeps the horizontal lines */
+  border-bottom: 2px solid #cecece;
+  border-left: none;
+  /* Removes vertical lines */
+  border-right: none;
+  padding: 10px;
+  text-align: left;
+}
+
+.invoice-table th {
+  background: #24b676;
+  color: white;
+}
+
+.invoice-summary {
+  margin-top: 10px;
+  text-align: right;
+  position: relative;
+  margin-left: 10px;
+}
+
+.invoicepdfsummary {
+  margin-top: 10px;
+  text-align: right;
+  position: relative;
+  margin-left: 10px;
+}
+
+.invoicepdfsummary p strong {
+  color: #333;
+  /* Normal black color */
+  font-weight: normal;
+  /* Removes extra bold effect */
+}
+
+.invoicepdfsummary p {
+
+  display: flex;
+  gap: 520px;
+  /* Equal space between text and amount */
+
+  margin-left: 20px;
+  color: #333;
+  margin: 8px 0;
+  /* Adds spacing between lines */
+  padding-bottom: 8px;
+  /* Adds space below each item */
+
+}
+
+.invoicepdfsummary p:nth-child(2) {
+  /* Targets Subtotal */
+  border-bottom: 2px solid #cecece;
+  /* Adds a border below Subtotal */
+  padding-bottom: 10px;
+  /* Space between Subtotal and Tax */
+}
+
+.invoice-summary p strong {
+  color: #333;
+  /* Normal black color */
+  font-weight: normal;
+  /* Removes extra bold effect */
+}
+
+.invoice-summary p {
+  display: flex;
+  gap: 585px;
+  /* Equal space between text and amount */
+
+  margin-left: 20px;
+  color: #333;
+  margin: 8px 0;
+  /* Adds spacing between lines */
+  padding-bottom: 8px;
+  /* Adds space below each item */
+}
+
+.invoice-summary p:nth-child(2) {
+  /* Targets Subtotal */
+  border-bottom: 2px solid #cecece;
+  /* Adds a border below Subtotal */
+  padding-bottom: 10px;
+  /* Space between Subtotal and Tax */
+}
+
+.invoice-paid-image {
+  position: absolute;
+  right: 0;
+  bottom: -180px;
+  width: 120px;
+  /* Adjust size as needed */
+  margin-right: 400px;
+}
+
+.invoice-paid-image img {
+  width: 100%;
+  max-width: 120px;
+  opacity: 0.9;
+  /* Slight transparency effect */
+}
+
+.invoice-paid-stamp {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #15803d;
+  border: 3px solid #15803d;
+  border-radius: 50%;
+  text-transform: uppercase;
+}
+
+@media (min-width: 1536px) {
+  .invoice-summary p {
+    display: flex;
+    gap: 565px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+
+}
+
+@media (min-width: 1280px) and (max-width: 1535px) {
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+    width: 120px;
+    /* Adjust size as needed */
+    margin-right: 400px;
+  }
+
+  .invoice-summary p {
+    display: flex;
+    gap: 561px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+
+  .invoicepdfsummary p {
+    display: flex;
+    gap: 561px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+    bottom: -150px;
+    width: 120px;
+    margin-right: 200px;
+  }
+
+  .invoice-summary p {
+    display: flex;
+    gap: 565px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+
+  .invoicepdfsummary p {
+    display: flex;
+    gap: 565px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+    bottom: -320px;
+    width: 120px;
+    /* Adjust size as needed */
+    margin-right: 80px;
+  }
+
+  .invoice-summary p {
+    display: flex;
+    gap: 491px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+
+  .invoicepdfsummary p {
+    display: flex;
+    gap: 491px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invoice-container {
+    width: 80%;
     margin: 40px auto;
     padding: 20px;
     border: 1px solid #ddd;
@@ -8,266 +285,130 @@
     height: 900px;
     font-family: 'calibri';
   }
-    
-    .invoice-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .invoice-logo {
-      width: 150px;
-    }
-    
-    .invoice-details {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    
-    .invoice-billed,
-    .invoice-payment {
-      width: 45%;
-      font-size: 15px;
-    }
-    .invoice-payment {
-      margin-left: 200px;
-      margin-right: -200px;
+
+  .invoice-summary {
+    margin-top: 10px;
+    text-align: right;
+    position: relative;
+    margin-left: 20px;
+    margin-right: auto;
   }
-  .invoice-plan-title {
-    background: linear-gradient(90deg, #238486, #24b676);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    margin-top: 20px;
+
+  .invoicepdfsummary {
+    margin-top: 10px;
+    text-align: right;
+    position: relative;
+    margin-left: 20px;
+    margin-right: auto;
   }
-  
-    
-    .invoice-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
-    
-    .invoice-table th, 
-  .invoice-table td {
-      border-top: 1px solid #cecece;  /* Keeps the horizontal lines */
-      border-bottom: 2px solid #cecece;
-      border-left: none;  /* Removes vertical lines */
-      border-right: none;
-      padding: 10px;
-      text-align: left;
+
+  .invoicepdfsummary p {
+    display: flex;
+    gap: 189px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    font-size: 12px;
   }
-    .invoice-table th {
-      background: #24b676;
-      color: white;
-    }
-    
-    .invoice-summary {
-      margin-top: 10px;
-      text-align: right;
-      position: relative;
-      margin-left: 10px;
-    }
-    .invoice-summary p strong {
-      color: #333; /* Normal black color */
-      font-weight: normal; /* Removes extra bold effect */
+
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+
+    width: 120px;
+    /* Adjust size as needed */
+    margin-right: 30px;
   }
-    .invoice-summary p {
-      display: flex;
-      gap: 585px; /* Equal space between text and amount */
-     
-      margin-left: 20px;
-      color: #333;
-      margin: 8px 0; /* Adds spacing between lines */
-      padding-bottom: 8px; /* Adds space below each item */
+
+  .invoice-summary p {
+    display: flex;
+    gap: 189px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    font-size: 12px;
   }
-  .invoice-summary p:nth-child(2) { /* Targets Subtotal */
-    border-bottom: 2px solid #cecece; /* Adds a border below Subtotal */
-    padding-bottom: 10px; /* Space between Subtotal and Tax */
-  }
-  
-    .invoice-paid-image {
-      position: absolute;
-      right: 0;
-      bottom: -180px;
-      width: 120px; /* Adjust size as needed */
-      margin-right: 400px;
-    }
-    
-    .invoice-paid-image img {
-      width: 100%;
-      max-width: 120px;
-      opacity: 0.9; /* Slight transparency effect */
-    }
-    
-    .invoice-paid-stamp {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #15803d;
-      border: 3px solid #15803d;
-      border-radius: 50%;
-      text-transform: uppercase;
-    }
-    @media (min-width: 1536px) {
-      .invoice-summary p {
-        display: flex
-    ;
-        gap: 565px;
-        margin-left: 20px;
-        color: #333;
-        margin: 8px 0;
-        padding-bottom: 8px;
-    }
-    }
-  
-    @media (min-width: 1280px) and (max-width: 1535px) {
-      .invoice-paid-image {
-        position: absolute;
-        right: 0;
-        bottom: 0px;
-        width: 120px; /* Adjust size as needed */
-        margin-right: 400px;
-      }
-      .invoice-summary p {
-        display: flex
-    ;
-        gap: 561px;
-        margin-left: 20px;
-        color: #333;
-        margin: 8px 0;
-        padding-bottom: 8px;
-    }
-      
-    }
-    @media (min-width: 1024px) and (max-width: 1279px)  {
-      .invoice-paid-image {
-        position: absolute;
-        right: 0;
-        bottom: -150px;
-        width: 120px;
-        margin-right: 200px;
-    }
-      .invoice-summary p {
-        display: flex
-    ;
-        gap: 565px;
-        margin-left: 20px;
-        color: #333;
-        margin: 8px 0;
-        padding-bottom: 8px;
-    }
-    }
-    @media (min-width: 768px) and (max-width: 1023px) {
-      .invoice-paid-image {
-        position: absolute;
-        right: 0;
-       bottom: -320px;
-        width: 120px; /* Adjust size as needed */
-        margin-right: 80px;
-      }
-      .invoice-summary p {
-        display: flex
-    ;
-        gap: 491px;
-        margin-left: 20px;
-        color: #333;
-        margin: 8px 0;
-        padding-bottom: 8px;
-    }
-    }
-   
-    @media (max-width: 480px)  {
-      .invoice-container {
-        width:80%;
-        margin: 40px auto;
-        padding: 20px;
-        border: 1px solid #ddd;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
-        height: 900px;
-        font-family: 'calibri';
-    }
-    .invoice-summary {
-      margin-top: 10px;
-      text-align: right;
-      position: relative;
-      margin-left:20px;
-      margin-right: auto;
-    }
-    .invoice-paid-image {
-      position: absolute;
-      right: 0;
-    
-      width: 120px; /* Adjust size as needed */
-      margin-right: 30px;
-    }
-    .invoice-summary p {
-      display: flex
-  ;
-      gap: 189px;
-      margin-left: 20px;
-      color: #333;
-      margin: 8px 0;
-      padding-bottom: 8px;
-      font-size: 12px;
-  }
+
   .invoice-table tr {
-  
+
     font-size: 12px;
   }
+
   .invoice-table td {
-  
+
     font-size: 12px;
   }
-  .invoice-header h1{
+
+  .invoice-header h1 {
     font-size: 20px;
   }
-  
-    }
-  
-  
-    @media (max-width: 320px) {
-      .invoice-summary p {
-          display: flex
-  ;
-          gap: 165px;
-          margin-left: 20px;
-          color: #333;
-          margin: 8px 0;
-          padding-bottom: 8px;
-          font-size: 12px;
-      }
-      .invoice-summary {
-        margin-top: 10px;
-        text-align: right;
-        position: relative;
-        margin-left:0px;
-        margin-right: auto;
-      }
-      .invoice-paid-image {
-        position: absolute;
-        right: 0;
-        
-        width: 120px; /* Adjust size as needed */
-        margin-right: 30px;
-      }
-      .invoice-table tr {
-  
-        font-size: 12px;
-      }
-      .invoice-table td {
-      
-        font-size: 12px;
-      }
-      .invoice-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 10px;
-       margin-left: -10px;
-      }
-      
+
+}
+
+
+@media (max-width: 320px) {
+  .invoice-summary p {
+    display: flex;
+    gap: 165px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    font-size: 12px;
   }
+
+  .invoice-summary {
+    margin-top: 10px;
+    text-align: right;
+    position: relative;
+    margin-left: 0px;
+    margin-right: auto;
+  }
+
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+
+    width: 120px;
+    /* Adjust size as needed */
+    margin-right: 30px;
+  }
+
+  .invoice-table tr {
+
+    font-size: 12px;
+  }
+
+  .invoice-table td {
+
+    font-size: 12px;
+  }
+
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-left: -10px;
+  }
+
+  .invoicepdfsummary p {
+    display: flex;
+    gap: 165px;
+    margin-left: 20px;
+    color: #333;
+    margin: 8px 0;
+    padding-bottom: 8px;
+    font-size: 12px;
+  }
+
+  .invoicepdfsummary {
+    margin-top: 10px;
+    text-align: right;
+    position: relative;
+    margin-left: 0px;
+    margin-right: auto;
+  }
+
+}
