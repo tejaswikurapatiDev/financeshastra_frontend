@@ -1,9 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './RiskConcernPage.css';
 import Balancesheetriskconcernpage from '../balancesheetriskconcernpage/balancesheetriskconcernpage';
 import CashFlowRiskConcernPage from '../CashFlowRiskConcernPage/CashFlowRiskConcernPage';
+import ResearchStocksData from '../ResearchStocksData';
 
 const RiskConcernPage = () => {
+  const { stock_research_stocks_data, isLoading } = ResearchStocksData()
+  const [incomestatement, setIncomestatement] = useState([])
+  
+
+  useEffect(() => {
+    if (isLoading === false) {
+      //const stocsincome= stock_research_stocks_data.income_statement
+
+      const transformedData = [
+        {
+          label: "Interest Earned",
+          values: stock_research_stocks_data.income_statement.map((item) => item.interest_earned),
+        },
+        { label: "Other Income", values: stock_research_stocks_data.income_statement.map((item) => item.other_income) },
+        {
+          label: "Total Income",
+          values: stock_research_stocks_data.income_statement.map((item) => item.total_income),
+        },
+        {
+          label: "Total Expenditure",
+          values: stock_research_stocks_data.income_statement.map((item) => item.total_expenditure),
+        },
+        {
+          label: "Operating Profit",
+          values: stock_research_stocks_data.income_statement.map((item) => item.operating_profit),
+        },
+        {
+          label: "Provisions & Contingencies",
+          values: stock_research_stocks_data.income_statement.map((item) => item.provisions_contigencies),
+        },
+        { label: "Profit Before Tax", values: stock_research_stocks_data.income_statement.map((item) => item.profit_before_tax) },
+        {
+          label: "Tax",
+          values: stock_research_stocks_data.income_statement.map((item) => item.tax),
+        },
+        {
+          label: "Net Profit",
+          values: stock_research_stocks_data.income_statement.map((item) => item.net_profit),
+        },
+        {
+          label: "Gross NPA",
+          values: stock_research_stocks_data.income_statement.map((item) => item.gross_npa),
+        },
+
+        {
+          label: "Gross NPA (%)",
+          values: stock_research_stocks_data.income_statement.map((item) => item.gross_npa_percentage),
+        },
+        {
+          label: "Net NPA",
+          values: stock_research_stocks_data.income_statement.map((item) => item.net_npa),
+        },
+        {
+          label: "Net NPA (%)",
+          values: stock_research_stocks_data.income_statement.map((item) => item.net_npa_percentage)
+        },
+      ];
+      
+
+      setIncomestatement(transformedData)
+
+
+    }
+  }, [])
+
+
   return (
 
     <div className="riskconcernpage-container">
@@ -35,45 +102,39 @@ const RiskConcernPage = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Mar 2019</th>
-                <th>Mar 2020</th>
-                <th>Mar 2021</th>
-                <th>Mar 2022</th>
-                <th>Mar 2023</th>
-                <th>Mar 2024</th>
-              </tr>
+                <th>2020</th>
+                <th>2021</th>
+                <th>2022</th>
+                <th>2023</th>
+               </tr>
             </thead>
             <tbody>
-              {[
-                ['Interest Earned', '2,53,322', '2,69,852', '2,78,115', '2,89,973', '3,50,845', '4,39,189'],
-                ['Other Income', '77,365', '98,159', '1,07,222', '1,17,000', '1,22,534', '1,55,386'],
-                ['Total Income', '3,30,687', '3,68,011', '3,85,338', '4,06,973', '4,73,378', '5,94,575'],
-                ['Total Expenditure', '3,27,618', '3,49,834', '3,61,058', '3,70,617', '4,16,820', '5,26,437'],
-                ['Operating Profit', '1,14,800', '1,31,782', '1,50,430', '1,74,363', '1,89,814', '2,35,894'],
-                ['Provisions & Contingencies', '56,951', '56,928', '54,618', '40,059', '37,024', '30,807'],
-                ['Profit Before Tax', '5,929', '30,052', '32,809', '49,736', '75,398', '91,230'],
-                ['Tax', '2,860', '11,875', '8,529', '13,379', '18,840', '23,092'],
-                ['Net Profit', '3,069', '18,177', '24,280', '36,356', '56,558', '68,138'],
-                ['Gross NPA', '1,19,270', '1,49,091', '1,26,389', '1,12,023', '90,927', '84,276'],
-                ['Gross NPA (%)', '5.34', '6.00', '5.00', '3.97', '2.78', '2.24'],
-                ['Net NPA', '64,584', '51,871', '36,809', '27,965', '21,466', '21,051'],
-                ['Net NPA (%)', '0.58', '2.23', '1.50', '1.02', '0.67', '0.57'],
-              ].map((row, i) => (
-                <tr key={i}>
-                  {row.map((cell, j) => (
-                    <td key={j}>{cell}</td>
-                  ))}
-                </tr>
+              {incomestatement.map((row, index) => (
+                <React.Fragment key={index}>
+                  {/* Main row */}
+                  <tr className={"highlight-row"}>
+                    <td >
+                      {row.label}
+
+                    </td>
+                    {row.values.map((value, i) => (
+                      <td key={i}>{value}</td>
+                    ))}
+                  </tr>
+
+                  {/* Render subcategories if expanded */}
+
+                </React.Fragment>
               ))}
             </tbody>
           </table>
         </div>
         <p className="riskconcernpage-source">Source: Company Report/FinanceShastra Research</p>
       </section>
-  
-   
-     <Balancesheetriskconcernpage/>
-      <CashFlowRiskConcernPage/>
+
+
+      <Balancesheetriskconcernpage />
+      <CashFlowRiskConcernPage />
     </div>
   );
 };

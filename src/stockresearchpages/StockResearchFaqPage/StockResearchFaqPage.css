@@ -49,7 +49,25 @@
   .faq-item{
     margin-bottom: 10px;
   }
-/* Responsive adjustments for tablets (max-width: 768px) */
+    @media (min-width: 1536px) {
+.stockresearchfaqpage-container {
+    width: 100%;
+    font-family: 'calibri';
+    margin-top: 80px;
+    font-family: 'calibri';
+    margin-bottom: 100px;
+    margin-left: 130px;
+}
+    }
+   @media (min-width: 1280px) and (max-width: 1535px) {
+    .stockresearchfaqpage-container {
+    font-family: 'calibri';
+    margin-top: 80px;
+    font-family: 'calibri';
+    margin-bottom: 100px;
+    margin-left: 230px;
+}
+   }
 @media (max-width: 768px) {
   .stockresearchfaqpage-container {
     margin-top: 40px;

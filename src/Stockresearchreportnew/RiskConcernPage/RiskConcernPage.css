@@ -34,7 +34,7 @@ margin-bottom: 10px;
 }
 
 .riskconcernpage-table {
-  overflow-x: auto;
+
   margin-top: 20px;
 }
 .riskconcernpage-table table {
@@ -148,5 +148,9 @@ margin-bottom: 10px;
   .riskconcernpage-risks p,
 .riskconcernpage-outlook p {
   font-size: 13px;
+}
+.riskconcernpage-table {
+  overflow-x: auto;
+  margin-top: 20px;
 }
 }
