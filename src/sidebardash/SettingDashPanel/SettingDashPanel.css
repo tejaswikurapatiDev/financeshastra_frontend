@@ -3,6 +3,7 @@
     margin: auto;
     font-family:'calibri';
     
+    
   }
   
   .settingsTitle {
@@ -244,7 +245,27 @@
   .closePopupButton:hover {
     background-color: #24b676;
   }
-  
+     @media (min-width: 1536px) {
+      .settingsContainer {
+    max-width: 60%;
+    margin: auto;
+    font-family: 'calibri';
+    margin-left: 410px;
+
+}
+.settingsTitle{
+  margin-top: 100px;
+}
+     }
+      @media (min-width: 1280px) and (max-width: 1535px) {
+            .settingsContainer {
+    max-width: 60%;
+    margin: auto;
+    font-family: 'calibri';
+    margin-left: 380px;
+
+}
+      }
   @media (min-width: 2200px) {
     .notificationsPanel {
       border: 1px solid #ddd;

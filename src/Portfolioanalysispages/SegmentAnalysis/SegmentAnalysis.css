@@ -100,7 +100,28 @@ margin-left: 270px;
     display: inline-block;
     margin-right: 8px;
   }
-  
+   @media (min-width: 1536px) {
+    .size-analysis-container {
+    width: 160%;
+    font-family: 'calibri';
+    height: 345px;
+    background: white;
+    padding: 34px;
+    border-radius: 10px;
+    border: 3px solid rgb(224, 221, 221);
+    box-shadow: 0px 4px 10px rgba(210, 207, 207, 0.929);
+    margin-left: 0px;
+}
+.segment-card {
+    flex: 1 1;
+    width: 100%;
+    padding: 37px;
+    background-color: white;
+    border: 3px solid rgb(241, 235, 235);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(174, 170, 170, 0.979);
+}
+   }
   @media screen and (max-width: 768px){
     .segment-card {
       background: white;

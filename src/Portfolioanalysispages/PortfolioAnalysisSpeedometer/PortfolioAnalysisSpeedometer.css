@@ -126,7 +126,24 @@ td {
   font-size: 9px !important;
   /* Slightly smaller for mobile */
 }
-
+   @media (min-width: 1536px) {
+    .speedometer-container {
+    display: flex
+;
+    flex-direction: column;
+    color: black;
+    padding: 38px;
+    background: white;
+    border: 1px solid rgb(198, 190, 190);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(181, 181, 181, 0.982);
+    max-width: 100%;
+    height: 350px;
+    font-family: 'calibri';
+    margin-top: 20px;
+    color: #676565;
+}
+   }
 
 /* Adjust width for screens smaller than 768px */
 @media (max-width: 768px) {

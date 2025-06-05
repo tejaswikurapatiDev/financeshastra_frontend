@@ -47,7 +47,7 @@ const PortfolioanalysisfAQS = () => {
       <div className="faq-list">
       
         {faqs.map((faq, index) => (
-          <div key={index} className="faq-item">
+          <div key={index} className="faq-itemport">
             <button
               className="faq-question"
               onClick={() => toggleFaqAnswer(index)}
