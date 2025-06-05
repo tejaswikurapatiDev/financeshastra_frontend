@@ -58,7 +58,7 @@ const Invoicedownloadpage = ({planName, purchaseDate, amount, username, address,
 </div>
 
       {/* Paid Stamp Image Below the Summary, Positioned to the Right */}
-      <div className="invoice-paid-image">
+      <div className="invoicepdfpaidimage">
       <img src={paidimg} alt="Paid Stamp" />
       </div>
     </div>
