@@ -33,7 +33,7 @@
   background-color: #24b676 !important;
   color: white !important;
   font-weight: bold;
-  padding: 2px !important;
+  padding: 0px !important;
   text-align: center;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
@@ -43,7 +43,7 @@
 
 /* Data Cell Style */
 .customm-table td {
-  padding: 2px !important;
+  padding: 0px !important;
   text-align: center;
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
