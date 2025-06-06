@@ -127,8 +127,16 @@
     margin-right: -300px;
     
   } 
+
 }
-@media (min-width: 1280px) and (max-width: 1535px){
+@media (max-width: 1379px) {
+  .Watchlistdashboardmain-container {
+    width: 115%;
+    height: 505px;
+  }
+}
+
+@media (min-width: 1380px) and (max-width: 1535px){
   .Watchlistdashboardmain-container {
     width:420px;
     background: #ffffff;
@@ -141,6 +149,8 @@
     
   }
 }
+
+
 @media (min-width: 1024px) and (max-width: 1209px)  {
   .Watchlistdashboardmain-container {
     width: 262px;
