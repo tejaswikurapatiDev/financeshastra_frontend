@@ -1,77 +1,134 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import useResearchStocksData from '../ResearchStocksData';
+import { API_BASE_URL } from '../../config';
 
 
 const Balancesheetriskconcernpage = () => {
-  const headers = [
-    '', 'Mar 19', 'Mar 20', 'Mar 21', 'Mar 22', 'Mar 23', 'Mar 24'
-  ];
+  const { stock_research_stocks_data, isLoading } = useResearchStocksData(API_BASE_URL);
+  const [years, setYears] = useState([]);
+  const [balacesheet, setbalancesheet] = useState([])
 
-  const data = [
-    ['Equity Capital', '897', '925', '934', '934', '950', '961'],
-    ['Reserves', '936', '1,395', '1,511', '1,674', '1,425', '823'],
-    ['Borrowings', '1,259', '1,216', '1,465', '1,613', '1,877', '1,796'],
-    ['Long Term Borrowings', '300', '180', '300', '240', '180', '120'],
-    ['Short term Borrowings', '959', '1,036', '1,164', '1,372', '1,696', '1,675'],
-    ['Lease Liabilities', '0', '0', '1', '1', '1', '1'],
-    ['Other Borrowings', '0', '0', '0', '0', '0', '0'],
-    ['Other Liabilities', '3,943', '4,225', '5,043', '5,394', '5,280', '6,080'],
-    ['Trade Payables', '1,805', '2,183', '1,885', '1,690', '1,377', '1,557'],
-    ['Advance from Customers', '549', '566', '1,032', '1,034', '966', '1,065'],
-    ['Other liability items', '1,589', '1,476', '2,126', '2,670', '2,908', '2,537'],
-    ['Total Liabilities', '7,034', '7,761', '8,953', '9,615', '9,531', '9,640'],
-    ['Fixed Assets', '2,695', '2,693', '2,702', '2,729', '2,752', '2,732'],
-    ['Land', '2,219', '2,219', '2,218', '2,217', '2,217', '2,217'],
-    ['Building', '112', '131', '146', '147', '150', '150'],
-    ['Plant Machinery', '340', '361', '394', '448', '507', '509'],
-    ['Equipments', '3', '3', '3', '4', '6', '6'],
-    ['Furniture n fittings', '1', '1', '1', '1', '1', '2'],
-    ['Vehicles', '1', '1', '2', '2', '3', '3'],
-    ['Other fixed assets', '98', '99', '99', '121', '131', '143'],
-    ['Gross Block', '2,774', '2,814', '2,864', '2,942', '3,014', '3,030'],
-    ['Accumulated Depreciation', '80', '122', '162', '213', '262', '298'],
-    ['CWIP', '165', '189', '169', '150', '139', '142'],
-    ['Investments', '40', '38', '36', '35', '35', '35'],
-    ['Other Assets', '4,135', '4,841', '6,046', '6,701', '6,605', '6,731'],
-    ['Inventories', '185', '213', '234', '233', '290', '264'],
-    ['Trade receivables', '2,657', '2,761', '2,552', '2,730', '2,429', '2,441'],
-    ['Cash Equivalents', '204', '245', '548', '306', '215', '832'],
-    ['Loans n Advances', '0', '0', '0', '0', '0', '0'],
-    ['Other asset items', '1,090', '1,622', '2,712', '3,431', '3,671', '3,193'],
-    ['Total Assets', '7,034', '7,761', '8,953', '9,615', '9,531', '9,640']
-  ];
+
+  useEffect(() => {
+    if (!isLoading && stock_research_stocks_data?.income_statement) {
+      console.log(stock_research_stocks_data)
+      const stocksBalanceSheet = stock_research_stocks_data.balancesheet;
+
+      const transformedData = [
+        {
+          label: "Equity Capital",
+          values: stocksBalanceSheet.map((item) => item.equity_capital),
+        },
+        { label: "Reserves", values: stocksBalanceSheet.map((item) => item.reserves) },
+        {
+          label: "Borrowings",
+          values: stocksBalanceSheet.map((item) => item.borrowings),
+        },
+        { label: "Long term Borrowings", values: stocksBalanceSheet.map((item) => item.long_term_borrowings) },
+        { label: "Short term Borrowings", values: stocksBalanceSheet.map((item) => item.short_term_borrowings) },
+        { label: "Lease Liabilities", values: stocksBalanceSheet.map((item) => item.lease_liabilities) },
+        { label: "Other Borrowings", values: stocksBalanceSheet.map((item) => item.other_borrowings) },
+
+
+        {
+          label: "Other Liabilities",
+          values: stocksBalanceSheet.map((item) => item.other_liabilities),
+        },
+        { label: "Trade Payables", values: stocksBalanceSheet.map((item) => item.trade_payables) },
+        { label: "Advance from Customers", values: stocksBalanceSheet.map((item) => item.advance_from_customers) },
+        { label: "Other Liability Items", values: stocksBalanceSheet.map((item) => item.other_liability_items) },
+
+        {
+          label: "Total Liabilities",
+          values: stocksBalanceSheet.map((item) => item.total_liabilities),
+        },
+        {
+          label: "Fixed Assets",
+          values: stocksBalanceSheet.map((item) => item.fixed_assets),
+        },
+        { label: "Land", values: stocksBalanceSheet.map((item) => item.land) },
+        { label: "Building", values: stocksBalanceSheet.map((item) => item.building) },
+        { label: "Plant Machinery", values: stocksBalanceSheet.map((item) => item.plant_machinery) },
+        { label: "Equipments", values: stocksBalanceSheet.map((item) => item.equipments) },
+        { label: "Furniture n fittings", values: stocksBalanceSheet.map((item) => item.furniture_n_fittings) },
+        { label: "Vehicles", values: stocksBalanceSheet.map((item) => item.vehicles) },
+        { label: "Other fixed assets", values: stocksBalanceSheet.map((item) => item.other_fixed_assets) },
+        { label: "Gross Block", values: stocksBalanceSheet.map((item) => item.gross_block) },
+        { label: "Accumulated Depreciation", values: stocksBalanceSheet.map((item) => item.accumulated_depreciation) },
+        { label: "CWIP", values: stocksBalanceSheet.map((item) => item.cwip) },
+        {
+          label: "Investments",
+          values: stocksBalanceSheet.map((item) => item.investments),
+        },
+        {
+          label: "Other Assets",
+          values: stocksBalanceSheet.map((item) => item.other_assets),
+        },
+        { label: "Inventories", values: stocksBalanceSheet.map((item) => item.inventories) },
+        { label: "Trade receivables", values: stocksBalanceSheet.map((item) => item.trade_receivables) },
+        { label: "Cash Equivalents", values: stocksBalanceSheet.map((item) => item.cash_equivalents) },
+        { label: "Loans n Advances", values: stocksBalanceSheet.map((item) => item.loans_n_advances) },
+        { label: "Other asset items", values: stocksBalanceSheet.map((item) => item.other_asset_items) },
+        {
+          label: "Total Assets",
+          values: stocksBalanceSheet.map((item) => item.total_assets),
+        },
+      ];
+
+      const fiscalYears = stocksBalanceSheet.map((item) => item.fiscal_year);
+  
+      setYears(fiscalYears);
+  
+      setbalancesheet(transformedData);
+
+
+      
+      console.log("teranceformeddata: ", transformedData)
+    }
+
+  }, [isLoading, stock_research_stocks_data]);
+
+  
 
   return (
     <div className="riskconcernpage-containerrr">
-         <div className="riskconcernpage-outlook">
-      <h4>Balance Sheet</h4>
-      <p>Figures in ₹ Crores</p>
-      <div className="riskconcernpage-table">
-        <table>
-          <thead>
-            <tr>
-              {headers.map((header, index) => (
-                <th key={index}>{header}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    className={cellIndex === 0 ? 'balancesheetriskconcernpage-align-left' : ''}
-                  >
-                    {cell}
-                  </td>
-                ))}
+      <div className="riskconcernpage-outlook">
+        <h4>Balance Sheet</h4>
+        <p>Figures in ₹ Crores</p>
+        <div className="riskconcernpage-table">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                {years.map((year, index) => (
+                    <th key={index}>{year}</th>
+                  ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              
+              {balacesheet.map((row, index) => (
+                              <React.Fragment key={index}>
+                                {/* Main row */}
+                                <tr className={"highlight-row"}>
+                                  <td >
+                                    {row.label}
+              
+                                  </td>
+                                  {row.values.map((value, i) => (
+                                    <td key={i}>{value}</td>
+                                  ))}
+                                </tr>
+              
+                                {/* Render subcategories if expanded */}
+              
+                              </React.Fragment>
+                            ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="riskconcernpage-source">Source: Company Report/FinanceShastra Research</p>
       </div>
-      <p className="riskconcernpage-source">Source: Company Report/FinanceShastra Research</p>
-    </div>
     </div>
   );
 };

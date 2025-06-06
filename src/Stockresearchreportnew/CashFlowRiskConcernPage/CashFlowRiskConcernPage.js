@@ -1,35 +1,123 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CashFlowRiskConcernPage.css';
-
-const cashFlowData = [
-  ['Cash from Operating Activity', '24', '-199', '94', '-437', '-294', '974'],
-  ['Profit from operations', '369', '240', '136', '130', '-154', '-282'],
-  ['Receivables', '-106', '-647', '-893', '-907', '33', '455'],
-  ['Inventory', '7', '-28', '-20', '0', '-56', '23'],
-  ['Payables', '-245', '236', '872', '339', '-116', '777'],
-  ['Other WC items', '0', '1', '0', '0', '0', '0'],
-  ['Working capital changes', '-345', '-438', '-42', '-568', '-139', '1,256'],
-  ['Direct taxes', '0', '0', '0', '0', '0', '0'],
-  ['Other operating items', '0', '0', '0', '0', '0', '0'],
-  ['Cash from Investing Activity', '-126', '-73', '-304', '178', '46', '-556'],
-  ['Fixed assets purchased', '-128', '-64', '-31', '-60', '0', '0'],
-  ['Fixed assets sold', '0', '2', '28', '3', '16', '0'],
-  ['Capital WIP', '0', '0', '0', '0', '-61', '-38'],
-  ['Investments purchased', '-2', '0', '0', '0', '-0', '-0'],
-  ['Investments sold', '0', '2', '2', '1', '0', '0'],
-  ['Interest received', '4', '16', '12', '5', '5', '3'],
-  ['Other investing items', '0', '-28', '-314', '229', '85', '-522'],
-  ['Cash from Financing Activity', '-19', '285', '198', '247', '241', '-322'],
-  ['Proceeds from shares', '0', '0', '0', '0', '0', '0'],
-  ['Proceeds from borrowings', '32', '0', '250', '148', '264', '0'],
-  ['Repayment of borrowings', '0', '-43', '0', '0', '0', '-81'],
-  ['Interest paid fin', '-106', '-141', '-160', '-192', '-210', '-241'],
-  ['Share application money', '55', '105', '72', '107', '0', '0'],
-  ['Other financing items', '0', '364', '3', '220', '80', '-0'],
-  ['Net Cash Flow', '-121', '13', '-12', '-12', '-6', '96']
-];
+import useResearchStocksData from '../ResearchStocksData';
+import { API_BASE_URL } from '../../config';
 
 const CashFlowRiskConcernPage = () => {
+  const { stock_research_stocks_data, isLoading } = useResearchStocksData(API_BASE_URL);
+const [years, setYears] = useState([]);
+  const [cash_flow_stock, setcash_flow] = useState([])
+
+  useEffect(() => {
+  if (!isLoading && stock_research_stocks_data?.cash_flow) {
+    const stocs_cash_flow = stock_research_stocks_data.cash_flow;
+
+    const transformedData = [
+        {
+          label: "Cash from Operating Activity",
+          values: stocs_cash_flow.map((item) => item.cash_from_operating_activity),
+        },
+        { label: "Profit from operations", values: stocs_cash_flow.map((item) => item.profit_from_operations) },
+        {
+          label: "Receivables",
+          values: stocs_cash_flow.map((item) => item.receivables),
+        },
+        {
+          label: "Inventory",
+          values: stocs_cash_flow.map((item) => item.inventory),
+        },
+        {
+          label: "Payables",
+          values: stocs_cash_flow.map((item) => item.payables),
+        },
+        {
+          label: "Other WC items",
+          values: stocs_cash_flow.map((item) => item.other_wc_items),
+        },
+        { label: "Working capital changes", values: stocs_cash_flow.map((item) => item.working_capital_changes) },
+        {
+          label: "Direct taxes",
+          values: stocs_cash_flow.map((item) => item.direct_taxes),
+        },
+        {
+          label: "Other operating items",
+          values: stocs_cash_flow.map((item) => item.other_operating_items),
+        },
+        {
+          label: "Cash from Investing Activity",
+          values: stocs_cash_flow.map((item) => item.cash_from_investing_activity),
+        },
+
+        {
+          label: "Fixed assests purchased",
+          values: stocs_cash_flow.map((item) => item.fixed_assets_purchased),
+        },
+        {
+          label: "Fixed assets sold",
+          values: stocs_cash_flow.map((item) => item.fixed_assets_sold),
+        },
+        {
+          label: "Capital WIP",
+          values: stocs_cash_flow.map((item) => item.capital_wip)
+        },
+        {
+          label: "Investments purchased",
+          values: stocs_cash_flow.map((item) => item.investments_purchased),
+        },
+        {
+          label: "Investments sold",
+          values: stocs_cash_flow.map((item) => item.investments_sold),
+        },
+        {
+          label: "Interest received",
+          values: stocs_cash_flow.map((item) => item.interest_received)
+        },
+        {
+          label: "Other Investmenting items",
+          values: stocs_cash_flow.map((item) => item.other_investing_items),
+        },
+        {
+          label: "Cash from Financing Activity",
+          values: stocs_cash_flow.map((item) => item.cash_from_financing_activity),
+        },
+        {
+          label: "Proceeds from shares",
+          values: stocs_cash_flow.map((item) => item.proceeds_from_shares)
+        },
+        {  label: "Proceeds from borrowings",
+          values: stocs_cash_flow.map((item) => item.proceeds_from_borrowings),
+        },
+        {
+          label: "Repayment of borrowings",
+          values: stocs_cash_flow.map((item) => item.repayment_of_borrowings)
+        },
+        {
+          label: "Interest paid fin",
+          values: stocs_cash_flow.map((item) => item.interest_paid_fin),
+        },
+        {
+          label: "Share application money",
+          values: stocs_cash_flow.map((item) => item.share_application_money),
+        },
+        {
+          label: "Other financing items",
+          values: stocs_cash_flow.map((item) => item.other_financing_items)
+        },
+        {
+          label: "Net Cash Flow",
+          values: stocs_cash_flow.map((item) => item.net_cash_flow)
+        },
+      ];
+
+      const fiscalYears = stocs_cash_flow.map((item) => item.fiscal_year);
+
+    setYears(fiscalYears);
+
+    setcash_flow(transformedData);
+  }
+
+}, [isLoading, stock_research_stocks_data]);
+
   return (
   <div className="riskconcernpage-containerrr">
         <div className="riskconcernpage-outlook">
@@ -40,21 +128,29 @@ const CashFlowRiskConcernPage = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>Mar 2019</th>
-                <th>Mar 2020</th>
-                <th>Mar 2021</th>
-                <th>Mar 2022</th>
-                <th>Mar 2023</th>
-                <th>Mar 2024</th>
+                {years.map((year, index) => (
+                    <th key={index}>{year}</th>
+                  ))}
               </tr>
             </thead>
             <tbody>
-              {cashFlowData.map((row, i) => (
-                <tr key={i}>
-                  {row.map((cell, j) => (
-                    <td key={j} className={j === 0 ? 'cashflowriskconcernpage-align-left' : ''}>{cell}</td>
-                  ))}
-                </tr>
+             {cash_flow_stock.map((row, index) => (
+                <React.Fragment key={index}>
+                  {/* Main row */}
+                  <tr className={"highlight-row"}>
+                    <td >
+                      {row.label}
+
+                    </td>
+                    {row.values.map((value, i) => (
+                      <td key={i}>{value}</td>
+                    ))}
+                  </tr>
+
+                  {/* Render subcategories if expanded */}
+
+                </React.Fragment>
+             
               ))}
             </tbody>
           </table>

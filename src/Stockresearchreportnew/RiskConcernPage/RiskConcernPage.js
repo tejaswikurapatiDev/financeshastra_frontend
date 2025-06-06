@@ -3,73 +3,77 @@ import './RiskConcernPage.css';
 import Balancesheetriskconcernpage from '../balancesheetriskconcernpage/balancesheetriskconcernpage';
 import CashFlowRiskConcernPage from '../CashFlowRiskConcernPage/CashFlowRiskConcernPage';
 import ResearchStocksData from '../ResearchStocksData';
+import { API_BASE_URL } from '../../config';
+import useResearchStocksData from '../ResearchStocksData';
+
 
 const RiskConcernPage = () => {
-  const { stock_research_stocks_data, isLoading } = ResearchStocksData()
+  const { stock_research_stocks_data, isLoading } = useResearchStocksData(API_BASE_URL);
+const [years, setYears] = useState([]);
   const [incomestatement, setIncomestatement] = useState([])
-  
 
   useEffect(() => {
-    if (isLoading === false) {
-      //const stocsincome= stock_research_stocks_data.income_statement
+  if (!isLoading && stock_research_stocks_data?.income_statement) {
+    const stocsincome = stock_research_stocks_data.income_statement;
 
-      const transformedData = [
+    const transformedData = [
         {
           label: "Interest Earned",
-          values: stock_research_stocks_data.income_statement.map((item) => item.interest_earned),
+          values: stocsincome.map((item) => item.interest_earned),
         },
-        { label: "Other Income", values: stock_research_stocks_data.income_statement.map((item) => item.other_income) },
+        { label: "Other Income", values: stocsincome.map((item) => item.other_income) },
         {
           label: "Total Income",
-          values: stock_research_stocks_data.income_statement.map((item) => item.total_income),
+          values: stocsincome.map((item) => item.total_income),
         },
         {
           label: "Total Expenditure",
-          values: stock_research_stocks_data.income_statement.map((item) => item.total_expenditure),
+          values: stocsincome.map((item) => item.total_expenditure),
         },
         {
           label: "Operating Profit",
-          values: stock_research_stocks_data.income_statement.map((item) => item.operating_profit),
+          values: stocsincome.map((item) => item.operating_profit),
         },
         {
           label: "Provisions & Contingencies",
-          values: stock_research_stocks_data.income_statement.map((item) => item.provisions_contigencies),
+          values: stocsincome.map((item) => item.provisions_contigencies),
         },
-        { label: "Profit Before Tax", values: stock_research_stocks_data.income_statement.map((item) => item.profit_before_tax) },
+        { label: "Profit Before Tax", values: stocsincome.map((item) => item.profit_before_tax) },
         {
           label: "Tax",
-          values: stock_research_stocks_data.income_statement.map((item) => item.tax),
+          values: stocsincome.map((item) => item.tax),
         },
         {
           label: "Net Profit",
-          values: stock_research_stocks_data.income_statement.map((item) => item.net_profit),
+          values: stocsincome.map((item) => item.net_profit),
         },
         {
           label: "Gross NPA",
-          values: stock_research_stocks_data.income_statement.map((item) => item.gross_npa),
+          values: stocsincome.map((item) => item.gross_npa),
         },
 
         {
           label: "Gross NPA (%)",
-          values: stock_research_stocks_data.income_statement.map((item) => item.gross_npa_percentage),
+          values: stocsincome.map((item) => item.gross_npa_percentage),
         },
         {
           label: "Net NPA",
-          values: stock_research_stocks_data.income_statement.map((item) => item.net_npa),
+          values: stocsincome.map((item) => item.net_npa),
         },
         {
           label: "Net NPA (%)",
-          values: stock_research_stocks_data.income_statement.map((item) => item.net_npa_percentage)
+          values: stocsincome.map((item) => item.net_npa_percentage)
         },
       ];
-      
 
-      setIncomestatement(transformedData)
+      const fiscalYears = stocsincome.map((item) => item.fiscal_year);
 
+    setYears(fiscalYears);
 
-    }
-  }, [])
+    setIncomestatement(transformedData);
+  }
 
+}, [isLoading, stock_research_stocks_data]);
 
   return (
 
@@ -102,10 +106,9 @@ const RiskConcernPage = () => {
             <thead>
               <tr>
                 <th></th>
-                <th>2020</th>
-                <th>2021</th>
-                <th>2022</th>
-                <th>2023</th>
+                {years.map((year, index) => (
+                    <th key={index}>{year}</th>
+                  ))}
                </tr>
             </thead>
             <tbody>
