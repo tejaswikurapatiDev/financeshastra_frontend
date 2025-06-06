@@ -14,66 +14,64 @@
 }
  
 
-/* Table style */
+
+
+/* Table Base Style */
 .customm-table {
   width: 100%;
-  border-collapse: collapse;
-  margin: 10px 0 20px 0;
-  table-layout: fixed;
-  margin-top: 30px;
-}
-
-/* Remove all borders first */
-.customm-table th,
-.customm-table td {
-  padding: 5px;
-  text-align: center;
-  border-left: none;
-  border-right: none;
-  border-top: 3px solid rgb(199, 192, 192);
-  border-bottom: 3px solid rgb(199, 192, 192);
-}
-
-.customm-table th {
-  padding: 12px;
-  text-align: center;
+  border-collapse: separate; /* Needed for border radius to work */
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
  
 }
 
-.customm-table tbody tr:last-child th {
-  border-top: 3px solid #0349A8;
-  border-bottom: 3px solid #0349A8;
-
+/* Header Style */
+.customm-th {
+  background-color: #24b676 !important;
+  color: white !important;
+  font-weight: bold;
+  padding: 2px !important;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
 }
 
-
-
-/* Add left border to first column only */
-.customm-table th:first-child,
-.customm-table td:first-child {
-  border-left: 3px solid rgb(199, 192, 192);
-
-
+/* Data Cell Style */
+.customm-table td {
+  padding: 2px !important;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
 }
 
-.customm-table thead tr:first-child th {
-  border-top: 3px solid #0349A8;
-  border-bottom: 3px solid #0349A8;
-  
-}
-/* Add right border to last column only */
-.customm-table th:last-child,
-.customm-table td:last-child {
-  border-right: 3px solid rgb(199, 192, 192);
+/* Striped Rows */
+.customm-table tr:nth-child(even) td {
+  background-color: rgba(224, 238, 235, 0.59);
 }
 
-/* Optional: header background and alternating row color */
-
-
-.customm-table tbody tr:nth-child(even) {
-  background-color: #F5F4FA;
+/* Rounded Corners */
+.customm-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
 }
 
+.customm-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.customm-table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.customm-table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
 
 .investblog-metaresult{
       font-size: 16px;
