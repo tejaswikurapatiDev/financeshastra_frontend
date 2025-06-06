@@ -13,14 +13,15 @@ const StockCard = () => {
           <h2>Tata Steel Ltd</h2>
           <p className="stock-sectorcompanyres">Sector: <span className="steelcompanyres">Steel</span></p>
         </div>
-
-      </div>
-      <div className="stock-actioncompanyres">
+ <div className="stock-actioncompanyress">
         <div>
           <p className="stock-datecompanyre">26/05/2025</p></div>
         <div>
           <button className="buy-buttoncompanyrese">Buy</button></div>
       </div>
+
+      </div>
+     
 
       <div className='detail-itemcompanyress'>
         <div className="stock-detailscompanyres">
@@ -33,8 +34,14 @@ const StockCard = () => {
           <button className="download-btncompanyres">
             <span className="download-iconcompanyres"><FaArrowDown /></span> Download PDF
           </button>
+          
         </div>
-
+ <div className="stock-actioncompa">
+        <div>
+          <p className="stock-datecompanyre">26/05/2025</p></div>
+        <div>
+          <button className="buy-buttoncompanyrese">Buy</button></div>
+      </div>
 
       </div>
     </div>
