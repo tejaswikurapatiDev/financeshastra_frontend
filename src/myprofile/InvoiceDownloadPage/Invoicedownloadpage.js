@@ -31,7 +31,7 @@ const Invoicedownloadpage = ({planName, purchaseDate, amount, username, address,
         </div>
       </div>
 
-      <h2 className="invoice-plan-title">{planName}</h2>
+      <h2 className="invoice-planpdftitle">{planName}</h2>
 
       <table className="invoice-table">
         <thead>
@@ -51,14 +51,14 @@ const Invoicedownloadpage = ({planName, purchaseDate, amount, username, address,
           </tr>
         </tbody>
       </table>
-      <div className="invoice-summary">
+      <div className="invoicepdfsummary">
     <p><strong>Subtotal:</strong> <span>{amount}</span></p>
     <p><strong>Tax (0%):</strong> <span>₹0.00/-</span></p>
     <p><strong>Total (₹):</strong> <span>{amount}</span></p>
 </div>
 
       {/* Paid Stamp Image Below the Summary, Positioned to the Right */}
-      <div className="invoice-paid-image">
+      <div className="invoicepdfpaidimage">
       <img src={paidimg} alt="Paid Stamp" />
       </div>
     </div>
