@@ -8,78 +8,76 @@ import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import RiskConcernPage from '../RiskConcernPage/RiskConcernPage';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import './Companyname.css';
+
 import { FaArrowDown } from 'react-icons/fa6';
 import ResearchStocksData from '../ResearchStocksData';
 
 const Researchnewallcall = () => {
   const contentRef = useRef();
+const handleDownloadPDF = () => {
+  const input = contentRef.current;
 
-  const handleDownloadPDF = () => {
-    const input = contentRef.current;
+  html2canvas(input, {
+    scale: 2,
+    useCORS: true,
+    scrollY: -window.scrollY
+  }).then((canvas) => {
+    const imgData = canvas.toDataURL('image/jpeg', 0.8);
+    const pdf = new jsPDF('p', 'mm', 'a4');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
 
-    html2canvas(input, {
-      scale: 1, // Reduce scale to make canvas lighter
-      useCORS: true,
-      allowTaint: false,
-      scrollY: -window.scrollY // Ensure proper viewport capture
-    }).then((canvas) => {
-      const imgData = canvas.toDataURL('image/jpeg', 0.6); // Use JPEG and lower quality
-      const pdf = new jsPDF('p', 'mm', 'a4');
+    const imgWidth = pdfWidth;
+    const imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
+    let heightLeft = imgHeight;
+    let position = 0;
 
-      const imgWidth = pdfWidth;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    // First page
+    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+    heightLeft -= pdfHeight;
 
-      let heightLeft = imgHeight;
-      let position = 0;
-
-      pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+    // Add more pages if needed
+    while (heightLeft > 0) {
+      position += pdfHeight;
+      pdf.addPage();
+      pdf.addImage(imgData, 'JPEG', 0, -position, imgWidth, imgHeight);
       heightLeft -= pdfHeight;
+    }
 
-      while (heightLeft > 0) {
-        position -= pdfHeight;
-        pdf.addPage();
-        pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
-        heightLeft -= pdfHeight;
-      }
+    pdf.save('research-report.pdf');
+  });
+};
 
-      pdf.save('research-report.pdf');
-    });
-  };
 
   return (
     <div>
       <Navbar />
       <div ref={contentRef}>
         <div className="companyresearchnew">
-          <div className="stock-headercompanyres">
-            <div className="stock-titlecompanyres">
-              <h2>Tata Steel Ltd</h2>
-              <p className="stock-sectorcompanyres">
-                Sector: <span className="steelcompanyres">Steel</span>
-              </p>
-            </div>
-          </div>
-          <div className="stock-actioncompanyres">
-            <div>
-              <p className="stock-datecompanyre">26/05/2025</p>
-            </div>
-            <div>
-              <button className="buy-buttoncompanyrese">Buy</button>
-            </div>
-          </div>
+      <div className="stock-headercompanyres">
+        <div className="stock-titlecompanyres">
+          <h2>Tata Steel Ltd</h2>
+          <p className="stock-sectorcompanyres">Sector: <span className="steelcompanyres">Steel</span></p>
+        </div>
+ <div className="stock-actioncompanyress">
+        <div>
+          <p className="stock-datecompanyre">26/05/2025</p></div>
+        <div>
+          <button className="buy-buttoncompanyrese">Buy</button></div>
+      </div>
 
-          <div className="detail-itemcompanyress">
-            <div className="stock-detailscompanyres">
-              <div className="detail-itemcompanyres">Price@Reco: ₹130.14</div>
-              <div className="detail-itemcompanyres with-border">Target Price: ₹168</div>
-              <div className="detail-itemcompanyres with-border">Target Period: 16 - 24 Months</div>
-              <div className="detail-itemcompanyres with-border">Potential Returns: 29%</div>
-            </div>
-            <div>
+      </div>
+
+          
+      <div className='detail-itemcompanyress'>
+        <div className="stock-detailscompanyres">
+          <div className="detail-itemcompanyres">Price@Reco: ₹130.14</div>
+          <div className="detail-itemcompanyres with-border">Target Price: ₹168</div>
+          <div className="detail-itemcompanyres with-border">Target Period: 16 - 24 Months</div>
+          <div className="detail-itemcompanyres with-border">Potential Returns: 29%</div>
+        </div>
+        <div>
               <button className="download-btncompanyres" onClick={handleDownloadPDF}>
                 <span className="download-iconcompanyres">
                   <FaArrowDown />
@@ -87,6 +85,13 @@ const Researchnewallcall = () => {
                 Download PDF
               </button>
             </div>
+            <div className="stock-actioncompa">
+        <div>
+          <p className="stock-datecompanyre">26/05/2025</p></div>
+        <div>
+          <button className="buy-buttoncompanyrese">Buy</button></div>
+      </div>
+
           </div>
         </div>
         <ResearchDashboard />
