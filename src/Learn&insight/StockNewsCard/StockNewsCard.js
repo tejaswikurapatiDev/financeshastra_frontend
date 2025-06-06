@@ -6,6 +6,7 @@ import Navbar from '../../Navbar/Navbar';
 import FooterForAllPage from '../../FooterForAllPage/FooterForAllPage';
 import { API_BASE_URL } from "../../config";
 import ClipLoader from 'react-spinners/ClipLoader';
+import { MdDateRange } from 'react-icons/md';
 import sanitizeHtml from "sanitize-html";
 const override = {
   display: "block",
@@ -102,7 +103,7 @@ const StockNewsCard = () => {
       <div className="stocknewsss">
         <h2 className='stocknewsssheadone'>Stock News</h2>
         <h2 className="stocknewsss-headline">{article.title}</h2>
-        <p className="stocknewsss-subtext">Published on {new Date(article.created_at).toLocaleDateString()}</p>
+        <p className="stocknewsss-subtext"> <MdDateRange className="dateipocard" /> Published on {new Date(article.created_at).toLocaleDateString()}</p>
         <img src={article.image_url} alt="Stock News" className="stocknewsss-image" />
 
         <div className="stocknewsss-stock-section">
