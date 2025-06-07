@@ -436,7 +436,8 @@ body {
   }
 }
 
-@media(min-width:1536px) {
+
+@media (min-width: 1536px) and (max-width: 1919px) {
   .pagination-containerrsector {
     display: flex;
     gap: 660px;
@@ -481,6 +482,41 @@ body {
   }
 }
 
+@media (min-width: 1920px) and (max-width: 1920px) and (min-height: 1080px) {
+ .DashboardMainPagetable-headerrindexx {
+    display: flex
+;
+    gap: 10px;
+    margin-bottom: 230px;
+    margin-left: 300px;
+    margin-top: -450px;
+}
+.DashboardMainPagetable-tableeee {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.pagination-sliderr {
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+    flex-wrap: wrap;
+    max-width: 170%;
+    box-sizing: border-box;
+    margin-right: -420px;
+}
+.pagination-containerrsectorr {
+    display: flex
+;
+    justify-content: space-between;
+    max-width: 200%;
+    margin-left: 15px;
+    align-items: center;
+}
+}
 
 @media (min-width: 1280px) and (max-width: 1535px) {
   .DashboardMainPagetable-headerrindexx {
@@ -554,6 +590,8 @@ body {
 
     
 }
+
+
 @media (min-width: 1024px) and (max-width: 1279px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
@@ -592,7 +630,11 @@ body {
    max-width: 56%;
    margin-left: 0px;
 }
-
+    .DashboardMainPagetable-tableeee {
+        width: 90%;
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
 }
 
 
@@ -617,7 +659,7 @@ body {
   display: flex;
   justify-content: space-between;
    max-width: 100%;
-   margin-left: 40px;
+   margin-left: 25px;
 }
 
   body {

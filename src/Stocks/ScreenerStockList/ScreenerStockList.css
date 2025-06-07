@@ -1854,7 +1854,7 @@ flex-direction: column;
   {
   .pagination-stockcontainer {
     display: flex;
-    gap: 1000px;
+
     align-items: center;
     margin-top: 20px;
 

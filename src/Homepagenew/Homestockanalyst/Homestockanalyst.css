@@ -44,10 +44,11 @@ cursor: pointer; /* Pointer cursor on hover */
 
 .DashboardMainPagetable-tableeee td{
   font-size: 15px;
+  cursor: pointer;
 }
 
 .DashboardMainPagetable-tableeee th{
-  font-size: 16px;
+  font-size: 14px;
 }
 .DashboardMainPagetable-headerrr {
   display: flex;
@@ -127,7 +128,7 @@ margin-top: 290px;
   gap: 700px;
   margin-left: 15px;
 }
-@media(min-width:1536px){
+@media (min-width: 1536px) and (max-width: 1919px) {
 .pagination-containerreasearch {
  gap: 660px;
 }
@@ -144,6 +145,31 @@ margin-top: 290px;
     align-items: center;
     gap: 5px;
     margin-right: -0px;
+}
+}
+@media (min-width: 1920px) and (max-width: 1920px) {
+      .pagination-slider {
+        display: flex
+;
+        align-items: center;
+        gap: 5px;
+        margin-right: -270px;
+    }
+.pagination-sliderana {
+    display: flex
+;
+    align-items: center;
+    gap: 5px;
+    margin-right: -270px;
+}
+.pagination-containerreas {
+    display: flex
+;
+    justify-content: space-between;
+    max-width: 200%;
+    margin-left: 17px;
+    margin-top: 10px;
+    align-items: center;
 }
 }
 @media(min-width:2000px){
@@ -229,6 +255,7 @@ margin-top: 290px;
         margin-top: 10px;
     }
 }
+
 @media (min-width: 1024px) and (max-width: 1279px)  {
 .tabnifty50-buttondash {
   font-size: 10px;
@@ -280,6 +307,14 @@ margin-top: 290px;
   gap: 5px;
 margin-right: -180px;
 }
+.pagination-containerreas {
+        display: flex
+;
+        justify-content: space-between;
+        max-width: 90%;
+        margin-left: 17px;
+        margin-top: 10px;
+    }
   .tabsnifty50-containerdash {
     display: flex; /* Flexbox layout to align buttons in a row */
  overflow-x: scroll;
