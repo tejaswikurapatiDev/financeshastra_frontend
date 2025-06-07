@@ -14,6 +14,65 @@
 }
  
 
+
+
+/* Table Base Style */
+.customm-table {
+  width: 100%;
+  border-collapse: separate; /* Needed for border radius to work */
+  border-spacing: 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+ 
+}
+
+/* Header Style */
+.customm-th {
+  background-color: #24b676 !important;
+  color: white !important;
+  font-weight: bold;
+  padding: 0px !important;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
+}
+
+/* Data Cell Style */
+.customm-table td {
+  padding: 0px !important;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  border-left: none;
+  border-right: none;
+}
+
+/* Striped Rows */
+.customm-table tr:nth-child(even) td {
+  background-color: rgba(224, 238, 235, 0.59);
+}
+
+/* Rounded Corners */
+.customm-table tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+
+.customm-table tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+
+.customm-table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.customm-table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
 .investblog-metaresult{
       font-size: 16px;
   color:black;
@@ -30,7 +89,7 @@
   
 }
 .adnairsultreport-header{
-    font-size: 26px;
+    font-size: 24px;
 }
 .report-image {
   width: 89%;
@@ -57,6 +116,11 @@ margin-bottom: -1px;
 .adnaieaeninqrsult ol {
   padding-left: 20px;
    color: black;
+
+   
+}
+.custommol{
+   list-style-type: number;
 }
 
 .adnaieaeninqrsult ol li {
@@ -86,47 +150,6 @@ margin-bottom: -1px;
   table-layout: fixed;
 }
 
-/* Remove all borders from cells initially */
-.financial-tableearesult th,
-.financial-tableearesult td {
-  padding: 12px;
-  text-align: center;
-  border: none;
-}
-
-/* Add top border to thead and bottom border to tbody */
-.financial-tableearesult thead tr:first-child th {
-  border-top:  2px solid #0349A8;
-  border-bottom:  2px solid #0349A8;
-  
-}
-
-.financial-tableearesult tbody tr:last-child td {
-  border-bottom:  2px solid #0349A8;
-}
-
-/* First column vertical border */
-.financial-tableearesult th:first-child,
-.financial-tableearesult td:first-child {
-  border-left:  2px solid #0349A8;
-}
-
-/* Last column vertical border */
-.financial-tableearesult th:last-child,
-.financial-tableearesult td:last-child {
-  border-right: 2px solid #0349A8;
-}
-
-/* Header background */
-.financial-tableearesult thead {
-  background-color:white;
-  color: black;
-}
-
-/* Even row shading (optional) */
-.financial-tableearesult tbody tr:nth-child(even) {
-  background-color:#F5F4FA;
-}
 
 /* Tags styling */
 .tagsearesult {
@@ -143,7 +166,9 @@ margin-bottom: -1px;
   font-size: 14px;
 }
 
-
+.custommli{
+  list-style: none;
+}
 
 @media (max-width: 768px) {
   .adnaieaeninqrsult {
@@ -198,6 +223,9 @@ margin-bottom: -1px;
   .adnaieaeninqrsult section ul {
     font-size: 0.95rem;
   }
+  .adnairsultreport-header {
+    font-size: 20px;
+}
 }
 @media (max-width: 480px) {
       .report-image {
@@ -227,13 +255,14 @@ margin-bottom: -1px;
     color: #333;
     margin-bottom: 20px;
 }
-.financial-tableearesult th,
-.financial-tableearesult td {
+.customm-table th,
+.customm-table td {
   font-size: 12px;
 }
-.financial-tableearesult {
-  margin-left: 10px;
-}
+    .customm-table {
+        margin-left: -15px;
+        width: 110%;
+    }
 .tagsearesult {
     display: flex
 ;
@@ -249,4 +278,7 @@ margin-bottom: -1px;
         border-radius: 5px;
         font-size: 12px;
     }
+}
+@media (max-width: 320px) {
+  
 }

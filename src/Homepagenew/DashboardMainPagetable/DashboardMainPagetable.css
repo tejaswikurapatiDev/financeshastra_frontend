@@ -514,7 +514,46 @@ body {
 }
 
 
+@media (max-width: 1379px) {
+.DashboardMainPagetable-container {
+    padding: 20px;
+    font-family: 'calibri';
+    background: white;
+    width: 1280px;
+    margin-left: 240px;
+    margin-right: 100px;
+    margin-top: -240px;
+}
+    .DashboardMainPagetable-cards {
+        display: flex
+;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .DashboardMainPagetable-tableeee {
+    width: 84%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+    .pagination-containerrsectorr {
+        display: flex
+;
+        justify-content: space-between;
+        max-width: 82%;
+    }
+        .DashboardMainPagetable-headerrindexx {
+        display: flex
+;
+        gap: 10px;
+        margin-bottom: 230px;
+        margin-left: 290px;
+        margin-top: -50px;
+    }
 
+    
+}
 @media (min-width: 1024px) and (max-width: 1279px) {
   .DashboardMainPagetable-headerrindexx {
     display: flex;
