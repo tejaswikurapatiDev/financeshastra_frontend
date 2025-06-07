@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AddSIPForm from "../AddSIPFormstock/AddSIPFormstock"; // Adjust path as needed
 import { API_BASE_URL } from "../../config";
 import Cookies from "js-cookie";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { setSearchData } from "../../Store/Slices/searchDataSlice";
 import { debounce } from "lodash";
 import Navbar from "../../Navbar/Navbar";
@@ -15,7 +15,6 @@ import useSearch from "../../Navbar/Hooks/useSearch";
 const AddTransactionstock = ({children}) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   //fetch search data conditionally with using custom hook
   useSearch();
   const stocksData = useSelector((store) => store?.searchData?.searchData);
