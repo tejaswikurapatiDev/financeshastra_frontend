@@ -100,7 +100,7 @@
 .Watchlistdashboardmain-change-down {
   color: #dc3545;
 }
-@media(max-width:1920px){
+@media (min-width: 1920px) and (max-width: 1920px) {
   .Watchlistdashboardmain-container {
         width: 600px;
         background: #ffffff;
