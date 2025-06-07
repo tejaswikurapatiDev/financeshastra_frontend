@@ -18,71 +18,63 @@ const Earningsresult = () => {
   const [articledata, setarticledata] = useState(quaterlyarticles[0] || {});
   const [finalHtml, setFinalHtml] = useState("");
 
-  const sanitizedContent = sanitizeHtml(articledata?.MainContent || "", {
+const rawHtml = articledata?.MainContent || "";
+
+// Convert first <td> row in each table to <th>
+const preProcessedHtml = rawHtml.replace(
+  /<table[^>]*>(.*?)<tr>(.*?)<\/tr>/is,
+  (match, tableStart, firstRow) => {
+    const thRow = firstRow.replace(/<td/gi, "<th").replace(/<\/td>/gi, "</th>");
+    return match.replace(firstRow, thRow);
+  }
+);
+
+  const sanitizedContent = sanitizeHtml(preProcessedHtml, {
+    
   allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
   allowedAttributes: {
     h2: ["style"],
     p: ["style"],
-    ol: ["style",],
-    li: ["style","class"],
+    ol: ["style"],
+    li: ["style", "class"],
     strong: ["style"],
-    table: ["style", "class"], // ✅ allow class here
-    tr: ["style", "class"],    // ✅ allow class
-    td: ["style", "class"],    // ✅ allow class
-    th: ["style", "class"],    // ✅ allow class
+    table: ["style", "class"],
+    tr: ["style", "class"],
+    td: ["style", "class"],
+    th: ["style", "class"],
   },
   transformTags: {
     table: (tagName, attribs) => ({
       tagName: "table",
-      attribs: {
-        ...attribs,
-        class: "customm-table",
-      },
+      attribs: { ...attribs, class: "customm-table" },
     }),
     tr: (tagName, attribs) => ({
       tagName: "tr",
-      attribs: {
-        ...attribs,
-        class: "customm-tr",
-      },
+      attribs: { ...attribs, class: "customm-tr" },
     }),
     td: (tagName, attribs) => ({
       tagName: "td",
-      attribs: {
-        ...attribs,
-        class: "customm-td",
-      },
+      attribs: { ...attribs, class: "customm-td" },
     }),
     th: (tagName, attribs) => ({
       tagName: "th",
-      attribs: {
-        ...attribs,
-        class: "customm-th",
-      },
+      attribs: { ...attribs, class: "customm-th" },
     }),
-   li: (tagName, attribs) => ({
-    tagName: "li",
-    attribs: {
-      ...attribs,
-      class: "custommli",
-    },
-  }),
-  h2: (tagName, attribs) => ({
-    tagName: "h2",
-    attribs: {
-      ...attribs,
-      class: "custommh2",
-    },
-  }),
+    li: (tagName, attribs) => ({
+      tagName: "li",
+      attribs: { ...attribs, class: "custommli" },
+    }),
+    h2: (tagName, attribs) => ({
+      tagName: "h2",
+      attribs: { ...attribs, class: "custommh2" },
+    }),
     ol: (tagName, attribs) => ({
-    tagName: "ol",
-    attribs: {
-      ...attribs,
-      class: "custommol",
-    },
-  }),
+      tagName: "ol",
+      attribs: { ...attribs, class: "custommol" },
+    }),
   },
 });
+
 
   return (
     <div>

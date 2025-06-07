@@ -717,6 +717,25 @@
     }
 }
 
+@media (min-width: 1380px) and (max-width: 1535px) {
+      .hompagetopdata {
+        display: flex;
+        gap: 420px;
+        max-width: 100%;
+        margin-top: -100px;
+    }
+    
+}
+@media (max-width: 1379px) {
+       .hompagetopdata {
+        display: flex
+;
+        gap: 350px;
+        max-width: 100%;
+        margin-top: -100px;
+    }
+    
+}
 @media (min-width: 1024px) and (max-width: 1279px)  {
     
     .portfoliomutual-containerrniftydashboard {
