@@ -280,7 +280,11 @@ const Dashboardstockindex = () => {
                 <td>{row.stock_index}</td>
                 <td>{row.pe}</td>
                 <td>
-                  <a href="javascript:void(0)" className="clarification-link">
+                  <a href="javascript:void(0)" className="clarification-link"
+                   onClick={() => {
+                        navigate(`/stockhandle/${row.stock_id}`, { state: { row } });
+                      }}
+                  >
                     Know more
                   </a>
                 </td>

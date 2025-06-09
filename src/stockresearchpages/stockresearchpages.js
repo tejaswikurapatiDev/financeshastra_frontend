@@ -13,6 +13,8 @@ import { useLocation } from "react-router-dom";
 
 function Stockresearchpages({ children }) {
   const location = useLocation();
+  const {stock}= location
+  console.log("stock from prev page: ", location)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -22,6 +24,7 @@ function Stockresearchpages({ children }) {
       return;
     }
   }, [])
+
   return (
     <div>
       <Meta path={location.pathname} />
