@@ -311,7 +311,7 @@ const Stockcalender = () => {
                     Current P/E {renderSortIcon("pe")}
                   </th>
                   <th >
-                    Clarification
+                    Analyst Rating
                   </th>
                 </tr>
               </thead>

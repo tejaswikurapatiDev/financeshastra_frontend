@@ -77,7 +77,7 @@ margin-top: 5px;
 .DashboardMainPagetable-tableee tr:hover {
   background-color: #ddd;
 }
-@media(min-width:1536px){
+@media(min-width:1536px) and (max-width: 1919px){
 
   .DashboardMainPagetable-card.custom-card-size {
     width: 145px;
@@ -99,6 +99,17 @@ margin-top: 5px;
   .pagination-containerrindex{
     gap: 880px;
   }
+}
+@media (min-width: 1920px) and (max-width: 1920px) {
+.pagination-containerrin {
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    width: 125%;
+    margin-top: 5px;
+    margin-left: 0px;
+}
 }
 @media(min-width:2000px){
   .DashboardMainPagetable-card {
@@ -165,6 +176,7 @@ margin-top: 5px;
     }
     
 }
+
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .pagination-containerrindex {
     display: flex;
@@ -180,7 +192,7 @@ margin-top: 5px;
   align-items: center; /* This ensures all items align in a straight line */
   width: 56%;
 margin-top: 5px;
-  margin-left: 5px;
+  margin-left: 20px;
 }
   .DashboardMainPagetable-card {
     width: 110px;
@@ -231,7 +243,7 @@ font-size: 13px;
   justify-content: space-between;
   align-items: center; /* This ensures all items align in a straight line */
   width: 113%;
-margin-top: -140px;
+margin-top: -230px;
   margin-left: 39px;
 }
   

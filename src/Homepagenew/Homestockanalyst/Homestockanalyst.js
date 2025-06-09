@@ -280,7 +280,7 @@ const Homestockanalyst = () => {
         5Y Profit Gr.(%) {renderSortIcon("profit_growth_5y")}
       </span>
     </th>
-    <th style={{ height: '40px', padding: '8px'}}>Clarification</th>
+    <th style={{ height: '40px', padding: '8px'}}>Analyst Rating</th>
   </tr>
 </thead>
 

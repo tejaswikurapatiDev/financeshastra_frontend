@@ -647,11 +647,7 @@ const Landingnavbar = () => {
 
   // Get all data on component mount
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    console.log(storedUsername)
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
+    
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired
@@ -1036,7 +1032,7 @@ const Landingnavbar = () => {
                 <span
                   className={darkMode ? "willamnamedarkmode" : "willamname"}
                 >
-                  {storedName.split(" ")[0]}
+                  {user.split(" ")[0]}
                 </span>
                 </div>
                 {userDropdownOpen && renderUserDropdown()}

@@ -31,7 +31,15 @@ function Overview() {
   const getSelectedStock = allStocks.find((stock) => String(stock?.id) === id);
 
   const location = useLocation();
-  const stockName = location?.state?.stock?.symbol;
+  console.log("location: ", location)
+  let stockName
+  if (location?.state?.row?.company) {
+    stockName = location?.state?.row?.company;
+  } else {
+    stockName = location?.state?.stock?.symbol;
+  }
+
+  console.log("stock Name: ", stockName)
   useEffect(() => {
     // Set the document title to the selected stock's name
     document.title = stockName || "Stock Details";
