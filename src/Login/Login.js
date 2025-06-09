@@ -509,7 +509,7 @@ console.log("URL TO FETCH: ", url)
           </div>
           <div className="registerContgl">
             <p className="registerContglp">
-              By clicking “Continue with Google/LinkedIn” or “Create Account”,
+              By clicking “Continue with Google” or “Create Account”,
               you agree to Website’s
               <a href="termsAndConditions" className="registerContglblue-text">
                 {" "}
