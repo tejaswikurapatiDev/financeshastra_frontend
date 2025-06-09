@@ -372,13 +372,13 @@ const Navbar = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-  /*useEffect(() => {
+  useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     if (storedUsername) {
       setUsername(storedUsername);
     }
 
-  }, []);*/
+  }, []);
 
   // Cleanup debounced function on unmount
   useEffect(() => {

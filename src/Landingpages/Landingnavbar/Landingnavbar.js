@@ -675,6 +675,14 @@ const Landingnavbar = () => {
   }, []);
   const displayedNotifications = notifications.data;
 
+  useEffect(() => {
+      const storedUsername = localStorage.getItem("username");
+      if (storedUsername) {
+        setUsername(storedUsername);
+      }
+  
+    }, []);
+
   // Apply debounced search when input changes
   useEffect(() => {
     fetchNotifications();
@@ -1032,7 +1040,7 @@ const Landingnavbar = () => {
                 <span
                   className={darkMode ? "willamnamedarkmode" : "willamname"}
                 >
-                  {user.split(" ")[0]}
+                  {storedName.split(" ")[0]}
                 </span>
                 </div>
                 {userDropdownOpen && renderUserDropdown()}
