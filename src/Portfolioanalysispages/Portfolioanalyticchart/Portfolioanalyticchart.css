@@ -199,7 +199,26 @@ padding: 4px 8px;
     cursor: pointer;
   }
   
-
+@media (max-width: 1379px) {
+.portfolioanalysisallchart {
+    display: flex
+;
+    gap: 0px;
+    margin-left: 270px;
+    margin-top: 10px;
+    font-family: 'calibri';
+}
+}
+@media (min-width: 1380px) and (max-width: 1535px) {
+.portfolioanalysisallchart {
+    display: flex
+;
+    gap: 20px;
+    margin-left: 270px;
+    margin-top: 10px;
+    font-family: 'calibri';
+}
+}
 
 /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
