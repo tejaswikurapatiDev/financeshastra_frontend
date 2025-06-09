@@ -14,6 +14,7 @@ import bharti from "../../assest/bhartiartl.png";
 import Sidebar from '../../Sidebar/Sidebar';
 import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 import { API_BASE_URL } from '../../config';
+import Cookies from 'js-cookie'
 
 
 
@@ -21,7 +22,8 @@ import { API_BASE_URL } from '../../config';
 
 const AnalysisResearchReportblur = () => {
   
-  
+    const [isloading, setisloading] = useState(true)
+
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
 
   
@@ -37,6 +39,48 @@ const AnalysisResearchReportblur = () => {
       const [currentPage, setCurrentPage] = useState(1);
       const [sorttDirection, setSorttDirection] = useState(true);
       const [sortOption, setSortOption] = useState('Recent'); // Dropdown option state
+       const [researchStocks, setresearchStocks] = useState([])
+      
+        useEffect(() => {
+          if (isSubscribed && isLoading) {
+            setisloading(false)
+          } else {
+            setisloading(false)
+          }
+      
+          const cookietoke = Cookies.get("jwtToken")
+          console.log(cookietoke)
+          const fetchTableData = async () => {
+            const response = await fetch(`${API_BASE_URL}/researchstocks`, {
+              method: "get",
+              headers: {
+                "Authorization": `Bearer ${cookietoke}`
+              },
+              credentials: 'include',
+            });
+            const data = await response.json()
+            const stocks = data[0]
+            console.log(stocks)
+            const formatedstocks = stocks.map((each) => (
+              {
+                date: each.date.split("T")[0],
+                symbol: each.symbol,
+                price: each.price_raw,
+                change: each.change_perc,
+                marketCap: each.market_cap,
+                target: each.target,
+                action: each.upside_downside,
+                rating: each.rating,
+                profitBooked: each.profit_booked,
+                image: each.icon,
+                pdfLink: `researchnewallcall/${each.research_stock_id}`
+              }
+            ))
+            setresearchStocks(formatedstocks)
+            setFilteredstock(formatedstocks)
+          }
+          fetchTableData()
+        }, [])
     
       const itemsPerPage = 7; // Number of rows per page
     
@@ -229,13 +273,9 @@ const AnalysisResearchReportblur = () => {
                       <td style={{ color: stock.rating === 'Buy' ? '#24b676' : 'red' }}>{stock.rating}</td>
                       <td style={{ color: stock.profitBooked.includes('-') ? 'red' : '#24b676' }}>{stock.profitBooked}</td>
                       <td>
-                   <button
-              onClick={() => handleViewClick(stock.pdfLink)}
-              className="pdfstockresearch-link"
-              style={{ background: 'none', border: 'none', color: 'blue', cursor: 'pointer' }}
-            >
+             <a href={stock.pdfLink} target="_blank" rel="noopener noreferrer" className="pdfstockresearch-link">
               View
-            </button>
+          </a>
                 </td>
                     </tr>
                   ))}

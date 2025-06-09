@@ -271,9 +271,21 @@
   cursor: pointer;
   font-weight: 600;
 }
+@media (max-width: 1379px) {
+.PortfolioHoldingPageContainer {
+    width: 75%;
+    padding: 20px;
+    font-family: 'calibri';
+}
+.PortfolioHoldingPagetradeRecords {
+    text-align: right;
+    margin-top: 20px;
+    color: #6db8fd;
+    margin-right: -105px;
+}
+}
 
-
-@media (min-width: 1280px) and (max-width: 1535px) {
+@media (min-width: 1380px) and (max-width: 1535px) {
   .PortfolioHoldingPageholdingCard {
     display: flex
 ;

@@ -54,7 +54,7 @@
     .riskProfileFormAll .question-card {
       background-color: #fff;
       padding: 12px;
-      border-radius: 58px;
+      border-radius: 20px;
       box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951); /* Adds a subtle shadow */
       border: 1px solid rgb(196, 193, 193);
       flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
@@ -175,6 +175,16 @@
         
   }
     
+    @media (min-width: 1536px) {
+          .riskProfileFormAll .questions-rowww {
+      display: flex
+  ;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-left: -120px;
+  }
+    }
   @media (min-width: 1280px) and (max-width: 1535px) {
     .riskProfileFormAll .questions-rowww {
       display: flex
@@ -182,7 +192,7 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: space-between;
-      margin-left: -90px;
+      margin-left: -120px;
   }
   .riskProfileFormAll button {
     display: block;
