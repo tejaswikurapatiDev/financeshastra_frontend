@@ -11,9 +11,13 @@ import html2canvas from 'html2canvas';
 
 import { FaArrowDown } from 'react-icons/fa6';
 import ResearchStocksData from '../ResearchStocksData';
+import { useParams } from 'react-router-dom';
 
 const Researchnewallcall = () => {
   const contentRef = useRef();
+
+  const {title, sector}= useParams();
+
 const handleDownloadPDF = () => {
   const input = contentRef.current;
 
@@ -49,7 +53,7 @@ const handleDownloadPDF = () => {
   });
 };
 
-
+const sec= sector === null && "-"
   return (
     <div>
       <Navbar />
@@ -57,8 +61,8 @@ const handleDownloadPDF = () => {
         <div className="companyresearchnew">
       <div className="stock-headercompanyres">
         <div className="stock-titlecompanyres">
-          <h2>Tata Steel Ltd</h2>
-          <p className="stock-sectorcompanyres">Sector: <span className="steelcompanyres">Steel</span></p>
+          <h2>{title}</h2>
+          <p className="stock-sectorcompanyres">Sector: <span className="steelcompanyres">{sec}</span></p>
         </div>
  <div className="stock-actioncompanyress">
         <div>
