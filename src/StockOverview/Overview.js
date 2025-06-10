@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useParams, useSearchParams } from "react-router-dom";
 import { Container, Typography } from "@mui/material";
 import { CandleStickChart } from "./Candlestickchart/Candlestickchart";
@@ -21,9 +21,19 @@ import Stockpeer from "../Stockpeer/Stockpeer";
 import FooterForAllPage from "../FooterForAllPage/FooterForAllPage";
 import "./Overview.css";
 import { useSelector } from "react-redux";
+import Cookies from 'js-cookie'
+import { useNavigate } from "react-router-dom";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 function Overview() {
   const { id } = useParams();
+  const navigate = useNavigate()
+  const [isLoading, setisLoading]= useState(true)
 
   //get data from redux store
   const allStocks = useSelector((store) => store.searchData.searchData);
@@ -39,12 +49,30 @@ function Overview() {
     stockName = location?.state?.stock?.symbol;
   }
 
-  console.log("stock Name: ", stockName)
   useEffect(() => {
+    
+    const token= Cookies.get("jwtToken")
+    if (!token){
+      navigate('/login')
+    }
+    setisLoading(false)
     // Set the document title to the selected stock's name
     document.title = stockName || "Stock Details";
     window.scrollTo(0, 0); // Scroll to top when component mounts
   }, [stockName]);
+
+  if (isLoading) {
+      return <div className="loader-cont">
+        <ClipLoader
+          cssOverride={override}
+          size={35}
+          data-testid="loader"
+          loading={isLoading}
+          speedMultiplier={1}
+          color="green"
+        />
+      </div>;
+    }
 
   return (
     <div className="allcontainheaddh">

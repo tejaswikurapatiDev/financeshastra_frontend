@@ -93,6 +93,44 @@ td {
     margin-top: 30px;
 }
   }
+    @media (max-width: 1379px) {
+      .performance-containerstockanalysiss {
+    display: flex
+;
+    font-family: 'calibri';
+    gap: 20px;
+    margin-left: 271px;
+    max-width: 1060px;
+}
+.performerallstockanalysis {
+    display: flex
+;
+    font-family: 'calibri';
+    font-size: 18px;
+    margin-left: 273px;
+    gap: 400px;
+    margin-top: 30px;
+}
+    }
+    @media (min-width: 1380px) and (max-width: 1535px) {
+      .performance-containerstockanalysiss {
+    display: flex
+;
+    font-family: 'calibri';
+    gap: 20px;
+    margin-left: 271px;
+    max-width: 1140px;
+}
+.performerallstockanalysis {
+    display: flex
+;
+    font-family: 'calibri';
+    font-size: 18px;
+    margin-left: 273px;
+    gap: 447px;
+    margin-top: 30px;
+}
+    }
 @media screen and (max-width: 768px) {
   .performance-containerstockanalysiss {
     display: flex;

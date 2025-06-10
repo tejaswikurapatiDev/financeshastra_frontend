@@ -9,7 +9,7 @@ font-family: 'calibri';
   border: 3px solid rgb(223, 218, 218);
   box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
   overflow: hidden;
-  height: 450px;
+  height:auto;
   margin-left: 268px;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -54,8 +54,8 @@ display: none;
 }
 .overlaylocksub {
   position: absolute;
-  top: 70%;
-  left: 55%;
+  top: 40%;
+  left: 50%;
   transform: translate(-50%, -50%);
   display: flex
 ;
@@ -181,14 +181,36 @@ margin-top: 20px;
 
 }
 }
-
- @media (min-width: 1280px) and (max-width: 1535px) {
-  .lock-iconanalysi {
-  width: 60px;
-  margin: 0 auto 10px auto;
-  display: block; /* required for auto margin to work */
-  margin-top: -30px;
+   @media (max-width: 1379px) {
+        .report-container {
+        position: relative;
+        width: 76%;
+        max-width: 1092px;
+        font-family: 'calibri';
+        padding: 20px;
+        background: #fff;
+        border-radius: 12px;
+        border: 3px solid rgb(223, 218, 218);
+        box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
+        overflow: hidden;
+        height: auto;
+        margin-left: 268px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .allblursearchbutton {
+    background-color: #24b676;
+    color: white;
+    border: none;
+    padding: 9px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin-left: 930px;
 }
+   }
+    @media (min-width: 1380px) and (max-width: 1535px) {
 .report-container {
     position: relative;
     width: 80%;
@@ -200,11 +222,33 @@ margin-top: 20px;
     border: 3px solid rgb(223, 218, 218);
     box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
     overflow: hidden;
-    height: 450px;
+    height: auto;
     margin-left: 268px;
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.allblursearchbutton {
+  background-color: #24b676; /* Blue background */
+  color: white; /* White text */
+  border: none;
+  padding: 9px 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+ margin-left: 990px;
+
+}
+
+    }
+ @media (min-width: 1280px) and (max-width: 1535px) {
+  .lock-iconanalysi {
+  width: 60px;
+  margin: 0 auto 10px auto;
+  display: block; /* required for auto margin to work */
+  margin-top: -30px;
+}
+
  }
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .allblursearchbutton {
@@ -231,7 +275,7 @@ margin-top: 20px;
     border: 3px solid rgb(223, 218, 218);
     box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
     overflow: hidden;
-    height: 610px;
+    height: auto;
     margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -275,7 +319,7 @@ margin-bottom: -10px;
   
   .overlaylocksub {
     position: absolute;
-    top: 75%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex
@@ -386,7 +430,7 @@ margin-left: 40px;
     border: 3px solid rgb(223, 218, 218);
     box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
     overflow: hidden;
-    height: 500px;
+    height: auto;
     margin-left: 20px;
     margin-top: 30px;
     margin-bottom: 30px;
@@ -533,7 +577,7 @@ margin-bottom: -10px;
 .report-container {
   width: 68%;
   margin-left: 270px;
-  height: 600px;
+  height: auto;
   padding: 18px;
 }
 .stockresearchanalysispage-tableanalysisblur {
@@ -548,8 +592,8 @@ scrollbar-width: thin;
 }
 .overlaylocksub {
 position: absolute;
-top: 75%;
-left: 60%;
+top: 50%;
+left: 50%;
 transform: translate(-50%, -50%);
 display: flex
 ;
@@ -583,7 +627,7 @@ background: #1f9a5a; /* Darker shade on hover */
     border: 3px solid rgb(223, 218, 218);
     box-shadow: 0px 4px 8px rgba(228, 225, 225, 0.992);
     overflow: hidden;
-    height: 505px;
+    height:auto;
     margin-left: 10px;
     margin-top: 30px;
     margin-bottom: 30px;
