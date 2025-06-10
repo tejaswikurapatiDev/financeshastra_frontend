@@ -113,7 +113,7 @@ const StockResearchAnalysisPage = () => {
           rating: each.rating,
           profitBooked: each.profit_booked,
           image: each.icon,
-          pdfLink: `researchnewallcall/${each.research_stock_id}`
+          pdfLink: `researchnewallcall/${each.research_stock_id}/${each.symbol}/${each.sector}`
         }
       ))
       setresearchStocks(formatedstocks)

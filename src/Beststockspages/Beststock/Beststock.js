@@ -2589,7 +2589,11 @@ const Beststock = () => {
               <tbody>
                 {currentData.map((stock, index) => (
                   <tr key={index} className="screener-row">
-                    <td className="symbol-cell">
+                    <td 
+                    className="symbol-cell"
+                      onClick={() => {
+                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
+                      }}>
                       <img
                         src={stock.icon}
                         alt={`${stock.symbol} logo`}

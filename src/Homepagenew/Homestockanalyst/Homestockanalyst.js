@@ -5,6 +5,12 @@ import './Homestockanalyst.css';
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Homestockanalyst = () => {
 
@@ -12,7 +18,7 @@ const Homestockanalyst = () => {
   const [allStocks, setAllStocks] = useState([]);
   const [activeTab, setActiveTab] = useState("All");
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [stocksPerPage] = useState(10); 
@@ -283,7 +289,14 @@ const Homestockanalyst = () => {
     <th style={{ height: '40px', padding: '8px'}}>Analyst Rating</th>
   </tr>
 </thead>
-
+{isLoading ? <div className='loader-cont'><ClipLoader
+                    cssOverride={override}
+                    size={35}
+                    data-testid="loader"
+                    loading={isLoading}
+                    speedMultiplier={1}
+                    color="green"
+                  /></div> : 
 <tbody>
   {currentStocks.map((stock, index) => (
     <tr key={index}>
@@ -330,7 +343,7 @@ const Homestockanalyst = () => {
       </td>
     </tr>
   ))}
-</tbody>
+</tbody>}
 
 
           </table>
