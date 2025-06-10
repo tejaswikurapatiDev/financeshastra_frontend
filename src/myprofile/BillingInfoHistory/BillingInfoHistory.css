@@ -251,16 +251,15 @@
     height: 180px;
     padding: 10px;
   }
-  .billinginfohistorybtn {
-    width: 50%;
-    font-size: 12px;
-    padding: 1px 12px;
-   
-}
+ .billinginfohistorybtn {
+        width: 50%;
+        font-size: 10px;
+        padding: 10px 12px;
+    }
 .billinginfohistory-btn {
   width: 50%;
-  font-size: 12px;
-  padding: 8px 12px;
+  font-size: 10px;
+  padding: 10px 12px;
 }
   
   .billinginfohistory-switch {
@@ -319,18 +318,16 @@
     padding: 10px;
     margin-top: 30px;
 }
-.billinginfohistorybtn {
-  padding: 3px 12px;
-  font-size: 10px;
-  width: 50%;
- 
-  margin-bottom: -10px;
- 
-}
+    .billinginfohistorybtn {
+        padding: 10px 12px;
+        font-size: 10px;
+        width: 60%;
+        margin-bottom: -10px;
+    }
 .billinginfohistory-btn {
-  padding: 9px 12px;
+  padding: 10px 12px;
   font-size: 10px;
-  width: 50%;
+  width: 60%;
   /* margin-top: 32px; */
 
 }
