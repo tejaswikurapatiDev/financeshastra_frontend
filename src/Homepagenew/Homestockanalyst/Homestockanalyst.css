@@ -132,6 +132,7 @@ margin-top: 290px;
 .pagination-containerreasearch {
  gap: 660px;
 }
+
 .pagination-container {
   display: flex;
 
@@ -202,6 +203,10 @@ margin-top: 290px;
    margin-top: 10px;
 
 
+}
+.DashboardMainPagetable-tableeee td {
+    font-size: 12px;
+    cursor: pointer;
 }
   .pagination-containerreasearch{
     display: flex;

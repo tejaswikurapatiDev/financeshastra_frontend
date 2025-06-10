@@ -6,6 +6,13 @@
     gap: 30px;
     font-family: 'calibri';
  }
+ .dataquatallniftyy{
+ display: flex;
+   
+    margin-left: 170px;
+    gap: 30px;
+    font-family: 'calibri';
+ }
  .portfoliomutual-containerrnifty {
      font-family: 'calibri';
      padding: 20px;
@@ -49,10 +56,46 @@
     margin-top: 250px;
     font-family: 'calibri';
  }
+@media (max-width: 1379px) {
+    .dataquatallnifty {
+    display: flex
+;
+    margin-left: 170px;
+    gap: 30px;
+    font-family: 'calibri';
+}
+    .dataquatallniftyy {
+    display: flex
+;
+    margin-left: 70px;
+    gap: 30px;
+    font-family: 'calibri';
+}
+}
 
+@media (min-width: 1380px) and (max-width: 1535px){
+    .dataquatallnifty {
+    display: flex
+;
+    margin-left: 170px;
+    gap: 30px;
+    font-family: 'calibri';
+}
+    .dataquatallniftyy {
+    display: flex
+;
+    margin-left: 100px;
+    gap: 30px;
+    font-family: 'calibri';
+}
+}
  /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
     .dataquatallnifty {
+      margin-left: 100px;
+      gap: 20px;
+    }
+     .dataquatallniftyy {
       margin-left: 100px;
       gap: 20px;
     }
@@ -77,6 +120,11 @@
  /* Mobile View for 768px */
 @media (max-width: 768px) {
     .dataquatallnifty {
+        flex-direction: column;
+        margin-left: 20px;
+        gap: 20px;
+    }
+      .dataquatallniftyy {
         flex-direction: column;
         margin-left: 20px;
         gap: 20px;
@@ -117,18 +165,24 @@
         margin-left: 20px;
         gap: 20px;
     }
-
+   .dataquatallniftyy {
+        flex-direction: column;
+        margin-left: 20px;
+        gap: 20px;
+    }
     .portfoliomutual-containerrnifty {
         width: 80%;
        
         padding: 15px;
         font-size: 14px;
         height: 290px;
-        margin-left: 27px;
+        margin-left: 10px;
     }
-    .chartmutual-containerrnifty {
-        width: 330px !important;
+      .chartmutual-containerrnifty {
+        width: 105%;
         height: 250px;
+        /* padding: 10px; */
+        margin-left: 10px;
     }
 
     .time-rangemutual-selectorrnifty {
@@ -155,14 +209,9 @@
         padding: 10px; 
         font-size: 12px; 
         height: auto;
-        margin-left: auto; 
+      
         margin-right: auto; 
     }
-    .chartmutual-containerrnifty {
-        width: 100% !important; 
-        height: 250px;
-        max-width: 300px; 
-        margin-left: 10px;
-    }
+ 
 }
 
