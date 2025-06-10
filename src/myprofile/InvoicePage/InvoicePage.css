@@ -124,13 +124,24 @@
   }
   }
 
+ /* For screens less than 1280px */
+@media (max-width: 1279px) {
+  .invoice-paid-image {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    width: 120px;
+    margin-right: 400px;
+  }
+}
+
   @media (min-width: 1280px) and (max-width: 1535px) {
-    .invoice-paid-image {
-      position: absolute;
-      right: 0;
-      bottom: 0px;
-      width: 120px; /* Adjust size as needed */
-      margin-right: 400px;
+       .invoice-paid-image {
+        position: absolute;
+        right: 0;
+        bottom: -100px;
+        width: 120px;
+        margin-right: 370px;
     }
     .invoice-summary p {
       display: flex
@@ -143,6 +154,16 @@
   }
     
   }
+  /* For screens between 1380px and 1535px */
+@media (min-width: 1380px) and (max-width: 1535px) {
+ .invoice-paid-image {
+        position: absolute;
+        right: 0;
+        bottom: -70px;
+        width: 120px;
+        margin-right: 400px;
+    }
+}
   @media (min-width: 1024px) and (max-width: 1279px)  {
     .invoice-paid-image {
       position: absolute;

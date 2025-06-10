@@ -50,7 +50,7 @@
   background-color: #24b676;
   color: white;
   height: 32px;
-  width: 885px;
+  width: 865px;
   margin-left: -10px;
   margin-bottom: 20px;
   padding: 3px;
@@ -317,7 +317,7 @@
 /* Step 5 */
 .choose-solution {
   border: 3px solid rgb(225, 222, 222);
-  width: 870px;
+  width: 850px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgb(223, 220, 220);
   /* Subtle shadow */
@@ -647,7 +647,7 @@
   }
 
   .guidelines h4 {
-    margin-left: 33px;
+    margin-left: 160px;
     margin-top: 5px;
     font-size: 16px;
   }
