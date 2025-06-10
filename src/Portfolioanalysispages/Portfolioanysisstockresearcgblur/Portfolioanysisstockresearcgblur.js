@@ -22,9 +22,6 @@ import Cookies from 'js-cookie'
 
 
 const AnalysisResearchReportblur = () => {
-  
-    const [isloading, setisloading] = useState(true)
-
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [filteredstock, setFilteredstock] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
