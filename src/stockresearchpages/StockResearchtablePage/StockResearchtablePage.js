@@ -20,10 +20,10 @@ import vedant from "../../assest/ved.png";
 import angelOne from "../../assest/angel.png";
 import jupiter from "../../assest/jupiter.png";
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie'
 
 const StockResearchtablePage = () => {
   const navigate= useNavigate()
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
    const [isloading, setisloading] = useState(true)
    const [researchStocks, setresearchStocks] = useState([])
    const [filteredstock, setFilteredstock] = useState([]);

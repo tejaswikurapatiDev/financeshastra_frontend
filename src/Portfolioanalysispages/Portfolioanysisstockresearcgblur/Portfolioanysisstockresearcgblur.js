@@ -10,15 +10,11 @@ import tcs from '../../assest/tcs.png';
 import reliance from "../../assest/reliance.png";
 import hdfc from "../../assest/hdfcbank.png";
 import bharti from "../../assest/bhartiartl.png";
-import Cookies from 'js-cookie'
 
 import Sidebar from '../../Sidebar/Sidebar';
 import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 import { API_BASE_URL } from '../../config';
 import Cookies from 'js-cookie'
-
-
-
 
 
 const AnalysisResearchReportblur = () => {
