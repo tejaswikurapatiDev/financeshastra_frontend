@@ -201,7 +201,71 @@
   .portfolianalysiscorporatepage-table a:hover {
     text-decoration:none; /* Optional: underline on hover for better UX */
   }
-  @media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
+
+
+
+.popup-overlaycoper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.popup-overlaycoper p{
+  color: white;
+  font-size: 15px;
+}
+.popup-boxcop {
+ background: linear-gradient(#24b676, #238486);
+ color: white;
+  padding: 25px;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  position: relative;
+  top: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  font-family: 'Calibri', sans-serif;
+  color: #333;
+  line-height: 1.6;
+
+}
+
+.close-buttoncop {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+}
+
+.close-buttoncop:hover {
+  color: whitesmoke;
+}
+
+   @media (max-width: 1379px) {
+    .portfolianalysiscorporatepage-container {
+        font-family: 'calibri';
+        margin: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 75%;
+        margin-left: 270px;
+    }
+            }
+ 
+  @media (min-width: 1380px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
     .portfolianalysiscorporatepage-container {
     font-family: 'calibri';
     margin: 20px;
@@ -214,6 +278,23 @@
     margin-left: 270px;
 }
   }
+    @media (min-width: 1024px) and (max-width: 1279px)  {
+.popup-boxcop {
+    background: linear-gradient(#24b676, #238486);
+    color: white;
+    padding: 25px;
+    width: 90%;
+    margin-left: 200px;
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative;
+    top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Calibri', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+    }
   @media (max-width: 768px) {
    /* PortfolioAnalysisCorporatePage.css */
 
@@ -229,6 +310,22 @@
   margin-left: 20px;
 }
 
+ .popup-boxcop {
+    width: 75%;
+    padding: 20px;
+    top: 20px;
+    font-size: 14px;
+  }
+
+  .popup-overlaycoper p {
+    font-size: 14px;
+  }
+
+  .close-buttoncop {
+    font-size: 24px;
+    top: 5px;
+    right: 10px;
+  }
 .portfolianalysiscorporatepage-header {
   display: flex;
   justify-content: space-between;
@@ -338,7 +435,7 @@ input:checked + .portfolianalysiscorporatepageslider:before {
   padding: 12px;
   text-align: left;
   font-size: 14px;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: wrap; /* Prevents text wrapping   changes/// */
 }
 
 .portfolianalysiscorporatepage-table th {
@@ -486,13 +583,20 @@ input:checked + .portfolianalysiscorporatepageslider:before {
   table-layout: fixed;
   overflow-x: auto;
 }
+.popup-boxcop {
+        width: 80%;
+        padding: 20px;
+        top: -10px;
+        font-size: 14px;
+        /* height: 300px; */
+    }
  .portfolianalysiscorporatepage-table th,
  .portfolianalysiscorporatepage-table td {
    border: 1px solid #ddd; /* Ensure vertical and horizontal lines are visible */
    padding: 12px;
    text-align: left;
    font-size: 14px;
-   white-space: nowrap; /* Prevents text wrapping */
+   white-space: wrap; /* Prevents text wrapping */
  }
  
  .portfolianalysiscorporatepage-table th {
@@ -570,4 +674,13 @@ input:checked + .portfolianalysiscorporatepageslider:before {
       width: 78%;
       margin-left: 10px;
   }
+      .popup-boxcop {
+        width: 90%;
+        padding: 20px;
+        top: -10px;
+        font-size: 14px;
+        /* height: 300px; */
+        line-height: 1.3;
+    }
+
 }

@@ -15,12 +15,16 @@ import Cookies from 'js-cookie'
 import Sidebar from '../../Sidebar/Sidebar';
 import useSubscriptionStatus from '../../Navbar/Hooks/useSubscriptionStatus';
 import { API_BASE_URL } from '../../config';
+import Cookies from 'js-cookie'
 
 
 
 
 
 const AnalysisResearchReportblur = () => {
+  
+    const [isloading, setisloading] = useState(true)
+
   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
   const [filteredstock, setFilteredstock] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

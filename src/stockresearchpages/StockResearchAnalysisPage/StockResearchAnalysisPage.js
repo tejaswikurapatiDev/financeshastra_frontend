@@ -316,7 +316,7 @@ const StockResearchAnalysisPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="pdfstockresearch-link"
-                      style={{ color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}
+                      
                     >
                       View
                     </a>

@@ -20,7 +20,7 @@ import vedant from "../../assest/ved.png";
 import angelOne from "../../assest/angel.png";
 import jupiter from "../../assest/jupiter.png";
 import { useNavigate } from 'react-router-dom';
-
+import Cookies from 'js-cookie'
 
 const StockResearchtablePage = () => {
   const navigate= useNavigate()
@@ -99,6 +99,46 @@ const StockResearchtablePage = () => {
     setCurrentPage(pageNumber);
   };
 
+  useEffect(() => {
+    if (isSubscribed && isLoading) {
+      setisloading(false)
+    } else {
+      setisloading(false)
+    }
+
+  const cookietoke = Cookies.get("jwtToken")
+      console.log(cookietoke)
+      const fetchTableData = async () => {
+        const response = await fetch(`${API_BASE_URL}/researchstocks`, {
+          method: "get",
+          headers: {
+            "Authorization": `Bearer ${cookietoke}`
+          },
+          credentials: 'include',
+        });
+        const data = await response.json()
+        const stocks = data[0]
+        console.log(stocks)
+        const formatedstocks = stocks.map((each) => (
+          {
+            date: each.date.split("T")[0],
+            symbol: each.symbol,
+            price: each.price_raw,
+            change: each.change_perc,
+            marketCap: each.market_cap,
+            target: each.target,
+            action: each.upside_downside,
+            rating: each.rating,
+            profitBooked: each.profit_booked,
+            image: each.icon,
+            pdfLink: `researchnewallcall/${each.research_stock_id}`
+          }
+        ))
+        setresearchStocks(formatedstocks)
+        setFilteredstock(formatedstocks)
+      }
+      fetchTableData()
+    }, [])
   // Handle sorting
   const handleSortresearch = (key) => {
     const sortedstock = [...filteredstock].sort((a, b) => {
@@ -156,8 +196,7 @@ const StockResearchtablePage = () => {
     // Toggle sorting direction for the next click
     setSorttDirection((prev) => !prev);
   };
-   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
-
+   
  
   return (
     

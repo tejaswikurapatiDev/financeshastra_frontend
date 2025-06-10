@@ -28,7 +28,7 @@
 @media (min-width: 1536px) {
     .faq-itemport {
     width: 100%; /* Ensure it adapts to container width */
-    max-width: 1230px; /* Limit the maximum width */
+    max-width: 1200px; /* Limit the maximum width */
     margin: 0 auto; /* Center the items */
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -37,7 +37,18 @@
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth animation */
     margin-left: 90px;
 }
+
 }
+   @media (max-width: 1379px) {
+    .faqquestans-container {
+    font-family: 'calibri';
+    margin-left: 180px;
+    width: 78%;
+}
+   }
+    @media (min-width: 1380px) and (max-width: 1535px) {
+
+    }
 @media (min-width: 1280px) and (max-width: 1535px)  /* Medium Desktops (1024px - 1279px) */{
      .faq-itemport {
     width: 100%; /* Ensure it adapts to container width */
@@ -64,6 +75,7 @@
         font-family: 'calibri';
         margin-left: 10px;
        margin-bottom: 150px;
+               width: 98%;
     }
    .faq-itemport {
         max-width: 96%;
