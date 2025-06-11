@@ -21,8 +21,6 @@ function Mutualfund() {
 
   const getSelectedFund = allFunds.find((fund) => String(fund?.ID) === fundId);
 
-  console.log(getSelectedFund);
-
   const [financialData, setFinancialData] = useState({
     price: "₹127.89",
     percentage: "+0.85%",
@@ -93,12 +91,18 @@ function Mutualfund() {
 
     return () => clearInterval(interval); // Cleanup interval on component unmount
   }, []);
+  let name
+  if (!fundDetails){
+    name = getSelectedFund?.Scheme_Name ||
+          `ICICI Pru Technology Fund - Direct Growth`
+  }else{
+    name = fundDetails.name
+  }
 
   return (
     <div>
       <h1 className="mutualdetalheadd">
-        {getSelectedFund?.Scheme_Name ||
-          `ICICI Pru Technology Fund - Direct Growth`}
+        {name}
       </h1>
       <div className="mutualcandletop">
         {/* Left Section */}

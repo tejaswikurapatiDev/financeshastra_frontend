@@ -110,7 +110,7 @@ const Bestgrowthdirect = () => {
                           {fund.FundName}
                         </a>
                       ) : (
-                        <Link to="/mutualfundgrowth" className="fund-name-link">
+                        <Link to={`/mutualfundgrowth/${fund.FundID}`} className="fund-name-link">
                           {fund.FundName}
                         </Link>
                       )}
