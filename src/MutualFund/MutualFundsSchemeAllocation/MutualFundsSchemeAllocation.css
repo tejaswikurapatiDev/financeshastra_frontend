@@ -3,7 +3,7 @@
   border-radius: 8px;
   padding: 20px;
   max-width: 1000px;
-  margin-left: 20px; /* Moves the container to the left */
+  margin-left: 80px; /* Moves the container to the left */
   font-family: 'calibri';
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
@@ -16,7 +16,7 @@
   margin-bottom: 10px;
   color: #333333;
   margin-top: 100px;
-  margin-left: 30px;
+  margin-left: 80px;
   font-family: 'calibri';
 }
 
@@ -119,30 +119,30 @@ background-color: #f9f9f9;
   
 }
 @media (min-width: 1024px) and (max-width: 1279px)  {
-  .scheme-allocation-container {
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 920px;
-    margin-left: 20px; /* Moves the container to the left */
-    font-family: 'calibri';
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ddd;
-  }
+      .scheme-allocation-container {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 942px;
+        margin-left: 11px;
+        font-family: 'calibri';
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+    }
    
 }
 /* Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .scheme-allocation-container {
-      padding: 15px; /* Reduce padding */
-      margin-left: 10px; /* Adjust left margin */
-      max-width: 92%; /* Allow full width */
+        padding: 15px;
+        margin-left: 30px;
+        max-width: 88%;
   }
 
   .scheme-allocation-title {
       font-size: 20px; /* Reduce title size */
       margin-top: 20px; /* Reduce top margin */
-      margin-left: 10px; /* Remove left margin */
+      margin-left: 35px; /* Remove left margin */
       text-align: left; /* Center-align the title */
   }
 
@@ -191,17 +191,16 @@ background-color: #f9f9f9;
 
 /* Adjustments for screens up to 480px */
 @media (max-width: 480px) {
-  .scheme-allocation-container {
-      padding: 10px; /* Further reduce padding */
-      margin-left: 15px; /* Remove left margin */
-      max-width: 85%; /* Full width */
-  }
-
+     .scheme-allocation-container {
+        padding: 10px;
+        margin-left: 30px;
+        max-width: 80%;
+    }
   .scheme-allocation-title {
       font-size: 15px; /* Smaller title size */
       margin-top: 30px; /* Reduce top margin */
       text-align: left; /* Keep centered */
-      margin-left: 15px; /* No margin */
+      margin-left: 30px; /* No margin */
   }
 
   .scheme-allocation-tabs {
@@ -246,4 +245,11 @@ background-color: #f9f9f9;
   .view-holdings-link {
       font-size: 12px; /* Adjust font size */
   }
+}
+@media (max-width: 320px) {
+  .scheme-allocation-container {
+        padding: 10px;
+         margin-left: 17px;
+                max-width: 82%
+    }
 }
