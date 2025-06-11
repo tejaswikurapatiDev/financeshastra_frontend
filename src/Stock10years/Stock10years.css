@@ -4,6 +4,7 @@
   overflow: hidden;
   font-family: 'calibri';
   padding: 10px;
+
   
 }
 
@@ -114,6 +115,8 @@ margin-left: 30px;
   margin: 20px;
   border-collapse: collapse;
   position: relative;
+    width: 88%;
+  margin-left: 80px;
 }
 
 .button-container {
@@ -178,15 +181,24 @@ margin-left: 790px;
     padding: 40px;
     margin-top: 1170px;
 }
+.financial-table {
+    margin: 20px;
+    border-collapse: collapse;
+    position: relative;
+    width: 96%;
+    margin-left: 11px;
+}
 }
 
 @media (max-width: 768px) {
   /* Financial table styling for mobile */
-  .financial-table {
-    margin-top: 10px; /* Reduce margin for smaller screens */
-    padding: 10px; /* Add padding to avoid content touching the edges */
-    overflow-x: auto; /* Enable horizontal scrolling for the table */
-    margin-bottom: 60px;
+     .financial-table {
+        margin-top: 10px;
+        padding: 10px;
+        overflow-x: auto;
+        margin-bottom: 60px;
+        margin-left: 30px;
+        width: 89%;
   }
 
   .financeheader {
@@ -256,14 +268,15 @@ margin-left: 790px;
 
 @media (max-width: 480px) {
   /* Further adjustments for smaller mobile screens */
-  .financial-table {
-    margin: 10px 5px; /* Tighter margins */
-    padding: 5px;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    margin-bottom: 50px;
-    margin-left: 15px;
-    width: 90%;
-    overflow-x: auto;
+  .financial-table  {
+        margin: 10px 5px;
+        padding: 5px;
+        overflow-x: auto;
+        margin-bottom: 50px;
+        margin-left: 30px;
+        width: 82%;
+        overflow-x: auto;
+    
   }
 .cagr-table{
   width: 10%;
@@ -316,4 +329,15 @@ margin-left: 790px;
     background-color: #24b676;
     color: white;
   }
+}
+@media (max-width: 320px) {
+      .financial-table {
+        margin: 10px 5px;
+        padding: 5px;
+        overflow-x: auto;
+        margin-bottom: 50px;
+        margin-left: 17px;
+        width: 85%;
+        overflow-x: auto;
+    }
 }

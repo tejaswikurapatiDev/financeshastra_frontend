@@ -6,6 +6,7 @@
   margin: 20px; /* Keeps some spacing from the top */
   font-family: 'Calibri';
   float: left; /* Aligns the container to the left */
+   margin-left: 60px;
  
 }
 
@@ -49,6 +50,18 @@
    
   }
 }
+@media (min-width: 1024px) and (max-width: 1279px){
+  .mtufund-details-container {
+    border-radius: 8px;
+    padding: 20px;
+  width: 98%;/* increased from 2000px */
+    margin: 20px;
+    font-family: 'Calibri';
+    float: left;
+    margin-left: -10px;
+}
+
+}
 /* Adjustments for screens up to 768px */
 @media (max-width: 768px) {
   .mtufund-details-container {
@@ -78,11 +91,12 @@
 /* Adjustments for screens up to 480px */
 @media (max-width: 480px) {
   .mtufund-details-container {
-      padding: 10px; /* Further reduce padding */
-      margin: 5px; /* Reduce margin for smaller screens */
-      max-width: 100%; /* Ensure full width */
-      float: none; /* Remove floating */
-  }
+        padding: 10px;
+        margin: 5px;
+        max-width: 85%;
+        float: none;
+        margin-left: 20px;
+    }
 
   .mtufund-section-title {
       font-size: 12px; /* Smaller font size for titles */
@@ -99,4 +113,13 @@
       font-size: 12px; /* Smaller font size for manager name */
       text-align: center; /* Center-align for better visibility on narrow screens */
   }
+}
+@media (max-width: 320px) {
+  .mtufund-details-container {
+        padding: 10px;
+        margin: 5px;
+        max-width: 85%;
+        float: none;
+        margin-left: 15px;
+    }
 }
