@@ -82,21 +82,57 @@ const StockNewsCard = () => {
     />
   </div></div>;
 
-   const sanitizedContent = sanitizeHtml(article?.content || "", {
-        allowedTags: ["h2", "p", "ol", "li", "strong", "table", "tr", "td", "th"],
-        allowedAttributes: {
-          "*": [], // Keep this to ensure no other attributes are allowed by default
-          h2: ["style"],
-          p: ["style"],
-          ol: ["style"],
-          li: ["style"],
-          strong: ["style"],
-          table: ["style"],
-          tr: ["style"],
-          td: ["style"],
-          th: ["style"],
-        },
-      });
+  const sanitizedContent = sanitizeHtml(article?.content || "", {
+  allowedTags: ["h2", "p", "ol", "ul", "li", "strong", "table", "tr", "td", "th"],
+  allowedAttributes: {
+    "*": [],
+    h2: ["style"],
+    p: ["style"],
+    ol: ["style"],
+    ul: ["style"],
+    li: ["style"],
+    strong: ["style"],
+    table: ["style"],
+    tr: ["style"],
+    td: ["style"],
+    th: ["style"],
+  },
+
+  transformTags: {
+    table: (tagName, attribs) => ({
+      tagName: "table",
+      attribs: { ...attribs, class: "custommm-table" },
+    }),
+    tr: (tagName, attribs) => ({
+      tagName: "tr",
+      attribs: { ...attribs, class: "custommm-tr" },
+    }),
+    td: (tagName, attribs) => ({
+      tagName: "td",
+      attribs: { ...attribs, class: "custommm-td" },
+    }),
+    th: (tagName, attribs) => ({
+      tagName: "th",
+      attribs: { ...attribs, class: "custommm-th" },
+    }),
+    li: (tagName, attribs) => ({
+      tagName: "li",
+      attribs: { ...attribs, class: "custommmli" },
+    }),
+    h2: (tagName, attribs) => ({
+      tagName: "h2",
+      attribs: { ...attribs, class: "custommmh2" },
+    }),
+    ol: (tagName, attribs) => ({
+      tagName: "ol",
+      attribs: { ...attribs, class: "custommmol" },
+    }),
+    ul: (tagName, attribs) => ({
+      tagName: "ul",
+      attribs: { ...attribs, class: "custommmul" },
+    }),
+  },
+});
 
   return (
     <div>

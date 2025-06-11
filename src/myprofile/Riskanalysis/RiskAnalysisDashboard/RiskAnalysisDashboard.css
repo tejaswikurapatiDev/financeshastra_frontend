@@ -173,6 +173,7 @@ max-width: 1000px;
 .riskreportprofile-cta-section {
   text-align: center;
   margin-top: 20px;
+  margin-left: 250px;
 }
 
 .riskreportprofile-cta-section p {
@@ -197,6 +198,11 @@ max-width: 1000px;
     border-bottom: 1px solid #ccc;
     margin-bottom: 20px;
     margin-left: 8px;
+}
+.riskreportprofile-cta-section {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 100px;
 }
 .riskreportprofile-container h1 {
   color: black;
@@ -292,6 +298,12 @@ max-width: 1000px;
 
 
   }
+  .riskreportprofile-cta-section {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 70px;
+  margin-right:-50px;
+}
   .profilepage-titlesession {
     margin-top: 10px;
 }
@@ -406,7 +418,7 @@ max-width: 1000px;
   
   .riskreportprofile-cta-section p strong {
     color: #24b676;
-    margin-left: 8px;
+
    
  
   }
@@ -480,7 +492,8 @@ max-width: 1000px;
       color: #333;
       font-size: 15px;
       margin-bottom: 20px;
-      width: calc(100% - 20px);
+      width: calc(100% - 0px);
+      margin-left: 8px;
     }
   
     .profilepage-tabsorderuserss {
@@ -512,19 +525,20 @@ max-width: 1000px;
       flex: 1;
       border-radius: 8px;
       background-color: #fff;
-      width: calc(100% - 20px); /* Fit dynamically */
+      width: calc(100% - 0px); /* Fit dynamically */
       margin: 0 auto; /* Center element */
     }
   
     .riskheader {
       border: 1px solid rgb(196, 193, 193);
       height: auto; /* Allow height to adjust dynamically */
-      width: calc(100% - 20px);
+      width: calc(100% - 0px);
       box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951);
       padding: 10px;
       background-color: #fff;
       border-radius: 10px;
       margin: 10px auto;
+      margin-left: -10px;
     }
   
     .riskheader p,
@@ -555,6 +569,8 @@ max-width: 1000px;
     .riskreportprofile-cta-section {
       text-align: center;
       margin-top: 20px;
+      margin-left: -10px;
+      margin-right: 15px;
     }
   
     .riskreportprofile-cta-section p {

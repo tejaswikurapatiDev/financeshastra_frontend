@@ -499,6 +499,19 @@ body {
   justify-content: space-between;
    max-width: 87%;
 }
+.sector-icon {
+    background-color: #ffcc80;
+    margin-left: 28px;
+    width: 10%;
+    height: 28%;
+    border-radius: 50%;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin-right: 5px;
+}
 }
 
 
@@ -511,6 +524,26 @@ body {
     margin-left: 240px;
     margin-right: 100px;
     margin-top: -240px;
+}
+.sector-icon {
+  background-color: #ffcc80;
+  /* Orange for IT */
+  margin-left: 25px;
+  width: 10%;
+  /* Adjust size as needed */
+  height: 28%;
+  /* Adjust size as needed */
+  border-radius: 50%;
+  display: flex;
+  /* Centers the icon within the circle */
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin-right: 5px;
+
+  /* Centers the icon within the circle */
+
+  /* Adds some spacing inside the circle */
 }
     .DashboardMainPagetable-cards {
         display: flex
