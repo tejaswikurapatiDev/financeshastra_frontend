@@ -9,22 +9,21 @@
       font-family: 'calibri';
     }
     
-    .riskProfileFormpara {
-      font-size: 15px;
-      color: rgb(235, 24, 24); /* Red color for warning */
-      background-color: rgb(255, 223, 223); /* Light red background */
-      width: 100%; /* Full width to be responsive */
-      max-width: 500px; /* Max width */
-      padding: 15px; /* Padding inside the container for better spacing */
-      height: auto; /* Adjust height based on content */
-       /* Center the container and add bottom margin */
-      text-align: center; /* Center the text */
-      border-radius: 8px; /* Rounded corners */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better appearance */
-     /* Improved line height for readability */
-     margin-bottom: 50px;
-     margin-top: 50px;
-    }
+ .riskProfileFormpara {
+    font-size: 15px;
+    color: rgb(235, 24, 24);
+    background-color: rgb(255, 223, 223);
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    height: auto;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-left: 260px;
+}
     
     .riskProfileFormpara h4 {
       margin: 0; /* Remove default margin */
@@ -122,7 +121,7 @@
       cursor: pointer;
       margin-top: 20px;
       transition: background-color 0.3s ease;
-      margin-left: 450px;
+      margin-left: 420px;
       margin-bottom: 10px;
     }
     
@@ -211,6 +210,21 @@
   }
   }
   @media (min-width: 1024px) and (max-width: 1279px)  {
+     .riskProfileFormpara {
+    font-size: 15px;
+    color: rgb(235, 24, 24);
+    background-color: rgb(255, 223, 223);
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    height: auto;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+    margin-top: 0px;
+    margin-left: 180px;
+}
     .riskProfileFormAll .questions-rowww {
       display: flex
     ;
@@ -261,7 +275,8 @@
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow for better appearance */
          /* Improved line height for readability */
          margin-bottom: 50px;
-         margin-top: 50px;
+         margin-top: 0px;
+         margin-left: 89px;
         }
         
         .riskProfileFormpara h4 {
@@ -293,7 +308,7 @@
         .riskProfileFormAll .question-card {
           background-color: #fff;
           padding: 12px;
-          border-radius: 58px;
+          border-radius: 20px;
           box-shadow: 0px 4px 6px rgba(145, 143, 143, 0.951); /* Adds a subtle shadow */
           border: 1px solid rgb(196, 193, 193);
           flex: 1 1 calc(43.33% - 20px); /* 3 cards per row */
@@ -431,7 +446,7 @@
       font-size: 14px;
       width: 100%; /* Use full width */
       padding: 10px; /* Reduce padding for smaller areas */
-      margin-left: 0; /* Remove margin for better alignment */
+      margin-left: -10px; /* Remove margin for better alignment */
     }
   
     /* Individual question card */
@@ -443,8 +458,8 @@
   
     /* Submit button styles */
     .riskProfileFormAll button {
-      width: 80%; /* Widen the button for easier interaction */
-      margin-left: 10%; /* Center align the button */
+      width: 50%; /* Widen the button for easier interaction */
+      margin-left: 25%; /* Center align the button */
       margin-bottom: 50px; /* Add spacing below the button */
     }
     .riskProfileFormAll .questions-rowww {
