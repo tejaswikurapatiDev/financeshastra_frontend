@@ -161,6 +161,9 @@ const Netify100 = () => {
     }
   };
 
+  const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
     const fetchfun = async () => {
@@ -173,23 +176,24 @@ const Netify100 = () => {
       const response = await fetch(url, options);
       if (response.ok === true) {
         const data = await response.json();
-        const formattedData = data.map((each) => ({
+        const formattedData = data.map((each) =>({
           id: each.id,
           symbol: each.CompanyName,
           price: each.LastTradedPrice,
-          change: each.ChangePercentage,
+          change: (each.ChangePercentage * 100).toFixed(2),
           volume: each.Volume,
-          marketCap: each.MarketCap,
+          marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
-          epsDilGrowth: each.EPSGrowth,
-          divYield: each.DividendYield,
+          epsDilGrowth: (each.EPSGrowth * 100).toFixed(2),
+          divYield: (each.DividendYield * 100).toFixed(2),
           sector: each.Sector,
           url: "/stockhandle",
           icon: each.icons,
           index: each.IndexName,
           roe: each.ROE,
           analystRating: each.Analyst_Rating,
+          iconUrl: each.icons
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
@@ -2589,17 +2593,20 @@ const Netify100 = () => {
               <tbody>
                 {currentData.map((stock, index) => (
                   <tr key={index} className="screener-row">
-                    <td className="symbol-cell">
+                    <td className="symbol-cell"
+                      onClick={() => {
+                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
+                      }}>
                       <img
                         src={stock.icon}
                         alt={`${stock.symbol} logo`}
                         className="company-icon"
                       />
 
-                      <a href={stock.url}>{stock.symbol}</a>
+                      <a>{stock.symbol}</a>
                     </td>
 
-                    <td>{stock.price}</td>
+                    <td>₹{stock.price}</td>
                     <td
                       style={{
                         color:
@@ -2611,13 +2618,13 @@ const Netify100 = () => {
                       }}
                     >
                       {parseFloat(stock.change) > 0
-                        ? `${stock.change}`
+                        ? `+${stock.change}`
                         : stock.change}
                     </td>
                     <td>{stock.volume}</td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹{stock.marketCap}</td>
                     <td>{stock.pToE}</td>
-                    <td>{stock.eps}</td>
+                    <td>₹{stock.eps}</td>
                     <td
                       style={{
                         color:
@@ -2636,6 +2643,7 @@ const Netify100 = () => {
                     <td
                       style={{
                         color: "blue",
+                        textAlign: "left",
                       }}
                     >
                       {stock.sector}

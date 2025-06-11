@@ -1,6 +1,6 @@
 .mutualfunddflex-container {
     display: flex;
-    gap: 20px; /* Optional: adds space between the two components */
+    gap: 10px; /* Optional: adds space between the two components */
     flex-wrap: wrap; /* Allows the components to wrap to the next line on smaller screens */
     font-family: 'calibri';
    
@@ -10,7 +10,7 @@
     font-family: 'calibri';
     font-size: 24px;
     margin-bottom: -150px;
-    margin-left: 160px;
+    margin-left: 100px;
   }
   .mutualfunddflex-container > * {
     flex: 1; /* Make both components take equal width */

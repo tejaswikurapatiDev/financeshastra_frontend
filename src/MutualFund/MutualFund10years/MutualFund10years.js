@@ -25,7 +25,6 @@ const financialData = {
 };
 
 const Mutualxray = ({ perfSummary, cagrSummary, peerCompare }) => {
-  console.log(peerCompare)
 
   if (!Array.isArray(perfSummary)) {
     console.error("Invalid perfSummary:", perfSummary);

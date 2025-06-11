@@ -464,6 +464,15 @@ color:  #2563eb;
   .analysisnoteriskprofilereport-list h3{
     font-size: 21px;
   }
+  @media (max-width: 1379px) {
+    .ProfileScreenRiskReportPortfolio td {
+ 
+    font-size: 13px;
+}
+.ProfileScreenRiskReportPortfolio th{
+ font-size: 10px;
+}
+  }
   @media (max-width: 768px) {
     
   
