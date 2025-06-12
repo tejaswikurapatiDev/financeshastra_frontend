@@ -146,8 +146,15 @@ box-shadow: 0 2px 8px rgba(203, 201, 201, 0.879);
   cursor: pointer;
  
 }
-
- @media (min-width: 1280px) and (max-width: 1535px) {
+  @media (max-width: 1379px) {
+    .alljobiconn {
+        display: flex
+;
+        gap: 5px;
+        margin-left: 760px;
+    }
+  }
+ @media (min-width: 1380px) and (max-width: 1535px) {
   .alljobiconn{
     display: flex;
     gap: 5px;
