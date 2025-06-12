@@ -7,7 +7,15 @@
 
   
 }
+.financial-10yrtable {
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'calibri';
+  padding: 10px;
 
+  
+}
 .App{
   font-family: 'calibri';
 }
@@ -17,6 +25,10 @@ width: 100%;
   border-collapse: collapse;
 }
 
+.financial-10yrtable table  {
+width: 100%;
+  border-collapse: collapse;
+}
 .financeheader{
   font-size: 24px;
   color:#24b676;
@@ -47,9 +59,26 @@ margin-left: 30px;
   text-align: center;
   
 }
+/* Header Styling */
+.financial-10yrtable th {
+  background-color:  #24b676;  /* Blue header background */
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  
+}
 
 /* Row Styling */
 .financial-table td {
+  padding: 10px;
+  text-align: center;
+  
+  font-size: 14px;
+}
+/* Row Styling */
+.financial-10yrtable td {
   padding: 10px;
   text-align: center;
   
@@ -61,6 +90,13 @@ margin-left: 30px;
 }
 
 .financial-table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+.financial-10yrtable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;  /* Light gray for alternate rows */
+}
+
+.financial-10yrtable tbody tr:nth-child(odd) {
   background-color: #ffffff;
 }
 
@@ -106,7 +142,10 @@ margin-left: 30px;
   margin: 20px 0;
 }
 
-
+.financial-10yrtable {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around table */
+  margin: 20px 0;
+}
 
 .neutral {
   color: black;
@@ -118,6 +157,14 @@ margin-left: 30px;
     width: 88%;
   margin-left: 80px;
 }
+.financial-10yrtable {
+    margin: 20px;
+    border-collapse: collapse;
+    position: relative;
+    width: 95%;
+    margin-left: 20px;
+}
+
 
 .button-container {
   position: absolute;
@@ -188,6 +235,13 @@ margin-left: 790px;
     width: 96%;
     margin-left: 11px;
 }
+.financial-10yrtable {
+    margin: 20px;
+    border-collapse: collapse;
+    position: relative;
+    width: 96%;
+    margin-left: 11px;
+}
 }
 
 @media (max-width: 768px) {
@@ -200,7 +254,14 @@ margin-left: 790px;
         margin-left: 30px;
         width: 89%;
   }
-
+.financial-10yrtable {
+        margin-top: 10px;
+        padding: 10px;
+        overflow-x: auto;
+        margin-bottom: 60px;
+        margin-left: 30px;
+        width: 89%;
+  }
   .financeheader {
     font-size: 18px; /* Slightly smaller font size for the header */
     margin-right: 60%; /* Adjust margins for mobile */
@@ -222,13 +283,25 @@ margin-left: 790px;
     font-size: 12px; /* Smaller font size for better fit */
     table-layout: auto; /* Allow the table to adjust to screen width */
   }
+ .financial-10yrtable table {
+    width: 100%; /* Full width of the screen */
+    font-size: 12px; /* Smaller font size for better fit */
+    table-layout: auto; /* Allow the table to adjust to screen width */
+  }
 
   .financial-table th,
   .financial-table td {
     padding: 8px; /* Reduce padding for smaller screens */
   }
+.financial-10yrtable th,
+  .financial-10yrtable td {
+    padding: 8px; /* Reduce padding for smaller screens */
+  }
 
   .financial-table th {
+    font-size: 12px; /* Smaller font size for headers */
+  }
+   .financial-10yrtable th {
     font-size: 12px; /* Smaller font size for headers */
   }
 
@@ -238,6 +311,14 @@ margin-left: 790px;
   }
 
   .financial-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+/* Adjust row backgrounds for mobile */
+  .financial-10yrtable tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Keep alternating row colors */
+  }
+
+  .financial-10yrtable tbody tr:nth-child(odd) {
     background-color: #ffffff;
   }
 
@@ -269,6 +350,16 @@ margin-left: 790px;
 @media (max-width: 480px) {
   /* Further adjustments for smaller mobile screens */
   .financial-table  {
+        margin: 10px 5px;
+        padding: 5px;
+        overflow-x: auto;
+        margin-bottom: 50px;
+        margin-left: 30px;
+        width: 82%;
+        overflow-x: auto;
+    
+  }
+  .financial-10yrtable  {
         margin: 10px 5px;
         padding: 5px;
         overflow-x: auto;
@@ -316,6 +407,27 @@ margin-left: 790px;
     background-color: #ffffff;
   }
 
+
+  .financial-10yrtable table {
+    font-size: 10px; /* Smaller font for mobile */
+    table-layout: auto; /* Allow table to adjust to available space */
+  }
+
+  .financial-10yrtable th,
+  .financial-10yrtable td {
+    padding: 6px;
+    font-size: 12px; /* Reduce padding */
+  }
+
+  /* Adjust row backgrounds for smaller screens */
+  .financial-10yrtable tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Keep alternating colors */
+  }
+
+  .financial-10yrtable tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
   .standalone-button,
   .consolidated-button {
     padding: 6px 10px; /* Smaller padding for small screens */
@@ -332,6 +444,15 @@ margin-left: 790px;
 }
 @media (max-width: 320px) {
       .financial-table {
+        margin: 10px 5px;
+        padding: 5px;
+        overflow-x: auto;
+        margin-bottom: 50px;
+        margin-left: 17px;
+        width: 85%;
+        overflow-x: auto;
+    }
+    .financial-10yrtable {
         margin: 10px 5px;
         padding: 5px;
         overflow-x: auto;

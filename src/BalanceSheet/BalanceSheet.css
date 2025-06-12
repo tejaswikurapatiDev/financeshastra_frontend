@@ -188,12 +188,14 @@ margin-left: -20px;
     margin-left: 10px; /* Adjust margin */
     font-size: 12px; /* Smaller font size for mobile */
   }
-
+   
   .balance-sheet table {
-    width: 100%; /* Full width for tables */
-    margin: 10px auto; /* Center the table */
-  }
-
+        width: 100%;
+        margin: 10px auto;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
   .balance-sheet th, .balance-sheet td {
     padding: 8px; /* Reduce padding for mobile screens */
   }
