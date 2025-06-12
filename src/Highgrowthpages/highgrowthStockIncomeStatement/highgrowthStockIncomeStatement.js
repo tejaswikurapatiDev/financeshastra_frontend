@@ -2402,14 +2402,17 @@ const HighStockIncomeStatement = () => {
               <tbody>
                 {currentData.map((stock, index) => (
                   <tr key={index} className="screener-row">
-                    <td className="symbol-cell">
+                    <td className="symbol-cell"
+                      onClick={() => {
+                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
+                      }}>
                       <img
                         src={stock.icon}
                         alt={`${stock.symbol} logo`}
                         className="company-icon"
                       />
 
-                      <a href={stock.url}>{stock.symbol}</a>
+                      <a href={"javascript:void(0)"} style={{textAlign: "left",}}>{stock.symbol}</a>
                     </td>
                     <td>{stock.revenue}</td>
                     <td
