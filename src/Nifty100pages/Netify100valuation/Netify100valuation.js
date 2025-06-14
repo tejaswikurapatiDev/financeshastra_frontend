@@ -2620,7 +2620,7 @@ const Netify100valuation = () => {
                     >
                       {parseFloat(stock.marketCapPerf) > 0
                         ? `+${stock.marketCapPerf}`
-                        : stock.marketCapPerf}%
+                        : stock.marketCapPerf}
                     </td>
 
                     <td>{stock.pToE}</td>
