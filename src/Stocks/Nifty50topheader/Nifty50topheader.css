@@ -21,17 +21,19 @@
   gap: 5px;
 
 
-  margin-left: 315px;
+  margin-left: 300px;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .graphheadernifty {
   display: flex;
-  gap: 400px;
+  gap: 710px;
   align-items: center;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  width: 200%;
+  margin-left: -25px;
 }
 
 .graphheadernifty h1 {
@@ -128,19 +130,38 @@
   .graphcontainerernifty50 {
     margin-top: 70px;
   }
+  .graphheadernifty {
+    display: flex
+;
+    gap: 700px;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    width: 200%;
+    margin-left: -89px;
+}
+.graphnavbarrnifty50 {
+    display: flex
+;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-left: 230px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
 }
 
 /* Medium Desktops (1024px - 1279px) */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .graphheadernifty {
-    gap: 350px;
-    /* Adjust the gap for medium desktops */
-  }
+    .graphheadernifty {
+        gap: 660px;
+        margin-left: -110px;
+    }
 
   .graphupdatenifty50 {
     font-size: 12px;
 
-    margin-left: -10px;
+    margin-left: -15px;
   }
 
   .graphheadernifty h1 {
@@ -148,9 +169,16 @@
   }
 
   .graphnavbarrnifty50 {
-    margin-left: 210px;
+    margin-left: 115px;
   }
-
+.graphnavbarrnifty50 span {
+    font-size: 15px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
   .graphcontainerernifty50 {
     margin-top: 50px;
   }
@@ -179,10 +207,11 @@
 
   .graphheadernifty {
     display: flex;
-    gap: 100px;
+    gap: 310px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
+    margin-left: -5px;
   }
 
   .graph-price-update {
@@ -251,11 +280,16 @@
     color: #333;
     margin-top: 2px;
     margin-left: auto;
+        font-size: 8px;
+    color: #333;
+    margin-top: 2px;
+    /* margin-left: -50px; */
+    margin-right: 50px;
   }
 
   .graphheadernifty {
     display: flex;
-    gap: 60px;
+    gap: 100px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -270,7 +304,7 @@
   }
 
   .graphnavbarrnifty50 {
-    margin-left: 30px;
+    margin-left: 48px;
     margin-right: 10px;
   }
 

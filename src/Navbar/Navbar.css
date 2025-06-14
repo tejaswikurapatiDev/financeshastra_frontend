@@ -854,6 +854,14 @@ a span {
     width: 340px;
   }
 
+  .navbar-search ul li {
+    cursor: pointer;
+    padding: 10px;
+    transition: background 0.2s ease-in-out;
+    list-style: none;
+    margin-left: -25px;
+    font-size: 12px;
+}
   /* Adjust search bar */
   .navbar-search input {
     width: 160px;
@@ -2228,7 +2236,7 @@ margin-left: 0px;
     border: 1px solid #333333;
     font-size: 12px;
     height: 30px;
-    width: 115px;
+    width: 155px;
   }
 
   .landingnavbar-icons {

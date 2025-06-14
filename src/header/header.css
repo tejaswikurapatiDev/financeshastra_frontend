@@ -20,11 +20,13 @@
 
 .graphheader {
   display: flex;
-  gap: 500px;
+  gap: 800px;
   align-items: center;
   padding-bottom: 5px;
   margin-bottom: 5px;
   margin-top: 10px;
+  width: 200%;
+
 }
 
 
@@ -147,7 +149,8 @@
   .graphheader {
     display: flex
 ;
-    gap: 450px;
+width: 200%;
+    gap: 800px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -194,7 +197,7 @@
   .graphheader {
     display: flex
 ;
-    gap: 300px;
+    gap: 480px;
     align-items: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -335,14 +338,15 @@ margin-top: 30px;
       flex-direction: column; 
       align-items: flex-start; 
   }
-  .graphheader {
-    display: flex;
- gap: 30px;
-    align-items: center;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
- 
-  }
+.graphheader {
+        display: flex
+;
+        gap: 50px;
+        align-items: center;
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        width: 70%;
+    }
   
 }
 
