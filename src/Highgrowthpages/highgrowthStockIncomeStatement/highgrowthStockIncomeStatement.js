@@ -140,6 +140,14 @@ const HighStockIncomeStatement = () => {
     }
   };
 
+  const formatNumber = (num) => {
+    if (num >= 1e12) return (num / 1e12).toFixed(2) + ' T';
+    if (num >= 1e9) return (num / 1e9).toFixed(2) + ' B';
+    if (num >= 1e6) return (num / 1e6).toFixed(2) + ' M';
+    if (num >= 1e3) return (num / 1e3).toFixed(2) + ' K';
+    return num.toString();
+  };
+
   useEffect(() => {
     const fetchfun = async () => {
       const url = `${API_BASE_URL}/stocks/incomestatement`;
@@ -149,15 +157,15 @@ const HighStockIncomeStatement = () => {
         const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.Symbol,
-          epsDilGrowth: each.EPSDilutedGrowth,
+          epsDilGrowth: (each.EPSDilutedGrowth * 100).toFixed(2),
           url: "/stockhandle",
-          revenue: each.Revenue,
+          revenue: formatNumber(each.Revenue),
           revenueGrowth: each.RevenueGrowth,
-          grossProfit: each.GrossProfit,
-          operatingIncome: each.OperatingIncome,
-          netIncome: each.NetIncome,
-          ebitda: each.EBITDA,
-          epsDil: each.EPS_Diluted,
+          grossProfit: formatNumber(each.GrossProfit),
+          operatingIncome: formatNumber(each.OperatingIncome),
+          netIncome: formatNumber(each.NetIncome),
+          ebitda: formatNumber(each.EBITDA),
+          epsDil:  (each.EPS_Diluted * 1).toFixed(2),
         }));
         setStocks(formattedData);
         
@@ -2402,10 +2410,12 @@ const HighStockIncomeStatement = () => {
               <tbody>
                 {currentData.map((stock, index) => (
                   <tr key={index} className="screener-row">
-                    <td className="symbol-cell"
+                    <td
+                      className="symbol-cell"
                       onClick={() => {
                         navigate(`/stockhandle/${stock.id}`, { state: { stock } });
-                      }}>
+                      }}
+                    >
                       <img
                         src={stock.icon}
                         alt={`${stock.symbol} logo`}
@@ -2414,25 +2424,29 @@ const HighStockIncomeStatement = () => {
 
                       <a href={"javascript:void(0)"} style={{textAlign: "left",}}>{stock.symbol}</a>
                     </td>
-                    <td>{stock.revenue}</td>
+                    <td>₹{stock.revenue}</td>
                     <td
                       style={{
                         color: stock.revenueGrowth > 0 ? "#24b676" : "red",
                       }}
                     >
-                      {stock.revenueGrowth}%
+                      {parseFloat(stock.revenueGrowth) > 0
+                        ? `+${stock.revenueGrowth}`
+                        : stock.revenueGrowth}%
                     </td>
-                    <td>{stock.grossProfit || "-"}</td>
-                    <td>{stock.operatingIncome}</td>
-                    <td>{stock.netIncome}</td>
-                    <td>{stock.ebitda}</td>
-                    <td>{stock.epsDil}</td>
+                    <td>₹{stock.grossProfit || "-"}</td>
+                    <td>₹{stock.operatingIncome}</td>
+                    <td>₹{stock.netIncome}</td>
+                    <td>₹{stock.ebitda}</td>
+                    <td>₹{stock.epsDil}</td>
                     <td
                       style={{
                         color: stock.epsDilGrowth > 0 ? "#24b676" : "red",
                       }}
                     >
-                      {stock.epsDilGrowth}%
+                      {parseFloat(stock.epsDilGrowth) > 0
+                        ? `+${stock.epsDilGrowth}`
+                        : stock.epsDilGrowth}%
                     </td>
                   </tr>
                 ))}
