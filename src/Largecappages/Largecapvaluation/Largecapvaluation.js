@@ -2534,7 +2534,7 @@ const Largecapvaluation = () => {
                     >
                       {parseFloat(stock.marketCapPerf) > 0
                         ? `+${stock.marketCapPerf}`
-                        : stock.marketCapPerf}%
+                        : stock.marketCapPerf}
                     </td>
 
                     <td>{stock.pToE}</td>
