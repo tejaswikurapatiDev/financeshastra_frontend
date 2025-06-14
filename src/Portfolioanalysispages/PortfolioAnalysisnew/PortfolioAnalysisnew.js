@@ -55,19 +55,26 @@ const newsData = [
   },
 ];
 
-const NewsCard = ({ title, created_at, image_url }) => {
+const NewsCard = ({ title, created_at, image_url, id }) => {
   const dateObj = new Date(created_at.replace(" ", "T"));
   const options = { year: "numeric", month: "long", day: "numeric" };
 
   return (
-  <div className="news-cardportfoloiaa">
-    <img src={image_url} alt="News" className="news-imageportfoloiaa" />
-    <div className="news-contentportfoloiaa">
-      <h3>{title}</h3>
-      <p>{dateObj.toLocaleDateString("en-US", options)}</p>
-    </div>
-  </div>
-)};
+    <Link
+      to={`/stock-market-news/details?id=${id}`}
+      key={id}
+      className="stockNewsItemLink"
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <div className="news-cardportfoloiaa">
+        <img src={image_url} alt="News" className="news-imageportfoloiaa" />
+        <div className="news-contentportfoloiaa">
+          <h3>{title}</h3>
+          <p>{dateObj.toLocaleDateString("en-US", options)}</p>
+        </div>
+      </div></Link>
+  )
+};
 
 const PortfolioAnalysisnew = () => {
   const navigate = useNavigate();
@@ -76,30 +83,30 @@ const PortfolioAnalysisnew = () => {
   const showMore = () => setVisibleNews(newsData.length);
   const [newsArticles, setNewsArticles] = useState([])
   const getNews = async () => {
-      try {
-        const response = await fetch(`${API_BASE_URL}/news`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-  
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Failed to fetch News");
-        }
-  
-        const result = await response.json();
-        console.log("Result: ", result)
-        setNewsArticles(result);
-      } catch (error) {
-        console.error("Error fetching News:", error);
+    try {
+      const response = await fetch(`${API_BASE_URL}/news`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch News");
       }
-    };
-  
-    useEffect(() => {
-      getNews();
-    }, []);
+
+      const result = await response.json();
+      console.log("Result: ", result)
+      setNewsArticles(result);
+    } catch (error) {
+      console.error("Error fetching News:", error);
+    }
+  };
+
+  useEffect(() => {
+    getNews();
+  }, []);
 
   return (
     <div>

@@ -60,6 +60,13 @@ const Largecapvaluation = () => {
     index: false,
     sector: false,
   });
+  const formatNumber = (num) => {
+    if (num >= 1e12) return (num / 1e12).toFixed(2) + ' T';
+    if (num >= 1e9) return (num / 1e9).toFixed(2) + ' B';
+    if (num >= 1e6) return (num / 1e6).toFixed(2) + ' M';
+    if (num >= 1e3) return (num / 1e3).toFixed(2) + ' K';
+    return num.toString();
+  };
 
   useEffect(() => {
     const fetchfun = async () => {
@@ -72,7 +79,7 @@ const Largecapvaluation = () => {
           id: each.id,
           symbol: each.Symbol,
           price: each.Price,
-          marketCap: each.MarketCap,
+          marketCap: formatNumber(each.MarketCap),
           pToE: each.PERatio,
           pToB: each.PSRatio,
           roe: each.ROE,
@@ -2498,40 +2505,50 @@ const Largecapvaluation = () => {
 
                 <tbody>
                   {currentData.map((stock, index) => (
-                    <tr key={index} className="screener-row">
-                      <td className="symbol-cell">
-                        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
+                  <tr key={index} className="screener-row">
+                    <td
+                      className="symbol-cell"
+                      onClick={() => {
+                        navigate(stock.url, { state: { stock } });
+                      }}
+                    >
+                      <img
+                        src={stock.icon}
+                        alt={`${stock.symbol} logo`}
+                        className="company-icon"
+                      />
 
+                      <a href={stock.url} style={{textAlign: "left",}}>{stock.symbol}</a>
+                    </td>
+                    <td>₹{stock.marketCap}</td>
 
+                    <td
+                      style={{
+                        color:
+                          parseFloat(stock.marketCapPerf) > 0
+                            ? "#24b676"
+                            : parseFloat(stock.marketCapPerf) < 0
+                              ? "red"
+                              : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.marketCapPerf) > 0
+                        ? `+${stock.marketCapPerf}`
+                        : stock.marketCapPerf}%
+                    </td>
 
-                        <a href={stock.url}>{stock.symbol}</a>
-                      </td>
-                      <td>{stock.marketCap}</td>
-
-                      <td
-                        style={{
-                          color: parseFloat(stock.marketCapPerf) > 0 ? "#24b676" : parseFloat(stock.marketCapPerf) < 0 ? "red" : "inherit",
-                        }}
-                      >
-                        {stock.marketCapPerf}
-                      </td>
-
-                      <td>{stock.pToE}</td>
-                      <td>{stock.pToB}</td>
-                      <td>{stock.peg}</td>
-                      <td>{stock.pToS}</td>
-                      <td>{stock.pToCF}</td>
-                      <td>{stock.price}</td>
-                      <td>{stock.ev}</td>
-                      <td>{stock.evEbitda}</td>
-                      <td>{stock.evSales}</td>
-                      <td>{stock.evEbit}</td>
-
-
-
-
-                    </tr>
-                  ))}
+                    <td>{stock.pToE}</td>
+                    <td>{stock.pToB}</td>
+                    <td>{stock.peg}</td>
+                    <td>{stock.pToS}</td>
+                    <td>{stock.pToCF}</td>
+                    <td>{stock.price}</td>
+                    <td>₹{stock.ev}</td>
+                    <td>{stock.evEbitda}</td>
+                    <td>{stock.evSales}</td>
+                    <td>{stock.evEbit}</td>
+                  </tr>
+                ))}
                 </tbody>
               </table>
             </div>}

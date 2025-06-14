@@ -1,4 +1,4 @@
-const stocks = [
+/*const stocks = [
   {
     "company": "ITI Ltd.",
     "ltp": "303.6",
@@ -819,4 +819,4 @@ const stocks = [
   
 ];
 
-export default stocks;
+export default stocks;*/

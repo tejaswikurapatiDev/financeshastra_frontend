@@ -27,11 +27,11 @@ const Bestsmallcapdirect = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
   const totalPages = Math.max(1, Math.ceil((smallCapfunds?.length || 0) / recordsPerPage));
+  console.log("small cap: ", smallCapfunds)
 
   // Sort function
   const sortedData = () => {
     if (!sortConfig.key) return smallCapfunds;
-
     const sorted = [...smallCapfunds];
     sorted.sort((a, b) => {
       const aValue = parseFloat(a[sortConfig.key]) || a[sortConfig.key];
@@ -114,7 +114,7 @@ const Bestsmallcapdirect = () => {
                           {fund.FundName}
                         </a>
                       ) : (
-                        <Link to="/mutualfundgrowth" className="fund-name-link">
+                        <Link to={`/mutualfundgrowth/${fund.FundID}`} className="fund-name-link">
                           {fund.FundName}
                         </Link>
                       )}

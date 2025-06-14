@@ -8,6 +8,12 @@ import ReactDatePicker from 'react-datepicker';
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 const Stockcalender = () => {
   const [selectedEarningsTab, setSelectedEarningsTab] = useState("Today");
@@ -17,7 +23,7 @@ const Stockcalender = () => {
   const [calendarOpen, setCalendarOpen] = useState(false);
   const [allStocks, setAllStocks] = useState([]);
   const [sortedData, setSortedData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
@@ -311,10 +317,18 @@ const Stockcalender = () => {
                     Current P/E {renderSortIcon("pe")}
                   </th>
                   <th >
-                    Clarification
+                    Analyst Rating
                   </th>
                 </tr>
               </thead>
+             {isLoading ? <div className='loader-cont'><ClipLoader
+                    cssOverride={override}
+                    size={35}
+                    data-testid="loader"
+                    loading={isLoading}
+                    speedMultiplier={1}
+                    color="green"
+                  /></div> : 
               <tbody>
                 {filterEarningsData.length > 0 ? (
                   currentStocks.map((row, index) => (
@@ -358,7 +372,7 @@ const Stockcalender = () => {
                     </td>
                   </tr>
                 )}
-              </tbody>
+              </tbody>}
 
             </table>
           </div>

@@ -11,6 +11,12 @@ import icon7 from '../../assest/message.svg';
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { API_BASE_URL } from "../../config";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
 
 // Data for the cards and table
 const DashboardPagetable = [
@@ -26,7 +32,7 @@ const DashboardPagetable = [
 const DashboardMainPagetable = () => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
   const [allStocks, setAllStocks] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -37,7 +43,6 @@ const DashboardMainPagetable = () => {
   
   const fetchData = async () => {
     try {
-      setLoading(true);
       const token = Cookies.get("jwtToken");
       const response = await fetch(`${API_BASE_URL}/stocksScreener/stockSector`, {
         method: "GET",
@@ -264,7 +269,14 @@ const DashboardMainPagetable = () => {
               <th>Clarification</th>
             </tr>
           </thead>
-          <tbody>
+         {isLoading ? <div className='loader-cont'><ClipLoader
+                   cssOverride={override}
+                   size={35}
+                   data-testid="loader"
+                   loading={isLoading}
+                   speedMultiplier={1}
+                   color="green"
+                 /></div> : <tbody>
             {currentStocks.map((row) => (
               <tr key={row.id}>
                 <td>{row.company}</td>
@@ -284,13 +296,17 @@ const DashboardMainPagetable = () => {
                 <td>{row.sector}</td>
                 <td>{row.pe}</td>
                 <td>
-                  <a href="javascript:void(0)" className="clarification-link">
+                  <a href="javascript:void(0)" className="clarification-link"
+                  onClick={() => {
+                        navigate(`/stockhandle/${row.stock_id}`, { state: { row } });
+                      }}
+                  >
                     Know more
                   </a>
                 </td>
               </tr>
             ))}
-          </tbody>
+          </tbody>}
         </table>
       </div>
   

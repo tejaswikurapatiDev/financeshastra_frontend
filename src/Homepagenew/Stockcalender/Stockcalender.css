@@ -42,7 +42,7 @@
 .DashboardMainPagetable-tablee th {
     background-color: #f2f2f2;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .DashboardMainPagetable-tablee td {
@@ -133,6 +133,29 @@ width: 100%;
   margin: 20px;
   width: 90%;
 }
+@media (min-width: 1920px) and (max-width: 1920px)   {
+  .DashboardMainPagetable-table-container {
+    overflow-x: auto;
+    margin: 20px;
+    width: 120%;
+}
+.DashboardMainPagetable-table-containerrrrr {
+    width: 92%;
+}
+.DashboardMainPagetable-tablee {
+    width: 135%
+}
+.pagination-containercalen {
+    display: flex
+;
+    justify-content: space-between;
+    max-width: 208%;
+    margin-left: 5px;
+    margin-top: 10px;
+    align-items: center;
+}
+  
+}
 @media(min-width:2000px){
   .pagination-containercalender {
     display: flex;
@@ -183,7 +206,7 @@ width: 100%;
     .DashboardMainPagetable-tablee th {
     background-color: #f2f2f2;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
 }
     .pagination-containercalen {
         display: flex
@@ -194,6 +217,7 @@ width: 100%;
         margin-top: 10px;
     }
 }
+
 @media (min-width: 1024px) and (max-width: 1279px)  {
   .DashboardMainPagetable-table-container {
     overflow-x: auto;
@@ -322,9 +346,10 @@ font-size: 13px;
    
     border-collapse: collapse;
     margin-top: 0px;
+            width: 95%;
  
 } .DashboardMainPagetable-tablee th, .DashboardMainPagetable-tablee td{
-font-size: 12px;
+font-size: 10px;
 }
 .DashboardMainPagetable-table-containercalen {
   width: 145%;

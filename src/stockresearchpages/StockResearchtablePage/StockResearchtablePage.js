@@ -12,6 +12,7 @@ import reliance from "../../assest/reliance.png";
 import life from "../../assest/lici.png";
 import itc from "../../assest/itc.png";
 import hindustan from "../../assest/hindunilvr.png";
+import Cookies from 'js-cookie'
 
 import bajaj from "../../assest/bajajhfl.png";
 import tataConsumer from "../../assest/tataconsumer.png";
@@ -20,9 +21,56 @@ import angelOne from "../../assest/angel.png";
 import jupiter from "../../assest/jupiter.png";
 import { useNavigate } from 'react-router-dom';
 
-
 const StockResearchtablePage = () => {
   const navigate= useNavigate()
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+   const [isloading, setisloading] = useState(true)
+   const [researchStocks, setresearchStocks] = useState([])
+   const [filteredstock, setFilteredstock] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sorttDirection, setSorttDirection] = useState(true);
+  const [sortOption, setSortOption] = useState('Recent'); // Dropdown option state
+
+  useEffect(() => {
+      if (isSubscribed && isLoading) {
+        setisloading(false)
+      } else {
+        setisloading(false)
+      }
+  
+      const cookietoke = Cookies.get("jwtToken")
+      console.log(cookietoke)
+      const fetchTableData = async () => {
+        const response = await fetch(`${API_BASE_URL}/researchstocks`, {
+          method: "get",
+          headers: {
+            "Authorization": `Bearer ${cookietoke}`
+          },
+          credentials: 'include',
+        });
+        const data = await response.json()
+        const stocks = data[0]
+        console.log(stocks)
+        const formatedstocks = stocks.map((each) => (
+          {
+            date: each.date.split("T")[0],
+            symbol: each.symbol,
+            price: each.price_raw,
+            change: each.change_perc,
+            marketCap: each.market_cap,
+            target: each.target,
+            action: each.upside_downside,
+            rating: each.rating,
+            profitBooked: each.profit_booked,
+            image: each.icon,
+            pdfLink: `researchnewallcall/${each.research_stock_id}/${each.symbol}/${each.sector}`
+          }
+        ))
+        setresearchStocks(formatedstocks)
+        setFilteredstock(formatedstocks)
+      }
+      fetchTableData()
+    }, [])
 
   const stockResearchtableData = [
     { date: "30-01-2025", symbol: "Reliance Industries Ltd", price: "₹1,272.15", change: "-0.09%", marketCap: "₹17.23T", target: "₹489.00", action: "Book Profits", rating: "Buy", profitBooked: "+23.58%", image: reliance, pdfLink: "View" },
@@ -36,12 +84,6 @@ const StockResearchtablePage = () => {
     { date: "10-06-2024", symbol: "ITC Ltd", price: "₹468.85", change: "-0.24%", marketCap: "₹5.88T", target: "₹3,500.00", action: "Book Profits", rating: "Sell", profitBooked: "+67.38%", image: itc, pdfLink: "View" },
     { date: "02-06-2024", symbol: "Hindustan Unilever Ltd", price: "₹2,411", change: "-0.80%", marketCap: "₹5.61T", target: "₹2,910.00", action: "Target Achieved", rating: "Buy", profitBooked: "+18.33%", image: hindustan, pdfLink: "View" }
 ];
-
-    
-  const [filteredstock, setFilteredstock] = useState(stockResearchtableData);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sorttDirection, setSorttDirection] = useState(true);
-  const [sortOption, setSortOption] = useState('Recent'); // Dropdown option state
 
   const itemsPerPage = 7; // Number of rows per page
 
@@ -57,6 +99,46 @@ const StockResearchtablePage = () => {
     setCurrentPage(pageNumber);
   };
 
+  useEffect(() => {
+    if (isSubscribed && isLoading) {
+      setisloading(false)
+    } else {
+      setisloading(false)
+    }
+
+  const cookietoke = Cookies.get("jwtToken")
+      console.log(cookietoke)
+      const fetchTableData = async () => {
+        const response = await fetch(`${API_BASE_URL}/researchstocks`, {
+          method: "get",
+          headers: {
+            "Authorization": `Bearer ${cookietoke}`
+          },
+          credentials: 'include',
+        });
+        const data = await response.json()
+        const stocks = data[0]
+        console.log(stocks)
+        const formatedstocks = stocks.map((each) => (
+          {
+            date: each.date.split("T")[0],
+            symbol: each.symbol,
+            price: each.price_raw,
+            change: each.change_perc,
+            marketCap: each.market_cap,
+            target: each.target,
+            action: each.upside_downside,
+            rating: each.rating,
+            profitBooked: each.profit_booked,
+            image: each.icon,
+            pdfLink: `researchnewallcall/${each.research_stock_id}`
+          }
+        ))
+        setresearchStocks(formatedstocks)
+        setFilteredstock(formatedstocks)
+      }
+      fetchTableData()
+    }, [])
   // Handle sorting
   const handleSortresearch = (key) => {
     const sortedstock = [...filteredstock].sort((a, b) => {
@@ -114,8 +196,7 @@ const StockResearchtablePage = () => {
     // Toggle sorting direction for the next click
     setSorttDirection((prev) => !prev);
   };
-   const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
-
+   
  
   return (
     

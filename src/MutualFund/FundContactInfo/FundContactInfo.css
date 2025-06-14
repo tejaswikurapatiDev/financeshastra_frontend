@@ -88,17 +88,14 @@
     }
   }
   @media (min-width: 1024px) and (max-width: 1279px)  {
-    .infoContainer {
-      font-family: 'calibri';
-      max-width: 580px;
-    
-      padding: 20px;
-      
-      border-radius: 8px;
-      margin-left: 20px;
-     margin-bottom: 100px;
-     
-     
+   .infoContainer {
+        font-family: 'calibri';
+        max-width: 630px;
+        /* width: 99%; */
+        padding: 20px;
+        border-radius: 8px;
+        margin-left: -10px;
+        margin-bottom: 100px;
     }
   }
   /* Adjustments for screens up to 768px */
@@ -143,12 +140,11 @@
 
 /* Adjustments for screens up to 480px */
 @media (max-width: 480px) {
-  .infoContainer {
-      max-width: 85%; /* Use full width */
-      margin-left: 10px; /* Reduce left margin */
-      padding: 10px; /* Smaller padding */
-  }
-
+     .infoContainer {
+        max-width: 80%;
+        margin-left: 25px;
+        padding: 10px;
+    }
   .infoHeader {
       font-size: 14px; /* Further reduce font size */
   }
@@ -176,4 +172,11 @@
       text-align: left; /* Keep left-aligned */
       margin-right: 0; /* Ensure no margin issues */
   }
+}
+@media (max-width: 320px) {
+      .infoContainer {
+        max-width: 80%;
+        margin-left: 15px;
+        padding: 10px;
+    }
 }
