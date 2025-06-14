@@ -352,10 +352,10 @@ margin-right: 500px;
   }
   
   .graphupdate {
-    font-size: 11px;
-    margin-right: 90px;
-    margin-left: -10px;
-  }
+        font-size: 9px;
+        margin-right: 90px;
+        margin-left: -20px;
+    }
   
   .graphstock-infoo {
     margin-left: 0px;
@@ -381,7 +381,7 @@ margin-right: 500px;
       margin-bottom: 5px;
   }
   .graphupdate {
-    font-size: 11px;
+    font-size: 9px;
     margin-right: 120px;
 }
 
