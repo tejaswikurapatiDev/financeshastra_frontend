@@ -1,0 +1,109 @@
+.screener-table-wrapper {
+  overflow-y: auto;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  height: 370px;
+  width: 100%;
+}
+.screener-table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto; /* Allow flexible column widths */
+}
+.screener-table th,
+.screener-table td {
+  padding: 8px 8px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.screener-table thead {
+  position: sticky;
+  top: 0;
+  background-color: #f9f9f9;
+  z-index: 10;
+  box-shadow: 0 4px 6px #24b676;
+}
+@media (min-width: 1280px) and (max-width: 1535px)  {
+   .screener-table th,
+.screener-table td {
+  padding: 8px 7px;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+} 
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .screener-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .screener-table {
+    width: max-content;
+    min-width: 100%;
+    table-layout: auto;
+  }
+
+  .screener-table th,
+  .screener-table td {
+    padding: 8px 7px;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .screener-table-wrapper {
+    overflow-x: auto;
+    height: 340px;
+  }
+
+  .screener-table {
+    width: max-content;
+    min-width: 100%;
+    table-layout: auto;
+  }
+
+  .screener-table th,
+  .screener-table td {
+    padding: 6px 5px;
+    font-size: 13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Optional: hide low-priority columns */
+  .hide-on-tablet {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .screener-table-wrapper {
+    overflow-x: auto;
+    height: 300px; /* Slightly reduced height for small screens */
+  }
+
+  .screener-table {
+    width: max-content; /* Allow table to expand */
+    min-width: 100%;
+    table-layout: auto;
+  }
+
+  .screener-table th,
+  .screener-table td {
+    padding: 4px 3px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Hide less important columns for better readability */
+  .hide-on-mobile,
+  .hide-on-small-mobile {
+    display: none;
+  }
+}
