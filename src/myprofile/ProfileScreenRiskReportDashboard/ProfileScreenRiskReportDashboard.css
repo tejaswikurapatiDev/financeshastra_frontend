@@ -72,10 +72,7 @@ height: 100px;
     height: 250px;
     margin-left: 1px;
   }
-  
-  .ProfileScreenRiskReportPortfolio table, th, td {
-    border: 1px solid #ddd;
-  }
+ 
   
   .ProfileScreenRiskReportPortfolio th, td {
     padding: 8px;

@@ -151,14 +151,15 @@ margin-top: -5px;
   .pagination-topratedcontainer {
     display: flex;
     justify-content: center; /* Centers everything */
-    margin-top: 15px;
+
+    margin-top: 5px;
     width: 100%;
 }
 
 .pagination-topratedwrapper {
     display: flex;
   
-    gap: 970px;
+ justify-content: space-between;
     align-items: center;
     width: 58%; /* Adjusts width for better alignment */
     max-width: 1700px; /* Prevents stretching on larger screens */
@@ -197,8 +198,18 @@ margin-top: -5px;
 @media (min-width: 1536px) {
   .pagination-topratedcontainer {
     display: flex;
-   margin-left: -280px;
+   margin-left: -265px;
+
    
+}
+.pagination-topratedwrapper {
+    display: flex;
+  
+ justify-content: space-between;
+    align-items: center;
+    width: 61%; /* Adjusts width for better alignment */
+    max-width: 1700px; /* Prevents stretching on larger screens */
+    margin-top: -110px;
 }
 .pagination-topratedcontainer-buttons {
   display: flex;
@@ -216,11 +227,11 @@ margin-top: -5px;
   }
   .pagination-topratedwrapper {
     display: flex;
-    gap: 930px;
+   
     align-items: center;
     width: 100%; /* Adjusts width for better alignment */
     max-width: 1700px; /* Prevents stretching on larger screens */
-    margin-top: -90px;
+    margin-top: -110px;
 }
 
 }
@@ -234,13 +245,14 @@ margin-top: -5px;
     color: white;
     font-size: 11px;
 }
+
 .pagination-topratedwrapper {
   display: flex;
-  gap: 550px;
+
   align-items: center;
   width: 100%; /* Adjusts width for better alignment */
   max-width: 1700px; /* Prevents stretching on larger screens */
-  margin-top: -90px;
+  margin-top: -110px;
 }
 .sort-icons .icon-up,
 .sort-icons .icon-down {
@@ -279,11 +291,11 @@ margin-top: -5px;
   }
   .pagination-topratedwrapper {
     display: flex;
-    gap: 350px;
+  
     align-items: center;
     width: 100%; /* Adjusts width for better alignment */
     max-width: 1700px; /* Prevents stretching on larger screens */
-    margin-top: -90px;
+    margin-top: -110px;
   }
 
   .fund-button {
@@ -313,15 +325,20 @@ margin-top: -5px;
       width: 90%;
       margin-top: 30px;
   }
-  .pagination-topratedwrapper {
-    display: flex;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* Adjusts width for better alignment */
-    max-width: 1700px; /* Prevents stretching on larger screens */
-    margin-top: -90px;
-  }
+.pagination-topratedwrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* reduce vertical gap */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1700px;
+  margin-top: -0px;
+}
+
+.pagination-topratedwrapper > * {
+  margin: 0; /* reset child margins */
+}
 
   .funds-header {
       flex-direction: column;
@@ -354,6 +371,7 @@ margin-top: -5px;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
+    margin-bottom: 15px;
 }
 
 .funds-table::-webkit-scrollbar {
