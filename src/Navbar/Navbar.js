@@ -496,7 +496,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/nifty-50-stocks-list/"
+              to="/nifty-50-stocks-list"
               className={
                 darkMode ? "dropdown-itemdarkerrmode" : "dropdown-item"
               }

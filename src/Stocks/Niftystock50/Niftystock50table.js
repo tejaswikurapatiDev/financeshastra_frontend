@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Nifty50tabledata } from "../Niftystock50tabledata";
+import React, { useState, useEffect } from "react";
+//import { Nifty50tabledata } from "../Niftystock50tabledata";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { IoLockClosedOutline } from "react-icons/io5";
 import './nifty50stock.css';
@@ -7,88 +7,140 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate from react
 import Navbar from "../../Navbar/Navbar";
 import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
-
-const Nifty50screenerStockList = () => {
-  const [stocks, setStocks] = useState(Nifty50tabledata);
-  const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("All"); // Track the active tab
-    // Pagination state
-  
-const [currentPage, setCurrentPage] = useState(1);
-const itemsPerPage = 10; // Show 7 rows per page
-
-// Calculate the current page's data
-const indexOfLastItem = currentPage * itemsPerPage;
-const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-const currentStocks = stocks.slice(indexOfFirstItem, indexOfLastItem);
-
-const totalPages = Math.ceil(stocks.length / itemsPerPage);
-
-// Change page
-const handlePageChange = (pageNumber) => {
-  setCurrentPage(pageNumber);
+import { API_BASE_URL } from "../../config";
+import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import ClipLoader from "react-spinners/ClipLoader";
+const override = {
+  display: "block",
+  textAlign: "center",
 };
 
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    // Filter and sort stocks based on the active tab
-    if (tab === "All") {
-      setStocks(Nifty50tabledata); // Show all stocks
-    } else if (tab === "Gainers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) > 0)); // Filter gainers
-    } else if (tab === "Losers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) < 0)); // Filter losers
-    } else {
-      let sortedStocks;
-      if (tab === "LTP") {
-        // Sort by LTP in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const ltpA = parseFloat(a.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
-          const ltpB = parseFloat(b.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
-          return ltpB - ltpA; // Descending order
-        });
-      } else if (tab === "Change %") {
-        // Sort by Change % in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const changeA = parseFloat(a.change.replace(/[%]/g, "")); // Remove % and parse
-          const changeB = parseFloat(b.change.replace(/[%]/g, "")); // Remove % and parse
-          return changeB - changeA; // Descending order
-        });
-      } else if (tab === "Market Cap") {
-        // Sort by Market Cap in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const marketCapA = parseFloat(a.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
-          const marketCapB = parseFloat(b.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
-          return marketCapB - marketCapA; // Descending order
-        });
-      } else if (tab === "52W High") {
-        // Sort by 52W High in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const high52A = parseFloat(a.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
-          const high52B = parseFloat(b.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
-          return high52B - high52A; // Descending order
-        });
-      } else if (tab === "52W Low") {
-        // Sort by 52W Low in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const low52A = parseFloat(a.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
-          const low52B = parseFloat(b.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
-          return low52B - low52A; // Descending order
-        });
-      } else if (tab === "P/E") {
-        // Sort by P/E in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const peA = parseFloat(a.pe); // Parse P/E directly
-          const peB = parseFloat(b.pe); // Parse P/E directly
-          return peB - peA; // Descending order
-        });
+
+const Nifty50screenerStockList = () => {
+  const [stocks, setStocks] = useState([]);
+  const [filteredstocks, setfilteredStocks]= useState([])
+  const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
+  const navigate = useNavigate();
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [activeTab, setActiveTab] = useState("All"); // Track the active tab
+  const { isSubscribed, isLoading } = useSubscriptionStatus(API_BASE_URL);
+  const [isSubed, setisSubed] = useState(false);
+  const [isloading, setisloading] = useState(true);
+  const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
+
+  const converttostng=(num)=>{
+    return Number(num).toLocaleString('en-IN')
+  }
+
+  useEffect(() => {
+    const fetchfun = async () => {
+      const url = `${API_BASE_URL}/stocks/nifty50`;
+
+      const response = await fetch(url);
+      if (response.ok === true) {
+        const data = await response.json();
+        const formattedData = data.map((each) => ({
+          id: each.id,
+          symbol: each.CompanyName,
+          ltp: converttostng(each.LastTradedPrice),
+          change: (each.ChangePercentage * 100).toFixed(2),
+          volume: converttostng(each.Volume),
+          marketCap: fixEncoding(each.MarketCap),
+          pe: each.CurrentPE,
+          high52: converttostng(each.High52W),
+          low52: converttostng(each.Low52W),
+          pbRatio: each.PBRatio,
+          dividend: (each.DividendYield * 100).toFixed(2),
+          roe: each.ROE,
+          roce: each.ROCE,
+          eps: each.EPS,
+          analystRating: each.Analyst_Rating,
+          icon: each.icons,
+        }));
+        console.log("nifty50 data: ", formattedData)
+
+        setStocks(formattedData);
+        setfilteredStocks(formattedData)
       }
-  
-      // Update stocks with the sorted data
-      setStocks(sortedStocks);
-    }
+      if (isSubscribed && isLoading) {
+        setisSubed(true);
+      }
+      setisloading(false);
+    };
+    fetchfun();
+  }, []);
+
+  const itemsPerPage = 10; // Show 7 rows per page
+
+  // Calculate the current page's data
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentStocks = stocks.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(stocks.length / itemsPerPage);
+
+  // Change page
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+
+  const handleTabClick = (tab) => {
+  setActiveTab(tab);
+  let updatedStocks = [...filteredstocks]; // Always start from the original data
+
+  if (tab === "All") {
+    setStocks(updatedStocks); // Show all stocks
+    return;
+  }
+
+  if (tab === "Gainers") {
+    updatedStocks = updatedStocks.filter(stock => parseFloat(stock.change) > 0);
+  } else if (tab === "Losers") {
+    updatedStocks = updatedStocks.filter(stock => parseFloat(stock.change) < 0);
+  } else {
+    if (tab === "LTP") {
+      updatedStocks.sort((a, b) => {
+        const ltpA = parseFloat(a.ltp.replace(/[₹,]/g, ""));
+        const ltpB = parseFloat(b.ltp.replace(/[₹,]/g, ""));
+        return ltpB - ltpA;
+      });
+    } else if (tab === "Change %") {
+      updatedStocks.sort((a, b) => {
+        const changeA = parseFloat(a.change);
+        const changeB = parseFloat(b.change);
+        return changeB - changeA;
+      });
+    } else if (tab === "Market Cap") {
+      updatedStocks.sort((a, b) => {
+        const marketCapA = parseFloat(a.marketCap.replace(/[₹, T]/g, ""));
+        const marketCapB = parseFloat(b.marketCap.replace(/[₹, T]/g, ""));
+        return marketCapB - marketCapA;
+      });
+    } else if (tab === "52W High") {
+      updatedStocks.sort((a, b) => {
+        const highA = parseFloat(a.high52.replace(/[₹,]/g, ""));
+        const highB = parseFloat(b.high52.replace(/[₹,]/g, ""));
+        return highB - highA;
+      });
+    } else if (tab === "52W Low") {
+      updatedStocks.sort((a, b) => {
+        const lowA = parseFloat(a.low52.replace(/[₹,]/g, ""));
+        const lowB = parseFloat(b.low52.replace(/[₹,]/g, ""));
+        return lowB - lowA;
+      });
+    } else if (tab === "P/E") {
+      updatedStocks.sort((a, b) => {
+        return parseFloat(b.pe) - parseFloat(a.pe);
+      });
+    }
+  }
+
+  setStocks(updatedStocks);
+};
+
   const handleNavigate = () => {
     navigate('/subscription'); // Navigate to the desired route
   };
@@ -128,7 +180,7 @@ const handlePageChange = (pageNumber) => {
     setSortDirection(!sortDirection); // Toggle sort direction
   };
   // Change page
-  
+
   return (
     <div>
       <Nifty50topheader />
@@ -138,202 +190,224 @@ const handlePageChange = (pageNumber) => {
         {/* Tabs Section */}
         <div className="tabsnifty50-container" >
           {["All", "Gainers", "Losers", "LTP", "Change %", "Market Cap", "52W High", "52W Low", "P/E"].map((tab) => (
-          <button
-          key={tab}
-          className={`tabnifty50-button ${activeTab === tab ? "active" : ""}`}
-          onClick={() => handleTabClick(tab)}
-        >
-          {tab}
-        </button>
-        
+            <button
+              key={tab}
+              className={`tabnifty50-button ${activeTab === tab ? "active" : ""}`}
+              onClick={() => handleTabClick(tab)}
+            >
+              {tab}
+            </button>
+
           ))}
         </div>
 
         {/* Table Section */}
-        <div className="screener-table-wrapper"style={{ overflowY: 'auto',
-     // Prevent x-axis overflow
-    height: '370px'}}>
-          <table className="screener-table" style={{ borderCollapse: "collapse", width: "100%" }}>
-            <thead
-              style={{
-                position: "sticky",
-                top: 0,
-                backgroundColor: "#f9f9f9",
-                zIndex: 10,
-                boxShadow: "0 4px 6px #24b676",
-              }}
+        {isloading ? (
+          <div className="loader-cont">
+            <ClipLoader
+              cssOverride={override}
+              size={35}
+              data-testid="loader"
+              loading={isloading}
+              speedMultiplier={1}
+              color="green"
+            />
+          </div>) : (
+          <div className="screener-table-wrapper" style={{
+            overflowY: 'auto',
+            // Prevent x-axis overflow
+            height: '370px',
+            width:'102%'
+          }}>
+            <table className="screener-table" style={{ borderCollapse: "collapse"}}>
+              <thead
+                style={{
+                  position: "sticky",
+                  top: 0,
+                  backgroundColor: "#f9f9f9",
+                  zIndex: 10,
+                  boxShadow: "0 4px 6px #24b676",
+                }}
+              >
+                <tr>
+                  <th>Symbol</th>
+                  <th>
+                    LTP
+                    <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Change %
+                    <button className="screenerbtnlist" onClick={() => handleSort("change")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Volume
+                    <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Market Cap (Cr.)
+                    <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    P / E
+                    <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    52W High
+                    <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    52W Low
+                    <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    PB Ratio
+                    <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Dividend
+                    <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    ROE
+                    <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    ROCE
+                    <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    EPS
+                    <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                  <th>
+                    Analyst Rating
+                    <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
+                      <PiCaretUpDownFill />
+                    </button>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentStocks.map((stock, index) => (
+                  <tr key={index} className="screener-row">
+                    <td className={`symbol-cell ${activeTab === "Symbol" ? "active-column" : ""}`}>
+                      <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
+                      {stock.symbol}
+                    </td>
+                    <td className={`${activeTab === "LTP" ? "active-column" : ""}`}>₹{stock.ltp}</td>
+                    <td
+                      className={`${activeTab === "Change %" ? "active-column" : ""}`}
+                      style={{
+                        color: parseFloat(stock.change) > 0 ? "#24b676" : parseFloat(stock.change) < 0 ? "red" : "inherit",
+                      }}
+                    >
+                      {parseFloat(stock.change) > 0
+                        ? `+${stock.change}`
+                        : stock.change}%
+                    </td>
+                    <td>{stock.volume}</td>
+                    <td className={`${activeTab === "Market Cap" ? "active-column" : ""}`}>₹{stock.marketCap}</td>
+                    <td className={`${activeTab === "P/E" ? "active-column" : ""}`}>{stock.pe}</td>
+                    <td className={`${activeTab === "52W High" ? "active-column" : ""}`}>₹{stock.high52}</td>
+                    <td className={`${activeTab === "52W Low" ? "active-column" : ""}`}>₹{stock.low52}</td>
+                    <td>{stock.pbRatio}</td>
+                    <td>{stock.dividend}%</td>
+                    <td style={{ color: "#24b676" }}>{parseFloat(stock.roe) > 0
+                      ? `+${stock.roe}`
+                      : stock.roe}%</td>
+                    <td style={{ color: "#24b676" }}>{parseFloat(stock.roce) > 0
+                      ? `+${stock.roce}`
+                      : stock.roce}%</td>
+                    <td>{stock.eps}</td>
+                    <td style={{ textAlign: "left" }}>
+                      {!isLoading && !isSubscribed ? (
+                        <button
+                          className="screener-unlock-btn"
+                          onClick={handleNavigate}
+                        >
+                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
+
+                          <span className="button-text">Unlock</span>
+                        </button>
+                      ) : (
+                        stock.analystRating
+                      )}
+                    </td>
+
+
+
+                  </tr>
+                ))}
+              </tbody>
+
+
+            </table>
+          </div>)}
+        {/* Pagination Section */}
+        <div className="pagination-stockcontainer">
+          <div className="pagination-infostock">
+            {`Showing ${indexOfFirstItem + 1} to ${indexOfLastItem > stocks.length ? stocks.length : indexOfLastItem
+              } of ${stocks.length} records`}
+          </div>
+          <div className="pagination-sliderr">
+            <button
+              className="pagination-button"
+              disabled={currentPage === 1}
+              onClick={() => handlePageChange(currentPage - 1)}
             >
-              <tr>
-                <th>Symbol</th>
-                <th>
-                  LTP
-                  <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Change %
-                  <button className="screenerbtnlist" onClick={() => handleSort("change")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Volume
-                  <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Market Cap (Cr.)
-                  <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  P / E
-                  <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  52W High
-                  <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  52W Low
-                  <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  PB Ratio
-                  <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Dividend
-                  <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  ROE
-                  <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  ROCE
-                  <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  EPS
-                  <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-                <th>
-                  Analyst Rating
-                  <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                    <PiCaretUpDownFill />
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-  {currentStocks.map((stock, index) => (
-    <tr key={index} className="screener-row">
-      <td className={`symbol-cell ${activeTab === "Symbol" ? "active-column" : ""}`}>
-        <img src={stock.icon} alt={`${stock.symbol} logo`} className="company-icon" />
-        {stock.symbol}
-      </td>
-      <td className={`${activeTab === "LTP" ? "active-column" : ""}`}>{stock.ltp}</td>
-      <td
-        className={`${activeTab === "Change %" ? "active-column" : ""}`}
-        style={{
-          color: parseFloat(stock.change) > 0 ? "#24b676" : parseFloat(stock.change) < 0 ? "red" : "inherit",
-        }}
-      >
-        {stock.change}
-      </td>
-      <td>{stock.volume}</td>
-      <td className={`${activeTab === "Market Cap" ? "active-column" : ""}`}>{stock.marketCap}</td>
-      <td className={`${activeTab === "P/E" ? "active-column" : ""}`}>{stock.pe}</td>
-      <td className={`${activeTab === "52W High" ? "active-column" : ""}`}>{stock.high52}</td>
-      <td className={`${activeTab === "52W Low" ? "active-column" : ""}`}>{stock.low52}</td>
-      <td>{stock.pbRatio}</td>
-      <td>{stock.dividend}</td>
-      <td style={{ color: "#24b676" }}>{stock.roe}</td>
-      <td style={{ color: "#24b676" }}>{stock.roce}</td>
-      <td>{stock.eps}</td>
-      <td style={{ textAlign: "left" }}>
-  {stock.analystRating === "Buy" || stock.analystRating === "Strong Buy" ? (
-    <span style={{ color: "#24b676", marginLeft: "10px" }}>{stock.analystRating}</span>
-  ) : (
-    <button className="screener-unlock-btn" onClick={handleNavigate}>
-        <IoLockClosedOutline style={{ marginRight: '8px' }} />
-      <span className="button-text">Unlock</span>
-    </button>
-  )}
-</td>
-
-
-
-    </tr>
-  ))}
-</tbody>
-
-
-          </table>
+              &lt;
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i + 1}
+                className={`pagination-button ${currentPage === i + 1 ? "active-page" : ""
+                  }`}
+                onClick={() => handlePageChange(i + 1)}
+              >
+                {i + 1}
+              </button>
+            ))}
+            <button
+              className="pagination-button"
+              disabled={currentPage === totalPages}
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              &gt;
+            </button>
+          </div>
         </div>
-{/* Pagination Section */}
-<div className="pagination-stockcontainer">
-  <div className="pagination-infostock">
-    {`Showing ${indexOfFirstItem + 1} to ${
-      indexOfLastItem > stocks.length ? stocks.length : indexOfLastItem
-    } of ${stocks.length} records`}
-  </div>
-  <div className="pagination-sliderr">
-    <button
-      className="pagination-button"
-      disabled={currentPage === 1}
-      onClick={() => handlePageChange(currentPage - 1)}
-    >
-      &lt;
-    </button>
-    {Array.from({ length: totalPages }, (_, i) => (
-      <button
-        key={i + 1}
-        className={`pagination-button ${
-          currentPage === i + 1 ? "active-page" : ""
-        }`}
-        onClick={() => handlePageChange(i + 1)}
-      >
-        {i + 1}
-      </button>
-    ))}
-    <button
-      className="pagination-button"
-      disabled={currentPage === totalPages}
-      onClick={() => handlePageChange(currentPage + 1)}
-    >
-      &gt;
-    </button>
-  </div>
-</div>
 
 
         <Navbar />
       </div>
-       <div className="foooterpagesaupdate">
-          <FooterForAllPage />
-        </div>
-       
+      <div className="foooterpagesaupdate">
+        <FooterForAllPage />
+      </div>
+
     </div>
   );
 };

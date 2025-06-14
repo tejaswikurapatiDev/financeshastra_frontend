@@ -121,7 +121,6 @@ const Highstockvaluation = () => {
     if (num >= 1e3) return (num / 1e3).toFixed(2) + ' K';
     return num.toString();
   };
-   
 
   useEffect(() => {
     const fetchfun = async () => {
@@ -130,7 +129,7 @@ const Highstockvaluation = () => {
       if (response.ok === true) {
         const data = await response.json();
         
-        const formattedData = data.map((each) => ({
+        const formattedData = data.map((each) =>  ({
           id: each.id,
           symbol: each.Symbol,
           price: each.Price,
@@ -2633,7 +2632,7 @@ const Highstockvaluation = () => {
                     >
                       {parseFloat(stock.marketCapPerf) > 0
                         ? `+${stock.marketCapPerf}`
-                        : stock.marketCapPerf}%
+                        : stock.marketCapPerf}
                     </td>
 
                     <td>{stock.pToE}</td>

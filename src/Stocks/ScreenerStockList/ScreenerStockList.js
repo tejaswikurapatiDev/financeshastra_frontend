@@ -2616,7 +2616,7 @@ const ScreenerStockList = () => {
                       {stock.sector}
                     </td>
 
-                    <td>
+                    <td style={{ textAlign: "left" }}>
                       {!isLoading && !isSubscribed ? (
                         <button
                           className="screener-unlock-btn"
