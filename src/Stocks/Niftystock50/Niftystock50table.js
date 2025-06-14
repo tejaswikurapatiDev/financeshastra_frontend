@@ -9,6 +9,7 @@ import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import "./Niftystock50table.css"
 import ClipLoader from "react-spinners/ClipLoader";
 const override = {
   display: "block",
@@ -213,104 +214,92 @@ const Nifty50screenerStockList = () => {
               color="green"
             />
           </div>) : (
-          <div className="screener-table-wrapper" style={{
-            overflowY: 'auto',
-            // Prevent x-axis overflow
-            height: '370px',
-            width:'102%'
-          }}>
-            <table className="screener-table" style={{ borderCollapse: "collapse"}}>
-              <thead
-                style={{
-                  position: "sticky",
-                  top: 0,
-                  backgroundColor: "#f9f9f9",
-                  zIndex: 10,
-                  boxShadow: "0 4px 6px #24b676",
-                }}
-              >
-                <tr>
-                  <th>Symbol</th>
-                  <th>
-                    LTP
-                    <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Change %
-                    <button className="screenerbtnlist" onClick={() => handleSort("change")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Volume
-                    <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Market Cap (Cr.)
-                    <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    P / E
-                    <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    52W High
-                    <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    52W Low
-                    <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    PB Ratio
-                    <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Dividend
-                    <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    ROE
-                    <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    ROCE
-                    <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    EPS
-                    <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Analyst Rating
-                    <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                </tr>
-              </thead>
+         <div className="screener-table-wrapper">
+  <table className="screener-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>
+          LTP
+          <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Change %
+          <button className="screenerbtnlist" onClick={() => handleSort("change")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Volume
+          <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Market Cap (Cr.)
+          <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          P / E
+          <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          52W High
+          <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          52W Low
+          <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          PB Ratio
+          <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Dividend
+          <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          ROE
+          <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          ROCE
+          <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          EPS
+          <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Analyst Rating
+          <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+      </tr>
+    </thead>
+
               <tbody>
                 {currentStocks.map((stock, index) => (
                   <tr key={index} className="screener-row">
