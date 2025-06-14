@@ -86,7 +86,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/nifty-50-stocks-list/"
+            to="/nifty-50-stocks-list"
             className="dropdown-item"
             style={{
               display: "block",
@@ -647,11 +647,7 @@ const Landingnavbar = () => {
 
   // Get all data on component mount
   useEffect(() => {
-    const storedUsername = localStorage.getItem("username");
-    console.log(storedUsername)
-    if (storedUsername) {
-      setUsername(storedUsername);
-    }
+    
     const token = Cookies.get("jwtToken");
     const isTokenExpired = (token) => {
       if (!token) return true; // If no token, consider it expired
@@ -678,6 +674,14 @@ const Landingnavbar = () => {
     getAllData();
   }, []);
   const displayedNotifications = notifications.data;
+
+  useEffect(() => {
+      const storedUsername = localStorage.getItem("username");
+      if (storedUsername) {
+        setUsername(storedUsername);
+      }
+  
+    }, []);
 
   // Apply debounced search when input changes
   useEffect(() => {

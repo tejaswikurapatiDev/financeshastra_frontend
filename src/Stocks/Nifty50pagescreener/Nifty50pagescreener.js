@@ -92,7 +92,7 @@ const Nifty50page = () => {
     <div className='allhead'>
    
       <h1 className='headernifty50'>Nifty 50</h1>
-      <div className="dataquatallnifty">
+      <div className="dataquatallniftyy">
       
         <div className="portfoliomutual-containerrnifty">
           <div className="portfoliomutual-card">

@@ -135,6 +135,8 @@ gap: 30px;
   justify-content: center;
 color: black;
 gap: 30px;
+margin-top: -10px;
+
 }
 
 /* Add vertical separator for all except first item */

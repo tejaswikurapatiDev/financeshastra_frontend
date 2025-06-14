@@ -120,7 +120,7 @@ const Nifty50headerunlock = () => {
           </li>
           <li>
             <div className="dropdown-item">
-              <Link to="/nifty-50-stocks-list/">Nifty 50 Companies
+              <Link to="/nifty-50-stocks-list">Nifty 50 Companies
                 <p>Track the top 50 companies listed on the National Stock Exchange of India.</p></Link>
             </div>
           </li>

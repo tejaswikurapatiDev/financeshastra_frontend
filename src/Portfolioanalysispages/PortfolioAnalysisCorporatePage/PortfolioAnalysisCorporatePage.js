@@ -15,36 +15,44 @@ import PortfolioAnalysisAGMPage from "../PortfolioAnalysisAGMPage/PortfolioAnaly
 const PortfolioAnalysisCorporatePage = () => {
   const [activeTab, setActiveTab] = useState("Board - Meetings");
   const [isUpcoming, setIsUpcoming] = useState(true);
+   const [popupContent, setPopupContent] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const PortfolioAnalysisCorporatePagedata = [
     {
       company: "ITC Ltd.",
       date: "11-01-2025",
-      agenda: "Allotment of equity shares by ITC Hotels Limited",
+      agenda: "Allotment of equity shares by ITC Hotels Limited...",
+      agendaa: "Varun Beverages Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 10/02/2025 inter alia to consider and approve Audited Financial Results of the Company both on Standalone and Consolidated basis for the Quarter and Financial Year ended December 31 2024 and to consider the proposal of recommendation of final dividend for the Financial Year ended December 31 2024 subject to the approval of Equity Shareholders at the ensuing Annual General Meeting of the Company. In continuation to our letter dated December 26 2024 regarding the closure of Trading Window from January 1 2025 till 48 hours after public announcement of the Audited Financial Results for the Quarter and Financial Year ended December 31 2024 we wish to inform you that the Trading Window will be closed till February 12 2025.",
       logo: itc,
     },
     {
       company: "Varun Beverages Ltd.",
       date: "10-02-2025",
       agenda: "Varun Beverages Ltd has informed BSE that the meeting of the Board of ...",
+       agendaa: "Varun Beverages Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 10/02/2025 inter alia to consider and approve Audited Financial Results of the Company both on Standalone and Consolidated basis for the Quarter and Financial Year ended December 31 2024 and to consider the proposal of recommendation of final dividend for the Financial Year ended December 31 2024 subject to the approval of Equity Shareholders at the ensuing Annual General Meeting of the Company. In continuation to our letter dated December 26 2024 regarding the closure of Trading Window from January 1 2025 till 48 hours after public announcement of the Audited Financial Results for the Quarter and Financial Year ended December 31 2024 we wish to inform you that the Trading Window will be closed till February 12 2025.",
       logo: varun,
     },
     {
       company: "Tata Consultancy Services Ltd.",
       date: "09-01-2025",
       agenda: "TATA CONSULTANCY SERVICES LTD. has informed BSE that the meeting ...",
+       agendaa: "Varun Beverages Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 10/02/2025 inter alia to consider and approve Audited Financial Results of the Company both on Standalone and Consolidated basis for the Quarter and Financial Year ended December 31 2024 and to consider the proposal of recommendation of final dividend for the Financial Year ended December 31 2024 subject to the approval of Equity Shareholders at the ensuing Annual General Meeting of the Company. In continuation to our letter dated December 26 2024 regarding the closure of Trading Window from January 1 2025 till 48 hours after public announcement of the Audited Financial Results for the Quarter and Financial Year ended December 31 2024 we wish to inform you that the Trading Window will be closed till February 12 2025.",
       logo: tcs,
     },
     {
       company: "HDFC Bank Ltd.",
       date: "01-22-2025",
       agenda: "Quarterly Results HDFC Bank Ltd has informed BSE that the meeting of ...",
+       agendaa: "Varun Beverages Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 10/02/2025 inter alia to consider and approve Audited Financial Results of the Company both on Standalone and Consolidated basis for the Quarter and Financial Year ended December 31 2024 and to consider the proposal of recommendation of final dividend for the Financial Year ended December 31 2024 subject to the approval of Equity Shareholders at the ensuing Annual General Meeting of the Company. In continuation to our letter dated December 26 2024 regarding the closure of Trading Window from January 1 2025 till 48 hours after public announcement of the Audited Financial Results for the Quarter and Financial Year ended December 31 2024 we wish to inform you that the Trading Window will be closed till February 12 2025.",
       logo: hdfc,
     },
     {
       company: "Adani Green Energy Ltd.",
       date: "01-23-2025",
       agenda: "Adani Green Energy Ltd has informed BSE that the meeting of the ...",
+       agendaa: "Varun Beverages Ltdhas informed BSE that the meeting of the Board of Directors of the Company is scheduled on 10/02/2025 inter alia to consider and approve Audited Financial Results of the Company both on Standalone and Consolidated basis for the Quarter and Financial Year ended December 31 2024 and to consider the proposal of recommendation of final dividend for the Financial Year ended December 31 2024 subject to the approval of Equity Shareholders at the ensuing Annual General Meeting of the Company. In continuation to our letter dated December 26 2024 regarding the closure of Trading Window from January 1 2025 till 48 hours after public announcement of the Audited Financial Results for the Quarter and Financial Year ended December 31 2024 we wish to inform you that the Trading Window will be closed till February 12 2025.",
       logo: adani,
     },
   ];
@@ -58,6 +66,18 @@ const PortfolioAnalysisCorporatePage = () => {
     { label: "AGM / EGM", navigationPath: "/portfolioAGMcall" },
 
   ];
+ const handleReadMore = (agendaa) => {
+    setPopupContent(agendaa);
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+    setPopupContent("");
+  };
+  const handleToggle = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
 
@@ -103,19 +123,51 @@ const PortfolioAnalysisCorporatePage = () => {
                 </tr>
               </thead>
               <tbody>
-                {PortfolioAnalysisCorporatePagedata.map((item, index) => (
-                  <tr key={index}>
-                    <td className="portfolianalysiscorporatepage-company">
-                      <img src={item.logo} alt="Logo" />
-                      <span>{item.company}</span>
-                    </td>
-                    <td>{item.date}</td>
-                    <td>
-                      {item.agenda} <a href="javascript:void(0)">Read more</a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
+  {PortfolioAnalysisCorporatePagedata.map((item, index) => (
+    <React.Fragment key={index}>
+      <tr>
+        <td className="portfolianalysiscorporatepage-company">
+          <img src={item.logo} alt="Logo" />
+          <span>{item.company}</span>
+        </td>
+        <td>{item.date}</td>
+        <td>
+          {item.agenda.length > 50 ? (
+            <>
+              {item.agenda.substring(0, 50)}...
+              <a href="#" onClick={(e) => {
+                e.preventDefault();
+                setExpandedIndex(index);
+                setPopupContent(item.agendaa);
+                setShowPopup(true);
+              }}>
+                {" "}Read more
+              </a>
+            </>
+          ) : (
+            item.agenda
+          )}
+        </td>
+      </tr>
+
+      {expandedIndex === index && showPopup && (
+        <tr>
+          <td colSpan="3">
+            <div className="popup-overlaycoper">
+              <div className="popup-boxcop">
+                <span className="close-buttoncop" onClick={() => setShowPopup(false)}>
+                  &times;
+                </span>
+                <p>{popupContent}</p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      )}
+    </React.Fragment>
+  ))}
+</tbody>
+
             </table>
           </div>
         </div>}{
@@ -129,9 +181,13 @@ const PortfolioAnalysisCorporatePage = () => {
       }{
         activeTab === "AGM / EGM" && <PortfolioAnalysisAGMPage />
       }
+
+   
+
     </div>
 
   );
+
 };
 
 export default PortfolioAnalysisCorporatePage;

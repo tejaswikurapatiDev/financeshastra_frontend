@@ -553,7 +553,7 @@ function App() {
                 path="/nifty50screenerStockunlockList"
                 element={<Nifty50screenerStockunlockList />}
               />
-              <Route path="/nifty-50-stocks-list/" element={<Nifty50all />} />
+              <Route path="/nifty-50-stocks-list" element={<Nifty50all />} />
 
               <Route path="/footerForAllPage" element={<FooterForAllPage />} />
               <Route path="/profilePage" element={<ProfilePage />} />
@@ -903,7 +903,7 @@ function App() {
                <Route path="/jobCard" element={<JobCard/>} />
                 <Route path="/riskConcernPage" element={<RiskConcernPage/>} />
                <Route path="/stockCard" element={<StockCard/>} />
-                <Route path="/researchnewallcall/:id" element={<Researchnewallcall/>} />
+                <Route path="/researchnewallcall/:id/:title/:sector" element={<Researchnewallcall/>} />
 
 
 

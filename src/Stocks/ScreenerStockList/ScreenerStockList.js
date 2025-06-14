@@ -109,13 +109,13 @@ const ScreenerStockList = () => {
           id: each.id,
           symbol: each.CompanyName,
           price: each.LastTradedPrice,
-          change: each.ChangePercentage,
+          change: (each.ChangePercentage * 100).toFixed(2),
           volume: each.Volume,
           marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
-          epsDilGrowth: each.EPSGrowth,
-          divYield: each.DividendYield,
+          epsDilGrowth: (each.EPSGrowth * 100).toFixed(2),
+          divYield: (each.DividendYield * 100).toFixed(2),
           sector: each.Sector,
           url: "/stockhandle",
           icon: each.icons,
@@ -124,7 +124,7 @@ const ScreenerStockList = () => {
           analystRating: each.Analyst_Rating,
           iconUrl: each.icons
         }));
-        console.log("stocks list from stocks table:", formattedData)
+        //console.log("stocks list from stocks table:", formattedData)
         setStocks(formattedData);
       }
       setisloading(false)
@@ -2570,10 +2570,10 @@ const ScreenerStockList = () => {
                         className="company-icon"
                       />
 
-                      <a href={"javascript:void(0)"}>{stock.symbol}</a>
+                      <a href={"javascript:void(0)"} style={{textAlign: "left",}}>{stock.symbol}</a>
                     </td>
 
-                    <td>{stock.price}</td>
+                    <td>₹{stock.price}</td>
                     <td
                       style={{
                         color:
@@ -2585,13 +2585,13 @@ const ScreenerStockList = () => {
                       }}
                     >
                       {parseFloat(stock.change) > 0
-                        ? `${stock.change}`
-                        : stock.change}
+                        ? `+${stock.change}`
+                        : stock.change}%
                     </td>
                     <td>{stock.volume}</td>
-                    <td>₹ {stock.marketCap}</td>
+                    <td>₹{stock.marketCap}</td>
                     <td>{stock.pToE}</td>
-                    <td>{stock.eps}</td>
+                    <td>₹{stock.eps}</td>
                     <td
                       style={{
                         color:
@@ -2603,19 +2603,20 @@ const ScreenerStockList = () => {
                       }}
                     >
                       {parseFloat(stock.epsDilGrowth) > 0
-                        ? `${stock.epsDilGrowth}`
-                        : stock.epsDilGrowth}
+                        ? `+${stock.epsDilGrowth}`
+                        : stock.epsDilGrowth}%
                     </td>
-                    <td>{stock.divYield}</td>
+                    <td>{stock.divYield}%</td>
                     <td
                       style={{
                         color: "blue",
+                        textAlign: "left",
                       }}
                     >
                       {stock.sector}
                     </td>
 
-                    <td>
+                    <td style={{ textAlign: "left" }}>
                       {!isLoading && !isSubscribed ? (
                         <button
                           className="screener-unlock-btn"

@@ -68,7 +68,7 @@
 @media (max-width: 480px) {
   .niftykeyindicator {
     width: 80%;
-    margin-left: 27px;
+    margin-left:9px;
     margin-right: auto;
     height: auto;
 }
@@ -84,4 +84,14 @@
   .niftykeyindicator-cell:last-child {
       text-align: left; /* Align the last cell to the left for readability */
   }
+}
+@media (max-width: 320px) {
+    .niftykeyindicator {
+        width: 77%
+
+;
+        margin-left: 9px;
+        margin-right: auto;
+        height: auto;
+    }
 }

@@ -15,7 +15,7 @@ const IrregularLine = () => (
 );
 
 const FinancialTable = ({ title, data,paragraph, headers }) => (
-  <div className="financial-table">
+  <div className="financial-10yrtable">
     <h2 className="table-title">{title}</h2>
     {paragraph && <p className="table-description">{paragraph}</p>}
     <table>

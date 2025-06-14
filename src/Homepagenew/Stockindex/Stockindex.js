@@ -11,6 +11,14 @@ import icon7 from '../../assest/message.svg';
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie'
 import { API_BASE_URL } from "../../config";
+
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override = {
+  display: "block",
+  textAlign: "center",
+};
+
 // Data for the cards and table
 const DashboardPagetable = [
   { id: 1, sector: "IT", stocks: 60, value: "₹1,02,580.30", change: "6.8%", changeType: "up" },
@@ -28,7 +36,7 @@ const Dashboardstockindex = () => {
   const navigate = useNavigate();
 
   const [allStocks, setAllStocks] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   // Function to fetch data from the backend
@@ -261,7 +269,15 @@ const Dashboardstockindex = () => {
               <th>Clarification</th>
             </tr>
           </thead>
-          <tbody>
+          {isLoading ? <div className='loader-cont'><ClipLoader
+                    cssOverride={override}
+                    size={35}
+                    data-testid="loader"
+                    loading={isLoading}
+                    speedMultiplier={1}
+                    color="green"
+                  /></div> : 
+                  <tbody>
             {currentStocks.map((row) => (
               <tr key={row.id}>
                 <td>{row.company}</td>
@@ -280,13 +296,17 @@ const Dashboardstockindex = () => {
                 <td>{row.stock_index}</td>
                 <td>{row.pe}</td>
                 <td>
-                  <a href="javascript:void(0)" className="clarification-link">
+                  <a href="javascript:void(0)" className="clarification-link"
+                   onClick={() => {
+                        navigate(`/stockhandle/${row.stock_id}`, { state: { row } });
+                      }}
+                  >
                     Know more
                   </a>
                 </td>
               </tr>
             ))}
-          </tbody>
+          </tbody>}
         </table>
       </div>
       {/* Pagination Section */}

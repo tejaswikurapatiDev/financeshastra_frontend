@@ -1,22 +1,19 @@
-/* General Container Styles */
 .portfoliomutual-container {
     font-family: 'calibri';
     padding: 20px;
     color: #333;
-    max-width: 650px; /* Set a maximum width */
-    margin: 0 auto; /* Center the container */
-/* Add left margin to prevent overlap with sidebar */
-   
+    max-width: 700px;
+    margin: 0 auto;
     margin-top: 10px;
-
     background-color: #f9f9f9;
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    display: flex;
-    flex-direction: column-reverse; /* Reverse the container's content */
-
+    display: flex
+;
+    flex-direction: column-reverse;
     height: 450px;
+    margin-left: 80px;
 }
 
 /* Chart container */
@@ -85,6 +82,7 @@ margin-top: 150px;
   /* Tags Section */
   .mutualcandletop__tags {
     margin-top: 10px;
+    margin-left: -60px;
   }
   
   .mutualcandletop__tag {
@@ -174,6 +172,29 @@ margin-top: 150px;
       .mutualcandletop__right {
         margin-right: 20px;
       }
+      .portfoliomutual-container {
+    font-family: 'calibri';
+    padding: 20px;
+    color: #333;
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex
+;
+    flex-direction: column-reverse;
+    height: 450px;
+    margin-left: 80px;
+}
+  /* Tags Section */
+  .mutualcandletop__tags {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+  
   }
   @media (min-width: 1024px) and (max-width: 1279px)  {
     .portfoliomutual-container {
@@ -195,6 +216,10 @@ margin-top: 150px;
     
         height: 450px;
     }
+    .mutualcandletop__tags {
+    margin-top: 10px;
+    margin-left: 10px;
+}
     .time-rangemutual-selector {
         display: flex;
         gap: 5px;
@@ -289,9 +314,10 @@ margin-top: 150px;
         margin-top: 100px;
     }
 
-    .mutualcandletop__tags {
+       .mutualcandletop__tags {
         margin-top: 20px;
         text-align: left;
+        margin-left: 0px;
     }
     .mutualcandletop__price {
         margin: 0;
@@ -383,13 +409,23 @@ margin-top: 150px;
         max-width: 250px; /* or less, like 270px */
         margin: 0 auto; /* center it */
         padding: 20px; /* optional: adjust padding for smaller screens */
-        margin-left: 10px;
+        margin-left: 15px;
     }
     .chartmutual-container {
         width: 100%;
         max-width: 300px;
         height: 320px; /* reduce height if needed */
         margin: 0 auto;
+    }
+    .mutualcandletop__tag {
+        padding: 5px 5px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f7f7f7;
+        cursor: pointer;
+        font-size: 10px;
+        transition: background-color 0.3s;
     }
 }
 

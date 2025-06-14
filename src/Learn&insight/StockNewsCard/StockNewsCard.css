@@ -12,7 +12,7 @@
 
 
 .stocknewsss-headline {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
   margin-left: 60px;
@@ -34,6 +34,7 @@
   color: black;
    
 }
+
 
 .stocknewsss-subtextt {
   color: #666;
@@ -143,6 +144,25 @@
 
 .negative {
   color: red;
+}
+
+/* Remove bullet points and left padding/margin for <ul> and <ol> */
+.custommmul,
+.custommmol {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* Also reset <li> to prevent inherited styles */
+.custommmli {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+ 
+}
+.custommmh2{
+  font-size: 15px;
 }
 
 @media (min-width: 2500px) {

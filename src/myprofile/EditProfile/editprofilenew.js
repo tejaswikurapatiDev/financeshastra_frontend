@@ -154,7 +154,7 @@ const EditProfile = () => {
         
         if (response.ok) {
           const username = formData.firstName + formData.lastName;
-          localStorage.setItem("username", username);
+          
           
           setIsPopupVisible(true);
         } else {

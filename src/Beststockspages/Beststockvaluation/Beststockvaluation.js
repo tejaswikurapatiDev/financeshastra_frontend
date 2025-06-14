@@ -59,6 +59,14 @@ const BestStockvaluation = () => {
     index: false,
     sector: false,
   });
+  const formatNumber = (num) => {
+    if (num >= 1e12) return (num / 1e12).toFixed(2) + ' T';
+    if (num >= 1e9) return (num / 1e9).toFixed(2) + ' B';
+    if (num >= 1e6) return (num / 1e6).toFixed(2) + ' M';
+    if (num >= 1e3) return (num / 1e3).toFixed(2) + ' K';
+    return num.toString();
+  };
+
 
   useEffect(() => {
     const fetchfun = async () => {
@@ -71,7 +79,7 @@ const BestStockvaluation = () => {
           id: each.id,
           symbol: each.Symbol,
           price: each.Price,
-          marketCap: each.MarketCap,
+          marketCap: formatNumber(each.MarketCap),
           pToE: each.PERatio,
           pToB: each.PSRatio,
           roe: each.ROE,
@@ -2599,16 +2607,21 @@ const BestStockvaluation = () => {
               <tbody>
                 {currentData.map((stock, index) => (
                   <tr key={index} className="screener-row">
-                    <td className="symbol-cell">
+                    <td
+                      className="symbol-cell"
+                      onClick={() => {
+                        navigate(stock.url, { state: { stock } });
+                      }}
+                    >
                       <img
                         src={stock.icon}
                         alt={`${stock.symbol} logo`}
                         className="company-icon"
                       />
 
-                      <a href={stock.url}>{stock.symbol}</a>
+                      <a href={stock.url} style={{textAlign: "left",}}>{stock.symbol}</a>
                     </td>
-                    <td>{stock.marketCap}</td>
+                    <td>₹{stock.marketCap}</td>
 
                     <td
                       style={{
@@ -2616,11 +2629,13 @@ const BestStockvaluation = () => {
                           parseFloat(stock.marketCapPerf) > 0
                             ? "#24b676"
                             : parseFloat(stock.marketCapPerf) < 0
-                            ? "red"
-                            : "inherit",
+                              ? "red"
+                              : "inherit",
                       }}
                     >
-                      {stock.marketCapPerf}
+                      {parseFloat(stock.marketCapPerf) > 0
+                        ? `+${stock.marketCapPerf}`
+                        : stock.marketCapPerf}
                     </td>
 
                     <td>{stock.pToE}</td>
@@ -2629,7 +2644,7 @@ const BestStockvaluation = () => {
                     <td>{stock.pToS}</td>
                     <td>{stock.pToCF}</td>
                     <td>{stock.price}</td>
-                    <td>{stock.ev}</td>
+                    <td>₹{stock.ev}</td>
                     <td>{stock.evEbitda}</td>
                     <td>{stock.evSales}</td>
                     <td>{stock.evEbit}</td>

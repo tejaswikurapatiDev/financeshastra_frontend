@@ -30,7 +30,7 @@ const FooterForAllPage = () => {
   const stockRoutes = {
     "Stock Screener": "/Stock-Screener",
     "High Growth Stocks": "/stocks/high-growth-stocks",
-    "Nifty 50 Companies": "/nifty-50-stocks-list/",
+    "Nifty 50 Companies": "/nifty-50-stocks-list",
     "Small Cap Stocks": "/small-cap-stocks",
     "Mid Cap Stocks": "/mid-cap-stocks",
     "Large Cap Stocks":"/large-cap-stocks"
