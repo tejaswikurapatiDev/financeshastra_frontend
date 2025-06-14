@@ -86,7 +86,7 @@ const StockDropdownMenu = () => (
         </li>
         <li>
           <Link
-            to="/nifty-50-stocks-list/"
+            to="/nifty-50-stocks-list"
             className="dropdown-item"
             style={{
               display: "block",

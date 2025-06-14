@@ -86,6 +86,13 @@ const Midcap = () => {
     }
   };
 
+   const fixEncoding = (text) => {
+    return text.replace("Ã‚Â", "");
+  }
+  const converttostng=(num)=>{
+      return Number(num).toLocaleString('en-IN')
+    }
+
   //  Debugging Effect: Confirm re-rendering when `currentPage` updates
   useEffect(() => {
     const fetchfun = async () => {
@@ -94,23 +101,24 @@ const Midcap = () => {
       const response = await fetch(url);
       if (response.ok === true) {
         const data = await response.json();
-        const formattedData = data.map((each) => ({
+       const formattedData = data.map((each) => ({
           id: each.id,
           symbol: each.CompanyName,
-          price: each.LastTradedPrice,
-          change: each.ChangePercentage,
-          volume: each.Volume,
-          marketCap: each.MarketCap.replace("Ã‚Â", ""),
+          price: converttostng(each.LastTradedPrice),
+          change: (each.ChangePercentage * 100).toFixed(2),
+          volume: converttostng(each.Volume),
+          marketCap: fixEncoding(each.MarketCap),
           pToE: each.CurrentPE,
           eps: each.EPS,
-          epsDilGrowth: each.EPSGrowth,
-          divYield: each.DividendYield,
+          epsDilGrowth: (each.EPSGrowth * 100).toFixed(2),
+          divYield: (each.DividendYield * 100).toFixed(2),
           sector: each.Sector,
           url: "/stockhandle",
           icon: each.icons,
           index: each.IndexName,
           roe: each.ROE,
           analystRating: each.Analyst_Rating,
+          iconUrl: each.icons
         }));
         //console.log("icon: ",icons.filter(eachicon => ( eachicon.icon=== 'tcs')))
 
@@ -2555,77 +2563,81 @@ const Midcap = () => {
               </thead>
               <tbody>
                 {currentData.map((stock, index) => (
-                  <tr key={index} className="screener-row">
-                    <td className="symbol-cell"
-                      onClick={() => {
-                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
-                      }}>
-                      <img
-                        src={stock.icon}
-                        alt={`${stock.symbol} logo`}
-                        className="company-icon"
-                      />
-
-                      <a>{stock.symbol}</a>
-                    </td>
-
-                    <td>{stock.price}</td>
-                    <td
-                      style={{
-                        color:
-                          parseFloat(stock.change) > 0
-                            ? "#24b676"
-                            : parseFloat(stock.change) < 0
-                            ? "red"
-                            : "inherit",
-                      }}
-                    >
-                      {parseFloat(stock.change) > 0
-                        ? `${stock.change}`
-                        : stock.change}
-                    </td>
-                    <td>{stock.volume}</td>
-                    <td>₹ {stock.marketCap}</td>
-                    <td>{stock.pToE}</td>
-                    <td>{stock.eps}</td>
-                    <td
-                      style={{
-                        color:
-                          parseFloat(stock.epsDilGrowth) > 0
-                            ? "#24b676"
-                            : parseFloat(stock.epsDilGrowth) < 0
-                            ? "red"
-                            : "inherit",
-                      }}
-                    >
-                      {parseFloat(stock.epsDilGrowth) > 0
-                        ? `${stock.epsDilGrowth}`
-                        : stock.epsDilGrowth}
-                    </td>
-                    <td>{stock.divYield}</td>
-                    <td
-                      style={{
-                        color: "blue",
-                      }}
-                    >
-                      {stock.sector}
-                    </td>
-
-                    <td>
-                      {!isSubed ? (
-                        <button
-                          className="screener-unlock-btn"
-                          onClick={handleNavigate}
-                        >
-                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
-                          <span className="button-text">Unlock</span>
-                        </button>
-                      ) : (
-                        stock.analystRating
-                      )}
-                    </td>
-                  </tr>
-                ))}
+                                  <tr key={index} className="screener-row">
+                                    <td
+                                      className="symbol-cell"
+                                      onClick={() => {
+                                        navigate(`/stockhandle/${stock.id}`, { state: { stock } });
+                                      }}
+                                    >
+                                      <img
+                                        src={stock.icon}
+                                        alt={`${stock.symbol} logo`}
+                                        className="company-icon"
+                                      />
+                
+                                      <a href={"javascript:void(0)"} style={{textAlign: "left",}}>{stock.symbol}</a>
+                                    </td>
+                
+                                    <td>₹{stock.price}</td>
+                                    <td
+                                      style={{
+                                        color:
+                                          parseFloat(stock.change) > 0
+                                            ? "#24b676"
+                                            : parseFloat(stock.change) < 0
+                                              ? "red"
+                                              : "inherit",
+                                      }}
+                                    >
+                                      {parseFloat(stock.change) > 0
+                                        ? `+${stock.change}`
+                                        : stock.change}%
+                                    </td>
+                                    <td>{stock.volume}</td>
+                                    <td>₹{stock.marketCap}</td>
+                                    <td>{stock.pToE}</td>
+                                    <td>₹{stock.eps}</td>
+                                    <td
+                                      style={{
+                                        color:
+                                          parseFloat(stock.epsDilGrowth) > 0
+                                            ? "#24b676"
+                                            : parseFloat(stock.epsDilGrowth) < 0
+                                              ? "red"
+                                              : "inherit",
+                                      }}
+                                    >
+                                      {parseFloat(stock.epsDilGrowth) > 0
+                                        ? `+${stock.epsDilGrowth}`
+                                        : stock.epsDilGrowth}%
+                                    </td>
+                                    <td>{stock.divYield}%</td>
+                                    <td
+                                      style={{
+                                        color: "blue",
+                                        textAlign: "left",
+                                      }}
+                                    >
+                                      {stock.sector}
+                                    </td>
+                
+                                    <td>
+                                      {!isLoading && !isSubscribed ? (
+                                        <button
+                                          className="screener-unlock-btn"
+                                          onClick={handleNavigate}
+                                        >
+                                          <IoLockClosedOutline style={{ marginRight: "8px" }} />
+                
+                                          <span className="button-text">Unlock</span>
+                                        </button>
+                                      ) : (
+                                        stock.analystRating
+                                      )}
+                                    </td>
+                                  </tr>
+                                ))}
               </tbody>
             </table>
           </div>
