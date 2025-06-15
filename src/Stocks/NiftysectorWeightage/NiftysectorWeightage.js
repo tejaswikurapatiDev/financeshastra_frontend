@@ -1,11 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PiCaretUpDownFill } from "react-icons/pi"; 
 import './NiftysectorWeightage.css'
+import { API_BASE_URL } from "../../config";
 const NiftySectorWeightage = () => {
   const navigate = useNavigate();
 
-  const [sectorsweightData, setSectorsweightData] = useState([
+  const [sectorsweightData, setSectorsweightData] = useState([]);
+
+  const converttostng=(num)=>{
+    return Number(num).toLocaleString('en-IN')
+  }
+
+  useEffect(()=>{
+    const fetchweitagedata= async ()=>{
+      try{
+        const response= await fetch(`${API_BASE_URL}/stocks/sectorWeitagelimited`)
+        const data= await response.json()
+        console.log("weitage stocks: ", data)
+        const formattedData= data.map(each =>({
+          id: each.id,
+          sector: each.Sector,
+          companies: each.NumberOfCompanies, 
+          weightage: (each.Weightage * 100).toFixed(2), 
+          marketCap: converttostng(each.MarketCap) 
+        }))
+        setSectorsweightData(formattedData)
+      }catch(e){
+        console.log(e)
+      }
+      
+    }
+    fetchweitagedata()
+  }, [])
+
+  
+
+  /*const weitagestaticdata= [
     { sector: "Banks", companies: 6, weightage: "20.06%", marketCap: "₹37,64,732.90" },
     { sector: "IT - Software", companies: 5, weightage: "17.62%", marketCap: "₹33,05,809.80" },
     { sector: "Refineries", companies: 2, weightage: "9.49%", marketCap: "₹17,81,265.00" },
@@ -14,7 +45,7 @@ const NiftySectorWeightage = () => {
     { sector: "FMCG", companies: 3, weightage: "4.65%", marketCap: "₹8,71,933.00" },
     { sector: "Finance", companies: 3, weightage: "4.15%", marketCap: "₹7,79,626.70" },
     { sector: "Pharmaceuticals", companies: 3, weightage: "3.56%", marketCap: "₹6,68,327.00" },
-  ]);
+  ]*/
 
   const [sortDirection, setSortDirection] = useState(true); // True for ascending, false for descending
 
@@ -94,8 +125,8 @@ const NiftySectorWeightage = () => {
               <tr key={index}className="screener-row">
                 <td className="symbol-cell">{data.sector}</td>
                 <td>{data.companies}</td>
-                <td>{data.weightage}</td>
-                <td>{data.marketCap}</td>
+                <td>{data.weightage}%</td>
+                <td>₹{data.marketCap}</td>
               </tr>
             ))}
           </tbody>

@@ -265,6 +265,7 @@ import RiskConcernPage from "./Stockresearchreportnew/RiskConcernPage/RiskConcer
 import StockCard from "./Stockresearchreportnew/Companyname/Companyname";
 import ResearchDashboard from "./Stockresearchreportnew/ResearchDashboard/ResearchDashboard";
 import Researchnewallcall from "./Stockresearchreportnew/Researchnewallcall/Researchnewallcall";
+import Marketable from "./Marketable/Marketable";
 
 
 function App() {

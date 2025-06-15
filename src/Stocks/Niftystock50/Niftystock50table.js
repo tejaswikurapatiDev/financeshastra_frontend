@@ -61,7 +61,6 @@ const Nifty50screenerStockList = () => {
           analystRating: each.Analyst_Rating,
           icon: each.icons,
         }));
-        console.log("nifty50 data: ", formattedData)
 
         setStocks(formattedData);
         setfilteredStocks(formattedData)
