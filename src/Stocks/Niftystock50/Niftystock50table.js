@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Nifty50tabledata } from "../Niftystock50tabledata";
+//import { Nifty50tabledata } from "../Niftystock50tabledata";
 import { PiCaretUpDownFill } from "react-icons/pi"; // Import the icon
 import { IoLockClosedOutline } from "react-icons/io5";
 import './nifty50stock.css';
@@ -9,6 +9,7 @@ import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import { API_BASE_URL } from "../../config";
 import useSubscriptionStatus from "../../Navbar/Hooks/useSubscriptionStatus";
+import "./Niftystock50table.css"
 import ClipLoader from "react-spinners/ClipLoader";
 const override = {
   display: "block",
@@ -17,7 +18,8 @@ const override = {
 
 
 const Nifty50screenerStockList = () => {
-  const [stocks, setStocks] = useState(Nifty50tabledata);
+  const [stocks, setStocks] = useState([]);
+  const [filteredstocks, setfilteredStocks]= useState([])
   const [sortDirection, setSortDirection] = useState(true); // true for ascending, false for descending
   const navigate = useNavigate();
   // Pagination state
@@ -59,9 +61,9 @@ const Nifty50screenerStockList = () => {
           analystRating: each.Analyst_Rating,
           icon: each.icons,
         }));
-        console.log("nifty50 data: ", formattedData)
 
         setStocks(formattedData);
+        setfilteredStocks(formattedData)
       }
       if (isSubscribed && isLoading) {
         setisSubed(true);
@@ -86,64 +88,59 @@ const Nifty50screenerStockList = () => {
   };
 
   const handleTabClick = (tab) => {
-    setActiveTab(tab);
-    // Filter and sort stocks based on the active tab
-    if (tab === "All") {
-      setStocks(Nifty50tabledata); // Show all stocks
-    } else if (tab === "Gainers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) > 0)); // Filter gainers
-    } else if (tab === "Losers") {
-      setStocks(Nifty50tabledata.filter(stock => parseFloat(stock.change) < 0)); // Filter losers
-    } else {
-      let sortedStocks;
-      if (tab === "LTP") {
-        // Sort by LTP in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const ltpA = parseFloat(a.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
-          const ltpB = parseFloat(b.ltp.replace(/[₹,]/g, "")); // Clean and parse LTP value
-          return ltpB - ltpA; // Descending order
-        });
-      } else if (tab === "Change %") {
-        // Sort by Change % in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const changeA = parseFloat(a.change.replace(/[%]/g, "")); // Remove % and parse
-          const changeB = parseFloat(b.change.replace(/[%]/g, "")); // Remove % and parse
-          return changeB - changeA; // Descending order
-        });
-      } else if (tab === "Market Cap") {
-        // Sort by Market Cap in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const marketCapA = parseFloat(a.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
-          const marketCapB = parseFloat(b.marketCap.replace(/[₹, T]/g, "")); // Clean and parse Market Cap
-          return marketCapB - marketCapA; // Descending order
-        });
-      } else if (tab === "52W High") {
-        // Sort by 52W High in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const high52A = parseFloat(a.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
-          const high52B = parseFloat(b.high52.replace(/[₹,]/g, "")); // Clean and parse 52W High
-          return high52B - high52A; // Descending order
-        });
-      } else if (tab === "52W Low") {
-        // Sort by 52W Low in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const low52A = parseFloat(a.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
-          const low52B = parseFloat(b.low52.replace(/[₹,]/g, "")); // Clean and parse 52W Low
-          return low52B - low52A; // Descending order
-        });
-      } else if (tab === "P/E") {
-        // Sort by P/E in descending order
-        sortedStocks = [...Nifty50tabledata].sort((a, b) => {
-          const peA = parseFloat(a.pe); // Parse P/E directly
-          const peB = parseFloat(b.pe); // Parse P/E directly
-          return peB - peA; // Descending order
-        });
-      }
+  setActiveTab(tab);
+  let updatedStocks = [...filteredstocks]; // Always start from the original data
 
-      // Update stocks with the sorted data
-      setStocks(sortedStocks);
+  if (tab === "All") {
+    setStocks(updatedStocks); // Show all stocks
+    return;
+  }
+
+  if (tab === "Gainers") {
+    updatedStocks = updatedStocks.filter(stock => parseFloat(stock.change) > 0);
+  } else if (tab === "Losers") {
+    updatedStocks = updatedStocks.filter(stock => parseFloat(stock.change) < 0);
+  } else {
+    if (tab === "LTP") {
+      updatedStocks.sort((a, b) => {
+        const ltpA = parseFloat(a.ltp.replace(/[₹,]/g, ""));
+        const ltpB = parseFloat(b.ltp.replace(/[₹,]/g, ""));
+        return ltpB - ltpA;
+      });
+    } else if (tab === "Change %") {
+      updatedStocks.sort((a, b) => {
+        const changeA = parseFloat(a.change);
+        const changeB = parseFloat(b.change);
+        return changeB - changeA;
+      });
+    } else if (tab === "Market Cap") {
+      updatedStocks.sort((a, b) => {
+        const marketCapA = parseFloat(a.marketCap.replace(/[₹, T]/g, ""));
+        const marketCapB = parseFloat(b.marketCap.replace(/[₹, T]/g, ""));
+        return marketCapB - marketCapA;
+      });
+    } else if (tab === "52W High") {
+      updatedStocks.sort((a, b) => {
+        const highA = parseFloat(a.high52.replace(/[₹,]/g, ""));
+        const highB = parseFloat(b.high52.replace(/[₹,]/g, ""));
+        return highB - highA;
+      });
+    } else if (tab === "52W Low") {
+      updatedStocks.sort((a, b) => {
+        const lowA = parseFloat(a.low52.replace(/[₹,]/g, ""));
+        const lowB = parseFloat(b.low52.replace(/[₹,]/g, ""));
+        return lowB - lowA;
+      });
+    } else if (tab === "P/E") {
+      updatedStocks.sort((a, b) => {
+        return parseFloat(b.pe) - parseFloat(a.pe);
+      });
     }
-  };
+  }
+
+  setStocks(updatedStocks);
+};
+
   const handleNavigate = () => {
     navigate('/subscription'); // Navigate to the desired route
   };
@@ -216,103 +213,92 @@ const Nifty50screenerStockList = () => {
               color="green"
             />
           </div>) : (
-          <div className="screener-table-wrapper" style={{
-            overflowY: 'auto',
-            // Prevent x-axis overflow
-            height: '370px'
-          }}>
-            <table className="screener-table" style={{ borderCollapse: "collapse", width: "100%" }}>
-              <thead
-                style={{
-                  position: "sticky",
-                  top: 0,
-                  backgroundColor: "#f9f9f9",
-                  zIndex: 10,
-                  boxShadow: "0 4px 6px #24b676",
-                }}
-              >
-                <tr>
-                  <th>Symbol</th>
-                  <th>
-                    LTP
-                    <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Change %
-                    <button className="screenerbtnlist" onClick={() => handleSort("change")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Volume
-                    <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Market Cap (Cr.)
-                    <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    P / E
-                    <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    52W High
-                    <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    52W Low
-                    <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    PB Ratio
-                    <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Dividend
-                    <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    ROE
-                    <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    ROCE
-                    <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    EPS
-                    <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                  <th>
-                    Analyst Rating
-                    <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
-                      <PiCaretUpDownFill />
-                    </button>
-                  </th>
-                </tr>
-              </thead>
+         <div className="screener-table-wrapper">
+  <table className="screener-table">
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>
+          LTP
+          <button className="screenerbtnlist" onClick={() => handleSort("ltp")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Change %
+          <button className="screenerbtnlist" onClick={() => handleSort("change")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Volume
+          <button className="screenerbtnlist" onClick={() => handleSort("volume")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Market Cap (Cr.)
+          <button className="screenerbtnlist" onClick={() => handleSort("marketCap")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          P / E
+          <button className="screenerbtnlist" onClick={() => handleSort("pe")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          52W High
+          <button className="screenerbtnlist" onClick={() => handleSort("high52")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          52W Low
+          <button className="screenerbtnlist" onClick={() => handleSort("low52")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          PB Ratio
+          <button className="screenerbtnlist" onClick={() => handleSort("pbRatio")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Dividend
+          <button className="screenerbtnlist" onClick={() => handleSort("dividend")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          ROE
+          <button className="screenerbtnlist" onClick={() => handleSort("roe")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          ROCE
+          <button className="screenerbtnlist" onClick={() => handleSort("roce")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          EPS
+          <button className="screenerbtnlist" onClick={() => handleSort("eps")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+        <th>
+          Analyst Rating
+          <button className="screenerbtnlist" onClick={() => handleSort("analystrating")}>
+            <PiCaretUpDownFill />
+          </button>
+        </th>
+      </tr>
+    </thead>
+
               <tbody>
                 {currentStocks.map((stock, index) => (
                   <tr key={index} className="screener-row">

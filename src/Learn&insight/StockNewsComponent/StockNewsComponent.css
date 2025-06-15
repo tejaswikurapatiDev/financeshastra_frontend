@@ -151,8 +151,7 @@
 @media (max-width: 320px) {
   .newsDescription {
     font-size: 12px;
-    margin-left: -150px;
-    margin-top: 70px;
+    
 }
 .newsTitle {
   font-size: 10px;

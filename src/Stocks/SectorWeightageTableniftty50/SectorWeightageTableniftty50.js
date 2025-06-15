@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { PiCaretUpDownFill } from "react-icons/pi";
 import "./SectorWeightageTableniftty50.css";
 import Nifty50topheader from "../Nifty50topheader/Nifty50topheader";
 import FooterForAllPage from "../../FooterForAllPage/FooterForAllPage";
 import Navbar from "../../Navbar/Navbar";
+import { API_BASE_URL } from "../../config";
 
 const SectorWeightageTableniffty50 = () => {
-  const initialData = [
+  /*const initialData = [
     { sector: "Banks", companies: 6, weightage: "20.06%", marketCap: "₹37,64,732.90" },
     { sector: "IT - Software", companies: 5, weightage: "17.62%", marketCap: "₹33,05,809.80" },
     { sector: "Refineries", companies: 2, weightage: "9.49%", marketCap: "₹17,81,265.00" },
@@ -33,10 +34,37 @@ const SectorWeightageTableniffty50 = () => {
     { sector: "Non Ferrous Metals", companies: 1, weightage: "0.75%", marketCap: "₹1,41,001.60" },
     { sector: "Healthcare", companies: 1, weightage: "0.55%", marketCap: "₹1,04,100.10" },
     { sector: "Plantation & Plantation", companies: 1, weightage: "0.48%", marketCap: "₹89,768.60" },
-  ];
+  ];*/
 
-  const [sectorData, setSectorData] = useState(initialData);
+  const [sectorData, setSectorData] = useState([]);
   const [sortDirection, setSortDirection] = useState(true); // True for ascending, false for descending
+  
+    const converttostng=(num)=>{
+      return Number(num).toLocaleString('en-IN')
+    }
+  
+    useEffect(()=>{
+      const fetchweitagedata= async ()=>{
+        try{
+          const response= await fetch(`${API_BASE_URL}/stocks/sectorWeitage`)
+          const data= await response.json()
+          console.log("weitage stocks: ", data)
+          const formattedData= data.map(each =>({
+            id: each.id,
+            sector: each.Sector,
+            companies: each.NumberOfCompanies, 
+            weightage: (each.Weightage * 100).toFixed(2), 
+            marketCap: converttostng(each.MarketCap) 
+          }))
+          setSectorData(formattedData)
+        }catch(e){
+          console.log(e)
+        }
+        
+      }
+      fetchweitagedata()
+    }, [])
+  
 
   const handleSort = (key) => {
     const sortedData = [...sectorData].sort((a, b) => {
@@ -99,8 +127,8 @@ const SectorWeightageTableniffty50 = () => {
             <tr key={index} className="sectorTableRowniffty50">
                <td className="symbol-cell">{item.sector}</td>
               <td>{item.companies}</td>
-              <td>{item.weightage}</td>
-              <td>{item.marketCap}</td>
+              <td>{item.weightage}%</td>
+              <td>₹{item.marketCap}</td>
             </tr>
           ))}
         </tbody>

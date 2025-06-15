@@ -12,7 +12,12 @@
   display: none;
 }
 
-  
+  .FooterForAllPage-active-link {
+  color:#4A3AFF; /* Blue */
+  font-weight: 600;
+
+}
+
 .FooterForAllPage-top-section {
   text-align: center;
   padding: 5px 0; /* Reduce top section padding */

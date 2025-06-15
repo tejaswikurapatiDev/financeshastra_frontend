@@ -5,6 +5,8 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from "react-icons/fa"
 import { AiFillInstagram } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 import { FaAngleDown, FaAngleUp } from 'react-icons/fa'; // Import icons
+import { useLocation } from 'react-router-dom';
+
 import React, {
  useState,
   useContext,
@@ -14,6 +16,8 @@ import { DarkModeContext } from "../Portfoilo/context/DarkModeContext";
 const FooterForAllPage = () => {
   const [openSection, setOpenSection] = useState(null);
    const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+   const location = useLocation();
+
   
 
   const toggleSection = (section) => {
@@ -104,25 +108,30 @@ const FooterForAllPage = () => {
             ].map((section, index) => (
               <div key={index} className="FooterForAllPage-column">
               <h4 className="FooterForAllPage-column-title">{section.title}</h4>
-              <ul className={darkMode ? "FooterForAllPage-column-darklist" : "FooterForAllPage-column-list"}>
-                {section.links.map((link, linkIndex) => (
-                 <li
-                 key={linkIndex}
-                 onClick={() => {
-                   // Navigate if the link has a corresponding route
-                   if (allRoutes[link]) {
-                    navigate(allRoutes[link]);
-                    window.scrollTo(0, 0);
-                  }
-                }}
-                 style={{
-                   cursor: allRoutes[link] ? "pointer" : "default",
-                 }}
-               >
-                 {link}
-               </li>
-                ))}
-              </ul>
+             <ul className={darkMode ? "FooterForAllPage-column-darklist" : "FooterForAllPage-column-list"}>
+  {section.links.map((link, linkIndex) => {
+    const isActive = allRoutes[link] === location.pathname;
+
+    return (
+      <li
+        key={linkIndex}
+        onClick={() => {
+          if (allRoutes[link]) {
+            navigate(allRoutes[link]);
+            window.scrollTo(0, 0);
+          }
+        }}
+        className={isActive ? "FooterForAllPage-active-link" : ""}
+        style={{
+          cursor: allRoutes[link] ? "pointer" : "default",
+        }}
+      >
+        {link}
+      </li>
+    );
+  })}
+</ul>
+
               </div>
             ))}
           </div>
