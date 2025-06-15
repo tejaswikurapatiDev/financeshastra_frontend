@@ -15,7 +15,7 @@ const Marketable = () => {
   const [isLoading, setisLoading] = useState(true)
   useEffect(()=>{
     const fetchEtfsData= async ()=>{
-      const response= await fetch(`${API_BASE_URL}/mutualFunds/etfs`)
+      const response= await fetch(`${API_BASE_URL}/mutualFunds/equityetfs`)
       if (response.ok=== true){
         const data = await response.json()
         console.log(data.data)
